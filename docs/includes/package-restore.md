@@ -1,0 +1,3 @@
+- **Interfaccia utente di Gestione pacchetti** (Visual Studio): fare clic con il pulsante destro del mouse sulla soluzione in Esplora soluzioni e scegliere **Ripristina pacchetti NuGet**. Se uno o più pacchetti singoli non vengono ancora installati correttamente (Esplora soluzioni mostra un'icona di errore), usare l'interfaccia utente di Gestione pacchetti per disinstallare i pacchetti interessati e reinstallarli. Vedere [Reinstallazione e aggiornamento di pacchetti](../Consume-Packages/Reinstalling-and-Updating-Packages.md)
+
+- **Riga di comando**: usare il comando [nuget restore](../tools/cli-ref-restore.md). Se si esegue semplicemente `nuget restore` nella cartella del progetto viene eseguito un tentativo di ripristinare le dipendenze del progetto.

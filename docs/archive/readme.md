@@ -1,0 +1,1 @@
+Questa cartella costituisce una posizione temporanea per il contenuto che viene rimosso dalla documentazione principale, in genere materiale applicabile alle versioni precedenti che probabilmente verrà spostato in una posizione di archiviazione permanente.

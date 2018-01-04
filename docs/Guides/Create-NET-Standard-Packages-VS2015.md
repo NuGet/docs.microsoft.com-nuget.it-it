@@ -1,0 +1,333 @@
+---
+title: Creare pacchetti NuGet di .NET Standard con Visual Studio 2015 | Microsoft Docs
+author: kraigb
+ms.author: kraigb
+manager: ghogen
+ms.date: 1/9/2017
+ms.topic: get-started-article
+ms.prod: nuget
+ms.technology: 
+ms.assetid: 29b3bceb-0f35-4cdd-bbc3-a04eb823164c
+description: Procedura dettagliata end-to-end per la creazione di pacchetti NuGet di .NET Standard con NuGet 3.x e Visual Studio 2015.
+keywords: creare un pacchetto, pacchetti .NET Standard, tabella di mapping .NET Standard
+ms.reviewer:
+- karann-msft
+- unniravindranathan
+ms.openlocfilehash: a912c27e1873d60426f2147995f69e2dcc433ca9
+ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 12/14/2017
+---
+# <a name="create-net-standard-packages-with-visual-studio-2015"></a>Creare pacchetti .NET Standard con Visual Studio 2015
+
+*Si applica a NuGet 3.x. Per usare NuGet 4.x+, vedere [Creare pacchetti .NET Standard con Visual Studio 2017](../guides/create-net-standard-packages-vs2017.md).*
+
+La [libreria .NET Standard](https://docs.microsoft.com/dotnet/articles/standard/library) è una specifica formale delle API .NET che devono essere disponibili in tutti i runtime .NET, per creare in questo modo maggiore uniformità nell'ecosistema .NET. La libreria .NET Standard definisce un set uniforme di API della libreria di classi base per tutte le piattaforme .NET da implementare, indipendentemente dal carico di lavoro. Consente agli sviluppatori di produrre PCL che possono essere usate in tutti i runtime .NET e riduce, se non elimina, le direttive di compilazione condizionale specifiche della piattaforma nel codice condiviso.
+
+Questa guida illustra la creazione di un pacchetto nuget per la libreria .NET Standard 1.4, che funzionerà in .NET Framework 4.6.1, nella piattaforma UWP (Universal Windows Platform) 10, in .NET Core e in Mono/Xamarin. Per informazioni dettagliate, vedere la [tabella di mapping .NET Standard](#net-standard-mapping-table) più avanti in questo argomento.
+
+1. [Prerequisiti](#pre-requisites)
+1. [Creare il progetto di libreria di classi](#create-the-class-library-project)
+1. [Creare e aggiornare il file con estensione nuspec](#create-and-update-the-nuspec-file)
+1. [Creare un pacchetto per il componente](#package-the-component)
+1. [Opzioni aggiuntive](#additional-options)
+1. [Tabella di mapping .NET Standard](#net-standard-mapping-table)
+1. [Argomenti correlati](#related-topics)
+
+
+## <a name="pre-requisites"></a>Prerequisiti
+
+1. Visual Studio 2015. Installare l'edizione Community gratuitamente da [visualstudio.com](https://www.visualstudio.com/). È anche possibile usare le edizioni Professional ed Enterprise.
+1. .NET Core: installare .NET Core con gli altri modelli e strumenti per Visual Studio 2015 da [https://go.microsoft.com/fwlink/?LinkId=824849](https://go.microsoft.com/fwlink/?LinkId=824849).
+1. Interfaccia della riga di comando di NuGet. Scaricare la versione più recente di nuget.exe da [nuget.org/downloads](https://nuget.org/downloads), salvandola in una posizione di propria scelta. Aggiungere quindi tale posizione alla variabile di ambiente PATH, se necessario.
+
+> [!Note]
+> Poiché nuget.exe è di per sé lo strumento dell'interfaccia della riga di comando e non un programma di installazione, assicurarsi di salvare il file scaricato dal browser invece di eseguirlo.
+
+
+
+## <a name="create-the-class-library-project"></a>Creare il progetto di libreria di classi
+
+1. In Visual Studio **File > Nuovo > Progetto**, espandere il nodo **Visual C# > Windows**, selezionare **Libreria di classi (portabile)**, modificare il nome in AppLogger e fare clic su OK.
+
+    ![Creare il nuovo progetto di libreria di classi](media/NetStandard-NewProject.png)
+
+1. Nella finestra di dialogo **Aggiungi libreria di classi portabile** visualizzata selezionare le opzioni `.NET Framework 4.6` e `ASP.NET Core 1.0`.
+1. Fare clic con il pulsante destro del mouse su `AppLogger (Portable)` in Esplora soluzioni, scegliere **Proprietà**, selezionare la scheda **Libreria**, quindi fare clic su **Imposta come destinazione la piattaforma standard .NET** nella sezione **Destinazione**. Verrà chiesta una conferma e quindi sarà possibile scegliere `.NET Standard 1.4` nell'elenco a discesa:
+
+    ![Impostazione della destinazione su .NET Standard 1.4](media/NetStandard-ChangeTarget.png)
+
+1. Fare clic sulla scheda **Compilazione**, impostare **Configurazione** su `Release` e selezionare la casella **File di documentazione XML**.
+1. Aggiungere il codice al componente, ad esempio:
+
+    ```cs
+    namespace AppLogger
+    {
+        public class Logger
+        {
+            public void Log(string text)
+            {
+                throw new NotImplementedException("Called Log");
+            }
+        }
+    }
+    ```
+
+1. Compilare il progetto (con la configurazione Release) e controllare che nella cartella bin\Release vengano creati i file DLL e XML.
+
+## <a name="create-and-update-the-nuspec-file"></a>Creare e aggiornare il file con estensione nuspec
+
+1. Aprire un prompt dei comandi, passare alla cartella contenente la cartella `AppLogg.csproj` (di un livello inferiore rispetto alla posizione del file `.sln`) ed eseguire il comando `spec` di NuGet per creare il file `AppLogger.nuspec` iniziale:
+
+```
+nuget spec
+```
+
+1. Aprire `AppLogger.nuspec` in un editor e aggiornarlo in modo che corrisponda a quanto segue, sostituendo YOUR_NAME con un valore appropriato. Il valore `<id>`, in particolare, deve essere univoco in nuget.org. Vedere le convenzioni di denominazione descritte in [Creazione di un pacchetto](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number). Tenere inoltre presente che è anche necessario aggiornare i tag relativi all'autore e alla descrizione o si verificherà un errore durante il passaggio di creazione del pacchetto.
+
+```xml
+<?xml version="1.0"?>
+<package >
+    <metadata>
+    <id>AppLogger.YOUR_NAME</id>
+    <version>1.0.0</version>
+    <title>AppLogger</title>
+    <authors>YOUR_NAME</authors>
+    <owners>YOUR_NAME</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Awesome application logging utility</description>
+    <releaseNotes>First release</releaseNotes>
+    <copyright>Copyright 2016 (c) Contoso Corporation. All rights reserved.</copyright>
+    <tags>logger logging logs</tags>
+    </metadata>
+</package>
+```
+
+1. Aggiungere gli assembly di riferimento al file `.nuspec`, in particolare la DLL della libreria e il file XML IntelliSense:
+
+    ```xml
+    <!-- Insert below <metadata> element -->
+    <files>
+        <file src="bin\Release\AppLogger.dll" target="lib\netstandard1.4\AppLogger.dll" />
+        <file src="bin\Release\AppLogger.xml" target="lib\netstandard1.4\AppLogger.xml" />
+    </files>
+    ```
+
+1. Fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Compila soluzione** per generare tutti i file per il pacchetto.
+
+
+## <a name="package-the-component"></a>Creare un pacchetto per il componente
+
+Dopo avere completato il file `.nuspec` che fa riferimento a tutti i file da includere nel pacchetto, è possibile eseguire il comando `pack`:
+
+```
+nuget pack AppLogger.nuspec
+```
+
+Verrà generato `AppLogger.YOUR_NAME.1.0.0.nupkg`. Aprendo il file in uno strumento come [NuGet Package Explorer](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) ed espandendo tutti i nodi, verranno visualizzati i contenuti seguenti:
+
+![NuGet Package Explorer che visualizza il pacchetto AppLogger](media/NetStandard-PackageExplorer.png)
+
+> [!Tip]
+> Un file `.nupkg` è solo un file ZIP con un'estensione diversa. È anche possibile esaminare i contenuti del pacchetto, modificando `.nupkg` in `.zip`, ma si ricordi di ripristinare l'estensione prima di caricare un pacchetto in nuget.org.
+
+Per rendere disponibile il pacchetto per altri sviluppatori, seguire le istruzioni in [Pubblicare un pacchetto](../create-packages/publish-a-package.md).
+
+Si noti che `pack` richiede Mono 4.4.2 su Mac OS X e non funziona nei sistemi Linux. In un Mac è anche necessario convertire i nomi di percorso di Windows nel file `.nuspec` in percorsi di tipo Unix.
+
+## <a name="additional-options"></a>Opzioni aggiuntive
+
+Le sezioni seguenti illustrano le opzioni aggiuntive per la creazione del pacchetto NuGet:
+
+- [Dichiarazione delle dipendenze](#declaring-dependencies)
+- [Supporto di più framework di destinazione](#supporting-multiple-target-frameworks)
+- [Aggiunta di destinazioni e proprietà per MSBuild](#adding-targets-and-props-for-msbuild)
+- [Creazione di pacchetti localizzati](#creating-localized-packages)
+- [Aggiunta di un file leggimi](#adding-a-readme)
+
+### <a name="declaring-dependencies"></a>Dichiarazione delle dipendenze
+
+Se sono presenti dipendenze da altri pacchetti NuGet, elencarle nell'elemento `<dependencies>` con gli elementi `<group>`. Ad esempio, per dichiarare una dipendenza da NewtonSoft.Json 8.0.3 o versione successiva, aggiungere quanto segue:
+
+```xml
+<!-- Insert within the <metadata> element -->
+<dependencies>
+    <group targetFramework="uap">
+        <dependency id="Newtonsoft.Json" version="8.0.3" />
+    </group>
+</dependencies>
+```
+
+La sintassi dell'attributo *version* qui indica che la versione 8.0.3 o successiva è accettabile. Per specificare intervalli di versioni diversi, vedere [Controllo delle versioni dei pacchetti](../reference/package-versioning.md).
+
+### <a name="supporting-multiple-target-frameworks"></a>Supporto di più framework di destinazione
+
+Si supponga di voler sfruttare un'API in .NET Framework 4.6.2 non disponibile in .NET Standard 1.4. A questo scopo, prima di tutto sarà necessario verificare che la libreria esegua la compilazione per .NET 4.6.2 usando la compilazione condizionale o progetti condivisi. In Visual Studio è possibile creare un progetto NetCore, aggiungere il framework scelto alla sezione dei framework multipli e quindi eseguire la compilazione. Si crea quindi il pacchetto usando la semplice tecnica della directory di lavoro basata sulle convenzioni:
+
+1. Nella cartella radice del progetto contenente il file `.nuspec` creare una cartella denominata `lib`.
+1. In `lib` creare cartelle per ogni piattaforma che si vuole supportare:
+
+        \lib
+            \netstandard1.4
+                \AppLogger.dll
+            \net462
+                \AppLogger.dll
+
+1. Nel file `.nuspec` aggiungere un nodo `files` sotto il nodo `package` e fare riferimento ai file in `lib` usando i caratteri jolly. **Nota:** poiché le sostituzioni dei token non sono supportate con l'approccio della directory di lavoro basata sulle convenzioni, sostituirli con valori letterali:
+
+    ```xml
+    <?xml version="1.0"?>
+    <package >
+        <metadata>
+        <id>AppLogger.YOUR_NAME</id>
+        <version>1.0.0.0</version>
+        <title>AppLogger</title>
+        <authors>YOUR_NAME</authors>
+        <owners>YOUR_NAME</owners>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Awesome application logging utility</description>
+        <releaseNotes>First release.</releaseNotes>
+        <copyright>Copyright 2016</copyright>
+        <tags>logger logging logs</tags>
+        </metadata>
+        <files>
+            <file src="lib\**" target="lib" />
+        </files>
+    </package>
+    ```
+
+1. Creare di nuovo il pacchetto usando `nuget pack AppLogger.spec`.
+
+Per altre informazioni dettagliate sull'uso di questa tecnica, vedere [Supporto di più versioni di .NET Framework](../create-packages/supporting-multiple-target-frameworks.md)
+
+### <a name="adding-targets-and-props-for-msbuild"></a>Aggiunta di destinazioni e proprietà per MSBuild
+
+In alcuni casi potrebbe essere necessario aggiungere destinazioni o proprietà di compilazione personalizzata nei progetti che utilizzano il pacchetto, ad esempio l'esecuzione di uno strumento o processo personalizzato durante la compilazione. A questo scopo, si aggiungono i file in una cartella `\build`, come illustrato nei passaggi seguenti. Quando NuGet installa un pacchetto con i file di \build, aggiunge un elemento di MSBuild nel file di progetto che punta ai file con estensione targets e props.
+
+> [!Note]
+> Quando si usa `project.json`, le destinazioni non vengono aggiunte al progetto, ma vengono rese disponibili tramite `project.lock.json`.
+
+
+1. Nella cartella del progetto contenente il file `.nuspec` creare una cartella denominata `build`.
+1. In `build` creare cartelle per ogni piattaforma supportata, in cui inserire i file `.targets` e `.props`:
+
+        \build
+            \netstandard1.4
+                \AppLogger.props
+                \AppLogger.targets
+            \net462
+                \AppLogger.props
+                \AppLogger.targets
+
+1. Nel file `.nuspec` aggiungere un nodo `files` sotto il nodo `package` e fare riferimento ai file in `build` usando i caratteri jolly.
+
+    ```xml
+    <?xml version="1.0"?>
+    <package >
+        <metadata>...
+        </metadata>
+        <files>
+            <file src="build\**" target="build" />
+        </files>
+    </package>
+    ```
+
+1. Creare di nuovo il pacchetto usando `nuget pack AppLogger.nuspec`.
+
+Per altre informazioni dettagliate, vedere [Includere proprietà e destinazioni MSBuild in un pacchetto](../create-packages/creating-a-package.md#including-msbuild-props-and-targets-in-a-package).
+
+
+### <a name="creating-localized-packages"></a>Creazione di pacchetti localizzati
+
+Per creare le versioni localizzate della libreria, è possibile creare pacchetti separati per le diverse impostazioni locali o includere gli assembly di risorse localizzate in un singolo pacchetto. Ecco come mettere in pratica quest'ultimo approccio per tedesco e italiano:
+
+1. In ogni cartella del framework di destinazione sotto `lib`, creare cartelle per ogni lingua supportata diversa dall'inglese predefinito. In queste cartelle è possibile inserire assembly di risorse e file XML IntelliSense localizzati. Ad esempio:
+
+        lib
+        ├───netstandard1.4
+        │   │   AppLogger.dll
+        │   │   AppLogger.xml
+        │   │
+        │   ├───de
+        │   │       AppLogger.resources.dll
+        │   │       AppLogger.xml
+        │   │
+        │   └───it
+        │           AppLogger.resources.dll
+        │           AppLogger.xml
+        └───net462
+            │   AppLogger.dll
+            │   AppLogger.xml
+            │
+            ├───de
+            │       AppLogger.resources.dll
+            │       AppLogger.xml
+            │
+            └───it
+                    AppLogger.resources.dll
+                    AppLogger.xml
+
+1. Nel file `.nuspec` fare riferimento a questi file nel nodo `<files>`:
+
+    ```xml
+    <?xml version="1.0"?>
+    <package>
+        <metadata>...
+        </metadata>
+        <files>
+        <file src="lib\**" target="lib" />
+        </files>
+    </package>
+    ```
+
+1. Creare di nuovo il pacchetto usando `nuget pack AppLogger.nuspec`.
+
+
+### <a name="adding-a-readme"></a>Aggiunta di un file leggimi
+
+Quando si include un file `readme.txt` nella radice del pacchetto, Visual Studio lo visualizza quando il pacchetto viene installato direttamente.
+
+> [!Note]
+> I file leggimi non vengono visualizzati per i pacchetti installati come dipendenza o per i progetti .NET Core.
+
+
+A questo scopo, creare il file `readme.txt`, inserirlo nella cartella radice del progetto e farvi riferimento nel file `.nuspec`:
+
+```xml
+<?xml version="1.0"?>
+<package >
+    <metadata>...
+    </metadata>
+    <files>
+    <file src="readme.txt" target="" />
+    </files>
+</package>
+```
+
+
+## <a name="net-standard-mapping-table"></a>Tabella di mapping .NET Standard
+
+|Nome della piattaforma |Alias|
+|--------------|-----|
+|.NET Standard | netstandard| 1.0| 1.1| 1.2| 1.3| 1.4| 1,5| 1.6|
+|.NET Core | netcoreapp| &#x2192;| &#x2192;| &#x2192;| &#x2192;| &#x2192;| &#x2192;| 1.0|
+|.NET Framework| net| 4.5| 4.5.1| 4.6| 4.6.1| 4.6.2| 4.6.3|
+|Piattaforme Mono/Xamarin| &#x2192;| &#x2192;| &#x2192;| &#x2192;| &#x2192;| &#x2192;|
+|Piattaforma UWP (Universal Windows Platform)| uap| &#x2192;| &#x2192;| &#x2192;| &#x2192;|10.0|
+|Windows| win| &#x2192;| 8.0| 8.1|
+|Windows Phone| wpa| &#x2192;| &#x2192;|8.1|
+|Silverlight per Windows Phone| wp| 8.0|
+
+
+
+## <a name="related-topics"></a>Argomenti correlati
+
+- [Informazioni di riferimento sul file con estensione nuspec](../schema/nuspec.md)
+- [Pacchetti di simboli](../create-packages/symbol-packages.md)
+- [Controllo delle versioni dei pacchetti](../reference/package-versioning.md)
+- [Supporto di più versioni di .NET Framework](../create-packages/supporting-multiple-target-frameworks.md)
+- [Includere proprietà e destinazioni MSBuild in un pacchetto](../create-packages/creating-a-package.md#including-msbuild-props-and-targets-in-a-package)
+- [Creazione di pacchetti localizzati](../create-packages/creating-localized-packages.md)
+- [Documentazione della libreria .NET Standard](https://docs.microsoft.com/dotnet/articles/standard/library)
+- [Portabilità in .NET Core da .NET Framework](https://docs.microsoft.com/dotnet/articles/core/porting/index)
