@@ -13,11 +13,11 @@ keywords: "2.2 NuGet note sulla versione, correzioni di bug, problemi noti, aggi
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 690e76a0686a5e7bb699410edef4a6e62ccd2a32
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 1f6080e01777431c4dfb2278db167bd3bc9a67ea
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-22-release-notes"></a>Note sulla versione 2.2 di NuGet
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/14/2017
 2.2 NuGet è stato rilasciato il 12 dicembre 2012.
 
 ## <a name="visual-studio-quick-launch"></a>Avvio veloce di Visual Studio
-Una delle nuove funzionalità che è stato aggiunto in Visual Studio 2012 è stato il [finestra avvio veloce](http://msdn.microsoft.com/library/hh417697.aspx). 2.2 NuGet estende questa finestra di dialogo che consente di inizializzare la finestra di dialogo di gestione di pacchetti con i termini di ricerca immessi in avvio veloce. Nei risultati per la ricerca di pacchetti NuGet corrispondenti a 'jquery' immettendo 'jquery' in avvio veloce ora include, ad esempio, un'opzione.
+Una delle nuove funzionalità che è stato aggiunto in Visual Studio 2012 è stato il [finestra avvio veloce](/visualstudio/ide/reference/quick-launch-environment-options-dialog-box). 2.2 NuGet estende questa finestra di dialogo che consente di inizializzare la finestra di dialogo di gestione di pacchetti con i termini di ricerca immessi in avvio veloce. Nei risultati per la ricerca di pacchetti NuGet corrispondenti a 'jquery' immettendo 'jquery' in avvio veloce ora include, ad esempio, un'opzione.
 
 ![NuGet in avvio veloce di Visual Studio](./media/quick-launch.png)
 

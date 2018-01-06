@@ -14,17 +14,17 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 3423e30eae07ff0c70a010576b8e701be027b847
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 53fccbb86f2920d870b5383070d043e25045a626
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="errors-and-warnings"></a>Errori e avvisi
 
 In NuGet 4.3.0, errori e avvisi sono numerati come descritto in questo argomento e forniscono informazioni dettagliate che consentono di risolvere i problemi che interessano. 
 
-Gli errori e avvisi elencati di seguito sono disponibili solo con [basato su PackageReference](../Consume-Packages/Package-References-in-Project-Files.md) progetti e NuGet 4.3.0. NuGet anche rispetta la proprietà di MSBuild per l'esclusione di avvisi o li elevare a errori. Per ulteriori informazioni, vedere [procedura: esclusione di avvisi del compilatore](https://docs.microsoft.com/visualstudio/ide/how-to-suppress-compiler-warnings) nella documentazione di Visual Studio.
+Gli errori e avvisi elencati di seguito sono disponibili solo con [basato su PackageReference](../Consume-Packages/Package-References-in-Project-Files.md) progetti e NuGet 4.3.0. NuGet anche rispetta la proprietà di MSBuild per l'esclusione di avvisi o li elevare a errori. Per ulteriori informazioni, vedere [procedura: esclusione di avvisi del compilatore](/visualstudio/ide/how-to-suppress-compiler-warnings) nella documentazione di Visual Studio.
 
 **Errori**
 
@@ -295,7 +295,7 @@ Gli errori e avvisi elencati di seguito sono disponibili solo con [basato su Pac
 | --- | --- |
 | **Problema** | Si è verificato un errore durante la lettura dei feed quando `IgnoreFailedSources` è impostata su true, convertendolo in un messaggio di avviso non irreversibile. Ciò può contenere qualsiasi messaggio ed è generico. |
 | **Cause più comuni** | L'origine non è valido. |
-| **Messaggio di esempio** | n/d |
+| **Messaggio di esempio** | N/D |
 
 ## <a name="nuget-internal-errors-and-warnings"></a>Avvisi ed errori interni di NuGet
 

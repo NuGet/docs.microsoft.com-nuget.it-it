@@ -13,15 +13,15 @@ keywords: Creare un pacchetto NuGet console di gestione, i comandi di Powershell
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b6af6098da9c00e47b81ac9ec37bd5210a99a9fe
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: fb55cc71e0d4b8eee28b232e64d2cc42364fc153
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="find-package-package-manager-console-in-visual-studio"></a>Find-Package (Package Manager Console in Visual Studio)
 
-*Versione 3.0; questo argomento viene descritto il comando all'interno di [Console di gestione pacchetti NuGet](Package-Manager-Console.md) in Visual Studio in Windows. Per il comando di PowerShell. Find-Package generico, vedere il [riferimento di PowerShell PackageManagement](https://docs.microsoft.com/powershell/module/packagemanagement/?view=powershell-6).*
+*Versione 3.0; questo argomento viene descritto il comando all'interno di [Console di gestione pacchetti NuGet](Package-Manager-Console.md) in Visual Studio in Windows. Per il comando di PowerShell. Find-Package generico, vedere il [riferimento di PowerShell PackageManagement](/powershell/module/packagemanagement/?view=powershell-6).*
 
 Ottiene il set di pacchetti remoti con parole chiave o un ID specificato dall'origine del pacchetto.
 

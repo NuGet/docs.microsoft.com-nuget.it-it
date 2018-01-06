@@ -13,18 +13,18 @@ keywords: i comandi NuGet dotnet pack dotnet, ripristino dotnet, variabili local
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 7ff4779f46db102f1384650d82118b34fedd4413
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: d020e62b8bd04c8f4a75756fb30ebcf13ffdb1b3
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="dotnet-commands"></a>comandi dotNet
 
 L'interfaccia della riga di comando DotNet, che viene eseguito in Windows, Mac OS X e Linux, fornisce un numero di comandi nuget.exe essenziali come indicato di seguito. Dove dotnet fornisce i comandi desiderati, non è necessario scaricare nuget.exe.
 
-- [**pack dotnet**](https://docs.microsoft.com/dotnet/core/tools/dotnet-pack?tabs=netcore2x): pacchetti di codice per SDK NETCore di progetti in un pacchetto NuGet. Tutti gli altri tipi di progetto devono utilizzare[`nuget pack`](cli-ref-pack.md)
-- [**ripristino dotnet**](https://docs.microsoft.com/dotnet/core/tools/dotnet-restore?tabs=netcore2x): Ripristina le dipendenze e gli strumenti di un progetto. A partire da NuGet 4.0, questo viene eseguito lo stesso codice `nuget restore`.
-- [**variabili locali nuget dotnet**](https://docs.microsoft.com/dotnet/core/tools/dotnet-nuget-locals): cancella o elenca le risorse locali di NuGet, ad esempio http-richiesta della cache, cache temporanea o cartella pacchetti globali a livello di computer.
-- [**push nuget dotnet**](https://docs.microsoft.com/dotnet/core/tools/dotnet-nuget-push): inserisce un pacchetto a un server e la pubblicazione, applicabile a tutti i server NuGet di terze parti, Visual Studio Team Services o nuget.org.
-- [**eliminare dotnet nuget**](https://docs.microsoft.com/dotnet/core/tools/dotnet-nuget-delete): Elimina o un pacchetto da un server, applicabile a tutti i server NuGet di terze parti, Visual Studio Team Services o nuget.org unlists.
+- [**pack dotnet**](/dotnet/core/tools/dotnet-pack?tabs=netcore2x): comprime il codice in un pacchetto NuGet. A partire da NuGet 4.0, questo viene eseguito lo stesso codice `nuget pack`.
+- [**ripristino dotnet**](/dotnet/core/tools/dotnet-restore?tabs=netcore2x): Ripristina le dipendenze e gli strumenti di un progetto. A partire da NuGet 4.0, questo viene eseguito lo stesso codice `nuget restore`.
+- [**variabili locali nuget dotnet**](/dotnet/core/tools/dotnet-nuget-locals): cancella o elenca le risorse locali di NuGet, ad esempio http-richiesta della cache, cache temporanea o cartella pacchetti globali a livello di computer.
+- [**push nuget dotnet**](/dotnet/core/tools/dotnet-nuget-push): inserisce un pacchetto a un server e la pubblicazione, applicabile a tutti i server NuGet di terze parti, Visual Studio Team Services o nuget.org.
+- [**eliminare dotnet nuget**](/dotnet/core/tools/dotnet-nuget-delete): Elimina o un pacchetto da un server, applicabile a tutti i server NuGet di terze parti, Visual Studio Team Services o nuget.org unlists.

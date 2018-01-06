@@ -13,11 +13,11 @@ keywords: Console di gestione, i comandi di Powershell di NuGet, riferimento di 
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 7bf8cdb938195f4747932b38ef0d5bb6c34b9137
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 6a3232af925f75713168421e68f2773060c5ebaa
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="add-bindingredirect-package-manager-console-in-visual-studio"></a>Aggiungere-BindingRedirect (Console di gestione dei pacchetti in Visual Studio)
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 12/14/2017
 
 Esamina tutti gli assembly nel percorso di output per un progetto e aggiunge reindirizzamenti di binding al file di configurazione dell'applicazione o web, se necessario. Questo comando viene eseguito automaticamente quando si installa un pacchetto.
 
-Per informazioni dettagliate sull'associazione di reindirizzamenti e perché vengono usati, vedere [reindirizzamento delle versioni degli Assembly](https://docs.microsoft.com/dotnet/framework/configure-apps/redirect-assembly-versions) nella documentazione di .NET.
+Per informazioni dettagliate sull'associazione di reindirizzamenti e perché vengono usati, vedere [reindirizzamento delle versioni degli Assembly](/dotnet/framework/configure-apps/redirect-assembly-versions) nella documentazione di .NET.
 
 ## <a name="syntax"></a>Sintassi
 

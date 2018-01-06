@@ -17,17 +17,17 @@ keywords: API V3 NuGet, API V2 NuGet, NuGet JSON, API di registrazione NuGet, co
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: a9515d90ad66d8840f575bba542f0cf887c41718
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 05ed17f12f413d29d97a253d7d55f154d4910834
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-api"></a>API NuGet
 
 L'API di NuGet è un set di endpoint HTTP che può essere utilizzato per scaricare i pacchetti, recuperare metadati, la pubblicazione di nuovi pacchetti ed eseguire la maggior parte delle altre operazioni disponibili nei client NuGet ufficiale.
 
-Questa API viene usata dal client NuGet in Visual Studio, nuget.exe e l'interfaccia CLI .NET per eseguire operazioni di NuGet come [ `dotnet restore` ](https://docs.microsoft.com/dotnet/articles/core/preview3/tools/dotnet-restore), ricerca nell'interfaccia utente di Visual Studio, e [ `nuget.exe push` ](../tools/cli-ref-push.md).
+Questa API viene usata dal client NuGet in Visual Studio, nuget.exe e l'interfaccia CLI .NET per eseguire operazioni di NuGet come [ `dotnet restore` ](/dotnet/articles/core/preview3/tools/dotnet-restore), ricerca nell'interfaccia utente di Visual Studio, e [ `nuget.exe push` ](../tools/cli-ref-push.md).
 
 Si noti in alcuni casi, nuget.org prevede requisiti aggiuntivi che vengono applicati da altre origini pacchetto. Queste differenze sono documentate in base il [nuget.org protocolli](nuget-protocols.md).
 
@@ -79,7 +79,7 @@ Timestamp tutte restituito dall'API sono ora UTC o sono specificate usando [ISO 
 
 ## <a name="http-methods"></a>Metodi HTTP
 
-Verbo   | Uso
+Verbo   | Usa
 ------ | -----------
 GET    | Esegue un'operazione di sola lettura, in genere il recupero dei dati.
 HEAD   | Recupera le intestazioni di risposta per il corrispondente `GET` richiesta.
@@ -110,7 +110,7 @@ Nel caso di un codice di stato di livello 500, il client può implementare un me
 
 ## <a name="http-request-headers"></a>Intestazioni delle richieste HTTP
 
-Nome                     | Descrizione
+nome                     | Descrizione
 ------------------------ | -----------
 X-NuGet-ApiKey           | Obbligatorio per push e l'eliminazione, vedere [ `PackagePublish` risorse](package-publish-resource.md)
 X---versione del Client NuGet   | **Deprecato** e sostituito da`X-NuGet-Protocol-Version`

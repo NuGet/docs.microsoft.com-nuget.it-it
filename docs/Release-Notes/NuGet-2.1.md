@@ -13,11 +13,11 @@ keywords: "2.1 NuGet note sulla versione, correzioni di bug, problemi noti, aggi
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c45cfb9f6a46a1efd9fe4531602191973da66290
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: dafe575eedbfed215c0b1c86795bea281de97252
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-21-release-notes"></a>Note sulla versione 2.1 di NuGet
 
@@ -80,7 +80,7 @@ In passato, NuGet ha gestito pacchetti della soluzione da una cartella nota 'pac
 In questo esempio, condiviso `Nuget.Config` file specifica una cartella condivisa di pacchetti per ogni progetto che viene creata di sotto di C:\myteam, indipendentemente dalla profondità. Si noti che se si dispone di una cartella di pacchetti esistente di sotto della radice della soluzione, è necessario eliminarlo prima di NuGet verranno posizionati i pacchetti nel nuovo percorso.
 
 ## <a name="support-for-portable-libraries"></a>Supporto per le librerie portabili
-[Le librerie portabili](http://msdn.microsoft.com/library/gg597391.aspx) è una funzionalità introdotta con .NET 4 che consente di compilare gli assembly che possono funzionare senza alcuna modifica su diverse piattaforme Microsoft, dalle versioni di.NET Framework per Silverlight per Windows Phone e Xbox anche 360 (anche se a questo punto, NuGet non supporta la destinazione della libreria portabile Xbox).  Estendendo il [pacchetto convenzioni](../create-packages/supporting-multiple-target-frameworks.md) per i profili e le versioni di framework 2.1 NuGet supporta ora le librerie portabili grazie alla possibilità di creare pacchetti che composta framework sono la destinazione di profilo `lib` cartelle.
+[Le librerie portabili](/dotnet/standard/cross-platform/cross-platform-development-with-the-portable-class-library) è una funzionalità introdotta con .NET 4 che consente di compilare gli assembly che possono funzionare senza alcuna modifica su diverse piattaforme Microsoft, dalle versioni di.NET Framework per Silverlight per Windows Phone e Xbox anche 360 (anche se a questo punto, NuGet non supporta la destinazione della libreria portabile Xbox).  Estendendo il [pacchetto convenzioni](../create-packages/supporting-multiple-target-frameworks.md) per i profili e le versioni di framework 2.1 NuGet supporta ora le librerie portabili grazie alla possibilità di creare pacchetti che composta framework sono la destinazione di profilo `lib` cartelle.
 
 Ad esempio, prendere in considerazione piattaforme di destinazione disponibili della libreria di classi portabile seguenti.
 

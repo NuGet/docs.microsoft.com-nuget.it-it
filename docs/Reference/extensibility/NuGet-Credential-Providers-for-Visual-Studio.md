@@ -13,11 +13,11 @@ keywords: Eseguire l'autenticazione con la raccolta, estensione di visual studio
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2b2fac23102865a08509acc1cc3d09f0cd375f26
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 8d7360205387d4813f95560018e2ac68f71f5603
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>L'autenticazione di feed in Visual Studio con il provider di credenziali di NuGet
 
@@ -88,5 +88,5 @@ Deve implementare un provider di credenziali personalizzato di NuGet per Visual 
 | bool isRetry | True se le credenziali sono stati richiesti in precedenza per questo Uri, ma le credenziali fornite non consentiva l'accesso autorizzato. |
 | bool non interattivi | Se true, il provider di credenziali necessario eliminare tutti i prompt utente e utilizzare invece i valori predefiniti. |
 | CancellationToken cancellationToken | Questo token di annullamento deve essere controllato per determinare se le credenziali di richiesta di operazione è stata annullata. |
-  
-**Valore restituito**: un oggetto credenziali che implementa il [ `System.Net.ICredentials` interfaccia](https://msdn.microsoft.com/library/system.net.icredentials.aspx).
+
+**Valore restituito**: un oggetto credenziali che implementa il [ `System.Net.ICredentials` interfaccia](/dotnet/api/system.net.icredentials?view=netstandard-2.0).

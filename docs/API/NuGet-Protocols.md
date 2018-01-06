@@ -12,11 +12,11 @@ description: I protocolli di nuget.org in continua evoluzione per interagire con
 ms.reviewer:
 - kraigb
 - karann-msft
-ms.openlocfilehash: 097b7a86d056b692c52d6de76bc2fb99d1b58c6f
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 0bc71795d120256b9eb14ca64141f0b69f01e620
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nugetorg-protocols"></a>Protocolli di NuGet.org
 
@@ -43,7 +43,7 @@ I client devono passare l'intestazione seguente quando si effettuano chiamate AP
 X-NuGet-Protocol-Version: 4.1.0
 ```
 
-Si noti che la pre-esistente `X-NuGet-Client-Version` intestazione ha la stessa funzione, ma ora è deprecata e non deve più essere usato.
+Si noti che il `X-NuGet-Client-Version` intestazione semantica è simile, ma è riservato a essere utilizzato solo dal client NuGet ufficiale. I client di terze parti devono utilizzare il `X-NuGet-Protocol-Version` intestazione e il valore.
 
 Il **push** protocollo stesso è descritto nella documentazione per il [ `PackagePublish` risorse](package-publish-resource.md).
 
@@ -59,11 +59,11 @@ POST api/v2/package/create-verification-key/{ID}/{VERSION}
 
 #### <a name="request-parameters"></a>Parametri della richiesta
 
-Nome           | In     | Tipo   | Obbligatorio | Note
+nome           | In     | Tipo   | Obbligatorio | Note
 -------------- | ------ | ------ | -------- | -----
-Id             | URL    | string | sì      | Identidier il pacchetto per il quale viene richiesta la chiave di verifica ambito
-VERSION        | URL    | string | No       | La versione del pacchetto
-X-NuGet-ApiKey | Header | string | sì      | Ad esempio, `X-NuGet-ApiKey: {USER_API_KEY}`.
+Id             | URL    | stringa | sì      | Identidier il pacchetto per il quale viene richiesta la chiave di verifica ambito
+VERSION        | URL    | stringa | No       | La versione del pacchetto
+X-NuGet-ApiKey | Header | stringa | sì      | Ad esempio, `X-NuGet-ApiKey: {USER_API_KEY}`.
 
 #### <a name="response"></a>Risposta
 
@@ -84,11 +84,11 @@ GET api/v2/verifykey/{ID}/{VERSION}
 
 #### <a name="request-parameters"></a>Parametri della richiesta
 
-Nome           | In     | Tipo   | Obbligatorio | Note
+nome           | In     | Tipo   | Obbligatorio | Note
 -------------  | ------ | ------ | -------- | -----
-Id             | URL    | string | sì      | L'identificatore del pacchetto per il quale viene richiesta la chiave di verifica ambito
-VERSION        | URL    | string | No       | La versione del pacchetto
-X-NuGet-ApiKey | Header | string | sì      | Ad esempio, `X-NuGet-ApiKey: {VERIFY_SCOPE_KEY}`.
+Id             | URL    | stringa | sì      | L'identificatore del pacchetto per il quale viene richiesta la chiave di verifica ambito
+VERSION        | URL    | stringa | No       | La versione del pacchetto
+X-NuGet-ApiKey | Header | stringa | sì      | Ad esempio, `X-NuGet-ApiKey: {VERIFY_SCOPE_KEY}`.
 
 > [!Note]
 > Questa chiave API ambito verifica scadenza ora del giorno o al primo utilizzo, qualunque si verifichi prima.

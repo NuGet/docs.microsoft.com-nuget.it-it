@@ -13,11 +13,11 @@ keywords: NuGet package manager console powershell di NuGet, gestire i pacchetti
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: d9df514c6f92a3ea0841503d86c44271e70f95f2
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: cc11963a9b9bfe9aa456d8cd4c8397e1084f660b
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="package-manager-console"></a>Console di gestione pacchetti
 
@@ -43,7 +43,7 @@ Ricerca e l'installazione di un pacchetto, ad esempio, viene eseguita con tre se
     Install-Package Elmah -ProjectName MyProject
     ```
 
-Contenuto dell'argomento:
+In questo argomento
 
 - [Aprire la console di](#opening-the-console-and-console-controls)
 - [Installa un pacchetto](#installing-a-package)
@@ -62,7 +62,7 @@ Contenuto dell'argomento:
 
 ## <a name="opening-the-console-and-console-controls"></a>Apertura della console e i controlli di console
 
-1. Aprire la console in Visual Studio usando il **strumenti > Gestione pacchetti NuGet > Console di gestione pacchetti** comando. La console è una finestra di Visual Studio che può essere disposti e posizionata, tuttavia si desidera (vedere [personalizzare i layout delle finestre in Visual Studio](https://docs.microsoft.com/visualstudio/ide/customizing-window-layouts-in-visual-studio)).
+1. Aprire la console in Visual Studio usando il **strumenti > Gestione pacchetti NuGet > Console di gestione pacchetti** comando. La console è una finestra di Visual Studio che può essere disposti e posizionata, tuttavia si desidera (vedere [personalizzare i layout delle finestre in Visual Studio](/visualstudio/ide/customizing-window-layouts-in-visual-studio)).
 
 1. Per impostazione predefinita, i comandi della console funzionano in un'origine pacchetto specifico e un progetto di cui il controllo nella parte superiore della finestra:
 
@@ -171,7 +171,7 @@ In Visual Studio 2017, NuGet e gestione pacchetti NuGet vengono installati autom
 
 Inoltre, assenza Gestione pacchetti NuGet in Visual Studio 2015 e versioni precedenti, controllare **strumenti > estensioni e aggiornamenti...**  e cercare l'estensione Gestione pacchetti NuGet. Se non si riesce a usare il programma di installazione di estensioni in Visual Studio, è possibile scaricare l'estensione direttamente da [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html).
 
-La Console di gestione pacchetti non è attualmente disponibile in Visual Studio per Mac. I comandi equivalenti, tuttavia, sono disponibili tramite il [NuGet CLI](nuget-exe-CLI-reference.md). Visual Studio per Mac hanno un'interfaccia utente per la gestione dei pacchetti NuGet. Vedere [pacchetto NuGet un inclusi nel progetto](https://docs.microsoft.com/visualstudio/mac/nuget-walkthrough).
+La Console di gestione pacchetti non è attualmente disponibile in Visual Studio per Mac. I comandi equivalenti, tuttavia, sono disponibili tramite il [NuGet CLI](nuget-exe-CLI-reference.md). Visual Studio per Mac hanno un'interfaccia utente per la gestione dei pacchetti NuGet. Vedere [pacchetto NuGet un inclusi nel progetto](/visualstudio/mac/nuget-walkthrough).
 
 Console di gestione pacchetti non è inclusa in Visual Studio Code.
 
