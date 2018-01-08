@@ -14,17 +14,17 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 91efd4b4cd2ec0bee4425ab66e0152e580e7975c
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: d002f55a75b3daaa2fed7a94e88582dd4f04e05f
+ms.sourcegitcommit: 1ebfff1263992c54de75366a1b1c26dbae6c0318
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="nuspec-reference"></a>Informazioni di riferimento sul file .nuspec
 
 Un file `.nuspec` è un manifesto XML che contiene i metadati del pacchetto. Questo manifesto viene usato per compilare il pacchetto e per fornire informazioni ai consumer. Il manifesto viene sempre incluso in un pacchetto.
 
-Contenuto dell'argomento:
+In questo argomento
 
 - [Formato generale e schema](#general-form-and-schema)
 - [Token di sostituzione](#replacement-tokens) (usati con un progetto di Visual Studio)
@@ -78,14 +78,14 @@ Questi elementi devono essere visualizzati all'interno di un elemento `<metadata
 
 | Elemento | Descrizione |
 | --- | --- |
-| **id** | Identificatore del pacchetto senza distinzione tra maiuscole e minuscole che deve essere univoco in nuget.org o in qualsiasi raccolta in cui risiede il pacchetto. L'ID non può contenere spazi o caratteri non validi per un URL e in genere segue le regole dello spazio dei nomi .NET. Vedere [Choosing a unique package identifier and setting the version number](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number) (Scelta di un identificatore univoco del pacchetto e impostazione del numero di versione) per altre indicazioni. |
+| **ID** | Identificatore del pacchetto senza distinzione tra maiuscole e minuscole che deve essere univoco in nuget.org o in qualsiasi raccolta in cui risiede il pacchetto. L'ID non può contenere spazi o caratteri non validi per un URL e in genere segue le regole dello spazio dei nomi .NET. Vedere [Choosing a unique package identifier and setting the version number](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number) (Scelta di un identificatore univoco del pacchetto e impostazione del numero di versione) per altre indicazioni. |
 | **version** | La versione del pacchetto secondo il criterio *principale.secondaria.patch*. I numeri di versione possono includere un suffisso di versione non definitiva, come descritto in [Controllo delle versioni dei pacchetti](../reference/package-versioning.md#pre-release-versions). |
 | **description** | Descrizione lunga del pacchetto per la visualizzazione dell'interfaccia utente. |
 | **authors** | Elenco con valori delimitati da virgola di autori di pacchetti, corrispondenti ai nomi di profili in nuget.org. Questi, visualizzati nella raccolta NuGet in nuget.org, vengono usati per creare riferimenti incrociati ai pacchetti dello stesso autore. |
 
 ### <a name="optional-metadata-elements"></a>Elementi dei metadati facoltativi
 
-Questi elementi devono essere visualizzati all'interno di un elemento `<metadata>`.
+Questi elementi possono essere visualizzati all'interno di un elemento `<metadata>`.
 
 #### <a name="single-elements"></a>Singoli elementi
 
@@ -101,7 +101,7 @@ Questi elementi devono essere visualizzati all'interno di un elemento `<metadata
 | **summary** | Descrizione breve del pacchetto per la visualizzazione dell'interfaccia utente. Se omesso, viene usata una versione troncata di `description`. |
 | **releaseNotes** | *(1.5+)* Descrizione delle modifiche apportate in questa versione del pacchetto, spesso usata nell'interfaccia utente, come la scheda **Aggiornamenti** di Gestione pacchetti di Visual Studio, in sostituzione della descrizione del pacchetto. |
 | **copyright** | *(1.5+)* Informazioni sul copyright per il pacchetto. |
-| **language** | ID delle impostazioni locali per il pacchetto. Vedere [Creazione di pacchetti localizzati](../create-packages/creating-localized-packages.md). |
+| **linguaggio** | ID delle impostazioni locali per il pacchetto. Vedere [Creazione di pacchetti localizzati](../create-packages/creating-localized-packages.md). |
 | **tags** | Elenco di tag e parole chiave delimitati da spazi che descrivono il pacchetto e facilitano l'individuabilità dei pacchetti tramite meccanismi di ricerca e filtro. |
 | **serviceable** | *(3.3+)* Solo per uso interno in NuGet. |
 
@@ -186,7 +186,7 @@ L'elemento `<dependencies>` all'interno di `<metadata>` contiene qualsiasi numer
 | build | build (proprietà e destinazioni MSBuild) |
 | native | native |
 | none | Nessuna cartella |
-| all | Tutte le cartelle |
+| tutti | Tutte le cartelle |
 
 Ad esempio, le righe seguenti indicano dipendenze da `PackageA` versione 1.1.0 o successive e da `PackageB` versione 1.x.
 
