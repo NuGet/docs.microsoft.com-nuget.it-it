@@ -14,11 +14,11 @@ ms.reviewer:
 - anandr
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 25b74ab629cab0fff7114bf1621606de5fc18dd2
-ms.sourcegitcommit: 89bb9d429c19ff69084c35acad09daea3e16d56b
+ms.openlocfilehash: cb5624a2fd99e8afd8a8226fd786343f485041c4
+ms.sourcegitcommit: c27e565de485cbe836e6c2a66e44a50b35b487ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="package-versioning"></a>Controllo delle versioni di pacchetto
 
@@ -26,7 +26,7 @@ Un pacchetto specifico viene sempre definito tramite il relativo identificatore 
 
 Quando si crea un pacchetto, si assegna un numero di versione specifico con un suffisso di testo pre-release facoltativo. Quando si utilizzano pacchetti, d'altra parte, è possibile specificare un numero di versione esatta o un intervallo di versioni accettabile.
 
-Contenuto dell'argomento:
+In questo argomento
 
 - [Nozioni fondamentali sulla versione](#version-basics) inclusi suffissi pre-release.
 - [I caratteri jolly e intervalli di versione](#version-ranges-and-wildcards)
@@ -59,8 +59,8 @@ Tecnicamente, agli autori dei pacchetti possono utilizzare qualsiasi stringa com
 Ciò premesso, sviluppatori del pacchetto è in genere seguono convenzioni di denominazione riconosciute:
 
 - `-alpha`: Versione alfa, in genere utilizzata per in fase di elaborazione e sperimentazione.
-- `-beta`: Versione beta, in genere una funzionalità complete per il successivo rilascio pianificato, ma può contenere bug conosciuti.
-- `-rc`: Versione release candidate, in genere una versione che è potenzialmente finale (stable) a meno che non emerge bug significativi.
+- `-beta`: versione beta, in genere completa dal punto di vista funzionale per il successivo rilascio pianificato, ma può contenere bug noti.
+- `-rc`: versione finale candidata, in genere potenzialmente finale (stabile) se non emergono bug significativi.
 
 > [!Note]
 > Supporta NuGet 4.3.0+ [SemVer 2.0.0](http://semver.org/spec/v2.0.0.html), che supporta i numeri di versione non definitiva con la notazione del punto, come in *1.0.1-build.23*. La notazione del punto non è supportata con le versioni di NuGet prima 4.3.0. È possibile utilizzare un modulo come *1.0.1-build23*.
@@ -95,7 +95,8 @@ Per nuget.org, un pacchetto è definito come un pacchetto v 2.0.0 SemVer se vien
 Se si carica un pacchetto specifico v 2.0.0 SemVer nuget.org, il pacchetto è invisibile a client meno recenti e disponibile per i seguenti client NuGet:
 
 - 4.3.0+ NuGet
-- Visual Studio 2017 versione 15.3 + 
+- Visual Studio 2017 versione 15.3 +
+- Visual Studio 2015 con [v3.6.0 NuGet VSIX](https://dist.nuget.org/visualstudio-2015-vsix/latest/NuGet.Tools.vsix)
 - dotnet.exe (2.0.0+ .NET SDK)
 
 Client di terze parti:
