@@ -17,11 +17,11 @@ keywords: UI NuGet, Gestione pacchetti NuGet dell'interfaccia utente, NuGet in V
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0f08e5a36499c4481c4e0cd70738d67d65cd980a
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: fb2166b727dd01de0f7096535fdbc71c5ab0e2a3
+ms.sourcegitcommit: cde52deee5691d3e8bcb96f46f9645c7ba579af8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="nuget-package-manager-ui"></a>Interfaccia utente di gestione pacchetti NuGet
 
@@ -39,7 +39,7 @@ In questo argomento
 > [!Note]
 > Assenza di gestione pacchetti NuGet in Visual Studio 2015, controllare **strumenti > estensioni e aggiornamenti...**  e cercare il *Gestione pacchetti NuGet* estensione. Se non si riesce a usare il programma di installazione di estensioni in Visual Studio, scaricare l'estensione direttamente da [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html).
 >
-> In Visual Studio 2017, vengano automaticamente installati con NuGet e gestione pacchetti NuGet. Carichi di lavoro correlati alla rete. Installarla individuall selezionando il **singoli componenti > codice strumenti > Gestione pacchetti NuGet** opzione nel programma di installazione di Visual Studio 2017.
+> In Visual Studio 2017, vengano automaticamente installati con NuGet e gestione pacchetti NuGet. Carichi di lavoro correlati alla rete. Installare singolarmente selezionando il **singoli componenti > codice strumenti > Gestione pacchetti NuGet** opzione nel programma di installazione di Visual Studio 2017.
 
 ## <a name="finding-and-installing-a-package"></a>Ricerca e l'installazione di un pacchetto
 
