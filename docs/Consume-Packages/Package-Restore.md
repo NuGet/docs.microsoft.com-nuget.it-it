@@ -13,17 +13,17 @@ keywords: Ripristino di pacchetti NuGet, installazione di pacchetti NuGet, insta
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c2567f45b6bb36cdd94c4ce6f1418cb1c7ceac5e
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 4e819a2bb34bbe70f0f11d5adeed82b976a8cb65
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="package-restore"></a>Ripristino di pacchetti
 
 Per ottenere un ambiente di sviluppo ordinato e ridurre le dimensioni dei repository, l'opzione **Ripristino pacchetto** NuGet installa tutti i pacchetti a cui fa riferimento un progetto prima di compilarlo. Questa funzionalità ampiamente usata garantisce che tutte le dipendenze siano disponibili in un progetto senza la necessità di archiviare tali pacchetti in un sistema di controllo del codice sorgente. Vedere [Pacchetti e controllo del codice sorgente](../consume-packages/packages-and-source-control.md) per informazioni su come configurare il repository per escludere i file binari dei pacchetti.
 
-Contenuto dell'argomento:
+In questo argomento
 - [Guida rapida al ripristino dei pacchetti](#quick-guide-to-package-restore)
 - [Panoramica del ripristino dei pacchetti](#package-restore-overview)
 - [Abilitazione e disabilitazione del ripristino dei pacchetti](#enabling-and-disabling-package-restore)
@@ -64,7 +64,7 @@ Dalla riga di comando o dalla [console di Gestione pacchetti](../tools/Package-M
 | Comando | Scenari possibili |
 | --- | --- | 
 | `nuget restore` | Tutte le versioni di NuGet e tutti i tipi di riferimento. Vedere [Ripristino dalla riga di comando](#command-line-restore) di seguito. | 
-| `dotnet restore` | Come `nuget restore` per i progetti .NET Core. Vedere [dotnet restore](https://docs.microsoft.com/dotnet/articles/core/tools/dotnet-restore). |
+| `dotnet restore` | Come `nuget restore` per i progetti .NET Core. Vedere [dotnet restore](/dotnet/articles/core/tools/dotnet-restore). |
 | `msbuild /t:restore` | Nuget 4.x+ e MSBuild 15.1+ con [riferimenti ai pacchetti solo nei file di progetto](../Consume-Packages/Package-References-in-Project-Files.md). Sia `nuget restore` che `dotnet restore` usano questo comando per i progetti applicabili. Vedere [Pack e restore di NuGet come destinazioni MSBuild - Destinazione di restore](../schema/msbuild-targets.md#restore-target).|
 
 Anche Visual Studio stesso ripristina i pacchetti in momenti diversi:

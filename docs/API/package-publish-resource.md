@@ -17,11 +17,11 @@ keywords: Pacchetto NuGet API push API NuGet eliminare pacchetto, API NuGet escl
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 87970a701c63bce2b74c619069ec1d231ea77ab5
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 5fbcd82b09ebd56ae21103640e7c39b482059525
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="push-and-delete"></a>Push ed eliminare
 
@@ -127,5 +127,5 @@ X-NuGet-ApiKey | Header | stringa | sì      | Ad esempio, `X-NuGet-ApiKey: {USE
 
 Codice di stato | Significato
 ----------- | -------
-204         | Il pacchetto è ora elencato
+200         | Il pacchetto è ora elencato
 404         | Nessun pacchetto con l'oggetto fornito `ID` e `VERSION` esiste

@@ -13,17 +13,17 @@ keywords: creare un pacchetto, pacchetti .NET Standard, .NET Core
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 82e413119b12503336becd6019e4fa3e4ac0b1f3
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 5b48ad2f062fd3a9b99985dbda6f89e6039dac4d
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-net-standard-20-packages-with-visual-studio-2017"></a>Creare pacchetti .NET Standard 2.0 con Visual Studio 2017
 
 *Si applica a NuGet 4.x+ e MSBuild 15.3+ forniti con Visual Studio 2017 Update 3. Per le versioni precedenti di Visual Studio 2017, queste istruzioni si applicano a .NET Standard da 1.4 a 1.6 modificando la proprietà \<TargetFramework\>. Per usare NuGet 3.x+, vedere [Creare pacchetti .NET Standard con Visual Studio 2015](../guides/create-net-standard-packages-vs2015.md).*
 
-La [libreria .NET Standard](https://docs.microsoft.com/dotnet/articles/standard/library) è una specifica formale delle API .NET che devono essere disponibili in tutti i runtime .NET, per creare in questo modo maggiore uniformità nell'ecosistema .NET. La libreria .NET Standard definisce un set uniforme di API della libreria di classi base per tutte le piattaforme .NET da implementare, indipendentemente dal carico di lavoro. Consente agli sviluppatori di produrre PCL che possono essere usate in tutti i runtime .NET e riduce, se non elimina, le direttive di compilazione condizionale specifiche della piattaforma nel codice condiviso.
+La [libreria .NET Standard](/dotnet/articles/standard/library) è una specifica formale delle API .NET che devono essere disponibili in tutti i runtime .NET, per creare in questo modo maggiore uniformità nell'ecosistema .NET. La libreria .NET Standard definisce un set uniforme di API della libreria di classi base per tutte le piattaforme .NET da implementare, indipendentemente dal carico di lavoro. Consente agli sviluppatori di produrre PCL che possono essere usate in tutti i runtime .NET e riduce, se non elimina, le direttive di compilazione condizionale specifiche della piattaforma nel codice condiviso.
 
 Questa guida illustra la creazione di un pacchetto nuget per la libreria .NET Standard 2.0 con Visual Studio 2017 Update 3 e NuGet 4.0.
 
@@ -113,5 +113,5 @@ Per rendere disponibile il pacchetto per altri sviluppatori, seguire le istruzio
 
 - [Riferimenti ai pacchetti nei file di progetto](../consume-packages/package-references-in-project-files.md) contiene tutti i dettagli della descrizione del pacchetto direttamente nel file di progetto.
 - [Pack e restore di NuGet come destinazioni MSBuild](../schema/msbuild-targets.md) descrive tutte le opzioni per l'uso di `msbuild /t:pack` per creare il pacchetto.
-- [Documentazione della libreria .NET Standard](https://docs.microsoft.com/dotnet/articles/standard/library)
-- [Portabilità in .NET Core da .NET Framework](https://docs.microsoft.com/dotnet/articles/core/porting/index)
+- [Documentazione della libreria .NET Standard](/dotnet/articles/standard/library)
+- [Portabilità in .NET Core da .NET Framework](/dotnet/articles/core/porting/index)

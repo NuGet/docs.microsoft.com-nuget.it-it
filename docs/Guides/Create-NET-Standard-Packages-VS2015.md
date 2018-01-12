@@ -13,17 +13,17 @@ keywords: creare un pacchetto, pacchetti .NET Standard, tabella di mapping .NET 
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: a912c27e1873d60426f2147995f69e2dcc433ca9
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: e02888bf552997afe25e967f13e021e78e40d48d
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-net-standard-packages-with-visual-studio-2015"></a>Creare pacchetti .NET Standard con Visual Studio 2015
 
 *Si applica a NuGet 3.x. Per usare NuGet 4.x+, vedere [Creare pacchetti .NET Standard con Visual Studio 2017](../guides/create-net-standard-packages-vs2017.md).*
 
-La [libreria .NET Standard](https://docs.microsoft.com/dotnet/articles/standard/library) è una specifica formale delle API .NET che devono essere disponibili in tutti i runtime .NET, per creare in questo modo maggiore uniformità nell'ecosistema .NET. La libreria .NET Standard definisce un set uniforme di API della libreria di classi base per tutte le piattaforme .NET da implementare, indipendentemente dal carico di lavoro. Consente agli sviluppatori di produrre PCL che possono essere usate in tutti i runtime .NET e riduce, se non elimina, le direttive di compilazione condizionale specifiche della piattaforma nel codice condiviso.
+La [libreria .NET Standard](/dotnet/articles/standard/library) è una specifica formale delle API .NET che devono essere disponibili in tutti i runtime .NET, per creare in questo modo maggiore uniformità nell'ecosistema .NET. La libreria .NET Standard definisce un set uniforme di API della libreria di classi base per tutte le piattaforme .NET da implementare, indipendentemente dal carico di lavoro. Consente agli sviluppatori di produrre PCL che possono essere usate in tutti i runtime .NET e riduce, se non elimina, le direttive di compilazione condizionale specifiche della piattaforma nel codice condiviso.
 
 Questa guida illustra la creazione di un pacchetto nuget per la libreria .NET Standard 1.4, che funzionerà in .NET Framework 4.6.1, nella piattaforma UWP (Universal Windows Platform) 10, in .NET Core e in Mono/Xamarin. Per informazioni dettagliate, vedere la [tabella di mapping .NET Standard](#net-standard-mapping-table) più avanti in questo argomento.
 
@@ -315,7 +315,7 @@ A questo scopo, creare il file `readme.txt`, inserirlo nella cartella radice del
 |.NET Framework| net| 4.5| 4.5.1| 4.6| 4.6.1| 4.6.2| 4.6.3|
 |Piattaforme Mono/Xamarin| &#x2192;| &#x2192;| &#x2192;| &#x2192;| &#x2192;| &#x2192;|
 |Piattaforma UWP (Universal Windows Platform)| uap| &#x2192;| &#x2192;| &#x2192;| &#x2192;|10.0|
-|Windows| win| &#x2192;| 8.0| 8.1|
+|WINDOWS| win| &#x2192;| 8.0| 8.1|
 |Windows Phone| wpa| &#x2192;| &#x2192;|8.1|
 |Silverlight per Windows Phone| wp| 8.0|
 
@@ -329,5 +329,5 @@ A questo scopo, creare il file `readme.txt`, inserirlo nella cartella radice del
 - [Supporto di più versioni di .NET Framework](../create-packages/supporting-multiple-target-frameworks.md)
 - [Includere proprietà e destinazioni MSBuild in un pacchetto](../create-packages/creating-a-package.md#including-msbuild-props-and-targets-in-a-package)
 - [Creazione di pacchetti localizzati](../create-packages/creating-localized-packages.md)
-- [Documentazione della libreria .NET Standard](https://docs.microsoft.com/dotnet/articles/standard/library)
-- [Portabilità in .NET Core da .NET Framework](https://docs.microsoft.com/dotnet/articles/core/porting/index)
+- [Documentazione della libreria .NET Standard](/dotnet/articles/standard/library)
+- [Portabilità in .NET Core da .NET Framework](/dotnet/articles/core/porting/index)

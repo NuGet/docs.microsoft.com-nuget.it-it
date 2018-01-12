@@ -13,11 +13,11 @@ keywords: controlli UWP NuGet, finestra di progettazione XAML di Visual Studio, 
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f51dbabd406199752e4f9d612b498f59ffb54021
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 8756ce472c11a05370914841245295361b3f179b
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="creating-uwp-controls-as-nuget-packages"></a>Creazione di controlli UWP come pacchetti NuGet
 
@@ -105,7 +105,7 @@ Si supponga, ad esempio, di avere impostato la proprietà TPMinV per il pacchett
 \ref\uap10.0\*
 ```
 
-Per applicare il controllo TPMinV appropriato, creare un [file di destinazioni MSBuild](https://docs.microsoft.com/visualstudio/msbuild/msbuild-targets) e crearne un pacchetto sotto la cartella build (sostituendo "your_assembly_name" con il nome dell'assembly specifico):
+Per applicare il controllo TPMinV appropriato, creare un [file di destinazioni MSBuild](/visualstudio/msbuild/msbuild-targets) e crearne un pacchetto sotto la cartella build (sostituendo "your_assembly_name" con il nome dell'assembly specifico):
 
 ```
 \build
@@ -133,7 +133,7 @@ Ecco un esempio dell'aspetto del file di destinazioni:
 
 ## <a name="add-design-time-support"></a>Aggiungere il supporto in fase di progettazione
 
-Per configurare dove visualizzare le proprietà del controllo nel controllo proprietà, aggiungere gli strumenti decorativi personalizzati e così via e inserire il file `design.dll` nella cartella `lib\<platform>\Design` in modo appropriato alla piattaforma di destinazione. Per assicurarsi inoltre che la funzionalità **[Modifica modello > Modifica copia](https://docs.microsoft.com/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)** operi correttamente, è necessario includere nella cartella `<AssemblyName>\Themes` `Generic.xaml` e tutti i dizionari risorse uniti. Questo file non influisce sul comportamento di runtime di un controllo.
+Per configurare dove visualizzare le proprietà del controllo nel controllo proprietà, aggiungere gli strumenti decorativi personalizzati e così via e inserire il file `design.dll` nella cartella `lib\<platform>\Design` in modo appropriato alla piattaforma di destinazione. Per assicurarsi inoltre che la funzionalità **[Modifica modello > Modifica copia](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)** operi correttamente, è necessario includere nella cartella `<AssemblyName>\Themes` `Generic.xaml` e tutti i dizionari risorse uniti. Questo file non influisce sul comportamento di runtime di un controllo.
 
 
 ```
@@ -172,7 +172,7 @@ Per creare un pacchetto per contenuti come le immagini che possono essere usate 
 \tools
 ```
 
-È anche possibile creare un [file di destinazioni MSBuild](https://docs.microsoft.com/visualstudio/msbuild/msbuild-targets) per assicurarsi che l'asset venga copiato nella cartella di output del progetto utilizzato:
+È anche possibile creare un [file di destinazioni MSBuild](/visualstudio/msbuild/msbuild-targets) per assicurarsi che l'asset venga copiato nella cartella di output del progetto utilizzato:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

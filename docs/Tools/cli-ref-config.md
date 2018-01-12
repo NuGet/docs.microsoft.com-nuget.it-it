@@ -13,11 +13,11 @@ keywords: riferimento di configurazione NuGet, il comando di configurazione
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 12a8b51dd11b9bc3a496e02e869cdeb95e67b9e3
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: f49751d9747687177e3b6c1890ee9d2919be8d0e
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="config-command-nuget-cli"></a>comando config (NuGet CLI)
 
@@ -33,6 +33,8 @@ nuget config -AsPath <name> [options]
 ```
 
 dove `<name>` e `<value>` specificare una coppia chiave-valore da impostare nella configurazione. È possibile specificare un numero di coppie in base alle esigenze. Per rimuovere un valore, specificare il nome e il `=` sign ma nessun valore.
+
+Per i nomi di chiave consentiti, vedere il [riferimento al file di configurazione NuGet](../Schema/nuget-config-file.md).
 
 In NuGet 3.4 + `<value>` consente [le variabili di ambiente](cli-ref-environment-variables.md).
 

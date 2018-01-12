@@ -13,11 +13,11 @@ keywords: interfaccia della riga di comando nuget.exe, strumenti client NuGet, G
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b1abb30458c9ebfb0ffb28be254efd9709a9627f
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 2f67c298d269149bba9f36ad9e026d5443c39b6a
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="installing-nuget-client-tools"></a>Installazione degli strumenti client di NuGet
 
@@ -29,7 +29,7 @@ Esistono due strumenti principali per creare, pubblicare e utilizzare pacchetti 
 1. L'[**interfaccia della riga di comando di NuGet**](#nuget-cli) è l'utilità della riga di comando per Windows che fornisce tutte le funzionalità di NuGet. Può essere eseguita anche in Mac OSX e Linux tramite Mono o tramite l'interfaccia della riga di comando di .NET Core (`dotnet`).
 1. [**Gestione pacchetti NuGet in Visual Studio**](#nuget-package-manager-in-visual-studio) (solo Windows) è uno strumento GUI per la gestione dei pacchetti e include una console di PowerShell tramite cui è possibile usare alcuni comandi NuGet direttamente all'interno di Visual Studio. L'interfaccia utente e la console di Gestione pacchetti sono entrambi inclusi in Visual Studio (in Windows) 2012 e versioni successive e possono essere installati manualmente per le versioni precedenti.
 
-    In Visual Studio per Mac, le funzionalità NuGet sono incorporate direttamente. Per una procedura dettagliata, vedere [Inserimento di un pacchetto NuGet nel progetto](https://docs.microsoft.com/visualstudio/mac/nuget-walkthrough).
+    In Visual Studio per Mac, le funzionalità NuGet sono incorporate direttamente. Per una procedura dettagliata, vedere [Inserimento di un pacchetto NuGet nel progetto](/visualstudio/mac/nuget-walkthrough).
 
     Visual Studio Code attualmente non include il supporto predefinito per NuGet. Usare l'interfaccia della riga di comando di NuGet o l'[interfaccia della riga di comando di dotnet](../Tools/dotnet-Commands.md).
 
@@ -53,13 +53,13 @@ Le funzionalità seguenti sono supportate solo nell'interfaccia della riga di co
 
 > [!Note]
 > Un altro strumento utile è [NuGet Package Explorer](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer), uno strumento open source autonomo per esplorare, creare e modificare visivamente i pacchetti NuGet. È molto utile, ad esempio, per apportare modifiche sperimentali alla struttura di un pacchetto senza dovere ricompilare il pacchetto ogni volta.
-> La toolchain dell'[interfaccia della riga di comando .NET Core](https://docs.microsoft.com/dotnet/articles/core/tools/index#installation) multipiattaforma, usata per lo sviluppo di applicazioni .NET Core, supporta vari comandi NuGet, ad esempio delete, locals, push, pack e restore. 
+> La toolchain dell'[interfaccia della riga di comando .NET Core](/dotnet/articles/core/tools/index#installation) multipiattaforma, usata per lo sviluppo di applicazioni .NET Core, supporta vari comandi NuGet, ad esempio delete, locals, push, pack e restore. 
 
 ## <a name="nuget-cli"></a>Interfaccia della riga di comando di NuGet
 
 L'interfaccia della riga di comando di NuGet consente di accedere a tutte le funzionalità di NuGet e può essere eseguita in Windows, Mac OSX e Linux, come descritto nelle sezioni seguenti.
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a>WINDOWS
 
 **Download diretto:**
 
@@ -107,7 +107,7 @@ In Mac OSX e Linux, esistono due modi per eseguire l'interfaccia della riga di c
         - restore: funziona con i file `packages.config` e `project.json` ma non con i file di soluzione (`.sln`).
 
     - Comandi che non funzionano:
-        - update
+        - aggiorna
 
 ### <a name="related-topics"></a>Argomenti correlati
 
