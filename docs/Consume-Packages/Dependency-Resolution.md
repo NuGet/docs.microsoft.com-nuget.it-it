@@ -13,11 +13,11 @@ keywords: Dipendenze di pacchetti NuGet, controllo delle versioni di NuGet, vers
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 44c69c07990fed72b439698d22021ebcbb2eed89
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 93a3d077a6dd1946485fc8c48f97c8009280890c
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Risoluzione delle dipendenze dei pacchetti in NuGet
 
@@ -27,7 +27,7 @@ Tali dipendenze immediate potrebbero quindi avere anche dipendenze proprie, che 
 
 Quando più pacchetti hanno la stessa dipendenza, lo stesso ID di pacchetto può essere visualizzato nel grafico più volte, potenzialmente con limitazioni delle versioni diverse. Tuttavia, solo una versione di un determinato pacchetto può essere usata in un progetto, pertanto NuGet deve scegliere quale versione usare. Il processo esatto dipende dal formato di riferimento del pacchetto in uso.
 
-Contenuto dell'argomento:
+In questo argomento
 - [Risoluzione delle dipendenze con PackageReference e project.json](#dependency-resolution-with-packagereference-and-projectjson)
 - [Risoluzione delle dipendenze con packages.config](#dependency-resolution-with-packagesconfig)
 - [Esclusione di riferimenti](#excluding-references), che è necessario quando si verifica un conflitto tra una dipendenza specificata in un progetto e un assembly generato da un altro.
@@ -151,6 +151,12 @@ Per risolvere questa situazione, è necessario fare riferimento direttamente al 
             }
         }
     }
+    ```
+
+- Con i [riferimenti ai pacchetti nei file di progetto](../consume-packages/package-references-in-project-files.md) (solo NuGet 4.0+), aggiungere `ExcludeAssets="All"` nella dipendenza:
+
+    ```xml
+    <PackageReference Include="packageC" Version="1.0.0" ExcludeAssets="All" />
     ```
 
 ## <a name="dependency-updates-during-package-install"></a>Aggiornamenti delle dipendenze durante l'installazione dei pacchetti 

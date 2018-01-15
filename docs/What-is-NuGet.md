@@ -13,15 +13,15 @@ keywords: Gestione pacchetti NuGet, utilizzo, creazione di pacchetti, hosting di
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 29dcedf33a54e249fe0b6acf588e4aafde28304f
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 2bc6a9e154df287fee6a7e00cc1349dfa2100643
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="an-introduction-to-nuget"></a>Introduzione a NuGet
 
-Uno strumento essenziale per qualsiasi piattaforma di sviluppo moderna è un meccanismo attraverso il quale gli sviluppatori possono creare, condividere e utilizzare utili librerie di codice. Tali librerie sono in genere definite "pacchetti", perché possono contenere codice compilato (sotto forma di DLL) insieme ad altro contenuto che potrebbe essere necessario nei progetti che utilizzano tali librerie.
+Uno strumento essenziale per qualsiasi piattaforma di sviluppo moderna è un meccanismo attraverso il quale gli sviluppatori possano creare, condividere e usare codice utile. Spesso questo codice viene incluso in "pacchetti" che contengono codice compilato, ad esempio file DLL, insieme ad altri contenuti necessari nei progetti che usano questi pacchetti.
 
 Per .NET, il meccanismo per la condivisione del codice è **NuGet**, che definisce in che modo vengono creati, ospitati e utilizzati i pacchetti per .NET e fornisce gli strumenti per ognuno di questi ruoli. 
 
@@ -45,10 +45,10 @@ Oltre a ospitare il supporto, NuGet fornisce anche un'ampia gamma di strumenti u
 | --- | --- | --- | --- |
 | [Interfaccia della riga di comando di nuget.exe](Tools/nuget-exe-CLI-Reference.md) | Tutti | Creazione, utilizzo | Fornisce tutte le funzionalità di NuGet, con alcuni comandi applicabili in modo specifico agli autori dei pacchetti, altri applicabili solo ai consumer e altri ancora applicabili a entrambi. Ad esempio, gli autori dei pacchetti usano il comando `nuget pack` per creare un pacchetto da vari assembly e file correlati, i consumer dei pacchetti usano `nuget install` per includere i pacchetti in un progetto e tutti gli utenti usano `nuget config` per impostare le variabili di configurazione di NuGet.  |
 | [Interfaccia utente di Gestione pacchetti](Tools/Package-Manager-UI.md) | Visual Studio su Windows | Utilizzo | Fornisce un'interfaccia utente di semplice utilizzo per l'installazione e la gestione dei pacchetti nei progetti .NET. | 
-| [Interfaccia utente di Gestisci pacchetti NuGet](https://docs.microsoft.com/visualstudio/mac/nuget-walkthrough) | Visual Studio per Mac | Utilizzo | Fornisce un'interfaccia utente di semplice utilizzo per l'installazione e la gestione dei pacchetti nei progetti .NET. |
+| [Interfaccia utente di Gestisci pacchetti NuGet](/visualstudio/mac/nuget-walkthrough) | Visual Studio per Mac | Utilizzo | Fornisce un'interfaccia utente di semplice utilizzo per l'installazione e la gestione dei pacchetti nei progetti .NET. |
 | [Console di Gestione pacchetti](Tools/Package-Manager-Console.md) | Visual Studio su Windows | Utilizzo | Fornisce i [comandi di PowerShell](Tools/Powershell-Reference.md) per l'installazione e la gestione dei pacchetti nei progetti .NET. | 
 | [Interfaccia della riga di comando di dotnet](Tools/dotnet-Commands.md) | Tutti | Creazione, utilizzo | Fornisce determinate funzionalità dell'interfaccia della riga di comando di NuGet direttamente all'interno della toolchain di .NET Core. |
-| [MSBuild](Schema/msbuild-targets.md) | Windows | Creazione, utilizzo | Fornisce la possibilità di creare pacchetti e ripristinare quelli usati in un progetto direttamente tramite la toolchain di MSBuild. |
+| [MSBuild](Schema/msbuild-targets.md) | WINDOWS | Creazione, utilizzo | Fornisce la possibilità di creare pacchetti e ripristinare quelli usati in un progetto direttamente tramite la toolchain di MSBuild. |
 
 Come si può notare, gli strumenti con cui si usa NuGet variano notevolmente in base al fatto che si stiano creando (e pubblicando) pacchetti o si stiano semplicemente utilizzando, oltre che in base alla piattaforma in uso. Informazioni più dettagliate sono disponibili negli argomenti [Flusso di lavoro della creazione di pacchetti](Create-Packages/Overview-and-Workflow.md) e [Flusso di lavoro dell'utilizzo di pacchetti](Consume-Packages/Overview-and-Workflow.md), oltre che in altri argomenti di quelle sezioni. 
 

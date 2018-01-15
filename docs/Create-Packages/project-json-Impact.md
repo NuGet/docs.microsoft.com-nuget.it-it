@@ -13,11 +13,11 @@ keywords: "NuGet e project.json, impatto di project.json, considerazioni sulla c
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 93a4e9f9cb57c8acbe516a957e01b801bac0e116
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 69a6bbbe1c96b06dbba7ac787b836b8b62c438ec
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="impact-of-projectjson-when-creating-packages"></a>Impatto di project.json durante la creazione di pacchetti
 
@@ -64,7 +64,7 @@ Il formato consente il contenuto nativo come scenario di prima classe. Gli assem
 
 In sintesi, se la funzionalità illustrata sopra non è assolutamente necessaria, è consigliabile continuare a usare il formato di pacchetto esistente, perché il formato descritto qui è supportato solo da NuGet 3.x+.
 
-Anche se è possibile compilare pacchetti che funzionino in scenari sia `packages.config` che `project.json` tramite l'esecuzione di shim, tuttavia spesso è più semplice limitarsi a strutturare i pacchetti normalmente, senza le funzionalità deprecate citate sopra.
+Anche se è possibile compilare pacchetti che funzionino in scenari sia `packages.config` che `project.json` tramite l'esecuzione di shim, spesso è più semplice limitarsi a strutturare i pacchetti nel modo tradizionale, senza le funzionalità deprecate citate sopra.
 
 
 ## <a name="3x-package-format"></a>Formato del pacchetto 3.x  ##

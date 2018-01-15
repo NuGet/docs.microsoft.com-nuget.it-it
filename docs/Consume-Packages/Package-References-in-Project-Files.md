@@ -13,11 +13,11 @@ keywords: Dipendenze dei pacchetti NuGet, riferimenti a pacchetti, file di proge
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c8fc9e558557af444d9a35ace36d043a5f6382a7
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 275957c94e4a4bb45f359cd48816acf4f286ebad
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Riferimenti a pacchetti (PackageReference) nei file di progetto
 
@@ -26,7 +26,7 @@ I riferimenti ai pacchetti, tramite il nodo `PackageReference`, consentono di ge
 > [!Important]
 > Al momento, i riferimenti ai pacchetti sono supportati solo in Visual Studio 2017, per i progetti .NET Core, i progetti .NET Standard e i progetti UWP destinati a Windows 10 Build 15063 (Creators Update).
 
-L'approccio `PackageReference` consente di usare condizioni MSBuild per scegliere i riferimenti ai pacchetti in base a framework di destinazione, configurazione, piattaforma o altri raggruppamenti. Consente anche un controllo più capillare delle dipendenze e del flusso del contenuto. In termini di comportamento e per la [risoluzione delle dipendenze](Dependency-Resolution.md) equivale a usare `project.json`.
+L'approccio `PackageReference` consente di usare condizioni MSBuild per scegliere i riferimenti ai pacchetti in base a framework di destinazione, configurazione, piattaforma o altri raggruppamenti. Consente anche un controllo più capillare delle dipendenze e del flusso del contenuto. In termini di comportamento e [risoluzione delle dipendenze](Dependency-Resolution.md) equivale a usare `project.json`.
 
 Per altre informazioni sull'integrazione di MSBuild con i riferimenti ai pacchetti nei file di progetto, vedere [Pack e restore di NuGet come destinazioni MSBuild](../schema/msbuild-targets.md).
 
@@ -90,7 +90,7 @@ I tag di metadati seguenti controllano gli asset delle dipendenze:
 | Tag | Descrizione | Valore predefinito |
 | --- | --- | --- |
 | IncludeAssets | Questi asset verranno utilizzati | tutti |
-| ExcludeAssets | Questi asset non verranno utilizzati | nessuno | 
+| ExcludeAssets | Questi asset non verranno utilizzati | none | 
 | PrivateAssets | Questi asset verranno utilizzati, ma non verranno trasferiti al progetto padre | contentfiles;analyzers;build |
 
 

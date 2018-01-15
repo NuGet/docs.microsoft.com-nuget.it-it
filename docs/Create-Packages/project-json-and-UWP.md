@@ -13,11 +13,11 @@ keywords: dipendenze di NuGet, NuGet e piattaforma UWP (Universal Windows Platfo
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 40507e541997cea368052c373a4124d9c4a00a51
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: ae49c017365e1a63622fde318d5c94b64ed1ea2e
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="projectjson-and-uwp"></a>project.json e UWP
 
@@ -70,7 +70,7 @@ I pacchetti NuGet che usano questo formato presentano la cartella e i comportame
 
 I pacchetti NuGet possono contenere file `.targets` e `.props` che vengono importati nei progetti di MSBuild in cui il pacchetto viene installato. In NuGet 2.x a questo scopo venivano inserite istruzioni `<Import>` nel file `.csproj`. In NuGet 3.0 non è disponibile una specifica azione di "installazione nel progetto". Il processo di ripristino del pacchetto scrive invece due file, `[projectname].nuget.props` e `[projectname].NuGet.targets`.
 
-MSBuild cerca questi due file e li importa automaticamente verso l'inizio e verso la fine del processo di compilazione del progetto. Il comportamento è molto simile a quello di NuGet 2.x, ma con un'importante differenza: *in questo caso non esiste un ordine garantito dei file di destinazioni/proprietà*. MSBuild consente tuttavia di ordinare le destinazioni tramite gli attributi `BeforeTargets` e `AfterTargets` della definizione `<Target>`. Vedere [Elemento Target (MSBuild)](https://docs.microsoft.com/visualstudio/msbuild/target-element-msbuild).
+MSBuild cerca questi due file e li importa automaticamente verso l'inizio e verso la fine del processo di compilazione del progetto. Il comportamento è molto simile a quello di NuGet 2.x, ma con un'importante differenza: *in questo caso non esiste un ordine garantito dei file di destinazioni/proprietà*. MSBuild consente tuttavia di ordinare le destinazioni tramite gli attributi `BeforeTargets` e `AfterTargets` della definizione `<Target>`. Vedere [Elemento Target (MSBuild)](/visualstudio/msbuild/target-element-msbuild).
 
 
 ## <a name="lib-and-ref"></a>Lib e Ref
@@ -93,7 +93,7 @@ A volte è necessario usare un assembly diverso durante la compilazione, in ques
 
 La maggior parte degli autori di pacchetti non richiede la cartella `ref`. È utile per i pacchetti che devono fornire una superficie di attacco coerente per la compilazione e IntelliSense, ma hanno implementazioni diverse a seconda del TxM. Il caso d'uso principale sono i pacchetti `System.*` che vengono generati nell'ambito dell'invio di .NET Core in NuGet. Questi pacchetti hanno svariate implementazioni che vengono unificate da un set coerente di assembly di riferimento.
 
-Gli assembly inclusi nella cartella `ref` sono ovviamente gli assembly di riferimento che vengono passati al compilatore. Per chi ha usato csc.exe si tratta degli assembly passati all'[opzione /reference di C#](https://docs.microsoft.com/dotnet/articles/csharp/language-reference/compiler-options/reference-compiler-option).
+Gli assembly inclusi nella cartella `ref` sono ovviamente gli assembly di riferimento che vengono passati al compilatore. Per chi ha usato csc.exe si tratta degli assembly passati all'[opzione /reference di C#](/dotnet/articles/csharp/language-reference/compiler-options/reference-compiler-option).
 
 La struttura della cartella `ref` è la stessa di `lib`, ad esempio:
 
@@ -121,7 +121,7 @@ In questo esempio gli assembly nelle directory `ref` saranno tutti identici.
 
 ## <a name="runtimes"></a>Runtimes
 
-La cartella runtimes contiene assembly e librerie native necessari per l'esecuzione in specifici "runtime", definiti in genere dal sistema operativo e dall'architettura della CPU. Questi runtime vengono identificati usando gli [identificatori di runtime](https://docs.microsoft.com/dotnet/core/rid-catalog), ad esempio `win`, `win-x86`, `win7-x86`, `win8-64` e così via.
+La cartella runtimes contiene assembly e librerie native necessari per l'esecuzione in specifici "runtime", definiti in genere dal sistema operativo e dall'architettura della CPU. Questi runtime vengono identificati usando gli [identificatori di runtime](/dotnet/core/rid-catalog), ad esempio `win`, `win-x86`, `win7-x86`, `win8-64` e così via.
 
 ## <a name="native-light-up"></a>Visualizzazione nativa
 
@@ -157,7 +157,7 @@ Con il pacchetto precedente si verifica quanto segue:
 
 Nell'esempio precedente l'assembly `lib/net40` è solo codice gestito, mentre gli assembly nella cartella runtimes useranno p/invoke nell'assembly degli helper nativi per chiamare le API specifiche di Windows 8.
 
-Poiché viene sempre selezionata una sola cartella `lib`, se è presente una cartella specifica del runtime, viene preferita a una cartella `lib` non specifica del runtime. La cartella nativa è additiva. Se esiste, viene copiata nell'output della compilazione.
+Poiché viene sempre selezionata una sola cartella `lib`, se è presente una cartella specifica del runtime, questa viene preferita a una cartella `lib` non specifica del runtime. La cartella nativa è additiva. Se esiste, viene copiata nell'output della compilazione.
 
 ## <a name="managed-wrapper"></a>Wrapper gestito
 

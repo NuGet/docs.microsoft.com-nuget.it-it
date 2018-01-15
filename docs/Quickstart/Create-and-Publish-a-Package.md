@@ -13,11 +13,11 @@ keywords: creazione di un pacchetto NuGet, pubblicazione di un pacchetto NuGet, 
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 36a7c2b1d056dddf07a59737de1c3e94294689ac
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: ab5235537d869047075b93f9d8255ae9e61dfedd
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-and-publish-a-package"></a>Creare e pubblicare un pacchetto
 
@@ -52,7 +52,7 @@ Per ogni pacchetto NuGet è necessario un manifesto, ovvero un file `.nuspec`, c
     nuget spec
     ```
 
-1. Aprire il file in un editor di testo. Il manifesto è simile al codice sotto, dove i token nel formato *$`<token>`$* devono essere sostituiti durante il processo di creazione del pacchetto con i valori del file Properties/AssemblyInfo.cs del progetto. Per altre informazioni dettagliate sui token, vedere [Creazione di un file con estensione nuspec](../create-packages/creating-a-package.md#creating-the-nuspec-file).
+1. Aprire il file in un editor di testo. Il manifesto è simile al codice sotto, dove i token nel formato `<token>` (ad esempio, `$id$`) devono essere sostituiti durante il processo di creazione del pacchetto con i valori del file Properties/AssemblyInfo.cs del progetto. Per altre informazioni dettagliate sui token, vedere [Creazione di un file con estensione nuspec](../create-packages/creating-a-package.md#creating-the-nuspec-file).
 
     ```xml
     <?xml version="1.0"?>
@@ -115,7 +115,6 @@ Dopo avere creato un file `.nupkg`, lo si pubblica in nuget.org usando il comand
 > [!Warning]
 > I pacchetti pubblicati in nuget.org sono visibili pubblicamente dagli altri sviluppatori. Per ospitare i pacchetti privatamente, vedere [Hosting dei pacchetti](../hosting-packages/overview.md).
 
-
 1. Creare un account gratuito in [nuget.org](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) o eseguire l'accesso se ne è già disponibile uno. Quando si crea un nuovo account, viene inviato un messaggio di posta elettronica di conferma. È necessario confermare l'account prima di poter caricare un pacchetto.
 
 1. Dopo avere eseguito l'accesso, selezionare il nome utente (in alto a destra), quindi selezionare **Chiavi API**.
@@ -134,7 +133,7 @@ Dopo avere creato un file `.nupkg`, lo si pubblica in nuget.org usando il comand
     ```
     nuget push AppLogger.1.0.0.0.nupkg 47be3377-c434-4c29-8576-af7f6993a54b -Source https://api.nuget.org/v3/index.json
     ```
-    
+
 1. nuget.exe visualizza i risultati del processo di pubblicazione:
 
     ```

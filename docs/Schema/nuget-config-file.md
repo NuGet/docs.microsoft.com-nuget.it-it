@@ -13,11 +13,11 @@ keywords: File NuGet. config, informazioni di riferimento sulla configurazione N
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: fa471e1ad419c6a4cab99e271375d9be94c29a50
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 830c622f622b894a228b18dfdb3a790bccfde8a3
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="nugetconfig-reference"></a>Informazioni di riferimento su NuGet.config
 
@@ -25,18 +25,17 @@ Il comportamento di NuGet è controllato da impostazioni in diversi file `NuGet.
 
 `NuGet.Config` è un file XML contenente un nodo `<configuration>` di livello superiore, che contiene a sua volta gli elementi per le sezioni descritte in questo argomento. Ogni sezione contiene zero o più elementi `<add>` con gli attributi `key` e `value`. Vedere il [file di configurazione di esempio](#example-config-file). Per i nomi delle impostazioni non viene fatta distinzione tra maiuscole e minuscole e per i valori si possono usare [variabili di ambiente](#using-environment-variables).
 
-Contenuto dell'argomento:
+In questo argomento
 
 - [Sezione config](#config-section)
 - [Sezione bindingRedirects](#bindingredirects-section)
 - [Sezione packageRestore](#packagerestore-section)
 - [Sezione solution](#solution-section)
-- [Sezioni per le origini dei pacchetti](#package-source-sections):
-    - [packageSources](#packagesources)
-    - [packageSourceCredentials](#packagesourcecredentials)
-    - [apikeys](#apikeys)
-    - [disabledPackageSources](#disabledpackagesources)
-    - [activePackageSource](#activepackagesource)
+- [Sezioni per le origini dei pacchetti](#package-source-sections): -[packageSources](#packagesources)
+  - [packageSourceCredentials](#packagesourcecredentials)
+  - [apikeys](#apikeys)
+  - [disabledPackageSources](#disabledpackagesources)
+  - [activePackageSource](#activepackagesource)
 - [Uso delle variabili di ambiente](#using-environment-variables)
 - [File di configurazione di esempio](#example-config-file)
 
@@ -59,7 +58,6 @@ Nota: `dependencyVersion` e `repositoryPath` si applicano solo ai progetti che u
 | defaultPushSource | Identifica l'URL o il percorso dell'origine del pacchetto che deve essere usato come impostazione predefinita se non vengono trovate altre origini di pacchetti per un'operazione. |
 | http_proxy http_proxy.user http_proxy.password no_proxy | Impostazioni del proxy da usare per la connessione a origini di pacchetti. `http_proxy` deve essere nel formato `http://<username>:<password>@<domain>`. Le password vengono crittografate e non possono essere aggiunte manualmente. Per `no_proxy`, il valore è un elenco delimitato da virgole di domini per il bypass del server proxy. In alternativa, è possibile usare le variabili di ambiente http_proxy e no_proxy per questi valori. Per altri dettagli, vedere [NuGet proxy settings](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (Impostazioni del proxy NuGet) (skolima.blogspot.com). |
 
-
 **Esempio**:
 
 ```xml
@@ -70,7 +68,6 @@ Nota: `dependencyVersion` e `repositoryPath` si applicano solo ai progetti che u
     <add key="http_proxy" value="http://company-squid:3128@contoso.com" />
 </config>
 ```
-
 
 ## <a name="bindingredirects-section"></a>Sezione bindingRedirects
 
@@ -116,7 +113,6 @@ Controlla se la cartella `packages` di una soluzione è inclusa nel controllo de
 | --- | --- |
 | disableSourceControlIntegration | Valore booleano che indica se ignorare la cartella dei pacchetti quando si utilizza il controllo del codice sorgente. Il valore predefinito è false. |
 
-
 **Esempio**:
 
 ```xml
@@ -125,13 +121,13 @@ Controlla se la cartella `packages` di una soluzione è inclusa nel controllo de
 </solution>
 ```
 
-
 ## <a name="package-source-sections"></a>Sezioni per le origini dei pacchetti
 
 Le sezioni `packageSources`, `packageSourceCredentials`, `apikeys`, `activePackageSource` e `disabledPackageSources` interagiscono tutte per configurare il funzionamento di NuGet con i repository dei pacchetti durante le operazioni di installazione, ripristino e aggiornamento.
 
 Il [comando `nuget sources`](../tools/cli-ref-sources.md) viene generalmente usato per gestire queste impostazioni, ad eccezione della sezione `apikeys` che viene gestita con il [comando `nuget setapikey`](../tools/cli-ref-setapikey.md).
 
+Si noti che l'URL di origine di nuget.org è `https://api.nuget.org/v3/index.json`.
 
 ### <a name="packagesources"></a>packageSources
 
@@ -151,14 +147,13 @@ Elenca tutte le origini di pacchetti note.
 </packageSources>
 ```
 
-
 ### <a name="packagesourcecredentials"></a>packageSourceCredentials
 
 Archivia i nomi utente e le password per le origini, in genere specificati con le opzioni `-username` e `-password` con `nuget sources`. Le password vengono crittografate per impostazione predefinita, a meno che non venga usata anche l'opzione `-storepasswordincleartext`.
 
 | Chiave | Valore |
 | --- | --- |
-| username | Nome utente per l'origine in testo normale. |
+| nomeutente | Nome utente per l'origine in testo normale. |
 | password | Password crittografata per l'origine. |
 | cleartextpassword | Password non crittografata per l'origine. |
 
@@ -190,7 +185,7 @@ Quando si usano password non crittografate:
     <Test_x0020_Source>
         <add key="Username" value="user" />
         <add key="ClearTextPassword" value="hal+9ooo_da!sY" />
-    </Test_x0020_Source>    
+    </Test_x0020_Source>
 </packageSourceCredentials>
 ```
 
@@ -210,7 +205,6 @@ Archivia le chiavi per le origini che usano l'autenticazione con chiave API, in 
 </apikeys>
 ```
 
-
 ### <a name="disabledpackagesources"></a>disabledPackageSources
 
 Identifica le origini attualmente disabilitate. Può essere vuoto.
@@ -218,8 +212,6 @@ Identifica le origini attualmente disabilitate. Può essere vuoto.
 | Chiave | Valore |
 | --- | --- |
 | (nome dell'origine) | Valore booleano che indica se l'origine è disabilitata. |
-
-
 
 **Esempio:**
 
@@ -263,7 +255,6 @@ Ad esempio, se la variabile di ambiente `HOME` in Windows è impostata su `c:\us
 In modo analogo, se la variabile `HOME` in Mac/Linux è impostata su `/home/myStuff`, `$HOME/NuGetRepository` nel file di configurazione viene risolto in `/home/myStuff/NuGetRepository`.
 
 Se non viene trovata una variabile di ambiente, NuGet usa il valore letterale dal file di configurazione.
-
 
 ## <a name="example-config-file"></a>File di configurazione di esempio
 

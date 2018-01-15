@@ -13,11 +13,11 @@ keywords: Installazione del pacchetto NuGet, reinstallazione del pacchetto NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 898a431af4ed2e090b87d97bf43cec965b72d3c3
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 6a198b371c86166e2bcdee7f6cf2a6c971bea0a3
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Come reinstallare e aggiornare pacchetti
 
@@ -25,13 +25,14 @@ Esistono diverse situazioni, descritte di seguito in [Quando reinstallare un pac
 
 Le operazioni di aggiornamento e reinstallazione dei pacchetti vengono eseguite come indicato di seguito:
 
-| Metodo | Aggiornamento | Reinstallazione | 
+| Metodo | Aggiorna | Reinstallazione | 
 | --- | --- | --- |
 | Console di Gestione pacchetti (descritta in [Uso di Update-Package](#using-update-package)) | Comando `Update-Package` | Comando `Update-Package -reinstall` |
 | Interfaccia utente di Gestione pacchetti | Nella scheda **Aggiornamenti** selezionare uno o più pacchetti e selezionare **Aggiorna**. | Nella scheda **Installati** selezionare un pacchetto, registrarne il nome e quindi selezionare **Disinstalla**. Passare alla scheda **Sfoglia**, cercare il nome del pacchetto, selezionarlo e quindi selezionare **Installa**. |
 | Interfaccia della riga di comando di nuget.exe | Comando `nuget update` | Per tutti i pacchetti, eliminare la cartella del pacchetto e quindi eseguire `nuget install`. Per un singolo pacchetto, eliminare la cartella del pacchetto e usare `nuget install <id>` per reinstallarla. |
 
-Contenuto dell'argomento:
+Contenuto dell'articolo:
+
 - [Quando reinstallare un pacchetto](#when-to-reinstall-a-package)
 - [Limitazione delle versioni per l'aggiornamento](#constraining-upgrade-versions)
 
@@ -39,7 +40,7 @@ Contenuto dell'argomento:
 
 1. **Riferimenti interrotti dopo il ripristino del pacchetto**: se è stato aperto un progetto e i pacchetti NuGet sono stati ripristinati, ma sono ancora presenti riferimenti interrotti, provare a reinstallare ognuno dei pacchetti.
 1. **Progetto interrotto in seguito all'eliminazione di file**: NuGet non impedisce di rimuovere elementi aggiunti dai pacchetti, pertanto è facile modificare inavvertitamente il contenuto installato da un pacchetto e interrompere il progetto. Per ripristinare il progetto, reinstallare i pacchetti interessati.
-1. **Progetto interrotto in seguito a un aggiornamento pacchetto**: se un aggiornamento a un pacchetto comporta l'interruzione di un progetto, l'errore è causato in genere da un pacchetto di dipendenze che potrebbe essere stato a sua volta interrotto. Per ripristinare lo stato della dipendenza, reinstallare il pacchetto specifico.
+1. **Progetto interrotto in seguito a un aggiornamento pacchetto**: se un aggiornamento a un pacchetto comporta l'interruzione di un progetto, l'errore è causato in genere da un pacchetto di dipendenze che potrebbe essere stato a sua volta aggiornato. Per ripristinare lo stato della dipendenza, reinstallare il pacchetto specifico.
 1. **Ridestinazione o aggiornamento del progetto**: può essere utile quando un progetto è stato ridestinato o aggiornato e se il pacchetto richiede la reinstallazione a causa di una modifica al framework di destinazione. In questi casi NuGet 2.7 e versioni successive mostrano un errore di compilazione immediatamente dopo la ridestinazione del progetto e avvisi di compilazione successivi informano che il pacchetto potrebbe dover essere reinstallato. Per l'aggiornamento del progetto, NuGet mostra un errore nel log di aggiornamento del progetto.
 1. **Reinstallazione di un pacchetto durante lo sviluppo**: gli autori di pacchetti hanno spesso bisogno di reinstallare la stessa versione del pacchetto che stanno sviluppando per testarne il comportamento. Il comando `Install-Package` non fornisce un'opzione per forzare la reinstallazione, pertanto usare `Update-Package -reinstall` in alternativa.
 

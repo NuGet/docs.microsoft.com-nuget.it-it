@@ -13,15 +13,15 @@ keywords: Domande frequenti NuGet, domande e risposte, problemi comuni, versioni
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 105fa6e1cad3d163b673376c74ce9c835a0b5059
-ms.sourcegitcommit: 122bf7ce308365ea45da018b0768f0536de76a1f
+ms.openlocfilehash: d19a24a2d1955e996e18d44fee346865d36493f8
+ms.sourcegitcommit: e5b7cf6675be9891341c196afe822cea6f71d60c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="nuget-frequently-asked-questions"></a>Domande frequenti su NuGet
 
-Contenuto dell'argomento:
+In questo argomento
 
 - [Introduzione](#getting-started)
 - [NuGet in Visual Studio](#nuget-in-visual-studio)
@@ -57,9 +57,9 @@ Per altre informazioni, vedere [Ricerca e scelta di pacchetti](../Consume-Packag
 **Come viene supportato NuGet nei diversi prodotti Visual Studio?**
 
 - Visual Studio in Windows supporta l'[interfaccia utente di Gestione pacchetti](../tools/Package-Manager-UI.md) e la [console di Gestione pacchetti](../tools/Package-Manager-Console.md).
-- Visual Studio per Mac include funzionalità incorporate di NuGet come descritto in [Inserimento di un pacchetto NuGet nel progetto](https://docs.microsoft.com/visualstudio/mac/nuget-walkthrough).
+- Visual Studio per Mac include funzionalità incorporate di NuGet come descritto in [Inserimento di un pacchetto NuGet nel progetto](/visualstudio/mac/nuget-walkthrough).
 - Visual Studio Code (tutte le piattaforme) non include alcuna integrazione diretta di NuGet. Usare l'[interfaccia della riga di comando di NuGet](../tools/nuget-exe-CLI-Reference.md) o l'[interfaccia della riga di comando di dotnet](../tools/dotnet-commands.md).
-- Visual Studio Team Services offre [un passaggio di compilazione per il ripristino dei pacchetti NuGet](https://docs.microsoft.com/vsts/build-release/tasks/package/nuget). È anche possibile [ospitare feed di pacchetti NuGet privati in Team Services](https://www.visualstudio.com/docs/package/nuget/publish).
+- Visual Studio Team Services offre [un passaggio di compilazione per il ripristino dei pacchetti NuGet](/vsts/build-release/tasks/package/nuget). È anche possibile [ospitare feed di pacchetti NuGet privati in Team Services](https://www.visualstudio.com/docs/package/nuget/publish).
 
 **Come è possibile controllare la versione esatta degli strumenti di NuGet installati?**
 
@@ -101,7 +101,7 @@ Sì, è possibile aggiungere comandi personalizzati a `nuget.exe`, come descritt
 
 **Qual è la procedura per ottenere l'accesso all'oggetto DTE nella console di Gestione pacchetti**
 
-L'oggetto di primo livello nel modello a oggetti di automazione di Visual Studio viene chiamato oggetto DTE (Development Tools Environment). La console rende disponibile questo oggetto tramite una variabile denominata `$DTE`. Per altre informazioni, vedere [Cenni preliminari sul modello di automazione](https://docs.microsoft.com/visualstudio/extensibility/internals/automation-model-overview) nella documentazione sull'estendibilità di Visual Studio.
+L'oggetto di primo livello nel modello a oggetti di automazione di Visual Studio viene chiamato oggetto DTE (Development Tools Environment). La console rende disponibile questo oggetto tramite una variabile denominata `$DTE`. Per altre informazioni, vedere [Cenni preliminari sul modello di automazione](/visualstudio/extensibility/internals/automation-model-overview) nella documentazione sull'estendibilità di Visual Studio.
 
 **Quando si tenta di eseguire il cast della variabile $DTE al tipo DTE2 viene visualizzato un errore: Impossibile convertire il valore "EnvDTE.DTEClass" di tipo "EnvDTE.DTEClass" al tipo "EnvDTE80.DTE2". Qual è il problema?**
 
@@ -177,9 +177,9 @@ Se per un pacchetto non sono specificate le condizioni di licenza, contattare il
 
 ## <a name="managing-packages-on-nugetorg"></a>Gestione dei pacchetti in nuget.org
 
-**È possibile modificare i metadati del pacchetto dopo che è stato caricato? Per quale motivo si consiglia di modificare il file nuspec e di caricare un nuovo pacchetto per apportare modifiche ai metadati del pacchetto?**
+**È possibile modificare i metadati del pacchetto dopo che è stato caricato? Per quale motivo si richiede di modificare il file nuspec e di caricare un nuovo pacchetto per apportare modifiche ai metadati del pacchetto?**
 
-NuGet implementerà la firma dei pacchetti. Uno dei principi di progettazione della firma dei pacchetti è che il contenuto del pacchetto firmato non deve essere modificabile e ciò include il file nuspec. La modifica dei metadati del pacchetto comporta modifiche al file nuspec, invalidando le firme esistenti. Si consiglia di modificare i flussi di lavoro esistenti in modo da non richiedere la modifica dei metadati del pacchetto dopo aver creato il pacchetto.
+NuGet richiede che tutti i pacchetti siano firmati. Uno dei principi di progettazione della firma dei pacchetti è che il contenuto del pacchetto firmato non deve essere modificabile e ciò include il file nuspec. La modifica dei metadati del pacchetto comporta modifiche al file nuspec, invalidando le firme esistenti. Si consiglia di modificare i flussi di lavoro esistenti in modo da non richiedere la modifica dei metadati del pacchetto dopo aver creato il pacchetto.
 
 Si noti che le dipendenze elencate per il pacchetto vengono generate automaticamente dal pacchetto stesso e non possono essere modificate.
 

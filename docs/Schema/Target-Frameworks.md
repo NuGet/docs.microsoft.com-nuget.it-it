@@ -14,11 +14,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 4d1d2e6850f22306d715b1c2071ee45b0eb050dc
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 36e1f0cd6e4284a6bd272ce3c85749e9ed72cbcd
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="target-frameworks"></a>Framework di destinazione
 
@@ -40,7 +40,7 @@ In genere si fa riferimento a un framework tramite un breve moniker del framewor
 
 I client NuGet supportano i framework nella tabella seguente. Gli equivalenti sono visualizzati tra parentesi quadre []. Si noti che alcuni strumenti, ad esempio `dotnet`, potrebbero usare varianti dei moniker TFM canonici in alcuni file. Ad esempio, `dotnet pack` usa `.NETCoreApp2.0` in un file `.nuspec` invece di `netcoreapp2.0`. I vari strumenti client NuGet gestiscono queste variazioni correttamente, ma è consigliabile usare sempre i TFM canonici quando si modificano direttamente i file.
 
-| Nome           | Abbreviazione | TFM/TxM |
+| nome           | Abbreviazione | TFM/TxM |
 | -------------  | ------------ | --------- |
 |.NET Framework  | net          | net11     |
 |                |              | net20     |
@@ -53,12 +53,12 @@ I client NuGet supportano i framework nella tabella seguente. Gli equivalenti so
 |                |              | net46      |
 |                |              | net461     |
 |                |              | net462     |
-|Windows Store   | netcore      | netcore [netcore45] |
+|Microsoft Store (Windows Store) | netcore      | netcore [netcore45] |
 |                |              | netcore45 [win, win8] |
 |                |              | netcore451 [win81] |
 |                |              | netcore50 |
 |.NET MicroFramework | netmf    | netmf |
-|Windows         | win          | win [win8, netcore45] |
+|WINDOWS         | win          | win [win8, netcore45] |
 | | | win8 [netcore45, win] |
 | | | win81 [netcore451] |
 | | | win10 (non supportato dalla piattaforma Windows 10) |
@@ -122,7 +122,7 @@ Alcuni framework sono correlati e compatibili tra loro, ma non necessariamente e
 
 ## <a name="net-platform-standard"></a>NET Platform Standard
 
-[.NET Platform Standard](https://github.com/dotnet/corefx/blob/master/Documentation/architecture/net-platform-standard.md) semplifica i riferimenti tra framework compatibili con il codice binario, consentendo a un framework di destinazione singolo di fare riferimento a una combinazione di altri framework. (Per informazioni generali, vedere [Nozioni di base su .NET](https://docs.microsoft.com/dotnet/articles/standard/index).)
+[.NET Platform Standard](https://github.com/dotnet/corefx/blob/master/Documentation/architecture/net-platform-standard.md) semplifica i riferimenti tra framework compatibili con il codice binario, consentendo a un framework di destinazione singolo di fare riferimento a una combinazione di altri framework. (Per informazioni generali, vedere [Nozioni di base su .NET](/dotnet/articles/standard/index).)
 
 Lo [strumento NuGet Get Nearest Framework](https://aka.ms/s2m3th) simula la logica usata da NuGet per la selezione di un framework da molte risorse di framework disponibili in un pacchetto sulla base del framework di progetto.
 
@@ -282,7 +282,7 @@ I framework aggiuntivi definiti da terze parti garantiscono la compatibilità co
 
 Inoltre, i pacchetti NuGet destinati a Xamarin possono usare framework aggiuntivi definiti da Xamarin. Vedere [Manually Creating NuGet Packages for Xamarin](https://developer.xamarin.com/guides/cross-platform/advanced/nuget/) (Creazione manuale di pacchetti NuGet per Xamarin).
 
-| Nome | Descrizione | .NET Standard |
+| nome | Descrizione | .NET Standard |
 | --- | --- | ---
 | monoandroid | Supporto di Mono per sistema operativo Android | netstandard1.4 |
 | monotouch | Supporto di Mono per iOS | netstandard1.4 |

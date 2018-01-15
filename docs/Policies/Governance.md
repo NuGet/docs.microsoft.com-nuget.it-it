@@ -13,11 +13,11 @@ keywords: "Governance NuGet, dittatore benevolo NuGet, responsabilità dei commi
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: db2ed774b35d5698a88f9afba43fd30692001f6a
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 0437b7d41f965da6a7ad44a7d0675916ed655fe1
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-governance"></a>Governance per NuGet
 
@@ -47,7 +47,7 @@ In genere, un committer si concentra su un aspetto specifico del progetto e offr
 
 I committer non esercitano alcuna autorità in merito alla direzione generale del progetto NuGet. Sono tuttavia ascoltati dal responsabile del progetto. Il committer è tenuto ad assicurarsi che il responsabile sia a conoscenza delle esigenze e degli obiettivi collettivi della community e a contribuire allo sviluppo o alla sollecitazione di contributi appropriati per il progetto. Ai committer viene spesso accordato il controllo informale delle loro aree di responsabilità specifiche e vengono loro assegnati i diritti per la modifica diretta di determinate aree del codice sorgente. Ciò significa che, anche se i committer non hanno un'autorità decisionale esplicita, spesso si ritroveranno a compiere azioni in linea con le decisioni prese dal responsabile.
 
-### <a name="contributors"></a>Collaboratori
+### <a name="contributors"></a>Contributors
 
 I collaboratori sono membri della community che inviano patch per NuGet. Queste patch possono essere singoli contributi oppure periodiche. Ci si aspetta che i collaboratori inviino patch inizialmente piccole e progressivamente più estese, man mano che il collaboratore, i committer e il responsabile del progetto acquisiscono sicurezza sulla qualità delle patch di un collaboratore. Per i collaboratori è previsto un riconoscimento nel documento delle note sulla versione del prodotto associato.
 
