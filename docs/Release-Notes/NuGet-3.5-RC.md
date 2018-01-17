@@ -109,7 +109,7 @@ ms.lasthandoff: 12/14/2017
 
 * <span data-ttu-id="5e589-156">Rimuovere la proprietà bloccata dal file di blocco - [#2379](https://github.com/NuGet/Home/issues/2379)</span><span class="sxs-lookup"><span data-stu-id="5e589-156">Remove the locked property from the lock file - [#2379](https://github.com/NuGet/Home/issues/2379)</span></span>
 
-* <span data-ttu-id="5e589-157">Pacchetti dei simboli non devono mai essere utilizzati nell'installare o aggiornare &#2807;</span><span class="sxs-lookup"><span data-stu-id="5e589-157">Symbol packages should not ever be used in install or update #2807</span></span>
+* <span data-ttu-id="5e589-157">Pacchetti dei simboli non devono mai essere utilizzati nell'installare o aggiornare #2807</span><span class="sxs-lookup"><span data-stu-id="5e589-157">Symbol packages should not ever be used in install or update #2807</span></span>
 
 ## <a name="features"></a><span data-ttu-id="5e589-158">Funzionalità</span><span class="sxs-lookup"><span data-stu-id="5e589-158">Features</span></span>
 
