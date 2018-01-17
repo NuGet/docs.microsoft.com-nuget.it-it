@@ -109,7 +109,7 @@ versione 3.5 è incentrata sul miglioramento della qualità e prestazioni dei cl
 
 * Rimuovere la proprietà bloccata dal file di blocco - [#2379](https://github.com/NuGet/Home/issues/2379)
 
-* Pacchetti dei simboli non devono mai essere utilizzati nell'installare o aggiornare &#2807;
+* Pacchetti dei simboli non devono mai essere utilizzati nell'installare o aggiornare #2807
 
 ## <a name="features"></a>Funzionalità
 
