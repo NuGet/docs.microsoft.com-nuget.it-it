@@ -44,7 +44,7 @@ Si ringraziano i collaboratori esterni seguenti per il loro contributo significa
 1. [Kevin Boyle](http://www.codeplex.com/site/users/view/KevinBoyleRG) ([@kevfromireland](https://twitter.com/kevfromireland))
     - [#3234](http://nuget.codeplex.com/workitem/3234) -abilitare il supporto per il progetto Nomad
 1. [Corin Blaikie](http://www.codeplex.com/site/users/view/corinblaikie) ([@corinblaikie](https://twitter.com/corinblaikie))
-    - [&#3252;](http://nuget.codeplex.com/workitem/3252) -correzione push comando non riesce con exit codice 0 quando il file non esiste.
+    - [#3252](http://nuget.codeplex.com/workitem/3252) -correzione push comando non riesce con exit codice 0 quando il file non esiste.
 1. [Martin Veselý](http://www.codeplex.com/site/users/view/veselkamartin)
     - [#3226](http://nuget.codeplex.com/workitem/3226) -correzione di bug con il comando Add-BindingRedirect quando un progetto fa riferimento a un progetto di database.
 1. [Miroslav Bajtos](http://www.codeplex.com/site/users/view/miroslavbajtos) ([@bajtos](https://twitter.com/bajtos))

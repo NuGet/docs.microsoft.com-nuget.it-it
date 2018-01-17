@@ -13,11 +13,11 @@ keywords: riferimento pacchetto NuGet, il comando di Service pack
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 22643ee4c7d5f858da728ba9d9d2886d600d20f0
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 0dbecb8f01acf781ab8d2e77e8df7fa405f74cf1
+ms.sourcegitcommit: d576d84fb4b6a178eb2ac11f55deb08ac771ba1c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="pack-command-nuget-cli"></a>comando Pack (NuGet CLI)
 
@@ -42,7 +42,7 @@ dove `<nuspecPath>` e `<projectPath>` specificare il `.nuspec` o un progetto di 
 | --- | --- |
 | BasePath | Imposta il percorso dei file definiti base il `.nuspec` file. |
 | Compilazione | Specifica che il progetto deve essere compilato prima di creare il pacchetto. |
-| Escludi | Specifica uno o più modelli jolly da escludere quando si crea un pacchetto. |
+| Escludi | Specifica uno o più modelli jolly da escludere quando si crea un pacchetto. Per specificare più di un modello, ripetere il flag-Exclude. Vedere l'esempio riportato di seguito. |
 | ExcludeEmptyDirectories | Impedisce l'inclusione di una directory vuota quando si compila il pacchetto. |
 | ForceEnglishOutput | *(3.5 +)*  Forza nuget.exe per eseguire utilizzando le impostazioni cultura invariante, in lingua inglese. |
 | ? | Visualizza la Guida informazioni per il comando. |
@@ -100,4 +100,6 @@ nuget pack foo.csproj -Build -Symbols -Properties owners=janedoe,xiaop;version="
 nuget pack foo.nuspec -Version 2.1.0
 
 nuget pack foo.nuspec -Version 1.0.0 -MinClientVersion 2.5
+
+nuget pack Package.nuspec -exclude "*.exe" -exclude "*.bat"
 ```

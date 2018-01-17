@@ -50,14 +50,14 @@ Si ringraziano i collaboratori esterni seguenti per il loro contributo significa
 1. [Maxime Brugidou](https://www.codeplex.com/site/users/view/brugidou) ([@brugidou](https://twitter.com/brugidou))
     - [#936](https://nuget.codeplex.com/workitem/936) -gestire le dipendenze di progetto quando compressione
 1. [Xavier Decoster](https://www.codeplex.com/site/users/view/XavierDecoster) ([@XavierDecoster](https://twitter.com/xavierdecoster))
-    - [#2991](https://nuget.codeplex.com/workitem/2991), [&#3164;](https://nuget.codeplex.com/workitem/3164) -supporto Password come testo non crittografato quando si archiviano le credenziali dell'origine del pacchetto nel file nuget.cofig
+    - [#2991](https://nuget.codeplex.com/workitem/2991), [#3164](https://nuget.codeplex.com/workitem/3164) -supporto Password come testo non crittografato quando si archiviano le credenziali dell'origine del pacchetto nel file nuget.cofig
 1. [Supervisione relativo personale James](http://www.codeplex.com/site/users/view/jmanning) ([@manningj](https://twitter.com/manningj))
-    - [&#3190;](http://nuget.codeplex.com/workitem/3190), [&#3191;](http://nuget.codeplex.com/workitem/3191) -descrizione della Guida correggere Get-Package
+    - [#3190](http://nuget.codeplex.com/workitem/3190), [#3191](http://nuget.codeplex.com/workitem/3191) -descrizione della Guida correggere Get-Package
 
 Si apprezza anche gli utenti seguenti per la ricerca di bug con NuGet 2.5 Beta o RC che sono stati approvati e risolto prima della versione finale:
 
 1. [Tony parete](https://www.codeplex.com/site/users/view/CodeChief) ([@CodeChief](https://twitter.com/codechief))
-    - [&#3200;](https://nuget.codeplex.com/workitem/3200) MSTest interrotto con più di recente NuGet 2.4 e 2.5 compilazioni:
+    - [#3200](https://nuget.codeplex.com/workitem/3200) MSTest interrotto con più di recente NuGet 2.4 e 2.5 compilazioni:
 
 # <a name="notable-features-in-the-release"></a>Importanti funzionalità nella versione
 
