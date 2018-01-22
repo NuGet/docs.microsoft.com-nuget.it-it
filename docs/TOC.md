@@ -1,5 +1,5 @@
 # [Che cos'è NuGet?](What-is-NuGet.md)
-# Guida introduttiva
+# Guida rapida
 ## [Creare e pubblicare un pacchetto](Quickstart/Create-and-Publish-a-Package.md)
 ## [Usare un pacchetto](Quickstart/Use-a-Package.md)
 # Guide
@@ -9,7 +9,6 @@
 ## [Creare pacchetti UWP](Guides/Create-UWP-Packages.md)
 ## [Creazione di controlli UWP come pacchetti NuGet](Guides/Create-UWP-Controls.md)
 ## [Creare pacchetti multipiattaforma](Guides/Create-Cross-Platform-Packages.md)
-## [Query per recuperare tutti i pacchetti tramite l'API](Guides/api/query-for-all-published-packages.md)
 # Creare pacchetti
 ## [Panoramica e flusso di lavoro](Create-Packages/Overview-and-Workflow.md)
 ## [Creazione di un pacchetto](Create-Packages/Creating-a-Package.md)
@@ -69,7 +68,7 @@
 ### [Uninstall-Package](Tools/ps-ref-uninstall-package.md)
 ### [Update-Package](Tools/ps-ref-update-package.md)
 ## [Comandi dotnet](Tools/dotnet-Commands.md)
-# Informazioni di riferimento
+# Riferimenti
 ## [.nuspec](Schema/nuspec.md)
 ## [packages.config](Schema/packages-config.md)
 ## [project.json](Schema/project-json.md)
@@ -86,6 +85,7 @@
 ### [Provider di credenziali nuget.exe](Reference/extensibility/nuget-exe-Credential-Providers.md)
 # API
 ## [Panoramica](API/overview.md)
+## [Procedura: Query per recuperare tutti i pacchetti tramite l'API](Guides/api/query-for-all-published-packages.md)
 ## [Indice dei servizi](API/service-index.md)
 ## [Push ed eliminazione](API/package-publish-resource.md)
 ## [Ricerca](API/search-query-service-resource.md)
