@@ -14,11 +14,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 53fccbb86f2920d870b5383070d043e25045a626
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 29eb72cbb6c095cd3aeb524fd8b28416ec5dc798
+ms.sourcegitcommit: 6ccb963e065680ab2e7df1d8dd5492897fd56b04
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="errors-and-warnings"></a>Errori e avvisi
 
@@ -31,7 +31,7 @@ Gli errori e avvisi elencati di seguito sono disponibili solo con [basato su Pac
 | Gruppo | Numeri di errore |
 | --- | --- |
 | [Errori di input non validi](#invalid-input-errors) | [NU1001](#nu1001), [NU1002](#nu1002), [NU1003](#nu1003) |
-| [Errori di pacchetto e progetto mancanti](#missing-package-and-project-errors) | [NU1100](#nu1100), [NU1101](#nu1101), [NU1102](#nu1102), [NU1103](#nu1103), [NU1104](#nu1104), [NU1105](#nu1105), [ NU1106](#nu1106), [NU1107](#nu1107) (in precedenza NU1607), [NU1108](#nu1107) (in precedenza NU1606) |
+| [Errori di pacchetto e progetto mancanti](#missing-package-and-project-errors) | [NU1100](#nu1100), [NU1101](#nu1101), [NU1102](#nu1102), [NU1103](#nu1103), [NU1104](#nu1104), [NU1105](#nu1105), [ NU1106](#nu1106), [NU1107](#nu1107) (in precedenza NU1607), [NU1108](#nu1108) (in precedenza NU1606) |
 | [Errori di compatibilità](#compatibility-errors) | [NU1201](#nu1201), [NU1202](#nu1202), [NU1203](#nu1203), [NU1401](#nu1401) |
 
 **Avvisi**
@@ -75,7 +75,7 @@ Gli errori e avvisi elencati di seguito sono disponibili solo con [basato su Pac
 
 ## <a name="missing-package-and-project-errors"></a>Errori di pacchetto e progetto mancanti
 
-[NU1100](#nu1100) | [NU1101](#nu1101) | [NU1102](#nu1102) | [NU1103](#nu1103) | [NU1104 ](#nu1104)  |  [NU1105](#nu1105) | [NU1106](#nu1106)
+[NU1100](#nu1100) | [NU1101](#nu1101) | [NU1102](#nu1102) | [NU1103](#nu1103) | [NU1104](#nu1104) | [NU1105](#nu1105) | [NU1106](#nu1106)
 
 ### <a name="nu1100"></a>NU1100
 
@@ -133,7 +133,7 @@ Gli errori e avvisi elencati di seguito sono disponibili solo con [basato su Pac
 | **Cause più comuni** | I pacchetti contengono dipendenza versioni esatte di un pacchetto anziché intervalli aperti. |
 | **Messaggio di esempio** | *Non è possibile soddisfare le richieste con conflitto per {id}: {percorso conflitto} Framework: {grafico di destinazione}* |
 
-< name = "NU1107 ></a>
+<a name="nu1107"></a> 
 
 ### <a name="nu1107-previously-nu1607"></a>NU1107 (in precedenza NU1607)
 
@@ -141,9 +141,9 @@ Gli errori e avvisi elencati di seguito sono disponibili solo con [basato su Pac
 | --- | --- |
 | **Problema** | Impossibile risolvere i vincoli di dipendenza tra pacchetti. |
 | **Cause più comuni** | Pacchetti con vincoli di dipendenza in versioni esatte non consentono altri pacchetti per incrementare la versione, se necessario. |
-| **Messaggio di esempio** | *Conflitto di versione per NuGet.Versioning. Fare riferimento il pacchetto direttamente dal progetto per risolvere il problema.<br/>  NuGet. Packaging 3.5.0 -> NuGet.Versioning (= 3.5.0)<br/> NuGet.Configuration 4.0.0 -> NuGet.Versioning (4.0.0 =)* |
+| **Messaggio di esempio** | *Conflitto di versione per NuGet.Versioning. Fare riferimento il pacchetto direttamente dal progetto per risolvere il problema.<br/>  NuGet.Packaging 3.5.0 -> NuGet.Versioning (= 3.5.0)<br/>  NuGet.Configuration 4.0.0 -> NuGet.Versioning (= 4.0.0)* |
 
-< name = "NU1108 ></a>
+<a name="nu1108"></a>
 
 ### <a name="nu1108-previously-nu1606"></a>NU1108 (in precedenza NU1606)
 
@@ -259,11 +259,9 @@ Gli errori e avvisi elencati di seguito sono disponibili solo con [basato su Pac
 | --- | --- |
 | **Problema** | Un pacchetto di dipendenza è specificato un vincolo di versione in una versione superiore di un pacchetto rispetto al ripristino risolta. |
 | **Cause più comuni** | Più vicino wins per la risoluzione dei pacchetti. Un pacchetto più vicini nel grafico può avere sottoposto a override un pacchetto distante. |
-| **Messaggio di esempio** | *Rilevato downgrade del pacchetto: NuGet.Versioning da 4.0.0 a 3.5.0. Fare riferimento il pacchetto direttamente dal progetto per selezionare una versione diversa.<br/>  NuGet. Packaging 3.5.0 -> NuGet.Versioning 3.5.0<br/> NuGet.Commands 4.0.0 -> NuGet.Configuration 4.0.0 -> NuGet.Versioning 4.0.0* |
+| **Messaggio di esempio** | *Rilevato downgrade del pacchetto: NuGet.Versioning da 4.0.0 a 3.5.0. Fare riferimento il pacchetto direttamente dal progetto per selezionare una versione diversa.<br/>  NuGet.Packaging 3.5.0 -> NuGet.Versioning 3.5.0<br/>  NuGet.Commands 4.0.0 -> NuGet.Configuration 4.0.0 -> NuGet.Versioning 4.0.0* |
 
 ## <a name="resolver-conflict-warnings"></a>Avvisi di sistema di risoluzione dei conflitti
-
-[NU1608](#nu1608)
 
 ### <a name="nu1608"></a>NU1608
 
@@ -275,8 +273,6 @@ Gli errori e avvisi elencati di seguito sono disponibili solo con [basato su Pac
 
 ## <a name="package-fallback-warnings"></a>Avvisi di fallback di pacchetto
 
-[NU1701](#nu1701)
-
 ### <a name="nu1701"></a>NU1701
 
 | | |
@@ -286,8 +282,6 @@ Gli errori e avvisi elencati di seguito sono disponibili solo con [basato su Pac
 | **Messaggio di esempio** | *Pacchetto 'NuGet.Versioning' è stato ripristinato mediante 'portable net45 + win8' invece del framework di destinazione del progetto 'netstandard1.5'. Questo pacchetto potrebbe non essere completamente compatibile con il progetto.* |
 
 ## <a name="feed-warnings"></a>Feed di avvisi
-
-[NU1801](#nu1801)
 
 ### <a name="nu1801"></a>NU1801
 
