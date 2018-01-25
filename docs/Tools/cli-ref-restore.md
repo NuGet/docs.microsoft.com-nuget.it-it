@@ -3,48 +3,43 @@ title: Comando di ripristino NuGet CLI | Documenti Microsoft
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 6ee41020-e548-4e61-b8cd-c82b77ac6af7
 description: Riferimento per il comando di ripristino di nuget.exe
 keywords: NuGet riferimento di ripristino, ripristinare il comando di pacchetti
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b435a3c2ffe08e3c2f8fc6a4dacb06cf674e4fb9
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 93d7b6967d9297ee822df1583351385210775173
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="restore-command-nuget-cli"></a>comando di ripristino (NuGet CLI)
 
 **Si applica a:** pacchetto consumo &bullet; **le versioni supportate:** 2.7 +
 
-NuGet 2.7 +: Scarica e installa tutti i pacchetti manca il `packages` cartella.
+Scarica e installa tutti i pacchetti manca il `packages` cartella. Se utilizzato con NuGet 4.0 + e il formato PackageReference, genera un `<project>.nuget.props` file, se necessario, nel `obj` cartella. (Il file può essere omesso dal controllo del codice sorgente).
 
-NuGet 3.3 + con i progetti utilizzando `project.json`: genera un `project.lock.json` file e un `<project>.nuget.props` file, se necessario. (Entrambi i file possono essere omesso dal controllo del codice sorgente).
-
-NuGet 4.0 + con progetto in cui pacchetto riferimenti sono inclusi direttamente nel file di progetto: genera un `<project>.nuget.props` file, se necessario, nel `obj` cartella. (Il file può essere omesso dal controllo del codice sorgente).
-
-In Mac OSX e Linux con l'interfaccia CLI su Mono, ripristino dei pacchetti non è supportato con il formato PackageReference.
+In Mac OSX e Linux con l'interfaccia CLI su Mono, il ripristino di pacchetti non è supportato con PackageReference.
 
 ## <a name="usage"></a>Utilizzo
 
-```
+```cli
 nuget restore <projectPath> [options]
 ```
 
-dove `<projectPath>` specifica il percorso di una soluzione, un `packages.config` file, o un `project.json` file. Vedere [osservazioni](#remarks) sotto per informazioni dettagliate di comportamento.
+dove `<projectPath>` specifica il percorso di una soluzione o un `packages.config` file. Vedere [osservazioni](#remarks) sotto per informazioni dettagliate di comportamento.
 
 ## <a name="options"></a>Opzioni
 
 | Opzione | Descrizione |
 | --- | --- |
 | ConfigFile | Il file di configurazione NuGet da applicare. Se non specificato, *%AppData%\NuGet\NuGet.Config* viene utilizzato. |
-| Download diretti | *(4.0 +)*  Scarica i pacchetti direttamente senza popolamento della cache con qualsiasi file binari o metadati. |
+| DirectDownload | *(4.0 +)*  Scarica i pacchetti direttamente senza popolamento della cache con qualsiasi file binari o metadati. |
 | DisableParallelProcessing | Disabilita il ripristino di più pacchetti in parallelo. |
 | FallbackSource | *(3.2 +)*  Un elenco delle origini pacchetto da utilizzare come fallback nel caso in cui il pacchetto non viene trovato nel database primario o di origine predefinita. |
 | ForceEnglishOutput | *(3.5 +)*  Forza nuget.exe per eseguire utilizzando le impostazioni cultura invariante, in lingua inglese. |
@@ -52,7 +47,7 @@ dove `<projectPath>` specifica il percorso di una soluzione, un `packages.config
 | MSBuildPath | *(4.0 +)*  Specifica il percorso di MSBuild da usare con il comando, che avrà la precedenza `-MSBuildVersion`. |
 | MSBuildVersion | *(3.2 +)*  Specifica la versione di MSBuild da usare con questo comando. Valori supportati sono 4, 12, 14, 15. Per impostazione predefinita che viene selezionato il percorso di MSBuild, in caso contrario il valore predefinito la versione più aggiornata di MSBuild. |
 | NoCache | Impedisce l'utilizzo di pacchetti dalla cache locale NuGet. |
-| Non interattivo | Elimina richieste per l'input dell'utente o le conferme. |
+| NonInteractive | Elimina richieste per l'input dell'utente o le conferme. |
 | OutputDirectory | Specifica la cartella in cui sono installati i pacchetti. Se viene specificata alcuna cartella, viene utilizzata la cartella corrente. |
 | PackageSaveMode | Specifica i tipi di file da salvare dopo l'installazione del pacchetto: uno dei `nuspec`, `nupkg`, o `nuspec;nupkg`. |
 | PackagesDirectory | Uguale a `OutputDirectory`. |
@@ -61,7 +56,7 @@ dove `<projectPath>` specifica il percorso di una soluzione, un `packages.config
 | RequireConsent | Verifica che il ripristino dei pacchetti è abilitato prima di scaricare e installare i pacchetti. Per informazioni dettagliate, vedere [il ripristino del pacchetto](../consume-packages/package-restore.md). |
 | SolutionDirectory | Specifica la cartella della soluzione. Non è valido durante il ripristino dei pacchetti per una soluzione. |
 | Origine | Specifica l'elenco delle origini pacchetto (come URL) da usare per il ripristino. Se omesso, il comando Usa le origini disponibili in file di configurazione, vedere [il comportamento di configurazione NuGet](../Consume-Packages/Configuring-NuGet-Behavior.md). |
-| Livello di dettaglio |> specifica la quantità di dettagli visualizzati nell'output: *normale*, *quiet*, *dettagliate (2.5 +)*. |
+| Livello di dettaglio |> specifica la quantità di dettagli visualizzati nell'output: *normale*, *quiet*, *dettagliate*. |
 
 Vedere anche [le variabili di ambiente](cli-ref-environment-variables.md)
 
@@ -74,15 +69,14 @@ Il comando di ripristino esegue la procedura seguente:
     | --- | --- |
     Soluzione (cartella) | NuGet Cerca un `.sln` file e ne utilizza se trovato; in caso contrario, restituisce un errore. `(SolutionDir)\.nuget`viene utilizzata come cartella di avvio.
     `.sln`file | Ripristino dei pacchetti identificati dalla soluzione. Se si verifica un errore `-SolutionDirectory` viene utilizzato. `$(SolutionDir)\.nuget`viene utilizzata come cartella di avvio.
-    `packages.config`, `project.json`, o file di progetto | Ripristino dei pacchetti elencati nel file, risoluzione e installazione delle dipendenze.
+    `packages.config`o file di progetto | Ripristino dei pacchetti elencati nel file, risoluzione e installazione delle dipendenze.
     Altro tipo di file | File viene considerato un `.sln` file sopra; se non è una soluzione, NuGet consente un errore.
     (projectPath non specificato) | -NuGet cerca i file di soluzione nella cartella corrente. Se viene trovato un singolo file, che viene utilizzato per ripristinare i pacchetti; Se vengono trovate più soluzioni, NuGet consente di un errore.
-    |-Se non sono presenti file di soluzione, NuGet esegue la ricerca di un `packages.config` o `project.json` e utilizza quello per il ripristino dei pacchetti.
-    |-Se nessun file di soluzione `packages.config`, o `project.json` viene trovato, NuGet restituisce un errore.
+    |-Se non sono presenti file di soluzione, NuGet esegue la ricerca di un `packages.config` e utilizza quello per il ripristino dei pacchetti.
+    |-Se nessuna soluzione o `packages.config` file è stato trovato, NuGet restituisce un errore.
 
 1. Determinare la cartella di pacchetti utilizzando il seguente ordine di priorità (NuGet restituisce un errore se nessuna di queste cartelle si trovano):
 
-    - Il `%userprofile%\.nuget\packages` valore `project.json`.
     - La cartella specificata con `-PackagesDirectory`.
     - Il `repositoryPath` valore in`Nuget.Config`
     - La cartella specificata con`-SolutionDirectory`
@@ -95,7 +89,7 @@ Il comando di ripristino esegue la procedura seguente:
 
 ## <a name="examples"></a>Esempi
 
-```
+```cli
 # Restore packages for a solution file
 nuget restore a.sln
 

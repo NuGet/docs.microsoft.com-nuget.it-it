@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 4110a36a-cffe-4038-8da4-e841bce6e94b
 description: "Note sulla versione per NuGet 3.3 inclusi dcr, correzioni di bug, le funzionalità aggiunte e problemi noti."
 keywords: "3.3 NuGet note sulla versione, correzioni di bug, problemi noti, aggiunta di funzionalità, eseguire"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f35f7621db324957b0af8329cf9faa11493835e2
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: c83f87231497e14c36f1b8100b7bec720bb63b1c
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-33-release-notes"></a>Note sulla versione 3.3 di NuGet
 

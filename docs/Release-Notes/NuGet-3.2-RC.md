@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 330577fa-7965-4433-98ad-b4b4575e1452
 description: "Note sulla versione per NuGet 3.2 RC inclusi dcr, correzioni di bug, le funzionalità aggiunte e problemi noti."
 keywords: "NuGet 3.2 RC note sulla versione, correzioni di bug, problemi noti, aggiunta di funzionalità, eseguire"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 4b5f83f521cb326f5b3a5e6c202cdcb77acde5e2
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: b19f62217ed79689ce067107dd64dfffe2c59291
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-32-rc-release-notes"></a>Note sulla versione RC NuGet 3.2
 

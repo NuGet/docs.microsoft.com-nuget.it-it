@@ -7,25 +7,24 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 75a9b496-5762-48b6-922f-fdddf1369c45
 description: "Note sulla versione per NuGet 3.5 RC inclusi dcr, correzioni di bug, le funzionalità aggiunte e problemi noti."
 keywords: "NuGet 3.5 RC note sulla versione, correzioni di bug, problemi noti, aggiunta di funzionalità, eseguire"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 09d566de6f53bc0f0ddd8049143dc647f3075671
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: fdb84da5f1648ce4508afe6ddcf04bddd41284d3
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
-#<a name="35-rc-release-notes"></a>3.5 note sulla versione RC
+# <a name="nuget-35-rc-release-notes"></a>Note sulla versione RC NuGet 3.5
 
 [Note sulla versione 3.5 alla versione Beta 2 di NuGet](../release-notes/nuget-3.5-Beta2.md) | [NuGet 3.5-note sulla versione RTM](../release-notes/nuget-3.5-RTM.md)
 
 versione 3.5 è incentrata sul miglioramento della qualità e prestazioni dei client NuGet. Inoltre, è stato fornito alcune funzionalità come il supporto per [cartelle Fallback](https://github.com/NuGet/Home/issues/2899), [PackageType](https://github.com/NuGet/Home/issues/2476) supporta in `.nuspec` e altro ancora.
 
-[Elenco problemi](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%223.5 RC")
+[Elenco dei problemi](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%223.5 RC")
 
 ## <a name="bug-fixes"></a>Correzioni di bug
 

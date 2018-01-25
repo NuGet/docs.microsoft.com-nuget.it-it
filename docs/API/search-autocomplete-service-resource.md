@@ -11,17 +11,16 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: ead5cf7a-e51e-4cbb-8798-58226f4c853f
 description: Il servizio di completamento automatico di ricerca supporta le versioni e rilevamento interattivo di ID di pacchetto.
 keywords: API di completamento automatico NuGet, ID del pacchetto NuGet ricerca, ID di pacchetto sottostringa
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 313ceb630947b46c34b98e14044ecf121b725087
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 7c984ca61799293d7832851b80cf3fefc4734288
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="autocomplete"></a>Completamento automatico
 
@@ -51,19 +50,17 @@ Il primo completamento automatico API supporta la ricerca di parte di una string
 
 Un pacchetto con le versioni non in elenco non verrà visualizzati nei risultati.
 
-```
-GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
-```
+    GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
 
 ### <a name="request-parameters"></a>Parametri della richiesta
 
-Nome        | In     | Tipo    | Obbligatorio | Note
+nome        | In     | Tipo    | Obbligatorio | Note
 ----------- | ------ | ------- | -------- | -----
-q           | URL    | string  | No       | La stringa da confrontare con l'ID di pacchetto
+q           | URL    | stringa  | No       | La stringa da confrontare con l'ID di pacchetto
 skip        | URL    | numero intero | No       | Il numero di risultati da ignorare per l'impaginazione
 Take        | URL    | numero intero | No       | Il numero di risultati da restituire, per la paginazione
 versione provvisoria  | URL    | boolean | No       | `true`o `false` stabilire se includere [pacchetti pre-release](../create-packages/prerelease-packages.md)
-semVerLevel | URL    | string  | No       | Una stringa di versione SemVer 1.0.0 
+semVerLevel | URL    | stringa  | No       | Una stringa di versione SemVer 1.0.0 
 
 La query con completamento automatico `q` viene analizzato in modo che è definito dall'implementazione del server. NuGet.org supporta l'esecuzione di query per il prefisso di token ID di pacchetto, che sono pezzi dell'ID prodotto da [PROD143] e originale da caratteri iniziali di case e simboli.
 
@@ -83,16 +80,14 @@ La risposta è il documento JSON che contiene fino a `take` risultati di complet
 
 Oggetto JSON radice ha le proprietà seguenti:
 
-Nome      | Tipo             | Obbligatorio | Note
+nome      | Tipo             | Obbligatorio | Note
 --------- | ---------------- | -------- | -----
 totalHits | numero intero          | sì      | Il numero complessivo di corrispondenze, ignorando `skip` e`take`
 Data      | Matrice di stringhe | sì      | Il pacchetto corrispondente di ID dalla richiesta
 
 ### <a name="sample-request"></a>Richiesta di esempio
 
-```
-GET https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
-```
+OTTENERE https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
 
 ### <a name="sample-response"></a>Risposta di esempio
 
@@ -104,17 +99,15 @@ Dopo che viene rilevato un ID pacchetto tramite l'API precedente, un client può
 
 Una versione del pacchetto che è incluso nell'elenco non verrà visualizzato nei risultati.
 
-```
-GET {@id}?id={ID}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
-```
+    GET {@id}?id={ID}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
 
 ### <a name="request-parameters"></a>Parametri della richiesta
 
-Nome        | In     | Tipo    | Obbligatorio | Note
+nome        | In     | Tipo    | Obbligatorio | Note
 ----------- | ------ | ------- | -------- | -----
-ID          | URL    | string  | sì      | Per recuperare le versioni per l'ID del pacchetto
+ID          | URL    | stringa  | sì      | Per recuperare le versioni per l'ID del pacchetto
 versione provvisoria  | URL    | boolean | No       | `true`o `false` stabilire se includere [pacchetti pre-release](../create-packages/prerelease-packages.md)
-semVerLevel | URL    | string  | No       | Una stringa di versione SemVer 2.0.0 
+semVerLevel | URL    | stringa  | No       | Una stringa di versione SemVer 2.0.0 
 
 Se `prerelease` non viene fornito, vengono esclusi i pacchetti pre-release.
 
@@ -126,7 +119,7 @@ La risposta è il documento JSON che contiene tutte le versioni di pacchetto del
 
 Oggetto JSON radice dispone della proprietà seguente:
 
-Nome      | Tipo             | Obbligatorio | Note
+nome      | Tipo             | Obbligatorio | Note
 --------- | ---------------- | -------- | -----
 Data      | Matrice di stringhe | sì      | Le versioni del pacchetto corrispondente alla richiesta
 
@@ -134,9 +127,7 @@ Le versioni del pacchetto nel `data` matrice può contenere i metadati di compil
 
 ### <a name="sample-request"></a>Richiesta di esempio
 
-```
-GET https://api-v2v3search-0.nuget.org/autocomplete?id=nuget.protocol&prerelease=true
-```
+    GET https://api-v2v3search-0.nuget.org/autocomplete?id=nuget.protocol&prerelease=true
 
 ### <a name="sample-response"></a>Risposta di esempio
 

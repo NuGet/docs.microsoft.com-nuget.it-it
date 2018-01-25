@@ -7,18 +7,17 @@ ms.date: 10/30/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: ba1d9742-9f1c-42ff-8c30-8e953e23c501
 description: I protocolli di nuget.org in continua evoluzione per interagire con i client NuGet.
 ms.reviewer:
 - kraigb
 - karann-msft
-ms.openlocfilehash: 0bc71795d120256b9eb14ca64141f0b69f01e620
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 488a86a36a6bc83c91f0182bf437ddb83e707e31
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
-# <a name="nugetorg-protocols"></a>Protocolli di NuGet.org
+# <a name="nugetorg-protocols"></a>protocolli di NuGet.org
 
 Per interagire con nuget.org, è necessario seguire alcuni protocolli client. Poiché questi protocolli mantengono in evoluzione, i client devono identificare la versione del protocollo che usano durante la chiamata API di nuget.org specifico. In questo modo nuget.org introdurre modifiche in modo non è importante per i client precedenti.
 
@@ -39,9 +38,7 @@ La convalida garantisce che le chiavi API creati dall'utente vengono utilizzate 
 
 I client devono passare l'intestazione seguente quando si effettuano chiamate API per **push** pacchetti nuget.org:
 
-```
-X-NuGet-Protocol-Version: 4.1.0
-```
+    X-NuGet-Protocol-Version: 4.1.0
 
 Si noti che il `X-NuGet-Client-Version` intestazione semantica è simile, ma è riservato a essere utilizzato solo dal client NuGet ufficiale. I client di terze parti devono utilizzare il `X-NuGet-Protocol-Version` intestazione e il valore.
 
@@ -53,9 +50,7 @@ Se un client interagisce con servizi esterni è necessario per convalidare un pa
 
 Questa API viene usata per ottenere una chiave di verifica con ambito di un autore di nuget.org convalidare un pacchetto di proprietà di quest'ultimo.
 
-```
-POST api/v2/package/create-verification-key/{ID}/{VERSION}
-```
+    POST api/v2/package/create-verification-key/{ID}/{VERSION}
 
 #### <a name="request-parameters"></a>Parametri della richiesta
 
@@ -67,7 +62,7 @@ X-NuGet-ApiKey | Header | stringa | sì      | Ad esempio, `X-NuGet-ApiKey: {USE
 
 #### <a name="response"></a>Risposta
 
-```
+```json
 {
     "Key": "{Verify scope key from nuget.org}",
     "Expires": "{Date}"
@@ -78,9 +73,7 @@ X-NuGet-ApiKey | Header | stringa | sì      | Ad esempio, `X-NuGet-ApiKey: {USE
 
 Questa API viene usata per convalidare una chiave di verifica ambito per il pacchetto dall'autore del nuget.org di proprietà.
 
-```
-GET api/v2/verifykey/{ID}/{VERSION}
-```
+    GET api/v2/verifykey/{ID}/{VERSION}
 
 #### <a name="request-parameters"></a>Parametri della richiesta
 

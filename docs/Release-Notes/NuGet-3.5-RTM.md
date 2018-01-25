@@ -7,19 +7,18 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 082a96b9-607b-4225-864d-e1cea537f591
 description: "Note sulla versione per NuGet 3.5 incluso dcr, correzioni di bug, le funzionalità aggiunte e problemi noti."
 keywords: "3.5 NuGet note sulla versione, correzioni di bug, problemi noti, aggiunta di funzionalità, eseguire"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0a0f039d2529e1d41bbc0c7f9ac3f76f51f96ce5
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: ee78ceb2ff032c05c0f8ef9a6623b94cc56ee0a9
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
-#<a name="nuget-35-release-notes"></a>Note sulla versione 3.5 di NuGet
+# <a name="nuget-35-release-notes"></a>Note sulla versione 3.5 di NuGet
 
 [Note sulla versione 3.5 RC NuGet](../release-notes/nuget-3.5-RC.md) | [note sulla versione RC NuGet 4.0](../release-notes/nuget-4.0-RC.md)
 

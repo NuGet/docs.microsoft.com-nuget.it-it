@@ -3,21 +3,20 @@ title: Provider di credenziali di NuGet per Visual Studio | Documenti Microsoft
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 1/9/2017
+ms.date: 01/09/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 9c7f6d16-f437-47c4-82d4-6c996e0b18ec
 description: Il provider di credenziali di NuGet l'autenticazione con il feed implementando l'interfaccia IVsCredentialProvider in un'estensione di Visual Studio.
 keywords: Eseguire l'autenticazione con la raccolta, estensione di visual studio NuGet, l'autenticazione con il feed NuGet i provider di credenziali,
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 8d7360205387d4813f95560018e2ac68f71f5603
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: ff143526c814c69f1a133a62c1ad1a8f5fbedd60
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>L'autenticazione di feed in Visual Studio con il provider di credenziali di NuGet
 
@@ -52,7 +51,7 @@ Durante l'acquisizione delle credenziali, il servizio di credenziali tenterà di
 1. Tutti gli altri provider di credenziali di plug-in verrà tentata in sequenza.
 1. Se non sono state acquisite senza credenziali, verrà richiesto all'utente le credenziali utilizzando una finestra di dialogo di autenticazione standard.
 
-### <a name="implementing-ivscredentialprovidergetcredentialsasync"></a>Implementazione IVsCredentialProvider.GetCredentialsAsync
+### <a name="implementing-ivscredentialprovidergetcredentialsasync"></a>Implementing IVsCredentialProvider.GetCredentialsAsync
 
 Per creare un provider di credenziali di NuGet per Visual Studio, creare un'estensione di Visual Studio che espone un pubblico esportazione MEF che implementa il `IVsCredentialProvider` tipo ed è conforme ai principi descritti di seguito.
 

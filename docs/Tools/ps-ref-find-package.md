@@ -7,17 +7,16 @@ ms.date: 6/1/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 2f7b8847-8259-4366-98c0-13cab88d6e1b
 description: Riferimento per il comando di PowerShell di Find-Package nella Console di gestione pacchetti NuGet in Visual Studio.
 keywords: Creare un pacchetto NuGet console di gestione, i comandi di Powershell di NuGet, riferimento di Powershell di NuGet, Find-Package
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: fb55cc71e0d4b8eee28b232e64d2cc42364fc153
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 47b8420cc49d0a76709cf3268af69fcff310d165
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="find-package-package-manager-console-in-visual-studio"></a>Find-Package (Package Manager Console in Visual Studio)
 

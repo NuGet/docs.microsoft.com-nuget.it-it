@@ -11,17 +11,16 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 8c81f1ac-18c7-44d1-b2e3-584fe85dee6f
 description: "L'API di NuGet è un set di endpoint HTTP che può essere usato per scaricare i pacchetti, recuperare metadati, la pubblicazione di nuovi pacchetti e così via."
 keywords: API V3 NuGet, API V2 NuGet, NuGet JSON, API di registrazione NuGet, contenitore flat API NuGet, NuGet nupkg API, l'API dei metadati di NuGet, API di ricerca NuGet, push NuGet API, NuGe pubblicare API NuGet eliminare API, esclusione di NuGet API, il protocollo di NuGet
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 05ed17f12f413d29d97a253d7d55f154d4910834
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: c28b0912be6dbccab06078100cb71821c3658e08
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-api"></a>API NuGet
 
@@ -113,8 +112,8 @@ Nel caso di un codice di stato di livello 500, il client può implementare un me
 nome                     | Descrizione
 ------------------------ | -----------
 X-NuGet-ApiKey           | Obbligatorio per push e l'eliminazione, vedere [ `PackagePublish` risorse](package-publish-resource.md)
-X---versione del Client NuGet   | **Deprecato** e sostituito da`X-NuGet-Protocol-Version`
-Versione protocollo di NuGet X | Obbligatorio in alcuni casi solo in nuget.org, vedere [nuget.org protocolli](NuGet-Protocols.md)
+X-NuGet-Client-Version   | **Deprecato** e sostituito da`X-NuGet-Protocol-Version`
+X-NuGet-Protocol-Version | Obbligatorio in alcuni casi solo in nuget.org, vedere [nuget.org protocolli](NuGet-Protocols.md)
 
 ## <a name="authentication"></a>Autenticazione
 

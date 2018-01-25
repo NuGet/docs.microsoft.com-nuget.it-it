@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 6f972803-9e17-43f5-b77b-973c3accf695
 description: "Note sulla versione per NuGet 2.1 inclusi dcr, correzioni di bug, le funzionalità aggiunte e problemi noti."
 keywords: "2.1 NuGet note sulla versione, correzioni di bug, problemi noti, aggiunta di funzionalità, eseguire"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: dafe575eedbfed215c0b1c86795bea281de97252
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 05cdb898cc674ac7eadb238d41896638d8e3488c
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-21-release-notes"></a>Note sulla versione 2.1 di NuGet
 
@@ -25,7 +24,7 @@ ms.lasthandoff: 01/05/2018
 
 È stata rilasciata NuGet 2.1 il 4 ottobre 2012.
 
-## <a name="hierarchical-nugetconfig"></a>NuGet. config gerarchica
+## <a name="hierarchical-nugetconfig"></a>Hierarchical Nuget.Config
 2.1 NuGet offre una maggiore flessibilità per controllare le impostazioni di NuGet tramite in modo ricorsivo risalire la struttura di cartelle per `NuGet.Config` file e quindi la compilazione della configurazione dal set di tutti i file trovati.  Ad esempio, si consideri lo scenario in cui un team dispone di un repository di pacchetti interno per le compilazioni di elemento di configurazione di altre dipendenze interne. La struttura di cartelle per un singolo progetto potrebbe essere simile al seguente:
 
     C:\
@@ -101,15 +100,15 @@ Per le applicazioni di Windows 8 Store, gli identificatori apparire come segue:
 
 |NuGet 2.0 e versioni precedenti|2.1 NuGet|
 |----------------|-----------|
-|winRT45. NETCore45|Win di Windows, Windows 8, win8|
+|winRT45, .NETCore45|Windows, Windows8, win, win8|
 
 <br/>
 Per i progetti Windows Phone, gli identificatori apparire come segue:
 
 |Sistema operativo telefono|NuGet 2.0 e versioni precedenti|2.1 NuGet
 |----------------|-----------|-----------|
-|Windows Phone 7|silverlight3 wp|WP, WindowsPhone7 wp7, WindowsPhone,|
-|Windows Phone 7.5 (Mango)|silverilght4 wp71|wp71, WindowsPhone71|
+|Windows Phone 7|silverlight3-wp|wp, wp7, WindowsPhone, WindowsPhone7|
+|Windows Phone 7.5 (Mango)|silverilght4-wp71|wp71, WindowsPhone71|
 |Windows Phone 8|(non supportato)|wp8, WindowsPhone8|
 <br/>
 In tutte le modifiche precedenti, i nomi di framework precedenti continueranno a essere pienamente supportate da NuGet 2.1.  Lo spostamento in avanti, i nuovi nomi devono essere utilizzati poiché saranno più stabile con le versioni future delle rispettive piattaforme. I nuovi nomi verranno *non* essere supportato nelle versioni precedenti di NuGet 2.1, tuttavia, pertanto, pianificare di conseguenza quando l'opzione.

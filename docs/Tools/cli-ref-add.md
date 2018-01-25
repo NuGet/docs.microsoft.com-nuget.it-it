@@ -3,21 +3,20 @@ title: NuGet CLI aggiungere comando | Documenti Microsoft
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 4f68a016-ad4e-41fc-b869-88910fc5121e
 description: Riferimento per il nuget.exe Aggiungi comando
 keywords: NuGet Aggiungi riferimento, aggiungere il comando di pacchetto
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: bf9a6e51dfbf1716ba40273487b76ae04c18e948
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 70c86f8d240bd308224f6b7887b630cc1e953bf8
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="add-command-nuget-cli"></a>aggiungere il comando (CLI NuGet)
 
@@ -38,7 +37,7 @@ Per espandere tutti i file del pacchetto all'origine del pacchetto di destinazio
 
 ## <a name="usage"></a>Utilizzo
 
-```
+```cli
 nuget add <packagePath> -Source <sourcePath> [options]
 ```
 
@@ -52,14 +51,14 @@ dove `<packagePath>` sia il percorso per il pacchetto da aggiungere, e `<sourceP
 | Expand | Aggiunge tutti i file del pacchetto per l'origine del pacchetto. |
 | ForceEnglishOutput | *(3.5 +)*  Forza nuget.exe per eseguire utilizzando le impostazioni cultura invariante, in lingua inglese. |
 | ? | Visualizza la Guida informazioni per il comando. |
-| Non interattivo | Elimina richieste per l'input dell'utente o le conferme. |
+| NonInteractive | Elimina richieste per l'input dell'utente o le conferme. |
 | Livello di dettaglio | Specifica la quantità di dettagli visualizzati nell'output: *normale*, *quiet*, *dettagliate*. |
 
 Vedere anche [le variabili di ambiente](cli-ref-environment-variables.md)
 
 ## <a name="examples"></a>Esempi
 
-```
+```cli
 nuget add foo.nupkg -Source c:\bar\
 
 nuget add foo.nupkg -Source \\bar\packages\

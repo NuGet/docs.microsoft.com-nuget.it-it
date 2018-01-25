@@ -3,7 +3,7 @@ title: Riferimento di PowerShell Install-Package NuGet | Documenti Microsoft
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 6/1/2017
+ms.date: 06/01/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
@@ -13,11 +13,11 @@ keywords: Console di gestione, i comandi di Powershell di NuGet, riferimento di 
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 5da523d8b517a6867a86998dceaa1eba7b55b5fc
-ms.sourcegitcommit: 51eae111f0fec4fbb21e5e702629beaa3e8abc2b
+ms.openlocfilehash: d6b0c20545ecb82b0c2fa5214508381c0279c7cd
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="install-package-package-manager-console-in-visual-studio"></a>Pacchetto di installazione (Console di gestione dei pacchetti in Visual Studio)
 
@@ -46,7 +46,7 @@ NuGet 2.7 e versioni precedenti si verifica un errore che informa che è già in
 | Parametro | Descrizione |
 | --- | --- |
 | Id | (Obbligatorio) L'identificatore del pacchetto da installare. (*3.0 +*) l'identificatore può essere un percorso o URL di un `packages.config` file o un `.nupkg` file. -Id switch stesso è facoltativo. |
-| MSI | Installa solo questo pacchetto e non le relative dipendenze. |
+| IgnoreDependencies | Installa solo questo pacchetto e non le relative dipendenze. |
 | ProjectName | Il progetto in cui installare il pacchetto, verrà utilizzato per il progetto predefinito. |
 | Origine | Il percorso URL o una cartella per l'origine del pacchetto da cercare. I percorsi di cartella locale possono essere assoluto o relativo della cartella corrente. Se omesso, `Install-Package` Cerca l'origine pacchetto attualmente selezionata. |
 | Versione | La versione del pacchetto da installare, verrà utilizzato per la versione più recente. |

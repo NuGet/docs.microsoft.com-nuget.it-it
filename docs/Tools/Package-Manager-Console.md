@@ -3,28 +3,27 @@ title: Guida alla Console di gestione pacchetti NuGet | Documenti Microsoft
 author: kraigb
 hms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/23/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 2b92b119-6861-406c-82af-9d739af230e4
 f1_keywords: vs.nuget.packagemanager.console
 description: Istruzioni per l'utilizzo della Console di gestione pacchetti NuGet in Visual Studio per l'utilizzo di pacchetti.
 keywords: NuGet package manager console powershell di NuGet, gestire i pacchetti NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b8f1df23d1a43412868c14e508ee5221d48dcc7c
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: b89c51812cee0f64c6f5c39cd9d86bc4a0be068e
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="package-manager-console"></a>Console di gestione pacchetti
 
 La Console di gestione pacchetti NuGet viene compilata in Visual Studio in Windows 2012 e versioni successive. (Non è incluso in Visual Studio per Mac o codice di Visual Studio.)
 
-La console consente di utilizzare [comandi PowerShell di NuGet](../tools/powershell-reference.md) per trovare, installare, disinstallare e aggiornare i pacchetti NuGet. Utilizzando la console è necessario nei casi in cui la UI Package Manager non fornisce un modo per eseguire un'operazione.
+La console consente di utilizzare [comandi PowerShell di NuGet](../tools/powershell-reference.md) per trovare, installare, disinstallare e aggiornare i pacchetti NuGet. Utilizzando la console è necessario nei casi in cui la UI Package Manager non fornisce un modo per eseguire un'operazione. Per utilizzare `nuget.exe` comandi nella console, vedere [utilizzando nuget.exe CLI nella console di](#using-the-nugetexe-cli-in-the-console).
 
 Ricerca e l'installazione di un pacchetto, ad esempio, viene eseguita con tre semplici passaggi:
 
@@ -43,17 +42,6 @@ Ricerca e l'installazione di un pacchetto, ad esempio, viene eseguita con tre se
     # Install the Elmah package to the project named MyProject.
     Install-Package Elmah -ProjectName MyProject
     ```
-
-In questo argomento
-
-- [Aprire la console di](#opening-the-console-and-console-controls)
-- [Installa un pacchetto](#installing-a-package)
-- [La disinstallazione di un pacchetto](#uninstalling-a-package)
-- [Ricerca di un pacchetto](#finding-a-package)
-- [Aggiornamento di un pacchetto](#updating-a-package)
-- [Disponibilità della console di](#availability-of-the-console)
-- [Estendere la Console di gestione pacchetti](#extending-the-package-manager-console)
-- [Impostazione di un profilo di PowerShell di NuGet](#setting-up-a-nuget-powershell-profile)
 
 > [!Important]
 > Tutte le operazioni che sono disponibili nella console possono essere eseguite anche con il [NuGet CLI](../tools/nuget-exe-cli-reference.md). Tuttavia, i comandi della console operano all'interno del contesto di Visual Studio e una progetto/soluzione salvata e spesso eseguire più i comandi CLI equivalenti. Ad esempio, l'installazione di un pacchetto tramite la console aggiunge un riferimento al progetto mentre il comando CLI non. Per questo motivo, gli sviluppatori che lavorano in Visual Studio, in genere preferiscono utilizzando la console per l'interfaccia CLI.
@@ -96,8 +84,8 @@ Installa un pacchetto esegue le azioni seguenti:
 - Visualizza condizioni di licenza applicabili nella finestra della console con un contratto implicito. Se non si accettano le condizioni, è necessario disinstallare il pacchetto immediatamente.
 - Aggiunge un riferimento al progetto in qualsiasi formato di riferimento è in uso. In Esplora soluzioni e il file di formato di riferimento applicabili sono presenti riferimenti successivamente. Si noti, tuttavia, con PackageReference, è necessario salvare il progetto per visualizzare le modifiche nel file di progetto direttamente.
 - Memorizza nella cache il pacchetto:
-    - PackageReference: pacchetto memorizzato nella cache `%USERPROFILE%\.nuget\packages` e il blocco di file, ovvero `project.assets.json` viene aggiornato.
-    - `packages.config`: crea un `packages` cartella radice della soluzione e copia il pacchetto di file in una sottocartella all'interno di esso. Il `package.config` file viene aggiornato.
+  - PackageReference: pacchetto memorizzato nella cache `%USERPROFILE%\.nuget\packages` e il blocco di file, ovvero `project.assets.json` viene aggiornato.
+  - `packages.config`: crea un `packages` cartella radice della soluzione e copia il pacchetto di file in una sottocartella all'interno di esso. Il `package.config` file viene aggiornato.
 - Aggiornamenti `app.config` e/o `web.config` se il pacchetto utilizza [trasformazioni di file di origine e configurazione](../create-packages/source-and-config-file-transformations.md).
 - Installa tutte le dipendenze, se non è già presente nel progetto. Questo potrebbe aggiornare versioni del pacchetto del processo, come descritto in [la risoluzione delle dipendenze](../consume-packages/dependency-resolution.md).
 - Visualizza file readme del pacchetto, se disponibile, in una finestra di Visual Studio.
@@ -186,9 +174,7 @@ Alcuni pacchetti installare nuovi comandi per la console. Ad esempio, `MvcScaffo
 
 Un profilo di PowerShell consente di rendere disponibili i comandi di uso comune, ogni volta che è possibile usare PowerShell. NuGet supporta un profilo specifico di NuGet in genere disponibile nel percorso seguente:
 
-```
-%UserProfile%\Documents\WindowsPowerShell\NuGet_profile.ps1
-```
+    %UserProfile%\Documents\WindowsPowerShell\NuGet_profile.ps1
 
 Per trovare il profilo, digitare `$profile` nella console:
 
@@ -198,3 +184,12 @@ C:\Users\<user>\Documents\WindowsPowerShell\NuGet_profile.ps1
 ```
 
 Per ulteriori informazioni, vedere [profili di Windows PowerShell](https://technet.microsoft.com/library/bb613488.aspx).
+
+## <a name="using-the-nugetexe-cli-in-the-console"></a>Tramite l'interfaccia CLI di nuget.exe nella console di
+
+Per rendere il [ `nuget.exe` CLI](nuget-exe-CLI-Reference.md) disponibile nella Console di gestione pacchetti, installare il [NuGet.CommandLine](http://www.nuget.org/packages/NuGet.CommandLine/) pacchetto dalla console:
+
+```ps
+# Other versions are available, see http://www.nuget.org/packages/NuGet.CommandLine/
+Install-Package NuGet.CommandLine -Version 4.4.1
+```

@@ -7,18 +7,17 @@ ms.date: 12/08/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 6ee3c826-dd3a-4fa9-863f-1fd80bc4230f
 description: "Informazioni precise e dettagliate su come specificare i numeri di versione e gli intervalli per altri pacchetti su cui dipende un pacchetto NuGet e modalità di installazione delle dipendenze."
 keywords: controllo delle versioni, le dipendenze del pacchetto NuGet, versioni dipendenza NuGet, NuGet numeri di versione, versione del pacchetto NuGet, intervalli di versione, specifiche della versione, i numeri di versione normalizzata
 ms.reviewer:
 - anandr
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: cb5624a2fd99e8afd8a8226fd786343f485041c4
-ms.sourcegitcommit: c27e565de485cbe836e6c2a66e44a50b35b487ff
+ms.openlocfilehash: 70472d7d97d073009237a047e0fdf528b221dfd0
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="package-versioning"></a>Controllo delle versioni di pacchetto
 
@@ -42,12 +41,11 @@ Il formato è un numero di versione specifico *patch [-suffisso]*, in cui i comp
 - *-Suffisso* (facoltativo): un trattino seguito da una stringa che indica una versione non definitiva (seguente il [convenzione controllo delle versioni semantico o 1.0 SemVer](http://semver.org/spec/v1.0.0.html)).
 
 **Esempi:**
-```
-1.0.1
-6.11.1231
-4.3.1-rc
-2.2.44-beta1
-```
+
+    1.0.1
+    6.11.1231
+    4.3.1-rc
+    2.2.44-beta1
 
 > [!Important]
 > NuGet.org Rifiuta qualsiasi il caricamento del pacchetto che non dispone di un numero di versione esatta. La versione deve essere specificata nel `.nuspec` o file di progetto utilizzato per creare il pacchetto.
@@ -67,16 +65,14 @@ Ciò premesso, sviluppatori del pacchetto è in genere seguono convenzioni di de
 
 Durante la risoluzione dei riferimenti del pacchetto e più versioni di pacchetto diversi solo dal suffisso, NuGet sceglie innanzitutto una versione senza un suffisso, quindi si applica la priorità per la versione preliminare in ordine alfabetico inverso. Ad esempio, verrebbero scelta le versioni seguenti nell'ordine esatto indicato:
 
-```
-1.0.1
-1.0.1-zzz
-1.0.1-rc
-1.0.1-open
-1.0.1-beta
-1.0.1-alpha2
-1.0.1-alpha
-1.0.1-aaa
-```
+    1.0.1
+    1.0.1-zzz
+    1.0.1-rc
+    1.0.1-open
+    1.0.1-beta
+    1.0.1-alpha2
+    1.0.1-alpha
+    1.0.1-aaa
 
 ## <a name="semantic-versioning-200"></a>Controllo delle versioni semantico 2.0.0
 
@@ -94,10 +90,10 @@ Per nuget.org, un pacchetto è definito come un pacchetto v 2.0.0 SemVer se vien
 
 Se si carica un pacchetto specifico v 2.0.0 SemVer nuget.org, il pacchetto è invisibile a client meno recenti e disponibile per i seguenti client NuGet:
 
-- 4.3.0+ NuGet
+- NuGet 4.3.0+
 - Visual Studio 2017 versione 15.3 +
 - Visual Studio 2015 con [v3.6.0 NuGet VSIX](https://dist.nuget.org/visualstudio-2015-vsix/latest/NuGet.Tools.vsix)
-- dotnet.exe (2.0.0+ .NET SDK)
+- dotnet.exe (.NET SDK 2.0.0+)
 
 Client di terze parti:
 
@@ -115,7 +111,7 @@ Quando si fa riferimento alle dipendenze di pacchetto, NuGet supporta utilizzand
 |----------|--------------|-------------|
 | 1.0 | 1.0 ≤ x | Versione minima, inclusivo |
 | (1.0,) | 1.0 < x | Versione minima, esclusivo |
-| [1.0] | x = = 1.0 | Corrispondenza esatta versione |
+| [1.0] | x == 1.0 | Corrispondenza esatta versione |
 | (,1.0] | x ≤ 1.0 | Versione massima, inclusivo |
 | (,1.0) | x < 1.0 | Versione massima, esclusivo |
 | [1.0,2.0] | 1.0 ≤ x ≤ 2.0 | Esatto intervallo |
@@ -123,7 +119,7 @@ Quando si fa riferimento alle dipendenze di pacchetto, NuGet supporta utilizzand
 | [1.0,2.0) | 1.0 ≤ x < 2.0 | Inclusivo minimo ed esclusivo massimo misto |
 | (1.0)    | non valido | non valido |
 
-Quando si utilizza il PackageReference o `project.json` pacchetto formati di riferimento, NuGet inoltre supporta l'utilizzo di una notazione dei caratteri jolly, \*, per principale, secondaria, Patch e parti di pre-release suffisso del numero. I caratteri jolly non sono supportate con il `packages.config` formato.
+Quando si utilizza il formato PackageReference, NuGet supporta inoltre l'utilizzo di una notazione dei caratteri jolly, \*, per principale, secondaria, Patch e parti di pre-release suffisso del numero. I caratteri jolly non sono supportate con il `packages.config` formato.
 
 > [!Note]
 > Le versioni non definitive non sono incluse durante la risoluzione di intervalli di versione. Versioni non definitive *sono* incluso quando si utilizza un carattere jolly (\*). L'intervallo di versioni *[1.0,2.0]*, ad esempio, non includere 2.0 beta, ma la notazione dei caratteri jolly _2.0-*_ does. Vedere [emettere 912](https://github.com/NuGet/Home/issues/912) per ulteriori informazioni sui caratteri jolly di pre-release.
@@ -228,18 +224,14 @@ Quando l'acquisizione di pacchetti da un repository durante l'installazione, rei
 
 - Gli zeri iniziali vengono rimossi dai numeri di versione:
 
-    ```
-    1.00 is treated as 1.0
-    1.01.1 is treated as 1.1.1
-    1.00.0.1 is treated as 1.0.0.1
-    ```
+        1.00 is treated as 1.0
+        1.01.1 is treated as 1.1.1
+        1.00.0.1 is treated as 1.0.0.1
 
 - Verrà omesso uno zero nella quarta parte del numero di versione
 
-    ```
-    1.0.0.0 is treated as 1.0.0
-    1.0.01.0 is treated as 1.0.1
-    ```
+        1.0.0.0 is treated as 1.0.0
+        1.0.01.0 is treated as 1.0.1
 
 Questa normalizzazione non influisce sui numeri di versione dei pacchetti. interessa solo la modalità NuGet versioni corrispondenti durante la risoluzione delle dipendenze.
 

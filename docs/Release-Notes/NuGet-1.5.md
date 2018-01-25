@@ -7,19 +7,18 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 3ec1ff28-18fc-4d53-bd43-208619a7270a
 description: "Note sulla versione per NuGet 1.5 inclusi dcr, correzioni di bug, le funzionalità aggiunte e problemi noti."
 keywords: "1.5 NuGet note sulla versione, correzioni di bug, problemi noti, aggiunta di funzionalità, eseguire"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 29792f4c7399155bcf5fb3361d7f10ddd1b18ca1
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 261cfbbd262bad28f142b0c3dff8a541641d9fda
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
- # <a name="nuget-15-release-notes"></a>Note sulla versione 1.5 di NuGet
+# <a name="nuget-15-release-notes"></a>Note sulla versione 1.5 di NuGet
 
 [Note sulla versione 1.4 NuGet](../release-notes/nuget-1.4.md) | [note sulla versione 1.6 NuGet](../release-notes/nuget-1.6.md)
 
@@ -35,6 +34,7 @@ Il modello di progetto ASP.NET MVC 3 include un set di pacchetti NuGet a cui vie
 Per ulteriori informazioni su questa funzionalità, leggere questo [post di blog di sviluppo della funzionalità](http://blogs.msdn.com/b/marcinon/archive/2011/07/08/project-templates-and-preinstalled-nuget-packages.aspx).
 
 ### <a name="explicit-assembly-references"></a>Riferimenti agli Assembly esplicita
+
 Aggiunta di un nuovo `<references />` elemento utilizzato per specificare in modo esplicito gli assembly all'interno del pacchetto deve essere fatto riferimento.
 
 Ad esempio, se si aggiungono le operazioni seguenti:

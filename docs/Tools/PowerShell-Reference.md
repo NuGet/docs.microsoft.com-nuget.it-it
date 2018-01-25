@@ -3,21 +3,20 @@ title: Riferimento di PowerShell di NuGet | Documenti Microsoft
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/2/2017
+ms.date: 10/02/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: cd08b869-44c6-480e-90f7-494a6d08e6d0
 description: Il riferimento completo di comandi di PowerShell disponibili nella Console di gestione pacchetti NuGet in Visual Studio.
 keywords: NuGet package manager console comandi Powershell di NuGet, riferimento NuGet Powershell
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 64450a8bcca7f6028d4ce389d51ac35e9209cfae
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 0cbd9b13b34bd93fea6c6684c03bca9cff5d9e5e
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="powershell-reference"></a>Riferimento di PowerShell
 
@@ -41,7 +40,7 @@ La Console di gestione pacchetti fornisce un'interfaccia di PowerShell all'inter
 | [Add-BindingRedirect](ps-ref-add-bindingredirect.md) | Esamina tutti gli assembly nel percorso di output per un progetto e aggiunge reindirizzamenti di binding di `app.config` o `web.config` in caso di necessità. | Tutti |
 | [Get-Project](ps-ref-get-project.md) | Visualizza informazioni sul valore predefinito o il progetto specificato. | 3.0+ |
 | [Open-PackagePage](ps-ref-open-packagepage.md) | Avvia il browser predefinito con il progetto, licenza o report abuso URL per il pacchetto specificato. | Deprecato in 3.0 + |
-| [Registro TabExpansion](ps-ref-register-tabexpansion.md) | Registra l'espansione tramite tab per i parametri di un comando, che consente di creare espansioni personalizzate per i valori dei parametri di uso comune. | Tutti |
+| [Register-TabExpansion](ps-ref-register-tabexpansion.md) | Registra l'espansione tramite tab per i parametri di un comando, che consente di creare espansioni personalizzate per i valori dei parametri di uso comune. | Tutti |
 | [Sync-Package](ps-ref-sync-package.md) | Get installata la versione del pacchetto dal progetto specificato e sincronizza la versione ai restanti progetti nella soluzione. | 3.0+ |
 | [Uninstall-Package](ps-ref-uninstall-package.md) | Rimuove un pacchetto da un progetto, rimuovere facoltativamente le relative dipendenze. | Tutti |
 

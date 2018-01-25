@@ -7,21 +7,20 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 18bef6a3-b794-4a93-85a4-76972c8ece1b
 description: "Note sulla versione per l'inclusione di NuGet 3.1.1 problemi noti, correzioni di bug, le funzionalità aggiunte e dcr."
 keywords: "3.1.1 NuGet note sulla versione, correzioni di bug, problemi noti, aggiunta di funzionalità, eseguire"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: a29681c50f4dda2e7a6c84937c2327b133ec0f68
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 9d69819f5f2080fa48afdcc3d9c97fe291c81648
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-311-release-notes"></a>Note sulla versione di NuGet 3.1.1
 
 [Note sulla versione 3.1 NuGet](../release-notes/nuget-3.1.md) | [note sulla versione 3.2 RC NuGet](../release-notes/nuget-3.2-RC.md)
 
 È stato rilasciato NuGet 3.1.1 27 luglio 2015 come una patch di aggiornamento per il progetto VSIX 3.1 con correzione specifico a un bug che effettua l'implementazione dei criteri di Powershell.
-[https://github.com/NuGet/home/issues/974](https://github.com/NuGet/Home/issues/974)
+[https://github.com/NuGet/Home/issues/974](https://github.com/NuGet/Home/issues/974)

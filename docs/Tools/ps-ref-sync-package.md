@@ -7,17 +7,16 @@ ms.date: 12/07/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 1b980b93-fa58-430c-b663-78ce069b1603
 description: Riferimento per il comando di PowerShell di sincronizzazione pacchetto nella Console di gestione pacchetti NuGet in Visual Studio.
 keywords: Console di gestione, i comandi di Powershell di NuGet, riferimenti di NuGet Powershell, sincronizzazione pacchetto del pacchetto NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 4dc542714f14f0e6d3e827292f8fce06561fe270
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 02233cd0532fab2338e65e0d58b9afc3e2dab6af
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="sync-package-package-manager-console-in-visual-studio"></a>Sincronizzazione-pacchetto (Package Manager Console in Visual Studio)
 
@@ -38,7 +37,7 @@ Sync-Package [-Id] <string> [-IgnoreDependencies] [-ProjectName <string>] [[-Ver
 | Parametro | Descrizione |
 | --- | --- |
 | Id | (Obbligatorio) L'identificatore del pacchetto per la sincronizzazione. -Id switch stesso è facoltativo. |
-| MSI | Installa solo questo pacchetto e non le relative dipendenze. |
+| IgnoreDependencies | Installa solo questo pacchetto e non le relative dipendenze. |
 | ProjectName | Progetto per sincronizzare il pacchetto, verrà utilizzato per il progetto predefinito. |
 | Versione | La versione del pacchetto per la sincronizzazione, verrà utilizzato per la versione attualmente installata. |
 | Origine | Il percorso URL o una cartella per l'origine del pacchetto da cercare. I percorsi di cartella locale possono essere assoluto o relativo della cartella corrente. Se omesso, `Sync-Package` Cerca l'origine pacchetto attualmente selezionata. |

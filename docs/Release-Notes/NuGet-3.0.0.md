@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 8ad13a67-9348-4f04-8f8b-b8f4a0b2c6df
 description: "Note sulla versione per l'inclusione di NuGet 3.0.0 problemi noti, correzioni di bug, le funzionalità aggiunte e dcr."
 keywords: "NuGet 3.0.0 note sulla versione, correzioni di bug, problemi noti, aggiunta di funzionalità, eseguire"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 95c4bf92f5eeb676fa6bcc3b7bcbf191efa9cb9e
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: ef8557c37105eb7915919c7b15d41d024921761f
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-30-release-notes"></a>Note sulla versione 3.0 di NuGet
 
@@ -48,9 +47,9 @@ Si sono verificati alcuni problemi noti forniti con questa versione e di tutti g
 * [Aggiunta una casella di controllo 'Non visualizzare la finestra di anteprima'](https://github.com/NuGet/Home/issues/566)
 * [Processo aggiunto la limitazione delle richieste per ridurre l'utilizzo del processore](https://github.com/NuGet/Home/issues/356)
 * Migliorare la gestione dei riferimenti di libreria di classi portabile
-    * [https://github.com/NuGet/home/issues/562](https://github.com/NuGet/Home/issues/562)
-    * [https://github.com/NuGet/home/issues/454](https://github.com/NuGet/Home/issues/454)
-    * [https://github.com/NuGet/home/issues/440](https://github.com/NuGet/Home/issues/440)
+    * [https://github.com/NuGet/Home/issues/562](https://github.com/NuGet/Home/issues/562)
+    * [https://github.com/NuGet/Home/issues/454](https://github.com/NuGet/Home/issues/454)
+    * [https://github.com/NuGet/Home/issues/440](https://github.com/NuGet/Home/issues/440)
 * [Servizio di completamento automatico è stata fatta distinzione tra maiuscole e minuscole](https://github.com/NuGet/Home/issues/198)
 * [Aggiornamento di ripristinare le credenziali di autenticazione di base](https://github.com/NuGet/Home/issues/456)
 * [Registrazione migliorata degli errori](https://github.com/NuGet/Home/issues/407)

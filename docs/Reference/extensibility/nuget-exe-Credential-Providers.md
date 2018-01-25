@@ -7,17 +7,16 @@ ms.date: 12/12/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 3cf592de-39f2-4e7f-a597-62635fdcedfa
 description: il provider di credenziali di NuGet.exe autenticarsi con un feed e viene implementato come file eseguibili da riga di comando che seguono le convenzioni specifiche.
 keywords: eseguire l'autenticazione con la raccolta, l'autenticazione con il feed di NuGet.exe i provider di credenziali, l'API del provider di credenziali
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 82ab4d6e9be0736e008f5bd27d46e1db166d7bb4
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 88ce0106ad4e628ba8120f94b7951c7746ab67f3
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>L'autenticazione di feed con il provider di credenziali di nuget.exe
 
@@ -59,7 +58,7 @@ Un provider deve eseguire le operazioni seguenti:
 | Parametro / |Descrizione|
 |----------------|-----------|
 | URI {value} | Il pacchetto URI che richiedono le credenziali dell'origine.|
-| Non interattivo | Se presente, provider non viene visualizzato un prompt interattivo. |
+| NonInteractive | Se presente, provider non viene visualizzato un prompt interattivo. |
 | IsRetry | Se presente, indica che il tentativo è un nuovo tentativo di un tentativo non riuscito in precedenza. Provider di questo flag viene utilizzato in genere per assicurarsi che siano ignorare qualsiasi cache esistente e richiedere le nuove credenziali, se possibile.|
 | Livello di dettaglio {value} | Se presente, uno dei seguenti valori: "normale", "quiet" o "dettagliato". Se viene specificato alcun valore, per impostazione predefinita "normal". Provider devono utilizzare questa come un'indicazione del livello di registrazione facoltativo per generare il flusso di errore standard. |
 

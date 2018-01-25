@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: b514da09-da1f-416b-9bfc-692f08fb6957
 description: "Note sulla versione per l'inclusione di NuGet sezione 3.4.2 problemi noti, correzioni di bug, le funzionalità aggiunte e dcr."
 keywords: "NuGet sezione 3.4.2 note sulla versione, correzioni di bug, problemi noti, aggiunta di funzionalità, eseguire"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6761c59b6dc85b9a8503041928c2707549006d9c
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 892a965e67762af2ae42c2d6ee75d2838104d1c2
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-342-release-notes"></a>Note sulla versione di sezione 3.4.2 NuGet
 
@@ -36,7 +35,7 @@ ms.lasthandoff: 12/14/2017
 * Oltre a questa modifica, è stato risolto un problema in cui si stava raggiunge la rete due volte quando l'aggiornamento di recupero contare nell'interfaccia utente di Visual Studio. Questo è stato parzialmente responsabile di alcuni clienti di problemi di timeout nella 3.4/3.4.1.
 * Aggiunta del supporto per l'impostazione no_proxy
 
-##<a name="fixes"></a>Correzioni
+## <a name="fixes"></a>Correzioni
 
 * Risolto un problema in nuget.org origine era mancante nella configurazione o impostazioni NuGet dopo l'aggiornamento a 3.4.1.
 * Risolto un problema in cui una modifica di maiuscole e minuscole a FindPackagesById in 3.4.1 interruzioni Artifactory.

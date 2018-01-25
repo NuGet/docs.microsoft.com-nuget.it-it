@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 20f9b360-2d78-4676-a803-e86996eb2f10
 description: "Note sulla versione per NuGet 3.0 RC2 inclusi dcr, correzioni di bug, le funzionalità aggiunte e problemi noti."
 keywords: "NuGet 3.0 RC2 note sulla versione, correzioni di bug, problemi noti, aggiunta di funzionalità, eseguire"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2a708babf200a650a0faffc704235d3c142f510f
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 67299408170ae3c3676c2866bec2945b41ad4184
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-30-rc2-release-notes"></a>Note sulla versione di NuGet 3.0 RC2
 
@@ -35,9 +34,9 @@ In totale, ci chiusura 158 problemi in questa versione, quindi è possibile esam
 * [Aggiunta una casella di controllo 'Non visualizzare la finestra di anteprima'](https://github.com/NuGet/Home/issues/566)
 * [Processo aggiunto la limitazione delle richieste per ridurre l'utilizzo del processore](https://github.com/NuGet/Home/issues/356)
 * Migliorare la gestione dei riferimenti di libreria di classi portabile
-    * [https://github.com/NuGet/home/issues/562](https://github.com/NuGet/Home/issues/562)
-    * [https://github.com/NuGet/home/issues/454](https://github.com/NuGet/Home/issues/454)
-    * [https://github.com/NuGet/home/issues/440](https://github.com/NuGet/Home/issues/440)
+    * [https://github.com/NuGet/Home/issues/562](https://github.com/NuGet/Home/issues/562)
+    * [https://github.com/NuGet/Home/issues/454](https://github.com/NuGet/Home/issues/454)
+    * [https://github.com/NuGet/Home/issues/440](https://github.com/NuGet/Home/issues/440)
 * [Servizio di completamento automatico è stata fatta distinzione tra maiuscole e minuscole](https://github.com/NuGet/Home/issues/198)
 * [Aggiornamento di ripristinare le credenziali di autenticazione di base](https://github.com/NuGet/Home/issues/456)
 * [Registrazione migliorata degli errori](https://github.com/NuGet/Home/issues/407)

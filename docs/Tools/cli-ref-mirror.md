@@ -3,21 +3,20 @@ title: Comando mirror NuGet CLI | Documenti Microsoft
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 190d7010-172e-44b8-8a32-94a2a63be4f3
 description: Riferimento per il comando di nuget.exe mirror
 keywords: riferimento mirror NuGet, comando mirror
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 67daa1aa278b42b7974c562ba4097a525e7bb105
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 7ff5f1c1a915943e8a2eb9c6d6ab09a850968371
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="mirror-command-nuget-cli"></a>comando mirror (NuGet CLI)
 
@@ -30,7 +29,7 @@ Riflette un pacchetto e le relative dipendenze dal repository di origine specifi
 
 ## <a name="usage"></a>Utilizzo
 
-```
+```cli
 nuget mirror <packageID | configFilePath> <listUrlTarget> <publishUrlTarget> [options]
 ```
 
@@ -44,7 +43,7 @@ Se il repository di destinazione si trova in `https://machine/repo` che esegue [
 
 | Opzione | Descrizione |
 | --- | --- |
-| apiKey | La chiave API per il repository di destinazione. Se non è presente, quella specificata nella *%AppData%\NuGet\NuGet.Config* viene utilizzato. |
+| ApiKey | La chiave API per il repository di destinazione. Se non è presente, quella specificata nella *%AppData%\NuGet\NuGet.Config* viene utilizzato. |
 | ? | Visualizza la Guida informazioni per il comando. |
 | NoCache | Impedisce l'utilizzo di pacchetti dalla cache locale NuGet. |
 | NOOP | Registra quali possono essere eseguite, ma non esegue le azioni; si presuppone che l'esito positivo per le operazioni di push. |
@@ -57,7 +56,7 @@ Vedere anche [le variabili di ambiente](cli-ref-environment-variables.md)
 
 ## <a name="examples"></a>Esempi
 
-```
+```cli
 nuget mirror packages.config  https://MyRepo/nuget https://MyRepo/api/v2/package -source https://nuget.org/api/v2 -apikey myApiKey -nocache
 
 nuget mirror Microsoft.AspNet.Mvc https://MyRepo/nuget https://MyRepo/api/v2/package -version 4.0.20505.0

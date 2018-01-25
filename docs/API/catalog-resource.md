@@ -11,17 +11,16 @@ ms.date: 10/30/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: cfd338b5-6253-48c0-88ba-17c6b98fc935
 description: "Il catalogo è un indice di tutti i pacchetti creati ed eliminati in nuget.org."
 keywords: Catalogo delle API V3 NuGet, log delle transazioni nuget.org, replicare NuGet.org, clonare NuGet.org, solo di Accodamento record di NuGet.org
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 4c98b7cbd92575f6905e98a5bca5602a4d8ac0dd
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: d1a24be68a60085a40361c374ffb34dc221f09c4
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="catalog"></a>Catalog
 
@@ -73,9 +72,7 @@ Gli elementi del catalogo vengono sempre aggiunti al catalogo in un ordine crono
 
 La richiesta seguente recupera l'indice del catalogo.
 
-```
-GET {@id}
-```
+    GET {@id}
 
 L'indice del catalogo è un documento JSON che contiene un oggetto con le proprietà seguenti:
 
@@ -107,9 +104,7 @@ Al contrario di [risorsa dei metadati del pacchetto](registration-base-url-resou
 
 ### <a name="sample-request"></a>Richiesta di esempio
 
-```
-GET https://api.nuget.org/v3/catalog0/index.json
-```
+    GET https://api.nuget.org/v3/catalog0/index.json
 
 ### <a name="sample-response"></a>Risposta di esempio
 
@@ -149,7 +144,7 @@ nome            | Tipo    | Obbligatorio | Note
 @type           | stringa  | sì      | Il tipo dell'elemento del catalogo
 commitId        | stringa  | sì      | L'ID commit associato a questo elemento del catalogo
 commitTimeStamp | stringa  | sì      | Il timestamp di commit di questo elemento del catalogo
-NuGet:ID        | stringa  | sì      | L'ID del pacchetto che riguarda questa foglia
+nuget:id        | stringa  | sì      | L'ID del pacchetto che riguarda questa foglia
 NuGet:Version   | stringa  | sì      | La versione del pacchetto che riguarda questa foglia
 
 Il `@type` valore sarà uno dei due valori seguenti:
@@ -161,9 +156,7 @@ Per ulteriori dettagli sul ogni tipo, vedere il [corrispondenti elementi di tipo
 
 ### <a name="sample-request"></a>Richiesta di esempio
 
-```
-GET https://api.nuget.org/v3/catalog0/page2926.json
-```
+    GET https://api.nuget.org/v3/catalog0/page2926.json
 
 ### <a name="sample-response"></a>Risposta di esempio
 
@@ -178,8 +171,8 @@ Documento di foglia del catalogo è un oggetto JSON con le proprietà seguenti:
 nome                    | Tipo                       | Obbligatorio | Note
 ----------------------- | -------------------------- | -------- | -----
 @type                   | stringa o matrice di stringhe | sì      | Il tipo di elemento del catalogo
-catalogo: commitId        | stringa                     | sì      | Un ID di commit associato a questo elemento del catalogo
-catalogo: commitTimeStamp | stringa                     | sì      | Il timestamp di commit di questo elemento del catalogo
+catalog:commitId        | stringa                     | sì      | Un ID di commit associato a questo elemento del catalogo
+catalog:commitTimeStamp | stringa                     | sì      | Il timestamp di commit di questo elemento del catalogo
 ID                      | stringa                     | sì      | L'ID del pacchetto dell'elemento del catalogo
 Pubblicato               | stringa                     | sì      | La data di pubblicazione dell'elemento del catalogo di pacchetto
 version                 | stringa                     | sì      | La versione del pacchetto dell'elemento del catalogo
@@ -217,7 +210,7 @@ isPrerelease            | boolean                    | sì      | Se è o meno l
 language                | stringa                     | No       |
 licenseUrl              | stringa                     | No       |
 disponibili                  | boolean                    | No       | Se il pacchetto verrà elencato
-Oggetto MinClientVersion        | stringa                     | No       |
+minClientVersion        | stringa                     | No       |
 packageHash             | stringa                     | sì      | L'hash del pacchetto, utilizzando la codifica [standard base 64](https://tools.ietf.org/html/rfc4648#section-4)
 packageHashAlgorithm    | stringa                     | sì      |
 packageSize             | numero intero                    | sì      | Le dimensioni di .nupkg il pacchetto in byte
@@ -242,9 +235,7 @@ Il `published` timestamp è l'ora dell'ultima elencato quando il pacchetto.
 
 #### <a name="sample-request"></a>Richiesta di esempio
 
-```
 GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
-```
 
 #### <a name="sample-response"></a>Risposta di esempio
 
@@ -265,9 +256,7 @@ Il `published` proprietà indica il tempo quando pacchetto è stato eliminato, c
 
 #### <a name="sample-request"></a>Richiesta di esempio
 
-```
 GET https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_lib.1.0.0-test.json
-```
 
 #### <a name="sample-response"></a>Risposta di esempio
 

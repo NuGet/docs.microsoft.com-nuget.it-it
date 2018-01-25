@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 0fc4d89a-ccca-4d63-85bf-461cd9ced882
 description: "Note sulla versione per NuGet 3.1 inclusi dcr, correzioni di bug, le funzionalità aggiunte e problemi noti."
 keywords: "3.1 NuGet note sulla versione, correzioni di bug, problemi noti, aggiunta di funzionalità, eseguire"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: eef2b2c1af99671c7ae3874c2c12130f104e88eb
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: a7aa43b8701b3bbef8f6ebce9a5d636ee1bc6abe
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-31-release-notes"></a>Note sulla versione 3.1 di NuGet
 

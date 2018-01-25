@@ -11,17 +11,16 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 11ca2092-67dc-41a9-a7af-afe610d8febb
 description: Il servizio di ricerca consente ai client di query per i pacchetti dalla parola chiave e per i risultati del filtro su determinati campi pacchetto.
 keywords: API di ricerca NuGet, NuGet individuare i pacchetti, API ai pacchetti NuGet di query, l'API per sfogliare i pacchetti NuGet
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 8b37c1bfb66290de49641a8b6197cb83cd35318a
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 612ce0f46b654335a29bb36a64b27525994162ed
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="search"></a>Cerca
 
@@ -51,19 +50,17 @@ L'API di ricerca consente al client per eseguire query per una pagina di pacchet
 
 Un pacchetto non in elenco devono essere mai presenti nei risultati della ricerca.
 
-```
-GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
-```
+    GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
 
 ### <a name="request-parameters"></a>Parametri della richiesta
 
-Nome        | In     | Tipo    | Obbligatorio | Note
+nome        | In     | Tipo    | Obbligatorio | Note
 ----------- | ------ | ------- | -------- | -----
-q           | URL    | string  | No       | I termini di ricerca da utilizzare per i pacchetti di filtro
+q           | URL    | stringa  | No       | I termini di ricerca da utilizzare per i pacchetti di filtro
 skip        | URL    | numero intero | No       | Il numero di risultati da ignorare per l'impaginazione
 Take        | URL    | numero intero | No       | Il numero di risultati da restituire, per la paginazione
 versione provvisoria  | URL    | boolean | No       | `true`o `false` stabilire se includere [pacchetti pre-release](../create-packages/prerelease-packages.md)
-semVerLevel | URL    | string  | No       | Una stringa di versione SemVer 1.0.0 
+semVerLevel | URL    | stringa  | No       | Una stringa di versione SemVer 1.0.0 
 
 La query di ricerca `q` viene analizzato in modo che è definito dall'implementazione del server. NuGet.org supporta i filtri di base su un [diversi campi di](../consume-packages/finding-and-choosing-packages.md#search-syntax). Se non `q` viene fornito, devono essere restituiti tutti i pacchetti, entro i limiti imposti da skip e take. In questo modo la scheda "Sfoglia" nell'esperienza NuGet di Visual Studio.
 
@@ -83,7 +80,7 @@ La risposta è il documento JSON che contiene fino a `take` i risultati della ri
 
 Oggetto JSON radice ha le proprietà seguenti:
 
-Nome      | Tipo             | Obbligatorio | Note
+nome      | Tipo             | Obbligatorio | Note
 --------- | ---------------- | -------- | -----
 totalHits | numero intero          | sì      | Il numero complessivo di corrispondenze, ignorando `skip` e`take`
 Data      | Matrice di oggetti | sì      | I risultati della ricerca corrispondenti a richiesta
@@ -93,21 +90,21 @@ Data      | Matrice di oggetti | sì      | I risultati della ricerca corrispond
 Ogni elemento di `data` matrice è un oggetto JSON costituito da un gruppo di versioni del pacchetto condividere lo stesso ID di pacchetto.
 L'oggetto ha le proprietà seguenti:
 
-Nome           | Tipo                       | Obbligatorio | Note
+nome           | Tipo                       | Obbligatorio | Note
 -------------- | -------------------------- | -------- | -----
-ID             | string                     | sì      | L'ID del pacchetto corrispondente
-version        | string                     | sì      | La stringa di versione SemVer 2.0.0 completa del pacchetto (può contenere i metadati di compilazione)
-Descrizione    | string                     | No       | 
+ID             | stringa                     | sì      | L'ID del pacchetto corrispondente
+version        | stringa                     | sì      | La stringa di versione SemVer 2.0.0 completa del pacchetto (può contenere i metadati di compilazione)
+Descrizione    | stringa                     | No       | 
 versioni       | Matrice di oggetti           | sì      | Tutte le versioni del pacchetto corrispondente il `prerelease` parametro
 authors        | stringa o matrice di stringhe | No       | 
-iconUrl        | string                     | No       | 
-licenseUrl     | string                     | No       | 
+iconUrl        | stringa                     | No       | 
+licenseUrl     | stringa                     | No       | 
 owners         | stringa o matrice di stringhe | No       | 
-projectUrl     | string                     | No       | 
-registrazione   | string                     | No       | L'URL assoluto associato [indice registrazione](registration-base-url-resource.md#registration-index)
-summary        | string                     | No       | 
+projectUrl     | stringa                     | No       | 
+registrazione   | stringa                     | No       | L'URL assoluto associato [indice registrazione](registration-base-url-resource.md#registration-index)
+summary        | stringa                     | No       | 
 tag           | stringa o matrice di stringhe | No       | 
-title          | string                     | No       | 
+title          | stringa                     | No       | 
 totalDownloads | numero intero                    | No       | Questo valore può essere dedotto per la somma di download di `versions` matrice
 Verificato       | boolean                    | No       | Valore booleano JSON, che indica se il pacchetto è [verificato](../reference/id-prefix-reservation.md)
 
@@ -115,17 +112,15 @@ In nuget.org, un pacchetto verificato è quello che ha un ID di pacchetto corris
 
 I metadati contenuti nell'oggetto risultato di ricerca da cui proviene la versione più recente del pacchetto. Ogni elemento di `versions` matrice è un oggetto JSON con le proprietà seguenti:
 
-Nome      | Tipo    | Obbligatorio | Note
+nome      | Tipo    | Obbligatorio | Note
 --------- | ------- | -------- | -----
-@id       | string  | sì      | L'URL assoluto associato [foglia di registrazione](registration-base-url-resource.md#registration-leaf)
-version   | string  | sì      | La stringa di versione SemVer 2.0.0 completa del pacchetto (può contenere i metadati di compilazione)
+@id       | stringa  | sì      | L'URL assoluto associato [foglia di registrazione](registration-base-url-resource.md#registration-leaf)
+version   | stringa  | sì      | La stringa di versione SemVer 2.0.0 completa del pacchetto (può contenere i metadati di compilazione)
 Scarica | numero intero | sì      | Il numero di download per questa versione del pacchetto specifico
 
 ### <a name="sample-request"></a>Richiesta di esempio
 
-```
-GET https://api-v2v3search-0.nuget.org/query?q=NuGet.Versioning&prerelease=false
-```
+    GET https://api-v2v3search-0.nuget.org/query?q=NuGet.Versioning&prerelease=false
 
 ### <a name="sample-response"></a>Risposta di esempio
 

@@ -7,17 +7,16 @@ ms.date: 12/07/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: b4aa92a9-ce47-4d23-ae51-d5683e08a9d5
 description: Riferimento per il comando di PowerShell di pacchetto di aggiornamento nella Console di gestione pacchetti NuGet in Visual Studio.
 keywords: Console di gestione, i comandi di Powershell di NuGet, riferimento di Powershell di NuGet, pacchetto di aggiornamento del pacchetto NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 71f5cd7061e0f765d8808db8a3798657a941ba14
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 768fdb4d7c785b4f3ed9e70958390676ea965794
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="update-package-package-manager-console-in-visual-studio"></a>Pacchetto di aggiornamento (Console di gestione dei pacchetti in Visual Studio)
 
@@ -46,13 +45,13 @@ NuGet 2.7 e versioni precedenti si verifica un errore che informa che è già in
 |  Parametro | Descrizione |
 | --- | --- |
 | Id | L'identificatore del pacchetto da aggiornare. Se omesso, Aggiorna tutti i pacchetti. -Id switch stesso è facoltativo. |
-| MSI | Ignora le dipendenze del pacchetto di aggiornamento. |
+| IgnoreDependencies | Ignora le dipendenze del pacchetto di aggiornamento. |
 | ProjectName | Il nome del progetto contenente i pacchetti da aggiornare, verrà utilizzato per tutti i progetti. |
 | Versione | La versione da utilizzare per l'aggiornamento, verrà utilizzato per la versione più recente. In NuGet 3.0 e successive, il valore di versione deve essere uno dei *minima, massima, HighestMinor*, o *HighestPatch* (equivalente a - Safe). |
 | Safe | Vincola gli aggiornamenti alle versioni sole con la stessa versione principale e secondaria del pacchetto attualmente installata. |
 | Origine | Il percorso URL o una cartella per l'origine del pacchetto da cercare. I percorsi di cartella locale possono essere assoluto o relativo della cartella corrente. Se omesso, `Uninstall-Package` Cerca l'origine pacchetto attualmente selezionata. |
 | IncludePrerelease | Include pacchetti della versione provvisoria per gli aggiornamenti. |
-| Reinstallare | Pacchetti di Resintalls utilizzando la versione attualmente installata. Vedere [provare a reinstallare e l'aggiornamento di pacchetti](../consume-packages/reinstalling-and-updating-packages.md). |
+| Reinstallazione | Pacchetti di Resintalls utilizzando la versione attualmente installata. Vedere [provare a reinstallare e l'aggiornamento di pacchetti](../consume-packages/reinstalling-and-updating-packages.md). |
 | FileConflictAction | L'azione da intraprendere quando viene richiesto di sovrascrivere o ignorare i file esistenti a cui fa riferimento il progetto. I valori possibili sono *sovrascrittura, Ignora, None, OverwriteAll*, e *IgnoreAll* (3.0 +). |
 | DependencyVersion | La versione dei pacchetti di dipendenza da usare, che può essere uno dei seguenti:<br/><ul><li>*Più basso* (impostazione predefinita): la versione minima</li><li>*HighestPatch*: la versione con la patch più basso principale, secondaria più basso, più elevata</li><li>*HighestMinor*: la versione con il minimo principali, patch più alto, minore più alto</li><li>*Più alto* (impostazione predefinita per il pacchetto di aggiornamento senza parametri): la versione più recente</li></ul>È possibile impostare il valore predefinito utilizzando il [ `dependencyVersion` ](../Schema/nuget-config-file.md#config-section) impostazione di `Nuget.Config` file. |
 | ToHighestPatch | Vincola gli aggiornamenti solo alle versioni con la stessa versione secondaria del pacchetto attualmente installata. |

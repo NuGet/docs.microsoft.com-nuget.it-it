@@ -1,4 +1,4 @@
 1. Nel Mac e Linux, installare [Mono 4.4.2 o versione successiva](http://www.mono-project.com/docs/getting-started/install/).
-2. Visitare [nuget.org/downloads](https://nuget.org/downloads) e selezionare la versione di NuGet desiderato.
-3. Ogni download di `nuget.exe` file direttamente. Indicare il browser per salvare il file in una cartella di propria scelta. Il file è *non* un programma di installazione; esecuzione dal browser non verrà visualizzata alcuna operazione.
+2. Visitare [nuget.org/downloads](https://nuget.org/downloads) e selezionare NuGet 3.3 o versioni successive (non è compatibile con Mono 2.8.6). La versione più recente è sempre consigliata e 4.1.0+ è necessario pubblicare i pacchetti in nuget.org.
+3. Ogni download di `nuget.exe` file direttamente. Indicare il browser per salvare il file in una cartella di propria scelta. Il file è *non* un programma di installazione; non verrà visualizzato alcun elemento se viene eseguito direttamente dal browser.
 4. Aggiungere la cartella in cui è stata inserita `nuget.exe` per la variabile di ambiente PATH per utilizzare lo strumento CLI da qualsiasi posizione.

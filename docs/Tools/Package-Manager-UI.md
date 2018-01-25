@@ -7,7 +7,6 @@ ms.date: 12/08/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 62f6962b-7b84-4452-ae0d-a9e1ef1fc6f0
 f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager
 - vs.toolsoptionspages.nuget_package_manager.general
@@ -18,11 +17,11 @@ keywords: UI NuGet, Gestione pacchetti NuGet dell'interfaccia utente, NuGet in V
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 39ce53184755887c419c8872148a6c13dc2c65ec
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: 0ff60c3cecee5fd9b7f698d2abed7553f5d89c1d
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-package-manager-ui"></a>Interfaccia utente di gestione pacchetti NuGet
 
@@ -137,7 +136,7 @@ Per gestire l'origine del pacchetto:
 
 ## <a name="package-manager-options-control"></a>Controllano le opzioni di gestione pacchetti
 
-Quando si seleziona un pacchetto, la UI Package Manager consente di visualizzare una piccola, espandibile **opzioni** controllo sotto il selettore di versione (illustrato di seguito sia compresso ed esteso). Si noti che per alcuni tipi, ad esempio .NET Core e quelle in uso di progetto di `project.json` formato di riferimento, solo il **finestra di anteprima mostra** opzione è disponibile.
+Quando si seleziona un pacchetto, la UI Package Manager consente di visualizzare una piccola, espandibile **opzioni** controllo sotto il selettore di versione (illustrato di seguito sia compresso ed esteso). Si noti che per un progetto solo tipi di **finestra di anteprima mostra** opzione è disponibile.
 
 ![Opzioni di gestione pacchetti](media/PackageManagerUIOptions.png)
 
