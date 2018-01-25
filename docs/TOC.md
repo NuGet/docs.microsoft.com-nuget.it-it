@@ -1,9 +1,9 @@
-# [Che cos'è NuGet?](What-is-NuGet.md)
+# [Che cos'è NuGet?](what-is-nuget.md)
+# [Installare gli strumenti client di NuGet](install-nuget-client-tools.md)
 # Guida rapida
 ## [Creare e pubblicare un pacchetto](Quickstart/Create-and-Publish-a-Package.md)
 ## [Usare un pacchetto](Quickstart/Use-a-Package.md)
 # Guide
-## [Installare gli strumenti client di NuGet](Guides/Install-NuGet.md)
 ## [Creare pacchetti .NET Standard (Visual Studio 2017)](Guides/Create-NET-Standard-Packages-VS2017.md)
 ## [Creare pacchetti .NET Standard (Visual Studio 2015)](Guides/Create-NET-Standard-Packages-VS2015.md)
 ## [Creare pacchetti UWP](Guides/Create-UWP-Packages.md)
@@ -19,8 +19,6 @@
 ## [Pacchetti nativi](Create-Packages/Native-Packages.md)
 ## [Pacchetti di simboli](Create-Packages/Symbol-Packages.md)
 ## [Pubblicare un pacchetto](Create-Packages/Publish-a-package.md)
-## [project.json e UWP](Create-Packages/project-json-and-UWP.md)
-## [Impatto di project.json](Create-Packages/project-json-Impact.md)
 # Utilizzare i pacchetti
 ## [Panoramica e flusso di lavoro](Consume-Packages/Overview-and-Workflow.md)
 ## [Ricerca e scelta di pacchetti](Consume-Packages/Finding-and-Choosing-Packages.md)
@@ -71,7 +69,6 @@
 # Riferimenti
 ## [.nuspec](Schema/nuspec.md)
 ## [packages.config](Schema/packages-config.md)
-## [project.json](Schema/project-json.md)
 ## [Controllo delle versioni dei pacchetti](reference/package-versioning.md)
 ## [File Nuget.Config](Schema/nuget-config-file.md)
 ## [Destinazioni di MSBuild](Schema/msbuild-targets.md)
@@ -83,6 +80,10 @@
 ## Estendibilità
 ### [Provider di credenziali NuGet per Visual Studio](Reference/extensibility/Nuget-Credential-Providers-for-Visual-Studio.md)
 ### [Provider di credenziali nuget.exe](Reference/extensibility/nuget-exe-Credential-Providers.md)
+## Contenuti in archivio
+### [formato del riferimento Project](archive/project-json.md)
+### [project.json e UWP](archive/project-json-and-UWP.md)
+### [project.json impact](archive/project-json-impact.md)
 # API
 ## [Panoramica](API/overview.md)
 ## [Procedura: Query per recuperare tutti i pacchetti tramite l'API](Guides/api/query-for-all-published-packages.md)
