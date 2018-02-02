@@ -3,21 +3,20 @@ title: Panoramica dell'ecosistema NuGet | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 1/9/2017
+ms.date: 01/18/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 8971dcf5-1d05-46e1-adf2-ce0f55521a49
 description: "Risorse complete dell'ecosistema NuGet che includono origini NuGet, progetti NuGet non Microsoft, utilità e materiali per la formazione."
 keywords: "Ecosistema NuGet, progetti NuGet non Microsoft, open source NuGet, utilità NuGet, materiali per la formazione NuGet"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: de64cf96595825b7c1bf2e235e370f5a95c64096
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 7c1e457c034f239fbea4e75f24851ea38182a294
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="an-overview-of-the-nuget-ecosystem"></a>Panoramica dell'ecosistema NuGet
 
@@ -41,38 +40,37 @@ Microsoft ha contribuito ampiamente allo sviluppo di NuGet. Anche tutti i contri
 
 Molte altre persone e aziende hanno apportato contributi significativi all'ecosistema NuGet. Ogni progetto elencato di seguito potrebbe disporre di una licenza diversa rispetto ai componenti base di NuGet, pertanto verificare che le condizioni di licenza siano accettabili prima di procedere all'uso:
 
-* [AppVeyor (soluzione CI)](https://www.appveyor.com/)
-* [Artifactory](https://www.jfrog.com/artifactory/)
-* [BoxStarter](http://boxstarter.org/)
-* [Chocolatey](https://chocolatey.org/)
-* [CoApp](http://coapp.org/)
-* [JetBrains ReSharper](https://resharper-plugins.jetbrains.com/)
-* [JetBrains TeamCity](https://www.jetbrains.com/teamcity/)
-* [Klondike](https://github.com/themotleyfool/Klondike)
-* [MinimalNugetServer](https://github.com/TanukiSharp/MinimalNugetServer)
-* [MyGet (o NuGet come servizio)](http://www.myget.org/)
-* [NuGet Package Explorer](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)
-* [NuGet Server](http://nugetserver.net/)
-* [OctopusDeploy](https://octopus.com/)
-* [Paket](https://fsprojects.github.io/Paket/)
-* [ProGet (Inedo)](http://inedo.com/proget)
-* [scriptcs](http://scriptcs.net/)
-* [SharpDevelop](http://community.sharpdevelop.net/blogs/mattward/archive/2011/01/23/NuGetSupportInSharpDevelop.aspx)
-* [Sonatype Nexus](http://www.sonatype.com/nexus-repository-sonatype)
-* [SymbolSource](http://www.symbolsource.org/Public)
-* [Xamarin e MonoDevelop](https://github.com/mrward/monodevelop-nuget-addin)
-
+- [AppVeyor (soluzione CI)](https://www.appveyor.com/)
+- [Artifactory](https://www.jfrog.com/artifactory/)
+- [BoxStarter](http://boxstarter.org/)
+- [Chocolatey](https://chocolatey.org/)
+- [CoApp](http://coapp.org/)
+- [JetBrains ReSharper](https://resharper-plugins.jetbrains.com/)
+- [JetBrains TeamCity](https://www.jetbrains.com/teamcity/)
+- [Klondike](https://github.com/themotleyfool/Klondike)
+- [MinimalNugetServer](https://github.com/TanukiSharp/MinimalNugetServer)
+- [MyGet (o NuGet come servizio)](http://www.myget.org/)
+- [NuGet Package Explorer](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)
+- [NuGet Server](http://nugetserver.net/)
+- [OctopusDeploy](https://octopus.com/)
+- [Paket](https://fsprojects.github.io/Paket/)
+- [ProGet (Inedo)](http://inedo.com/proget)
+- [scriptcs](http://scriptcs.net/)
+- [SharpDevelop](http://community.sharpdevelop.net/blogs/mattward/archive/2011/01/23/NuGetSupportInSharpDevelop.aspx)
+- [Sonatype Nexus](http://www.sonatype.com/nexus-repository-sonatype)
+- [SymbolSource](http://www.symbolsource.org/Public)
+- [Xamarin e MonoDevelop](https://github.com/mrward/monodevelop-nuget-addin)
 
 ## <a name="other-nuget-based-utilities"></a>Altre utilità basate su NuGet
 
 Di seguito sono elencati gli strumenti e le utilità basati su NuGet:
 
-* [Estensioni di Glimpse](http://getglimpse.com/Packages) (i plug-in sono pacchetti)
-* [NuGetMustHaves.com](http://nugetmusthaves.com/)
-* [Orchard](http://www.orchardproject.net/) (i moduli CMS vengono recuperati da un feed NuGet v1 ospitato nella raccolta Orchard)
-* [Implementazione Java di NuGet Server](http://jonnyzzz.com/blog/2012/03/07/nuget-server-in-pure-java/)
-* [NuGetLatest](https://twitter.com/NuGetLatest) (bot su Twitter sulle pubblicazioni di nuovi pacchetti)
-* [DefinitelyTyped](http://definitelytyped.org/) (definizioni [automatiche](https://github.com/DefinitelyTyped/NugetAutomation/) di tipi TypeScript [pubblicate su NuGet](http://www.nuget.org/packages?q=DefinitelyTyped))
+- [Estensioni di Glimpse](http://getglimpse.com/Packages) (i plug-in sono pacchetti)
+- [NuGetMustHaves.com](http://nugetmusthaves.com/)
+- [Orchard](http://www.orchardproject.net/) (i moduli CMS vengono recuperati da un feed NuGet v1 ospitato nella raccolta Orchard)
+- [Implementazione Java di NuGet Server](http://jonnyzzz.com/blog/2012/03/07/nuget-server-in-pure-java/)
+- [NuGetLatest](https://twitter.com/NuGetLatest) (bot su Twitter sulle pubblicazioni di nuovi pacchetti)
+- [DefinitelyTyped](http://definitelytyped.org/) (definizioni [automatiche](https://github.com/DefinitelyTyped/NugetAutomation/) di tipi TypeScript [pubblicate su NuGet](http://www.nuget.org/packages?q=DefinitelyTyped))
 
 ## <a name="training-materials-and-references"></a>Riferimenti e materiali per la formazione
 
@@ -83,8 +81,8 @@ Detto questo, per poter creare pacchetti validi e adottare NuGet nell'ambito di 
 - [Blog di NuGet](http://blog.nuget.org/)
 - [Team di NuGet su Twitter, @nuget](http://twitter.com/nuget)
 - Pubblicazioni:
-    * [Apress Pro NuGet](http://bit.ly/ProNuGet)
-    * [NuGet 2 Essentials](http://www.amazon.com/NuGet-2-Essentials-Damir-Arh-ebook/dp/B00GTQD5M4)
+  - [Apress Pro NuGet](http://bit.ly/ProNuGet)
+  - [NuGet 2 Essentials](http://www.amazon.com/NuGet-2-Essentials-Damir-Arh-ebook/dp/B00GTQD5M4)
 
 ## <a name="documentation-for-individual-packages"></a>Documentazione per i singoli pacchetti
 

@@ -3,21 +3,20 @@ title: Uso di NuGet.Server per ospitare feed NuGet | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 8/25/2017
+ms.date: 08/25/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 45138f80-9717-42c2-8b34-9a1bc1fb3eab
 description: Come creare e ospitare un feed di pacchetti NuGet in qualsiasi server che esegue IIS usando NuGet.Server e rendendo i pacchetti disponibili tramite HTTP e OData.
 keywords: Feed NuGet, raccolta NuGet, feed di pacchetti remoti, NuGet.Server
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f37b9b711a2bc8c39314214113045a6485f297a8
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 4cb3f04954fac1b4a39284be187776ab4a19b364
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nugetserver"></a>NuGet.Server
 
