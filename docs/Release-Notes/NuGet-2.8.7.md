@@ -13,14 +13,14 @@ ms.reviewer:
 - karann-msft
 - unniravindranathan
 ms.openlocfilehash: bfce53cb983bbf531dc93770e1fc40b6608d0d27
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/02/2018
 ---
-# <a name="nuget-287-release-notes"></a><span data-ttu-id="a4027-104">Note sulla versione di NuGet 2.8.7</span><span class="sxs-lookup"><span data-stu-id="a4027-104">NuGet 2.8.7 Release Notes</span></span>
+# <a name="nuget-287-release-notes"></a><span data-ttu-id="f427d-104">Note sulla versione di NuGet 2.8.7</span><span class="sxs-lookup"><span data-stu-id="f427d-104">NuGet 2.8.7 Release Notes</span></span>
 
-<span data-ttu-id="a4027-105">[Note sulla versione di NuGet 2.8.6](../release-notes/nuget-2.8.6.md) | [note sulla versione 2.9 RC NuGet](../release-notes/nuget-2.9-RC.md)</span><span class="sxs-lookup"><span data-stu-id="a4027-105">[NuGet 2.8.6 Release Notes](../release-notes/nuget-2.8.6.md) | [NuGet 2.9-RC Release Notes](../release-notes/nuget-2.9-RC.md)</span></span>
+<span data-ttu-id="f427d-105">[Note sulla versione di NuGet 2.8.6](../release-notes/nuget-2.8.6.md) | [note sulla versione 2.9 RC NuGet](../release-notes/nuget-2.9-RC.md)</span><span class="sxs-lookup"><span data-stu-id="f427d-105">[NuGet 2.8.6 Release Notes](../release-notes/nuget-2.8.6.md) | [NuGet 2.9-RC Release Notes](../release-notes/nuget-2.9-RC.md)</span></span>
 
-<span data-ttu-id="a4027-106">È stato rilasciato NuGet 2.8.7 27 luglio 2015 come patch aggiornare il 2.8.6 VSIX con correzione specifico a un bug che effettua l'implementazione dei criteri di Powershell.</span><span class="sxs-lookup"><span data-stu-id="a4027-106">NuGet 2.8.7 was released July 27, 2015 as a patch update to the 2.8.6 VSIX with fix specific to a bug that effected Powershell policy implementation.</span></span>
-[<span data-ttu-id="a4027-107">https://github.com/NuGet/Home/issues/974</span><span class="sxs-lookup"><span data-stu-id="a4027-107">https://github.com/NuGet/Home/issues/974</span></span>](https://github.com/NuGet/Home/issues/974)
+<span data-ttu-id="f427d-106">È stato rilasciato NuGet 2.8.7 27 luglio 2015 come patch aggiornare il 2.8.6 VSIX con correzione specifico a un bug che effettua l'implementazione dei criteri di Powershell.</span><span class="sxs-lookup"><span data-stu-id="f427d-106">NuGet 2.8.7 was released July 27, 2015 as a patch update to the 2.8.6 VSIX with fix specific to a bug that effected Powershell policy implementation.</span></span>
+[<span data-ttu-id="f427d-107">https://github.com/NuGet/Home/issues/974</span><span class="sxs-lookup"><span data-stu-id="f427d-107">https://github.com/NuGet/Home/issues/974</span></span>](https://github.com/NuGet/Home/issues/974)
