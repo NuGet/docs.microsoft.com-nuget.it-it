@@ -8,11 +8,11 @@
       items:
         - name: Guida rapida
           tocHref: /nuget/quickstart/
-          topicHref: /nuget/quickstart/create-and-publish-a-package
+          topicHref: /nuget/quickstart/install-and-use-a-package-using-the-dotnet-cli
         - name: Guide
           tocHref: /nuget/guides/
-          topicHref: /nuget/guides/install-nuget
-        - name: Creare pacchetti
+          topicHref: /nuget/guides/create-net-standard-packages-vs2017
+        - name: Creazione di pacchetti
           tocHref: /nuget/create-packages/
           topicHref: /nuget/create-packages/overview-and-workflow
         - name: Utilizzare i pacchetti
@@ -24,9 +24,9 @@
         - name: Strumenti
           tocHref: /nuget/tools/
           topicHref: /nuget/tools/nuget-exe-cli-reference
-        - name: Riferimento
+        - name: Riferimenti
           tocHref: /nuget/reference/
-          topicHref: /nuget/schema/nuspec
+          topicHref: /nuget/reference/nuspec
         - name: API
           tocHref: /nuget/api/
           topicHref: /nuget/api/overview
