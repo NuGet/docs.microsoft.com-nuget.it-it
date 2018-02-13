@@ -12,11 +12,11 @@ keywords: File NuGet. config, informazioni di riferimento sulla configurazione N
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9a183b67ae18f4fa5c042f1806f8abcc9b799b77
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: df602cb561a19f0eac085695de80db1fbaa1a313
+ms.sourcegitcommit: 33436d122873249dbb20616556cd8c6783f38909
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/12/2018
 ---
 # <a name="nugetconfig-reference"></a>Informazioni di riferimento su NuGet.config
 
@@ -48,7 +48,7 @@ In questo argomento
 
 Contiene varie impostazioni di configurazione, che possono essere impostate con il [comando `nuget config`](../tools/cli-ref-config.md).
 
-Nota: `dependencyVersion` e `repositoryPath` si applicano solo ai progetti che usano `packages.config`. `globalPackagesFolder`si applica solo ai progetti utilizzando il formato PackageReference.
+Nota: `dependencyVersion` e `repositoryPath` si applicano solo ai progetti che usano `packages.config`. `globalPackagesFolder` si applica solo ai progetti utilizzando il formato PackageReference.
 
 | Chiave | Valore |
 | --- | --- |
@@ -131,7 +131,7 @@ Si noti che l'URL di origine di nuget.org è `https://api.nuget.org/v3/index.jso
 
 ### <a name="packagesources"></a>packageSources
 
-Elenca tutte le origini di pacchetti note.
+Elenca tutte le origini di pacchetti note. L'ordine viene ignorato durante le operazioni di ripristino e con qualsiasi progetto utilizzando il formato PackageReference. NuGet rispetta l'ordine delle origini per installare e aggiornare le operazioni con i progetti utilizzando `packages.config`.
 
 | Chiave | Valore |
 | --- | --- |
