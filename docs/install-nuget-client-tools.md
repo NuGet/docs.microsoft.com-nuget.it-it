@@ -12,11 +12,11 @@ keywords: interfaccia della riga di comando dotnet.exe, interfaccia della riga d
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 07ca66b44a981f7fcc108e1b4d97c0cf5e206a6f
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: ec8de83c9e05981016215e487888ab68a616d977
+ms.sourcegitcommit: dbcb872ec10430e1d761f34b851650e31c87a96d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="installing-nuget-client-tools"></a>Installazione degli strumenti client di NuGet
 
@@ -59,7 +59,7 @@ Installazione:
 > Usare `nuget update -self` per aggiornare una copia esistente di nuget.exe alla versione più recente.
 
 > [!Note]
-> La versione più recente consigliata dell'interfaccia della riga di comando di NuGet è sempre disponibile all'indirizzo `https://dist.nuget.org/win-x86-commandline/latest/nuget.exe`. Per motivi di compatibilità con sistemi di integrazione continua meno recenti, da un URL precedente, `https://nuget.org/nuget.exe`, è sempre possibile ottenere la versione 2.8.6 dell'interfaccia della riga di comando.
+> La versione più recente consigliata dell'interfaccia della riga di comando di NuGet è sempre disponibile all'indirizzo `https://dist.nuget.org/win-x86-commandline/latest/nuget.exe`. Per motivi di compatibilità con sistemi di integrazione continua meno recenti, da un URL precedente, `https://nuget.org/nuget.exe`, è attualmente possibile ottenere la versione 2.8.6 dell'interfaccia della riga di comando. [Questa procedura è deprecata](https://github.com/NuGet/NuGetGallery/issues/5381).
 
 ## <a name="visual-studio"></a>Visual Studio
 
