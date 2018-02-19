@@ -3,7 +3,7 @@ title: Modi per installare pacchetti NuGet | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 01/30/2018
+ms.date: 02/12/2018
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
@@ -12,11 +12,11 @@ keywords: installare NuGet, utilizzo di un pacchetto NuGet, installazione di pac
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9e48bbe813168e773bc46b7fe25af29785ff75df
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 3bae03e148a366388c10d08e83c89dac6ff56d06
+ms.sourcegitcommit: 33436d122873249dbb20616556cd8c6783f38909
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/12/2018
 ---
 # <a name="different-ways-to-install-a-nuget-package"></a>Diversi modi per installare un pacchetto NuGet
 
@@ -35,7 +35,10 @@ In generale, NuGet esegue le operazioni seguenti quando viene richiesto di insta
 
 1. Acquisire il pacchetto:
     - Verifica se il pacchetto richiesto esiste già in una cache (vedere [Gestione delle cache NuGet](managing-the-nuget-cache.md)).
-    - Se il pacchetto non è presente nella cache, tenta di scaricare il pacchetto dalle origini elencate nei file di configurazione, a partire dalla prima nell'elenco. Questo comportamento consente di usare feed del pacchetto privati prima di cercare un pacchetto in nuget.org (vedere [Configurazione del comportamento di NuGet](configuring-nuget-behavior.md)).
+    - Se il pacchetto non è presente nella cache, tenta di scaricare il pacchetto dalle origini elencate nei [file di configurazione](Configuring-NuGet-Behavior.md).
+      - Per i progetti che usano il formato di riferimento `packages.config`, NuGet usa l'ordine delle origini nella configurazione.
+      - Per i progetti che usano il formato PackageReference, NuGet controlla prima le origini che sono cartelle locali, quindi le origini nelle condivisioni di rete e infine le origini HTTP (Internet).
+      - In generale, l'ordine in cui NuGet controlla le origini non è particolarmente significativo, perché qualsiasi pacchetto con uno specifico identificatore e numero di versione è esattamente lo stesso in qualsiasi origine venga trovato.
     - Se il pacchetto viene acquisito correttamente da una delle origini, NuGet lo aggiunge nella cache. In caso contrario, l'installazione non riesce.
 
 1. Espandere il pacchetto nel progetto.
