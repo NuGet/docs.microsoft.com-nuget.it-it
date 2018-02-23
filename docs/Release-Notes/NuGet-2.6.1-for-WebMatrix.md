@@ -13,23 +13,23 @@ keywords: "NuGet 2.6.1 per le note sulla versione di WebMatrix, correzioni di bu
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6150fc34dd05c2e7ce132d2d6744b823daeb1a07
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 633b71011dd1bc897ad95fd706337cef3aeef34c
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="nuget-261-for-webmatrix-release-notes"></a>NuGet 2.6.1 delle note sulla versione di WebMatrix
 
 [Note sulla versione 2.6 NuGet](../release-notes/nuget-2.6.md) | [note sulla versione 2.7 NuGet](../release-notes/nuget-2.7.md)
 
-Il team di NuGet rilasciati da un'estensione Gestione pacchetti NuGet aggiornato per WebMatrix 26 marzo 2014.  Questo aggiornamento può essere installato dal [raccolta estensioni WebMatrix](http://extensions.webmatrix.com/packages/NuGetPackageManager/) usando la procedura seguente:
+Il team di NuGet rilasciati da un'estensione Gestione pacchetti NuGet aggiornato per WebMatrix 26 marzo 2014.  Questo aggiornamento può essere installato dal [raccolta estensioni WebMatrix](https://blogs.iis.net/webmatrix/retiring-the-webmatrix-extensions-gallery) usando la procedura seguente:
 
 1. Aprire WebMatrix 3
-2. Fare clic sull'icona di estensioni della barra multifunzione Home
-3. Selezionare la scheda di aggiornamenti
-4. Fare clic per aggiornare Gestione pacchetti NuGet per 2.6.1
-6. Chiudere e riavviare WebMatrix 3
+1. Fare clic sull'icona di estensioni della barra multifunzione Home
+1. Selezionare la scheda di aggiornamenti
+1. Fare clic per aggiornare Gestione pacchetti NuGet per 2.6.1
+1. Chiudere e riavviare WebMatrix 3
 
 ## <a name="notable-changes"></a>Modifiche significative
 

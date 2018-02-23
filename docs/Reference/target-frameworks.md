@@ -13,11 +13,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: dbeec1d3332571d8e9616dfe9675b5fcf3c85589
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 7e3621f01312e3b4fdbef116e5044869416b851c
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="target-frameworks"></a>Framework di destinazione
 
@@ -129,7 +129,7 @@ La serie `dotnet` di moniker deve essere usata in NuGet 3.3 e versioni precedent
 ## <a name="portable-class-libraries"></a>Librerie di classi portabili
 
 > [!Warning]
-> **Le librerie di classi portabili (PCL) non sono consigliate**. Anche se sono supportate, gli autori di pacchetti devono supportare netstandard. .NET Platform Standard è un'evoluzione delle librerie di classi portabili e rappresenta la portabilità binaria su più piattaforme tramite un singolo moniker non associato a un valore statico, come i moniker *portable-a+b+c*.
+> **Le librerie di classi portabili (PCL) non sono consigliate**. Anche se sono supportate, gli autori di pacchetti devono supportare netstandard. Alla piattaforma Standard .NET è un'evoluzione del PCLs e rappresenta binaria portabilità tra piattaforme usando un moniker singolo che non è associato a una libreria statica come *portabile-+ b + c* moniker.
 
 Per definire un framework di destinazione che fa riferimento a più framework di destinazione figlio, la parola chiave `portable` viene usata come prefisso per l'elenco dei framework a cui si fa riferimento. Evitare di includere artificialmente framework aggiuntivi non usati direttamente per la compilazione, perché ciò può portare a effetti collaterali imprevisti in tali framework.
 

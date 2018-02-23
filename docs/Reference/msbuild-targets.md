@@ -11,17 +11,17 @@ description: I comandi pack e restore di NuGet possono essere usati direttamente
 keywords: NuGet e MSBuild, destinazione pack NuGet, destinazione restore NuGet
 ms.reviewer:
 - karann-msft
-ms.openlocfilehash: 6c488f49e12b014e7bd197d57041745387a4d7b4
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 4d448af3d31e0907cba223c0ccec55604e94f055
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Pack e restore di NuGet come destinazioni MSBuild
 
 *NuGet 4.0+*
 
-Con il formato di PackageReference NuGet 4.0 + possono archiviare i metadati di tutti i manifesti direttamente all'interno di un file di progetto, anziché tramite un apposito `.nuspec` file.
+Con il formato PackageReference, NuGet 4.0 + può archiviare tutti i metadati del manifesto direttamente all'interno di un file di progetto, invece di usare un file `.nuspec` separato.
 
 Con MSBuild 15.1 +, anche NuGet è un membro di MSBuild di prima classe con le destinazioni `pack` e `restore` come descritto di seguito. Queste destinazioni consentono di usare NuGet come qualsiasi altra attività o destinazione MSBuild. Per NuGet 3.x e versioni precedenti, usare invece i comandi [pack](../tools/cli-ref-pack.md) e [restore](../tools/cli-ref-restore.md) tramite l'interfaccia della riga di comando di NuGet.
 
@@ -42,7 +42,7 @@ Analogamente, è possibile scrivere un'attività MSBuild, scrivere la propria de
 
 ## <a name="pack-target"></a>Destinazione pack
 
-Quando si utilizza la destinazione di Service pack, vale a dire `msbuild /t:pack`, MSBuild crea il relativo input dal file di progetto. Nella tabella seguente vengono descritte le proprietà di MSBuild che possono essere aggiunto in un file di progetto all'interno della prima `<PropertyGroup>` nodo. È possibile apportare facilmente queste modifiche in Visual Studio 2017 e versioni successive facendo clic con il pulsante destro del mouse sul progetto e scegliendo **Modifica {nome_progetto}** dal menu di scelta rapida. Per praticità, la tabella è organizzata in base alla proprietà equivalente in un [file `.nuspec`](../reference/nuspec.md).
+Quando si usa la destinazione pack, vale a dire `msbuild /t:pack`, MSBuild recupera i relativi input dal file di progetto. La tabella seguente descrive le proprietà di MSBuild che possono essere aggiunte a un file di progetto all'interno del primo nodo `<PropertyGroup>`. È possibile apportare facilmente queste modifiche in Visual Studio 2017 e versioni successive facendo clic con il pulsante destro del mouse sul progetto e scegliendo **Modifica {nome_progetto}** dal menu di scelta rapida. Per praticità, la tabella è organizzata in base alla proprietà equivalente in un [file `.nuspec`](../reference/nuspec.md).
 
 Si noti che le proprietà `Owners` e `Summary` da `.nuspec` non sono supportate con MSBuild.
 
@@ -50,8 +50,8 @@ Si noti che le proprietà `Owners` e `Summary` da `.nuspec` non sono supportate 
 |--------|--------|--------|--------|
 | Id | PackageId | AssemblyName | $(AssemblyName) da MSBuild |
 | Versione | PackageVersion | Versione | Compatibile con SemVer, ad esempio "1.0.0", "1.0.0-beta" o "1.0.0-beta-00345" |
-| VersionPrefix | PackageVersionPrefix | vuoto | Impostazione PackageVersion sovrascrive PackageVersionPrefix |
-| VersionSuffix | PackageVersionSuffix | vuoto | $(VersionSuffix) da MSBuild. Impostazione PackageVersion sovrascrive PackageVersionSuffix |
+| VersionPrefix | PackageVersionPrefix | vuoto | L'impostazione di PackageVersion sovrascrive PackageVersionPrefix |
+| VersionSuffix | PackageVersionSuffix | vuoto | $(VersionSuffix) da MSBuild. L'impostazione di PackageVersion sovrascrive PackageVersionSuffix |
 | Autori | Autori | Nome utente dell'utente corrente | |
 | Proprietari | N/D | Non presente in NuSpec | |
 | Titolo | Titolo | PackageId| |
@@ -63,8 +63,10 @@ Si noti che le proprietà `Owners` e `Summary` da `.nuspec` non sono supportate 
 | IconUrl | PackageIconUrl | vuoto | |
 | Tag | PackageTags | vuoto | I tag sono delimitati da punto e virgola. |
 | ReleaseNotes | PackageReleaseNotes | vuoto | |
-| RepositoryUrl | RepositoryUrl | vuoto | |
-| RepositoryType | RepositoryType | vuoto | |
+| Url del repository / | RepositoryUrl | vuoto | URL del repository utilizzata per clonare o recuperare il codice sorgente. Esempio: *https://github.com/NuGet/NuGet.Client.git* |
+| Tipo di repository / | RepositoryType | vuoto | Tipo di repository. Esempi: *git*, *tfs*. |
+| Ramo del repository / | RepositoryBranch | vuoto | Informazioni di ramo del repository facoltativo. *RepositoryUrl* deve anche essere specificato per questa proprietà deve essere incluso. Esempio: *master* (NuGet 4.7.0+) |
+| Repository/Commit | RepositoryCommit | vuoto | Commit repository facoltativo o insieme di modifiche per indicare che il pacchetto di origine è stato compilato con. *RepositoryUrl* deve anche essere specificato per questa proprietà deve essere incluso. Esempio: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0+) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
 | Riepilogo | Non supportato | | |
 
@@ -90,6 +92,8 @@ Si noti che le proprietà `Owners` e `Summary` da `.nuspec` non sono supportate 
 - IsTool
 - RepositoryUrl
 - RepositoryType
+- RepositoryBranch
+- RepositoryCommit
 - NoPackageAnalysis
 - MinClientVersion
 - IncludeBuildOutput
@@ -170,7 +174,7 @@ Se si vuole copiare tutto il contenuto sono in cartelle radice specifiche (invec
 Altri metadati specifici di pack che è possibile impostare per qualsiasi elemento precedente includono ```<PackageCopyToOutput>``` e ```<PackageFlatten>```, che impostano i valori ```CopyToOutput``` e ```Flatten``` sulla voce ```contentFiles``` nel file nuspec di output.
 
 > [!Note]
-> Oltre a elementi di contenuto, il `<Pack>` e `<PackagePath>` metadati possono essere impostati anche nel file con un'azione di compilazione di compilazione, EmbeddedResource, ApplicationDefinition, pagina, risorse, SplashScreen, DesignData, DesignDataWithDesignTimeCreateableTypes , CodeAnalysisDictionary, AndroidAsset, AndroidResource, BundleResource o nessuno.
+> Oltre agli elementi Content, i metadati `<Pack>` e `<PackagePath>` possono anche essere impostati nei file con l'azione di compilazione Compile, EmbeddedResource, ApplicationDefinition, Page, Resource, SplashScreen, DesignData, DesignDataWithDesignTimeCreateableTypes, CodeAnalysisDictionary, AndroidAsset, AndroidResource, BundleResource o None.
 >
 > Per fare in modo che il comando pack aggiunga il nome del file al percorso del pacchetto quando si usano modelli con caratteri jolly (glob), il percorso del pacchetto deve terminare con il carattere separatore di cartella. In caso contrario, il percorso del pacchetto viene interpretato come percorso completo, incluso il nome del file.
 
