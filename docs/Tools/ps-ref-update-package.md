@@ -12,11 +12,11 @@ keywords: Console di gestione, i comandi di Powershell di NuGet, riferimento di 
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 7ebb5a420e469c70a9dd790231a92fedbc4713b6
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 293d9a7fdcce633eb5a97e5f76398deb5c13bdb4
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="update-package-package-manager-console-in-visual-studio"></a>Pacchetto di aggiornamento (Console di gestione dei pacchetti in Visual Studio)
 
@@ -37,8 +37,6 @@ In NuGet 2.8 + `Update-Package` può essere usato per effettuare il downgrade di
 ```ps
 Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 ```
-
-NuGet 2.7 e versioni precedenti si verifica un errore che informa che è già installata una versione più recente.
 
 ## <a name="parameters"></a>Parametri
 

@@ -12,11 +12,11 @@ keywords: File NuGet. config, informazioni di riferimento sulla configurazione N
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: df602cb561a19f0eac085695de80db1fbaa1a313
-ms.sourcegitcommit: 33436d122873249dbb20616556cd8c6783f38909
+ms.openlocfilehash: c76ebcb06adc5e5b862647de6b6f4e19bde87b91
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="nugetconfig-reference"></a>Informazioni di riferimento su NuGet.config
 
@@ -87,7 +87,7 @@ Specifica se NuGet esegue o meno i reindirizzamenti di binding automatici quando
 
 ## <a name="packagerestore-section"></a>Sezione packageRestore
 
-*Ignorata nella versione 2.7+*
+*Ignorato in tutte le versioni correnti (2.7 +)*
 
 Controlla il ripristino dei pacchetti durante le compilazioni.
 

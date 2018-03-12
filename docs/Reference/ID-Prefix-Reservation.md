@@ -13,15 +13,15 @@ ms.reviewer:
 - ananguar
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: bee215fcc88b03dbdde6c15d1583898bdf205952
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: f74ea3c772a129f4b9cd286a77cf3e88eba2d33b
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="package-id-prefix-reservation"></a>Prenotazione di prefisso ID pacchetto
 
-Sono proprietari di pacchetti consente di riservare e proteggere la propria identità riservando prefissi ID. I consumer di pacchetto vengono fornite informazioni aggiuntive quando si utilizzano pacchetti che il pacchetto in uso non sono ingannevoli nelle relative proprietà di identificazione. 
+I proprietari del pacchetto consente di riservare e proteggere la propria identità riservando prefissi ID. I consumer di pacchetto vengono fornite informazioni aggiuntive quando si utilizzano pacchetti che il pacchetto in uso non sono ingannevoli nelle relative proprietà di identificazione. 
 
 [NuGet.org](https://www.nuget.org/) e Visual Studio 2017 15,4 o versione successiva mostra un indicatore visivo per il modello di denominazione del prefisso pacchetti che vengono inviati dai proprietari con un prefisso dell'ID pacchetto riservato, purché il pacchetto corrisponde all'ID riservato. Il riferimento di seguito viene illustrato cosa comporta la prenotazione di prefisso ID e come applicare un proprietario per un prefisso dell'ID.
 

@@ -16,11 +16,11 @@ keywords: Punto di ingresso API NuGet, individuazione di endpoint NuGetA PI
 ms.reviewer:
 - karann
 - unnir
-ms.openlocfilehash: 9d0bb421c163520df4a1f0e9f3f71aab823aace3
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 8de0bc15edc358d091d84da54b8b67c085f29645
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="service-index"></a>Indice del servizio
 
@@ -30,12 +30,11 @@ indice del servizio di NuGet.org si trova in `https://api.nuget.org/v3/index.jso
 
 ## <a name="versioning"></a>Controllo delle versioni
 
-Il `version` valore è una stringa di versione analizzabili SemVer 2.0.0 che indica la versione dello schema dell'indice del servizio.
-L'API richiede che la stringa di versione è un numero di versione principale `3`. Al momento non modifiche allo schema di indice del servizio, versione secondaria della stringa di versione verrà aumentato.
+Il `version` valore è una stringa di versione analizzabili SemVer 2.0.0 che indica la versione dello schema dell'indice del servizio. L'API richiede che la stringa di versione è un numero di versione principale `3`. Al momento non modifiche allo schema di indice del servizio, versione secondaria della stringa di versione verrà aumentato.
 
 Ogni risorsa in corrispondenza dell'indice del servizio viene creata indipendentemente dalla versione dello schema di indice del servizio.
 
-La versione dello schema corrente è `3.0.0-beta.1`.
+La versione dello schema corrente è `3.0.0`. Il `3.0.0` è funzionalmente equivalente alla precedente versione `3.0.0-beta.1` versione ma deve essere preferito in quanto più chiaramente comunica lo schema stabile, definito.
 
 ## <a name="http-methods"></a>Metodi HTTP
 
