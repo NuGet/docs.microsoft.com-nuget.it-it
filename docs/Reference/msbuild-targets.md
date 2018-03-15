@@ -3,7 +3,7 @@ title: Pack e restore di NuGet come destinazioni MSBuild | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 04/03/2017
+ms.date: 03/13/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
@@ -11,11 +11,11 @@ description: I comandi pack e restore di NuGet possono essere usati direttamente
 keywords: NuGet e MSBuild, destinazione pack NuGet, destinazione restore NuGet
 ms.reviewer:
 - karann-msft
-ms.openlocfilehash: 798b3550718294072d86b6e4827ec5017178d2cc
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.openlocfilehash: bb0ade1b0f5f81d7c8822d3c2b2f9dd45745fb8d
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Pack e restore di NuGet come destinazioni MSBuild
 
@@ -42,7 +42,9 @@ Analogamente, è possibile scrivere un'attività MSBuild, scrivere la propria de
 
 ## <a name="pack-target"></a>Destinazione pack
 
-Quando si usa la destinazione pack, vale a dire `msbuild /t:pack`, MSBuild recupera i relativi input dal file di progetto. La tabella seguente descrive le proprietà di MSBuild che possono essere aggiunte a un file di progetto all'interno del primo nodo `<PropertyGroup>`. È possibile apportare facilmente queste modifiche in Visual Studio 2017 e versioni successive facendo clic con il pulsante destro del mouse sul progetto e scegliendo **Modifica {nome_progetto}** dal menu di scelta rapida. Per praticità, la tabella è organizzata in base alla proprietà equivalente in un [file `.nuspec`](../reference/nuspec.md).
+Per i progetti .NET Standard utilizzando il formato PackageReference, utilizzando `msbuild /t:pack` disegna input dal file di progetto da utilizzare nella creazione di un pacchetto NuGet.
+
+La tabella seguente descrive le proprietà di MSBuild che possono essere aggiunte a un file di progetto all'interno del primo nodo `<PropertyGroup>`. È possibile apportare facilmente queste modifiche in Visual Studio 2017 e versioni successive facendo clic con il pulsante destro del mouse sul progetto e scegliendo **Modifica {nome_progetto}** dal menu di scelta rapida. Per praticità, la tabella è organizzata in base alla proprietà equivalente in un [file `.nuspec`](../reference/nuspec.md).
 
 Si noti che le proprietà `Owners` e `Summary` da `.nuspec` non sono supportate con MSBuild.
 
@@ -194,7 +196,7 @@ Quando si usa `MSBuild /t:pack /p:IsTool=true`, tutti i file, come specificato n
 
 ### <a name="packing-using-a-nuspec"></a>Creazione di un pacchetto con un file .nuspec
 
-È possibile usare un file `.nuspec` per creare un pacchetto del progetto, a condizione di disporre di un file di progetto per importare `NuGet.Build.Tasks.Pack.targets`, in modo da poter eseguire l'attività pack. Le tre proprietà di MSBuild seguenti sono rilevanti per la creazione di pacchetti con un file `.nuspec`:
+È possibile utilizzare un `.nuspec` file per comprimere il progetto, purché si disponga di un file di progetto SDK da importare `NuGet.Build.Tasks.Pack.targets` in modo che l'attività di Service pack può essere eseguita. È comunque necessario ripristinare il progetto prima di possibile comprimere un file nuspec. Il framework di destinazione del file di progetto è irrilevante e non utilizzata per la compressione di un nuspec. Le tre proprietà di MSBuild seguenti sono rilevanti per la creazione di pacchetti con un file `.nuspec`:
 
 1. `NuspecFile`: percorso relativo o assoluto per il file `.nuspec` usato per la creazione del pacchetto.
 1. `NuspecProperties`: elenco con valori delimitati da punto e virgola di coppie chiave=valore. A causa della modalità di funzionamento dell'analisi della riga di comando di MSBuild, è necessario specificare più proprietà come indicato di seguito: `/p:NuspecProperties=\"key1=value1;key2=value2\"`.  
@@ -212,6 +214,23 @@ Se si usa MSBuild per creare il pacchetto del progetto, usare un comando simile 
 msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:NuspecProperties=<> /p:NuspecBasePath=<Base path> 
 ```
 
+Si noti che un nuspec di compressione utilizzando dotnet.exe o msbuild comporta anche per la compilazione del progetto per impostazione predefinita. Questo può essere evitato passando ```--no-build``` dotnet.exe, che equivale all'impostazione della proprietà ```<NoBuild>true</NoBuild> ``` nel file di progetto, insieme a impostazione ```<IncludeBuildOutput>false</IncludeBuildOutput> ``` nel file di progetto
+
+È un esempio di un file csproj per comprimere un file nuspec.
+
+```
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <NoBuild>true</NoBuild>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <NuspecFile>PATH_TO_NUSPEC_FILE</NuspecFile>
+    <NuspecProperties>add nuspec properties here</NuspecProperties>
+    <NuspecBasePath>optional to provide</NuspecBasePath>
+  </PropertyGroup>
+</Project>
+```
+
 ## <a name="restore-target"></a>Destinazione restore
 
 `MSBuild /t:restore` (usato da `nuget restore` e `dotnet restore` con progetti .NET Core) consente di ripristinare i pacchetti a cui si fa riferimento nel file di progetto, come segue:
@@ -223,8 +242,7 @@ msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:Nu
 1. Download dei pacchetti
 1. Scrittura dei file di asset, delle destinazioni e delle proprietà
 
-> [!Note]
-> Il `restore` destinazione MSBuild funziona solo per i progetti utilizzando `PackageReference` gli elementi e non ripristinare i pacchetti a cui fa riferimento tramite un `packages.config` file.
+Il `restore` destinazione works **solo** per i progetti utilizzando il formato PackageReference. Caso **non** funzionano per i progetti utilizzando il `packages.config` formato; utilizzare [ripristino nuget](../tools/cli-ref-restore.md) invece.
 
 ### <a name="restore-properties"></a>Ripristino delle proprietà
 

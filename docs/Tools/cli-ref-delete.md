@@ -12,11 +12,11 @@ keywords: NuGet Elimina riferimento, eliminare il comando di pacchetto
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 3412d38edbdb011d050b9b61c7c144568edd4cca
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: b5d53b83cdccaa8e284b844786b0ec27e7afb63a
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="delete-command-nuget-cli"></a>eliminazione di comando (CLI NuGet)
 
@@ -36,8 +36,8 @@ dove `<packageID>` e `<packageVersion>` identificare il pacchetto esatto per eli
 
 | Opzione | Descrizione |
 | --- | --- |
-| ApiKey | La chiave API per il repository di destinazione. Se non è presente, quella specificata nella *%AppData%\NuGet\NuGet.Config* viene utilizzato. |
-| ConfigFile | Il file di configurazione NuGet da applicare. Se non specificato, *%AppData%\NuGet\NuGet.Config* viene utilizzato. |
+| ApiKey | La chiave API per il repository di destinazione. Se non è presente, viene utilizzato quello specificato nel file di configurazione. |
+| ConfigFile | Il file di configurazione NuGet da applicare. Se non specificato, `%AppData%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Mac o Linux) viene utilizzato.|
 | ForceEnglishOutput | *(3.5 +)*  Forza nuget.exe per eseguire utilizzando le impostazioni cultura invariante, in lingua inglese. |
 | ? | Visualizza la Guida informazioni per il comando. |
 | NonInteractive | Elimina richieste per l'input dell'utente o le conferme. |

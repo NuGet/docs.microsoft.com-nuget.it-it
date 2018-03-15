@@ -12,11 +12,11 @@ keywords: riferimento mirror NuGet, comando mirror
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 80b8f9a3b74030ffd3f1c7b784204d98be67d684
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 0c1969cc04b2e2cead5e9dadf9739fdabdf65f6c
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="mirror-command-nuget-cli"></a>comando mirror (NuGet CLI)
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 02/14/2018
 Riflette un pacchetto e le relative dipendenze dal repository di origine specificato per il repository di destinazione.
 
 > [!NOTE]
-> Per abilitare questo comando per le versioni di NuGet prima 3.2, passare a [https://nuget.codeplex.com/releases](https://nuget.codeplex.com/releases), selezionare la versione stabile più recente, scaricare `NuGet.ServerExtensions.dll` e `Nuget-Signed.exe` al disco locale e ridenominazione `Nuget-Signed.exe` per `nuget.exe`.
+> Per abilitare questo comando per le versioni di NuGet prima 3.2, passare a [ https://nuget.codeplex.com/releases ](https://nuget.codeplex.com/releases), selezionare la versione stabile più recente, scaricare `NuGet.ServerExtensions.dll` e `Nuget-Signed.exe` al disco locale e ridenominazione `Nuget-Signed.exe` a `nuget.exe`.
 
 ## <a name="usage"></a>Utilizzo
 
@@ -43,12 +43,12 @@ Se il repository di destinazione si trova in `https://machine/repo` che esegue [
 
 | Opzione | Descrizione |
 | --- | --- |
-| ApiKey | La chiave API per il repository di destinazione. Se non è presente, quella specificata nella *%AppData%\NuGet\NuGet.Config* viene utilizzato. |
+| ApiKey | La chiave API per il repository di destinazione. Se non è presente, quello specificato nel file di configurazione viene utilizzato (`%AppData%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Mac o Linux)). |
 | ? | Visualizza la Guida informazioni per il comando. |
 | NoCache | Impedisce l'utilizzo di pacchetti dalla cache locale NuGet. |
 | NOOP | Registra quali possono essere eseguite, ma non esegue le azioni; si presuppone che l'esito positivo per le operazioni di push. |
 | Versione provvisoria | Include i pacchetti della versione provvisoria nell'operazione di mirroring. |
-| Origine | Un elenco delle origini pacchetto per eseguire il mirroring. Se non vengono specificata alcuna origine, quelli definiti in *%AppData%\NuGet\NuGet.Config* vengono utilizzati, l'impostazione nuget.org se non è specificato. |
+| Origine | Un elenco delle origini pacchetto per eseguire il mirroring. Se non vengono specificata alcuna origine, quelli definiti nel file di configurazione (vedere ApiKey precedente) vengono utilizzati, l'impostazione nuget.org se è stata specificata alcuna. |
 | Timeout | Specifica il timeout in secondi, per l'inserimento di un server. Il valore predefinito è 300 secondi (5 minuti). |
 | Versione | La versione del pacchetto da installare. Se non specificato, la versione più recente è il mirroring. |
 

@@ -12,15 +12,15 @@ ms.topic: reference
 ms.prod: nuget
 ms.technology: 
 description: "Il catalogo è un indice di tutti i pacchetti creati ed eliminati in nuget.org."
-keywords: Catalogo delle API V3 NuGet, log delle transazioni nuget.org, replicare NuGet.org, clonare NuGet.org, solo di Accodamento record di NuGet.org
+keywords: Catalogo delle API V3 NuGet, log delle transazioni nuget.org, replicare nuget.org nuget.org clone, solo di Accodamento record di nuget.org
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: d1a24be68a60085a40361c374ffb34dc221f09c4
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: be30b21d488c323c439a59fff290a95adaefd902
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="catalog"></a>Catalog
 
@@ -50,7 +50,7 @@ Tutti gli URL, vedere il supporto di risorsa catalogo solo i metodi HTTP `GET` e
 
 ## <a name="catalog-index"></a>Indice del catalogo
 
-L'indice del catalogo è un documento in un percorso noto che include un elenco di elementi di catalogo, ordinati in cronologically. È il punto di ingresso della risorsa di catalogo.
+L'indice del catalogo è un documento in un percorso noto che dispone di un elenco degli elementi del catalogo, in ordine cronologico. È il punto di ingresso della risorsa di catalogo.
 
 L'indice è costituita da pagine di catalogo. Ogni pagina di catalogo contiene gli elementi del catalogo. Ogni elemento del catalogo rappresenta un evento relativi a un singolo pacchetto in un punto nel tempo. Un elemento del catalogo può rappresentare un pacchetto che è stato creato, non in elenco, rimesse in vendita o eliminata dall'origine del pacchetto. Gli elementi del catalogo in ordine cronologico di elaborazione, il client può compilare una visualizzazione aggiornata di ogni pacchetto esiste nell'origine pacchetto V3.
 
@@ -128,7 +128,7 @@ Elemento padre          | stringa           | sì      | Un URL per l'indice del
 
 Ogni elemento di `items` matrice è un oggetto con alcuni dettagli minimi sull'elemento del catalogo. Questi oggetti non contengono tutti i dati dell'elemento del catalogo. L'ordine degli elementi della pagina `items` matrice non è definita. Gli elementi possono essere ordinati dal client tramite i relativi `commitTimeStamp` proprietà.
 
-Il numero di elementi di catalogo in una pagina viene definito dall'implementazione di server. Per nuget.org, esistono più 550 elementi in ogni pagina, anche se il numero effettivo potrebbe essere più piccolo per dependong alcune pagine alle dimensioni del batch di commit successivo in corrispondenza del punto nel tempo.
+Il numero di elementi di catalogo in una pagina viene definito dall'implementazione di server. Per nuget.org, esistono più 550 elementi in ogni pagina, anche se il numero effettivo potrebbe essere più piccolo per alcune pagine a seconda delle dimensioni del batch di commit successivo in corrispondenza del punto nel tempo.
 
 Come vengono introdotti nuovi elementi, il `count` viene incrementato e nuovo catalogo elemento oggetti vengono visualizzati nel `items` matrice.
 
@@ -164,7 +164,7 @@ Per ulteriori dettagli sul ogni tipo, vedere il [corrispondenti elementi di tipo
 
 ## <a name="catalog-leaf"></a>Catalogo foglia
 
-La foglia di catalogo contiene i metadati relativi a un pacchetto specifico ID e una versione a un certo punto nel tempo. Si tratta di un documento recuperato tramite il `@id` valore trovato in una pagina di catalogo. L'URL a un nodo foglia catalogo non deve essere predictedable e deve essere individuata utilizzando una pagina di un catalogo.
+La foglia di catalogo contiene i metadati relativi a un pacchetto specifico ID e una versione a un certo punto nel tempo. Si tratta di un documento recuperato tramite il `@id` valore trovato in una pagina di catalogo. L'URL a un nodo foglia catalogo non deve essere prevedibili e deve essere individuata utilizzando una pagina di un catalogo.
 
 Documento di foglia del catalogo è un oggetto JSON con le proprietà seguenti:
 
@@ -226,12 +226,12 @@ Il pacchetto `version` proprietà è la stringa di versione completo, normalizza
 
 Il `created` timestamp è quando il pacchetto è stato ricevuto dall'origine del pacchetto, ovvero in genere un breve periodo di tempo prima di timestamp di commit dell'elemento del catalogo.
 
-Il `packageHashAlgorithm` è una stringa definita dal represeting di implementazione di server l'algoritmo hash utilizzato per produrre il `packageHash`. NuGet.org sempre usato il `packageHashAlgorithm` valore `SHA512`.
+Il `packageHashAlgorithm` è una stringa definita dall'implementazione del server che rappresenta l'algoritmo hash utilizzato per produrre il `packageHash`. NuGet.org sempre usato il `packageHashAlgorithm` valore `SHA512`.
 
 Il `published` timestamp è l'ora dell'ultima elencato quando il pacchetto.
 
 > [!Note]
-> In nuget.org, il `published` è impostato su anni 1900 quando il pacchetto è incluso nell'elenco.
+> In nuget.org, il `published` è impostato per l'anno 1900 quando il pacchetto è incluso nell'elenco.
 
 #### <a name="sample-request"></a>Richiesta di esempio
 
@@ -307,7 +307,7 @@ Con questo algoritmo di base, l'implementazione del client può creare una visua
 
 ### <a name="dependent-cursors"></a>Cursori dipendenti
 
-Si supponga che sono disponibili due client di catalogo che hanno una dipendenza inherant in output del client dipende da output del client. 
+Si supponga che sono disponibili due client di catalogo che hanno una relazione intrinseca in output del client dipende da output del client. 
 
 #### <a name="example"></a>Esempio
 
@@ -317,7 +317,7 @@ Poiché entrambe le risorse vengono create di fuori del catalogo, il cursore del
 
 #### <a name="algorithm"></a>Algoritmo
 
-Per implementare questa restrizione, semplice modificare l'algoritmo precedente:
+Per implementare questa limitazione, è sufficiente modificare l'algoritmo precedente:
 
 1. Recuperare il valore di cursore registrati da un archivio locale.
 1. Scaricare e deserializzare l'indice del catalogo.

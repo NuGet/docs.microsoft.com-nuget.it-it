@@ -12,11 +12,11 @@ keywords: NuGet Aggiorna riferimento, il comando di pacchetto dell'aggiornamento
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6a788244d23354b980e8fa86fa170740c18f17b2
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 6acf3a74e5c26bc4e2cef9b0db4a72442d311449
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="update-command-nuget-cli"></a>comando di aggiornamento (NuGet CLI)
 
@@ -42,7 +42,7 @@ dove `<configPath>` identifica uno un `packages.config` o file di soluzione che 
 
 | Opzione | Descrizione |
 | --- | --- |
-| ConfigFile | Il file di configurazione NuGet da applicare. Se non specificato, *%AppData%\NuGet\NuGet.Config* viene utilizzato. |
+| ConfigFile | Il file di configurazione NuGet da applicare. Se non specificato, `%AppData%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Mac o Linux) viene utilizzato.|
 | FileConflictAction | Specifica l'azione da intraprendere quando viene richiesto di sovrascrivere o ignorare i file esistenti a cui fa riferimento il progetto. I valori sono *sovrascrivere, ignorare, Nessuno*. |
 | ForceEnglishOutput | *(3.5 +)*  Forza nuget.exe per eseguire utilizzando le impostazioni cultura invariante, in lingua inglese. |
 | ? | Visualizza la Guida informazioni per il comando. |

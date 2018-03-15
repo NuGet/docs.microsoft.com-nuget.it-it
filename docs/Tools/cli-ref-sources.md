@@ -12,18 +12,17 @@ keywords: NuGet origini di riferimento, le origini di comando
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 1e8204f5e1bf712f65d8efb14ca2a4bd802e3f90
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: 139a9494e1ea898c90ce79d5990530fbe08642bd
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="sources-command-nuget-cli"></a>comando origini (NuGet CLI)
 
 **Si applica a:** il consumo di pacchetti, pubblicazione &bullet; **le versioni supportate:** tutti
 
-Gestisce l'elenco delle origini nel file di configurazione di ambito di utente o un file di configurazione specificato. Il file di configurazione di ambito di utente si trova in `%APPDATA%\NuGet\NuGet.Config` in Windows e `~/.nuget/NuGet.Config` nel Mac o Linux.
-
+Gestisce l'elenco delle origini nel file di configurazione di ambito di utente o un file di configurazione specificato. Il file di configurazione di ambito di utente si trova in `%APPDATA%\NuGet\NuGet.Config` (Windows) e `~/.nuget/NuGet/NuGet.Config` (Mac o Linux).
 
 Si noti che l'URL di origine di nuget.org è `https://api.nuget.org/v3/index.json`.
 
@@ -39,7 +38,7 @@ dove `<operation>` è uno dei *elenco, aggiungere, rimuovere, attivare, disattiv
 
 | Opzione | Descrizione |
 | --- | --- |
-| ConfigFile | Il file di configurazione NuGet da applicare. Se non specificato, *%AppData%\NuGet\NuGet.Config* viene utilizzato. |
+| ConfigFile | Il file di configurazione NuGet da applicare. Se non specificato, `%AppData%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Mac o Linux) viene utilizzato.|
 | ForceEnglishOutput | *(3.5 +)*  Forza nuget.exe per eseguire utilizzando le impostazioni cultura invariante, in lingua inglese. |
 | Formato | Si applica al `list` azione e può essere `Detailed` (impostazione predefinita) o `Short`. |
 | ? | Visualizza la Guida informazioni per il comando. |

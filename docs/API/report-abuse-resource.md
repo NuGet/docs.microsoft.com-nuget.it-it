@@ -12,15 +12,15 @@ ms.topic: reference
 ms.prod: nuget
 ms.technology: 
 description: Modello di URL del report abuso consente ai client di visualizzare un collegamento nell'interfaccia utente di loro.
-keywords: Per segnalare abusi API NuGet, reclamo API NuGet, modello di URL di report NuGet.org
+keywords: Per segnalare abusi API NuGet, reclamo API NuGet, modello di URL di report nuget.org
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: c12be294c71547fbce421c72aa091e0eee15aacd
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: efbe5704e6e6028f9382fea3fe5ec453f573a2e9
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="report-abuse-url-template"></a>Modello di URL di report abusi
 
@@ -35,7 +35,7 @@ Nell'esempio `@type` vengono utilizzati i valori:
 Valore di @type                       | Note
 --------------------------------- | -----
 ReportAbuseUriTemplate/3.0.0-beta | La versione iniziale
-ReportAbuseUriTemplate/3.0.0-rc   | Alias di`ReportAbuseUriTemplate/3.0.0-beta`
+ReportAbuseUriTemplate/3.0.0-rc   | Alias di `ReportAbuseUriTemplate/3.0.0-beta`
 
 ## <a name="url-template"></a>Modello di URL
 
@@ -58,7 +58,7 @@ nome        | Tipo    | Obbligatorio | Note
 `{id}`      | stringa  | No       | L'ID del pacchetto per segnalare abusi per
 `{version}` | stringa  | No       | La versione del pacchetto per segnalare abusi per
 
-Il `{id}` e `{version}` valori dall'implementazione del server devono essere insenstive case e non sensibili se la versione è normalizzato.
+Il `{id}` e `{version}` valori dall'implementazione del server devono essere fatta distinzione tra maiuscole e minuscole e non sensibili se la versione è normalizzato.
 
 Ad esempio, modello di abuso di nuget.org report simile al seguente:
 

@@ -13,11 +13,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c52d0a7c0da507cb9688c8a7b2c4eaf54a8ca5c2
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: 90693b09fce966e3bc28ca24360a3fb4e1f73386
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="nuspec-reference"></a>Informazioni di riferimento sul file .nuspec
 
@@ -94,7 +94,7 @@ Questi elementi possono essere visualizzati all'interno di un elemento `<metadat
 | **owners** | Elenco con valori delimitati da virgola di autori di pacchetti, corrispondenti ai nomi di profili in nuget.org. Si tratta spesso dello stesso elenco in `authors` e viene ignorato durante il caricamento del pacchetto in nuget.org. Vedere [Gestione dei proprietari dei pacchetti in nuget.org](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg). |
 | **projectUrl** | URL della pagina iniziale del pacchetto, spesso visualizzato nell'interfaccia utente e in nuget.org. |
 | **licenseUrl** | URL della licenza del pacchetto, spesso visualizzato nell'interfaccia utente e in nuget.org. |
-| **iconUrl** | URL di un'immagine 64x64 con sfondo trasparente da usare come icona per il pacchetto nella visualizzazione dell'interfaccia utente. Assicurarsi che questo elemento contenga l'*URL diretto dell'immagine* e non l'URL di una pagina Web contenente l'immagine. Ad esempio, per utilizzare un'immagine da GitHub, utilizzare il file non elaborato URL *https://github.com/\<username\>/\<repository\>/raw/\<ramo\> / \<logo.png\>*. |
+| **iconUrl** | URL di un'immagine 64x64 con sfondo trasparente da usare come icona per il pacchetto nella visualizzazione dell'interfaccia utente. Assicurarsi che questo elemento contenga l'*URL diretto dell'immagine* e non l'URL di una pagina Web contenente l'immagine. Ad esempio, per utilizzare un'immagine da GitHub, utilizzare il file non elaborato URL  *https://github.com/ \<username\>/\<repository\>/raw/\<ramo\> / \<logo.png\>*. |
 | **requireLicenseAcceptance** | Valore booleano che specifica se il client deve richiedere al consumer di accettare la licenza del pacchetto prima di installarlo. |
 | **developmentDependency** | *(2.8 +)*  Valore booleano che specifica se il pacchetto deve essere contrassegnato come dipendenza solo per lo sviluppo, in modo che il pacchetto non possa essere incluso come dipendenza in altri pacchetti. |
 | **summary** | Descrizione breve del pacchetto per la visualizzazione dell'interfaccia utente. Se omesso, viene usata una versione troncata di `description`. |
@@ -143,9 +143,10 @@ Ad eccezione di `$configuration$`, i valori nel progetto vengono usati preferenz
 
 | Token | Origine del valore | Valore
 | --- | --- | ---
-| **$id$** | File di progetto | AssemblyName dal file di progetto |
+| **$id$** | File di progetto | AssemblyName (titolo) dal file di progetto |
 | **$version$** | AssemblyInfo | AssemblyInformationalVersion se presente, in caso contrario AssemblyVersion |
 | **$author$** | AssemblyInfo | AssemblyCompany |
+| **$ $title** | AssemblyInfo | AssemblyTitle |
 | **$description$** | AssemblyInfo | AssemblyDescription |
 | **$copyright$** | AssemblyInfo | AssemblyCopyright |
 | **$configuration$** | DLL dell'assembly | Configurazione usata per compilare l'assembly, con impostazione predefinita Debug. Si noti che per creare un pacchetto con la configurazione Rilascio, è sempre necessario usare `-properties Configuration=Release` nella riga di comando. |
@@ -543,7 +544,7 @@ Questi file sono specificati con un set di attributi che descrivono come devono 
 | **include** | (Obbligatorio) Percorso del file o dei file da includere, soggetto alle esclusioni specificate dall'attributo `exclude`. Il percorso è relativo al file `.nuspec`, a meno che non venga specificato un percorso assoluto. Il carattere jolly `*` è consentito e il carattere jolly doppio `**` implica una ricerca ricorsiva nelle cartelle. |
 | **exclude** | Elenco delimitato da punti e virgola dei file o dei modelli di file da escludere dal percorso `src`. Il carattere jolly `*` è consentito e il carattere jolly doppio `**` implica una ricerca ricorsiva nelle cartelle. |
 | **buildAction** | Azione di compilazione da assegnare all'elemento di contenuto per MSBuild, ad esempio `Content`, `None`, `Embedded Resource`, `Compile` e così via. Il valore predefinito è `Compile`. |
-| **copyToOutput** | Valore booleano che indica se copiare gli elementi di contenuto nella cartella di output della compilazione. Il valore predefinito è false. |
+| **copyToOutput** | Valore booleano che indica se copiare gli elementi di contenuto per la compilazione (o pubblicare) cartella di output. Il valore predefinito è false. |
 | **flatten** | Valore booleano che indica se copiare gli elementi di contenuto di una singola cartella nell'output di compilazione (true) o se mantenere la struttura di cartelle nel pacchetto (false). Questo flag funziona solo quando il flag copyToOutput è impostato su true. Il valore predefinito è false. |
 
 Quando si installa un pacchetto, NuGet applica gli elementi figlio di `<contentFiles>` dall'alto verso il basso. Se più voci corrispondono allo stesso file, vengono applicate tutte le voci. La voce di livello superiore sostituisce le voci inferiori in presenza di un conflitto per lo stesso attributo.

@@ -12,11 +12,11 @@ keywords: riferimento alla Guida NuGet, comandi della Guida.
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b4255c353e412cf1d1a59590ee816b7887c90653
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 281c6ccc7c58d153280441430be063d9ee89955d
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="help-or--command-nuget-cli"></a>Guida in linea o? comando (CLI NuGet)
 
@@ -41,7 +41,7 @@ dove [comando] identifica un comando specifico per cui si desidera visualizzare 
 | Opzione | Descrizione |
 | --- | --- |
 | Tutti | Stampa la Guida dettagliata per tutti i comandi disponibili; ignorato se non viene specificato un comando specifico. |
-| ConfigFile | Il file di configurazione NuGet da applicare. Se non specificato, *%AppData%\NuGet\NuGet.Config* viene utilizzato. |
+| ConfigFile | Il file di configurazione NuGet da applicare. Se non specificato, `%AppData%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Mac o Linux) viene utilizzato.|
 | ForceEnglishOutput | *(3.5 +)*  Forza nuget.exe per eseguire utilizzando le impostazioni cultura invariante, in lingua inglese. |
 | ? | Visualizza la Guida informazioni per il comando della Guida. |
 | Markdown | Stampare informazioni della Guida dettagliate in formato markdown se utilizzata con `-All`. Ignorato in caso contrario. |

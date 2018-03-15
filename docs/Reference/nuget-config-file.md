@@ -12,11 +12,11 @@ keywords: File NuGet. config, informazioni di riferimento sulla configurazione N
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c76ebcb06adc5e5b862647de6b6f4e19bde87b91
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.openlocfilehash: 6a5be1ebcca0accafcdaf32f0b1b7ca66ec53425
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="nugetconfig-reference"></a>Informazioni di riferimento su NuGet.config
 
@@ -86,8 +86,6 @@ Specifica se NuGet esegue o meno i reindirizzamenti di binding automatici quando
 ```
 
 ## <a name="packagerestore-section"></a>Sezione packageRestore
-
-*Ignorato in tutte le versioni correnti (2.7 +)*
 
 Controlla il ripristino dei pacchetti durante le compilazioni.
 
@@ -159,7 +157,7 @@ Archivia i nomi utente e le password per le origini, in genere specificati con l
 
 **Esempio:**
 
-Nel file di configurazione, l'elemento `<packageSourceCredentials>` contiene i nodi figlio per ogni nome di origine applicabile (gli spazi nel nome vengono sostituiti con `_x0020+`). Per le origini denominate "Contoso" e "Test Source", il file di configurazione contiene quanto segue quando si usano password crittografate:
+Nel file di configurazione, l'elemento `<packageSourceCredentials>` contiene i nodi figlio per ogni nome di origine applicabile (gli spazi nel nome vengono sostituiti con `_x0020_`). Per le origini denominate "Contoso" e "Test Source", il file di configurazione contiene quanto segue quando si usano password crittografate:
 
 ```xml
 <packageSourceCredentials>
