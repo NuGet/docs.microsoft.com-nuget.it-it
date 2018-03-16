@@ -1,6 +1,6 @@
 Dal profilo personale in nuget.org selezionare **Manage Packages** (Gestisci pacchetti) per visualizzare quello appena pubblicato. Viene anche inviato un messaggio di posta elettronica di conferma. Si noti che l'indicizzazione e la visualizzazione del pacchetto nei risultati della ricerca, dove gli altri utenti possono trovarlo, potrebbero richiedere qualche minuto. In questo intervallo di tempo la pagina del pacchetto visualizza un messaggio simile al seguente:
 
-    ![This package has not been indexed yet. It will appear in search results and will be available for install/restore after indexing is complete.](../media/QS_Create-03-NotIndexed.png)
+![Il pacchetto non è stato ancora indicizzato. Verrà visualizzato nei risultati della ricerca e sarà disponibile per l'installazione e il ripristino al termine dell'indicizzazione.](../media/QS_Create-03-NotIndexed.png)
 
 L'operazione è ora completata. È stato pubblicato in nuget.org il primo pacchetto NuGet, che gli altri sviluppatori possono usare nei propri progetti.
 
