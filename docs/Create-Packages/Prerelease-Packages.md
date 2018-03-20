@@ -12,11 +12,11 @@ keywords: controllo delle versioni, controllo delle versioni del pacchetto NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f07b4a0428685b036640a7153190fd8454885608
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 03f744a96841a8c49d9f1dde89620b85de968d6f
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="building-pre-release-packages"></a>Compilazione di versioni non definitive dei pacchetti
 
@@ -79,7 +79,7 @@ Tenendo conto di questo aspetto, è in genere consigliabile seguire convenzioni 
 - `-rc`: versione finale candidata, in genere potenzialmente finale (stabile) se non emergono bug significativi.
 
 > [!Note]
-> NuGet non supporta i numeri di versione non definitiva [compatibili con SemVer (v 2.0.0)](http://semver.org/spec/v2.0.0.html) con la notazione del punto, come in `1.0.1-build.23`. È possibile usare un formato come `1.0.1-build23`, ma verrà sempre considerata una versione non definitiva.
+> NuGet 4.3.0+ supporta il [versionamento semantico v2.0.0](http://semver.org/spec/v2.0.0.html), ovvero numeri di versione non definitiva con la notazione con punto, come in `1.0.1-build.23`. La notazione con punto non è supportata con le versioni di NuGet precedenti alla versione 4.3.0. Nelle versioni precedenti di NuGet è possibile usare un formato come `1.0.1-build23`, ma viene sempre considerato una versione non definitiva.
 
 Indipendentemente dai suffissi usati, tuttavia, NuGet stabilirà sempre la precedenza in ordine alfabetico inverso:
 

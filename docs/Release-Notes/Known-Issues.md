@@ -12,11 +12,11 @@ keywords: Problemi noti di NuGet, problemi di NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2b9190c058215d9e63894de45c0c55c8ddae0e0f
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: ac00e3f11c54290a31319e7f2946fd965a0a9288
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="known-issues-with-nuget"></a>Problemi noti con NuGet
 
@@ -45,7 +45,7 @@ In NuGet 3.4 e 3.4.1, quando si usa il componente aggiuntivo di NuGet, le origin
 
 ![Configurazione di NuGet senza origini](./media/knownIssue-34-NoSources.PNG)
 
-Il file `NuGet.Config` nella cartella `%AppData%\NuGet\` è stato svuotato accidentalmente. Per risolvere il problema: chiudere Visual Studio 2015, eliminare il file `NuGet.Config` nella cartella `%AppData%\NuGet\` e riavviare Visual Studio.  Verrà generato un nuovo file `NuGet.Config` e sarà possibile procedere.
+Il file `NuGet.Config` nella cartella `%AppData%\NuGet\` (Windows) o `~/.nuget/` (Mac/Linux) è stato svuotato accidentalmente. Per correggere l'errore: chiudere Visual Studio (in Windows, se applicabile), eliminare il file `NuGet.Config` e ripetere l'operazione. NuGet ha generato un nuovo `NuGet.Config` e dovrebbe essere possibile procedere.
 
 ## <a name="error-installing-packages-with-nuget-27"></a>Errore durante l'installazione di pacchetti con NuGet 2.7
 
@@ -231,4 +231,4 @@ Come descritto in dettaglio in [questo problema su GitHub](https://github.com/Pa
 
 ## <a name="reporting-issues"></a>Segnalazione di problemi
 
-Per segnalare problemi relativi a NuGet, visitare [https://github.com/nuget/home/issues](https://github.com/nuget/home/issues).
+Per segnalare problemi NuGet, visitare [https://github.com/nuget/home/issues](https://github.com/nuget/home/issues).

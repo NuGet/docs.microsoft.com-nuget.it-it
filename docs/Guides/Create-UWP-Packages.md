@@ -12,11 +12,11 @@ keywords: creare un pacchetto, pacchetti per la piattaforma UWP (Universal Windo
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6d35b484ff708d7174c19791ab1ad7904bea0d2f
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: af650b6cd67855a67d0f49cdbd9f510bf90a60f6
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-uwp-packages"></a>Creare pacchetti UWP
 
@@ -24,7 +24,7 @@ La [piattaforma UWP (Universal Windows Platform)](https://developer.microsoft.co
 
 Questa procedura dettagliata descrive come creare un pacchetto NuGet con un componente UWP nativo (incluso un controllo XAML) che può essere usato in progetti sia gestiti che nativi.
 
-## <a name="pre-requisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 1. Visual Studio 2017 o Visual Studio 2015. Installare l'edizione 2017 Community gratuitamente da [visualstudio.com](https://www.visualstudio.com/). È anche possibile usare le edizioni Professional ed Enterprise.
 
@@ -156,7 +156,7 @@ Nel componente la logica principale del tipo ImageEnhancer si trova nel codice n
 
 ### <a name="adding-targets"></a>Aggiunta del file con estensione targets
 
-Per i progetti C++ e JavaScript che potrebbero utilizzare il pacchetto NuGet è poi necessario un file con estensione targets per identificare i file di assembly e winmd necessari. I progetti C# e Visual Basic eseguono questa operazione automaticamente. Creare questo file copiando il testo sotto in `ImageEnhancer.targets` e salvarlo nella stessa cartella del file `.nuspec`:
+Per i progetti C++ e JavaScript che potrebbero utilizzare il pacchetto NuGet è poi necessario un file con estensione targets per identificare i file di assembly e winmd necessari. I progetti C# e Visual Basic eseguono questa operazione automaticamente. Creare questo file copiando il testo di seguito in `ImageEnhancer.targets` e salvarlo nella stessa cartella del file `.nuspec`. _Nota_: questo file `.targets` deve avere lo stesso nome dell'ID di pacchetto (ad esempio, l'elemento `<Id>` nel file `.nupspec`):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

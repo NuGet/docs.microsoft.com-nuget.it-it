@@ -12,11 +12,11 @@ keywords: dipendenze di NuGet, NuGet e piattaforma UWP (Universal Windows Platfo
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f1ec086d6404c441ca5ad53028af2265a2344905
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 3ef3703b2be92f84d37866bce9934ebcfed3a9f7
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="projectjson-and-uwp"></a>project.json e UWP
 
@@ -121,7 +121,7 @@ In questo esempio gli assembly nelle directory `ref` saranno tutti identici.
 
 La cartella runtimes contiene assembly e librerie native necessari per l'esecuzione in specifici "runtime", definiti in genere dal sistema operativo e dall'architettura della CPU. Questi runtime vengono identificati usando gli [identificatori di runtime](/dotnet/core/rid-catalog), ad esempio `win`, `win-x86`, `win7-x86`, `win8-64` e così via.
 
-## <a name="native-light-up"></a>Visualizzazione nativa
+## <a name="native-helpers-to-use-platform-specific-apis"></a>Helper nativi per usare API specifiche della piattaforma
 
 L'esempio seguente illustra un pacchetto che ha solo un'implementazione gestita per più piattaforme, ma usa helper nativi in Windows 8 dove può chiamare le API native specifiche di Windows 8.
 

@@ -1,5 +1,5 @@
 ---
-title: Creare pacchetti NuGet multipiattaforma (per iOS, Android e Windows) | Microsoft Docs
+title: Creare pacchetti NuGet per Xamarin (per iOS, Android e Windows) | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
@@ -12,26 +12,26 @@ keywords: creare un pacchetto, pacchetti per Xamarin, pacchetti multipiattaforma
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2f0131e4f447e2e0ab5a1d17e476a425eaa01b61
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 3e1460de060980365a5eaa2ef91c052cc359bb70
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="create-cross-platform-packages"></a>Creare pacchetti multipiattaforma
+# <a name="create-packages-for-xamarin"></a>Creare pacchetti per Xamarin
 
 Un pacchetto multipiattaforma contiene codice che usa le API native in iOS, Android e Windows, a seconda del sistema operativo in fase di esecuzione. Anche se si tratta di un'operazione semplice, è preferibile consentire agli sviluppatori di utilizzare il pacchetto da una libreria .NET Standard o PCL tramite una superficie di attacco delle API comune.
 
 Questa procedura dettagliata descrive come creare un pacchetto NuGet multipiattaforma che può essere usato in progetti per dispositivi mobili su iOS, Android e Windows.
 
-1. [Prerequisiti](#pre-requisites)
+1. [Prerequisiti](#prerequisites)
 1. [Creare la struttura del progetto e il codice di astrazione](#create-the-project-structure-and-abstraction-code)
 1. [Scrivere il codice specifico della piattaforma](#write-your-platform-specific-code)
 1. [Creare e aggiornare il file con estensione nuspec](#create-and-update-the-nuspec-file)
 1. [Creare un pacchetto per il componente](#package-the-component)
 1. [Argomenti correlati](#related-topics)
 
-## <a name="pre-requisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 1. Visual Studio 2015 con la piattaforma UWP (Universal Windows Platform) e Xamarin. Installare l'edizione Community gratuitamente da [visualstudio.com](https://www.visualstudio.com/). È anche possibile usare le edizioni Professional ed Enterprise. Per includere gli strumenti UWP e Xamarin, selezionare un'installazione personalizzata e selezionare le opzioni appropriate.
 1. Interfaccia della riga di comando di NuGet. Scaricare la versione più recente di nuget.exe da [nuget.org/downloads](https://nuget.org/downloads), salvandola in una posizione di propria scelta. Aggiungere quindi tale posizione alla variabile di ambiente PATH, se necessario.
@@ -112,9 +112,9 @@ Per eseguire un'implementazione specifica della piattaforma dell'interfaccia `IL
 
 1. Aprire un prompt dei comandi, passare alla cartella `LoggingLibrary`, di un livello inferiore rispetto alla posizione del file `.sln`, ed eseguire il comando `spec` di NuGet per creare il file `Package.nuspec` iniziale:
 
-```cli
-nuget spec
-```
+    ```cli
+    nuget spec
+    ```
 
 1. Rinominare questo file in `LoggingLibrary.nuspec` e aprirlo in un editor.
 1. Aggiornare il file in modo che corrisponda a quanto segue, sostituendo YOUR_NAME con un valore appropriato. Il valore `<id>`, in particolare, deve essere univoco in nuget.org. Vedere le convenzioni di denominazione descritte in [Creazione di un pacchetto](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number). Tenere inoltre presente che è anche necessario aggiornare i tag relativi all'autore e alla descrizione o si verifica un errore durante il passaggio di creazione del pacchetto.

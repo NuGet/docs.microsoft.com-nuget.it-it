@@ -12,11 +12,11 @@ keywords: installare NuGet, utilizzo di un pacchetto NuGet, installazione di pac
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c0030877803ac7403f26e27ac3c5a0303d69c489
-ms.sourcegitcommit: eabd401616a98dda2ae6293612acb3b81b584967
+ms.openlocfilehash: ff905fec6d6af4fa40fd4331cb970121b6eb0879
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="install-and-use-a-package-in-visual-studio"></a>Installare e usare un pacchetto in Visual Studio
 
@@ -27,7 +27,7 @@ Al termine dell'installazione, fare riferimento al pacchetto nel codice con `usi
 > [!Tip]
 > **Iniziare con nuget.org**: le ricerche in nuget.org sono il modo in cui gli sviluppatori di .NET individuano in genere componenti che possono riutilizzare nelle loro applicazioni. È possibile eseguire una ricerca direttamente in nuget.org o trovare e installare pacchetti all'interno di Visual Studio, come illustrato in questo articolo.
 
-## <a name="pre-requisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Visual Studio 2017 con il carico di lavoro Sviluppo di app per la piattaforma UWP (Universal Windows Platform) oppure
 - Visual Studio 2015 Update 3 con gli strumenti per app di Windows universali.
@@ -40,7 +40,7 @@ I pacchetti NuGet possono essere installati in un progetto .NET di qualche tipo.
 
 ## <a name="add-the-newtonsoftjson-nuget-package"></a>Aggiungere il pacchetto NuGet Newtonsoft.Json
 
-Per installare il pacchetto, è possibile usare l'interfaccia utente di Gestione pacchetti o la console di Gestione pacchetti.
+Per installare il pacchetto, è possibile usare l'interfaccia utente di Gestione pacchetti o la console di Gestione pacchetti. Quando si installa un pacchetto, NuGet registra la dipendenza nel file di progetto o in un `packages.config` file. Per altre informazioni, vedere [Flusso di lavoro dell'utilizzo di pacchetti](../consume-packages/Overview-and-Workflow.md).
 
 ### <a name="package-manager-ui"></a>Interfaccia utente di Gestione pacchetti
 
