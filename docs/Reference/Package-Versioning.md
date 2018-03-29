@@ -3,23 +3,26 @@ title: Pacchetto NuGet versione riferimento | Documenti Microsoft
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 12/08/2017
+ms.date: 03/23/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Informazioni precise e dettagliate su come specificare i numeri di versione e gli intervalli per altri pacchetti su cui dipende un pacchetto NuGet e modalità di installazione delle dipendenze."
+ms.technology: ''
+description: Informazioni precise e dettagliate su come specificare i numeri di versione e gli intervalli per altri pacchetti su cui dipende un pacchetto NuGet e modalità di installazione delle dipendenze.
 keywords: controllo delle versioni, le dipendenze del pacchetto NuGet, versioni dipendenza NuGet, NuGet numeri di versione, versione del pacchetto NuGet, intervalli di versione, specifiche della versione, i numeri di versione normalizzata
 ms.reviewer:
 - anandr
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 70472d7d97d073009237a047e0fdf528b221dfd0
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 678ad79d9106a9f592ae4f47bc93cc117496e2c9
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="package-versioning"></a>Controllo delle versioni di pacchetto
+# <a name="package-versioning"></a>Controllo delle versioni dei pacchetti
 
 Un pacchetto specifico viene sempre definito tramite il relativo identificatore di pacchetto e un numero di versione esatta. Ad esempio, [Entity Framework](https://www.nuget.org/packages/EntityFramework/) in nuget.org dispone di diversi i dozzina pacchetti di specifici disponibili, dalla versione *4.1.10311* alla versione *6.1.3* (l'ultima versione stabile Release) e un'ampia gamma di versioni non definitive *6.2.0-beta1*.
 
@@ -36,9 +39,9 @@ In questo argomento
 Il formato è un numero di versione specifico *patch [-suffisso]*, in cui i componenti presentano i significati seguenti:
 
 - *Principali*: modifiche di rilievo
-- *Secondaria*: nuove funzionalità, ma compatibile
+- *Secondaria*: nuove funzionalità, ma compatibile con le versioni precedenti
 - *Patch*: compatibile solo correzioni di bug
-- *-Suffisso* (facoltativo): un trattino seguito da una stringa che indica una versione non definitiva (seguente il [convenzione controllo delle versioni semantico o 1.0 SemVer](http://semver.org/spec/v1.0.0.html)).
+- *-Suffisso* (facoltativo): un trattino seguito da una stringa che indica una versione non definitiva (seguente il [convenzione controllo delle versioni semantico o SemVer 1.0](http://semver.org/spec/v1.0.0.html)).
 
 **Esempi:**
 
@@ -56,12 +59,12 @@ Tecnicamente, agli autori dei pacchetti possono utilizzare qualsiasi stringa com
 
 Ciò premesso, sviluppatori del pacchetto è in genere seguono convenzioni di denominazione riconosciute:
 
-- `-alpha`: Versione alfa, in genere utilizzata per in fase di elaborazione e sperimentazione.
+- `-alpha`: Versione alfa, in genere utilizzata per la sperimentazione e in fase di elaborazione.
 - `-beta`: versione beta, in genere completa dal punto di vista funzionale per il successivo rilascio pianificato, ma può contenere bug noti.
 - `-rc`: versione finale candidata, in genere potenzialmente finale (stabile) se non emergono bug significativi.
 
 > [!Note]
-> Supporta NuGet 4.3.0+ [SemVer 2.0.0](http://semver.org/spec/v2.0.0.html), che supporta i numeri di versione non definitiva con la notazione del punto, come in *1.0.1-build.23*. La notazione del punto non è supportata con le versioni di NuGet prima 4.3.0. È possibile utilizzare un modulo come *1.0.1-build23*.
+> Supporta NuGet 4.3.0+ [SemVer 2.0.0](http://semver.org/spec/v2.0.0.html), che supporta i numeri di versione non definitiva con la notazione del punto, come in *1.0.1-build.23*. La notazione con punto non è supportata con le versioni di NuGet precedenti alla versione 4.3.0. È possibile utilizzare un modulo come *1.0.1-build23*.
 
 Durante la risoluzione dei riferimenti del pacchetto e più versioni di pacchetto diversi solo dal suffisso, NuGet sceglie innanzitutto una versione senza un suffisso, quindi si applica la priorità per la versione preliminare in ordine alfabetico inverso. Ad esempio, verrebbero scelta le versioni seguenti nell'ordine esatto indicato:
 
@@ -80,7 +83,7 @@ Con Visual Studio 2017 versione 15.3 + e NuGet 4.3.0+ NuGet supporta [controllo 
 
 Determinate semantica di v 2.0.0 SemVer non è supportata in client meno recenti. NuGet si basa su una versione del pacchetto per essere v 2.0.0 SemVer specifico se viene soddisfatta una delle istruzioni seguenti:
 
-- L'etichetta di versione non definitiva è separati da punti, ad esempio, *1.0.0-alpha.1*
+- L'etichetta di versione non definitiva è delimitato da punti, ad esempio, *1.0.0-alpha.1*
 - La versione dispone di metadati di compilazione, ad esempio, *1.0.0+githash*
 
 Per nuget.org, un pacchetto è definito come un pacchetto v 2.0.0 SemVer se viene soddisfatta una delle istruzioni seguenti:
@@ -92,7 +95,7 @@ Se si carica un pacchetto specifico v 2.0.0 SemVer nuget.org, il pacchetto è in
 
 - NuGet 4.3.0+
 - Visual Studio 2017 versione 15.3 +
-- Visual Studio 2015 con [v3.6.0 NuGet VSIX](https://dist.nuget.org/visualstudio-2015-vsix/latest/NuGet.Tools.vsix)
+- Visual Studio 2015 con [v3.6.0 VSIX NuGet](https://dist.nuget.org/visualstudio-2015-vsix/latest/NuGet.Tools.vsix)
 - dotnet.exe (.NET SDK 2.0.0+)
 
 Client di terze parti:
@@ -109,8 +112,8 @@ Quando si fa riferimento alle dipendenze di pacchetto, NuGet supporta utilizzand
 
 | Notation | Regola applicata | Descrizione |
 |----------|--------------|-------------|
-| 1.0 | 1.0 ≤ x | Versione minima, inclusivo |
-| (1.0,) | 1.0 < x | Versione minima, esclusivo |
+| 1.0 | x ≥ 1.0 | Versione minima, inclusivo |
+| (1.0,) | x > 1.0 | Versione minima, esclusivo |
 | [1.0] | x == 1.0 | Corrispondenza esatta versione |
 | (,1.0] | x ≤ 1.0 | Versione massima, inclusivo |
 | (,1.0) | x < 1.0 | Versione massima, esclusivo |
@@ -157,7 +160,7 @@ Specificare una versione o l'intervallo di versioni per le dipendenze dei pacche
 <PackageReference Include="ExamplePackage" Version="[1.3.2,1.5)" />
 ```
 
-**Fa riferimento `packages.config`:**
+**Fa riferimento nelle `packages.config`:**
 
 In `packages.config`, tutte le dipendenze sia elencata con un valore esatto `version` attributo utilizzato durante il ripristino dei pacchetti. Il `allowedVersions` attributo viene utilizzato solo durante le operazioni di aggiornamento per vincolare le versioni a cui il pacchetto potrebbe essere aggiornato.
 
@@ -188,7 +191,7 @@ In `packages.config`, tutte le dipendenze sia elencata con un valore esatto `ver
 <package id="ExamplePackage" version="1.3.5" allowedVersions="[1.3.2,1.5)" />
 ```
 
-**Fa riferimento `.nuspec` file**
+**Fa riferimento nelle `.nuspec` file**
 
 Il `version` attributo un `<dependency>` elemento descrive le versioni di intervallo sono accettabili per una dipendenza.
 

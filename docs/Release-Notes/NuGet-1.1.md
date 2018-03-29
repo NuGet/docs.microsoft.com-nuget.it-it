@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Note sulla versione per NuGet 1.1 inclusi dcr, correzioni di bug, le funzionalità aggiunte e problemi noti."
-keywords: "1.1 NuGet note sulla versione, correzioni di bug, problemi noti, aggiunta di funzionalità, eseguire"
+ms.technology: ''
+description: Note sulla versione per NuGet 1.1 inclusi dcr, correzioni di bug, le funzionalità aggiunte e problemi noti.
+keywords: 1.1 NuGet note sulla versione, correzioni di bug, problemi noti, aggiunta di funzionalità, eseguire
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6a596e61f144e7269f703f2dba3dddb4fd338e6a
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: dd320df2d725e58182cd908ce621571ea018b350
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-10-and-11-release-notes"></a>Note sulla versione 1.0 e 1.1 di NuGet
 
@@ -49,7 +52,7 @@ Utilizzare questo [versione più recente](http://nuget.codeplex.com/releases/vie
 
 * Disinstallare prima della compilazione precedente. È necessario eseguire Visual Studio come amministratore per eseguire questa operazione.
 * Rimuovere tutti i feed esistenti che è necessario.
-* Aggiungere un nuovo feed che punta a [http://go.microsoft.com/fwlink/?LinkId=206669](http://go.microsoft.com/fwlink/?LinkId=206669).
+* Aggiungere un nuovo feed che punta a [ http://go.microsoft.com/fwlink/?LinkId=206669 ](http://go.microsoft.com/fwlink/?LinkId=206669).
 
 ## <a name="nuget-11"></a>1.1 NuGet
 
@@ -135,7 +138,7 @@ Di seguito sono le modifiche apportate in questa versione finale candidata CTP 2
 
 Di seguito sono le modifiche più significative apportate nella versione CTP 2.
 
-* Passa il pacchetto di feed di dati a un endpoint di servizio OData da ATOM: se esegue l'aggiornamento alla versione CTP2 di NuGet, assicurarsi di aggiungere il seguente URL come origine del pacchetto: https://feed.nuget.org/ctp2/odata/v1/.
+* Passa il pacchetto feed da ATOM per un endpoint del servizio OData: se esegue l'aggiornamento alla versione CTP2 di NuGet, assicurarsi di aggiungere il seguente URL come un'origine del pacchetto: `https://feed.nuget.org/ctp2/odata/v1/`.
 * Rinominare il comando Add-Package per *Install-Package*.
 * Aggiornare il `.nuspec` formato. Il `.nuspec` formato include ora il *iconUrl* campo per specificare un'icona di 32 x 32 png verrà visualizzati nella finestra di dialogo Aggiungi pacchetto. Sarà necessario impostare che per distinguere il pacchetto. Il `.nuspec` formato include anche il nuovo *projectUrl* campo che è possibile utilizzare in modo che punti a una pagina web che fornisce ulteriori informazioni sul pacchetto.
 

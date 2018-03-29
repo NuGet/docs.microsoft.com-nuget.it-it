@@ -10,17 +10,20 @@ manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "L'API di NuGet è un set di endpoint HTTP che può essere usato per scaricare i pacchetti, recuperare metadati, la pubblicazione di nuovi pacchetti e così via."
+ms.technology: ''
+description: L'API di NuGet è un set di endpoint HTTP che può essere usato per scaricare i pacchetti, recuperare metadati, la pubblicazione di nuovi pacchetti e così via.
 keywords: API V3 NuGet, API V2 NuGet, NuGet JSON, API di registrazione NuGet, contenitore flat API NuGet, NuGet nupkg API, l'API dei metadati di NuGet, API di ricerca NuGet, push NuGet API, NuGe pubblicare API NuGet eliminare API, esclusione di NuGet API, il protocollo di NuGet
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: c28b0912be6dbccab06078100cb71821c3658e08
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 7053a971c80a94cf035e8f149c332b36e66a9ea9
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-api"></a>API NuGet
 
@@ -32,8 +35,7 @@ Si noti in alcuni casi, nuget.org prevede requisiti aggiuntivi che vengono appli
 
 ## <a name="service-index"></a>Indice del servizio
 
-Il punto di ingresso per l'API è un documento JSON in un percorso noto. Questo documento viene definito il **indice servizio**.
-È la posizione dell'indice del servizio per nuget.org `https://api.nuget.org/v3/index.json`.
+Il punto di ingresso per l'API è un documento JSON in un percorso noto. Questo documento viene definito il **indice servizio**. È la posizione dell'indice del servizio per nuget.org `https://api.nuget.org/v3/index.json`.
 
 Questo documento JSON contiene un elenco di *risorse* che forniscono funzionalità diversi e soddisfare i diversi casi d'uso.
 
@@ -112,8 +114,9 @@ Nel caso di un codice di stato di livello 500, il client può implementare un me
 nome                     | Descrizione
 ------------------------ | -----------
 X-NuGet-ApiKey           | Obbligatorio per push e l'eliminazione, vedere [ `PackagePublish` risorse](package-publish-resource.md)
-X-NuGet-Client-Version   | **Deprecato** e sostituito da`X-NuGet-Protocol-Version`
+X-NuGet-Client-Version   | **Deprecato** e sostituite da `X-NuGet-Protocol-Version`
 X-NuGet-Protocol-Version | Obbligatorio in alcuni casi solo in nuget.org, vedere [nuget.org protocolli](NuGet-Protocols.md)
+X-NuGet-Session-Id       | *Parametro facoltativo*. NuGet client v 4.7 + identificare le richieste HTTP che fanno parte della stessa sessione del client NuGet. Per `PackageReference` presenti operazioni di ripristino è un id di sessione singola, per altri scenari, ad esempio, completamento automatico e `packages.config` ripristino potrebbero essere presenti diverse diverso id sessione a causa di come il codice è stato progettato.
 
 ## <a name="authentication"></a>Autenticazione
 

@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
+ms.technology: ''
 description: Riferimento per il comando di ripristino di nuget.exe
 keywords: NuGet riferimento di ripristino, ripristinare il comando di pacchetti
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2416ad652244e0ea60651147ad74a1513cdb75ff
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 64f12fdedc8fbfcee15c1dcddc445148f458c030
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="restore-command-nuget-cli"></a>comando di ripristino (NuGet CLI)
 
@@ -46,15 +49,15 @@ dove `<projectPath>` specifica il percorso di una soluzione o un `packages.confi
 | ? | Visualizza la Guida informazioni per il comando. |
 | MSBuildPath | *(4.0 +)*  Specifica il percorso di MSBuild da usare con il comando, che avrà la precedenza `-MSBuildVersion`. |
 | MSBuildVersion | *(3.2 +)*  Specifica la versione di MSBuild da usare con questo comando. Valori supportati sono 4, 12, 14, 15. Per impostazione predefinita che viene selezionato il percorso di MSBuild, in caso contrario il valore predefinito la versione più aggiornata di MSBuild. |
-| NoCache | Impedisce l'utilizzo di pacchetti dalla cache locale NuGet. |
+| NoCache | Impedisce l'uso memorizzati nella cache dei pacchetti NuGet. Vedere [gestione dei pacchetti globali e alla cartella della cache](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
 | NonInteractive | Elimina richieste per l'input dell'utente o le conferme. |
-| OutputDirectory | Specifica la cartella in cui sono installati i pacchetti. Se viene specificata alcuna cartella, viene utilizzata la cartella corrente. |
+| OutputDirectory | Specifica la cartella in cui sono installati i pacchetti. Se viene specificata alcuna cartella, viene utilizzata la cartella corrente. Obbligatorio quando si esegue il ripristino con una `packages.config` del file, a meno che `PackagesDirectory` o `SolutionDirectory` viene utilizzato.|
 | PackageSaveMode | Specifica i tipi di file da salvare dopo l'installazione del pacchetto: uno dei `nuspec`, `nupkg`, o `nuspec;nupkg`. |
-| PackagesDirectory | Uguale a `OutputDirectory`. |
+| PackagesDirectory | Uguale a `OutputDirectory`. Obbligatorio quando si esegue il ripristino con una `packages.config` del file, a meno che `OutputDirectory` o `SolutionDirectory` viene utilizzato. |
 | Project2ProjectTimeOut | Timeout in secondi per la risoluzione di riferimenti da progetto a progetto. |
 | Ricorsivo | *(4.0 +)*  Ripristina tutti i riferimenti a progetti per i progetti UWP e .NET Core. Non si applica ai progetti mediante `packages.config`. |
 | RequireConsent | Verifica che il ripristino dei pacchetti è abilitato prima di scaricare e installare i pacchetti. Per informazioni dettagliate, vedere [il ripristino del pacchetto](../consume-packages/package-restore.md). |
-| SolutionDirectory | Specifica la cartella della soluzione. Non è valido durante il ripristino dei pacchetti per una soluzione. |
+| SolutionDirectory | Specifica la cartella della soluzione. Non è valido durante il ripristino dei pacchetti per una soluzione. Obbligatorio quando si esegue il ripristino con una `packages.config` del file, a meno che `PackagesDirectory` o `OutputDirectory` viene utilizzato. |
 | Origine | Specifica l'elenco delle origini pacchetto (come URL) da usare per il ripristino. Se omesso, il comando Usa le origini disponibili in file di configurazione, vedere [il comportamento di configurazione NuGet](../consume-packages/configuring-nuget-behavior.md). |
 | Livello di dettaglio |> specifica la quantità di dettagli visualizzati nell'output: *normale*, *quiet*, *dettagliate*. |
 

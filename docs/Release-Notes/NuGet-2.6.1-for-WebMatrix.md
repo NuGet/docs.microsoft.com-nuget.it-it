@@ -6,18 +6,20 @@ manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-ms.assetid: 119ea65b-b38b-4a8c-a4ed-6ea06f1aad09
-description: "Note sulla versione per NuGet 2.6.1 per WebMatrix, inclusi i problemi noti, correzioni di bug, le funzionalità aggiunte e dcr."
-keywords: "NuGet 2.6.1 per le note sulla versione di WebMatrix, correzioni di bug, problemi noti, aggiunta di funzionalità, eseguire"
+ms.technology: ''
+description: Note sulla versione per NuGet 2.6.1 per WebMatrix, inclusi i problemi noti, correzioni di bug, le funzionalità aggiunte e dcr.
+keywords: NuGet 2.6.1 per le note sulla versione di WebMatrix, correzioni di bug, problemi noti, aggiunta di funzionalità, eseguire
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 633b71011dd1bc897ad95fd706337cef3aeef34c
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 505054e42234f313bade496315e94ad485050dbb
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-261-for-webmatrix-release-notes"></a>NuGet 2.6.1 delle note sulla versione di WebMatrix
 

@@ -6,13 +6,16 @@ manager: ghogen
 ms.date: 03/06/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
+ms.technology: ''
 description: Riferimento complete per avvisi ed errori generati da NuGet durante le varie operazioni di NuGet.
 keywords: NuGet errori, avvisi NuGet, diagnostica
 ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
+ms.workload:
+- dotnet
+- aspnet
 f1_keywords:
 - NU1000
 - NU1001
@@ -50,11 +53,11 @@ f1_keywords:
 - NU3008
 - NU3018
 - NU3028
-ms.openlocfilehash: 59bbe37d1a965e5167800148603869645fc5e0b2
-ms.sourcegitcommit: df21fe770900644d476d51622a999597a6f20ef8
+ms.openlocfilehash: 020e31dc8646c43b86bcee555f1772e8b1db7761
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="errors-and-warnings"></a>Errori e avvisi
 
@@ -136,7 +139,7 @@ Gli errori e avvisi elencati di seguito sono disponibili solo con [basato su Pac
 | --- | --- |
 | **Problema** | L'identificatore del pacchetto è stato trovato ma presente una versione all'interno dell'intervallo di dipendenza specificata non può essere una delle origini. L'intervallo può essere specificato da un pacchetto e non dell'utente. |
 | **Messaggio di esempio** | *Impossibile trovare il pacchetto NuGet.Versioning con la versione (> = 9.0.1)<br/> -30 trovare versioni in nuget.org [più vicino di versione: 4.0.0]<br/> -versioni 10 trovato in dotnet buildtools [più vicino di versione: 4.0.0-rc-2129]<br/> -9 trovato versioni in NuGetVolatile [più vicino di versione: 3.0.0-beta-00032]<br/> -0 versioni, vedere dotnet core<br/> -0 versioni, vedere dotnet roslyn* |
-| **Soluzione** | Modificare il file di progetto o `packages.config` per correggere la versione del pacchetto. Controllare inoltre che il [configurazione NuGet](../consume-packages/Configuring-NuGet-Behavior.md) identifica l'origine del pacchetto il prevede di utilizzare. Potrebbe essere necessario modificare la versione requeted se il pacchetto fa riferimento direttamente il progetto. |
+| **Soluzione** | Modificare il file di progetto per risolvere la versione del pacchetto. Controllare inoltre che il [configurazione NuGet](../consume-packages/Configuring-NuGet-Behavior.md) identifica l'origine del pacchetto il prevede di utilizzare. Potrebbe essere necessario modificare la versione requeted se il pacchetto fa riferimento direttamente il progetto. |
 
 ### <a name="nu1103"></a>NU1103
 
@@ -144,7 +147,7 @@ Gli errori e avvisi elencati di seguito sono disponibili solo con [basato su Pac
 | --- | --- |
 | **Problema** | Il progetto specificato una versione stabile per l'intervallo di dipendenza, ma nessuna versione stabile trovata in tale intervallo. Le versioni non definitive sono state trovate, ma non sono consentite. |
 | **Messaggio di esempio** | *Impossibile trovare un pacchetto stabile NuGet.Versioning con la versione (> = 3.0.0)<br/> -versioni 10 trovato in dotnet buildtools [più vicino di versione: 4.0.0-rc-2129]<br/> -versioni 9 trovato in NuGetVolatile [più vicino di versione: 3.0.0-beta-00032] <br/> -0 versioni, vedere dotnet core<br/> -0 versioni, vedere dotnet roslyn* |
-| **Soluzione** |  Modificare l'intervallo di versione nel file di progetto o `packages.config` per includere le versioni non definitive. Vedere [il controllo delle versioni di pacchetto](../reference/Package-Versioning.md). |
+| **Soluzione** |  Modificare l'intervallo di versione nel file di progetto per includere le versioni non definitive. Vedere [il controllo delle versioni di pacchetto](../reference/Package-Versioning.md). |
 
 ### <a name="nu1104"></a>NU1104
 
@@ -167,8 +170,8 @@ Gli errori e avvisi elencati di seguito sono disponibili solo con [basato su Pac
 | | |
 | --- | --- |
 | **Problema** | Vincoli di dipendenza non possono essere risolti. |
-| **Messaggio di esempio** | *Non è possibile soddisfare le richieste con conflitto per {id}: {percorso conflitto} Framework: {grafico di destinazione}* 
-| **Soluzione** | Modificare il file di progetto o `packages.config` per specificare gli intervalli di più flessibile per la dipendenza anziché la versione esatta. |
+| **Messaggio di esempio** | *Non è possibile soddisfare le richieste con conflitto per {id}: {percorso conflitto} Framework: {grafico di destinazione}* |
+| **Soluzione** | Modificare il file di progetto per specificare gli intervalli di più flessibile per la dipendenza anziché la versione esatta. |
 |
 
 <a name="nu1107"></a>
@@ -179,7 +182,7 @@ Gli errori e avvisi elencati di seguito sono disponibili solo con [basato su Pac
 | --- | --- |
 | **Problema** | Impossibile risolvere i vincoli di dipendenza tra pacchetti. |
 | **Messaggio di esempio** | *Conflitto di versione per NuGet.Versioning. Fare riferimento il pacchetto direttamente dal progetto per risolvere il problema.<br/>  NuGet.Packaging 3.5.0 -> NuGet.Versioning (= 3.5.0)<br/>  NuGet.Configuration 4.0.0 -> NuGet.Versioning (= 4.0.0)* |
-| **Soluzione** | Pacchetti con vincoli di dipendenza in versioni esatte non consentono altri pacchetti per incrementare la versione, se necessario. Aggiungere un riferimento al progetto direttamente (nel file di progetto o `packages.config`) con la versione esatta richiesta. |
+| **Soluzione** | Pacchetti con vincoli di dipendenza in versioni esatte non consentono altri pacchetti per incrementare la versione, se necessario. Aggiungere un riferimento al progetto direttamente (nel file di progetto) con la versione esatta richiesta. |
 
 <a name="nu1108"></a>
 

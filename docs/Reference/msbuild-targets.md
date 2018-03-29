@@ -3,19 +3,23 @@ title: Pack e restore di NuGet come destinazioni MSBuild | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 03/13/2018
+ms.date: 03/23/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
+ms.technology: ''
 description: I comandi pack e restore di NuGet possono essere usati direttamente come destinazioni MSBuild con NuGet 4.0 +.
 keywords: NuGet e MSBuild, destinazione pack NuGet, destinazione restore NuGet
 ms.reviewer:
 - karann-msft
-ms.openlocfilehash: bb0ade1b0f5f81d7c8822d3c2b2f9dd45745fb8d
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+- unniravindranathan
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: a9c2c2229d717dff8472dce0ba568e4a21900b19
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Pack e restore di NuGet come destinazioni MSBuild
 
@@ -110,7 +114,7 @@ Si noti che le proprietà `Owners` e `Summary` da `.nuspec` non sono supportate 
 
 ### <a name="packageiconurl"></a>PackageIconUrl
 
-Come parte della modifica per il [problema NuGet 2582](https://github.com/NuGet/Home/issues/2582), `PackageIconUrl` verrà infine modificato in `PackageIconUri` e può essere un percorso relativo a un file di icona che verrà incluso alla radice del pacchetto risultante.
+Come parte della modifica del [NuGet problema 352](https://github.com/NuGet/Home/issues/352), `PackageIconUrl` alla fine verrà modificato in `PackageIconUri` e può essere un percorso relativo a un file di icona che verrà incluso nella directory principale del pacchetto risulta.
 
 ### <a name="output-assemblies"></a>Assembly di output
 
@@ -231,6 +235,61 @@ Si noti che un nuspec di compressione utilizzando dotnet.exe o msbuild comporta 
 </Project>
 ```
 
+### <a name="advanced-extension-points-to-create-customized-package"></a>Advanced punti di estensione per creare pacchetto personalizzato
+
+Il `pack` destinazione fornisce due punti di estensione che eseguono l'interna, compilazione specifica framework di destinazione. I punti di estensione supportano inclusi contenuto specifico framework di destinazione e assembly in un pacchetto:
+
+- `TargetsForTfmSpecificBuildOutput` destinazione: usare per i file all'interno di `lib` cartella o una cartella specificata utilizzando `BuildOutputTargetFolder`.
+- `TargetsForTfmSpecificContentInPackage` destinazione: usare per i file all'esterno di `BuildOutputTargetFolder`.
+
+#### <a name="targetsfortfmspecificbuildoutput"></a>TargetsForTfmSpecificBuildOutput
+
+Scrivere una destinazione personalizzata e specificarlo come valore della `$(TargetsForTfmSpecificBuildOutput)` proprietà. Per tutti i file che devono passare nel `BuildOutputTargetFolder` (lib per impostazione predefinita), la destinazione deve scrivere tali file in ItemGroup `BuildOutputInPackage` e impostare i due valori di metadati seguenti:
+
+- `FinalOutputPath`: Il percorso assoluto del file. Se omesso, l'identità viene utilizzata per valutare il percorso di origine.
+- `TargetPath`: (Facoltativo) impostare quando il file deve essere inviato in una sottocartella all'interno di `lib\<TargetFramework>` , come assembly satellite che vanno sotto le cartelle delle rispettive impostazioni cultura. Valore predefinito è il nome del file.
+
+Esempio:
+
+```
+<PropertyGroup>
+  <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);GetMyPackageFiles</TargetsForTfmSpecificBuildOutput>
+</PropertyGroup>
+
+<Target Name="GetMyPackageFiles">
+  <ItemGroup>
+    <BuildOutputInPackage Include="$(OutputPath)cs\$(AssemblyName).resources.dll">
+        <TargetPath>cs</TargetPath>
+    </BuildOutputInPackage>
+  </ItemGroup>
+</Target>
+```
+
+#### <a name="targetsfortfmspecificcontentinpackage"></a>TargetsForTfmSpecificContentInPackage
+
+Scrivere una destinazione personalizzata e specificarlo come valore della `$(TargetsForTfmSpecificContentInPackage)` proprietà. Per tutti i file da includere nel pacchetto, la destinazione deve scrivere tali file in ItemGroup `TfmSpecificPackageFile` e impostare i metadati facoltativi seguenti:
+
+- `PackagePath`: Percorso in cui il file deve essere l'output del pacchetto. NuGet genera un avviso se più di un file viene aggiunto al percorso del pacchetto stesso.
+- `BuildAction`: L'azione di compilazione da assegnare al file, è obbligatorio solo se il percorso del pacchetto è nel `contentFiles` cartella. Valore predefinito è "None".
+
+Un esempio:
+```
+<PropertyGroup>
+    <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);CustomContentTarget</TargetsForTfmSpecificContentInPackage>
+</PropertyGroup>
+
+<Target Name=""CustomContentTarget"">
+    <ItemGroup>
+      <TfmSpecificPackageFile Include=""abc.txt"">
+        <PackagePath>mycontent/$(TargetFramework)</PackagePath>
+      </TfmSpecificPackageFile>
+      <TfmSpecificPackageFile Include=""Extensions/ext.txt"" Condition=""'$(TargetFramework)' == 'net46'"">
+        <PackagePath>net46content</PackagePath>
+      </TfmSpecificPackageFile>  
+    </ItemGroup>
+  </Target>  
+```
+
 ## <a name="restore-target"></a>Destinazione restore
 
 `MSBuild /t:restore` (usato da `nuget restore` e `dotnet restore` con progetti .NET Core) consente di ripristinare i pacchetti a cui si fa riferimento nel file di progetto, come segue:
@@ -254,7 +313,7 @@ Possono esistere ulteriori impostazioni di ripristino derivate da proprietà di 
 | RestorePackagesPath | Percorso della cartella dei pacchetti dell'utente. |
 | RestoreDisableParallel | Consente di limitare i download a uno alla volta. |
 | RestoreConfigFile | Percorso per un file `Nuget.Config` da applicare. |
-| RestoreNoCache | Se true, consente di evitare l'uso della cache Web. |
+| RestoreNoCache | Se true, si evita l'uso di pacchetti memorizzati nella cache. Vedere [gestione dei pacchetti globali e alla cartella della cache](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
 | RestoreIgnoreFailedSources | Se true, ignora le origini di pacchetti in errore o mancanti. |
 | RestoreTaskAssemblyFile | Percorso di `NuGet.Build.Tasks.dll`. |
 | RestoreGraphProjectInput | Elenco delimitato da punto e virgola dei progetti da ripristinare, che deve contenere percorsi assoluti. |
@@ -282,7 +341,7 @@ Il ripristino crea i file seguenti nella cartella `obj` di compilazione:
 
 | File | Descrizione |
 |--------|--------|
-| `project.assets.json` | In precedenza `project.lock.json` |
+| `project.assets.json` | Contiene il grafico delle dipendenze di tutti i riferimenti di pacchetto. |
 | `{projectName}.projectFileExtension.nuget.g.props` | Riferimenti alle proprietà di MSBuild contenute nei pacchetti |
 | `{projectName}.projectFileExtension.nuget.g.targets` | Riferimenti alle destinazioni di MSBuild contenute nei pacchetti |
 

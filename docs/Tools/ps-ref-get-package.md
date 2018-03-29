@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 12/07/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
+ms.technology: ''
 description: Riferimento per il comando PowerShell Get-Package nella Console di gestione pacchetti NuGet in Visual Studio.
 keywords: Creare un pacchetto NuGet console di gestione, i comandi di Powershell di NuGet, riferimento di Powershell di NuGet, Get-Package
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 01a874ce9ae59dcaeb696a45f23cc5e9f2cfa251
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: ca80d95df309d8afce2ce6cff26c19980affde7a
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="get-package-package-manager-console-in-visual-studio"></a>Get-pacchetto (Package Manager Console in Visual Studio)
 

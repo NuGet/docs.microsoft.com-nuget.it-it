@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Note sulla versione per NuGet 2.7 inclusi dcr, correzioni di bug, le funzionalità aggiunte e problemi noti."
-keywords: "2.7 NuGet note sulla versione, correzioni di bug, problemi noti, aggiunta di funzionalità, eseguire"
+ms.technology: ''
+description: Note sulla versione per NuGet 2.7 inclusi dcr, correzioni di bug, le funzionalità aggiunte e problemi noti.
+keywords: 2.7 NuGet note sulla versione, correzioni di bug, problemi noti, aggiunta di funzionalità, eseguire
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 43638626661ae034bb0a1cc28958a2e2929f047f
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 71ced70af127c8219001069739a6cec59d7d1684
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-27-release-notes"></a>Note sulla versione 2.7 di NuGet
 
@@ -158,7 +161,7 @@ Vedere [impostazioni predefinite di configurazione NuGet](../consume-packages/co
 
 ### <a name="renaming-the-default-package-source"></a>Ridenominazione di origine del pacchetto predefinito
 
-NuGet è sempre registrato un'origine del pacchetto predefinito denominata "Origine pacchetto ufficiale NuGet" che punta a nuget.org. Tale nome è stato dettagliato e inoltre non sono state specificate in cui è stato effettivamente verso. Per risolvere i problemi di due, è stato rinominato questa origine pacchetto semplicemente "nuget.org" nell'interfaccia utente. Anche l'URL per l'origine del pacchetto è stato modificato per includere "www". prefisso. Dopo aver utilizzato 2.7 NuGet, l'origine pacchetto ufficiale"NuGet esistente" verrà aggiornato automaticamente in "nuget.org" come nome e "https://www.nuget.org/api/v2/" come il relativo URL.
+NuGet è sempre registrato un'origine del pacchetto predefinito denominata "Origine pacchetto ufficiale NuGet" che punta a nuget.org. Tale nome è stato dettagliato e inoltre non sono state specificate in cui è stato effettivamente verso. Per risolvere i problemi di due, è stato rinominato questa origine pacchetto semplicemente "nuget.org" nell'interfaccia utente. Anche l'URL per l'origine del pacchetto è stato modificato per includere "www". prefisso group. Dopo aver sperimentato 2.7 NuGet, l'origine pacchetto ufficiale"NuGet esistente" verrà automaticamente aggiornato al "nuget.org" come nome e "https://www.nuget.org/api/v2/" come relativo URL.
 
 ### <a name="performance-improvements"></a>Miglioramenti delle prestazioni
 

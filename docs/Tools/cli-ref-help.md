@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
+ms.technology: ''
 description: Riferimento per il comando della Guida di nuget.exe
 keywords: riferimento alla Guida NuGet, comandi della Guida.
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 281c6ccc7c58d153280441430be063d9ee89955d
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 440861e53b4a9ff73a9d3e8a2a3dad7dbddc9584
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="help-or--command-nuget-cli"></a>Guida in linea o? comando (CLI NuGet)
 

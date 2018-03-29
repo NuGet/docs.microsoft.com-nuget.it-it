@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Note sulla versione per NuGet 1.2, inclusi i problemi noti, correzioni di bug, le funzionalità aggiunte e dcr."
-keywords: "NuGet 1.2 note sulla versione, correzioni di bug, problemi noti, aggiunta di funzionalità, eseguire"
+ms.technology: ''
+description: Note sulla versione per NuGet 1.2, inclusi i problemi noti, correzioni di bug, le funzionalità aggiunte e dcr.
+keywords: NuGet 1.2 note sulla versione, correzioni di bug, problemi noti, aggiunta di funzionalità, eseguire
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9c8fff67eb61ab673eb62113e0cc46c0868be237
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 0d95f41c5bc5d490764c9f128ee621e1037cef66
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-12-release-notes"></a>Note sulla versione 1.2 di NuGet
 

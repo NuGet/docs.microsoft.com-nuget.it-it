@@ -6,7 +6,7 @@ manager: ghogen
 ms.date: 12/08/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
+ms.technology: ''
 f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager
 - vs.toolsoptionspages.nuget_package_manager.general
@@ -17,11 +17,14 @@ keywords: UI NuGet, Gestione pacchetti NuGet dell'interfaccia utente, NuGet in V
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 35bb856ccff43c77af7eac67da4614d83dcdc533
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: ad36c2ab0c6e62c7fe624b35d92e852303ecfdfb
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-package-manager-ui"></a>Interfaccia utente di gestione pacchetti NuGet
 
@@ -37,7 +40,7 @@ In questo argomento
 - [Controllano le opzioni di gestione pacchetti](#package-manager-options-control)
 
 > [!Note]
-> Assenza di gestione pacchetti NuGet in Visual Studio 2015, controllare **strumenti > estensioni e aggiornamenti...**  e cercare il *Gestione pacchetti NuGet* estensione. Se non si riesce a usare il programma di installazione di estensioni in Visual Studio, scaricare l'estensione direttamente da [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html).
+> Assenza di gestione pacchetti NuGet in Visual Studio 2015, controllare **strumenti > estensioni e aggiornamenti...**  e cercare il *Gestione pacchetti NuGet* estensione. Se non riesci a usare il programma di installazione di estensioni in Visual Studio, scaricare l'estensione direttamente dal [ https://dist.nuget.org/index.html ](https://dist.nuget.org/index.html).
 >
 > In Visual Studio 2017, vengano automaticamente installati con NuGet e gestione pacchetti NuGet. Carichi di lavoro correlati alla rete. Installare singolarmente selezionando il **singoli componenti > codice strumenti > Gestione pacchetti NuGet** opzione nel programma di installazione di Visual Studio 2017.
 
@@ -125,7 +128,7 @@ Per gestire l'origine del pacchetto:
 
     ![Opzioni di origini del pacchetto](media/options.png)
 
-1. Per aggiungere un'origine, selezionare  **+** , modificare il nome, immettere l'URL o percorso di **origine** controllo e scegliere **aggiornamento**. L'origine verrà visualizzato nell'elenco a discesa del selettore.
+1. Per aggiungere un'origine, selezionare **+**, modificare il nome, immettere l'URL o percorso di **origine** controllo e scegliere **aggiornamento**. L'origine verrà visualizzato nell'elenco a discesa del selettore.
 1. Per modificare un'origine del pacchetto, selezionarlo, apportare le modifiche apportate nel **nome** e **origine** finestre e selezionare **aggiornamento**.
 1. Per disabilitare un'origine del pacchetto, deselezionare la casella a sinistra del nome nell'elenco.
 1. Per rimuovere un'origine del pacchetto, selezionarlo e quindi selezionare il **X** pulsante.

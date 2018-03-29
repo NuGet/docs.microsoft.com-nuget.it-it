@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Note sulla versione per l'anteprima di NuGet 3.0 inclusi dcr, correzioni di bug, le funzionalità aggiunte e problemi noti."
-keywords: "Anteprima di NuGet 3.0 note sulla versione, correzioni di bug, problemi noti, aggiunta di funzionalità, eseguire"
+ms.technology: ''
+description: Note sulla versione per l'anteprima di NuGet 3.0 inclusi dcr, correzioni di bug, le funzionalità aggiunte e problemi noti.
+keywords: Anteprima di NuGet 3.0 note sulla versione, correzioni di bug, problemi noti, aggiunta di funzionalità, eseguire
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: cf7cd17065e1c83beb935fe2969e6ecd8b52aa29
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: f9f979e041ea6c7ba2f61603b1ea5848edc28f0c
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-30-preview-release-notes"></a>Note sulla versione di anteprima 3.0 NuGet
 

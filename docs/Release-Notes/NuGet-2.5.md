@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Note sulla versione per NuGet 2.5 inclusi dcr, correzioni di bug, le funzionalità aggiunte e problemi noti."
-keywords: "NuGet 2.5 note sulla versione, correzioni di bug, problemi noti, aggiunta di funzionalità, eseguire"
+ms.technology: ''
+description: Note sulla versione per NuGet 2.5 inclusi dcr, correzioni di bug, le funzionalità aggiunte e problemi noti.
+keywords: NuGet 2.5 note sulla versione, correzioni di bug, problemi noti, aggiunta di funzionalità, eseguire
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 4fb696a1f4d76bdd3461df6af461f279f9f0a8b0
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 4495e1ea9cc4ec13ef330e56d12de1320cf10b24
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-25-release-notes"></a>Note sulla versione 2.5 di NuGet
 
@@ -129,7 +132,7 @@ A questo punto i processi di comando di nuget.exe pack riferimento progetti con 
 
 In questo modo un progetto di riferimento devono essere considerati una dipendenza, se è presente un `.nuspec` file, in caso contrario, diventa parte del pacchetto.
 
-Dettaglio di seguito: [http://nuget.codeplex.com/workitem/936](http://nuget.codeplex.com/workitem/936)
+Ulteriori dettagli di seguito: [http://nuget.codeplex.com/workitem/936](http://nuget.codeplex.com/workitem/936)
 
 ### <a name="add-a-minimum-nuget-version-property-to-packages"></a>Aggiungere una proprietà 'La versione minima NuGet' per i pacchetti
 

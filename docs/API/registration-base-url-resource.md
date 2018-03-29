@@ -10,17 +10,20 @@ manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
+ms.technology: ''
 description: L'URL di base di registrazione del pacchetto consente il recupero di metadati sui pacchetti.
 keywords: Metadati del pacchetto NuGet API, registrazione API NuGet, API NuGet pacchetti non in elenco
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: c098d70d58011bad7f9829f0c95c87c1339dd362
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: c7b32e1d2bb9250de1e0b707405a75184b2bd8b4
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="package-metadata"></a>Metadati del pacchetto
 
@@ -35,8 +38,8 @@ Nell'esempio `@type` vengono utilizzati i valori:
 Valore di @type                     | Note
 ------------------------------- | -----
 RegistrationsBaseUrl            | La versione iniziale
-RegistrationsBaseUrl/3.0.0-beta | Alias di`RegistrationsBaseUrl`
-RegistrationsBaseUrl/3.0.0-rc   | Alias di`RegistrationsBaseUrl`
+RegistrationsBaseUrl/3.0.0-beta | Alias di `RegistrationsBaseUrl`
+RegistrationsBaseUrl/3.0.0-rc   | Alias di `RegistrationsBaseUrl`
 RegistrationsBaseUrl/3.4.0      | Risposte compresso con gzip
 RegistrationsBaseUrl/3.6.0      | Include pacchetti SemVer 2.0.0
 
@@ -146,7 +149,7 @@ nome                     | Tipo                       | Obbligatorio | Note
 ------------------------ | -------------------------- | -------- | -----
 @id                      | stringa                     | sì      | L'URL documento utilizzato per produrre questo oggetto
 authors                  | stringa o matrice di stringhe | No       | 
-dependencyGroups         | Matrice di oggetti           | No       | L'URL per il contenuto del pacchetto (.nupkg)
+dependencyGroups         | Matrice di oggetti           | No       | Le dipendenze del pacchetto, raggruppati per framework di destinazione
 Descrizione              | stringa                     | No       | 
 iconUrl                  | stringa                     | No       | 
 ID                       | stringa                     | sì      | L'ID del pacchetto
