@@ -6,47 +6,50 @@ manager: ghogen
 ms.date: 01/09/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
+ms.technology: ''
 description: Informazioni di riferimento per l'API esportata da NuGet mediante Managed Extensibility Framework in Visual Studio
 keywords: API NuGet, NuGet in Visual Studio, interfacce di programmazione di NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 05e461acb46fa22f5269a148f43f62017006a48e
-ms.sourcegitcommit: 33436d122873249dbb20616556cd8c6783f38909
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 1b23535ae3ec1ea490b513a11906ff1338d1997c
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="nuget-api-in-visual-studio"></a><span data-ttu-id="15fe0-104">API NuGet in Visual Studio</span><span class="sxs-lookup"><span data-stu-id="15fe0-104">NuGet API in Visual Studio</span></span>
+# <a name="nuget-api-in-visual-studio"></a><span data-ttu-id="34c6c-104">API NuGet in Visual Studio</span><span class="sxs-lookup"><span data-stu-id="34c6c-104">NuGet API in Visual Studio</span></span>
 
-<span data-ttu-id="15fe0-105">Oltre all'interfaccia utente e alla console di Gestione pacchetti in Visual Studio, NuGet esporta anche alcuni utili servizi tramite [Managed Extensibility Framework (MEF)](/dotnet/framework/mef/index).</span><span class="sxs-lookup"><span data-stu-id="15fe0-105">In addition to the Package Manager UI and Console in Visual Studio, NuGet also exports some useful services through the [Managed Extensibility Framework (MEF)](/dotnet/framework/mef/index).</span></span> <span data-ttu-id="15fe0-106">Questa interfaccia consente ad altri componenti in Visual Studio di interagire con NuGet, che può essere usato per installare e disinstallare i pacchetti e per ottenere informazioni sui pacchetti installati.</span><span class="sxs-lookup"><span data-stu-id="15fe0-106">This interface allows other components in Visual Studio to interact with NuGet, which can be used to install and uninstall packages, and to obtain information about installed packages.</span></span>
+<span data-ttu-id="34c6c-105">Oltre all'interfaccia utente e alla console di Gestione pacchetti in Visual Studio, NuGet esporta anche alcuni utili servizi tramite [Managed Extensibility Framework (MEF)](/dotnet/framework/mef/index).</span><span class="sxs-lookup"><span data-stu-id="34c6c-105">In addition to the Package Manager UI and Console in Visual Studio, NuGet also exports some useful services through the [Managed Extensibility Framework (MEF)](/dotnet/framework/mef/index).</span></span> <span data-ttu-id="34c6c-106">Questa interfaccia consente ad altri componenti in Visual Studio di interagire con NuGet, che può essere usato per installare e disinstallare i pacchetti e per ottenere informazioni sui pacchetti installati.</span><span class="sxs-lookup"><span data-stu-id="34c6c-106">This interface allows other components in Visual Studio to interact with NuGet, which can be used to install and uninstall packages, and to obtain information about installed packages.</span></span>
 
-<span data-ttu-id="15fe0-107">A partire da NuGet 3.3 +, NuGet esporta i servizi seguenti tutti inclusi nello spazio dei nomi `NuGet.VisualStudio` nell'assembly `NuGet.VisualStudio.dll`:</span><span class="sxs-lookup"><span data-stu-id="15fe0-107">As of NuGet 3.3+, NuGet exports the following services all of which reside in the `NuGet.VisualStudio` namespace in the `NuGet.VisualStudio.dll` assembly:</span></span>
+<span data-ttu-id="34c6c-107">A partire da NuGet 3.3 +, NuGet esporta i servizi seguenti tutti inclusi nello spazio dei nomi `NuGet.VisualStudio` nell'assembly `NuGet.VisualStudio.dll`:</span><span class="sxs-lookup"><span data-stu-id="34c6c-107">As of NuGet 3.3+, NuGet exports the following services all of which reside in the `NuGet.VisualStudio` namespace in the `NuGet.VisualStudio.dll` assembly:</span></span>
 
-- <span data-ttu-id="15fe0-108">[`IRegistryKey`](#iregistrykey-interface): metodo per recuperare un valore da una sottochiave del Registro di sistema.</span><span class="sxs-lookup"><span data-stu-id="15fe0-108">[`IRegistryKey`](#iregistrykey-interface): Method to retrieve a value from a registry subkey.</span></span>
-- <span data-ttu-id="15fe0-109">[`IVsPackageInstaller`](#ivspackageinstaller-interface): metodi per installare pacchetti NuGet in progetti.</span><span class="sxs-lookup"><span data-stu-id="15fe0-109">[`IVsPackageInstaller`](#ivspackageinstaller-interface): Methods to install NuGet packages into projects.</span></span>
-- <span data-ttu-id="15fe0-110">[`IVsPackageInstallerEvents`](#ivspackageinstallerevents-interface): eventi per l'installazione o disinstallazione di pacchetti.</span><span class="sxs-lookup"><span data-stu-id="15fe0-110">[`IVsPackageInstallerEvents`](#ivspackageinstallerevents-interface): Events for package install/uninstall.</span></span>
-- <span data-ttu-id="15fe0-111">[`IVsPackageInstallerProjectEvents`](#ivspackageinstallerprojectevents-interface): eventi batch per l'installazione o disinstallazione di pacchetti.</span><span class="sxs-lookup"><span data-stu-id="15fe0-111">[`IVsPackageInstallerProjectEvents`](#ivspackageinstallerprojectevents-interface): Batch events for package install/uninstall.</span></span>
-- <span data-ttu-id="15fe0-112">[`IVsPackageInstallerServices`](#ivspackageinstallerservices-interface): metodi per recuperare i pacchetti installati nella soluzione corrente e per verificare se un determinato pacchetto è installato in un progetto.</span><span class="sxs-lookup"><span data-stu-id="15fe0-112">[`IVsPackageInstallerServices`](#ivspackageinstallerservices-interface): Methods to retrieve installed packages in the current solution and to check whether a given package is installed in a project.</span></span>
-- <span data-ttu-id="15fe0-113">[`IVsPackageManagerProvider`](#ivspackagemanagerprovider-interface): metodi per fornire suggerimenti di Gestione pacchetti alternativi per un pacchetto NuGet.</span><span class="sxs-lookup"><span data-stu-id="15fe0-113">[`IVsPackageManagerProvider`](#ivspackagemanagerprovider-interface): Methods to provide alternative Package Manager suggestions for a NuGet package.</span></span>
-- <span data-ttu-id="15fe0-114">[`IVsPackageMetadata`](#ivspackagemetadata-interface): metodi per recuperare informazioni su un pacchetto installato.</span><span class="sxs-lookup"><span data-stu-id="15fe0-114">[`IVsPackageMetadata`](#ivspackagemetadata-interface); Methods to retrieve information about an installed package.</span></span>
-- <span data-ttu-id="15fe0-115">[`IVsPackageProjectMetadata`](#ivspackageprojectmetadata-interface): metodi per recuperare informazioni su un progetto in cui vengono eseguite azioni NuGet.</span><span class="sxs-lookup"><span data-stu-id="15fe0-115">[`IVsPackageProjectMetadata`](#ivspackageprojectmetadata-interface); Methods to retrieve information about a project where NuGet actions are being executed.</span></span>
-- <span data-ttu-id="15fe0-116">[`IVsPackageRestorer`](#ivspackagerestorer-interface): metodi per ripristinare i pacchetti installati in un progetto.</span><span class="sxs-lookup"><span data-stu-id="15fe0-116">[`IVsPackageRestorer`](#ivspackagerestorer-interface): Methods to restore packages installed in a project.</span></span>
-- <span data-ttu-id="15fe0-117">[`IVsPackageSourceProvider`](#ivspackagesourceprovider-interface): metodi per recuperare un elenco di origini di pacchetti NuGet.</span><span class="sxs-lookup"><span data-stu-id="15fe0-117">[`IVsPackageSourceProvider`](#ivspackagesourceprovider-interface): Methods to retrieve a list of NuGet package sources.</span></span>
-- <span data-ttu-id="15fe0-118">[`IVsPackageUninstaller`](#ivspackageuninstaller-interface): metodi per disinstallare pacchetti NuGet da progetti.</span><span class="sxs-lookup"><span data-stu-id="15fe0-118">[`IVsPackageUninstaller`](#ivspackageuninstaller-interface): Methods to uninstall NuGet packages from projects.</span></span>
-- <span data-ttu-id="15fe0-119">[`IVsTemplateWizard`](#ivstemplatewizard-interface): progettata per includere pacchetti preinstallati in modelli di progetto/elemento. Questa interfaccia *non* è concepita per essere richiamata dal codice e non offre metodi pubblici.</span><span class="sxs-lookup"><span data-stu-id="15fe0-119">[`IVsTemplateWizard`](#ivstemplatewizard-interface): Designed for project/item templates to include pre-installed packages; this interface is *not* meant to be invoked from code and has no public methods.</span></span>
+- <span data-ttu-id="34c6c-108">[`IRegistryKey`](#iregistrykey-interface): metodo per recuperare un valore da una sottochiave del Registro di sistema.</span><span class="sxs-lookup"><span data-stu-id="34c6c-108">[`IRegistryKey`](#iregistrykey-interface): Method to retrieve a value from a registry subkey.</span></span>
+- <span data-ttu-id="34c6c-109">[`IVsPackageInstaller`](#ivspackageinstaller-interface): metodi per installare pacchetti NuGet in progetti.</span><span class="sxs-lookup"><span data-stu-id="34c6c-109">[`IVsPackageInstaller`](#ivspackageinstaller-interface): Methods to install NuGet packages into projects.</span></span>
+- <span data-ttu-id="34c6c-110">[`IVsPackageInstallerEvents`](#ivspackageinstallerevents-interface): eventi per l'installazione o disinstallazione di pacchetti.</span><span class="sxs-lookup"><span data-stu-id="34c6c-110">[`IVsPackageInstallerEvents`](#ivspackageinstallerevents-interface): Events for package install/uninstall.</span></span>
+- <span data-ttu-id="34c6c-111">[`IVsPackageInstallerProjectEvents`](#ivspackageinstallerprojectevents-interface): eventi batch per l'installazione o disinstallazione di pacchetti.</span><span class="sxs-lookup"><span data-stu-id="34c6c-111">[`IVsPackageInstallerProjectEvents`](#ivspackageinstallerprojectevents-interface): Batch events for package install/uninstall.</span></span>
+- <span data-ttu-id="34c6c-112">[`IVsPackageInstallerServices`](#ivspackageinstallerservices-interface): metodi per recuperare i pacchetti installati nella soluzione corrente e per verificare se un determinato pacchetto è installato in un progetto.</span><span class="sxs-lookup"><span data-stu-id="34c6c-112">[`IVsPackageInstallerServices`](#ivspackageinstallerservices-interface): Methods to retrieve installed packages in the current solution and to check whether a given package is installed in a project.</span></span>
+- <span data-ttu-id="34c6c-113">[`IVsPackageManagerProvider`](#ivspackagemanagerprovider-interface): metodi per fornire suggerimenti di Gestione pacchetti alternativi per un pacchetto NuGet.</span><span class="sxs-lookup"><span data-stu-id="34c6c-113">[`IVsPackageManagerProvider`](#ivspackagemanagerprovider-interface): Methods to provide alternative Package Manager suggestions for a NuGet package.</span></span>
+- <span data-ttu-id="34c6c-114">[`IVsPackageMetadata`](#ivspackagemetadata-interface): metodi per recuperare informazioni su un pacchetto installato.</span><span class="sxs-lookup"><span data-stu-id="34c6c-114">[`IVsPackageMetadata`](#ivspackagemetadata-interface); Methods to retrieve information about an installed package.</span></span>
+- <span data-ttu-id="34c6c-115">[`IVsPackageProjectMetadata`](#ivspackageprojectmetadata-interface): metodi per recuperare informazioni su un progetto in cui vengono eseguite azioni NuGet.</span><span class="sxs-lookup"><span data-stu-id="34c6c-115">[`IVsPackageProjectMetadata`](#ivspackageprojectmetadata-interface); Methods to retrieve information about a project where NuGet actions are being executed.</span></span>
+- <span data-ttu-id="34c6c-116">[`IVsPackageRestorer`](#ivspackagerestorer-interface): metodi per ripristinare i pacchetti installati in un progetto.</span><span class="sxs-lookup"><span data-stu-id="34c6c-116">[`IVsPackageRestorer`](#ivspackagerestorer-interface): Methods to restore packages installed in a project.</span></span>
+- <span data-ttu-id="34c6c-117">[`IVsPackageSourceProvider`](#ivspackagesourceprovider-interface): metodi per recuperare un elenco di origini di pacchetti NuGet.</span><span class="sxs-lookup"><span data-stu-id="34c6c-117">[`IVsPackageSourceProvider`](#ivspackagesourceprovider-interface): Methods to retrieve a list of NuGet package sources.</span></span>
+- <span data-ttu-id="34c6c-118">[`IVsPackageUninstaller`](#ivspackageuninstaller-interface): metodi per disinstallare pacchetti NuGet da progetti.</span><span class="sxs-lookup"><span data-stu-id="34c6c-118">[`IVsPackageUninstaller`](#ivspackageuninstaller-interface): Methods to uninstall NuGet packages from projects.</span></span>
+- <span data-ttu-id="34c6c-119">[`IVsTemplateWizard`](#ivstemplatewizard-interface): progettata per includere pacchetti preinstallati in modelli di progetto/elemento. Questa interfaccia *non* è concepita per essere richiamata dal codice e non offre metodi pubblici.</span><span class="sxs-lookup"><span data-stu-id="34c6c-119">[`IVsTemplateWizard`](#ivstemplatewizard-interface): Designed for project/item templates to include pre-installed packages; this interface is *not* meant to be invoked from code and has no public methods.</span></span>
 
-## <a name="using-nuget-services"></a><span data-ttu-id="15fe0-120">Uso dei servizi NuGet</span><span class="sxs-lookup"><span data-stu-id="15fe0-120">Using NuGet services</span></span>
+## <a name="using-nuget-services"></a><span data-ttu-id="34c6c-120">Uso dei servizi NuGet</span><span class="sxs-lookup"><span data-stu-id="34c6c-120">Using NuGet services</span></span>
 
-1. <span data-ttu-id="15fe0-121">Installare il pacchetto [`NuGet.VisualStudio`](https://www.nuget.org/packages/NuGet.VisualStudio) nel progetto che contiene l'assembly `NuGet.VisualStudio.dll`.</span><span class="sxs-lookup"><span data-stu-id="15fe0-121">Install the [`NuGet.VisualStudio`](https://www.nuget.org/packages/NuGet.VisualStudio) package into your project, which contains the `NuGet.VisualStudio.dll` assembly.</span></span>
+1. <span data-ttu-id="34c6c-121">Installare il pacchetto [`NuGet.VisualStudio`](https://www.nuget.org/packages/NuGet.VisualStudio) nel progetto che contiene l'assembly `NuGet.VisualStudio.dll`.</span><span class="sxs-lookup"><span data-stu-id="34c6c-121">Install the [`NuGet.VisualStudio`](https://www.nuget.org/packages/NuGet.VisualStudio) package into your project, which contains the `NuGet.VisualStudio.dll` assembly.</span></span>
 
-    <span data-ttu-id="15fe0-122">Al momento dell'installazione il pacchetto imposta automaticamente la proprietà **Incorpora tipi di interoperabilità** del riferimento all'assembly su **True**.</span><span class="sxs-lookup"><span data-stu-id="15fe0-122">When installed, the package automatically sets the **Embed Interop Types** property of the assembly reference to **True**.</span></span> <span data-ttu-id="15fe0-123">Il codice diventa così resiliente alle modifiche di versione quando gli utenti eseguono l'aggiornamento a versioni più recenti di NuGet.</span><span class="sxs-lookup"><span data-stu-id="15fe0-123">This makes your code  resilient against version changes when users update to newer versions of NuGet.</span></span>
+    <span data-ttu-id="34c6c-122">Al momento dell'installazione il pacchetto imposta automaticamente la proprietà **Incorpora tipi di interoperabilità** del riferimento all'assembly su **True**.</span><span class="sxs-lookup"><span data-stu-id="34c6c-122">When installed, the package automatically sets the **Embed Interop Types** property of the assembly reference to **True**.</span></span> <span data-ttu-id="34c6c-123">Il codice diventa così resiliente alle modifiche di versione quando gli utenti eseguono l'aggiornamento a versioni più recenti di NuGet.</span><span class="sxs-lookup"><span data-stu-id="34c6c-123">This makes your code  resilient against version changes when users update to newer versions of NuGet.</span></span>
 
 > [!Warning]
-> <span data-ttu-id="15fe0-124">Non usare altri tipi oltre alle interfacce pubbliche nel codice e non fare riferimento ad altri assembly NuGet, incluso `NuGet.Core.dll`.</span><span class="sxs-lookup"><span data-stu-id="15fe0-124">Do not use any other types besides the public interfaces in your code, and do not reference any other NuGet assemblies, including `NuGet.Core.dll`.</span></span>
+> <span data-ttu-id="34c6c-124">Non usare altri tipi oltre alle interfacce pubbliche nel codice e non fare riferimento ad altri assembly NuGet, incluso `NuGet.Core.dll`.</span><span class="sxs-lookup"><span data-stu-id="34c6c-124">Do not use any other types besides the public interfaces in your code, and do not reference any other NuGet assemblies, including `NuGet.Core.dll`.</span></span>
 
-1. <span data-ttu-id="15fe0-125">Per usare un servizio, importarlo tramite l'[attributo Import di MEF](/dotnet/framework/mef/index#imports-and-exports-with-attributes) o tramite il [servizio IComponentModel](/dotnet/api/microsoft.visualstudio.componentmodelhost.icomponentmodel?redirectedfrom=MSDN&view=visualstudiosdk-2017).</span><span class="sxs-lookup"><span data-stu-id="15fe0-125">To use a service, import it through the [MEF Import attribute](/dotnet/framework/mef/index#imports-and-exports-with-attributes), or through the [IComponentModel service](/dotnet/api/microsoft.visualstudio.componentmodelhost.icomponentmodel?redirectedfrom=MSDN&view=visualstudiosdk-2017).</span></span>
+1. <span data-ttu-id="34c6c-125">Per usare un servizio, importarlo tramite l'[attributo Import di MEF](/dotnet/framework/mef/index#imports-and-exports-with-attributes) o tramite il [servizio IComponentModel](/dotnet/api/microsoft.visualstudio.componentmodelhost.icomponentmodel?redirectedfrom=MSDN&view=visualstudiosdk-2017).</span><span class="sxs-lookup"><span data-stu-id="34c6c-125">To use a service, import it through the [MEF Import attribute](/dotnet/framework/mef/index#imports-and-exports-with-attributes), or through the [IComponentModel service](/dotnet/api/microsoft.visualstudio.componentmodelhost.icomponentmodel?redirectedfrom=MSDN&view=visualstudiosdk-2017).</span></span>
 
     ```cs
     //Using the Import attribute
@@ -63,9 +66,9 @@ ms.lasthandoff: 02/12/2018
     var installedPackages = installerServices.GetInstalledPackages();
     ```
 
-<span data-ttu-id="15fe0-126">Per riferimento, il codice sorgente per NuGet.VisualStudio è contenuto all'interno del [repository NuGet.Clients](https://github.com/NuGet/NuGet.Client/tree/dev/src/NuGet.Clients/NuGet.VisualStudio).</span><span class="sxs-lookup"><span data-stu-id="15fe0-126">For reference, the source code for NuGet.VisualStudio is contained within the [NuGet.Clients repository](https://github.com/NuGet/NuGet.Client/tree/dev/src/NuGet.Clients/NuGet.VisualStudio).</span></span>
+<span data-ttu-id="34c6c-126">Per riferimento, il codice sorgente per NuGet.VisualStudio è contenuto all'interno del [repository NuGet.Clients](https://github.com/NuGet/NuGet.Client/tree/dev/src/NuGet.Clients/NuGet.VisualStudio).</span><span class="sxs-lookup"><span data-stu-id="34c6c-126">For reference, the source code for NuGet.VisualStudio is contained within the [NuGet.Clients repository](https://github.com/NuGet/NuGet.Client/tree/dev/src/NuGet.Clients/NuGet.VisualStudio).</span></span>
 
-## <a name="iregistrykey-interface"></a><span data-ttu-id="15fe0-127">Interfaccia IRegistryKey</span><span class="sxs-lookup"><span data-stu-id="15fe0-127">IRegistryKey interface</span></span>
+## <a name="iregistrykey-interface"></a><span data-ttu-id="34c6c-127">Interfaccia IRegistryKey</span><span class="sxs-lookup"><span data-stu-id="34c6c-127">IRegistryKey interface</span></span>
 
 ```cs
 /// <summary>
@@ -96,7 +99,7 @@ public interface IRegistryKey
 }
 ```
 
-## <a name="ivspackageinstaller-interface"></a><span data-ttu-id="15fe0-128">Interfaccia IVsPackageInstaller</span><span class="sxs-lookup"><span data-stu-id="15fe0-128">IVsPackageInstaller interface</span></span>
+## <a name="ivspackageinstaller-interface"></a><span data-ttu-id="34c6c-128">Interfaccia IVsPackageInstaller</span><span class="sxs-lookup"><span data-stu-id="34c6c-128">IVsPackageInstaller interface</span></span>
 
 ```cs
 public interface IVsPackageInstaller
@@ -269,7 +272,7 @@ public interface IVsPackageInstaller
 }
 ```
 
-## <a name="ivspackageinstallerevents-interface"></a><span data-ttu-id="15fe0-129">Interfaccia IVsPackageInstallerEvents</span><span class="sxs-lookup"><span data-stu-id="15fe0-129">IVsPackageInstallerEvents interface</span></span>
+## <a name="ivspackageinstallerevents-interface"></a><span data-ttu-id="34c6c-129">Interfaccia IVsPackageInstallerEvents</span><span class="sxs-lookup"><span data-stu-id="34c6c-129">IVsPackageInstallerEvents interface</span></span>
 
 ```cs
 public interface IVsPackageInstallerEvents
@@ -306,7 +309,7 @@ public interface IVsPackageInstallerEvents
 }
 ```
 
-## <a name="ivspackageinstallerprojectevents-interface"></a><span data-ttu-id="15fe0-130">Interfaccia IVsPackageInstallerProjectEvents</span><span class="sxs-lookup"><span data-stu-id="15fe0-130">IVsPackageInstallerProjectEvents interface</span></span>
+## <a name="ivspackageinstallerprojectevents-interface"></a><span data-ttu-id="34c6c-130">Interfaccia IVsPackageInstallerProjectEvents</span><span class="sxs-lookup"><span data-stu-id="34c6c-130">IVsPackageInstallerProjectEvents interface</span></span>
 
 ```cs
 public interface IVsPackageInstallerProjectEvents
@@ -323,7 +326,7 @@ public interface IVsPackageInstallerProjectEvents
 }
 ```
 
-## <a name="ivspackageinstallerservices-interface"></a><span data-ttu-id="15fe0-131">Interfaccia IVsPackageInstallerServices</span><span class="sxs-lookup"><span data-stu-id="15fe0-131">IVsPackageInstallerServices interface</span></span>
+## <a name="ivspackageinstallerservices-interface"></a><span data-ttu-id="34c6c-131">Interfaccia IVsPackageInstallerServices</span><span class="sxs-lookup"><span data-stu-id="34c6c-131">IVsPackageInstallerServices interface</span></span>
 
 ```cs
 public interface IVsPackageInstallerServices
@@ -375,7 +378,7 @@ public interface IVsPackageInstallerServices
 }
 ```
 
-## <a name="ivspackagemanagerprovider-interface"></a><span data-ttu-id="15fe0-132">Interfaccia IVsPackageManagerProvider</span><span class="sxs-lookup"><span data-stu-id="15fe0-132">IVsPackageManagerProvider interface</span></span>
+## <a name="ivspackagemanagerprovider-interface"></a><span data-ttu-id="34c6c-132">Interfaccia IVsPackageManagerProvider</span><span class="sxs-lookup"><span data-stu-id="34c6c-132">IVsPackageManagerProvider interface</span></span>
 
 ```cs
 public interface IVsPackageManagerProvider
@@ -414,7 +417,7 @@ public interface IVsPackageManagerProvider
 }
 ```
 
-## <a name="ivspackagemetadata-interface"></a><span data-ttu-id="15fe0-133">Interfaccia IVsPackageMetadata</span><span class="sxs-lookup"><span data-stu-id="15fe0-133">IVsPackageMetadata interface</span></span>
+## <a name="ivspackagemetadata-interface"></a><span data-ttu-id="34c6c-133">Interfaccia IVsPackageMetadata</span><span class="sxs-lookup"><span data-stu-id="34c6c-133">IVsPackageMetadata interface</span></span>
 
 ```cs
 public interface IVsPackageMetadata
@@ -468,7 +471,7 @@ public interface IVsPackageMetadata
 }
 ```
 
-## <a name="ivspackageprojectmetadata-interface"></a><span data-ttu-id="15fe0-134">Interfaccia IVsPackageProjectMetadata</span><span class="sxs-lookup"><span data-stu-id="15fe0-134">IVsPackageProjectMetadata interface</span></span>
+## <a name="ivspackageprojectmetadata-interface"></a><span data-ttu-id="34c6c-134">Interfaccia IVsPackageProjectMetadata</span><span class="sxs-lookup"><span data-stu-id="34c6c-134">IVsPackageProjectMetadata interface</span></span>
 
 ```cs
 public interface IVsPackageProjectMetadata
@@ -485,7 +488,7 @@ public interface IVsPackageProjectMetadata
 }
 ```
 
-## <a name="ivspackagerestorer-interface"></a><span data-ttu-id="15fe0-135">Interfaccia IVsPackageRestorer</span><span class="sxs-lookup"><span data-stu-id="15fe0-135">IVsPackageRestorer interface</span></span>
+## <a name="ivspackagerestorer-interface"></a><span data-ttu-id="34c6c-135">Interfaccia IVsPackageRestorer</span><span class="sxs-lookup"><span data-stu-id="34c6c-135">IVsPackageRestorer interface</span></span>
 
 ```cs
 public interface IVsPackageRestorer
@@ -505,7 +508,7 @@ public interface IVsPackageRestorer
 }
 ```
 
-## <a name="ivspackagesourceprovider-interface"></a><span data-ttu-id="15fe0-136">Interfaccia IVsPackageSourceProvider</span><span class="sxs-lookup"><span data-stu-id="15fe0-136">IVsPackageSourceProvider interface</span></span>
+## <a name="ivspackagesourceprovider-interface"></a><span data-ttu-id="34c6c-136">Interfaccia IVsPackageSourceProvider</span><span class="sxs-lookup"><span data-stu-id="34c6c-136">IVsPackageSourceProvider interface</span></span>
 
 ```cs
 public interface IVsPackageSourceProvider
@@ -525,7 +528,7 @@ public interface IVsPackageSourceProvider
 }
 ```
 
-## <a name="ivspackageuninstaller-interface"></a><span data-ttu-id="15fe0-137">Interfaccia IVsPackageUninstaller</span><span class="sxs-lookup"><span data-stu-id="15fe0-137">IVsPackageUninstaller interface</span></span>
+## <a name="ivspackageuninstaller-interface"></a><span data-ttu-id="34c6c-137">Interfaccia IVsPackageUninstaller</span><span class="sxs-lookup"><span data-stu-id="34c6c-137">IVsPackageUninstaller interface</span></span>
 
 ```cs
 public interface IVsPackageUninstaller
@@ -544,7 +547,7 @@ public interface IVsPackageUninstaller
 }
 ```
 
-## <a name="ivstemplatewizard-interface"></a><span data-ttu-id="15fe0-138">Interfaccia IVsTemplateWizard</span><span class="sxs-lookup"><span data-stu-id="15fe0-138">IVsTemplateWizard interface</span></span>
+## <a name="ivstemplatewizard-interface"></a><span data-ttu-id="34c6c-138">Interfaccia IVsTemplateWizard</span><span class="sxs-lookup"><span data-stu-id="34c6c-138">IVsTemplateWizard interface</span></span>
 
 ```cs
 /// <summary>
