@@ -6,17 +6,20 @@ manager: unniravindranathan
 ms.date: 03/03/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
+ms.technology: ''
 description: Note sulla versione per NuGet 4.0 RTM incluse informazioni su problemi noti, correzioni di bug e DCR.
-keywords: "Note sulla versione per NuGet 4.0 RTM, correzioni di bug, problemi noti, funzionalità aggiunte, DCR"
+keywords: Note sulla versione per NuGet 4.0 RTM, correzioni di bug, problemi noti, funzionalità aggiunte, DCR
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: d1ab89f0decb64a64d04dc293e5273b577e8398b
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 75ce757c209afd74f8d4f45d58d4e13a23b3b743
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-40-rtm-release-notes"></a>Note sulla versione per NuGet 4.0 RTM
 

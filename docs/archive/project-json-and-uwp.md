@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 07/17/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
+ms.technology: ''
 description: Descrizione di come il file project.json viene usato per tenere traccia delle dipendenze di NuGet nei progetti UWP (Universal Windows Platform).
 keywords: dipendenze di NuGet, NuGet e piattaforma UWP (Universal Windows Platform), piattaforma UWP (Universal Windows Platform) e project.json, file project.json di NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 3ef3703b2be92f84d37866bce9934ebcfed3a9f7
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 453a38456670db850d3d2845b23bd4ad36fc8fd2
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="projectjson-and-uwp"></a>project.json e UWP
 

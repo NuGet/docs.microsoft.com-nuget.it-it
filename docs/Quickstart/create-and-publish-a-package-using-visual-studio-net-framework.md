@@ -6,17 +6,17 @@ manager: ghogen
 ms.date: 03/13/2018
 ms.topic: get-started-article
 ms.prod: nuget
-ms.technology: 
+ms.technology: ''
 description: Esercitazione sulla creazione e pubblicazione di un pacchetto NuGet .NET Framework con Visual Studio 2017.
 keywords: Creazione del pacchetto NuGet, pubblicazione del pacchetto NuGet, esercitazione NuGet, creare un pacchetto NuGet in Visual Studio, pacchetto msbuild
 ms.reviewer:
 - karann-msft
 - unniravindranathan
 ms.openlocfilehash: 613cb6e8cf5762f354d69aa271c1e2f0d4851c97
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.sourcegitcommit: 718e6cb88e45fa07c85d653f216bf92eaaf81625
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-and-publish-a-package-using-visual-studio-net-framework"></a>Creare e pubblicare un pacchetto con Visual Studio (.NET Framework)
 

@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 01/09/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
+ms.technology: ''
 description: Descrizione dettagliata della procedura per il ripristino di pacchetti NuGet con Team Foundation Build (sia TFS che Visual Studio Team Services).
 keywords: Ripristino di pacchetti NuGet, NuGet e TFS, NuGet e VSTS, sistemi di compilazione NuGet, team foundation build, progetti MSBuild personalizzati, compilazione nel cloud, integrazione continua
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9e3ef6e3bcc55705315fcb6ccf3e917963c62250
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: f46a7402214bf965918a5195605027913a8c60c2
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="setting-up-package-restore-with-team-foundation-build"></a>Configurazione del ripristino dei pacchetti con Team Foundation Build
 
@@ -110,6 +113,9 @@ Il file `.gitignore` è simile al seguente:
     bin
     obj
     packages
+    *.nupkg
+    project.lock.json
+    project.assets.json
 
 Il file `.gitignore` offre [molte potenzialità](https://www.kernel.org/pub/software/scm/git/docs/gitignore.html). Ad esempio, se in genere non si vuole archiviare il contenuto della cartella `packages`, ma si vogliono rispettare le indicazioni precedenti di archiviare i file `.targets`, è possibile usare la regola seguente:
 
@@ -125,6 +131,9 @@ Il controllo della versione di Team Foundation supporta un meccanismo molto simi
     bin
     obj
     packages
+    *.nupkg
+    project.lock.json
+    project.assets.json
 
 ## <a name="buildproj"></a>build.proj
 
