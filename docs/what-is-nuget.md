@@ -1,28 +1,31 @@
 ---
-title: "Che cos'è NuGet e cosa fa? | Microsoft Docs"
+title: Che cos'è NuGet e cosa fa? | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/10/2018
-ms.topic: hero-article
+ms.topic: overview
 ms.prod: nuget
-ms.technology: 
-description: "Un'introduzione completa a che cos'è NuGet e cosa fa."
-keywords: Gestione pacchetti NuGet, utilizzo, creazione di pacchetti, hosting di pacchetti
+ms.technology: ''
+description: Un'introduzione completa a che cos'è NuGet e cosa fa.
+keywords: Gestione pacchetti NuGet, utilizzo, creazione di pacchetti, hosting di pacchetti, pacchetti .NET, pacchetti .NET Core
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: cb0e008709cf30d45f737c040b5b17b6b6851afa
-ms.sourcegitcommit: a40a6ce6897b2d9411397b2e29b1be234eb6e50c
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 0d2094177f919d27b9a8320e60c8d1d75ec18fb6
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="an-introduction-to-nuget"></a>Introduzione a NuGet
 
 Uno strumento essenziale per qualsiasi piattaforma di sviluppo moderna è un meccanismo attraverso il quale gli sviluppatori possano creare, condividere e utilizzare codice utile. Spesso questo codice viene incluso in "pacchetti" che contengono codice compilato, ad esempio file DLL, insieme ad altri contenuti necessari nei progetti che utilizzano questi pacchetti.
 
-Per .NET, il meccanismo supportato da Microsoft per la condivisione del codice è **NuGet**, che definisce in che modo vengono creati, ospitati e utilizzati i pacchetti per .NET e fornisce gli strumenti per ognuno di questi ruoli.
+Per .NET (incluso .NET Core), il meccanismo supportato da Microsoft per la condivisione del codice è **NuGet**, che definisce in che modo vengono creati, ospitati e utilizzati i pacchetti per .NET e fornisce gli strumenti per ognuno di questi ruoli.
 
 In altri termini, un pacchetto NuGet è un singolo file ZIP con l'estensione `.nupkg` che contiene codice compilato (DLL), altri file correlati a tale codice e un manifesto descrittivo che include informazioni come il numero di versione del pacchetto. Gli sviluppatori con codice da condividere creano pacchetti e li pubblicano in un host pubblico o privato. I consumer di pacchetti ottengono tali pacchetti dagli host appropriati, li aggiungono ai loro progetti e quindi chiamano le funzionalità di un pacchetto nel codice dei progetti. NuGet gestisce tutti i dettagli intermedi.
 
@@ -30,7 +33,7 @@ Dato che NuGet supporta gli host privati oltre all'host nuget.org pubblico, è p
 
 ## <a name="the-flow-of-packages-between-creators-hosts-and-consumers"></a>Flusso dei pacchetti tra autori, host e consumer
 
-Nel proprio ruolo di host pubblico, NuGet gestisce il repository centrale di più di 100.000 pacchetti univoci su [nuget.org](https://www.nuget.org). Questi pacchetti vengono usati da milioni di sviluppatori .NET ogni giorno. NuGet consente anche di ospitare i pacchetti in modo privato nel cloud, ad esempio in Visual Studio Team Services, in una rete privata o anche semplicemente nel file system locale. In questo modo, i pacchetti sono disponibili solo per gli sviluppatori che hanno accesso all'host, offrendo la possibilità di rendere disponibili i pacchetti a uno specifico gruppo di consumer. Le opzioni sono illustrate in [Hosting dei feed NuGet](hosting-packages/overview.md). Tramite le opzioni di configurazione, è anche possibile controllare esattamente quali host sono accessibili da qualsiasi computer specificato, in modo da assicurare che i pacchetti vengano ottenuti da origini specifiche anziché da un repository pubblico come nuget.org.
+Nel proprio ruolo di host pubblico, NuGet gestisce il repository centrale di più di 100.000 pacchetti univoci su [nuget.org](https://www.nuget.org). Questi pacchetti vengono usati da milioni di sviluppatori .NET/.NET Core ogni giorno. NuGet consente anche di ospitare i pacchetti in modo privato nel cloud, ad esempio in Visual Studio Team Services, in una rete privata o anche semplicemente nel file system locale. In questo modo, i pacchetti sono disponibili solo per gli sviluppatori che hanno accesso all'host, offrendo la possibilità di rendere disponibili i pacchetti a uno specifico gruppo di consumer. Le opzioni sono illustrate in [Hosting dei feed NuGet](hosting-packages/overview.md). Tramite le opzioni di configurazione, è anche possibile controllare esattamente quali host sono accessibili da qualsiasi computer specificato, in modo da assicurare che i pacchetti vengano ottenuti da origini specifiche anziché da un repository pubblico come nuget.org.
 
 Qualunque sia la sua natura, un host funge da punto di connessione tra gli *autori* e i *consumer* dei pacchetti. Gli autori compilano utili pacchetti NuGet e li pubblicano in un host. I consumer cercano quindi i pacchetti utili e compatibili negli host accessibili, scaricandoli e includendoli nei loro progetti. Una volta installate in un progetto, le API dei pacchetti sono disponibili per il resto del codice del progetto.
 
@@ -38,12 +41,12 @@ Qualunque sia la sua natura, un host funge da punto di connessione tra gli *auto
 
 ## <a name="package-targeting-compatibility"></a>Pacchetto per la compatibilità
 
-Con pacchetto "compatibile" si intende un pacchetto che contiene gli assembly compilati per almeno un framework .NET di destinazione compatibile con il framework di destinazione del progetto che lo utilizza. Gli sviluppatori possono creare pacchetti specifici per un framework, come per i controlli UWP o possono supportare una gamma più ampia di destinazioni. Per ottimizzare la compatibilità di un pacchetto, gli sviluppatori scelgono la destinazione [.NET Standard](/dotnet/standard/net-standard), utilizzabile da tutti i progetti .NET. Questo è il modo più efficiente sia per gli autori che per i consumer, perché un singolo pacchetto (in genere contenente un singolo assembly) funziona per tutti i progetti che lo utilizzano.
+Con pacchetto "compatibile" si intende un pacchetto che contiene gli assembly compilati per almeno un framework .NET di destinazione compatibile con il framework di destinazione del progetto che lo utilizza. Gli sviluppatori possono creare pacchetti specifici per un framework, come per i controlli UWP o possono supportare una gamma più ampia di destinazioni. Per ottimizzare la compatibilità di un pacchetto, gli sviluppatori scelgono la destinazione [.NET Standard](/dotnet/standard/net-standard), utilizzabile da tutti i progetti .NET e .NET Core. Questo è il modo più efficiente sia per gli autori che per i consumer, perché un singolo pacchetto (in genere contenente un singolo assembly) funziona per tutti i progetti che lo utilizzano.
 
 Gli sviluppatori di pacchetti che devono usare API al di fuori di .NET Standard, d'altra parte, creano assembly separati per i diversi framework di destinazione che vogliono supportare e includono tutti gli assembly nello stesso pacchetto (operazione nota come "multitargeting"). Quando un consumer installa un pacchetto di questo tipo, NuGet estrae solo gli assembly necessari per il progetto. Ciò contribuisce a ridurre al minimo il footprint del pacchetto nell'applicazione finale e/o gli assembly generati da tale progetto. Un pacchetto multitargeting è naturalmente più difficile da gestire per l'autore.
 
 > [!Note]
-> La scelta di .NET Standard come destinazione sostituisce l'approccio precedente che prevede l'uso di varie destinazioni "libreria di classi portabile" (PCL). Questa documentazione è quindi incentrata sulla creazione di pacchetti per .NET Standard.
+> La scelta di .NET Standard come destinazione sostituisce l'approccio precedente che prevede l'uso di varie destinazioni libreria di classi portabile (PCL). Questa documentazione è quindi incentrata sulla creazione di pacchetti per .NET Standard.
 
 ## <a name="nuget-tools"></a>Strumenti NuGet
 
@@ -76,7 +79,7 @@ Per maggiori dettagli sul funzionamento di questo servizio in NuGet, vedere [Ris
 
 ## <a name="tracking-references-and-restoring-packages"></a>Rilevamento dei riferimenti e ripristino dei pacchetti
 
-Dal momento che i progetti possono passare facilmente tra computer degli sviluppatori, repository del controllo del codice sorgente, server di compilazione e così via, è estremamente poco pratico mantenere gli assembly binari dei pacchetti NuGet associati direttamente a un progetto. In questo modo, ogni copia del progetto avrebbe dimensioni inutilmente molto grandi, con conseguente spreco di spazio nei repository del controllo del codice sorgente. Risulterebbe anche molto difficile aggiornare i file binari del pacchetto a versioni più recenti, perché gli aggiornamenti dovrebbero essere applicati a tutte le copie del progetto.
+Dal momento che i progetti possono essere spostati facilmente tra computer degli sviluppatori, repository del controllo del codice sorgente, server di compilazione e così via, è estremamente poco pratico mantenere gli assembly binari dei pacchetti NuGet associati direttamente a un progetto. In questo modo, ogni copia del progetto avrebbe dimensioni inutilmente molto grandi, con conseguente spreco di spazio nei repository del controllo del codice sorgente. Risulterebbe anche molto difficile aggiornare i file binari del pacchetto a versioni più recenti, perché gli aggiornamenti dovrebbero essere applicati a tutte le copie del progetto.
 
 NuGet gestisce invece un semplice elenco di riferimento dei pacchetti da cui dipende un progetto, incluse sia le dipendenze di primo livello che quelle di livello inferiore. Ovvero, quando si installa un pacchetto da un host in un progetto, NuGet registra l'identificatore del pacchetto e il numero di versione nell'elenco di riferimento. La disinstallazione di un pacchetto, naturalmente, ne comporta la rimozione dall'elenco. NuGet offre quindi un modo per ripristinare tutti i pacchetti a cui si fa riferimento su richiesta, come descritto in [Ripristino di pacchetti](consume-packages/package-restore.md).
 
@@ -84,23 +87,30 @@ NuGet gestisce invece un semplice elenco di riferimento dei pacchetti da cui dip
 
 Con solo questo elenco di riferimenti, NuGet può quindi reinstallare, ovvero *ripristinare*, successivamente tutti questi pacchetti da host pubblici e/o privati. Quando si esegue il commit di un progetto nel controllo del codice sorgente o lo si condivide in qualsiasi altro modo, è necessario includere solo l'elenco dei riferimenti e non occorre escludere eventuali file binari dei pacchetti (vedere [Pacchetti e controllo del codice sorgente](consume-packages/packages-and-source-control.md)).
 
-Il computer che riceve un progetto, ad esempio un server di compilazione che ottiene una copia del progetto come parte di un sistema di distribuzione automatica, chiede semplicemente a NuGet di ripristinare le dipendenze ogni volta che sono necessarie. Sistemi di compilazione come Visual Studio Team Services forniscono passaggi di "ripristino NuGet" per questo esatto scopo. Analogamente, quando gli sviluppatori ottengono una copia di un progetto (come avviene nel caso della clonazione di un repository), possono richiamare un comando come `nuget restore` (interfaccia della riga di comando di NuGet), `dotnet restore` (interfaccia della riga di comando di dotnet), o `Install-Package` (console di Gestione pacchetti) per ottenere tutti i pacchetti necessari. Visual Studio svolge la sua parte ripristinando automaticamente i pacchetti quando si compila un progetto.
+Il computer che riceve un progetto, ad esempio un server di compilazione che ottiene una copia del progetto come parte di un sistema di distribuzione automatica, chiede semplicemente a NuGet di ripristinare le dipendenze ogni volta che sono necessarie. Sistemi di compilazione come Visual Studio Team Services forniscono passaggi di "ripristino NuGet" per questo esatto scopo. Analogamente, quando gli sviluppatori ottengono una copia di un progetto (come avviene nel caso della clonazione di un repository), possono richiamare un comando come `nuget restore` (interfaccia della riga di comando di NuGet), `dotnet restore` (interfaccia della riga di comando di dotnet), o `Install-Package` (console di Gestione pacchetti) per ottenere tutti i pacchetti necessari. Visual Studio, per la propria parte, ripristina automaticamente i pacchetti quando compila un progetto, a condizione che il ripristino automatico sia abilitato, come descritto in [Ripristino di pacchetti](consume-packages/package-restore.md).
 
 Chiaramente, quindi, il ruolo primario di NuGet in cui gli sviluppatori sono coinvolti è la gestione di tale elenco di riferimenti per conto del progetto e la disponibilità di strumenti per ripristinare (e aggiornare) in modo efficiente tali pacchetti con riferimenti. Questo elenco viene mantenuto in uno di due *formati di gestione dei pacchetti*:
 
-- [`packages.config`](reference/packages-config.md): *(NuGet 1.0+)* File XML che gestisce un elenco completo di tutte le dipendenze nel progetto, incluse le dipendenze di altri pacchetti installati.
-- [PackageReference](consume-packages/package-references-in-project-files.md) (o "riferimenti ai pacchetti nei file di progetto") | *(NuGet 4.0+)* Gestisce un elenco di dipendenze di livello superiore di un progetto direttamente all'interno del file di progetto, pertanto non occorre un file separato. Un file associato, `project.assets.json`, viene generato dinamicamente per gestire il grafico dipendenze complessivo.
+- [`packages.config`](reference/packages-config.md): *(NuGet 1.0+)* File XML che gestisce un elenco completo di tutte le dipendenze nel progetto, incluse le dipendenze di altri pacchetti installati. I pacchetti installati o ripristinati vengono archiviati in una cartella `packages`.
 
-Il formato di gestione dei pacchetti usato in un determinato progetto dipende dal tipo di progetto e dalla versione di NuGet (e/o Visual Studio) disponibile. Per verificare il formato in uso, è sufficiente cercare `packages.config` nella radice del progetto dopo l'installazione del primo pacchetto. Se tale file non è disponibile, cercare direttamente nel file di progetto un elemento &lt;PackageReference&gt;.
+- [PackageReference](consume-packages/package-references-in-project-files.md) (o "riferimenti ai pacchetti nei file di progetto") | *(NuGet 4.0+)* Gestisce un elenco di dipendenze di livello superiore di un progetto direttamente all'interno del file di progetto, pertanto non occorre un file separato. Un file associato, `obj/project.assets.json`, viene generato dinamicamente per gestire il grafico delle dipendenze complessive dei pacchetti usati da un progetto insieme a tutte le dipendenze di livello inferiore. PackageReference viene sempre usato dai progetti .NET Core.
+
+Il formato di gestione dei pacchetti usato in un determinato progetto dipende dal tipo di progetto e dalla versione di NuGet (e/o Visual Studio) disponibile. Per verificare il formato in uso, è sufficiente cercare `packages.config` nella radice del progetto dopo l'installazione del primo pacchetto. Se tale file non è disponibile, cercare direttamente un elemento \<PackageReference\> nel file di progetto.
+
+Se è possibile scegliere, è consigliabile usare PackageReference. Il file `packages.config` viene mantenuto per applicazioni legacy e non è più in fase di sviluppo attivo.
+
+> [!Tip]
+> Vari comandi dell'interfaccia della riga di comando `nuget.exe`, ad esempio `nuget install`, non aggiungono automaticamente il pacchetto all'elenco di riferimenti. L'elenco viene aggiornato quando si installa un pacchetto con Gestione pacchetti di Visual Studio (interfaccia utente o console) e con l'interfaccia della riga di comando `dotnet.exe`.
 
 ## <a name="what-else-does-nuget-do"></a>Che cos'altro fa NuGet?
 
 Finora sono state presentate le caratteristiche seguenti di NuGet:
+
 - NuGet offre il repository centrale nuget.org con supporto per l'hosting privato.
 - NuGet offre gli strumenti di cui gli sviluppatori hanno bisogno per creare, pubblicare e utilizzare i pacchetti.
 - Cosa ancora più importante, NuGet gestisce un elenco dei riferimenti dei pacchetti usati in un progetto, consentendo di ripristinare e aggiornare i pacchetti da tale elenco.
 
-Per assicurare l'efficienza di questi processi, NuGet esegue alcune ottimizzazioni in background. In particolare, NuGet gestisce cache dei pacchetti sia a livello di computer che specifiche dei progetti per l'installazione e la reinstallazione rapide. In caso di cache a livello di computer, i pacchetti scaricati e installati in un progetto vengono archiviati nella cache, in modo che l'installazione dello stesso pacchetto in un altro progetto non comporti un altro download. Questa funzionalità è chiaramente molto utile quando si esegue con frequenza il ripristino di un numero più elevato di pacchetti, come in un server di compilazione. Per maggiori dettagli sul meccanismo e su come usarlo, vedere [Gestione delle cache NuGet](consume-packages/Managing-the-Nuget-Cache.md).
+Per assicurare l'efficienza di questi processi, NuGet esegue alcune ottimizzazioni in background. In particolare, NuGet gestisce una cache dei pacchetti e una cartella globale dei pacchetti per velocizzare le operazioni di installazione e reinstallazione. La cache consente di evitare il download di un pacchetto già installato nel computer. La cartella dei pacchetti globale consente a più progetti di condividere lo stesso pacchetto installato, riducendo così l'impatto complessivo di NuGet nel computer. La cache e la cartella dei pacchetti globale sono anche molto utili quando si esegue con frequenza il ripristino di un numero più elevato di pacchetti, come in un server di compilazione. Per altri dettagli su questi meccanismi, vedere [Gestione delle cartelle dei pacchetti globali e della cache](consume-packages/managing-the-global-packages-and-cache-folders.md).
 
 All'interno di un singolo progetto, NuGet gestisce l'intero grafico dipendenze, operazione che ancora una volta include la risoluzione di più riferimenti a versioni diverse dello stesso pacchetto. È piuttosto comune che un progetto abbia una dipendenza da uno o più pacchetti che a loro volta hanno le stesse dipendenze. Alcuni dei pacchetti di utilità più utili su nuget.org vengono usati da molti altri pacchetti. Nell'intero grafico dipendenze potrebbero facilmente esistere dieci diversi riferimenti a versioni differenti dello stesso pacchetto. Per evitare di includere più versioni dello stesso pacchetto nell'applicazione stessa, NuGet determina la singola versione utilizzabile da tutti i consumer. Per altre informazioni, vedere [Risoluzione delle dipendenze](consume-packages/dependency-resolution.md).
 
@@ -112,6 +122,6 @@ Dedicare alcuni minuti all'analisi del sommario di questa documentazione per ved
 
 I commenti e i contributi a questa documentazione sono ben accetti. Basta selezionare i comandi **Feedback** e **Modifica** nella parte superiore di qualsiasi pagina oppure visitare il [repository docs](https://github.com/NuGet/docs.microsoft.com-nuget/) e l'[elenco dei problemi di docs](https://github.com/NuGet/docs.microsoft.com-nuget/issues) su GitHub.
 
-Sono ben accetti anche i contributi a NuGet tramite i [vari repository GitHub](https://github.com/NuGet/Home); i problemi relativi a NuGet sono reperibili in [https://github.com/NuGet/home/issues](https://github.com/NuGet/home/issues).
+Sono ben accetti anche i contributi a NuGet tramite i [vari repository GitHub](https://github.com/NuGet/Home). I problemi relativi a NuGet sono reperibili in [https://github.com/NuGet/home/issues](https://github.com/NuGet/home/issues).
 
 Buon divertimento con NuGet!

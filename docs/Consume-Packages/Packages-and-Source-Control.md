@@ -3,24 +3,27 @@ title: Pacchetti NuGet e controllo del codice sorgente | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 07/17/2017
+ms.date: 03/16/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Considerazioni sulle modalità di gestione dei pacchetti NuGet all'interno di sistemi di controllo della versione e di controllo del codice sorgente e su come omettere i pacchetti con Git e il controllo della versione di Team Foundation."
+ms.technology: ''
+description: Considerazioni sulle modalità di gestione dei pacchetti NuGet all'interno di sistemi di controllo della versione e di controllo del codice sorgente e su come omettere i pacchetti con Git e il controllo della versione di Team Foundation.
 keywords: Controllo del codice sorgente NuGet, controllo della versione NuGet, NuGet e Git, NuGet e TFS, NuGet e il controllo della versione di Team Foundation, omissione di pacchetti, repository di controllo del codice sorgente, repository di controllo della versione
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6261625d5d7eaa748f9ad15510b7b2af3c814e44
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 43fc1653616091b0f974903147645c0c99c8f57b
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="omitting-nuget-packages-in-source-control-systems"></a>Omissione di pacchetti NuGet nei sistemi di controllo del codice sorgente
 
-Gli sviluppatori omettono in genere i pacchetti NuGet nei repository di controllo del codice sorgente e si affidano invece al [ripristino dei pacchetti](../consume-packages/package-restore.md) per reinstallare le dipendenze di un progetto prima di una compilazione.
+Gli sviluppatori omettono in genere i pacchetti NuGet nei repository di controllo del codice sorgente e si affidano invece al [ripristino dei pacchetti](package-restore.md) per reinstallare le dipendenze di un progetto prima di una compilazione.
 
 Di seguito sono indicati i motivi validi per affidarsi al ripristino dei pacchetti:
 
@@ -29,11 +32,11 @@ Di seguito sono indicati i motivi validi per affidarsi al ripristino dei pacchet
 1. Diventa più difficile ripulire la soluzione da eventuali cartelle di pacchetti inutilizzate, perché è necessario accertarsi di non eliminare eventuali cartelle di pacchetti ancora in uso.
 1. L'omissione dei pacchetti consente di mantenere limiti di proprietà ben definiti tra il proprio codice e i pacchetti di altri da cui si dipende. Molti pacchetti NuGet vengono già gestiti in repository di controllo del codice sorgente specifici.
 
-Anche se il ripristino dei pacchetti è il comportamento predefinito con NuGet, sono necessari alcuni interventi manuali per omettere i pacchetti dal controllo del codice sorgente, ovvero la cartella `packages`, come descritto nelle sezioni seguenti.
+Anche se il ripristino dei pacchetti è il comportamento predefinito con NuGet, sono necessari alcuni interventi manuali per omettere i pacchetti dal controllo del codice sorgente, nello specifico la cartella `packages`, come descritto in questo articolo.
 
 ## <a name="omitting-packages-with-git"></a>Omissione di pacchetti con Git
 
-Usare il [file con estensione gitignore](https://git-scm.com/docs/gitignore) per evitare di includere la cartella `packages` nel controllo del codice sorgente. Per riferimento, vedere il [file `.gitignore` di esempio per i progetti di Visual Studio](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore).
+Usare il [file con estensione gitignore](https://git-scm.com/docs/gitignore) per ignorare i pacchetti NuGet (`.nupkg`) la cartella `packages` e `project.assets.json`, tra le altre cose. Per riferimento, vedere l'[esempio`.gitignore` per i progetti di Visual Studio](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore):
 
 Le parti importanti del file `.gitignore` sono:
 
@@ -41,20 +44,24 @@ Le parti importanti del file `.gitignore` sono:
 # Ignore NuGet Packages
 *.nupkg
 
-# Ignore the packages folder
-**/packages/*
+# The packages folder can be ignored because of Package Restore
+**/[Pp]ackages/*
 
-# Include packages/build/, which is used as an MSBuild target
-!**/packages/build/
+# except build/, which is used as an MSBuild target.
+!**/[Pp]ackages/build/
 
-# Uncomment if necessary; generally it's regenerated when needed
-#!**/packages/repositories.config
+# Uncomment if necessary however generally it will be regenerated when needed
+#!**/[Pp]ackages/repositories.config
+
+# NuGet v3's project.json files produces more ignorable files
+*.nuget.props
+*.nuget.targets
 
 # Ignore other intermediate files that NuGet might create. project.lock.json is used in conjunction
-# with project.json; project.assets.json is used in conjunction with the PackageReference format.
+# with project.json (NuGet v3); project.assets.json is used in conjunction with the PackageReference
+# format (NuGet v4 and .NET Core).
 project.lock.json
 project.assets.json
-*.nuget.props
 ```
 
 ## <a name="omitting-packages-with-team-foundation-version-control"></a>Omissione dei pacchetti con il controllo della versione di Team Foundation
@@ -92,7 +99,7 @@ Per disabilitare l'integrazione del controllo del codice sorgente con il control
    # with additional folder names if it's not in the same folder as .tfignore.   
    packages
 
-   # Include package target files which may be required for MSBuild, again prefixing the folder name as needed.
+   # Exclude package target files which may be required for MSBuild, again prefixing the folder name as needed.
    !packages/*.targets
 
    # Omit temporary files

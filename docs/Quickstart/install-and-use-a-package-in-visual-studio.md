@@ -4,23 +4,26 @@ author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/23/2018
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.prod: nuget
-ms.technology: 
+ms.technology: ''
 description: Esercitazione dettagliata sul processo di installazione e uso di un pacchetto NuGet in un progetto di Visual Studio.
 keywords: installare NuGet, utilizzo di un pacchetto NuGet, installazione di pacchetti NuGet, riferimenti ai pacchetti NuGet, uso di pacchetti NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ff905fec6d6af4fa40fd4331cb970121b6eb0879
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 4205893cc02cffff8926513a555393d10c046f43
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="install-and-use-a-package-in-visual-studio"></a>Installare e usare un pacchetto in Visual Studio
 
-I pacchetti NuGet contengono codice riutilizzabile che altri sviluppatori rendono disponibile per l'uso nei progetti. Vedere [Che cos'è NuGet?](../What-is-NuGet.md) per le informazioni di base. I pacchetti vengono installati in un progetto di Visual Studio tramite l'interfaccia utente di Gestione pacchetti o la console di Gestione pacchetti, come descritto in questo articolo per il famoso pacchetto [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) e un progetto UWP (Universal Windows Platform).
+I pacchetti NuGet contengono codice riutilizzabile che altri sviluppatori rendono disponibile per l'uso nei progetti. Vedere [Che cos'è NuGet?](../What-is-NuGet.md) per le informazioni di base. I pacchetti vengono installati in un progetto di Visual Studio usando l'interfaccia utente o la console di Gestione pacchetti. Questo articolo illustra il processo usando il famoso pacchetto [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) e un progetto Universal Windows Platform (UWP). Lo stesso processo si applica a qualsiasi altro progetto .NET o .NET Core.
 
 Al termine dell'installazione, fare riferimento al pacchetto nel codice con `using <namespace>`, dove \<spazio dei nomi\> è specifico per il pacchetto in uso. Dopo avere creato il riferimento, è possibile chiamare il pacchetto tramite la relativa API.
 
@@ -36,7 +39,9 @@ Al termine dell'installazione, fare riferimento al pacchetto nel codice con `usi
 
 ## <a name="create-a-project"></a>Creare un progetto
 
-I pacchetti NuGet possono essere installati in un progetto .NET di qualche tipo. Per questa procedura dettagliata viene usata una semplice app di Windows universale (UWP). Creare un progetto in Visual Studio scegliendo **File > Nuovo progetto** e selezionando **Universale di Windows > App vuota (Windows universale)**. Accettare i valori predefiniti per Versione di destinazione e Versione minima quando richiesto.
+I pacchetti NuGet possono essere installati in qualsiasi progetto .NET, a condizione che il pacchetto supporti lo stesso framework di destinazione del progetto.
+
+Per questa procedura dettagliata viene usata una semplice app di Windows universale (UWP). Creare un progetto in Visual Studio scegliendo **File > Nuovo progetto** e selezionando **Universale di Windows > App vuota (Windows universale)**. Accettare i valori predefiniti per Versione di destinazione e Versione minima quando richiesto.
 
 ## <a name="add-the-newtonsoftjson-nuget-package"></a>Aggiungere il pacchetto NuGet Newtonsoft.Json
 
@@ -56,7 +61,7 @@ Per installare il pacchetto, è possibile usare l'interfaccia utente di Gestione
 
 1. (Visual Studio 2017) Se viene richiesto di selezionare un formato di gestione dei pacchetti, selezionare **Riferimenti al pacchetto nel file di progetto**:
 
-    ![Selezione di un formato di riferimento del pacchetto](media/QS_Use-03b-SelectFormat.png)
+    ![Selezione di un formato di gestione dei pacchetti](media/QS_Use-03b-SelectFormat.png)
 
 1. Se viene richiesto di rivedere le modifiche, selezionare **OK**.
 

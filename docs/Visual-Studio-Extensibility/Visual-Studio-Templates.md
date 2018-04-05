@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 01/03/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
+ms.technology: ''
 description: Istruzioni per includere i pacchetti NuGet nei modelli di progetto e di elemento di Visual Studio.
 keywords: NuGet in Visual Studio, modelli di progetto di Visual Studio, modelli di elemento di Visual Studio, pacchetti nei modelli di progetto, pacchetti nei modelli di elemento
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 65b914e1fa59c28615f195b470880a12bf80efbb
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 8c1751ba9caf5e71ace7a81575e4e5448b1e4185
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="packages-in-visual-studio-templates"></a>Pacchetti nei modelli di Visual Studio
 
@@ -62,7 +65,7 @@ Passaggi per includere i pacchetti in un modello:
     </WizardData>
     ```
 
-    *(NuGet 2.2.1+)* La procedura guidata supporta più elementi `<package>` per supportare più origini dei pacchetti. Sono richiesti entrambi gli attributi `id` e `version`, il che significa che una versione specifica di un pacchetto verrà installata anche se è disponibile una versione più recente. Ciò impedisce agli aggiornamenti pacchetto di interrompere il modello, lasciando la scelta di aggiornare il pacchetto allo sviluppatore che usa il modello.
+    La procedura guidata supporta più elementi `<package>` per supportare più origini dei pacchetti. Sono richiesti entrambi gli attributi `id` e `version`, il che significa che una versione specifica di un pacchetto verrà installata anche se è disponibile una versione più recente. Ciò impedisce agli aggiornamenti pacchetto di interrompere il modello, lasciando la scelta di aggiornare il pacchetto allo sviluppatore che usa il modello.
 
 1. Specificare il repository dove NuGet può dove trovare i pacchetti come descritto nelle sezioni successive.
 

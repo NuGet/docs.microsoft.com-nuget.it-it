@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 10/25/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
+ms.technology: ''
 description: I file NuGet.Config controllano il comportamento di NuGet sia a livello globale che di progetto e vengono modificati con il comando nuget config.
 keywords: file di configurazione NuGet, configurazione NuGet, impostazioni del comportamento di NuGet, impostazioni NuGet, Nuget.Config, NuGetDefaults.Config, impostazioni predefinite
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c46f23fcbec5dfcb6122434d43097212f6230fb0
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: a575868894d5ca9992b1c9984cf4920bd2858209
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configuring-nuget-behavior"></a>Configurazione del comportamento di NuGet
 
@@ -27,7 +30,7 @@ Il comportamento di NuGet si basa sulle impostazioni accumulate in uno o più fi
 | Ambito | Percorso del file NuGet.Config | Descrizione |
 | --- | --- | --- |
 | Progetto | Cartella corrente (ovvero la cartella di progetto) o qualsiasi cartella fino alla radice dell'unità| In una cartella di progetto le impostazioni si applicano solo a tale progetto. Nelle cartelle padre contenenti più sottocartelle di progetto, le impostazioni si applicano a tutti i progetti in tali sottocartelle. |
-| Utente | Windows: `%APPDATA%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.nuget/NuGet/NuGet.Config` | Le impostazioni si applicano a tutte le operazioni, ma ne viene eseguito l'override dalle impostazioni a livello di progetto. |
+| Utente | Windows: `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.nuget/NuGet/NuGet.Config` | Le impostazioni si applicano a tutte le operazioni, ma ne viene eseguito l'override dalle impostazioni a livello di progetto. |
 | Computer | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME` (in genere `~/.local/share`) | Le impostazioni si applicano a tutte le operazioni sul computer, ma ne viene eseguito l'override dalle impostazioni a livello di utente o di progetto. |
 
 Note per versioni precedenti di NuGet:
@@ -94,7 +97,7 @@ nuget config -set repositoryPath= -configfile /home/my.Config
 
 ### <a name="creating-a-new-config-file"></a>Creazione di un nuovo file di configurazione
 
-Copiare il modello seguente nel nuovo file e quindi usare `nuget config --configFile <filename>` per impostare i valori:
+Copiare il modello seguente nel nuovo file e quindi usare `nuget config -configFile <filename>` per impostare i valori:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -137,7 +140,7 @@ Si supponga di avere la struttura di cartelle seguente in due unità separate:
 
 Si hanno poi quattro file `NuGet.Config` nelle posizioni seguenti con il contenuto indicato. Il file a livello di computer non è incluso in questo esempio, ma il comportamento sarà simile a quello del file a livello di utente.
 
-File A. File a livello di utente, (`%APPDATA%\NuGet\NuGet.Config` in Windows, `~/.nuget/NuGet/NuGet.Config` in Mac/Linux):
+File A. File a livello di utente, (`%appdata%\NuGet\NuGet.Config` in Windows, `~/.nuget/NuGet/NuGet.Config` in Mac/Linux):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -220,7 +223,7 @@ La tabella seguente descrive la posizione di archiviazione prevista per il file 
 
 ### <a name="nugetdefaultsconfig-settings"></a>Impostazioni di NuGetDefaults.Config
 
-- `packageSources`: questa raccolta ha lo stesso significato di `packageSources` nei normali file di configurazione e specifica le origini predefinite. NuGet usa le origini in ordine durante l'installazione o l'aggiornamento di pacchetti nei progetti usando il formato di riferimento `packages.config`. Per i progetti che usano il formato PackageReference, NuGet usa prima di tutto le origini locali, quindi le origini in condivisioni di rete, poi le origini HTTP, indipendentemente dall'ordine nei file di configurazione. NuGet Ignora sempre l'ordine delle origini con le operazioni di ripristino.
+- `packageSources`: questa raccolta ha lo stesso significato di `packageSources` nei normali file di configurazione e specifica le origini predefinite. NuGet usa le origini in ordine durante l'installazione o l'aggiornamento di pacchetti nei progetti usando il formato di gestione `packages.config`. Per i progetti che usano il formato PackageReference, NuGet usa prima di tutto le origini locali, quindi le origini in condivisioni di rete, poi le origini HTTP, indipendentemente dall'ordine nei file di configurazione. NuGet Ignora sempre l'ordine delle origini con le operazioni di ripristino.
 
 - `disabledPackageSources`: questa raccolta ha anche lo stesso significato che nei file `NuGet.Config`, dove ogni origine interessata viene elencata per nome e un valore true/false indica se è disabilitata. In questo modo il nome e l'URL dell'origine possono rimanere in `packageSources` senza che debba essere attivata per impostazione predefinita. I singoli sviluppatori possono quindi riabilitare l'origine impostandone il valore su false negli altri file `NuGet.Config` senza dover trovare di nuovo l'URL corretto. Questo è utile anche per fornire agli sviluppatori un elenco completo di URL delle origini interne per un'organizzazione, abilitando al contempo solo l'origine di un singolo team per impostazione predefinita.
 

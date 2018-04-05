@@ -1,28 +1,31 @@
 ---
-title: Creare pacchetti NuGet per Xamarin (per iOS, Android e Windows) | Microsoft Docs
+title: Creare pacchetti NuGet per Xamarin (per iOS, Android e Windows) con Visual Studio 2015 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/09/2017
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.prod: nuget
-ms.technology: 
+ms.technology: ''
 description: Procedura dettagliata end-to-end sulla creazione di pacchetti NuGet per Xamarin che usano API native in iOS, Android e Windows.
 keywords: creare un pacchetto, pacchetti per Xamarin, pacchetti multipiattaforma
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 3e1460de060980365a5eaa2ef91c052cc359bb70
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: e101ca2d124a19d2cf758776717b3680aa5bbdd8
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="create-packages-for-xamarin"></a>Creare pacchetti per Xamarin
+# <a name="create-packages-for-xamarin-with-visual-studio-2015"></a>Creare pacchetti per Xamarin con Visual Studio 2015
 
-Un pacchetto multipiattaforma contiene codice che usa le API native in iOS, Android e Windows, a seconda del sistema operativo in fase di esecuzione. Anche se si tratta di un'operazione semplice, è preferibile consentire agli sviluppatori di utilizzare il pacchetto da una libreria .NET Standard o PCL tramite una superficie di attacco delle API comune.
+Un pacchetto per Xamarin contiene codice che usa le API native in iOS, Android e Windows, a seconda del sistema operativo in fase di esecuzione. Anche se si tratta di un'operazione semplice, è preferibile consentire agli sviluppatori di utilizzare il pacchetto da una libreria .NET Standard o PCL tramite una superficie di attacco delle API comune.
 
-Questa procedura dettagliata descrive come creare un pacchetto NuGet multipiattaforma che può essere usato in progetti per dispositivi mobili su iOS, Android e Windows.
+Questa procedura dettagliata descrive come usare Visual Studio 2015 per creare un pacchetto NuGet multipiattaforma che può essere usato in progetti per dispositivi mobili su iOS, Android e Windows.
 
 1. [Prerequisiti](#prerequisites)
 1. [Creare la struttura del progetto e il codice di astrazione](#create-the-project-structure-and-abstraction-code)

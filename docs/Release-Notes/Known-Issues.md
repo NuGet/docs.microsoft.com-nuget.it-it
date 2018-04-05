@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
+ms.technology: ''
 description: Problemi noti con NuGet inclusi autenticazione, installazione dei pacchetti e strumenti.
 keywords: Problemi noti di NuGet, problemi di NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ac00e3f11c54290a31319e7f2946fd965a0a9288
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: c36da5dc73dddbd540a36d171583cbf542e0678f
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="known-issues-with-nuget"></a>Problemi noti con NuGet
 
@@ -227,7 +230,7 @@ Strumenti di Windows Phone non include il supporto per Gestione estensioni di Vi
 
 ## <a name="changing-the-capitalization-of-nuget-package-ids-breaks-package-restore"></a>La modifica della combinazione di maiuscole/minuscole degli ID di pacchetto NuGet causa errori durante il ripristino del pacchetto
 
-Come descritto in dettaglio in [questo problema su GitHub](https://github.com/Particular/NServiceBus/issues/1271#issuecomment-20865932), la modifica della combinazione di maiuscole/minuscole dei pacchetti NuGet può essere effettuata dal supporto NuGet, ma causa complicazioni durante il ripristino del pacchetto per gli utenti con pacchetti esistenti, con diversa combinazione di maiuscole/minuscole, nella cache dei pacchetti locale. È consigliabile richiedere una modifica della combinazione di maiuscole/minuscole solo quando è possibile avvisare gli utenti esistenti del pacchetto dei problemi che potrebbero verificarsi durante il ripristino del pacchetto in fase di compilazione.
+Come descritto in dettaglio in [questo problema su GitHub](https://github.com/Particular/NServiceBus/issues/1271#issuecomment-20865932), la modifica della combinazione di maiuscole/minuscole dei pacchetti NuGet può essere effettuata dal supporto NuGet, ma causa complicazioni durante il ripristino del pacchetto per gli utenti con pacchetti esistenti, con diversa combinazione di maiuscole/minuscole, nella cartella *global-packages*. È consigliabile richiedere una modifica della combinazione di maiuscole/minuscole solo quando è possibile avvisare gli utenti esistenti del pacchetto dei problemi che potrebbero verificarsi durante il ripristino del pacchetto in fase di compilazione.
 
 ## <a name="reporting-issues"></a>Segnalazione di problemi
 

@@ -6,23 +6,26 @@ manager: ghogen
 ms.date: 07/27/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
+ms.technology: ''
 description: In alcuni tipi di progetto, il file project.json include l'elenco aggiornato dei pacchetti NuGet usati nel progetto.
 keywords: project.json per NuGet, riferimenti al pacchetto NuGet, dipendenze NuGet, project.lock.json
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2e2c521b18dd67e49942cc20eafef0be7f91573a
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 21542a219faa3d1fa0c32a838645d4471c5aa935
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="projectjson-reference"></a>Riferimenti di project.json
 
 *NuGet 3.x+*
 
-Il file `project.json` include un elenco dei pacchetti usati in un progetto, noto come formato di riferimento del pacchetto. Prevale su `packages.config`, ma viene a sua volta sostituito da [PackageReference](../consume-packages/package-references-in-project-files.md) con NuGet 4.0+.
+Il file `project.json` include un elenco dei pacchetti usati in un progetto, noto come formato di gestione dei pacchetti. Prevale su `packages.config`, ma viene a sua volta sostituito da [PackageReference](../consume-packages/package-references-in-project-files.md) con NuGet 4.0+.
 
 Il file [`project.lock.json`](#projectlockjson) (descritto sotto) viene anche usato nei progetti che impiegano `project.json`.
 

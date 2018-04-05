@@ -3,21 +3,23 @@ title: Ricerca e scelta di pacchetti NuGet | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 12/07/2017
+ms.date: 03/16/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-ms.assetid: 8886f899-797b-4704-9d16-820b55b71186
-description: "Panoramica delle modalità di ricerca e scelta dei pacchetti NuGet più appropriati per un progetto, inclusi i dettagli della sintassi di ricerca NuGet."
-keywords: "Utilizzo di pacchetti NuGet, individuazione di pacchetti NuGet, pacchetti NuGet più appropriati, scelta dei pacchetti, utilizzo dei pacchetti, valutazione dei pacchetti, sintassi di ricerca NuGet"
+ms.technology: ''
+description: Panoramica delle modalità di ricerca e scelta dei pacchetti NuGet più appropriati per un progetto, inclusi i dettagli della sintassi di ricerca NuGet.
+keywords: Utilizzo di pacchetti NuGet, individuazione di pacchetti NuGet, pacchetti NuGet più appropriati, scelta dei pacchetti, utilizzo dei pacchetti, valutazione dei pacchetti, sintassi di ricerca NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0c52fa237a663fcf227e8336534d344e432523b4
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 319361623e60b8bdfe3c2dbc9bdcae65783a17e3
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Ricerca e valutazione di pacchetti NuGet per un progetto
 
@@ -41,7 +43,7 @@ A questo punto, i risultati della ricerca sono ordinati solo per pertinenza, per
 
 ### <a name="does-the-package-support-my-projects-target-framework"></a>Il pacchetto supporta il framework di destinazione del progetto?
 
-NuGet installa un pacchetto in un progetto solo se i framework supportati di tale pacchetto includono il framework di destinazione del progetto. Vedere [Supporto di più framework di destinazione](../create-packages/supporting-multiple-target-frameworks.md) per informazioni su questa procedura durante la creazione di un pacchetto. Se il pacchetto non è compatibile, NuGet genera un errore.
+NuGet installa un pacchetto in un progetto solo se i framework supportati di tale pacchetto includono il framework di destinazione del progetto. Se il pacchetto non è compatibile, NuGet genera un errore.
 
 Alcuni pacchetti elencano i framework supportati direttamente nella raccolta nuget.org, ma poiché questi dati non sono richiesti, molti pacchetti non includono tale elenco. Al momento, non è disponibile alcuna modalità di ricerca su nuget.org per i pacchetti che supportano un framework di destinazione specifico (la funzionalità è in fase di analisi, vedere il [problema NuGet 2936](https://github.com/NuGet/NuGetGallery/issues/2936)).
 
@@ -59,7 +61,7 @@ Per impostazione predefinita, nuget.org mostra anche i pacchetti in versione non
 
 ![Casella di controllo Include prerelease (Includi versione preliminare) su nuget.org](media/Finding-06-include-prerelease.png)
 
-In Visual Studio e quando si usa l'interfaccia della riga di comando di NuGet, NuGet non include le versioni non definitive per impostazione predefinita. Per modificare questo comportamento, attenersi alla procedura seguente:
+In Visual Studio e quando si usano le interfacce della riga di comando di NuGet e dotnet, NuGet non include le versioni non definitive per impostazione predefinita. Per modificare questo comportamento, attenersi alla procedura seguente:
 
 - **Interfaccia utente di Gestione pacchetti in Visual Studio**: nell'interfaccia utente di **Gestisci pacchetti NuGet** selezionare la casella di controllo **Includi versione preliminare**. La selezione o la deselezione di questa casella di controllo aggiorna l'interfaccia utente di Gestione pacchetti e l'elenco delle versioni disponibili che è possibile installare.
 
@@ -67,7 +69,9 @@ In Visual Studio e quando si usa l'interfaccia della riga di comando di NuGet, N
 
 - **Console di Gestione pacchetti**: usare l'opzione `-IncludePrerelease` con i comandi `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package` e `Update-Package`. Vedere [Informazioni di riferimento su PowerShell](../tools/powershell-reference.md).
 
-- **Interfaccia della riga di comando di NuGet**: usare l'opzione `-prerelease` con i comandi `install`, `update`, `delete` e `mirror`. Vedere [NuGet CLI reference](../tools/nuget-exe-cli-reference.md) (Informazioni di riferimento sull'interfaccia della riga di comando di NuGet).
+- **Interfaccia della riga di comando nuget.exe**: usare l'opzione `-prerelease` con i comandi `install`, `update`, `delete` e `mirror`. Vedere [NuGet CLI reference](../tools/nuget-exe-cli-reference.md) (Informazioni di riferimento sull'interfaccia della riga di comando di NuGet).
+
+- **Interfaccia della riga di comando dotnet.exe**: specificare l'esatta versione non definitiva tramite l'argomento `-v`. Vedere le [informazioni di riferimento su dotnet add package](/dotnet/core/tools/dotnet-add-package).
 
 <a name="native-cpp-packages"></a>
 
@@ -79,7 +83,7 @@ Per trovare i pacchetti nativi su [nuget.org](https://www.nuget.org/packages), e
 
 ## <a name="evaluating-packages"></a>Valutazione di pacchetti
 
-Il modo migliore per valutare l'utilità di un pacchetto è quello di scaricarlo e provare a usarlo all'interno del codice. Dopo tutto, ogni pacchetto ampiamente diffuso all'inizio è stato usato solo da pochi sviluppatori, i cosiddetti early adopter (si noti che tutti i pacchetti su nuget.org sono regolarmente sottoposti a scansione alla ricerca di virus).
+Il modo migliore per valutare l'utilità di un pacchetto è scaricarlo e provarlo nel codice (si noti che in tutti i pacchetti in nuget.org viene eseguita regolarmente la ricerca di virus). Dopo tutto, ogni pacchetto ampiamente diffuso all'inizio è stato usato solo da pochi sviluppatori, i cosiddetti early adopter
 
 Allo stesso tempo, usare un pacchetto NuGet implica la creazione di una dipendenza da tale pacchetto, pertanto occorre assicurarsi che sia efficace e affidabile. Poiché l'installazione e il test diretto di un pacchetto richiedono tempo, è anche possibile saperne di più sulla qualità di un pacchetto usando le informazioni riportate nella pagina di presentazione del pacchetto stesso:
 
@@ -93,7 +97,7 @@ Allo stesso tempo, usare un pacchetto NuGet implica la creazione di una dipenden
 
 - *Installazioni recenti*: nella pagina del pacchetto in **Statistics** (Statistiche) selezionare **View full stats** (Visualizza statistiche complete). La pagina delle statistiche complete mostra le installazioni del pacchetto nelle ultime sei settimane per numero di versione. Un pacchetto che altri sviluppatori usano attivamente in genere è preferibile rispetto a uno non in uso.
 
-- *Supporto*: nella pagina del pacchetto in **Info** selezionare **Project Site** (Sito del progetto), se disponibile, per verificare le opzioni di supporto disponibili. Un progetto con un sito dedicato in genere è supportato in modo migliore.
+- *Supporto*: nella pagina del pacchetto in **Info** selezionare **Project Site** (Sito del progetto), se disponibile, per verificare le opzioni di supporto messe a disposizione dall'autore. Un progetto con un sito dedicato in genere è supportato in modo migliore.
 
 - *Cronologia degli sviluppatori*: nella pagina del pacchetto in **Owners** (Proprietari) selezionare un proprietario per vedere quali altri pacchetti ha pubblicato. Gli autori di più pacchetti hanno più probabilità di continuare a fornire supporto per il proprio lavoro in futuro.
 
@@ -108,29 +112,19 @@ Allo stesso tempo, usare un pacchetto NuGet implica la creazione di una dipenden
 
 La modalità di ricerca di un pacchetto in NuGet è la stessa su nuget.org, dall'interfaccia della riga di comando di NuGet e all'interno dell'estensione Gestione pacchetti NuGet in Visual Studio. In generale, la ricerca viene applicata alle parole chiave e alle descrizioni dei pacchetti.
 
-- **Parole chiave**: la ricerca mira a individuare i pacchetti pertinenti che contengono tutte le parole chiave specificate. Esempio:
-
-    ```
-    modern UI javascript
-    ```
-
-- **Frasi**: se si immettono i termini di ricerca tra virgolette, vengono rilevate le esatte corrispondenze senza distinzione tra maiuscole e minuscole con tali termini. Esempio:
-
-    ```
-    "modern UI" package
-    ```
-
+- **Parole chiave**: la ricerca mira a individuare i pacchetti pertinenti che contengono tutte le parole chiave specificate. Esempio: `modern UI javascript`
+- **Frasi**: se si immettono i termini di ricerca tra virgolette, vengono rilevate le esatte corrispondenze senza distinzione tra maiuscole e minuscole con tali termini. Esempio: `"modern UI" package`
 - **Filtro**: è possibile applicare un termine di ricerca a una proprietà specifica usando la sintassi `<property>:<term>`, dove `<property>` (senza distinzione tra maiuscole e minuscole) può essere `id`, `packageid`, `version`, `title`, `tags`, `author`, `description`, `summary` e `owner`. I termini di ricerca possono essere contenuti tra virgolette, se necessario, ed è possibile cercare più proprietà contemporaneamente. Inoltre, le ricerche nella proprietà `id` sono corrispondenze di sottostringhe, mentre `packageid` usa una corrispondenza esatta. Esempi:
 
     ```
-    id:NuGet.Core                //Match any part of the id property
+    id:NuGet.Core                # Match any part of the id property
     Id:"Nuget.Core"
     ID:jQuery
-    title:jquery                 //Searches title as shown on the package listing
-    PackageId:jquery             //Match the package id exactly
-    id:jquery id:ui              //Search for multiple terms in the id
-    id:jquery tags:validation    //Search multiple properties
-    id:"jquery.ui"               //Phrase search
-    invalid:jquery ui            //Unsupported properties are ignored, so this
-                                 //is the same as searching on jquery ui
+    title:jquery                 # Searches title as shown on the package listing
+    PackageId:jquery             # Match the package id exactly
+    id:jquery id:ui              # Search for multiple terms in the id
+    id:jquery tags:validation    # Search multiple properties
+    id:"jquery.ui"               # Phrase search
+    invalid:jquery ui            # Unsupported properties are ignored, so this
+                                 # is the same as searching on jquery ui
     ```

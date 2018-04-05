@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 08/14/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
+ms.technology: ''
 description: Dettagli del processo tramite cui le dipendenze di un pacchetto NuGet vengono risolte e installate in NuGet 2.x e NuGet 3.x+.
 keywords: Dipendenze di pacchetti NuGet, controllo delle versioni di NuGet, versioni delle dipendenze, grafico delle versioni, risoluzione delle versioni, ripristino transitivo
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: aa2537a2538d0ea665944784ef183dc12faa9b38
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: d387acd369c88a64abaa2cb94a913fe211df8da1
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Risoluzione delle dipendenze dei pacchetti in NuGet
 
@@ -24,7 +27,7 @@ Ogni volta che un pacchetto viene installato o reinstallato, compresa l'installa
 
 Tali dipendenze immediate potrebbero quindi avere anche dipendenze proprie, che possono continuare fino a una profondità arbitraria. Ciò produce un cosiddetto *grafico dipendenze*, che descrive le relazioni tra i pacchetti a tutti i livelli.
 
-Quando più pacchetti hanno la stessa dipendenza, lo stesso ID di pacchetto può essere visualizzato nel grafico più volte, potenzialmente con limitazioni delle versioni diverse. Tuttavia, solo una versione di un determinato pacchetto può essere usata in un progetto, pertanto NuGet deve scegliere quale versione usare. Il processo esatto dipende dal formato di riferimento del pacchetto in uso.
+Quando più pacchetti hanno la stessa dipendenza, lo stesso ID di pacchetto può essere visualizzato nel grafico più volte, potenzialmente con limitazioni delle versioni diverse. Tuttavia, solo una versione di un determinato pacchetto può essere usata in un progetto, pertanto NuGet deve scegliere quale versione usare. Il processo esatto dipende dal formato di gestione dei pacchetti in uso.
 
 ## <a name="dependency-resolution-with-packagereference"></a>Risoluzione delle dipendenze con PackageReference
 
@@ -109,7 +112,7 @@ Con `packages.config`, NuGet tenta di risolvere i conflitti di dipendenza durant
 
 Per impostazione predefinita, NuGet 2.8 cerca la versione di patch minima (vedere le [note sulla versione di NuGet 2.8](../release-notes/nuget-2.8.md#patch-resolution-for-dependencies)). È possibile controllare questa impostazione tramite l'attributo `DependencyVersion` in `Nuget.Config` e l'opzione `-DependencyVersion` della riga di comando.  
 
-Il processo `packages.config` per la risoluzione delle dipendenze diventa complicato per grafici delle dipendenze di dimensioni più elevate. Ogni nuova installazione del pacchetto richiede un attraversamento dell'intero grafico e genera probabilità di conflitti di versione. Quando si verifica un conflitto, l'installazione viene interrotta, lasciando il progetto in uno stato indeterminato, in particolare con potenziali modifiche al file di progetto stesso. Questo non è un problema quando si usano altri formati di riferimento del pacchetto.
+Il processo `packages.config` per la risoluzione delle dipendenze diventa complicato per grafici delle dipendenze di dimensioni più elevate. Ogni nuova installazione del pacchetto richiede un attraversamento dell'intero grafico e genera probabilità di conflitti di versione. Quando si verifica un conflitto, l'installazione viene interrotta, lasciando il progetto in uno stato indeterminato, in particolare con potenziali modifiche al file di progetto stesso. Questo non è un problema quando si usano altri formati di gestione dei pacchetti.
 
 ## <a name="managing-dependency-assets"></a>Gestione degli asset delle dipendenze
 
@@ -121,7 +124,7 @@ Quando il progetto di primo livello è un pacchetto, è anche possibile avere il
 
 Esistono scenari in cui agli assembly con lo stesso nome potrebbe essere fatto riferimento più volte in un progetto, generando errori in fase di progettazione e in fase di compilazione. Si consideri un progetto che contiene una versione personalizzata di `C.dll` e che fa riferimento al pacchetto C contenente anche `C.dll`. Al tempo stesso, il progetto dipende anche dal pacchetto B, che dipende anche dal pacchetto C e da `C.dll`. Di conseguenza, NuGet non riesce a determinare quale `C.dll` usare, ma è possibile rimuovere semplicemente la dipendenza del progetto dal pacchetto C perché anche il pacchetto B dipende da esso.
 
-Per risolvere questa situazione, è necessario fare riferimento direttamente al `C.dll` desiderato (o usare un altro pacchetto che faccia riferimento a quello giusto) e quindi aggiungere una dipendenza dal pacchetto C che escluda tutti i relativi asset. Questa operazione viene eseguita come indicato di seguito a seconda del formato di riferimento del pacchetto in uso:
+Per risolvere questa situazione, è necessario fare riferimento direttamente al `C.dll` desiderato (o usare un altro pacchetto che faccia riferimento a quello giusto) e quindi aggiungere una dipendenza dal pacchetto C che escluda tutti i relativi asset. Questa operazione viene eseguita come indicato di seguito a seconda del formato di gestione dei pacchetti in uso:
 
 - [PackageReference](../consume-packages/package-references-in-project-files.md): aggiungere `Exclude="All"` nella dipendenza:
 

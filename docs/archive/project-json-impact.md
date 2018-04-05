@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 01/18/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Informazioni dettagliate su come l'implementazione di project.json in NuGet 3.x abbia effetto sugli autori di pacchetti, ad esempio con funzionalità, contenuto e formato dei pacchetti non supportati."
-keywords: "NuGet e project.json, impatto di project.json, considerazioni sulla creazione di pacchetti, funzionalità di project.json"
+ms.technology: ''
+description: Informazioni dettagliate su come l'implementazione di project.json in NuGet 3.x abbia effetto sugli autori di pacchetti, ad esempio con funzionalità, contenuto e formato dei pacchetti non supportati.
+keywords: NuGet e project.json, impatto di project.json, considerazioni sulla creazione di pacchetti, funzionalità di project.json
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b732d48b169825764d614c338658f8c6ef45e765
-ms.sourcegitcommit: eabd401616a98dda2ae6293612acb3b81b584967
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 6e8af98504a2866106e84943989aeb91f2e9c1fb
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="impact-of-projectjson-when-creating-packages"></a>Impatto di project.json durante la creazione di pacchetti
 
@@ -51,7 +54,7 @@ Il supporto per il contenuto è attualmente disabilitato per motivi simili a que
 
 I file di contenuto possono comunque essere inseriti nei pacchetti anche se attualmente vengono ignorati, tuttavia l'utente finale può comunque copiarli nella posizione corretta.
 
-Per una proposta di ripristino dei file di contenuto e per seguirne lo stato, vedere [https://github.com/NuGet/Home/issues/627](https://github.com/NuGet/Home/issues/627).
+Per una proposta di ripristino dei file di contenuto e per seguirne lo stato, vedere qui: [https://github.com/NuGet/Home/issues/627](https://github.com/NuGet/Home/issues/627).
 
 ## <a name="impact-for-package-authors"></a>Impatto per gli autori di pacchetti
 

@@ -6,18 +6,20 @@ manager: ghogen
 ms.date: 12/07/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-ms.assetid: 2785879b-97f0-4a85-b3cc-bf4eaa5c39bf
-description: "Informazioni dettagliate su quando è necessario reinstallare e aggiornare i pacchetti, ad esempio nel caso di riferimenti ai pacchetti interrotti in Visual Studio."
+ms.technology: ''
+description: Informazioni dettagliate su quando è necessario reinstallare e aggiornare i pacchetti, ad esempio nel caso di riferimenti ai pacchetti interrotti in Visual Studio.
 keywords: Installazione del pacchetto NuGet, reinstallazione del pacchetto NuGet, ripristino del pacchetto NuGet, aggiornamento del pacchetto, ripristino di pacchetti, correzione di riferimenti interrotti
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: e2875630b24fbe04fc7bcab52335d849e54160de
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 9da385f51abf5877589c29ebdeffefc9a1a20a2e
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Come reinstallare e aggiornare pacchetti
 
@@ -48,7 +50,7 @@ Contenuto dell'articolo:
 
 Per impostazione predefinita, la reinstallazione o l'aggiornamento di un pacchetto installa *sempre* la versione più recente disponibile dall'origine del pacchetto.
 
-Nei progetti che usano il formato di riferimento `packages.config`, tuttavia, è possibile limitare l'intervallo di versioni preso in considerazione. Ad esempio, se si è certi che l'applicazione funziona solo con la versione 1.x di un pacchetto ma non con la versione 2.0 e successive, probabilmente a causa di una modifica importante nell'API del pacchetto, è possibile limitare gli aggiornamenti alle versioni 1.x. Ciò impedisce gli aggiornamenti accidentali che potrebbero causare l'interruzione dell'applicazione.
+Nei progetti che usano il formato di gestione `packages.config`, tuttavia, è possibile limitare l'intervallo di versioni preso in considerazione in modo specifico. Ad esempio, se si è certi che l'applicazione funziona solo con la versione 1.x di un pacchetto ma non con la versione 2.0 e successive, probabilmente a causa di una modifica importante nell'API del pacchetto, è possibile limitare gli aggiornamenti alle versioni 1.x. Ciò impedisce gli aggiornamenti accidentali che potrebbero causare l'interruzione dell'applicazione.
 
 Per impostare una limitazione, aprire `packages.config` in un editor di testo, individuare la dipendenza in questione e aggiungere l'attributo `allowedVersions` con un intervallo di versioni. Ad esempio, per limitare gli aggiornamenti alla versione 1.x, impostare `allowedVersions` su `[1,2)`:
 
