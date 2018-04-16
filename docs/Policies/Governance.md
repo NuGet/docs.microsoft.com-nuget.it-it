@@ -91,7 +91,7 @@ Nei casi sfortunati di incapacità o decesso del titolare di un account NuGet, s
     - Un certificato di morte ufficiale in caso di decesso del titolare dell'account precedente, o,
     - Un documento certificato, ad esempio un certificato firmato dal medico professionista che ha in cura il titolare dell'account risultato incapace.
 1. Uno dei documenti seguenti comprovanti il diritto di proprietà: 
-    - Certificato di matrimonio che dimostra che l'utente richiedente è il coniuge superstite del titolare dell'account,
+    - Certificato di matrimonio che dimostra che l'utente richiedente è il coniuge/partner superstite del titolare dell'account,
     - Procura firmata,
     - Copia del testamento o di un accordo fiduciario da cui l'utente richiedente risulta esecutore o beneficiario,
     - Certificato di nascita del titolare dell'account, nel caso l'utente richiedente sia un genitore, o,
