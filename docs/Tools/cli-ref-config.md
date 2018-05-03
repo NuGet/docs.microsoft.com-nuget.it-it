@@ -1,25 +1,16 @@
 ---
-title: Comando config NuGet CLI | Documenti Microsoft
+title: Comando config NuGet CLI
+description: Riferimento per il comando config di nuget.exe
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Riferimento per il comando config di nuget.exe
-keywords: riferimento di configurazione NuGet, il comando di configurazione
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: e3d08f210bd56fcb8eb701fc9b241a3ab45998ec
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 414eb8386f949347772f33170de881534dc71482
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="config-command-nuget-cli"></a>comando config (NuGet CLI)
 
@@ -48,7 +39,7 @@ In NuGet 3.4 + `<value>` consente [le variabili di ambiente](cli-ref-environment
 | ConfigFile | Il file di configurazione NuGet da modificare. Se non specificato, `%AppData%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Mac o Linux) viene utilizzato.|
 | ForceEnglishOutput | *(3.5 +)*  Forza nuget.exe per eseguire utilizzando le impostazioni cultura invariante, in lingua inglese. |
 | ? | Visualizza la Guida informazioni per il comando. |
-| NonInteractive | Elimina richieste per l'input dell'utente o le conferme. |
+| Non interattivo | Elimina richieste per l'input dell'utente o le conferme. |
 | Livello di dettaglio | Specifica la quantità di dettagli visualizzati nell'output: *normale*, *quiet*, *dettagliate*. |
 
 Vedere anche [le variabili di ambiente](cli-ref-environment-variables.md)

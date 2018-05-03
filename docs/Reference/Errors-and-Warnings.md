@@ -1,21 +1,12 @@
 ---
-title: NuGet errori e avvisi riferimento | Documenti Microsoft
+title: NuGet errori e avvisi riferimento
+description: Riferimento complete per avvisi ed errori generati da NuGet durante le varie operazioni di NuGet.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 03/06/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Riferimento complete per avvisi ed errori generati da NuGet durante le varie operazioni di NuGet.
-keywords: NuGet errori, avvisi NuGet, diagnostica
-ms.reviewer:
-- anangaur
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
+ms.reviewer: anangaur
 f1_keywords:
 - NU1000
 - NU1001
@@ -53,11 +44,11 @@ f1_keywords:
 - NU3008
 - NU3018
 - NU3028
-ms.openlocfilehash: 020e31dc8646c43b86bcee555f1772e8b1db7761
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: dcff20e35adc0a3dbcc7bef482f81a937cf059c5
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="errors-and-warnings"></a>Errori e avvisi
 
@@ -181,7 +172,7 @@ Gli errori e avvisi elencati di seguito sono disponibili solo con [basato su Pac
 | | |
 | --- | --- |
 | **Problema** | Impossibile risolvere i vincoli di dipendenza tra pacchetti. |
-| **Messaggio di esempio** | *Conflitto di versione per NuGet.Versioning. Fare riferimento il pacchetto direttamente dal progetto per risolvere il problema.<br/>  NuGet.Packaging 3.5.0 -> NuGet.Versioning (= 3.5.0)<br/>  NuGet.Configuration 4.0.0 -> NuGet.Versioning (= 4.0.0)* |
+| **Messaggio di esempio** | *Conflitto di versione per NuGet.Versioning. Fare riferimento il pacchetto direttamente dal progetto per risolvere il problema.<br/>  NuGet. Packaging 3.5.0 -> NuGet.Versioning (= 3.5.0)<br/> NuGet.Configuration 4.0.0 -> NuGet.Versioning (= 4.0.0)* |
 | **Soluzione** | Pacchetti con vincoli di dipendenza in versioni esatte non consentono altri pacchetti per incrementare la versione, se necessario. Aggiungere un riferimento al progetto direttamente (nel file di progetto) con la versione esatta richiesta. |
 
 <a name="nu1108"></a>
@@ -299,7 +290,7 @@ Gli errori e avvisi elencati di seguito sono disponibili solo con [basato su Pac
 | | |
 | --- | --- |
 | **Problema** | Un pacchetto di dipendenza è specificato un vincolo di versione in una versione superiore di un pacchetto rispetto al ripristino risolta. Ovvero "più vicino wins" regola per la risoluzione dei pacchetti, a causa di un pacchetto più vicini nel grafico può avere sottoposto a override un pacchetto distante. |
-| **Messaggio di esempio** | *Rilevato downgrade del pacchetto: NuGet.Versioning da 4.0.0 a 3.5.0. Fare riferimento il pacchetto direttamente dal progetto per selezionare una versione diversa.<br/>  NuGet.Packaging 3.5.0 -> NuGet.Versioning 3.5.0<br/>  NuGet.Commands 4.0.0 -> NuGet.Configuration 4.0.0 -> NuGet.Versioning 4.0.0* |
+| **Messaggio di esempio** | *Rilevato downgrade del pacchetto: NuGet.Versioning da 4.0.0 a 3.5.0. Fare riferimento il pacchetto direttamente dal progetto per selezionare una versione diversa.<br/>  NuGet. Packaging 3.5.0 -> NuGet.Versioning 3.5.0<br/> NuGet.Commands 4.0.0 -> NuGet.Configuration 4.0.0 -> NuGet.Versioning 4.0.0* |
 | **Soluzione** | Aggiungere un riferimento diretto al progetto per la successiva versione del pacchetto che si desidera utilizzare. |
 
 ## <a name="resolver-conflict-warnings"></a>Avvisi di sistema di risoluzione dei conflitti
@@ -352,7 +343,7 @@ Gli errori e avvisi elencati di seguito sono disponibili solo con [basato su Pac
 
 ## <a name="signed-packages-creation-and-verification"></a>Pacchetti firmati (creazione e la verifica)
 
-*NuGet 4.6.0+*
+*4.6.0+ NuGet*
 
 [NU3000](#nu3000) | [NU3001](#nu3001) | [NU3002](#nu3002) | [NU3004](#nu3004) | [NU3008](#nu3008) | [NU3018](#nu3018) | [NU3028](#nu3028)
 

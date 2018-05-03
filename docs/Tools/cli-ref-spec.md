@@ -1,26 +1,20 @@
 ---
-title: Comando specifica CLI NuGet | Documenti Microsoft
+title: Comando specifica di NuGet CLI
+description: Riferimento per il comando specifica di nuget.exe
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: 
-description: Riferimento per il comando specifica di nuget.exe
-keywords: riferimento specifica NuGet, specifiche di comando
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: cc7e772e737a0f74929d13e2b126f7796b6d0dc7
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 68d661030ce7bcff7d7a3a1c96c07e149ad4ffea
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="spec-command-nuget-cli"></a>Specifica di comando (CLI NuGet)
 
-**Si applica a:** creazione di pacchetti &bullet; **le versioni supportate:** tutti
+**Si applica a:** creazione di pacchetti &bullet; **versioni supportate:** tutti
 
 Genera un `.nuspec` file per un nuovo pacchetto. Se l'esecuzione nella stessa cartella un file di progetto (`.csproj`, `.vbproj`, `.fsproj`), `spec` crea un token `.nuspec` file. Per ulteriori informazioni, vedere [creazione di un pacchetto](../create-packages/creating-a-package.md).
 
@@ -40,7 +34,7 @@ dove `<packageID>` è un identificatore di pacchetto facoltativo per salvare il 
 | Force | Sovrascrive qualsiasi esistente `.nuspec` file. |
 | ForceEnglishOutput | *(3.5 +)*  Forza nuget.exe per eseguire utilizzando le impostazioni cultura invariante, in lingua inglese. |
 | ? | Visualizza la Guida informazioni per il comando. |
-| NonInteractive | Elimina richieste per l'input dell'utente o le conferme. |
+| Non interattivo | Elimina richieste per l'input dell'utente o le conferme. |
 | Livello di dettaglio | Specifica la quantità di dettagli visualizzati nell'output: *normale*, *quiet*, *dettagliate*. |
 
 Vedere anche [le variabili di ambiente](cli-ref-environment-variables.md)

@@ -1,33 +1,27 @@
 ---
-title: Note sulla versione di NuGet 2.0 | Documenti Microsoft
+title: Note sulla versione 2.0 di NuGet
+description: Note sulla versione per NuGet 2.0, inclusi i problemi noti, correzioni di bug, le funzionalità aggiunte e dcr.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Note sulla versione per NuGet 2.0, inclusi i problemi noti, correzioni di bug, le funzionalità aggiunte e dcr."
-keywords: "NuGet 2.0 note sulla versione, correzioni di bug, problemi noti, aggiunta di funzionalità, eseguire"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: eaa3c8db1cce72ff93671a1df63698748cdfab70
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 0e637a953d9d5d10394857a352be96a7f68dc4e8
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-20-release-notes"></a>Note sulla versione 2.0 di NuGet
 
-[Note sulla versione 1.8 NuGet](../release-notes/nuget-1.8.md) | [note sulla versione 2.1 di NuGet](../release-notes/nuget-2.1.md)
+[Note sulla versione di NuGet 1.8](../release-notes/nuget-1.8.md) | [note sulla versione di NuGet 2.1](../release-notes/nuget-2.1.md)
 
 NuGet 2.0 è stata rilasciata il 19 giugno 2012.
 
 ## <a name="known-installation-issue"></a>Problema di installazione noti
 Se si esegue Visual Studio 2010 SP1, è possibile eseguire in un errore di installazione durante il tentativo di aggiornare NuGet, se è installata una versione precedente.
 
-La soluzione alternativa consiste nel disinstallare semplicemente NuGet e quindi installarlo dalla raccolta di estensioni di Visual Studio.  Vedere [http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019) per ulteriori informazioni, o [passare direttamente all'hotfix di Visual Studio](http://bit.ly/vsixcertfix).
+La soluzione alternativa consiste nel disinstallare semplicemente NuGet e quindi installarlo dalla raccolta di estensioni di Visual Studio.  Vedere [ http://support.microsoft.com/kb/2581019 ](http://support.microsoft.com/kb/2581019) per altre informazioni, o [andare direttamente all'hotfix di Visual Studio](http://bit.ly/vsixcertfix).
 
 Nota: Se Visual Studio non consente di disinstallare l'estensione (il pulsante di disinstallazione è disabilitato), quindi probabile che sia necessario riavviare Visual Studio utilizzando "Esegui come amministratore".
 
@@ -94,7 +88,7 @@ Oltre ai riferimenti agli assembly, i file di contenuto e gli script di PowerShe
             \install.ps1
             \uninstall.ps1
 
-**Nota**: poiché `init.ps1` viene eseguita a livello di soluzione e viene non dipendente da un singolo progetto, deve essere inserito direttamente sotto il `tools` cartella. Se inserito in una cartella specifica del framework, verrà ignorato.
+**Nota**: poiché `init.ps1` viene eseguita a livello di soluzione senza che sia non dipendente da un singolo progetto, deve essere inserito direttamente sotto il `tools` cartella. Se inserito in una cartella specifica del framework, verrà ignorato.
 
 Inoltre, una nuova funzionalità di NuGet 2.0 è che può essere una cartella per framework *vuoto*, nel qual caso NuGet verrà non aggiungere riferimenti ad assembly, aggiungere i file di contenuto o eseguire gli script di PowerShell per la versione di framework specifici. Nell'esempio precedente, la cartella `content\net40` è vuoto.
 

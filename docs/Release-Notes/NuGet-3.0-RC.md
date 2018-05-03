@@ -1,22 +1,16 @@
 ---
-title: Note sulla versione RC di NuGet 3.0 | Documenti Microsoft
+title: Note sulla versione RC di NuGet 3.0
+description: Note sulla versione per NuGet 3.0 RC inclusi dcr, correzioni di bug, le funzionalità aggiunte e problemi noti.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Note sulla versione per NuGet 3.0 RC inclusi dcr, correzioni di bug, le funzionalità aggiunte e problemi noti."
-keywords: "NuGet 3.0 RC note sulla versione, correzioni di bug, problemi noti, aggiunta di funzionalità, eseguire"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 4693fd8884283e01d3c0a8ad74e0692c1ca00659
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 28ac49d9e9071d16d20b24808abb0acaab214ffd
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-30-rc-release-notes"></a>Note sulla versione RC di NuGet 3.0
 
@@ -33,13 +27,13 @@ Stabilità e prestazioni delle query NuGet continuano a essere un argomento che 
 Per stabilizzare i client NuGet, è risolvere molti problemi come parte di questa versione.  Di seguito è solo un breve elenco di alcuni dei più importanti problemi risolti:
 
 * Durante la ridenominazione di framework K per ASP.NET 5, moniker del framework sono stati aggiornati per gestire dnx e dnxcore [collegamento](https://github.com/NuGet/Home/issues/215)
-* Aggiunta di documentazione della Guida dai collegamenti nell'interfaccia utente Visual Studio [collegamento](https://github.com/NuGet/Home/issues/232)
+* Aggiunta di documentazione della Guida dai collegamenti nell'interfaccia utente di Visual Studio [collegamento](https://github.com/NuGet/Home/issues/232)
 * Migliore gestione dei riferimenti complessi in `.nuspec` con i riferimenti framework delimitato da virgole [collegamento](https://github.com/NuGet/Home/issues/276)
 * Fissa il supporto per lingue giapponese [collegamento](https://github.com/NuGet/Home/issues/253)
-* Il client aggiornato per consentire l'utilizzo di nuovi endpoint v3 per i progetti di ASP.NET 5 [collegamento](https://github.com/NuGet/Home/issues/219)
-* Cartella di pacchetti di handle aggiornata per una migliore controllo del codice sorgente [collegamento](https://github.com/NuGet/Home/issues/56)
-* Supporto per i pacchetti satellite fissa [collegamento](https://github.com/NuGet/Home/issues/17)
-* Supporto per i file di contenuto specifico del framework corretti [collegamento](https://github.com/NuGet/Home/issues/18)
+* Il client aggiornato per consentire l'utilizzo di nuovi endpoint v3 per i progetti ASP.NET 5 [collegamento](https://github.com/NuGet/Home/issues/219)
+* Cartella di pacchetti handle aggiornata per una migliore controllo del codice sorgente [collegamento](https://github.com/NuGet/Home/issues/56)
+* Fissa il supporto per pacchetti satellite [collegamento](https://github.com/NuGet/Home/issues/17)
+* Corretto il supporto per i file di contenuto specifico del framework [collegamento](https://github.com/NuGet/Home/issues/18)
 
 ## <a name="github-presence-overhaul"></a>Revisione di presenza di GitHub
 

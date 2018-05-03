@@ -1,26 +1,17 @@
 ---
-title: Riferimenti ai framework di destinazione per NuGet | Microsoft Docs
+title: Riferimento di Framework di destinazione per NuGet
+description: I riferimenti ai framework di destinazione NuGet consentono di identificare e isolare i componenti dipendenti dai framework di un pacchetto.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 12/11/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: I riferimenti ai framework di destinazione NuGet consentono di identificare e isolare i componenti dipendenti dai framework di un pacchetto.
-keywords: Destinazione dei pacchetti NuGet, destinazioni .NET Framework, versioni di .NET Framework
-ms.reviewer:
-- anangaur
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 0a9c45ef31e27c2242edce48e2cf272e5280dcff
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: anangaur
+ms.openlocfilehash: 6b7ee3f739847777dda638d8fed083c48ed5812e
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="target-frameworks"></a>Framework di destinazione
 
@@ -41,25 +32,25 @@ In genere si fa riferimento a un framework tramite un breve moniker del framewor
 
 I client NuGet supportano i framework nella tabella seguente. Gli equivalenti sono visualizzati tra parentesi quadre []. Si noti che alcuni strumenti, ad esempio `dotnet`, potrebbero usare varianti dei moniker TFM canonici in alcuni file. Ad esempio, `dotnet pack` usa `.NETCoreApp2.0` in un file `.nuspec` invece di `netcoreapp2.0`. I vari strumenti client NuGet gestiscono queste variazioni correttamente, ma è consigliabile usare sempre i TFM canonici quando si modificano direttamente i file.
 
-| nome           | Abbreviazione | TFM/TxM |
-| -------------  | ------------ | --------- |
-|.NET Framework  | net          | net11     |
-|                |              | net20     |
-|                |              | net35     |
-|                |              | net40     |
-|                |              | net403    |
-|                |              | net45      |
-|                |              | net451     |
-|                |              | net452     |
-|                |              | net46      |
-|                |              | net461     |
-|                |              | net462     |
-|Microsoft Store (Windows Store) | netcore      | netcore [netcore45] |
-|                |              | netcore45 [win, win8] |
-|                |              | netcore451 [win81] |
-|                |              | netcore50 |
-|.NET MicroFramework | netmf    | netmf |
-|WINDOWS         | win          | win [win8, netcore45] |
+| nome | Abbreviazione | TFM/TxM |
+| ------------- | ------------ | --------- |
+|.NET Framework | net | net11 |
+| | | net20 |
+| | | net35 |
+| | | net40 |
+| | | net403 |
+| | | net45 |
+| | | net451 |
+| | | net452 |
+| | | net46 |
+| | | net461 |
+| | | net462 |
+|Microsoft Store (Windows Store) | netcore | netcore [netcore45] |
+| | | netcore45 [win, win8] |
+| | | netcore451 [win81] |
+| | | netcore50 |
+|.NET MicroFramework | netmf | netmf |
+|WINDOWS | win | win [win8, netcore45] |
 | | | win8 [netcore45, win] |
 | | | win81 [netcore451] |
 | | | win10 (non supportato dalla piattaforma Windows 10) |
@@ -88,6 +79,7 @@ Tizen | tizen | tizen3 |
 | | | tizen4 |
 
 ## <a name="deprecated-frameworks"></a>Framework deprecati
+
 I framework seguenti sono deprecati. I pacchetti che hanno come destinazione questi framework devono essere migrati alle sostituzioni indicate.
 
 | Framework deprecato | Sostituzione
@@ -114,12 +106,12 @@ I framework seguenti sono deprecati. I pacchetti che hanno come destinazione que
 Alcuni framework sono correlati e compatibili tra loro, ma non necessariamente equivalenti:
 
 | Framework | È possibile usare: |
-| --- | --- |
+| -- | --- |
 | uap (piattaforma UWP) | win81 |
 | | wpa81 |
 | | netcore50 |
 | win (Microsoft Store) | winrt |
-| | | winrt45 |
+| | |
 
 ## <a name="net-platform-standard"></a>NET Platform Standard
 

@@ -1,26 +1,20 @@
 ---
-title: Note sulla versione 2.2 NuGet | Documenti Microsoft
+title: Note sulla versione 2.2 di NuGet
+description: Note sulla versione per NuGet 2.2 inclusi dcr, correzioni di bug, le funzionalità aggiunte e problemi noti.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Note sulla versione per NuGet 2.2 inclusi dcr, correzioni di bug, le funzionalità aggiunte e problemi noti."
-keywords: "2.2 NuGet note sulla versione, correzioni di bug, problemi noti, aggiunta di funzionalità, eseguire"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 63a1ae2315ea0c26fb5d26507ac0bcba8567aa9a
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 21f212de53da5faf1ec0762f97a840968b615b19
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-22-release-notes"></a>Note sulla versione 2.2 di NuGet
 
-[Note sulla versione 2.1 NuGet](../release-notes/nuget-2.1.md) | [note sulla versione 2.2.1 NuGet](../release-notes/nuget-2.2.1.md)
+[Note sulla versione di NuGet 2.1](../release-notes/nuget-2.1.md) | [note sulla versione 2.2.1 NuGet](../release-notes/nuget-2.2.1.md)
 
 2.2 NuGet è stato rilasciato il 12 dicembre 2012.
 
@@ -40,12 +34,12 @@ Ora consente di specificare un'intera cartella in NuGet 2.2 il `<file>` elemento
 <file src="scripts\" target="content\scripts"/>
 ```
 
-**Aggiornare il 24/6/16: le cartelle vuote nella cartella "contenuto" verranno ignorate durante l'installazione del pacchetto.**
+**Aggiornamento 6/24/16: le cartelle vuote nella cartella "content" vengono ignorate quando si installa il pacchetto.**
 
 ## <a name="known-issues"></a>Problemi noti
 
 ### <a name="package-installation-fails-for-f-projects-when-using-the-package-manager-console"></a>Installazione del pacchetto ha esito negativo per i progetti F # quando si utilizza la console di gestione pacchetti
-Quando si tenta di installare un pacchetto NuGet in un progetto F # mediante la console di gestione del pacchetto, viene generata un'eccezione InvalidOperationException. Stiamo lavorando attivamente con il team di F # per risolvere il problema, ma nel frattempo, la soluzione consiste nell'installare i pacchetti NuGet in progetti F # tramite una finestra di dialogo Gestione pacchetti NuGet anziché la console. [Altre informazioni sono disponibile in CodePlex](http://nuget.codeplex.com/workitem/2873).
+Quando si tenta di installare un pacchetto NuGet in un progetto F # mediante la console di gestione del pacchetto, viene generata un'eccezione InvalidOperationException. Stiamo lavorando attivamente con il team di F # per risolvere il problema, ma nel frattempo, la soluzione consiste nell'installare i pacchetti NuGet in progetti F # tramite una finestra di dialogo Gestione pacchetti NuGet anziché la console. [Ulteriori informazioni sono disponibili sul sito CodePlex](http://nuget.codeplex.com/workitem/2873).
 
 
 ## <a name="bug-fixes"></a>Correzioni di bug

@@ -1,25 +1,16 @@
 ---
-title: Comando push NuGet CLI | Documenti Microsoft
+title: Comando push NuGet CLI
+description: Riferimento per il comando di nuget.exe push
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Riferimento per il comando di nuget.exe push
-keywords: riferimento push NuGet, il comando push
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 832f7aeb2b485acbb83e5213916fc3423df961ab
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 959b539fc20bc47f38946cb660375a6652582a0d
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="push-command-nuget-cli"></a>comando push (NuGet CLI)
 
@@ -44,12 +35,12 @@ dove `<packagePath>` identifica il pacchetto da inviare al server.
 
 | Opzione | Descrizione |
 | --- | --- |
-| ApiKey | La chiave API per il repository di destinazione. Se non è presente, viene utilizzato quello specificato nel file di configurazione. |
+| apiKey | La chiave API per il repository di destinazione. Se non è presente, viene utilizzato quello specificato nel file di configurazione. |
 | ConfigFile | Il file di configurazione NuGet da applicare. Se non specificato, `%AppData%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Mac o Linux) viene utilizzato.|
 | DisableBuffering | Disabilita la memorizzazione nel buffer quando push a un server HTTP (s) per ridurre l'utilizzo di memoria. Attenzione: quando si utilizza questa opzione, l'autenticazione integrata di Windows potrebbe non funzionare. |
 | ForceEnglishOutput | *(3.5 +)*  Forza nuget.exe per eseguire utilizzando le impostazioni cultura invariante, in lingua inglese. |
 | ? | Visualizza la Guida informazioni per il comando. |
-| NonInteractive | Elimina richieste per l'input dell'utente o le conferme. |
+| Non interattivo | Elimina richieste per l'input dell'utente o le conferme. |
 | NoSymbols | *(3.5 +)*  Se esiste un pacchetto di simboli, non sarà inserito in un server di simboli. |
 | Origine | Specifica l'URL del server. NuGet identifica un origine cartella locale o UNC e copiato il file anziché il push tramite HTTP.  Inoltre, a partire da NuGet sezione 3.4.2, questo è un parametro obbligatorio, a meno che il `NuGet.Config` file specifica un *DefaultPushSource* valore (vedere [il comportamento di configurazione NuGet](../consume-packages/configuring-nuget-behavior.md)). |
 | SymbolSource | *(3.5 +)*  Specifica l'URL del server di simboli; nuget.smbsrc.net viene usato quando l'inserimento di nuget.org |

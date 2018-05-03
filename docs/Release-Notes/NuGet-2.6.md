@@ -1,26 +1,20 @@
 ---
-title: Note sulla versione 2.6 NuGet | Documenti Microsoft
+title: Note sulla versione 2.6 di NuGet
+description: Note sulla versione per NuGet 2.6.1 per WebMatrix, inclusi i problemi noti, correzioni di bug, le funzionalità aggiunte e dcr.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Note sulla versione per NuGet 2.6 inclusi dcr, correzioni di bug, le funzionalità aggiunte e problemi noti."
-keywords: "2.6 NuGet note sulla versione, correzioni di bug, problemi noti, aggiunta di funzionalità, eseguire"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: c2df9721e6941c110948af1a2d4ec4b7aeb476dd
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 39ce6ac3d36464d26966b0dabb0893f09ad4afdc
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-26-release-notes"></a>Note sulla versione 2.6 di NuGet
 
-[Note sulla versione di NuGet 2.5](../release-notes/nuget-2.5.md) | [NuGet 2.6.1 delle note sulla versione di WebMatrix](../release-notes/nuget-2.6.1-for-webmatrix.md)
+[Note sulla versione di NuGet 2.5](../release-notes/nuget-2.5.md) | [NuGet 2.6.1 per le note sulla versione di WebMatrix](../release-notes/nuget-2.6.1-for-webmatrix.md)
 
 2.6 NuGet è stato rilasciato il 26 giugno 2013.
 

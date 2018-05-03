@@ -1,25 +1,16 @@
 ---
-title: Riferimento di PowerShell Install-Package NuGet | Documenti Microsoft
+title: Riferimento di PowerShell di NuGet. Install-Package
+description: Riferimento per il comando di PowerShell Install-Package nella Console di gestione pacchetti NuGet in Visual Studio.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 06/01/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Riferimento per il comando di PowerShell Install-Package nella Console di gestione pacchetti NuGet in Visual Studio.
-keywords: Console di gestione, i comandi di Powershell di NuGet, riferimento di Powershell di NuGet, pacchetto di installazione del pacchetto NuGet
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 99c965c2f8c12c7a59ee48e270172b719c1482ea
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 5adfbcae0affcaa402f7981c12e108490d546511
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="install-package-package-manager-console-in-visual-studio"></a>Pacchetto di installazione (Console di gestione dei pacchetti in Visual Studio)
 
@@ -46,7 +37,7 @@ Install-Package Microsoft.AspNet.MVC -Version 5.0.0.
 | Parametro | Descrizione |
 | --- | --- |
 | Id | (Obbligatorio) L'identificatore del pacchetto da installare. (*3.0 +*) l'identificatore può essere un percorso o URL di un `packages.config` file o un `.nupkg` file. -Id switch stesso è facoltativo. |
-| IgnoreDependencies | Installa solo questo pacchetto e non le relative dipendenze. |
+| MSI | Installa solo questo pacchetto e non le relative dipendenze. |
 | ProjectName | Il progetto in cui installare il pacchetto, verrà utilizzato per il progetto predefinito. |
 | Origine | Il percorso URL o una cartella per l'origine del pacchetto da cercare. I percorsi di cartella locale possono essere assoluto o relativo della cartella corrente. Se omesso, `Install-Package` Cerca l'origine pacchetto attualmente selezionata. |
 | Versione | La versione del pacchetto da installare, verrà utilizzato per la versione più recente. |

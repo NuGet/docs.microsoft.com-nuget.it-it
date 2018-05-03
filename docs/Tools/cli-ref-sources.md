@@ -1,25 +1,16 @@
 ---
-title: NuGet CLI origini comando | Documenti Microsoft
+title: NuGet CLI origini comando
+description: Riferimento per il nuget.exe origini comando
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Riferimento per il nuget.exe origini comando
-keywords: NuGet origini di riferimento, le origini di comando
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 5fb34654dc294de34cf0e15f784240884dc1e3d1
-ms.sourcegitcommit: ecb598c790d4154366bc92757ec7db1a51c34faf
+ms.openlocfilehash: d588ff09075ad75b76b7dd3645f3cdff29f6f093
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="sources-command-nuget-cli"></a>comando origini (NuGet CLI)
 
@@ -45,7 +36,7 @@ dove `<operation>` è uno dei *elenco, aggiungere, rimuovere, attivare, disattiv
 | ForceEnglishOutput | *(3.5 +)*  Forza nuget.exe per eseguire utilizzando le impostazioni cultura invariante, in lingua inglese. |
 | Formato | Si applica al `list` azione e può essere `Detailed` (impostazione predefinita) o `Short`. |
 | ? | Visualizza la Guida informazioni per il comando. |
-| NonInteractive | Elimina richieste per l'input dell'utente o le conferme. |
+| Non interattivo | Elimina richieste per l'input dell'utente o le conferme. |
 | Password | Specifica la password per l'autenticazione con l'origine. |
 | StorePasswordInClearText | Indica di archiviare la password in testo non crittografato anziché il comportamento predefinito di archiviazione di un formato crittografato. |
 | UserName | Specifica il nome utente per l'autenticazione con l'origine. |

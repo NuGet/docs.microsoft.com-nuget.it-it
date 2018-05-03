@@ -1,26 +1,20 @@
 ---
-title: Note sulla versione 1.6 NuGet | Documenti Microsoft
+title: Note sulla versione 1.6 di NuGet
+description: Note sulla versione per NuGet 1.6 inclusi dcr, correzioni di bug, le funzionalità aggiunte e problemi noti.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Note sulla versione per NuGet 1.6 inclusi dcr, correzioni di bug, le funzionalità aggiunte e problemi noti."
-keywords: "1.6 NuGet note sulla versione, correzioni di bug, problemi noti, aggiunta di funzionalità, eseguire"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 114b03cede24dee520ace1d8aa920a648ad16af1
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 0345e180893a56302385d27792c4e15ba5d96989
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
  # <a name="nuget-16-release-notes"></a>Note sulla versione 1.6 di NuGet
 
-[Note sulla versione 1.5 NuGet](../release-notes/nuget-1.5.md) | [note sulla versione 1.7 di NuGet](../release-notes/nuget-1.7.md)
+[Note sulla versione di NuGet 1.5](../release-notes/nuget-1.5.md) | [note sulla versione 1.7 di NuGet](../release-notes/nuget-1.7.md)
 
 1.6 NuGet è stato rilasciato il 13 dicembre 2011.
 

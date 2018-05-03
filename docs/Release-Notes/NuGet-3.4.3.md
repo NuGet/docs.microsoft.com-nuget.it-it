@@ -1,26 +1,20 @@
 ---
-title: Note sulla versione di NuGet versione 3.4.3 | Documenti Microsoft
+title: Note sulla versione di NuGet versione 3.4.3
+description: Note sulla versione per l'inclusione di NuGet versione 3.4.3 problemi noti, correzioni di bug, le funzionalità aggiunte e dcr.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Note sulla versione per l'inclusione di NuGet versione 3.4.3 problemi noti, correzioni di bug, le funzionalità aggiunte e dcr."
-keywords: "NuGet versione 3.4.3 note sulla versione, correzioni di bug, problemi noti, aggiunta di funzionalità, eseguire"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 68aab607659d15f96aefeab7bb90afc787710824
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 6c25d3b678e6e72eca3e1157f91a75bfa8cbb18e
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-343-release-notes"></a>Note sulla versione di NuGet versione 3.4.3
 
-[Note sulla versione di NuGet sezione 3.4.2](../release-notes/nuget-3.4.2.md) | [NuGet 3.4.4 note](../release-notes/nuget-3.4.4.md)
+[Note sulla versione di NuGet sezione 3.4.2](../release-notes/nuget-3.4.2.md) | [note sulla versione di NuGet 3.4.4](../release-notes/nuget-3.4.4.md)
 
 È stata rilasciata NuGet versione 3.4.3 22 aprile 2016 a risolvere alcuni problemi che sono stati identificati nelle versioni 3.4 o successive.
 

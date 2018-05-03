@@ -1,26 +1,17 @@
 ---
-title: Prefisso ID prenotazione riferimento | Documenti Microsoft
+title: Prefisso ID prenotazione riferimento
+description: Descrizione della funzionalità prenotazione prefisso ID pacchetto e la Guida dell'autore.
 author: diverdan92
 ms.author: diverdan92
-manager: unniravindranathan
+manager: unnir
 ms.date: 10/09/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Descrizione della funzionalità prenotazione prefisso ID pacchetto e la Guida dell'autore.
-keywords: ID del pacchetto NuGet, prefisso, la prenotazione
-ms.reviewer:
-- ananguar
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 7b1956612bd48a1c59503418f1a4d7d9dee900f5
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: ananguar
+ms.openlocfilehash: 63f442ae25b92aacbbf5af7d9b3ea1a5dafe5fc9
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="package-id-prefix-reservation"></a>Prenotazione di prefisso ID pacchetto
 
@@ -64,8 +55,8 @@ Esistono diversi scenari prenotazione prefisso più avanzati descritti di seguit
 
 Quando un pacchetto proviene da un prefisso riservato, vedere di seguito indicatori visivi nel [nuget.org](https://www.nuget.org/) raccolta e in Visual Studio 2017 15,4 o versione successiva:
 
-**nuget.org Gallery**
-![nuget.org Gallery](media/nuget-gallery-reserved-prefix.png)
+**Raccolta di NuGet.org**
+![nuget.org raccolta](media/nuget-gallery-reserved-prefix.png)
 
 **Visual Studio**
 ![Visual Studio](media/visual-studio-reserved-prefix.png)
@@ -74,9 +65,9 @@ Quando un pacchetto proviene da un prefisso riservato, vedere di seguito indicat
 
 1. Esaminare l'accettazione [criteri per la prenotazione di prefisso ID](#id-prefix-reservation-criteria).
 
-1. Determinare gli spazi dei nomi che si desidera riservare, oltre a qualsiasi [prefisso prenotazione scenari avanzati](#advanced-prefix-reservation-scenarios) potrebbero essere necessarie.
+2. Determinare gli spazi dei nomi che si desidera riservare, oltre a qualsiasi [prefisso prenotazione scenari avanzati](#advanced-prefix-reservation-scenarios) potrebbero essere necessarie.
 
-1. Inviare un messaggio a [ account@nuget.org ](mailto:account@nuget.org) con il proprietario del nome visualizzato in [nuget.org](https://www.nuget.org/), nonché qualsiasi prefisso riservato richiesto. Delegare subset prefisso a più proprietari, assicurarsi che si menzionano tutti i nomi visualizzati di proprietario e prefisso subset.
+3. Inviare un messaggio a [ account@nuget.org ](mailto:account@nuget.org) con il proprietario del nome visualizzato in [nuget.org](https://www.nuget.org/), nonché qualsiasi prefisso riservato richiesto. Delegare subset prefisso a più proprietari, assicurarsi che si menzionano tutti i nomi visualizzati di proprietario e prefisso subset.
 
 Dopo l'applicazione è stata inviata, ricevono una notifica di accettazione o rifiuto (con i criteri che ha causato il rifiuto). È possibile che sia necessario per porre domande di identificazione aggiuntive per verificare l'identità del proprietario.
 

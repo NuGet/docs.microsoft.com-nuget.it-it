@@ -1,29 +1,17 @@
 ---
-title: Catalogo, API NuGet V3 | Documenti Microsoft
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: Risorsa di catalogo, API NuGet V3
+description: Il catalogo è un indice di tutti i pacchetti creati ed eliminati in nuget.org.
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 10/30/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Il catalogo è un indice di tutti i pacchetti creati ed eliminati in nuget.org.
-keywords: Catalogo delle API V3 NuGet, log delle transazioni nuget.org, replicare nuget.org nuget.org clone, solo di Accodamento record di nuget.org
-ms.reviewer:
-- karann
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 61ed502eee498f5ad0a014e3338503f2855396a5
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: kraigb
+ms.openlocfilehash: 464b252ca318a5bd3487c723dbf4c7062e4698a3
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="catalog"></a>Catalog
 
@@ -147,7 +135,7 @@ nome            | Tipo    | Obbligatorio | Note
 @type           | stringa  | sì      | Il tipo dell'elemento del catalogo
 commitId        | stringa  | sì      | L'ID commit associato a questo elemento del catalogo
 commitTimeStamp | stringa  | sì      | Il timestamp di commit di questo elemento del catalogo
-nuget:id        | stringa  | sì      | L'ID del pacchetto che riguarda questa foglia
+NuGet:ID        | stringa  | sì      | L'ID del pacchetto che riguarda questa foglia
 NuGet:Version   | stringa  | sì      | La versione del pacchetto che riguarda questa foglia
 
 Il `@type` valore sarà uno dei due valori seguenti:
@@ -238,7 +226,7 @@ Il `published` timestamp è l'ora dell'ultima elencato quando il pacchetto.
 
 #### <a name="sample-request"></a>Richiesta di esempio
 
-GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
+OTTIENI https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
 
 #### <a name="sample-response"></a>Risposta di esempio
 
@@ -259,7 +247,7 @@ Il `published` proprietà indica il tempo quando pacchetto è stato eliminato, c
 
 #### <a name="sample-request"></a>Richiesta di esempio
 
-GET https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_lib.1.0.0-test.json
+OTTIENI https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_lib.1.0.0-test.json
 
 #### <a name="sample-response"></a>Risposta di esempio
 

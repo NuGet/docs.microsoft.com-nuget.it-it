@@ -1,26 +1,20 @@
 ---
-title: Note sulla versione Beta di NuGet 3.5 | Documenti Microsoft
+title: Note sulla versione Beta di NuGet 3.5
+description: Note sulla versione per NuGet 3.5 incluso dcr, correzioni di bug, le funzionalità aggiunte e problemi noti.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Note sulla versione per NuGet 3.5 incluso dcr, correzioni di bug, le funzionalità aggiunte e problemi noti."
-keywords: "3.5 NuGet note sulla versione, correzioni di bug, problemi noti, aggiunta di funzionalità, eseguire"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: ee78ceb2ff032c05c0f8ef9a6623b94cc56ee0a9
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: cdb540229cae0e6e952ac2a0c00c8801ccbbb28d
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-35-release-notes"></a>Note sulla versione 3.5 di NuGet
 
-[Note sulla versione 3.5 RC NuGet](../release-notes/nuget-3.5-RC.md) | [note sulla versione RC NuGet 4.0](../release-notes/nuget-4.0-RC.md)
+[Note sulla versione 3.5 RC di NuGet](../release-notes/nuget-3.5-RC.md) | [note sulla versione RC NuGet 4.0](../release-notes/nuget-4.0-RC.md)
 
 ## <a name="bug-fixes"></a>Correzioni di bug
 
@@ -248,7 +242,7 @@ ms.lasthandoff: 02/02/2018
 
 * "Aggiornamento disponibile" filtro consente di visualizzare gli aggiornamenti che violano il vincolo di versione - [#1094](https://github.com/NuGet/Home/issues/1094)
 
-* Impossibile aggiornare i pacchetti nativi - [#1291](https://github.com/NuGet/Home/issues/1291)
+* Non è possibile aggiornare i pacchetti native - [#1291](https://github.com/NuGet/Home/issues/1291)
 
 
 ## <a name="features"></a>Funzionalità
@@ -295,4 +289,4 @@ ms.lasthandoff: 02/02/2018
 
 * Aggiungere il supporto netcoreapp11 e netstandard17 - [#2998](https://github.com/NuGet/Home/issues/2998)
 
-* Attributo AssemblyMetadata sfruttare per `.nuspec` token sostituzioni - [#2851](https://github.com/NuGet/Home/issues/2851)
+* Attributo AssemblyMetadata sfruttano `.nuspec` token sostituzioni - [#2851](https://github.com/NuGet/Home/issues/2851)

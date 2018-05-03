@@ -1,32 +1,26 @@
 ---
-title: Note sulla versione di NuGet 3.4 | Documenti Microsoft
+title: Note sulla versione 3.4 di NuGet
+description: Note sulla versione per NuGet 3.4, inclusi i problemi noti, correzioni di bug, le funzionalità aggiunte e dcr.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Note sulla versione per NuGet 3.4, inclusi i problemi noti, correzioni di bug, le funzionalità aggiunte e dcr."
-keywords: "NuGet 3.4 note sulla versione, correzioni di bug, problemi noti, aggiunta di funzionalità, eseguire"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 515fb888aca2a8eb138c8fea1fb5b3f5a8f4e275
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 3f2a945b628022bdcc6e69a7a4b1be6c53b65626
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-34-release-notes"></a>Note sulla versione 3.4 di NuGet
 
-[Note sulla versione 3.4 RC NuGet](../release-notes/nuget-3.4-RC.md) | [NuGet 3.4.1 note](../release-notes/nuget-3.4.1.md)
+[NuGet 3.4 RC note](../release-notes/nuget-3.4-RC.md) | [note sulla versione di NuGet 3.4.1](../release-notes/nuget-3.4.1.md)
 
 NuGet 3.4 il 30 marzo 2016 è stato rilasciato come parte di Visual Studio 2015 Update 2 e Release di Visual Studio 15 Preview ed è stata compilata con alcuni principi in mente:
 
-*  Supporto multipiattaforma
-*  Miglioramenti delle prestazioni
-*  Piccoli miglioramenti dell'interfaccia utente
+* Supporto multipiattaforma
+* Miglioramenti delle prestazioni
+* Piccoli miglioramenti dell'interfaccia utente
 
 Le funzionalità seguenti sono aggiunti in precedenza in RC e sono state aggiornate o completate per la versione 3.4:
 
@@ -60,16 +54,16 @@ Le funzionalità seguenti sono aggiunti in precedenza in RC e sono state aggiorn
 
 ## <a name="known-issues"></a>Problemi noti
 
-* **Problema:** agli utenti di Windows 10 v1511 potrebbero verificarsi problemi o anche un blocco di Visual Studio con Powershell in Visual Studio negli scenari seguenti:
+* **Problema:** gli utenti di Windows 10 v1511 potrebbero riscontrare problemi o anche un blocco di Visual Studio con Powershell in Visual Studio negli scenari seguenti:
     * L'installazione / disinstallazione di pacchetti con install.ps1 / uninstall.ps1 script
     * Il caricamento di progetti che dispone di uno script init.ps1 (ad esempio EntityFramework)
     * Pubblicazione di contenuto web
 
-* **Soluzione alternativa:** assicurarsi che l'installazione di Windows 10 è applicate le patch più recenti, expecially di gennaio 2016 (KB 3124263) o un aggiornamento successivo.  Ulteriori dettagli sono disponibili su [il problema #1638 di GitHub](http://github.com/nuget/home/issues/1638)
+* **Soluzione alternativa:** assicurarsi che l'installazione di Windows 10 è applicate le patch più recenti, expecially gennaio 2016 (KB 3124263) o un aggiornamento successivo.  Ulteriori dettagli sono disponibili su [problema #1638 di GitHub](http://github.com/nuget/home/issues/1638)
 
 * **Problema:** i reindirizzamenti del protocollo NuGet versione 2 sono interrotti.
 I repository NuGet personalizzati che reindirizzano le richieste a un host alternativo non soddisfano la richiesta di reindirizzamento.
 * **Soluzione alternativa:** per risolvere questo problema, configurare l'URI del repository di pacchetti nelle impostazioni in modo che punti al percorso del server reindirizzato.
 Per ulteriori informazioni, vedere [richiesta pull GitHub #387](https://github.com/NuGet/NuGet.Client/pull/387).
 
-Continuiamo a tenere traccia dei problemi nell'elenco di problemi di GitHub in cui è reperibile in: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)
+Continuiamo a tenere traccia dei problemi nella lista di problemi di GitHub che può essere trovato in: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)

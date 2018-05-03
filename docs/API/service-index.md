@@ -1,29 +1,17 @@
 ---
-title: Indice del servizio, NuGet API | Documenti Microsoft
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: Indice del servizio, NuGet API
+description: L'indice di servizio è il punto di ingresso dell'API HTTP NuGet e vengono elencate le funzionalità del server.
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: L'indice di servizio è il punto di ingresso dell'API HTTP NuGet e vengono elencate le funzionalità del server.
-keywords: Punto di ingresso API NuGet, individuazione di endpoint NuGetA PI
-ms.reviewer:
-- karann
-- unnir
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 1c1dea25067cc582a14a0dd22c2f3f7f70d40a02
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: kraigb
+ms.openlocfilehash: 84e623e8480e4d17edad2ec3b2da6dcb6e53d21b
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="service-index"></a>Indice del servizio
 
@@ -71,7 +59,7 @@ Non è necessario che ogni risorsa è univoca `@id` o `@type`. In questo caso, l
 
 ### <a name="sample-request"></a>Richiesta di esempio
 
-GET https://api.nuget.org/v3/index.json
+OTTIENI https://api.nuget.org/v3/index.json
 
 ### <a name="sample-response"></a>Risposta di esempio
 

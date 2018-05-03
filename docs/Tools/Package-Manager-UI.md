@@ -1,30 +1,21 @@
 ---
-title: Riferimento all'interfaccia utente di gestione pacchetti di NuGet | Documenti Microsoft
+title: Riferimento all'interfaccia utente di gestione pacchetti NuGet
+description: Istruzioni per l'utilizzo di UI Gestione pacchetti NuGet in Visual Studio per l'utilizzo di pacchetti NuGet.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 12/08/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
+ms.topic: conceptual
 f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-description: Istruzioni per l'utilizzo di UI Gestione pacchetti NuGet in Visual Studio per l'utilizzo di pacchetti NuGet.
-keywords: UI NuGet, Gestione pacchetti NuGet dell'interfaccia utente, NuGet in Visual Studio, la gestione pacchetti NuGet, interfaccia utente di NuGet, gestione di pacchetti in Visual Studio
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: ad36c2ab0c6e62c7fe624b35d92e852303ecfdfb
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 99bd51798460a56cb8515d46791a9e75d9e630cc
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="nuget-package-manager-ui"></a>Interfaccia utente di gestione pacchetti NuGet
 
@@ -59,7 +50,7 @@ In questo argomento
     ![Riferimenti in Esplora soluzioni](media/References.png)
 
 > [!Tip]
-    > Per includere le versioni non definitive nella ricerca e che le versioni non definitive disponibili nella versione di riepilogo a discesa, selezionare il **Includi versione preliminare** opzione.
+> Per includere le versioni non definitive nella ricerca e che le versioni non definitive disponibili nella versione di riepilogo a discesa, selezionare il **Includi versione preliminare** opzione.
 
 ## <a name="uninstalling-a-package"></a>La disinstallazione di un pacchetto
 

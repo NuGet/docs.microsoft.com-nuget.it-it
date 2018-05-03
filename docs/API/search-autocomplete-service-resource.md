@@ -1,26 +1,17 @@
 ---
-title: Completamento automatico, NuGet API | Documenti Microsoft
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: Completamento automatico, NuGet API
+description: Il servizio di completamento automatico di ricerca supporta le versioni e rilevamento interattivo di ID di pacchetto.
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: 
-description: Il servizio di completamento automatico di ricerca supporta le versioni e rilevamento interattivo di ID di pacchetto.
-keywords: API di completamento automatico NuGet, ID del pacchetto NuGet ricerca, ID di pacchetto sottostringa
-ms.reviewer:
-- karann
-- unniravindranathan
-ms.openlocfilehash: 7c984ca61799293d7832851b80cf3fefc4734288
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.reviewer: kraigb
+ms.openlocfilehash: d5e1936c6c5406a1a376c16b2bad5351320dfb4f
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="autocomplete"></a>Completamento automatico
 
@@ -33,8 +24,8 @@ Nell'esempio `@type` vengono utilizzati i valori:
 Valore di @type                          | Note
 ------------------------------------ | -----
 SearchAutocompleteService            | La versione iniziale
-SearchAutocompleteService/3.0.0-beta | Alias di`SearchAutocompleteService`
-SearchAutocompleteService/3.0.0-rc   | Alias di`SearchAutocompleteService`
+SearchAutocompleteService/3.0.0-beta | Alias di `SearchAutocompleteService`
+SearchAutocompleteService/3.0.0-rc   | Alias di `SearchAutocompleteService`
 
 ## <a name="base-url"></a>URL di base
 
@@ -59,7 +50,7 @@ nome        | In     | Tipo    | Obbligatorio | Note
 q           | URL    | stringa  | No       | La stringa da confrontare con l'ID di pacchetto
 skip        | URL    | numero intero | No       | Il numero di risultati da ignorare per l'impaginazione
 Take        | URL    | numero intero | No       | Il numero di risultati da restituire, per la paginazione
-versione provvisoria  | URL    | boolean | No       | `true`o `false` stabilire se includere [pacchetti pre-release](../create-packages/prerelease-packages.md)
+versione provvisoria  | URL    | boolean | No       | `true` o `false` determinano l'opportunità di includere [pacchetti versione non definitiva](../create-packages/prerelease-packages.md)
 semVerLevel | URL    | stringa  | No       | Una stringa di versione SemVer 1.0.0 
 
 La query con completamento automatico `q` viene analizzato in modo che è definito dall'implementazione del server. NuGet.org supporta l'esecuzione di query per il prefisso di token ID di pacchetto, che sono pezzi dell'ID prodotto da [PROD143] e originale da caratteri iniziali di case e simboli.
@@ -82,12 +73,12 @@ Oggetto JSON radice ha le proprietà seguenti:
 
 nome      | Tipo             | Obbligatorio | Note
 --------- | ---------------- | -------- | -----
-totalHits | numero intero          | sì      | Il numero complessivo di corrispondenze, ignorando `skip` e`take`
+totalHits | numero intero          | sì      | Il numero complessivo di corrispondenze, non considerando `skip` e `take`
 Data      | Matrice di stringhe | sì      | Il pacchetto corrispondente di ID dalla richiesta
 
 ### <a name="sample-request"></a>Richiesta di esempio
 
-OTTENERE https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
+OTTIENI https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
 
 ### <a name="sample-response"></a>Risposta di esempio
 
@@ -106,7 +97,7 @@ Una versione del pacchetto che è incluso nell'elenco non verrà visualizzato ne
 nome        | In     | Tipo    | Obbligatorio | Note
 ----------- | ------ | ------- | -------- | -----
 ID          | URL    | stringa  | sì      | Per recuperare le versioni per l'ID del pacchetto
-versione provvisoria  | URL    | boolean | No       | `true`o `false` stabilire se includere [pacchetti pre-release](../create-packages/prerelease-packages.md)
+versione provvisoria  | URL    | boolean | No       | `true` o `false` determinano l'opportunità di includere [pacchetti versione non definitiva](../create-packages/prerelease-packages.md)
 semVerLevel | URL    | stringa  | No       | Una stringa di versione SemVer 2.0.0 
 
 Se `prerelease` non viene fornito, vengono esclusi i pacchetti pre-release.

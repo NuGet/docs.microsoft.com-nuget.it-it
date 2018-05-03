@@ -1,25 +1,16 @@
 ---
-title: Comando di installazione NuGet CLI | Documenti Microsoft
+title: Comando di installazione NuGet CLI
+description: Riferimento per il comando di installazione di nuget.exe
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Riferimento per il comando di installazione di nuget.exe
-keywords: NuGet riferimento, il comando pacchetto installato
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 121d7b50767f1d466d6d0d8494f324b02d8ff6f1
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 615f2beca1eb288417f2345fcdf25e323942d300
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="install-command-nuget-cli"></a>installare comando (CLI NuGet)
 
@@ -59,7 +50,7 @@ dove `<packageID>` denomina il pacchetto di installazione (utilizzando la versio
 | Framework | *(4.4 +)*  Framework di destinazione utilizzato per la selezione delle dipendenze. Il valore predefinito 'Any' Se non specificato. |
 | ? | Visualizza la Guida informazioni per il comando. |
 | NoCache | Impedisce l'uso memorizzati nella cache dei pacchetti NuGet. Vedere [gestione dei pacchetti globali e alla cartella della cache](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
-| NonInteractive | Elimina richieste per l'input dell'utente o le conferme. |
+| Non interattivo | Elimina richieste per l'input dell'utente o le conferme. |
 | OutputDirectory | Specifica la cartella in cui sono installati i pacchetti. Se viene specificata alcuna cartella, viene utilizzata la cartella corrente. |
 | PackageSaveMode | Specifica i tipi di file da salvare dopo l'installazione del pacchetto: uno dei `nuspec`, `nupkg`, o `nuspec;nupkg`. |
 | Versione provvisoria | Consente di pacchetti della versione provvisoria da installare. Questo flag non è necessario durante il ripristino di pacchetti con `packages.config`. |

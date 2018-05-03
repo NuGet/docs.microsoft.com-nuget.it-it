@@ -1,22 +1,16 @@
 ---
-title: Note sulla versione 1.7 NuGet | Documenti Microsoft
+title: Note sulla versione 1.7 di NuGet
+description: Note sulla versione per NuGet 1.7 inclusi dcr, correzioni di bug, le funzionalità aggiunte e problemi noti.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Note sulla versione per NuGet 1.7 inclusi dcr, correzioni di bug, le funzionalità aggiunte e problemi noti."
-keywords: "1.7 NuGet note sulla versione, correzioni di bug, problemi noti, aggiunta di funzionalità, eseguire"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 7b16bea8c6bcc77f814dd32a43b895b5e656c95d
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 81db81642ac21b7dd41f5940dfba919d0871ec01
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-17-release-notes"></a>Note sulla versione 1.7 di NuGet
 

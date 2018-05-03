@@ -1,29 +1,17 @@
 ---
-title: Panoramica, NuGet API | Documenti Microsoft
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: Panoramica di NuGet API
+description: L'API di NuGet è un set di endpoint HTTP che può essere usato per scaricare i pacchetti, recuperare metadati, la pubblicazione di nuovi pacchetti e così via.
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: L'API di NuGet è un set di endpoint HTTP che può essere usato per scaricare i pacchetti, recuperare metadati, la pubblicazione di nuovi pacchetti e così via.
-keywords: API V3 NuGet, API V2 NuGet, NuGet JSON, API di registrazione NuGet, contenitore flat API NuGet, NuGet nupkg API, l'API dei metadati di NuGet, API di ricerca NuGet, push NuGet API, NuGe pubblicare API NuGet eliminare API, esclusione di NuGet API, il protocollo di NuGet
-ms.reviewer:
-- karann
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 7053a971c80a94cf035e8f149c332b36e66a9ea9
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: kraigb
+ms.openlocfilehash: a638dba005c14bff4b2e668e2d6ca527a67b94a9
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-api"></a>API NuGet
 

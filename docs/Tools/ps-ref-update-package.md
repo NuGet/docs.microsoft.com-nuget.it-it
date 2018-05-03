@@ -1,25 +1,16 @@
 ---
-title: Riferimento di PowerShell Update-pacchetto NuGet | Documenti Microsoft
+title: Riferimento di PowerShell Update-pacchetto NuGet
+description: Riferimento per il comando di PowerShell di pacchetto di aggiornamento nella Console di gestione pacchetti NuGet in Visual Studio.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 12/07/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Riferimento per il comando di PowerShell di pacchetto di aggiornamento nella Console di gestione pacchetti NuGet in Visual Studio.
-keywords: Console di gestione, i comandi di Powershell di NuGet, riferimento di Powershell di NuGet, pacchetto di aggiornamento del pacchetto NuGet
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 05772159d62f73e7d25f71ad36809f5ae8ef6aae
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 621e59633117a29c58fe643860ee7e2b40a4fbe2
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="update-package-package-manager-console-in-visual-studio"></a>Pacchetto di aggiornamento (Console di gestione dei pacchetti in Visual Studio)
 
@@ -46,7 +37,7 @@ Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 |  Parametro | Descrizione |
 | --- | --- |
 | Id | L'identificatore del pacchetto da aggiornare. Se omesso, Aggiorna tutti i pacchetti. -Id switch stesso è facoltativo. |
-| IgnoreDependencies | Ignora le dipendenze del pacchetto di aggiornamento. |
+| MSI | Ignora le dipendenze del pacchetto di aggiornamento. |
 | ProjectName | Il nome del progetto contenente i pacchetti da aggiornare, verrà utilizzato per tutti i progetti. |
 | Versione | La versione da utilizzare per l'aggiornamento, verrà utilizzato per la versione più recente. In NuGet 3.0 e successive, il valore di versione deve essere uno dei *minima, massima, HighestMinor*, o *HighestPatch* (equivalente a - Safe). |
 | Safe | Vincola gli aggiornamenti alle versioni sole con la stessa versione principale e secondaria del pacchetto attualmente installata. |

@@ -1,26 +1,17 @@
 ---
-title: Pacchetto di contenuto, NuGet API | Documenti Microsoft
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: Contenuto del pacchetto, NuGet API
+description: L'indirizzo di base del pacchetto è un'interfaccia semplice per recuperare il pacchetto stesso.
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: 
-description: "L'indirizzo di base del pacchetto è un'interfaccia semplice per recuperare il pacchetto stesso."
-keywords: NuGet flat contenitore, l'indirizzo di base del pacchetto NuGet, NuGet nupkg API, versioni del pacchetto NuGet API, API NuGet pacchetti non in elenco, API NuGet download nuspec
-ms.reviewer:
-- karann
-- unniravindranathan
-ms.openlocfilehash: c2e631dc0bba95ac849430d77142f27ef591f741
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.reviewer: kraigb
+ms.openlocfilehash: a6ac40368f30d33f35d4ca0b6cc18ce4bd6efee5
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="package-content"></a>Contenuto del pacchetto
 

@@ -1,28 +1,20 @@
 ---
-title: Limiti di velocità | Documenti Microsoft
-author:
-- cmanu
-- anangaur
-ms.author:
-- cmanu
+title: Limiti, NuGet API di velocità
+description: APIs NuGet verranno sono applicati i limiti di velocità per evitare abusi.
+author: cmanu
+ms.author: cmanu
 manager: skofman
 ms.date: 03/20/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: APIs NuGet verranno sono applicati i limiti di velocità per evitare abusi.
-keywords: Limitazione di velocità NuGet API,
 ms.reviewer:
 - skofman
 - anangaur
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: f7891d5e4c008219d9f4808f223f3e5e7ae06ced
-ms.sourcegitcommit: fa40be739d093a37d5f7072b62ebdb4f595f4110
+- kraigb
+ms.openlocfilehash: 3aaebef8fff670759c6484a5a8f90a2f4dd58c66
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="rate-limits"></a>Limiti di velocità
 
@@ -45,10 +37,10 @@ Le tabelle seguenti elencano i limiti di velocità per l'API di NuGet.org.
 
 | API | Tipo di limite | Valore del limite | API usecase |
 |:---|:---|:---|:---|
-**GET** `/api/v1/Packages` | IP | 1000 / minuto | Eseguire una query dei metadati del pacchetto NuGet tramite OData v1 `Packages` raccolta |
-**GET** `/api/v1/Search()` | IP | 3000 / minuto | Ricerca per i pacchetti NuGet tramite l'endpoint di ricerca v1 | 
-**GET** `/api/v2/Packages` | IP | 20000 / minuto | Eseguire una query dei metadati del pacchetto NuGet tramite v2 OData `Packages` raccolta | 
-**GET** `/api/v2/Packages/$count` | IP | 100 / minuto | Eseguire una query conteggio pacchetto NuGet tramite v2 OData `Packages` raccolta | 
+**OTTIENI** `/api/v1/Packages` | IP | 1000 / minuto | Eseguire una query dei metadati del pacchetto NuGet tramite OData v1 `Packages` raccolta |
+**OTTIENI** `/api/v1/Search()` | IP | 3000 / minuto | Ricerca per i pacchetti NuGet tramite l'endpoint di ricerca v1 | 
+**OTTIENI** `/api/v2/Packages` | IP | 20000 / minuto | Eseguire una query dei metadati del pacchetto NuGet tramite v2 OData `Packages` raccolta | 
+**OTTIENI** `/api/v2/Packages/$count` | IP | 100 / minuto | Eseguire una query conteggio pacchetto NuGet tramite v2 OData `Packages` raccolta | 
 
 ## <a name="package-push-and-unlist"></a>Pacchetto Push ed esclusione
 

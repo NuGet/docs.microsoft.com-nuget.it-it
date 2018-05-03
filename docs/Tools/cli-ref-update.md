@@ -1,25 +1,16 @@
 ---
-title: Aggiornare il comando CLI NuGet | Documenti Microsoft
+title: Comando update NuGet CLI
+description: Riferimento per il comando di aggiornamento di nuget.exe
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 12/07/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Riferimento per il comando di aggiornamento di nuget.exe
-keywords: NuGet Aggiorna riferimento, il comando di pacchetto dell'aggiornamento
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 1ea04f2fa2a753065ee4f17cbb926e37acf129e0
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: e6964d92436ce1bac9e6af85f6dae75fcf40378d
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="update-command-nuget-cli"></a>comando di aggiornamento (NuGet CLI)
 
@@ -52,7 +43,7 @@ dove `<configPath>` identifica uno un `packages.config` o file di soluzione che 
 | Id | Specifica un elenco di ID per l'aggiornamento pacchetto. |
 | MSBuildPath | *(4.0 +)*  Specifica il percorso di MSBuild da usare con il comando, che avrà la precedenza `-MSBuildVersion`. |
 | MSBuildVersion | *(3.2 +)*  Specifica la versione di MSBuild da usare con questo comando. Valori supportati sono 4, 12, 14, 15. Per impostazione predefinita che viene selezionato il percorso di MSBuild, in caso contrario il valore predefinito la versione più aggiornata di MSBuild. |
-| NonInteractive | Elimina richieste per l'input dell'utente o le conferme. |
+| Non interattivo | Elimina richieste per l'input dell'utente o le conferme. |
 | Versione provvisoria | Consente l'aggiornamento di versioni non definitive. Questo flag non è richiesto durante l'aggiornamento preliminari pacchetti che sono già installati. |
 | RepositoryPath | Specifica la cartella locale in cui sono installati i pacchetti. |
 | Safe | Specifica che solo gli aggiornamenti con la versione più recente disponibile all'interno della stessa versione principale e secondaria verrà installato il pacchetto installato. |

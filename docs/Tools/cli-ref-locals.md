@@ -1,25 +1,16 @@
 ---
-title: Comando di NuGet CLI variabili locali | Documenti Microsoft
+title: Comando di NuGet CLI variabili locali
+description: Riferimento per il comando di nuget.exe variabili locali
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 03/19/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Riferimento per il comando di nuget.exe variabili locali
-keywords: riferimento di variabili locali NuGet, il comando di variabili locali
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 0122c79e55b12838bd123cf91bfcbc5dbbd2a65c
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: ac07dc306bc23c2fedd33c5627e8d34a6098387c
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="locals-command-nuget-cli"></a>comando variabili locali (NuGet CLI)
 
@@ -44,7 +35,7 @@ in cui `<folder>` è uno dei `all`, `http-cache`, `packages-cache` *(3.5 e versi
 | ForceEnglishOutput | *(3.5 +)*  Forza nuget.exe per eseguire utilizzando le impostazioni cultura invariante, in lingua inglese. |
 | ? | Visualizza la Guida informazioni per il comando. |
 | List | Elenca il percorso della cartella specificata o i percorsi di tutte le cartelle se usato con *tutti*. |
-| NonInteractive | Elimina richieste per l'input dell'utente o le conferme. |
+| Non interattivo | Elimina richieste per l'input dell'utente o le conferme. |
 | Livello di dettaglio | Specifica la quantità di dettagli visualizzati nell'output: *normale*, *quiet*, *dettagliate*. |
 
 Vedere anche [le variabili di ambiente](cli-ref-environment-variables.md)

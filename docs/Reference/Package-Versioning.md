@@ -1,26 +1,17 @@
 ---
-title: Pacchetto NuGet versione riferimento | Documenti Microsoft
+title: Riferimento al pacchetto NuGet di versione
+description: Informazioni precise e dettagliate su come specificare i numeri di versione e gli intervalli per altri pacchetti su cui dipende un pacchetto NuGet e modalità di installazione delle dipendenze.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 03/23/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Informazioni precise e dettagliate su come specificare i numeri di versione e gli intervalli per altri pacchetti su cui dipende un pacchetto NuGet e modalità di installazione delle dipendenze.
-keywords: controllo delle versioni, le dipendenze del pacchetto NuGet, versioni dipendenza NuGet, NuGet numeri di versione, versione del pacchetto NuGet, intervalli di versione, specifiche della versione, i numeri di versione normalizzata
-ms.reviewer:
-- anandr
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 678ad79d9106a9f592ae4f47bc93cc117496e2c9
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: anangaur
+ms.openlocfilehash: d17d964ac73075f05678b9727e90d481a30da62e
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="package-versioning"></a>Controllo delle versioni dei pacchetti
 
@@ -93,10 +84,11 @@ Per nuget.org, un pacchetto è definito come un pacchetto v 2.0.0 SemVer se vien
 
 Se si carica un pacchetto specifico v 2.0.0 SemVer nuget.org, il pacchetto è invisibile a client meno recenti e disponibile per i seguenti client NuGet:
 
-- NuGet 4.3.0+
+- 4.3.0+ NuGet
 - Visual Studio 2017 versione 15.3 +
 - Visual Studio 2015 con [v3.6.0 VSIX NuGet](https://dist.nuget.org/visualstudio-2015-vsix/latest/NuGet.Tools.vsix)
-- dotnet.exe (.NET SDK 2.0.0+)
+- dotnet
+  - dotnetcore.exe (2.0.0+ .NET SDK)
 
 Client di terze parti:
 
@@ -114,7 +106,7 @@ Quando si fa riferimento alle dipendenze di pacchetto, NuGet supporta utilizzand
 |----------|--------------|-------------|
 | 1.0 | x ≥ 1.0 | Versione minima, inclusivo |
 | (1.0,) | x > 1.0 | Versione minima, esclusivo |
-| [1.0] | x == 1.0 | Corrispondenza esatta versione |
+| [1.0] | x = = 1.0 | Corrispondenza esatta versione |
 | (,1.0] | x ≤ 1.0 | Versione massima, inclusivo |
 | (,1.0) | x < 1.0 | Versione massima, esclusivo |
 | [1.0,2.0] | 1.0 ≤ x ≤ 2.0 | Esatto intervallo |

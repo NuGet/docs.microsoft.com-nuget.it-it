@@ -1,22 +1,16 @@
 ---
-title: il provider di credenziali di NuGet.exe | Documenti Microsoft
+title: Provider di credenziali NuGet.exe
+description: il provider di credenziali di NuGet.exe autenticarsi con un feed e viene implementato come file eseguibili da riga di comando che seguono le convenzioni specifiche.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 12/12/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: il provider di credenziali di NuGet.exe autenticarsi con un feed e viene implementato come file eseguibili da riga di comando che seguono le convenzioni specifiche.
-keywords: eseguire l'autenticazione con la raccolta, l'autenticazione con il feed di NuGet.exe i provider di credenziali, l'API del provider di credenziali
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 88ce0106ad4e628ba8120f94b7951c7746ab67f3
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 494ea83007895e973585395e0cfe05b7226c4c3e
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>L'autenticazione di feed con il provider di credenziali di nuget.exe
 
@@ -28,15 +22,15 @@ Quando `nuget.exe` è necessario fornire credenziali per l'autenticazione con un
 1. NuGet Usa quindi il provider di credenziali di plug-in, soggetti a ordine indicato di seguito. (E l'esempio è la [Visual Studio Team Services Credential Provider](https://www.visualstudio.com/docs/package/get-started/nuget/auth#vsts-credential-provider).)
 1. NuGet quindi chiede all'utente le credenziali nella riga di comando.
 
-Si noti che i provider di credenziali descritti di seguito funzionano solo in `nuget.exe` e non in 'dotnet restore' o Visual Studio. Per i provider di credenziali con Visual Studio, vedere [nuget.exe provider di credenziali per Visual Studio](nuget-credential-providers-for-visual-studio.md)
+Si noti che i provider di credenziali descritti di seguito funzionano solo in `nuget.exe` e non in 'dotnet restore' o Visual Studio. Per i provider di credenziali con Visual Studio, vedere [nuget.exe i provider di credenziali per Visual Studio](nuget-credential-providers-for-visual-studio.md)
 
 il provider di credenziali di NuGet.exe può essere utilizzato in 3 modi:
 
-- **A livello globale**: rendere disponibili per tutte le istanze di un provider di credenziali `nuget.exe` eseguito con il profilo dell'utente corrente, aggiungerlo a `%LocalAppData%\NuGet\CredentialProviders`. Potrebbe essere necessario creare il `CredentialProviders` cartella. Provider di credenziali possono essere installati nella radice di `CredentialProviders` cartella o all'interno di una sottocartella. Se un provider di credenziali dispone di più file o assembly, è possibile utilizzare le sottocartelle per mantenere i provider organizzati.
+- **A livello globale**: per rendere disponibili per tutte le istanze di un provider di credenziali `nuget.exe` eseguito con il profilo dell'utente corrente, aggiungerla a `%LocalAppData%\NuGet\CredentialProviders`. Potrebbe essere necessario creare il `CredentialProviders` cartella. Provider di credenziali possono essere installati nella radice di `CredentialProviders` cartella o all'interno di una sottocartella. Se un provider di credenziali dispone di più file o assembly, è possibile utilizzare le sottocartelle per mantenere i provider organizzati.
 
-- **Una variabile di ambiente**: provider di credenziali possono essere archiviati ovunque e rese accessibili agli `nuget.exe` impostando il `%NUGET_CREDENTIALPROVIDERS_PATH%` variabile di ambiente per il percorso del provider. Questa variabile può essere un elenco separato da punto e virgola (ad esempio, `path1;path2`) se si dispone di più percorsi.
+- **Da una variabile di ambiente**: i provider di credenziali possono essere archiviati ovunque e rese accessibili agli `nuget.exe` impostando il `%NUGET_CREDENTIALPROVIDERS_PATH%` variabile di ambiente per il percorso del provider. Questa variabile può essere un elenco separato da punto e virgola (ad esempio, `path1;path2`) se si dispone di più percorsi.
 
-- **Insieme a nuget.exe**: il provider di credenziali di nuget.exe può essere inserito nella stessa cartella `nuget.exe`.
+- **Insieme a nuget.exe**: i provider di credenziali nuget.exe possono essere inseriti nella stessa cartella `nuget.exe`.
 
 Durante il caricamento di provider di credenziali, `nuget.exe` esegue la ricerca nei percorsi indicati, in ordine, per qualsiasi file denominato `credentialprovider*.exe`, quindi carica tali file nell'ordine in cui si trovano. In presenza di più provider di credenziali nella stessa cartella, caricati in ordine alfabetico.
 
@@ -58,7 +52,7 @@ Un provider deve eseguire le operazioni seguenti:
 | Parametro / |Descrizione|
 |----------------|-----------|
 | URI {value} | Il pacchetto URI che richiedono le credenziali dell'origine.|
-| NonInteractive | Se presente, provider non viene visualizzato un prompt interattivo. |
+| Non interattivo | Se presente, provider non viene visualizzato un prompt interattivo. |
 | IsRetry | Se presente, indica che il tentativo è un nuovo tentativo di un tentativo non riuscito in precedenza. Provider di questo flag viene utilizzato in genere per assicurarsi che siano ignorare qualsiasi cache esistente e richiedere le nuove credenziali, se possibile.|
 | Livello di dettaglio {value} | Se presente, uno dei seguenti valori: "normale", "quiet" o "dettagliato". Se viene specificato alcun valore, per impostazione predefinita "normal". Provider devono utilizzare questa come un'indicazione del livello di registrazione facoltativo per generare il flusso di errore standard. |
 

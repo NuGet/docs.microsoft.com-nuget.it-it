@@ -1,26 +1,17 @@
 ---
-title: Ricerca, NuGet API | Documenti Microsoft
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: Ricerca, NuGet API
+description: Il servizio di ricerca consente ai client di query per i pacchetti dalla parola chiave e per i risultati del filtro su determinati campi pacchetto.
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: 
-description: Il servizio di ricerca consente ai client di query per i pacchetti dalla parola chiave e per i risultati del filtro su determinati campi pacchetto.
-keywords: API di ricerca NuGet, NuGet individuare i pacchetti, API ai pacchetti NuGet di query, l'API per sfogliare i pacchetti NuGet
-ms.reviewer:
-- karann
-- unniravindranathan
-ms.openlocfilehash: 612ce0f46b654335a29bb36a64b27525994162ed
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.reviewer: kraigb
+ms.openlocfilehash: 76600ee916305ee01ddfb675c83c184e980c5a42
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="search"></a>Cerca
 
@@ -33,8 +24,8 @@ Nell'esempio `@type` vengono utilizzati i valori:
 Valore di @type                   | Note
 ----------------------------- | -----
 SearchQueryService            | La versione iniziale
-SearchQueryService/3.0.0-beta | Alias di`SearchQueryService`
-SearchQueryService/3.0.0-rc   | Alias di`SearchQueryService`
+SearchQueryService/3.0.0-beta | Alias di `SearchQueryService`
+SearchQueryService/3.0.0-rc   | Alias di `SearchQueryService`
 
 ## <a name="base-url"></a>URL di base
 
@@ -59,7 +50,7 @@ nome        | In     | Tipo    | Obbligatorio | Note
 q           | URL    | stringa  | No       | I termini di ricerca da utilizzare per i pacchetti di filtro
 skip        | URL    | numero intero | No       | Il numero di risultati da ignorare per l'impaginazione
 Take        | URL    | numero intero | No       | Il numero di risultati da restituire, per la paginazione
-versione provvisoria  | URL    | boolean | No       | `true`o `false` stabilire se includere [pacchetti pre-release](../create-packages/prerelease-packages.md)
+versione provvisoria  | URL    | boolean | No       | `true` o `false` determinano l'opportunità di includere [pacchetti versione non definitiva](../create-packages/prerelease-packages.md)
 semVerLevel | URL    | stringa  | No       | Una stringa di versione SemVer 1.0.0 
 
 La query di ricerca `q` viene analizzato in modo che è definito dall'implementazione del server. NuGet.org supporta i filtri di base su un [diversi campi di](../consume-packages/finding-and-choosing-packages.md#search-syntax). Se non `q` viene fornito, devono essere restituiti tutti i pacchetti, entro i limiti imposti da skip e take. In questo modo la scheda "Sfoglia" nell'esperienza NuGet di Visual Studio.
@@ -82,7 +73,7 @@ Oggetto JSON radice ha le proprietà seguenti:
 
 nome      | Tipo             | Obbligatorio | Note
 --------- | ---------------- | -------- | -----
-totalHits | numero intero          | sì      | Il numero complessivo di corrispondenze, ignorando `skip` e`take`
+totalHits | numero intero          | sì      | Il numero complessivo di corrispondenze, non considerando `skip` e `take`
 Data      | Matrice di oggetti | sì      | I risultati della ricerca corrispondenti a richiesta
 
 ### <a name="search-result"></a>risultato della ricerca
@@ -101,12 +92,12 @@ iconUrl        | stringa                     | No       |
 licenseUrl     | stringa                     | No       | 
 owners         | stringa o matrice di stringhe | No       | 
 projectUrl     | stringa                     | No       | 
-registrazione   | stringa                     | No       | L'URL assoluto associato [indice registrazione](registration-base-url-resource.md#registration-index)
+registrazione   | stringa                     | No       | L'URL assoluto all'oggetto associato [indice registrazione](registration-base-url-resource.md#registration-index)
 summary        | stringa                     | No       | 
 tag           | stringa o matrice di stringhe | No       | 
 title          | stringa                     | No       | 
 totalDownloads | numero intero                    | No       | Questo valore può essere dedotto per la somma di download di `versions` matrice
-Verificato       | boolean                    | No       | Valore booleano JSON, che indica se il pacchetto è [verificato](../reference/id-prefix-reservation.md)
+Verificato       | boolean                    | No       | Valore booleano JSON che indica se il pacchetto è [verificato](../reference/id-prefix-reservation.md)
 
 In nuget.org, un pacchetto verificato è quello che ha un ID di pacchetto corrispondente prefisso ID riservato e proprietà di uno dei proprietari di spazio dei nomi riservato. Per ulteriori informazioni, vedere il [documentazione sulla prenotazione di prefisso ID](../reference/id-prefix-reservation.md).
 
@@ -114,7 +105,7 @@ I metadati contenuti nell'oggetto risultato di ricerca da cui proviene la versio
 
 nome      | Tipo    | Obbligatorio | Note
 --------- | ------- | -------- | -----
-@id       | stringa  | sì      | L'URL assoluto associato [foglia di registrazione](registration-base-url-resource.md#registration-leaf)
+@id       | stringa  | sì      | L'URL assoluto all'oggetto associato [foglia di registrazione](registration-base-url-resource.md#registration-leaf)
 version   | stringa  | sì      | La stringa di versione SemVer 2.0.0 completa del pacchetto (può contenere i metadati di compilazione)
 Scarica | numero intero | sì      | Il numero di download per questa versione del pacchetto specifico
 

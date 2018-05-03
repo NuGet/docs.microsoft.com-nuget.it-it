@@ -1,22 +1,16 @@
 ---
-title: Note sulla versione di NuGet 2.8 | Documenti Microsoft
+title: Note sulla versione 2.8 di NuGet
+description: Note sulla versione per NuGet 2.8 inclusi dcr, correzioni di bug, le funzionalità aggiunte e problemi noti.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Note sulla versione per NuGet 2.8 inclusi dcr, correzioni di bug, le funzionalità aggiunte e problemi noti."
-keywords: "NuGet 2.8 note sulla versione, correzioni di bug, problemi noti, aggiunta di funzionalità, eseguire"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 39b885adc9e23eb815f65639875c4a4c27d61a4c
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 9f472f1370bfedaf04ebe889c0da01155b8aec22
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="nuget-28-release-notes"></a>Note sulla versione 2.8 di NuGet
 
@@ -28,21 +22,21 @@ NuGet 2.8 è stato rilasciato il 29 gennaio 2014.
 
 1. [Llewellyn Pritchard](https://www.codeplex.com/site/users/view/leppie) ([@leppie](https://twitter.com/leppie))
     - [#3466](https://nuget.codeplex.com/workitem/3466) : quando i pacchetti, verifica dell'Id di pacchetti di dipendenza di compressione.
-1. [Maarten Balliauw](https://www.codeplex.com/site/users/view/maartenba) ([@maartenballiauw](https://twitter.com/maartenballiauw))
+2. [Maarten Balliauw](https://www.codeplex.com/site/users/view/maartenba) ([@maartenballiauw](https://twitter.com/maartenballiauw))
     - [#2379](https://nuget.codeplex.com/workitem/2379) -rimuovere il suffisso $metadata quando persistening feed credenziali.
-1. [Filip De Vos](https://www.codeplex.com/site/users/view/FilipDeVos) ([@foxtricks](https://twitter.com/foxtricks))
-    - [#3538](http://nuget.codeplex.com/workitem/3538) - supporto specificando i file di progetto per il comando di aggiornamento di nuget.exe.
-1. [Alessandro Gonzalez](https://www.codeplex.com/site/users/view/jjgonzalez)
-    - [#3536](http://nuget.codeplex.com/workitem/3536) -token di sostituzione non è stato superato con - IncludeReferencedProjects.
-1. [David Poole](https://www.codeplex.com/site/users/view/Sarkie) ([@Sarkie_Dave](https://twitter.com/Sarkie_Dave))
-    - [#3677](http://nuget.codeplex.com/workitem/3677) -correggere nuget.push generando OutOfMemoryException quando l'inserimento di grandi dimensioni.
-1. [Wouter Ouwens](https://www.codeplex.com/site/users/view/Despotes)
+3. [Filip De Vos](https://www.codeplex.com/site/users/view/FilipDeVos) ([@foxtricks](https://twitter.com/foxtricks))
+    - [#3538](http://nuget.codeplex.com/workitem/3538) - supporto di specifica di file di progetto per il comando di aggiornamento nuget.exe.
+4. [Alessandro Gonzalez](https://www.codeplex.com/site/users/view/jjgonzalez)
+    - [#3536](http://nuget.codeplex.com/workitem/3536) -token di sostituzione non passato con - IncludeReferencedProjects.
+5. [David Poole](https://www.codeplex.com/site/users/view/Sarkie) ([@Sarkie_Dave](https://twitter.com/Sarkie_Dave))
+    - [#3677](http://nuget.codeplex.com/workitem/3677) -correggere nuget.push generando OutOfMemoryException quando il push di pacchetto di grandi dimensioni.
+6. [Wouter Ouwens](https://www.codeplex.com/site/users/view/Despotes)
     - [#3666](http://nuget.codeplex.com/workitem/3666) -percorso di destinazione non corretto di correzione quando progetto fa riferimento a un altro progetto CLI/C++.
-1. [ADAM Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
+7. [ADAM Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
     - [#3639](https://nuget.codeplex.com/workitem/3639) -Consenti pacchetti da installare come dipendenze di sviluppo per impostazione predefinita
-1. [David Fowler](https://www.codeplex.com/site/users/view/dfowler) ([@davidfowl](https://twitter.com/davidfowl))
-    - [#3717](https://nuget.codeplex.com/workitem/3717) -rimuovere gli aggiornamenti impliciti per la versione più recente di patch
-1. [Gregory Vandenbrouck](https://www.codeplex.com/site/users/view/vdbg)
+8. [David Fowler](https://www.codeplex.com/site/users/view/dfowler) ([@davidfowl](https://twitter.com/davidfowl))
+    - [#3717](https://nuget.codeplex.com/workitem/3717) -rimuovere implicita aggiornamento alla versione di patch più recente
+9. [Gregory Vandenbrouck](https://www.codeplex.com/site/users/view/vdbg)
     - Alcune correzioni di bug e miglioramenti per NuGet.Server, il comando di nuget.exe mirror e di altri utenti.
     - Questa attività sono state eseguite alcuni mesi, con Gregory lavorando con noi la temporizzazione di destra per integrare dati master per 2.8.
 

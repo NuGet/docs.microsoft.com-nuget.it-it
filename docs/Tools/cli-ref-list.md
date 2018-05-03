@@ -1,25 +1,16 @@
 ---
-title: Comando di NuGet CLI elenco | Documenti Microsoft
+title: Comando di elenco NuGet CLI
+description: Riferimento per il comando di elenco di nuget.exe
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Riferimento per il comando di elenco di nuget.exe
-keywords: riferimento elenco NuGet, comando elenco di pacchetti
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 61ad02eb99d6c56968c38841498df8aa9f74159d
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: f4a44c70937e7cb49e472c53e9857e9f44d269f7
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="list-command-nuget-cli"></a>comando di elenco (NuGet CLI)
 
@@ -44,7 +35,7 @@ in termini di ricerca facoltativo verranno filtrato l'elenco visualizzato. I ter
 | ForceEnglishOutput | *(3.5 +)*  Forza nuget.exe per eseguire utilizzando le impostazioni cultura invariante, in lingua inglese. |
 | ? | Visualizza la Guida informazioni per il comando. |
 | IncludeDelisted | *(3.2 +)*  Visualizzare i pacchetti. |
-| NonInteractive | Elimina richieste per l'input dell'utente o le conferme. |
+| Non interattivo | Elimina richieste per l'input dell'utente o le conferme. |
 | Versione provvisoria | Include pacchetti della versione provvisoria, nell'elenco. |
 | Origine | Specifica un elenco di origini dei pacchetti per la ricerca. |
 | Livello di dettaglio | Specifica la quantità di dettagli visualizzati nell'output: *normale*, *quiet*, *dettagliate*. |

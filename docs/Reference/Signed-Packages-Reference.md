@@ -1,26 +1,17 @@
 ---
-title: Riferimento a pacchetti firmati | Documenti Microsoft
+title: Firmato riferimento i pacchetti NuGet
+description: Requisiti per firmare il pacchetto NuGet.
 author: rido-min
 ms.author: rido-min
-manager: unniravindranathan
-ms.date: 03/06/2018
+manager: unnir
+ms.date: 04/24/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Descrizione pacchetti di funzionalità di firma.
-keywords: Accesso pacchetto NuGet, firma certificato
-ms.reviewer:
-- ananguar
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: a2a338596f7d98ded11da6fb02bafba3521249ab
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: ananguar
+ms.openlocfilehash: 751a8ff14bdc3a647985da4f908ad1a0fd0def9a
+ms.sourcegitcommit: 5fcd6d664749aa720359104ef7a66d38aeecadc2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/27/2018
 ---
 # <a name="signed-packages"></a>Pacchetti firmati
 
@@ -38,6 +29,9 @@ Per informazioni dettagliate sulla creazione di un pacchetto firmato, vedere [fi
 
 > [!Important]
 > NuGet.org non accetta attualmente dei pacchetti firmati. È possibile firmare pacchetti per la pubblicazione in feed personalizzati.
+
+> [!Important]
+> Firmare il pacchetto è attualmente supportata solo quando si utilizza nuget.exe in Windows. Verifica dei pacchetti firmati è attualmente supportata solo quando si utilizza nuget.exe o Visual Studio in Windows.
 
 ## <a name="certificate-requirements"></a>Requisiti del certificato
 

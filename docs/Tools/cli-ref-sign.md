@@ -1,25 +1,17 @@
 ---
-title: Comando sign NuGet CLI | Documenti Microsoft
+title: Comando sign NuGet CLI
+description: Riferimento per il comando di accesso di nuget.exe
 author: dtivel
 ms.author: dtivel
 manager: doronm
 ms.date: 03/06/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Riferimento per il comando di accesso di nuget.exe
-keywords: riferimento accesso NuGet, comando sign
-ms.reviewer:
-- karann
-- rmpablos
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 9c83e5abae0e70cdc62917861c1febfce4f792c7
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: rmpablos
+ms.openlocfilehash: 7e84d794b802cfd69c785f720280fd5c022a46f6
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="sign-command-nuget-cli"></a>comando Sign (NuGet CLI)
 
@@ -27,7 +19,7 @@ ms.lasthandoff: 03/28/2018
 
 Tutti i pacchetti corrispondenti il primo argomento con un certificato di firma. Il certificato con la chiave privata può essere ottenuto da un file o da un certificato installato in un archivio certificati, fornendo un nome soggetto o un'identificazione personale.
 
-Firma del pacchetto non è ancora supportata in Mono o su piattaforme non Windows.
+Firmare il pacchetto non è ancora supportato in .NET Core, in Mono o su piattaforme non Windows.
 
 ## <a name="usage"></a>Utilizzo
 
@@ -51,7 +43,7 @@ dove `<package(s)>` uno o più `.nupkg` file.
 | ForceEnglishOutput | Nuget.exe forza l'esecuzione utilizzando le impostazioni cultura invariante, in lingua inglese. |
 | HashAlgorithm | Algoritmo hash da usare per firmare il pacchetto. Valore predefinito è SHA256. |
 | ? | Visualizza la Guida informazioni per il comando. |
-| NonInteractive | Elimina richieste per l'input dell'utente o le conferme. |
+| Non interattivo | Elimina richieste per l'input dell'utente o le conferme. |
 | OutputDirectory | Specifica la directory in cui salvare il pacchetto firmato. Per impostazione predefinita, il pacchetto originale viene sovrascritto con il pacchetto firmato. |
 | Overwrite | Opzione per indicare se la firma corrente deve essere sovrascritti. Per impostazione predefinita il comando avrà esito negativo se il pacchetto contiene già una firma. |
 | Timestamper | URL a un server di timestamp RFC 3161. |
