@@ -1,7 +1,0 @@
-L'installazione di un pacchetto avviene in tre modi:
-
-| Metodo | Descrizione | Riferimento |
-| --- | --- | --- |
-| Interfaccia della riga di comando di nuget.exe: `nuget install <package_name>` | Scarica il pacchetto identificato da \<package_name\> e ne espande il contenuto in una cartella nella directory corrente. Se non vengono specificati pacchetti, installa tutti i pacchetti elencati nel file `packages.config` del progetto. Non vengono apportate modifiche ad alcun file di progetto. Vengono scaricate ed espanse anche le dipendenze. | [CLI reference (Informazioni di riferimento sull'interfaccia della riga di comando)](../tools/nuget-exe-CLI-Reference.md) |
-| Console di Gestione pacchetti (Visual Studio): `Install-Package <package_name>` | Scarica e installa il pacchetto nel progetto corrente, quindi aggiorna il file di progetto per elencare il pacchetto come dipendenza. | [Package Manager Console Guide (Guida alla console di Gestione pacchetti)](../tools/Package-Manager-Console.md) |
-| Interfaccia utente di Gestione pacchetti (Visual Studio) | Offre un'interfaccia utente tramite la quale è possibile esplorare, selezionare e installare i pacchetti in un progetto. Aggiorna il file di progetto per elencare il pacchetto come dipendenza. | [Package Manager UI reference (Informazioni di riferimento sull'interfaccia utente di Gestione pacchetti)](../tools/Package-Manager-UI.md) |
