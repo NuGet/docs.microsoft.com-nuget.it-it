@@ -114,6 +114,7 @@
 ## [Domande frequenti su NuGet](policies/nuget-faq.md)
 ## [Governance](policies/governance.md)
 ## [Ecosistema](policies/ecosystem.md)
+## [Richieste di dati](policies/Data-requests.md)
 ## [Risoluzione delle controversie](policies/dispute-resolution.md)
 ## [Eliminazione di pacchetti](policies/deleting-packages.md)
 # Note sulla versione
