@@ -1,25 +1,16 @@
 ---
-title: Impatto di project.json sugli autori di pacchetti NuGet | Microsoft Docs
+title: Impatto di project.json sugli autori di pacchetti NuGet
+description: Informazioni dettagliate su come l'implementazione di project.json in NuGet 3.x abbia effetto sugli autori di pacchetti, ad esempio con funzionalità, contenuto e formato dei pacchetti non supportati.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
-description: Informazioni dettagliate su come l'implementazione di project.json in NuGet 3.x abbia effetto sugli autori di pacchetti, ad esempio con funzionalità, contenuto e formato dei pacchetti non supportati.
-keywords: NuGet e project.json, impatto di project.json, considerazioni sulla creazione di pacchetti, funzionalità di project.json
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 6e8af98504a2866106e84943989aeb91f2e9c1fb
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.topic: conceptual
+ms.openlocfilehash: 6163297075f741a4132afd748974498fa1600fbb
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="impact-of-projectjson-when-creating-packages"></a>Impatto di project.json durante la creazione di pacchetti
 

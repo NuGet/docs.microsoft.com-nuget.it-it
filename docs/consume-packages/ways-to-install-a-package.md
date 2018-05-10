@@ -1,25 +1,16 @@
 ---
-title: Modi per installare pacchetti NuGet | Microsoft Docs
+title: Modi per installare pacchetti NuGet
+description: Descrive il processo di installazione dei pacchetti NuGet in un progetto, incluso cosa accade sul disco e ai file di progetto applicabili.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 02/12/2018
 ms.topic: overview
-ms.prod: nuget
-ms.technology: ''
-description: Descrive il processo di installazione dei pacchetti NuGet in un progetto, incluso cosa accade sul disco e ai file di progetto applicabili.
-keywords: installare NuGet, utilizzo di un pacchetto NuGet, installazione di pacchetti NuGet, riferimenti ai pacchetti NuGet
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: b8cce7bd6c1bd73eb018b8891ddd72b2f4432d55
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 028fb9710e808974348d9cca3c56103c087d5390
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="different-ways-to-install-a-nuget-package"></a>Diversi modi per installare un pacchetto NuGet
 
@@ -40,33 +31,36 @@ Il processo generale è il seguente:
 
 1. (Tutti gli strumenti eccetto `nuget.exe`) Registrare l'identificatore di pacchetto e la versione nel file di progetto o in `packages.config`.
 
-1. Acquisire il pacchetto:
-    - Controllare se il pacchetto (in base all'identificatore esatto e al numero versione) è già installato nella cartella *global-packages* come descritto in [Gestione delle cartelle dei pacchetti globali e della cache](managing-the-global-packages-and-cache-folders.md).
+2. Acquisire il pacchetto:
+   - Controllare se il pacchetto (in base all'identificatore esatto e al numero versione) è già installato nella cartella *global-packages* come descritto in [Gestione delle cartelle dei pacchetti globali e della cache](managing-the-global-packages-and-cache-folders.md).
 
-    - Se il pacchetto non è presente nella cartella *global-packages*, tentare di recuperarlo dalle origini elencate nei [file di configurazione](Configuring-NuGet-Behavior.md). Per le origini online, tentare prima di tutto di recuperare il pacchetto dalla cache, a meno che non si specifichi `-NoCache` con i comandi `nuget.exe` o non si specifichi `--no-cache` con `dotnet restore`. (Visual Studio e `dotnet add package` usano sempre la cache.) Se un pacchetto viene usato dalla cache, nell'output compare "CACHE". La cache ha una scadenza di 30 minuti.
+   - Se il pacchetto non è presente nella cartella *global-packages*, tentare di recuperarlo dalle origini elencate nei [file di configurazione](Configuring-NuGet-Behavior.md). Per le origini online, tentare prima di tutto di recuperare il pacchetto dalla cache, a meno che non si specifichi `-NoCache` con i comandi `nuget.exe` o non si specifichi `--no-cache` con `dotnet restore`. (Visual Studio e `dotnet add package` usano sempre la cache.) Se un pacchetto viene usato dalla cache, nell'output compare "CACHE". La cache ha una scadenza di 30 minuti.
 
-    - Se il pacchetto non è presente nella cache, tentare di scaricarlo dalle origini elencate nella configurazione. Se un pacchetto viene scaricato, nell'output compaiono "GET" e "OK".
+   - Se il pacchetto non è presente nella cache, tentare di scaricarlo dalle origini elencate nella configurazione. Se un pacchetto viene scaricato, nell'output compaiono "GET" e "OK".
 
-    - Se il pacchetto non può essere acquisito correttamente da qualsiasi origine, l'installazione non riesce a questo punto con un errore come [NU1103](../reference/errors-and-warnings.md#nu1103). Si noti che gli errori dai comandi `nuget.exe` indicano solo l'ultima origine controllata, ma implicano che il pacchetto non era disponibile da qualsiasi origine.
+   - Se il pacchetto non può essere acquisito correttamente da qualsiasi origine, l'installazione non riesce a questo punto con un errore come [NU1103](../reference/errors-and-warnings.md#nu1103). Si noti che gli errori dai comandi `nuget.exe` indicano solo l'ultima origine controllata, ma implicano che il pacchetto non era disponibile da qualsiasi origine.
 
-    Per l'acquisizione del pacchetto può essere applicato l'ordine delle origini nella configurazione NuGet:
-      - Per i progetti che usano il formato PackageReference, NuGet controlla la cartella locale delle origini e le condivisioni di rete prima di controllare le origini HTTP.
-      - Per i progetti che usano il formato di gestione `packages.config`, NuGet usa l'ordine delle origini nella configurazione. Le operazioni di ripristino rappresentano un'eccezione. In questo caso, l'ordine delle origini viene ignorato e NuGet usa il pacchetto da qualsiasi origine risponde per prima.
-      - In generale, l'ordine in cui NuGet controlla le origini non è particolarmente significativo, perché qualsiasi pacchetto con uno specifico identificatore e numero di versione è esattamente lo stesso in qualsiasi origine venga trovato.
+   Per l'acquisizione del pacchetto può essere applicato l'ordine delle origini nella configurazione NuGet:
 
-1. (Tutti gli strumenti eccetto `nuget.exe`) Salvare una copia del pacchetto e altre informazioni nella cartella *http-cache* come descritto in [Gestione delle cartelle dei pacchetti globali e della cache](managing-the-global-packages-and-cache-folders.md).
+   - Per i progetti che usano il formato PackageReference, NuGet controlla la cartella locale delle origini e le condivisioni di rete prima di controllare le origini HTTP.
 
-1. Se il pacchetto è stato scaricato, installare il pacchetto nella cartella *global-packages* per utente. NuGet crea una sottocartella per ogni identificatore di pacchetto, quindi crea sottocartelle per ogni versione installata del pacchetto.
+   - Per i progetti che usano il formato di gestione `packages.config`, NuGet usa l'ordine delle origini nella configurazione. Le operazioni di ripristino rappresentano un'eccezione. In questo caso, l'ordine delle origini viene ignorato e NuGet usa il pacchetto da qualsiasi origine risponde per prima.
 
-1. Aggiornare altri file e cartelle di progetto:
+   - In generale, l'ordine in cui NuGet controlla le origini non è particolarmente significativo, perché qualsiasi pacchetto con uno specifico identificatore e numero di versione è esattamente lo stesso in qualsiasi origine venga trovato.
+
+3. (Tutti gli strumenti eccetto `nuget.exe`) Salvare una copia del pacchetto e altre informazioni nella cartella *http-cache* come descritto in [Gestione delle cartelle dei pacchetti globali e della cache](managing-the-global-packages-and-cache-folders.md).
+
+4. Se il pacchetto è stato scaricato, installare il pacchetto nella cartella *global-packages* per utente. NuGet crea una sottocartella per ogni identificatore di pacchetto, quindi crea sottocartelle per ogni versione installata del pacchetto.
+
+5. Aggiornare altri file e cartelle di progetto:
 
     - Per i progetti che usano PackageReference, aggiornare il grafico delle dipendenze del pacchetto archiviato in `obj/project.assets.json`. Il contenuto del pacchetto stesso non viene copiato in alcuna cartella di progetto.
     - Per i progetti che usano `packages.config`, copiare queste parti del pacchetto espanso che corrisponde al framework di destinazione del progetto nella cartella `packages` del progetto. Quando si usa `nuget install`, viene copiato l'intero pacchetto espanso perché `nuget.exe` non esamina i file di progetto per identificare il framework di destinazione.
     - Aggiornare `app.config` e/o `web.config` se il pacchetto usa [trasformazioni di file di origine e file di configurazione](../create-packages/source-and-config-file-transformations.md).
 
-1. Installare eventuali dipendenze di livello inferiore se non sono già presenti nel progetto. Questo processo potrebbe aggiornare le versioni del pacchetto nel processo, come descritto in [Risoluzione delle dipendenze](../consume-packages/dependency-resolution.md).
+6. Installare eventuali dipendenze di livello inferiore se non sono già presenti nel progetto. Questo processo potrebbe aggiornare le versioni del pacchetto nel processo, come descritto in [Risoluzione delle dipendenze](../consume-packages/dependency-resolution.md).
 
-1. (Solo Visual Studio) Visualizzare il file Leggimi del pacchetto, se disponibile, in una finestra di Visual Studio.
+7. (Solo Visual Studio) Visualizzare il file Leggimi del pacchetto, se disponibile, in una finestra di Visual Studio.
 
 ## <a name="related-articles"></a>Articoli correlati
 
