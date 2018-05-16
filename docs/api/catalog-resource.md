@@ -7,11 +7,11 @@ manager: skofman
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 464b252ca318a5bd3487c723dbf4c7062e4698a3
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 8554f9515b671dbececd94a025ec7e56037c2bd9
+ms.sourcegitcommit: 055248d790051774c892b220eca12015babbd668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="catalog"></a>Catalog
 
@@ -193,11 +193,11 @@ Gli elementi del catalogo dei dettagli del pacchetto sono le seguenti proprietà
 nome                    | Tipo                       | Obbligatorio | Note
 ----------------------- | -------------------------- | -------- | -----
 authors                 | stringa                     | No       |
-created                 | stringa                     | sì      | Un timestamp di creazione innanzitutto il pacchetto
+created                 | stringa                     | No       | Timestamp della prima creazione del pacchetto. Proprietà di fallback: `published`.
 dependencyGroups        | Matrice di oggetti           | No       | Stesso formato del [risorsa dei metadati del pacchetto](registration-base-url-resource.md#package-dependency-group)
 Descrizione             | stringa                     | No       |
 iconUrl                 | stringa                     | No       |
-isPrerelease            | boolean                    | sì      | Se è o meno la versione del pacchetto non definitive
+isPrerelease            | boolean                    | No       | Se è o meno la versione del pacchetto non definitiva. Possono essere rilevati da `version`.
 language                | stringa                     | No       |
 licenseUrl              | stringa                     | No       |
 disponibili                  | boolean                    | No       | Se il pacchetto verrà elencato

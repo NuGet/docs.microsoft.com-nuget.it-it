@@ -6,11 +6,11 @@ ms.author: kraigb
 manager: douge
 ms.date: 10/25/2017
 ms.topic: reference
-ms.openlocfilehash: 871cd05ed010d2a31348151de6b7e225ed2dc915
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: e57d17c5bf393a05b8915b9a1a7af0b659a04716
+ms.sourcegitcommit: 055248d790051774c892b220eca12015babbd668
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="nugetconfig-reference"></a>riferimento di NuGet. config
 
@@ -244,7 +244,7 @@ Identifica l'origine attualmente attiva o indica l'aggregazione di tutte le orig
 
 Ad esempio, se la variabile di ambiente `HOME` in Windows è impostata su `c:\users\username`, il valore di `%HOME%\NuGetRepository` nel file di configurazione viene risolto in `c:\users\username\NuGetRepository`.
 
-In modo analogo, se la variabile `HOME` in Mac/Linux è impostata su `/home/myStuff`, `$HOME/NuGetRepository` nel file di configurazione viene risolto in `/home/myStuff/NuGetRepository`.
+In modo analogo, se la variabile `HOME` in Mac/Linux è impostata su `/home/myStuff`, `%HOME%/NuGetRepository` nel file di configurazione viene risolto in `/home/myStuff/NuGetRepository`.
 
 Se non viene trovata una variabile di ambiente, NuGet usa il valore letterale dal file di configurazione.
 
