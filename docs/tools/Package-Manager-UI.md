@@ -11,11 +11,11 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-ms.openlocfilehash: 99bd51798460a56cb8515d46791a9e75d9e630cc
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: 1d8cb8186b9cedb29918d48539bdf45b130030c0
+ms.sourcegitcommit: 00c4c809c69c16fcf4d81012eb53ea22f0691d0b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="nuget-package-manager-ui"></a>Interfaccia utente di gestione pacchetti NuGet
 
@@ -70,7 +70,7 @@ In questo argomento
 
     ![Aggiornamento di un pacchetto](media/UpdatePackages.png)
 
-1. <a name="implicit_reference"></a>Per alcuni pacchetti, il **aggiornamento** pulsante è disabilitato e viene visualizzato un messaggio che informa che "in modo implicito fa riferimento un SDK" (o "AutoReferenced"). Il messaggio indica che il pacchetto, ad esempio Microsoft.NETCore.App o Microsoft.NETStandard.Library, fa parte di un SDK o di framework più grande e non deve essere aggiornato in modo indipendente. (Tali pacchetti internamente sono contrassegnati con `<IsImplicitlyDefined>True</IsImplicitlyDefined>`.) Per aggiornare il pacchetto, aggiornare il SDK a cui appartiene.
+1. <a name="implicit_reference"></a>Per alcuni pacchetti, il **aggiornamento** pulsante è disabilitato e viene visualizzato un messaggio che informa che "in modo implicito fa riferimento un SDK" (o "AutoReferenced"). Il messaggio indica che il pacchetto, ad esempio Microsoft.NETCore.App o Microsoft.NETStandard.Library, fa parte di un SDK o di framework più grande e non deve essere aggiornato in modo indipendente. (Tali pacchetti internamente sono contrassegnati con `<IsImplicitlyDefined>True</IsImplicitlyDefined>`.) Per aggiornare il pacchetto, aggiornare il SDK a cui appartiene, l'inferenza SDK contiene il nome del pacchetto. Ad esempio, un pacchetto, ad esempio Microsoft.NETCore.App fa parte di .NET Core SDK, pertanto è necessario aggiornare l'installazione di .NET Core SDK.
 
     ![Pacchetto di esempio è stato contrassegnato come in modo implicito i riferimenti o AutoReferenced](media/PackageManagerUIAutoReferenced.png)
 
