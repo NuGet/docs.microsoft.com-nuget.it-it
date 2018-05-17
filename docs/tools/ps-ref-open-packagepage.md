@@ -12,7 +12,7 @@ ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="open-packagepage-package-manager-console-in-visual-studio"></a>Apri-PackagePage (Console di gestione dei pacchetti in Visual Studio)
+# <a name="open-packagepage-package-manager-console-in-visual-studio"></a>Open-PackagePage (console di Gestione pacchetti in Visual Studio)
 
 *Deprecato in 3.0 +;) disponibile solo all'interno di [Console di gestione pacchetti NuGet](package-manager-console.md) in Visual Studio in Windows.*
 

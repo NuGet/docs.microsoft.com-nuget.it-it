@@ -12,7 +12,7 @@ ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="locals-command-nuget-cli"></a>comando variabili locali (NuGet CLI)
+# <a name="locals-command-nuget-cli"></a>Comando locals (interfaccia della riga di comando di NuGet)
 
 **Si applica a:** pacchetto consumo &bullet; **versioni supportate:** 3.3 +
 

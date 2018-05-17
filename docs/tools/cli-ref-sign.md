@@ -13,7 +13,7 @@ ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="sign-command-nuget-cli"></a>comando Sign (NuGet CLI)
+# <a name="sign-command-nuget-cli"></a>Comando sign (interfaccia della riga di comando di NuGet)
 
 **Si applica a:** creazione di pacchetti &bullet; **le versioni supportate:** 4.6 +
 

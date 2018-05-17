@@ -12,7 +12,7 @@ ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="mirror-command-nuget-cli"></a>comando mirror (NuGet CLI)
+# <a name="mirror-command-nuget-cli"></a>Comando mirror (interfaccia della riga di comando di NuGet)
 
 **Si applica a:** la pubblicazione del pacchetto &bullet; **le versioni supportate:** deprecata in 3.2 +
 

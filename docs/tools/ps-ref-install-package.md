@@ -12,7 +12,7 @@ ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="install-package-package-manager-console-in-visual-studio"></a>Pacchetto di installazione (Console di gestione dei pacchetti in Visual Studio)
+# <a name="install-package-package-manager-console-in-visual-studio"></a>Install-Package (console di Gestione pacchetti in Visual Studio)
 
 *Questo argomento viene descritto il comando all'interno di [Console di gestione pacchetti NuGet](package-manager-console.md) in Visual Studio in Windows. Per il comando di PowerShell Install-Package generico, vedere il [riferimento di PowerShell PackageManagement](/powershell/module/packagemanagement/?view=powershell-6).*
 

@@ -12,7 +12,7 @@ ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="add-command-nuget-cli"></a>aggiungere il comando (CLI NuGet)
+# <a name="add-command-nuget-cli"></a>Comando add (interfaccia della riga di comando di NuGet)
 
 **Si applica a**: la pubblicazione del pacchetto &bullet; **versioni supportate**: 3.3 +
 

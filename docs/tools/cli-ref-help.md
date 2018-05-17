@@ -12,7 +12,7 @@ ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="help-or--command-nuget-cli"></a>Guida in linea o? comando (CLI NuGet)
+# <a name="help-or--command-nuget-cli"></a>Guida in linea o? (interfaccia della riga di comando di NuGet)
 
 **Si applica a:** tutti &bullet; **le versioni supportate**: tutti
 

@@ -8,11 +8,11 @@ ms.date: 01/18/2018
 ms.topic: reference
 ms.openlocfilehash: 615f2beca1eb288417f2345fcdf25e323942d300
 ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="install-command-nuget-cli"></a>installare comando (CLI NuGet)
+# <a name="install-command-nuget-cli"></a>Comando install (interfaccia della riga di comando di NuGet)
 
 **Si applica a:** pacchetto consumo &bullet; **le versioni supportate:** tutti
 

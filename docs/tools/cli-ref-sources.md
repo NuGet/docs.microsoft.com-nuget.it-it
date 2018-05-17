@@ -12,7 +12,7 @@ ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="sources-command-nuget-cli"></a>comando origini (NuGet CLI)
+# <a name="sources-command-nuget-cli"></a>Comando sources (interfaccia della riga di comando di NuGet)
 
 **Si applica a:** il consumo di pacchetti, pubblicazione &bullet; **le versioni supportate:** tutti
 
