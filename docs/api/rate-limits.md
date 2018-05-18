@@ -10,11 +10,11 @@ ms.reviewer:
 - skofman
 - anangaur
 - kraigb
-ms.openlocfilehash: e236d685a700d0f47480336cece8edfd44c28863
-ms.sourcegitcommit: 68c8a494a11c892ac671fec3170ba7be97fb044d
+ms.openlocfilehash: c5d3cf68ac6a96a6c14eb5e652bcf72698b6a8e8
+ms.sourcegitcommit: 8f0bb8bb9cb91d27d660963ed9b0f32642f420fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="rate-limits"></a>Limiti di velocità
 
@@ -46,5 +46,5 @@ Le tabelle seguenti elencano i limiti di velocità per l'API di NuGet.org.
 
 | API | Tipo di limite | Valore del limite | API usecase | 
 |:---|:---|:---|:--- |
-**PUT** `/api/v2/package` | Chiave API | 100 / minuto | Caricare un nuovo pacchetto NuGet (versione) tramite l'endpoint di push v2 
-**ELIMINARE** `/api/v2/package/{id}/{version}` | Chiave API | 100 / minuto | Esclusione di un pacchetto NuGet (versione) tramite l'endpoint v2 
+**PUT** `/api/v2/package` | Chiave API | 250 / ora | Caricare un nuovo pacchetto NuGet (versione) tramite l'endpoint di push v2 
+**ELIMINARE** `/api/v2/package/{id}/{version}` | Chiave API | 250 / ora | Esclusione di un pacchetto NuGet (versione) tramite l'endpoint v2 

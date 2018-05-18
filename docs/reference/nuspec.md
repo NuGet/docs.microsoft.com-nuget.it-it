@@ -7,11 +7,11 @@ manager: douge
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: c11b50aa1637c00f0f0e71a6e20ce5d435db402b
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: c0717418e1efcdcaf407bec6ab50f43e5396421e
+ms.sourcegitcommit: 8f0bb8bb9cb91d27d660963ed9b0f32642f420fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="nuspec-reference"></a>Informazioni di riferimento sul file .nuspec
 
@@ -88,7 +88,7 @@ Questi elementi possono essere visualizzati all'interno di un elemento `<metadat
 | **owners** | Elenco con valori delimitati da virgola di autori di pacchetti, corrispondenti ai nomi di profili in nuget.org. Si tratta spesso dello stesso elenco in `authors` e viene ignorato durante il caricamento del pacchetto in nuget.org. Vedere [Gestione dei proprietari dei pacchetti in nuget.org](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg). |
 | **projectUrl** | URL della pagina iniziale del pacchetto, spesso visualizzato nell'interfaccia utente e in nuget.org. |
 | **licenseUrl** | URL della licenza del pacchetto, spesso visualizzato nell'interfaccia utente e in nuget.org. |
-| **iconUrl** | URL di un'immagine 64x64 con sfondo trasparente da usare come icona per il pacchetto nella visualizzazione dell'interfaccia utente. Assicurarsi che questo elemento contenga l'*URL diretto dell'immagine* e non l'URL di una pagina Web contenente l'immagine. Ad esempio, per utilizzare un'immagine da GitHub, utilizzare il file non elaborato URL  <em>https://github.com/ \<username\>/\<repository\>/raw/\<ramo\> / \<logo.png\></em>. |
+| **iconUrl** | URL di un'immagine 64x64 con sfondo trasparente da usare come icona per il pacchetto nella visualizzazione dell'interfaccia utente. Assicurarsi che questo elemento contenga l'*URL diretto dell'immagine* e non l'URL di una pagina Web contenente l'immagine. Ad esempio, per utilizzare un'immagine da GitHub, utilizzare il file non elaborato URL <em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>. |
 | **requireLicenseAcceptance** | Valore booleano che specifica se il client deve richiedere al consumer di accettare la licenza del pacchetto prima di installarlo. |
 | **developmentDependency** | *(2.8 +)*  Valore booleano che specifica se il pacchetto deve essere contrassegnato come dipendenza solo per lo sviluppo, in modo che il pacchetto non possa essere incluso come dipendenza in altri pacchetti. |
 | **summary** | Descrizione breve del pacchetto per la visualizzazione dell'interfaccia utente. Se omesso, viene usata una versione troncata di `description`. |
@@ -388,9 +388,10 @@ Ogni elemento `<file>` specifica gli attributi seguenti:
 **Esclusione di file**
 
     Source files:
-        \tools\*.bak
-        \tools\*.log
-        \tools\build\*.log
+        \tools\fileA.bak
+        \tools\fileB.bak
+        \tools\fileA.log
+        \tools\build\fileB.log
 
     .nuspec entries:
         <file src="tools\*.*" target="tools" exclude="tools\*.bak" />
