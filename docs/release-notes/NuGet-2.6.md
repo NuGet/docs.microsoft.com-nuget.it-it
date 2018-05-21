@@ -67,7 +67,7 @@ Funzionalità di origine pacchetto NuGet fornisce un modo per organizzare pacche
 3. %ProgramData%\NuGet\Config\{IDE}\{Version}\*.config
 4. %ProgramData%\NuGet\Config\{IDE}\{Version}\{SKU}\*.config
 
-In questo elenco, il segnaposto {IDE} è specifico per l'IDE in cui è in esecuzione NuGet, pertanto nel caso di Visual Studio, sarà "Visual Studio". {Version} e il segnaposto {SKU} è fornito dall'IDE (ad esempio, "11.0" e "WDExpress", "VWDExpress" e "Pro", rispettivamente). La cartella può quindi contenere molti file config diversi.
+In questo elenco, il segnaposto {IDE} è specifico per l'IDE in cui è in esecuzione NuGet, pertanto nel caso di Visual Studio, sarà "Visual Studio". {Version} e il segnaposto {SKU} è fornito dall'IDE (ad esempio, "11.0" e "WDExpress", "VWDExpress" e "Pro", rispettivamente). La cartella può quindi contenere molti file *.config diversi.
 Pertanto, la società componente ACME possibile, come parte del programma di installazione di prodotto, aggiungere un'origine pacchetto personalizzato che sarà visibile solo nelle versioni di Visual Studio 2012 Professional e Ultimate creando il seguente percorso del file:
 
 %ProgramData%\NuGet\Config\VisualStudio\11.0\Pro\acme.config
