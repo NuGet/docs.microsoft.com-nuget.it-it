@@ -4,17 +4,21 @@ description: In alcuni tipi di progetto, il file packages.config include l'elenc
 author: kraigb
 ms.author: kraigb
 manager: douge
-ms.date: 12/07/2017
+ms.date: 05/21/2018
 ms.topic: reference
-ms.openlocfilehash: 73234f79cb9eb30327c4e206a5bc51c5bc1c6f1d
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: e10bc1625bc4cea7b7befe18caa22d33a876489b
+ms.sourcegitcommit: f0b31af805183cf3a98eabb504e16d9b05223cfe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="packagesconfig-reference"></a>Informazioni di riferimento su packages.config
 
 Il file `packages.config` viene usato in alcuni tipi di progetto per gestire l'elenco dei pacchetti a cui fa riferimento il progetto. In questo modo NuGet può ripristinare facilmente le dipendenze del progetto quando il progetto devono essere trasportato in un computer diverso, ad esempio un server di compilazione, senza tutti i pacchetti.
+
+Se utilizzato, `packages.config` in genere si trova nella radice di un progetto. Viene creato automaticamente quando viene eseguita la prima operazione di NuGet, ma può essere creata anche manualmente prima di eseguire qualsiasi comando, ad esempio `nuget restore`.
+
+I progetti che utilizzano [PackageReference](../consume-packages/Package-References-in-Project-Files.md) non utilizzano `packages.config`.
 
 ## <a name="schema"></a>Schema
 
