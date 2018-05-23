@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.reviewer:
 - kraigb
 - camsoper
-ms.openlocfilehash: 0e836f5f39620f0b83212c9510735481119ddda2
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 7f40654a08ac221c5ec3a90c86387b6760b28994
+ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="organization-on-nugetorg"></a>Organizzazione in nuget.org
 
@@ -86,7 +86,7 @@ Quando si carica direttamente un nuovo pacchetto nel [nuget.org caricamento](htt
 
 ### <a name="using-api-keys"></a>Utilizzando le chiavi API
 
-Effettuare il push di un pacchetto il `nuget push` o `dotnet nuget push` i comandi CLI, è necessario ottenere una chiave API necessaria per tali comandi. Per informazioni dettagliate, vedere [pubblichi un pacchetto](https://docs.microsoft.com/en-us/nuget/quickstart/create-and-publish-a-package-using-visual-studio#publish-the-package).
+Effettuare il push di un pacchetto il `nuget push` o `dotnet nuget push` i comandi CLI, è necessario ottenere una chiave API necessaria per tali comandi. Per informazioni dettagliate, vedere [pubblichi un pacchetto](../quickstart/create-and-publish-a-package-using-visual-studio.md#publish-the-package).
 
 Quando si crea una nuova chiave API, selezionare l'organizzazione appropriato nella **proprietario del pacchetto** elenco a discesa. Un tasto qualsiasi API che crei è applicabile solo per l'organizzazione scelto:
 

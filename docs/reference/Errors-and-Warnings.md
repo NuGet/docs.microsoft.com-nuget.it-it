@@ -4,7 +4,7 @@ description: Riferimento complete per avvisi ed errori generati da NuGet durante
 author: kraigb
 ms.author: kraigb
 manager: douge
-ms.date: 03/06/2018
+ms.date: 05/18/2018
 ms.topic: reference
 ms.reviewer: anangaur
 f1_keywords:
@@ -44,11 +44,11 @@ f1_keywords:
 - NU3008
 - NU3018
 - NU3028
-ms.openlocfilehash: dcff20e35adc0a3dbcc7bef482f81a937cf059c5
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 748c2746a61886617e2eefe3e6c4a2e2a5b9d4d3
+ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="errors-and-warnings"></a>Errori e avvisi
 
@@ -122,7 +122,7 @@ Gli errori e avvisi elencati di seguito sono disponibili solo con [basato su Pac
 | --- | --- |
 | **Problema** | Impossibile trovare il pacchetto su tutte le origini. |
 | **Messaggio di esempio** | *Impossibile trovare il pacchetto System.Missing. Nessun pacchetto esistenti con questo id nelle origini: dotnet-core, dotnet roslyn, nuget.org* |
-| **Soluzione** | Esaminare le dipendenze del progetto in Visual Studio per verificare che il pacchetto corretto identificatore e numero di versione in uso. Controllare inoltre che il [configurazione NuGet](../consume-packages/Configuring-NuGet-Behavior.md) identifica l'origine del pacchetto il prevede di utilizzare. Se si utilizzano pacchetti contenenti [controllo delle versioni semantico 2.0.0](https://docs.microsoft.com/en-us/nuget/reference/package-versioning#semantic-versioning-200), assicurarsi che si sta utilizzando il [V3 feed](https://api.nuget.org/v3/index.json) nel [configurazione NuGet](../consume-packages/Configuring-NuGet-Behavior.md). |
+| **Soluzione** | Esaminare le dipendenze del progetto in Visual Studio per verificare che il pacchetto corretto identificatore e numero di versione in uso. Controllare inoltre che il [configurazione NuGet](../consume-packages/Configuring-NuGet-Behavior.md) identifica l'origine del pacchetto il prevede di utilizzare. Se si utilizzano i pacchetti che presentano [controllo delle versioni semantico 2.0.0](../reference/package-versioning.md#semantic-versioning-200), assicurarsi che si sta utilizzando V3 feed, `https://api.nuget.org/v3/index.json`nella [configurazione NuGet](../consume-packages/Configuring-NuGet-Behavior.md). |
 
 ### <a name="nu1102"></a>NU1102
 
