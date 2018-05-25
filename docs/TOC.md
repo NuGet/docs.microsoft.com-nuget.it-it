@@ -30,7 +30,7 @@
 ## [Pubblicare un pacchetto](create-packages/publish-a-package.md)
 ## Guide
 ### [Creare pacchetti UWP](guides/create-uwp-packages.md)
-### [Creazione di controlli UWP come pacchetti NuGet](guides/create-uwp-controls.md)
+### [Creazione di controlli dell'interfaccia utente come pacchetti NuGet](guides/create-UI-controls.md)
 ### [Creare pacchetti .NET Standard/.NET Framework con Visual Studio 2015](guides/create-net-standard-packages-vs2015.md)
 ### [Creare pacchetti per Xamarin con Visual Studio 2015](guides/create-packages-for-xamarin.md)
 # Hosting dei pacchetti
