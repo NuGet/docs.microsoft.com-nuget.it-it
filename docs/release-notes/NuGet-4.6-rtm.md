@@ -6,22 +6,24 @@ ms.author: anangaur
 manager: unnir
 ms.date: 3/7/2018
 ms.topic: conceptual
-ms.openlocfilehash: d8fc374167e5c7f601c41887c4844854d0177ccb
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 11e604ad9a28ac2b22880a13ef9d8b41d8c09507
+ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="nuget-46-rtm-release-notes"></a>Note sulla versione per NuGet 4.6 RTM
 
 [Visual Studio 2017 15.6 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) include [NuGet 4.6.0](https://dist.nuget.org/win-x86-commandline/v4.6.0/nuget.exe).
 
 ## <a name="summary-whats-new-in-this-release"></a>Riepilogo: Novità di questa versione
-* È stato aggiunto il supporto per [firma dei pacchetti](https://docs.microsoft.com/en-us/nuget/create-packages/sign-a-package).  
-* Visual Studio 2017 e nuget.exe ora verificano l'integrità dei pacchetti prima dell'installazione, ripristinando i [pacchetti firmati](https://docs.microsoft.com/en-us/nuget/reference/signed-packages-reference).
+
+* È stato aggiunto il supporto per [firma dei pacchetti](../create-packages/sign-a-package.md).
+* Visual Studio 2017 e nuget.exe ora verificano l'integrità dei pacchetti prima dell'installazione, ripristinando i [pacchetti firmati](../reference/signed-packages-reference.md).
 * Sono state migliorate le prestazioni dei ripristini successivi.
 
 ## <a name="known-issues"></a>Problemi noti
+
 ### <a name="issues-with-net-standard-20-with-net-framework--nuget"></a>Problemi relativi a .NET 2.0 Standard con .NET Framework e NuGet 
 
 .NET Standard e i relativi strumenti sono stati progettati in modo che i progetti destinati a .NET Framework 4.6.1 possano utilizzare pacchetti e progetti NuGet destinati a .NET Standard 2.0 o versioni precedenti. [Questo documento](https://github.com/dotnet/standard/issues/481) riepiloga i problemi relativi a questo scenario, i piani per risolverli e le soluzioni alternative implementabili allo stato attuale degli strumenti.
@@ -29,11 +31,13 @@ ms.lasthandoff: 04/26/2018
 ## <a name="top-issues-fixed-in-this-release"></a>Problemi principali corretti in questa versione
 
 **Correzioni per le prestazioni**
+
 * Non scrivere file di asset in assenza di modifiche - [#6491](https://github.com/NuGet/Home/issues/6491)
 * Il ripristino causa valutazioni MSBuild aggiuntive quando il TFM dei progetti figlio non corrisponde a quello del padre del progetto - [#6311](https://github.com/NuGet/Home/issues/6311)
 * Migliorare le prestazioni di ripristino NoOp ottimizzando la creazione della specifica del grafico delle dipendenze - [#6252](https://github.com/NuGet/Home/issues/6252)
 
 **Bug**
+
 * Il push in una cartella locale lascia nupkg bloccato - [#6325](https://github.com/NuGet/Home/issues/6325)
 * Implementazione di plug-in NuGet: più problemi - [#6149](https://github.com/NuGet/Home/issues/6149)
 * UIHang - Rimuovere la chiamata del servizio query dall'inizializzazione MEF in VSSolutionManager - [#6110](https://github.com/NuGet/Home/issues/6110)
@@ -60,6 +64,5 @@ ms.lasthandoff: 04/26/2018
 * Blocco di nuget add in CentOS - [#2708](https://github.com/NuGet/Home/issues/2708)
 * Il ripristino con packagesavemode -nupkg non riesce per json.net - [#2706](https://github.com/NuGet/Home/issues/2706)
 * Filtro di Gestione pacchetti non disponibile nella finestra di output di Visual Studio per il comando restore - [#2704](https://github.com/NuGet/Home/issues/2704)
-
 
 [Elenco di tutti i problemi corretti in questa versione](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.6")
