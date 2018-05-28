@@ -4,18 +4,18 @@ description: Istruzioni dettagliate su come pubblicare un pacchetto NuGet in nug
 author: kraigb
 ms.author: kraigb
 manager: douge
-ms.date: 03/19/2018
+ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 539ac9485e6062a0bdc3bb86dac0f028a2de7821
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: 806a64d2d7654e4c1bca89a13d70fd9983c12703
+ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="publishing-packages"></a>Pubblicazione di pacchetti
 
-Dopo avere creato un pacchetto e con il file `.nukpg` a portata di mano, il processo per renderlo disponibile per altri sviluppatori, pubblicamente o privatamente, è davvero semplice:
+Dopo avere creato un pacchetto e con il file `.nupkg` a portata di mano, il processo per renderlo disponibile per altri sviluppatori, pubblicamente o privatamente, è davvero semplice:
 
 - I pacchetti pubblici diventano disponibili per tutti gli sviluppatori a livello globale tramite [nuget.org](https://www.nuget.org/packages/manage/upload), come descritto in questo articolo (è richiesto NuGet 4.1.0+).
 - I pacchetti privati, disponibili solo per un team o un'organizzazione, sono ospitati in una condivisione file, in un server NuGet privato, in [Gestione pacchetti di Visual Studio Team Services](https://www.visualstudio.com/docs/package/nuget/publish) o in un repository di terze parti, ad esempio myget, ProGet, Nexus Repository e Artifactory. Per altre informazioni, vedere [Panoramica dell'hosting dei pacchetti](../hosting-packages/overview.md).
@@ -71,6 +71,13 @@ Per eseguire il push dei pacchetti in nuget.org, è necessario usare [nuget.exe 
     ```cli
     nuget push YourPackage.nupkg -Source https://api.nuget.org/v3/index.json
     ```
+
+#### <a name="publish-signed-packages"></a>Pubblicare i pacchetti firmati
+
+Per inviare pacchetti firmati, è prima di tutto necessario [registrare il certificato](../reference/Signed-Packages-Reference.md#register-certificate-on-nugetorg) usato per firmare i pacchetti. 
+
+> [!Warning]
+> nuget.org rifiuta i pacchetti che non soddisfano i [requisiti per i pacchetti firmati](../reference/Signed-Packages-Reference.md#signature-requirements-on-nugetorg).
 
 ### <a name="package-validation-and-indexing"></a>Convalida e indicizzazione dei pacchetti
 
