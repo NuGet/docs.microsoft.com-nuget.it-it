@@ -1,16 +1,17 @@
 ---
 title: Comando push NuGet CLI
 description: Riferimento per il comando di nuget.exe push
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 959b539fc20bc47f38946cb660375a6652582a0d
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 05cafa981ecf42829d1b3d8b8988ed51449d9d86
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817191"
 ---
 # <a name="push-command-nuget-cli"></a>comando push (NuGet CLI)
 

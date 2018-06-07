@@ -1,16 +1,17 @@
 ---
 title: Comando di installazione NuGet CLI
 description: Riferimento per il comando di installazione di nuget.exe
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 1c6ec1181f2f619eb8a4f2d87f7910f25b98e0f4
-ms.sourcegitcommit: 00c4c809c69c16fcf4d81012eb53ea22f0691d0b
+ms.openlocfilehash: 8aaf4c2563aa802900a102848fc33fc8708a135d
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817889"
 ---
 # <a name="install-command-nuget-cli"></a>Comando install (interfaccia della riga di comando di NuGet)
 
@@ -50,7 +51,7 @@ dove `<packageID>` denomina il pacchetto di installazione (utilizzando la versio
 | Framework | *(4.4 +)*  Framework di destinazione utilizzato per la selezione delle dipendenze. Il valore predefinito 'Any' Se non specificato. |
 | ? | Visualizza la Guida informazioni per il comando. |
 | NoCache | Impedisce l'uso memorizzati nella cache dei pacchetti NuGet. Vedere [gestione dei pacchetti globali e alla cartella della cache](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
-| NonInteractive | Elimina richieste per l'input dell'utente o le conferme. |
+| Non interattivo | Elimina richieste per l'input dell'utente o le conferme. |
 | OutputDirectory | Specifica la cartella in cui sono installati i pacchetti. Se viene specificata alcuna cartella, viene utilizzata la cartella corrente. |
 | PackageSaveMode | Specifica i tipi di file da salvare dopo l'installazione del pacchetto: uno dei `nuspec`, `nupkg`, o `nuspec;nupkg`. |
 | Versione provvisoria | Consente di pacchetti della versione provvisoria da installare. Questo flag non è necessario durante il ripristino di pacchetti con `packages.config`. |

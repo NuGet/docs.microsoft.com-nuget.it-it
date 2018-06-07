@@ -1,16 +1,17 @@
 ---
 title: Riferimenti dell'interfaccia della riga di comando (CLI) NuGet
 description: Indice di riferimento della riga di comando per l'interfaccia CLI di nuget.exe
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 01/23/2018
 ms.topic: reference
-ms.openlocfilehash: ed91a31505ab1de9447cdbeb87c8ad08f7ba56d8
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: 477883ce1579ba3e4b586dff2cf01e31e7afdb3f
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817876"
 ---
 # <a name="nuget-cli-reference"></a>Riferimento a CLI NuGet
 
@@ -44,7 +45,7 @@ I comandi disponibili e applicabilità alla creazione del pacchetto, il consumo 
 | [pack](cli-ref-pack.md) | Creazione | 2.7+ | Crea un pacchetto NuGet da un `.nuspec` o file di progetto. Quando in esecuzione in Mono, crea un pacchetto da un file di progetto non è supportato. |
 | [push](cli-ref-push.md) | Pubblicazione | Tutti | Pubblica un pacchetto a un'origine pacchetto. |
 | [config](cli-ref-config.md) | Tutti | Tutti | Ottiene o imposta i valori di configurazione NuGet. |
-| [help o ?](cli-ref-help.md) | Tutti | Tutti | Visualizza la Guida informazioni o per un comando. |
+| [help or ?](cli-ref-help.md) | Tutti | Tutti | Visualizza la Guida informazioni o per un comando. |
 | [locals](cli-ref-locals.md) | Utilizzo | 3.3+ | Elenca i percorsi del *globale pacchetti*, *cache http*, e *temp* cartelle e cancella il contenuto di tali cartelle. |
 | [restore](cli-ref-restore.md) | Utilizzo | 2.7+ | Ripristina tutti i pacchetti di cui fanno riferimento il formato di gestione del pacchetto in uso. Quando in esecuzione in Mono, ripristino dei pacchetti utilizzando il formato PackageReference non è supportato. |
 | [setapikey](cli-ref-setapikey.md) | Pubblicazione, al consumo | Tutti | Salva una chiave API per un'origine del pacchetto specificato quando l'origine del pacchetto richiede una chiave per l'accesso. |

@@ -1,17 +1,18 @@
 ---
 title: Riferimento di Framework di destinazione per NuGet
 description: I riferimenti ai framework di destinazione NuGet consentono di identificare e isolare i componenti dipendenti dai framework di un pacchetto.
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 6b7ee3f739847777dda638d8fed083c48ed5812e
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: 87000ce95ffeef36d9f792e9e8fdad6878488773
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818321"
 ---
 # <a name="target-frameworks"></a>Framework di destinazione
 

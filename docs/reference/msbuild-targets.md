@@ -1,16 +1,17 @@
 ---
 title: Pack e restore di NuGet come destinazioni MSBuild
 description: I comandi pack e restore di NuGet possono essere usati direttamente come destinazioni MSBuild con NuGet 4.0 +.
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 00d763bcfdd2f3db50378a1e7774eae7a2e1fcd1
-ms.sourcegitcommit: 00c4c809c69c16fcf4d81012eb53ea22f0691d0b
+ms.openlocfilehash: f835deabe337236dcabe6654f1963984ab0687ca
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818308"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Pack e restore di NuGet come destinazioni MSBuild
 
