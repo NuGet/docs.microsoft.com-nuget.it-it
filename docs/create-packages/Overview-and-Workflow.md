@@ -1,16 +1,17 @@
 ---
 title: Panoramica e flusso di lavoro della creazione di pacchetti NuGet
 description: Panoramica del processo di creazione e pubblicazione di un pacchetto NuGet, con collegamenti ad altre parti specifiche del processo.
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 07/26/2017
 ms.topic: conceptual
-ms.openlocfilehash: a9dd4439f2aa72424187eaa2d9555d5af0e7843d
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 1e2a7299be64d33bd0d697522cf5febb2022e0ee
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817014"
 ---
 # <a name="package-creation-workflow"></a>Flusso di lavoro della creazione di pacchetti
 
