@@ -14,6 +14,7 @@ ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/22/2018
+ms.locfileid: "34449578"
 ---
 # <a name="organization-on-nugetorg"></a><span data-ttu-id="7251e-103">Organizzazione in nuget.org</span><span class="sxs-lookup"><span data-stu-id="7251e-103">Organization on nuget.org</span></span>
 

@@ -11,6 +11,7 @@ ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/26/2018
+ms.locfileid: "31820820"
 ---
 # <a name="nuget-34-rc-release-notes"></a><span data-ttu-id="2a711-103">Note sulla versione 3.4 RC NuGet</span><span class="sxs-lookup"><span data-stu-id="2a711-103">NuGet 3.4-RC Release Notes</span></span>
 

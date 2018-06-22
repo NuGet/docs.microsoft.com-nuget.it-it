@@ -11,6 +11,7 @@ ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/26/2018
+ms.locfileid: "31818405"
 ---
 # <a name="nuget-261-for-webmatrix-release-notes"></a><span data-ttu-id="c77a1-103">NuGet 2.6.1 delle note sulla versione di WebMatrix</span><span class="sxs-lookup"><span data-stu-id="c77a1-103">NuGet 2.6.1 for WebMatrix Release Notes</span></span>
 

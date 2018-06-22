@@ -11,6 +11,7 @@ ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/26/2018
+ms.locfileid: "31820303"
 ---
 # <a name="nuget-287-release-notes"></a><span data-ttu-id="04269-103">Note sulla versione di NuGet 2.8.7</span><span class="sxs-lookup"><span data-stu-id="04269-103">NuGet 2.8.7 Release Notes</span></span>
 

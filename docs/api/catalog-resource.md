@@ -12,6 +12,7 @@ ms.sourcegitcommit: 055248d790051774c892b220eca12015babbd668
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34152435"
 ---
 # <a name="catalog"></a><span data-ttu-id="9528c-103">Catalog</span><span class="sxs-lookup"><span data-stu-id="9528c-103">Catalog</span></span>
 

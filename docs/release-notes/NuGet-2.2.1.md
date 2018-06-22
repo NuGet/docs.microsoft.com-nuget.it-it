@@ -11,6 +11,7 @@ ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/26/2018
+ms.locfileid: "31819293"
 ---
 # <a name="nuget-221-release-notes"></a><span data-ttu-id="665df-103">Note sulla versione 2.2.1 NuGet</span><span class="sxs-lookup"><span data-stu-id="665df-103">NuGet 2.2.1 Release Notes</span></span>
 

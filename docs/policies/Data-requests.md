@@ -8,8 +8,10 @@ ms.date: 05/01/2018
 ms.topic: conceptual
 ms.openlocfilehash: 595a47da59c9b2672a10fc0f19e528c36a790134
 ms.sourcegitcommit: 68c8a494a11c892ac671fec3170ba7be97fb044d
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33086204"
 ---
 # <a name="user-data-requests"></a><span data-ttu-id="2c451-103">Richieste di dati degli utenti</span><span class="sxs-lookup"><span data-stu-id="2c451-103">User Data Requests</span></span>
 

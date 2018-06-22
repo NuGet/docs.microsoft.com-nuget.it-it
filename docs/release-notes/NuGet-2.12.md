@@ -11,6 +11,7 @@ ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/26/2018
+ms.locfileid: "31821161"
 ---
 # <a name="nuget-212-release-notes"></a><span data-ttu-id="99560-103">Note sulla versione 2.12 di NuGet</span><span class="sxs-lookup"><span data-stu-id="99560-103">NuGet 2.12 Release Notes</span></span>
 
