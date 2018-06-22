@@ -12,6 +12,7 @@ ms.sourcegitcommit: c8485dc61469511485367d2067b97d6f74b49f6e
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/23/2018
+ms.locfileid: "34462852"
 ---
 # <a name="verify-command-nuget-cli"></a>Comando verify (interfaccia della riga di comando di NuGet)
 
