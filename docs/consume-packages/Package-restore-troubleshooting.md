@@ -1,16 +1,17 @@
 ---
 title: Risoluzione dei problemi relativi al ripristino dei pacchetti NuGet in Visual Studio
 description: Descrizione degli errori di ripristino comuni per NuGet in Visual Studio e di come risolverli.
-author: kraigb
-ms.author: kraigb
-manager: douge
-ms.date: 03/16/2018
+author: karann-msft
+ms.author: karann
+manager: unnir
+ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: c552941c896d1a7136310c0a8bc6755d5974809a
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 8e817b8e95c53d27120bf56db52b45b69a5ff973
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34816972"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>Risoluzione degli errori relativi al ripristino dei pacchetti
 
@@ -49,8 +50,11 @@ Questo errore si verifica quando si tenta di compilare un progetto che contiene 
 
 Generalmente questa situazione si verifica quando si ottiene il codice sorgente del progetto dal controllo del codice sorgente o tramite un altro download. I pacchetti vengono in genere omessi dal controllo del codice sorgente o dai download perché possono essere ripristinati da feed di pacchetti come nuget.org (vedere [Pacchetti e controllo del codice sorgente](Packages-and-Source-Control.md)). La loro aggiunta comporterebbe altrimenti un notevole aumento di dimensioni del repository oppure la creazione di file ZIP inutilmente grandi.
 
+L'errore può verificarsi anche se il file di progetto contiene percorsi assoluti ai percorsi dei pacchetti e il progetto viene spostato.
+
 Usare uno dei metodi seguenti per ripristinare i pacchetti:
 
+- Se è stato spostato il file di progetto, modificare il file direttamente per aggiornare i riferimenti ai pacchetti.
 - In Visual Studio abilitare il ripristino dei pacchetti. A tale scopo, selezionare il comando di menu **Strumenti > Gestione pacchetti NuGet > Impostazioni di Gestione pacchetti**, impostare entrambe le opzioni **Ripristino pacchetto** e selezionare **OK**. Compilare quindi di nuovo la soluzione.
 - Per i progetti .NET Core, eseguire `dotnet restore` o `dotnet build` (che esegue automaticamente il ripristino).
 - Nella riga di comando eseguire `nuget restore` (ad eccezione dei progetti creati con `dotnet`, nel qual caso usare `dotnet restore`).

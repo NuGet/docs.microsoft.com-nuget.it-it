@@ -1,16 +1,17 @@
 ---
 title: Ricerca e scelta di pacchetti NuGet
 description: Panoramica delle modalità di ricerca e scelta dei pacchetti NuGet più appropriati per un progetto, inclusi i dettagli della sintassi di ricerca NuGet.
-author: kraigb
-ms.author: kraigb
-manager: douge
-ms.date: 03/16/2018
+author: karann-msft
+ms.author: karann
+manager: unnir
+ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 94d851cfbc860e50b02ca99595ca41bbf4ce21ef
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: f1bb145229b0db0e8fdb7fdb31a59aa50bd1d57b
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817902"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Ricerca e valutazione di pacchetti NuGet per un progetto
 
@@ -105,7 +106,7 @@ Allo stesso tempo, usare un pacchetto NuGet implica la creazione di una dipenden
 
 La modalità di ricerca di un pacchetto in NuGet è la stessa su nuget.org, dall'interfaccia della riga di comando di NuGet e all'interno dell'estensione Gestione pacchetti NuGet in Visual Studio. In generale, la ricerca viene applicata alle parole chiave e alle descrizioni dei pacchetti.
 
-- **Parole chiave**: la ricerca mira a individuare i pacchetti pertinenti che contengono tutte le parole chiave specificate. Esempio: `modern UI javascript`
+- **Parole chiave**: la ricerca mira a individuare i pacchetti pertinenti che contengono una qualsiasi delle parole chiave specificate. Esempio: `modern UI`. Per eseguire la ricerca per i pacchetti che contengono tutte le parole chiave fornite, usare "+" tra le condizioni, ad esempio `modern+UI`.
 - **Frasi**: se si immettono i termini di ricerca tra virgolette, vengono rilevate le esatte corrispondenze senza distinzione tra maiuscole e minuscole con tali termini. Esempio: `"modern UI" package`
 - **Filtro**: è possibile applicare un termine di ricerca a una proprietà specifica usando la sintassi `<property>:<term>`, dove `<property>` (senza distinzione tra maiuscole e minuscole) può essere `id`, `packageid`, `version`, `title`, `tags`, `author`, `description`, `summary` e `owner`. I termini di ricerca possono essere contenuti tra virgolette, se necessario, ed è possibile cercare più proprietà contemporaneamente. Inoltre, le ricerche nella proprietà `id` sono corrispondenze di sottostringhe, mentre `packageid` usa una corrispondenza esatta. Esempi:
 

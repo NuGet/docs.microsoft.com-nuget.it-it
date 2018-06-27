@@ -1,16 +1,17 @@
 ---
 title: Domande frequenti su NuGet
 description: Domande e risposte frequenti per l'uso di NuGet nella riga di comando e in Visual Studio e per l'uso della raccolta NuGet.
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 01/11/2018
 ms.topic: conceptual
-ms.openlocfilehash: bcdb4e8971ee4e742e6cf37f8b662e50a77604f0
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: e3c52f1e49a53b89d7e5c0728c02a7915db2aeb9
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817980"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Domande frequenti su NuGet
 
@@ -160,9 +161,9 @@ Se per un pacchetto non sono specificate le condizioni di licenza, contattare il
 
 ## <a name="managing-packages-on-nugetorg"></a>Gestione dei pacchetti in nuget.org
 
-**È possibile modificare i metadati del pacchetto dopo che è stato caricato? Per quale motivo si richiede di modificare il file nuspec e di caricare un nuovo pacchetto per apportare modifiche ai metadati del pacchetto?**
+**È possibile modificare i metadati del pacchetto dopo che è stato caricato?**
 
-NuGet richiede che tutti i pacchetti siano firmati. Uno dei principi di progettazione della firma dei pacchetti è che il contenuto del pacchetto firmato non deve essere modificabile e ciò include il file nuspec. La modifica dei metadati del pacchetto comporta modifiche al file nuspec, invalidando le firme esistenti. Si consiglia di modificare i flussi di lavoro esistenti in modo da non richiedere la modifica dei metadati del pacchetto dopo aver creato il pacchetto.
+NuGet consiglia che tutti i pacchetti siano firmati. Uno dei principi di progettazione della firma dei pacchetti è che il contenuto del pacchetto firmato non deve essere modificabile e ciò include il file nuspec. La modifica dei metadati del pacchetto comporta modifiche al file nuspec, invalidando le firme esistenti. Si consiglia di modificare i flussi di lavoro esistenti in modo da non richiedere la modifica dei metadati del pacchetto dopo aver creato il pacchetto.
 
 Si noti che le dipendenze elencate per il pacchetto vengono generate automaticamente dal pacchetto stesso e non possono essere modificate.
 
