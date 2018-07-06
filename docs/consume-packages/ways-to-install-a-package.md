@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 02/12/2018
 ms.topic: overview
-ms.openlocfilehash: 5f71ce6217071efc3d483cde4cf36c5585808167
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 0f59c3b7f1e32ae34889921c13d15074ef5c1260
+ms.sourcegitcommit: 8e3546ab630a24cde8725610b6a68f8eb87afa47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34816930"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37843381"
 ---
 # <a name="different-ways-to-install-a-nuget-package"></a>Diversi modi per installare un pacchetto NuGet
 
@@ -39,7 +39,7 @@ Il processo generale è il seguente:
 
    - Se il pacchetto non è presente nella cache, tentare di scaricarlo dalle origini elencate nella configurazione. Se un pacchetto viene scaricato, nell'output compaiono "GET" e "OK".
 
-   - Se il pacchetto non può essere acquisito correttamente da qualsiasi origine, l'installazione non riesce a questo punto con un errore come [NU1103](../reference/errors-and-warnings.md#nu1103). Si noti che gli errori dai comandi `nuget.exe` indicano solo l'ultima origine controllata, ma implicano che il pacchetto non era disponibile da qualsiasi origine.
+   - Se il pacchetto non può essere acquisito correttamente da qualsiasi origine, l'installazione non riesce a questo punto con un errore come [NU1103](../reference/errors-and-warnings/NU1103.md). Si noti che gli errori dai comandi `nuget.exe` indicano solo l'ultima origine controllata, ma implicano che il pacchetto non era disponibile da qualsiasi origine.
 
    Per l'acquisizione del pacchetto può essere applicato l'ordine delle origini nella configurazione NuGet:
 

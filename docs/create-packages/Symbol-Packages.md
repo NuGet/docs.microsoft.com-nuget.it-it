@@ -7,12 +7,12 @@ manager: unnir
 ms.date: 09/12/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 8d2ff4d414e496d4a57755637cbbe05f4a8408e3
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: e917895d0fa6ed6dc4bc24b72afc7fa0770f2dd0
+ms.sourcegitcommit: 8e3546ab630a24cde8725610b6a68f8eb87afa47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34816891"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37843368"
 ---
 # <a name="creating-symbol-packages"></a>Creazione di pacchetti di simboli
 
@@ -111,9 +111,6 @@ Un pacchetto di simboli può essere generato in base alle convenzioni, da una st
     nuget push MyPackage.symbols.nupkg
     ```
 
-   > [!Note]
-   > Con nuget.exe 4.5.0 o versioni successive, non viene eseguito automaticamente il push dei pacchetti di simboli in symbolsource.org, ma sarà necessario eseguire il push dei pacchetti di simboli separatamente, come illustrato nel passaggio successivo.
-
 3. Per procedere alla pubblicazione in un repository di simboli diverso o per eseguire il push di un pacchetto di simboli che non segue la convenzione di denominazione, usare l'opzione `-Source`:
 
     ```cli
@@ -126,6 +123,9 @@ Un pacchetto di simboli può essere generato in base alle convenzioni, da una st
     nuget push MyPackage.nupkg
     ```
 
+   > [!Note]
+   > Con nuget.exe 4.5.0 o versioni successive, non viene eseguito automaticamente il push dei pacchetti di simboli in symbolsource.org, ma sarà necessario eseguire il push dei pacchetti di simboli separatamente, come illustrato nel passaggio successivo.
+   
 In questo caso, NuGet pubblicherà `MyPackage.symbols.nupkg`, se presente, in https://nuget.smbsrc.net/ (URL di push per symbolsource.org), dopo la pubblicazione del pacchetto principale in nuget.org.
 
 ## <a name="see-also"></a>Vedere anche
