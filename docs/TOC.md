@@ -58,6 +58,7 @@
 ### [update](tools/cli-ref-update.md)
 ### [verify](tools/cli-ref-verify.md)
 ### [Variabili di ambiente](tools/cli-ref-environment-variables.md)
+### [Supporto del percorso lungo](tools/cli-ref-long-path.md)
 ## [Interfaccia utente di Gestione pacchetti](tools/package-manager-ui.md)
 ## [Console di Gestione pacchetti](tools/package-manager-console.md)
 ## [Informazioni di riferimento su PowerShell](tools/powershell-reference.md)
