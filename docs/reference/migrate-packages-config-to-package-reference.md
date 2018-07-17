@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 03/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1ca97e1c2dfba876aefe6b06eab10def67b8d848
-ms.sourcegitcommit: 8e3546ab630a24cde8725610b6a68f8eb87afa47
+ms.openlocfilehash: 4f42403abbf07c2c48ce13c70c49f7f3c15c40e4
+ms.sourcegitcommit: a76ecc58f41c2c5b3536ff4a3f3fcbdf5258177c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37843394"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072366"
 ---
 # <a name="migrate-from-packagesconfig-to-packagereference"></a>Eseguire la migrazione da Packages. config a PackageReference
 
@@ -41,7 +41,7 @@ Alla prima apertura di un progetto, NuGet potrebbe non essere inizializzato fino
 
 #### <a name="workaround"></a>Soluzione alternativa 
 
-Eseguire una delle azioni NuGet seguenti: 
+Eseguire una delle operazioni NuGet seguenti: 
 * Aprire l'interfaccia utente di Gestione pacchetti - fare clic con il pulsante destro del mouse su `References` e scegliere `Manage NuGet Packages...` 
 * Aprire la console di Gestione pacchetti - Da `Tools > NuGet Package Manager` selezionare `Package Manager Console` 
 * Eseguire un ripristino NuGet - Fare clic con il pulsante destro del mouse sul nodo della soluzione in Esplora soluzioni e scegliere `Restore NuGet Packages` 
@@ -58,7 +58,7 @@ A questo punto, l'opzione di migrazione dovrebbe essere visibile. Si noti che qu
 
 1. Nella **Esplora soluzioni**, fare clic sul **riferimenti** nodo o la `packages.config` file e selezionare **Migrovat Packages. config a PackageReference...** .
 
-1. Il migrator Analizza riferimenti del pacchetto NuGet del progetto e tenta di suddividere in categorie **dipendenze di livello superiore** (pacchetti NuGet è stato installato directory) e **dipendenze Transitive**(pacchetti installati come dipendenze dei pacchetti di primo livello).
+1. Il migrator Analizza riferimenti del pacchetto NuGet del progetto e tenta di suddividere in categorie **dipendenze di livello superiore** (pacchetti NuGet che è stato installato direttamente) e **dipendenze Transitive** (pacchetti installati come dipendenze dei pacchetti di primo livello).
 
    > [!Note]
    > PackageReference supporta il ripristino dei pacchetti transitiva e risolve le dipendenze in modo dinamico, vale a dire che non è necessario installare le dipendenze transitive in modo esplicito.
