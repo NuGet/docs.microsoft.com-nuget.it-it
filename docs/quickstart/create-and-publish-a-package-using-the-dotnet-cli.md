@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 01/24/2018
 ms.topic: quickstart
-ms.openlocfilehash: c50c92f966cd68477cd3f29ab99857911299b7ea
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 0f71da0be27369712f718a7ab80d952a467aff2a
+ms.sourcegitcommit: a76ecc58f41c2c5b3536ff4a3f3fcbdf5258177c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818451"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069674"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Guida introduttiva: Creare e pubblicare un pacchetto (interfaccia della riga di comando dotnet)
 
@@ -35,7 +35,7 @@ La creazione di un pacchetto NuGet da una libreria di classi .NET e la pubblicaz
 
 Per ogni pacchetto NuGet è necessario un manifesto che descrive i contenuti e le dipendenze del pacchetto. In un pacchetto finale, il manifesto è un file `.nuspec` generato dalle proprietà dei metadati NuGet incluse nel file di progetto.
 
-1. Aprire il file di progetto (`.csproj`) e aggiungere le seguenti proprietà minime all'interno del tag `<PropertyGroup>` di chiusura, modificando i valori nel modo appropriato:
+1. Aprire il file di progetto (`.csproj`) e aggiungere le seguenti proprietà minime all'interno del tag `<PropertyGroup>` esistente, modificando i valori nel modo appropriato:
 
     ```xml
     <PackageId>AppLogger</PackageId>

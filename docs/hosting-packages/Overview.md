@@ -7,12 +7,12 @@ manager: unnir
 ms.date: 08/25/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 48ebddb26aa6c236609691e099a82db80075944e
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: b72369efb906f6d186c914fa3d8dd1da0be94641
+ms.sourcegitcommit: 6cffa6ef59b922df2d87aa9c24034d00542983cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818425"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37948369"
 ---
 # <a name="hosting-your-own-nuget-feeds"></a>Hosting dei feed NuGet
 
@@ -31,6 +31,8 @@ Sono inoltre disponibili diversi altri prodotti di hosting NuGet che supportano 
 - [ProGet](http://inedo.com/proget) di Inedo
 - [NuGet Server](http://nugetserver.net/), un progetto di community di Inedo
 - [NuGet Server (Open Source)](http://nuget-server.net), un'implementazione open source simile a NuGet Server di Inedo
+- [LiGet](https://github.com/ai-traders/liget), un'implementazione open source di NuGet Server V2 in esecuzione su Kestrel in Docker
+- [BaGet](https://github.com/loic-sharma/BaGet), un'implementazione open source di NuGet Server V3 con .NET Core
 - [Artifactory](https://www.jfrog.com/artifactory/) di JFrog
 - [Nexus](http://www.sonatype.org/nexus/) di Sonatype
 - [TeamCity](https://www.jetbrains.com/teamcity/) di JetBrains
