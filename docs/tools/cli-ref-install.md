@@ -1,34 +1,34 @@
 ---
 title: Comando di installazione NuGet CLI
-description: Riferimento per il comando di installazione di nuget.exe
+description: Informazioni di riferimento per il comando di installazione nuget.exe
 author: karann-msft
 ms.author: karann
 manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 8aaf4c2563aa802900a102848fc33fc8708a135d
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: e609b01bc14083ce212f6d4d4c6d3412f0ee316b
+ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817889"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39508322"
 ---
 # <a name="install-command-nuget-cli"></a>Comando install (interfaccia della riga di comando di NuGet)
 
-**Si applica a:** pacchetto consumo &bullet; **le versioni supportate:** tutti
+**Si applica a:** consumo del pacchetto &bullet; **le versioni supportate:** tutti
 
-Scarica e installa un pacchetto in un progetto, verrà utilizzato per la cartella corrente, usando l'origine del pacchetto specificato.
+Scarica e installa un pacchetto in un progetto, utilizzando per impostazione predefinita nella cartella corrente, usando origini pacchetto specificato.
 
 > [!Tip]
-> Per scaricare un pacchetto direttamente all'esterno del contesto di un progetto, visitare la pagina del pacchetto su [nuget.org](https://www.nuget.org) e selezionare il **scaricare** collegamento.
+> Per scaricare il pacchetto direttamente all'esterno del contesto di un progetto, visitare la pagina del pacchetto su [nuget.org](https://www.nuget.org) e selezionare il **scaricare** collegamento.
 
-Se non vengono specificata alcuna origine, quelli elencati nel file di configurazione globale, `%appdata%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Linux o Mac), vengono utilizzati. Vedere [il comportamento di configurazione NuGet](../consume-packages/configuring-nuget-behavior.md) per altri dettagli.
+Se non sono specificate origini, quelli elencati nel file di configurazione globali `%appdata%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Mac/Linux), vengono usati. Visualizzare [comportamento di configurazione NuGet](../consume-packages/configuring-nuget-behavior.md) per altri dettagli.
 
-Se non viene specificato alcun pacchetto specifico, `install` installa tutti i pacchetti elencati del progetto `packages.config` file, rendendola simile a [ `restore` ](cli-ref-restore.md).
+Se non ci sono pacchetti specifici vengono specificati, `install` installa tutti i pacchetti elencati del progetto `packages.config` file, rendendola simile [ `restore` ](cli-ref-restore.md).
 
-Il `install` comando non modifichi un file di progetto o `packages.config`; in questo modo è simile a `restore` perché solo aggiunge i pacchetti su disco ma non modificare le dipendenze di un progetto.
+Il `install` comando non modifica un file di progetto o `packages.config`; in questo modo è simile a `restore` perché solo consente di aggiungere pacchetti su disco ma non modifica le dipendenze del progetto.
 
-Per aggiungere una dipendenza, aggiungere un pacchetto tramite il pacchetto gestione dell'interfaccia utente o la Console in Visual Studio oppure modificare `packages.config` e quindi eseguire uno `install` o `restore`.
+Per aggiungere una dipendenza, aggiungere un pacchetto tramite l'interfaccia utente di gestione pacchetti o la Console in Visual Studio oppure modificare `packages.config` ed eseguire uno `install` o `restore`.
 
 ## <a name="usage"></a>Utilizzo
 
@@ -36,29 +36,29 @@ Per aggiungere una dipendenza, aggiungere un pacchetto tramite il pacchetto gest
 nuget install <packageID | configFilePath> [options]
 ```
 
-dove `<packageID>` denomina il pacchetto di installazione (utilizzando la versione più recente), o `<configFilePath>` identifica il `packages.config` file che elenca i pacchetti da installare. È possibile indicare una versione specifica con la `-Version` opzione.
+in cui `<packageID>` denomina il pacchetto di installazione (usando la versione più recente), oppure `<configFilePath>` identifica il `packages.config` file che elenca i pacchetti da installare. È possibile indicare una versione specifica con la `-Version` opzione.
 
 ## <a name="options"></a>Opzioni
 
 | Opzione | Descrizione |
 | --- | --- |
-| ConfigFile | Il file di configurazione NuGet da applicare. Se non specificato, `%AppData%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Mac o Linux) viene utilizzato.|
-| DependencyVersion | *(4.4 +)*  Specifica una versione specifica, si esegue l'override del comportamento di risoluzione dipendenza predefinito. |
+| ConfigFile | Il file di configurazione di NuGet da applicare. Se non specificato, `%AppData%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) viene usato.|
+| DependencyVersion | *(4.4 +)*  La versione dei pacchetti di dipendenza da usare, che può essere uno dei seguenti:<br/><ul><li>*Più basso* (impostazione predefinita): la versione più bassa</li><li>*HighestPatch*: la versione con patch più bassa principali, più bassa secondaria, più alto</li><li>*HighestMinor*: la versione con il minimo principali, patch secondaria, massima più alto</li><li>*Più alto*: la versione più recente</li></ul> |
 | DisableParallelProcessing | Disabilita l'installazione di più pacchetti in parallelo. |
 | ExcludeVersion | Installa il pacchetto in una cartella denominata con solo il nome del pacchetto e non il numero di versione. |
-| FallbackSource | *(3.2 +)*  Un elenco delle origini pacchetto da utilizzare come fallback nel caso in cui il pacchetto non viene trovato nel database primario o di origine predefinita. |
-| ForceEnglishOutput | *(3.5 +)*  Forza nuget.exe per eseguire utilizzando le impostazioni cultura invariante, in lingua inglese. |
-| Framework | *(4.4 +)*  Framework di destinazione utilizzato per la selezione delle dipendenze. Il valore predefinito 'Any' Se non specificato. |
+| FallbackSource | *(3.2 +)*  Un elenco di origini dei pacchetti da usare come fallback nel caso in cui il pacchetto non viene trovato nel database primario o di un'origine predefinita. |
+| ForceEnglishOutput | *(3.5 +)*  Forza nuget.exe affinché venga eseguito usando una cultura invariante e di lingua inglese. |
+| Framework | *(4.4 +)*  Framework di destinazione usato per la selezione di dipendenze. Il valore predefinito è 'Any' Se non specificato. |
 | ? | Visualizza la Guida informazioni per il comando. |
-| NoCache | Impedisce l'uso memorizzati nella cache dei pacchetti NuGet. Vedere [gestione dei pacchetti globali e alla cartella della cache](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
-| Non interattivo | Elimina richieste per l'input dell'utente o le conferme. |
-| OutputDirectory | Specifica la cartella in cui sono installati i pacchetti. Se viene specificata alcuna cartella, viene utilizzata la cartella corrente. |
+| NoCache | Impedisce l'uso di pacchetti memorizzati nella cache NuGet. Visualizzare [gestione dei pacchetti globali e le cartelle cache](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
+| Non interattive | Elimina richieste di input o conferme dell'utente. |
+| OutputDirectory | Specifica la cartella in cui sono installati i pacchetti. Se si specifica alcuna cartella, viene utilizzata la cartella corrente. |
 | PackageSaveMode | Specifica i tipi di file da salvare dopo l'installazione del pacchetto: uno dei `nuspec`, `nupkg`, o `nuspec;nupkg`. |
-| Versione provvisoria | Consente di pacchetti della versione provvisoria da installare. Questo flag non è necessario durante il ripristino di pacchetti con `packages.config`. |
-| RequireConsent | Verifica che il ripristino dei pacchetti è abilitato prima di scaricare e installare i pacchetti. Per informazioni dettagliate, vedere [il ripristino del pacchetto](../consume-packages/package-restore.md). |
+| Versione preliminare | Consente a pacchetti versione non definitivo da installare. Questo flag non è obbligatorio quando il ripristino dei pacchetti con `packages.config`. |
+| RequireConsent | Verifica che il ripristino dei pacchetti sia abilitato prima di scaricare e installare i pacchetti. Per informazioni dettagliate, vedere [ripristino dei pacchetti](../consume-packages/package-restore.md). |
 | SolutionDirectory | Specifica la cartella radice della soluzione per cui si desidera ripristinare i pacchetti. |
-| Origine | Specifica l'elenco delle origini pacchetto (come URL) per l'utilizzo. Se omesso, il comando Usa le origini disponibili in file di configurazione, vedere [il comportamento di configurazione NuGet](../consume-packages/configuring-nuget-behavior.md). |
-| Livello di dettaglio | Specifica la quantità di dettagli visualizzati nell'output: *normale*, *quiet*, *dettagliate*. |
+| Origine | Specifica l'elenco delle origini dei pacchetti (sotto forma di URL) per l'uso. Se omesso, il comando Usa le origini fornite nei file di configurazione, vedere [comportamento di configurazione NuGet](../consume-packages/configuring-nuget-behavior.md). |
+| Livello di dettaglio | Specifica la quantità di dettaglio visualizzato nell'output: *normali*, *quiet*, *dettagliate*. |
 | Versione | Specifica la versione del pacchetto da installare. |
 
 Vedere anche [le variabili di ambiente](cli-ref-environment-variables.md)
