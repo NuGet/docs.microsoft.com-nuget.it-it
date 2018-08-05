@@ -1,28 +1,39 @@
 ---
-title: NuGet v3 Client e le API NuGetGallery
-description: Il NuGet e NuGetGallery APIs sono in continua evoluzione e non ancora documentati, ma esempi sono disponibili nel blog di Dave Glick.
+title: NuGet Client SDK
+description: L'API è in continua evoluzione e non ancora documentato, ma gli esempi sono disponibili nel blog di Dave Glick.
 author: karann-msft
 ms.author: karann
 manager: unnir
 ms.date: 01/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: b3b912b4af388a578378c15ad9241ed8ec0de75e
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: f814b0c0e7fac719e4221a8d8e945de703348aba
+ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817112"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39508062"
 ---
-# <a name="nuget-client-sdk"></a><span data-ttu-id="df7be-103">SDK Client NuGet</span><span class="sxs-lookup"><span data-stu-id="df7be-103">NuGet Client SDK</span></span>
-
-<span data-ttu-id="df7be-104">Il Client di NuGet v3 e NuGetGallery APIs sono in continua evoluzione e stiamo lavorando con una superficie stabile che è possibile documentare presto.</span><span class="sxs-lookup"><span data-stu-id="df7be-104">The NuGet v3 Client and NuGetGallery APIs are constantly evolving and we are working on having a stable surface area that we can document soon.</span></span>
-
-<span data-ttu-id="df7be-105">Nel frattempo, è possibile trovare esempi e documentazione dell'API della serie di blog seguenti da Dave Glick:</span><span class="sxs-lookup"><span data-stu-id="df7be-105">In the meantime, you can find examples and documentation for some of the API in the following blog series by Dave Glick:</span></span>
-
-- [<span data-ttu-id="df7be-106">Esplorare le librerie di v3 NuGet, Part 1: introduzione e concetti</span><span class="sxs-lookup"><span data-stu-id="df7be-106">Exploring the NuGet v3 Libraries, Part 1: Introduction and concepts</span></span>](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-1)
-- [<span data-ttu-id="df7be-107">Esplorare le librerie di v3 NuGet, Part 2: la ricerca dei pacchetti</span><span class="sxs-lookup"><span data-stu-id="df7be-107">Exploring the NuGet v3 Libraries, Part 2: Searching for packages</span></span>](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-2)
-- [<span data-ttu-id="df7be-108">Esplorare le librerie di v3 NuGet, parte 3: installazione dei pacchetti</span><span class="sxs-lookup"><span data-stu-id="df7be-108">Exploring the NuGet v3 Libraries, Part 3: Installing packages</span></span>](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-3)
+# <a name="nuget-client-sdk"></a><span data-ttu-id="db40d-103">NuGet Client SDK</span><span class="sxs-lookup"><span data-stu-id="db40d-103">NuGet Client SDK</span></span>
 
 > [!Note]
-> <span data-ttu-id="df7be-109">Questi post di blog scritti poco dopo il **versione 3.4.3** versione di NuGet pacchetti SDK client sono stati pubblicati.</span><span class="sxs-lookup"><span data-stu-id="df7be-109">These blog posts were written shortly after the **3.4.3** version of the NuGet client SDK packages were released.</span></span>
-> <span data-ttu-id="df7be-110">Le versioni più recenti dei pacchetti possono essere incompatibili con le informazioni contenute nei post di blog.</span><span class="sxs-lookup"><span data-stu-id="df7be-110">Newer versions of the packages may be incompatible with the information in the blog posts.</span></span>
+> <span data-ttu-id="db40d-104">Non deve essere confusa con la [NuGet *Web* API](https://docs.microsoft.com/en-us/nuget/api/overview)</span><span class="sxs-lookup"><span data-stu-id="db40d-104">Not to be confused with the [NuGet *Web* API](https://docs.microsoft.com/en-us/nuget/api/overview)</span></span>
+
+<span data-ttu-id="db40d-105">Il *NuGet Client SDK* fa riferimento a un gruppo di librerie .NET incentrati [NuGet](https://www.nuget.org/packages/NuGet.Client), [Nuget.Packaging](https://www.nuget.org/packages/NuGet.Packaging), e [NuGet. Protocol](https://www.nuget.org/packages/NuGet.Protocol).</span><span class="sxs-lookup"><span data-stu-id="db40d-105">The *NuGet Client SDK* refers to a group of .NET libraries centered around [NuGet.Client](https://www.nuget.org/packages/NuGet.Client), [Nuget.Packaging](https://www.nuget.org/packages/NuGet.Packaging), and [NuGet.Protocol](https://www.nuget.org/packages/NuGet.Protocol).</span></span> <span data-ttu-id="db40d-106">Questi pacchetti sostituiscono la precedente [togliere](https://www.nuget.org/packages/NuGet.Core/) libreria.</span><span class="sxs-lookup"><span data-stu-id="db40d-106">These packages replace the earlier [NuGet.Core](https://www.nuget.org/packages/NuGet.Core/) library.</span></span>
+
+<span data-ttu-id="db40d-107">Microsoft sta lavorando con una superficie di attacco stabile che è possibile documentare a breve.</span><span class="sxs-lookup"><span data-stu-id="db40d-107">We are working on having a stable surface area that we can document soon.</span></span>
+
+## <a name="source-code"></a><span data-ttu-id="db40d-108">Codice sorgente</span><span class="sxs-lookup"><span data-stu-id="db40d-108">Source code</span></span>
+
+<span data-ttu-id="db40d-109">Il codice sorgente viene pubblicato in GitHub nel progetto [NuGet/NuGet.Client](https://github.com/NuGet/NuGet.Client).</span><span class="sxs-lookup"><span data-stu-id="db40d-109">The source code is published on GitHub in the project [NuGet/NuGet.Client](https://github.com/NuGet/NuGet.Client).</span></span>
+
+## <a name="third-party-documentation"></a><span data-ttu-id="db40d-110">Documentazione di terze parti</span><span class="sxs-lookup"><span data-stu-id="db40d-110">Third-party documentation</span></span>
+
+<span data-ttu-id="db40d-111">È possibile trovare esempi e documentazione per alcune delle API della serie di blog seguente da Dave Glick, pubblicato 2016:</span><span class="sxs-lookup"><span data-stu-id="db40d-111">You can find examples and documentation for some of the API in the following blog series by Dave Glick, published 2016:</span></span>
+
+- [<span data-ttu-id="db40d-112">Esplorare le librerie di NuGet v3, parte 1: introduzione e concetti</span><span class="sxs-lookup"><span data-stu-id="db40d-112">Exploring the NuGet v3 Libraries, Part 1: Introduction and concepts</span></span>](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-1)
+- [<span data-ttu-id="db40d-113">Esplorare le librerie di NuGet v3, parte 2: la ricerca di pacchetti</span><span class="sxs-lookup"><span data-stu-id="db40d-113">Exploring the NuGet v3 Libraries, Part 2: Searching for packages</span></span>](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-2)
+- [<span data-ttu-id="db40d-114">Esplorare le librerie di NuGet v3, parte 3: installazione di pacchetti</span><span class="sxs-lookup"><span data-stu-id="db40d-114">Exploring the NuGet v3 Libraries, Part 3: Installing packages</span></span>](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-3)
+
+> [!Note]
+> <span data-ttu-id="db40d-115">Questi post di blog scritti subito dopo il **3.4.3** versione di NuGet sono stati rilasciati pacchetti SDK client.</span><span class="sxs-lookup"><span data-stu-id="db40d-115">These blog posts were written shortly after the **3.4.3** version of the NuGet client SDK packages were released.</span></span>
+> <span data-ttu-id="db40d-116">Le versioni più recenti dei pacchetti possono essere incompatibili con le informazioni contenute nei post di blog.</span><span class="sxs-lookup"><span data-stu-id="db40d-116">Newer versions of the packages may be incompatible with the information in the blog posts.</span></span>
