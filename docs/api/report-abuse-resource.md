@@ -1,24 +1,24 @@
 ---
-title: Il modello di URL abuso, NuGet API di report
-description: Modello di URL del report abuso consente ai client di visualizzare un collegamento nell'interfaccia utente di loro.
+title: Modello di URL di report Abuse, API NuGet
+description: Il modello di URL report abuse consente ai client visualizzare un collegamento nell'interfaccia utente di loro.
 author: joelverhagen
 ms.author: jver
 manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 15cf0953391489d9dd9b5d609c3f4c8f66748f19
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: b1fd65b12590a6c5eeb23d946eec6ca4a1c661bc
+ms.sourcegitcommit: e9c58dbfc1af2876337dcc37b1b070e8ddec0388
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31818467"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40020440"
 ---
-# <a name="report-abuse-url-template"></a>Modello di URL di report abusi
+# <a name="report-abuse-url-template"></a>Modello di report abuse URL
 
-È possibile che un client generare un URL che può essere utilizzato dall'utente per segnalare abusi su un pacchetto specifico. Ciò è utile quando si desidera abilitare tutte le esperienze di client (parte 3 anche) delegare abuso report all'origine del pacchetto un'origine del pacchetto.
+È possibile che un client per creare un URL che può essere utilizzato dall'utente per segnalare abusi relative a un pacchetto specifico. Ciò è utile quando si vuole che il file di origine abilitare tutte le esperienze di client (anche 3rd party) delegare i report di uso improprio all'origine del pacchetto.
 
-La risorsa utilizzata per il recupero di contenuto del pacchetto è il `ReportAbuseUriTemplate` risorse, vedere il [indice servizio](service-index.md).
+La risorsa usata per la creazione di questo URL è il `ReportAbuseUriTemplate` trovare la risorsa nella [indice del servizio](service-index.md).
 
 ## <a name="versioning"></a>Controllo delle versioni
 
@@ -31,17 +31,17 @@ ReportAbuseUriTemplate/3.0.0-rc   | Alias di `ReportAbuseUriTemplate/3.0.0-beta`
 
 ## <a name="url-template"></a>Modello di URL
 
-L'URL per l'API seguente è il valore di `@id` proprietà associati a uno della risorsa menzionati in precedenza `@type` valori.
+L'URL per l'API seguente è il valore della `@id` proprietà associati a uno della risorsa menzionati in precedenza `@type` valori.
 
 ## <a name="http-methods"></a>Metodi HTTP
 
-Anche se il client non può effettuare richieste all'URL di abuso del report per conto dell'utente, la pagina web deve supportare il `GET` metodo per consentire a un URL da aprire facilmente in un web browser si fa clic.
+Anche se il client non può effettuare richieste per l'URL per segnalare abusi per conto dell'utente, la pagina web deve supportare il `GET` metodo per consentire un URL selezionato essere facilmente aperto in un web browser.
 
-## <a name="construct-the-url"></a>Costruire l'URL
+## <a name="construct-the-url"></a>Creare l'URL
 
-Dato un ID pacchetto noti e una versione, l'implementazione del client può costruire un URL utilizzato per accedere a un'interfaccia web. L'implementazione del client deve essere visualizzato questo URL costruito (o un collegamento ipertestuale) all'utente consentendo di aprire un web browser all'URL e qualsiasi relazione abuso necessarie. L'implementazione del modulo report abuso viene determinata dall'implementazione del server.
+Dato un ID noto pacchetto e versione, l'implementazione client può creare un URL utilizzato per accedere a un'interfaccia web. L'implementazione client deve visualizzare questo URL costruito (o un collegamento selezionabile) all'utente e consente loro di aprire un web browser all'URL ed effettuare qualsiasi report abuse necessarie. L'implementazione del form report abuse è determinato dall'implementazione del server.
 
-Il valore di `@id` è una stringa URL contenente uno dei token di segnaposto seguente:
+Il valore della `@id` è una stringa URL contenente uno dei token di segnaposto seguente:
 
 ### <a name="url-placeholders"></a>Segnaposto URL
 
@@ -50,12 +50,12 @@ nome        | Tipo    | Obbligatorio | Note
 `{id}`      | stringa  | No       | L'ID del pacchetto per segnalare abusi per
 `{version}` | stringa  | No       | La versione del pacchetto per segnalare abusi per
 
-Il `{id}` e `{version}` valori dall'implementazione del server devono essere fatta distinzione tra maiuscole e minuscole e non sensibili se la versione è normalizzato.
+Il `{id}` e `{version}` valori interpretato dall'implementazione del server devono essere maiuscole e minuscole e non sensibili al fatto che la versione è normalizzata.
 
-Ad esempio, modello di abuso di nuget.org report simile al seguente:
+Ad esempio, modello di uso improprio del report di nuget.org aspetto simile al seguente:
 
     https://www.nuget.org/packages/{id}/{version}/ReportAbuse
 
-Se l'implementazione del client deve visualizzare un collegamento al modulo di abuso del report per NuGet.Versioning 4.3.0, verrebbe generato l'URL seguente e che sia disponibile per l'utente:
+Se l'implementazione client deve visualizzare un collegamento al modulo di uso improprio del report per NuGet.Versioning 4.3.0, verrebbe generato l'URL seguente e offrirlo all'utente:
 
     https://www.nuget.org/packages/NuGet.Versioning/4.3.0/ReportAbuse

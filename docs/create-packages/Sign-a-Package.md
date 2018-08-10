@@ -7,12 +7,12 @@ manager: unnir
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 9900db1970a89de129d9074e5900e0aa048101de
-ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
+ms.openlocfilehash: 8bbbc785a50e49530bbbd4e88bbd71a8a7bfe911
+ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34449604"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39508179"
 ---
 # <a name="signing-nuget-packages"></a>Firma di pacchetti NuGet
 
@@ -44,7 +44,7 @@ Come descritto nelle informazioni di riferimento sui comandi, è possibile usare
 - Il server di timestamp non soddisfa i requisiti del certificato.
 
 > [!Note]
-> I pacchetti firmati devono includere un timestamp per assicurarsi che la firma rimanga valida dopo la scadenza del certificato di firma. L'operazione di firma genera un [avviso NU3002](../reference/Errors-and-Warnings.md#nu3002) se avviene senza un timestamp.
+> I pacchetti firmati devono includere un timestamp per assicurarsi che la firma rimanga valida dopo la scadenza del certificato di firma. L'operazione di firma genera un [avviso NU3002](../reference/errors-and-warnings/NU3002.md) se avviene senza un timestamp.
 
 ## <a name="verify-a-signed-package"></a>Verificare un pacchetto firmato
 
@@ -56,7 +56,7 @@ nuget verify -signature MyPackage.nupkg
 
 ## <a name="install-a-signed-package"></a>Installare un pacchetto firmato
 
-Non sono richieste azioni specifiche per l'installazione di pacchetti firmati. Tuttavia, se il contenuto è stato modificato dopo la firma, l'installazione viene bloccata e genera un [errore NU3008](../reference/Errors-and-Warnings.md#nu3008).
+Non sono richieste azioni specifiche per l'installazione di pacchetti firmati. Tuttavia, se il contenuto è stato modificato dopo la firma, l'installazione viene bloccata e genera un [errore NU3008](../reference/errors-and-warnings/NU3008.md).
 
 > [!Warning]
 > I pacchetti firmati con certificati non attendibili vengono considerati non firmati e installati senza eventuali avvisi o errori come qualsiasi altro pacchetto non firmato.
