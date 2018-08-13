@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: f23cc2973fa6370d9b7513d415fd8151b822c104
-ms.sourcegitcommit: 8f0bb8bb9cb91d27d660963ed9b0f32642f420fe
+ms.openlocfilehash: 79be74f9c54e27bf2c08e83c7adf81d1f96ce79a
+ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34225970"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39508163"
 ---
 # <a name="nuget-47-rtm-release-notes"></a>Note sulla versione per NuGet 4.7 RTM
 
@@ -19,7 +19,7 @@ ms.locfileid: "34225970"
 
 ## <a name="summary-whats-new-in-this-release"></a>Riepilogo: Novità di questa versione
 
-* Sono state estese le funzionalità di firma dei pacchetti per abilitare i [pacchetti firmati da repository](https://github.com/NuGet/Home/wiki/Repository-Signatures)
+* Le funzionalità di firma dei pacchetti sono state estese per abilitare i [pacchetti firmati da repository](https://github.com/NuGet/Home/wiki/Repository-Signatures)
 
 * Con Visual Studio versione 15.7, è stata introdotta la possibilità di [eseguire la migrazione di progetti esistenti che usano il formato packages.config per usare invece PackageReference](https://docs.microsoft.com/en-us/nuget/reference/migrate-packages-config-to-package-reference).
 
