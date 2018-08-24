@@ -1,23 +1,23 @@
 ---
-title: Comando specifica di NuGet CLI
-description: Riferimento per il comando specifica di nuget.exe
+title: Comando specifica di CLI di NuGet
+description: Informazioni di riferimento per il comando specifica nuget.exe
 author: karann-msft
 ms.author: karann
 manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 17d3c5fc083f52fd9ab4a854ad358995bc55293b
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: cd1dc66676898e2be1c64698886a5ba29a07f88f
+ms.sourcegitcommit: 8d5121af528e68789485405e24e2100fda2868d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817086"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42794151"
 ---
-# <a name="spec-command-nuget-cli"></a>Specifica di comando (CLI NuGet)
+# <a name="spec-command-nuget-cli"></a>comando Spec (NuGet CLI)
 
-**Si applica a:** creazione di pacchetti &bullet; **versioni supportate:** tutti
+**Si applica a:** creazione del pacchetto &bullet; **le versioni supportate:** tutti
 
-Genera un `.nuspec` file per un nuovo pacchetto. Se l'esecuzione nella stessa cartella un file di progetto (`.csproj`, `.vbproj`, `.fsproj`), `spec` crea un token `.nuspec` file. Per ulteriori informazioni, vedere [creazione di un pacchetto](../create-packages/creating-a-package.md).
+Genera un `.nuspec` file per un nuovo pacchetto. Se eseguito nella stessa cartella un file di progetto (`.csproj`, `.vbproj`, `.fsproj`), `spec` consente di creare un token `.nuspec` file. Per altre informazioni, vedere [creazione di un pacchetto](../create-packages/creating-a-package.md).
 
 ## <a name="usage"></a>Utilizzo
 
@@ -25,18 +25,18 @@ Genera un `.nuspec` file per un nuovo pacchetto. Se l'esecuzione nella stessa ca
 nuget spec [<packageID>] [options]
 ```
 
-dove `<packageID>` è un identificatore di pacchetto facoltativo per salvare il `.nuspec` file.
+in cui `<packageID>` è un identificatore di pacchetto facoltativo per salvare il `.nuspec` file.
 
 ## <a name="options"></a>Opzioni
 
 | Opzione | Descrizione |
 | --- | --- |
-| AssemblyPath | Specifica il percorso dell'assembly da usare per i metadati. |
-| Force | Sovrascrive qualsiasi esistente `.nuspec` file. |
-| ForceEnglishOutput | *(3.5 +)*  Forza nuget.exe per eseguire utilizzando le impostazioni cultura invariante, in lingua inglese. |
+| AssemblyPath | Specifica il percorso dell'assembly da utilizzare per i metadati. |
+| Force | Sovrascrive tutte le classi esistenti `.nuspec` file. |
+| ForceEnglishOutput | *(3.5 +)*  Forza nuget.exe affinché venga eseguito usando una cultura invariante e di lingua inglese. |
 | ? | Visualizza la Guida informazioni per il comando. |
-| Non interattivo | Elimina richieste per l'input dell'utente o le conferme. |
-| Livello di dettaglio | Specifica la quantità di dettagli visualizzati nell'output: *normale*, *quiet*, *dettagliate*. |
+| Non interattive | Elimina richieste di input o conferme dell'utente. |
+| Livello di dettaglio | Specifica la quantità di dettaglio visualizzato nell'output: *normali*, *quiet*, *dettagliate*. |
 
 Vedere anche [le variabili di ambiente](cli-ref-environment-variables.md)
 
@@ -47,5 +47,5 @@ nuget spec
 
 nuget spec MyPackage
 
-nuget spec -a MyAssembly.dll
+nuget spec -AssemblyPath MyAssembly.dll
 ```

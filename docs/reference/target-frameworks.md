@@ -1,5 +1,5 @@
 ---
-title: Riferimento di Framework di destinazione per NuGet
+title: Riferimento ai framework di destinazione per NuGet
 description: I riferimenti ai framework di destinazione NuGet consentono di identificare e isolare i componenti dipendenti dai framework di un pacchetto.
 author: karann-msft
 ms.author: karann
@@ -7,12 +7,12 @@ manager: unnir
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 87000ce95ffeef36d9f792e9e8fdad6878488773
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: c9267945b8055b536cf35911c36a066981ef67b6
+ms.sourcegitcommit: c643dd2c44e085601551ff7079d696bcc3ad2b49
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818321"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42793194"
 ---
 # <a name="target-frameworks"></a>Framework di destinazione
 
@@ -46,6 +46,9 @@ I client NuGet supportano i framework nella tabella seguente. Gli equivalenti so
 | | | net46 |
 | | | net461 |
 | | | net462 |
+| | | net47 |
+| | | net471 |
+| | | net472 |
 |Microsoft Store (Windows Store) | netcore | netcore [netcore45] |
 | | | netcore45 [win, win8] |
 | | | netcore451 [win81] |
@@ -76,6 +79,7 @@ Piattaforma UWP (Universal Windows Platform) | uap | uap [uap10.0] |
 App .NET Core | netcoreapp | netcoreapp1.0 |
 | | | netcoreapp1.1 |
 | | | netcoreapp2.0 |
+| | | netcoreapp2.1 |
 Tizen | tizen | tizen3 |
 | | | tizen4 |
 
@@ -125,7 +129,7 @@ La serie `dotnet` di moniker deve essere usata in NuGet 3.3 e versioni precedent
 ## <a name="portable-class-libraries"></a>Librerie di classi portabili
 
 > [!Warning]
-> **Le librerie di classi portabili (PCL) non sono consigliate**. Anche se sono supportate, gli autori di pacchetti devono supportare netstandard. Alla piattaforma Standard .NET è un'evoluzione del PCLs e rappresenta binaria portabilità tra piattaforme usando un moniker singolo che non è associato a una libreria statica come *portabile-+ b + c* moniker.
+> **Le librerie di classi portabili (PCL) non sono consigliate**. Anche se sono supportate, gli autori di pacchetti devono supportare netstandard. .NET Platform Standard è un'evoluzione delle librerie di classi portabili e rappresenta la portabilità binaria su più piattaforme tramite un singolo moniker associato a una libreria statica, ad esempio *portable-a + b + c* moniker.
 
 Per definire un framework di destinazione che fa riferimento a più framework di destinazione figlio, la parola chiave `portable` viene usata come prefisso per l'elenco dei framework a cui si fa riferimento. Evitare di includere artificialmente framework aggiuntivi non usati direttamente per la compilazione, perché ciò può portare a effetti collaterali imprevisti in tali framework.
 

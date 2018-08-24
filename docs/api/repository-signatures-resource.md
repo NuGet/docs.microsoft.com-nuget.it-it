@@ -16,12 +16,12 @@ keywords: API NuGet repository firme, nuget.org firma dei certificati, la firma 
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 27c572a482fef791f19b3d32e816a41d8dc40b53
-ms.sourcegitcommit: e9c58dbfc1af2876337dcc37b1b070e8ddec0388
+ms.openlocfilehash: 32dd2ee19261488a2b1b92724095a11ced69ae68
+ms.sourcegitcommit: c643dd2c44e085601551ff7079d696bcc3ad2b49
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40020558"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42793294"
 ---
 # <a name="repository-signatures"></a>Firme di repository
 
@@ -59,7 +59,7 @@ L'indice di firme di repository contiene due tipi di informazioni:
 
 Nella maggior parte dei casi, l'elenco dei certificati verrà aggiunto sempre a. I nuovi certificati verranno aggiunto all'elenco quando il certificato di firma precedente è scaduto e l'origine del pacchetto deve iniziare a usare un nuovo certificato di firma. Se un certificato viene rimosso dall'elenco, che significa che tutte le firme dei pacchetti create con il certificato di firma rimosso non è più da considerare valide dal client. In questo caso, la firma del pacchetto, ma non necessariamente il pacchetto, non è valido. Un criterio client può consentire l'installazione del pacchetto come senza segno.
 
-Nel caso di revoca del certificato (ad esempio, venga compromessa), l'origine del pacchetto deve firmare nuovamente tutti i pacchetti firmati dal certificato interessato. Inoltre, l'origine del pacchetto deve rimuovere il certificato interessato dall'elenco di certificati di firma.
+Nel caso di revoca del certificato (ad esempio, venga compromessa), l'origine del pacchetto deve firmare di nuovo tutti i pacchetti firmati dal certificato interessato. Inoltre, l'origine del pacchetto deve rimuovere il certificato interessato dall'elenco di certificati di firma.
 
 La richiesta seguente recupera l'indice di firme di repository.
 

@@ -7,12 +7,12 @@ manager: unnir
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 110d1aa29fc7238f1a82c1a81ec6431dfe437420
-ms.sourcegitcommit: e9c58dbfc1af2876337dcc37b1b070e8ddec0388
+ms.openlocfilehash: 922243050dd32a960d5348f9bb3125d0f6a226fb
+ms.sourcegitcommit: c643dd2c44e085601551ff7079d696bcc3ad2b49
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40020453"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42793325"
 ---
 # <a name="nuspec-reference"></a>Informazioni di riferimento sul file .nuspec
 
@@ -63,7 +63,9 @@ Anche se gli elementi seguenti sono i requisiti minimi per un pacchetto, è cons
 Questi elementi devono essere visualizzati all'interno di un elemento `<metadata>`.
 
 #### <a name="id"></a>ID 
-Identificatore del pacchetto senza distinzione tra maiuscole e minuscole che deve essere univoco in nuget.org o in qualsiasi raccolta in cui risiede il pacchetto. L'ID non può contenere spazi o caratteri non validi per un URL e in genere segue le regole dello spazio dei nomi .NET. Vedere [Choosing a unique package identifier and setting the version number](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number) (Scelta di un identificatore univoco del pacchetto e impostazione del numero di versione) per altre indicazioni. # # # versione la versione del pacchetto, seguendo la *Major* pattern. I numeri di versione possono includere un suffisso di versione non definitiva, come descritto in [Controllo delle versioni dei pacchetti](../reference/package-versioning.md#pre-release-versions). 
+Identificatore del pacchetto senza distinzione tra maiuscole e minuscole che deve essere univoco in nuget.org o in qualsiasi raccolta in cui risiede il pacchetto. L'ID non può contenere spazi o caratteri non validi per un URL e in genere segue le regole dello spazio dei nomi .NET. Vedere [Choosing a unique package identifier and setting the version number](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number) (Scelta di un identificatore univoco del pacchetto e impostazione del numero di versione) per altre indicazioni.
+#### <a name="version"></a>version
+La versione del pacchetto secondo il criterio *principale.secondaria.patch*. I numeri di versione possono includere un suffisso di versione non definitiva, come descritto in [Controllo delle versioni dei pacchetti](../reference/package-versioning.md#pre-release-versions). 
 #### <a name="description"></a>Descrizione
 Descrizione lunga del pacchetto per la visualizzazione dell'interfaccia utente. 
 #### <a name="authors"></a>authors
@@ -85,7 +87,7 @@ URL di un'immagine 64x64 con sfondo trasparente da usare come icona per il pacch
 #### <a name="requirelicenseacceptance"></a>requireLicenseAcceptance
 Valore booleano che specifica se il client deve richiedere al consumer di accettare la licenza del pacchetto prima di installarlo.
 #### <a name="developmentdependency"></a>developmentDependency
-*(2.8 +) * Valore booleano che specifica se il pacchetto deve essere contrassegnato come dipendenza solo per lo sviluppo, in modo che il pacchetto non possa essere incluso come dipendenza in altri pacchetti.
+*(2.8 +)*  Valore booleano che specifica se il pacchetto deve essere contrassegnato come dipendenza solo per lo sviluppo, in modo che il pacchetto non possa essere incluso come dipendenza in altri pacchetti.
 #### <a name="summary"></a>summary
 Descrizione breve del pacchetto per la visualizzazione dell'interfaccia utente. Se omesso, viene usata una versione troncata di `description`.
 #### <a name="releasenotes"></a>releaseNotes
@@ -99,7 +101,7 @@ Elenco di tag e parole chiave delimitati da spazi che descrivono il pacchetto e 
 #### <a name="serviceable"></a>utilizzabile dai servizi 
 *(3.3+)* Solo per uso interno in NuGet.
 #### <a name="repository"></a>repository
-I metadati del repository, costituiti da quattro attributi facoltativi: *tipo* e *url* *(4.0 +)*, e *ramo* e *commit* *(4.6 e versioni successive)*. Questi attributi consentono di eseguire il mapping del pacchetto. nupkg per i repository che lo hanno generato, con la possibilità di ottenere come descritto in dettaglio come singolo ramo o commit che creato il pacchetto. Deve trattarsi di un url disponibile pubblicamente che può essere richiamati direttamente da un software di controllo di versione. Poiché questo è valido per il computer non deve essere una pagina html. Per il collegamento alla pagina del progetto, usare il `projectUrl` invece campo. |
+I metadati del repository, costituiti da quattro attributi facoltativi: *tipo* e *url* *(4.0 +)*, e *ramo* e  *commit* *(4.6 e versioni successive)*. Questi attributi consentono di eseguire il mapping del pacchetto. nupkg per i repository che lo hanno generato, con la possibilità di ottenere come descritto in dettaglio come singolo ramo o commit che creato il pacchetto. Deve trattarsi di un url disponibile pubblicamente che può essere richiamati direttamente da un software di controllo di versione. Poiché questo è valido per il computer non deve essere una pagina html. Per il collegamento alla pagina del progetto, usare il `projectUrl` invece campo.
 
 #### <a name="minclientversion"></a>minClientVersion
 Specifica la versione minima del client NuGet, imposta da nuget.exe e da Gestione pacchetti di Visual Studio, che può installare questo pacchetto. Questo attributo viene usato ogni volta che il pacchetto dipende da funzionalità specifiche del file `.nuspec` aggiunte in una particolare versione del client NuGet. Ad esempio, un pacchetto che usa l'attributo `developmentDependency` deve specificare "2.8" per `minClientVersion`. Analogamente, un pacchetto che usa l'elemento `contentFiles` (vedere la sezione successiva) deve impostare `minClientVersion` su "3.3". Si noti che poiché i client NuGet prima della versione 2.5 non riconoscono questo flag, essi rifiutano *sempre* di installare il pacchetto indipendentemente dal contenuto di `minClientVersion`.
@@ -176,8 +178,8 @@ L'elemento `<dependencies>` all'interno di `<metadata>` contiene qualsiasi numer
 | --- | --- |
 | `id` | (Obbligatorio) ID pacchetto della dipendenza, ad esempio "EntityFramework" e "NUnit", ovvero il nome di pacchetto che nuget.org mostra nella pagina di un pacchetto. |
 | `version` | (Obbligatorio) Intervallo di versioni accettabili come dipendenza. Per la sintassi esatta, vedere [Controllo delle versioni dei pacchetti](../reference/package-versioning.md#version-ranges-and-wildcards). |
-| include | Elenco delimitato da virgole di tag di inclusione/esclusione (vedere di seguito) che indicano la dipendenza da includere nel pacchetto finale. Il valore predefinito è `none`. |
-| exclude | Elenco delimitato da virgole di tag di inclusione/esclusione (vedere di seguito) che indicano la dipendenza da escludere nel pacchetto finale. Il valore predefinito è `all`. I tag specificati con `exclude` hanno la precedenza rispetto a quelli specificati con `include`. Ad esempio, `include="runtime, compile" exclude="compile"` equivale a `include="runtime"`. |
+| include | Elenco delimitato da virgole di tag di inclusione/esclusione (vedere di seguito) che indicano la dipendenza da includere nel pacchetto finale. Il valore predefinito è `all`. |
+| exclude | Elenco delimitato da virgole di tag di inclusione/esclusione (vedere di seguito) che indicano la dipendenza da escludere nel pacchetto finale. Il valore predefinito è `build,analyzers` che può essere sovrascritto. Ma `content/ ContentFiles` vengono esclusi anche in modo implicito nel pacchetto finale che non può essere sovrascritto. I tag specificati con `exclude` hanno la precedenza rispetto a quelli specificati con `include`. Ad esempio, `include="runtime, compile" exclude="compile"` equivale a `include="runtime"`. |
 
 | Tag di inclusione/esclusione | Cartelle di destinazione interessate |
 | --- | --- |
