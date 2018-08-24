@@ -7,60 +7,60 @@ manager: unnir
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 8bbbc785a50e49530bbbd4e88bbd71a8a7bfe911
-ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
+ms.openlocfilehash: 0679b60179760d6626e7ce42bfdbdfa266677ce6
+ms.sourcegitcommit: c643dd2c44e085601551ff7079d696bcc3ad2b49
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39508179"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42792953"
 ---
-# <a name="signing-nuget-packages"></a><span data-ttu-id="af383-103">Firma di pacchetti NuGet</span><span class="sxs-lookup"><span data-stu-id="af383-103">Signing NuGet Packages</span></span>
+# <a name="signing-nuget-packages"></a><span data-ttu-id="857f1-103">Firma di pacchetti NuGet</span><span class="sxs-lookup"><span data-stu-id="857f1-103">Signing NuGet Packages</span></span>
 
-<span data-ttu-id="af383-104">La firma di un pacchetto è un processo per assicurarsi che il pacchetto non sia stato modificato dopo la creazione.</span><span class="sxs-lookup"><span data-stu-id="af383-104">Signing a package is a process that makes sure the package has not been modified since its creation.</span></span>
+<span data-ttu-id="857f1-104">La firma di un pacchetto è un processo per assicurarsi che il pacchetto non sia stato modificato dopo la creazione.</span><span class="sxs-lookup"><span data-stu-id="857f1-104">Signing a package is a process that makes sure the package has not been modified since its creation.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="af383-105">Prerequisiti</span><span class="sxs-lookup"><span data-stu-id="af383-105">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="857f1-105">Prerequisiti</span><span class="sxs-lookup"><span data-stu-id="857f1-105">Prerequisites</span></span>
 
-1. <span data-ttu-id="af383-106">Il pacchetto (file `.nupkg`) da firmare.</span><span class="sxs-lookup"><span data-stu-id="af383-106">The package (a `.nupkg` file) to sign.</span></span> <span data-ttu-id="af383-107">Vedere [Creazione di un pacchetto](creating-a-package.md).</span><span class="sxs-lookup"><span data-stu-id="af383-107">See [Creating a package](creating-a-package.md).</span></span>
+1. <span data-ttu-id="857f1-106">Il pacchetto (file `.nupkg`) da firmare.</span><span class="sxs-lookup"><span data-stu-id="857f1-106">The package (a `.nupkg` file) to sign.</span></span> <span data-ttu-id="857f1-107">Vedere [Creazione di un pacchetto](creating-a-package.md).</span><span class="sxs-lookup"><span data-stu-id="857f1-107">See [Creating a package](creating-a-package.md).</span></span>
 
-1. <span data-ttu-id="af383-108">nuget.exe 4.6.0 o versione successiva.</span><span class="sxs-lookup"><span data-stu-id="af383-108">nuget.exe 4.6.0 or later.</span></span> <span data-ttu-id="af383-109">Vedere come [installare l'interfaccia della riga di comando di nuget.exe](../install-nuget-client-tools.md#nugetexe-cli).</span><span class="sxs-lookup"><span data-stu-id="af383-109">See how to [Install NuGet CLI](../install-nuget-client-tools.md#nugetexe-cli).</span></span>
+1. <span data-ttu-id="857f1-108">nuget.exe 4.6.0 o versione successiva.</span><span class="sxs-lookup"><span data-stu-id="857f1-108">nuget.exe 4.6.0 or later.</span></span> <span data-ttu-id="857f1-109">Vedere come [installare l'interfaccia della riga di comando di nuget.exe](../install-nuget-client-tools.md#nugetexe-cli).</span><span class="sxs-lookup"><span data-stu-id="857f1-109">See how to [Install NuGet CLI](../install-nuget-client-tools.md#nugetexe-cli).</span></span>
 
-1. <span data-ttu-id="af383-110">[Un certificato di firma del codice](../reference/signed-packages-reference.md#get-a-code-signing-certificate).</span><span class="sxs-lookup"><span data-stu-id="af383-110">[A code signing certificate](../reference/signed-packages-reference.md#get-a-code-signing-certificate).</span></span>
+1. <span data-ttu-id="857f1-110">[Un certificato di firma del codice](../reference/signed-packages-reference.md#get-a-code-signing-certificate).</span><span class="sxs-lookup"><span data-stu-id="857f1-110">[A code signing certificate](../reference/signed-packages-reference.md#get-a-code-signing-certificate).</span></span>
 
-## <a name="sign-a-package"></a><span data-ttu-id="af383-111">Firmare un pacchetto</span><span class="sxs-lookup"><span data-stu-id="af383-111">Sign a package</span></span>
+## <a name="sign-a-package"></a><span data-ttu-id="857f1-111">Firmare un pacchetto</span><span class="sxs-lookup"><span data-stu-id="857f1-111">Sign a package</span></span>
 
-<span data-ttu-id="af383-112">Per firmare un pacchetto, usare [nuget sign](../tools/cli-ref-sign.md):</span><span class="sxs-lookup"><span data-stu-id="af383-112">To sign a package, use [nuget sign](../tools/cli-ref-sign.md):</span></span>
+<span data-ttu-id="857f1-112">Per firmare un pacchetto, usare [nuget sign](../tools/cli-ref-sign.md):</span><span class="sxs-lookup"><span data-stu-id="857f1-112">To sign a package, use [nuget sign](../tools/cli-ref-sign.md):</span></span>
 
 ```cli
 nuget sign MyPackage.nupkg -CertificateSubjectName <MyCertSubjectName> -Timestamper <TimestampServiceURL>
 ```
 
-<span data-ttu-id="af383-113">Come descritto nelle informazioni di riferimento sui comandi, è possibile usare un certificato disponibile nell'archivio certificati o usare un certificato da un file.</span><span class="sxs-lookup"><span data-stu-id="af383-113">As described in the command reference, you can use a certificate available in the certificate store or use a certificate from a file.</span></span>
+<span data-ttu-id="857f1-113">Come descritto nelle informazioni di riferimento sui comandi, è possibile usare un certificato disponibile nell'archivio certificati o usare un certificato da un file.</span><span class="sxs-lookup"><span data-stu-id="857f1-113">As described in the command reference, you can use a certificate available in the certificate store or use a certificate from a file.</span></span>
 
-### <a name="common-problems-when-signing-a-package"></a><span data-ttu-id="af383-114">Problemi comuni durante la firma di un pacchetto</span><span class="sxs-lookup"><span data-stu-id="af383-114">Common problems when signing a package</span></span>
+### <a name="common-problems-when-signing-a-package"></a><span data-ttu-id="857f1-114">Problemi comuni durante la firma di un pacchetto</span><span class="sxs-lookup"><span data-stu-id="857f1-114">Common problems when signing a package</span></span>
 
-- <span data-ttu-id="af383-115">Il certificato non è valido per la firma del codice.</span><span class="sxs-lookup"><span data-stu-id="af383-115">The certificate is not valid for code signing.</span></span> <span data-ttu-id="af383-116">È necessario assicurarsi che il certificato specificato abbia l'utilizzo chiavi avanzato appropriato (EKU 1.3.6.1.5.5.7.3.3).</span><span class="sxs-lookup"><span data-stu-id="af383-116">You must ensure the certificate specified has the appropriate extended key usage (EKU 1.3.6.1.5.5.7.3.3).</span></span>
-- <span data-ttu-id="af383-117">Il certificato non soddisfa i requisiti di base, ad esempio l'algoritmo di firma RSA SHA-256 o una chiave pubblica a 2048 bit o superiore.</span><span class="sxs-lookup"><span data-stu-id="af383-117">The certificate does not satisfy the basic requirements such as the RSA SHA-256 signature algorithm or a public key 2048 bits or greater.</span></span>
-- <span data-ttu-id="af383-118">Il certificato è scaduto o è stato revocato.</span><span class="sxs-lookup"><span data-stu-id="af383-118">The certificate has expired or has been revoked.</span></span>
-- <span data-ttu-id="af383-119">Il server di timestamp non soddisfa i requisiti del certificato.</span><span class="sxs-lookup"><span data-stu-id="af383-119">The timestamp server does not satisfy the certificate requirements.</span></span>
+- <span data-ttu-id="857f1-115">Il certificato non è valido per la firma del codice.</span><span class="sxs-lookup"><span data-stu-id="857f1-115">The certificate is not valid for code signing.</span></span> <span data-ttu-id="857f1-116">È necessario assicurarsi che il certificato specificato abbia l'utilizzo chiavi avanzato appropriato (EKU 1.3.6.1.5.5.7.3.3).</span><span class="sxs-lookup"><span data-stu-id="857f1-116">You must ensure the certificate specified has the appropriate extended key usage (EKU 1.3.6.1.5.5.7.3.3).</span></span>
+- <span data-ttu-id="857f1-117">Il certificato non soddisfa i requisiti di base, ad esempio l'algoritmo di firma RSA SHA-256 o una chiave pubblica a 2048 bit o superiore.</span><span class="sxs-lookup"><span data-stu-id="857f1-117">The certificate does not satisfy the basic requirements such as the RSA SHA-256 signature algorithm or a public key 2048 bits or greater.</span></span>
+- <span data-ttu-id="857f1-118">Il certificato è scaduto o è stato revocato.</span><span class="sxs-lookup"><span data-stu-id="857f1-118">The certificate has expired or has been revoked.</span></span>
+- <span data-ttu-id="857f1-119">Il server di timestamp non soddisfa i requisiti del certificato.</span><span class="sxs-lookup"><span data-stu-id="857f1-119">The timestamp server does not satisfy the certificate requirements.</span></span>
 
 > [!Note]
-> <span data-ttu-id="af383-120">I pacchetti firmati devono includere un timestamp per assicurarsi che la firma rimanga valida dopo la scadenza del certificato di firma.</span><span class="sxs-lookup"><span data-stu-id="af383-120">Signed packages should include a timestamp to make sure the signature remains valid when the signing certificate has expired.</span></span> <span data-ttu-id="af383-121">L'operazione di firma genera un [avviso NU3002](../reference/errors-and-warnings/NU3002.md) se avviene senza un timestamp.</span><span class="sxs-lookup"><span data-stu-id="af383-121">The sign operation produce a [warning NU3002](../reference/errors-and-warnings/NU3002.md) when signing without a timestamp.</span></span>
+> <span data-ttu-id="857f1-120">I pacchetti firmati devono includere un timestamp per assicurarsi che la firma rimanga valida dopo la scadenza del certificato di firma.</span><span class="sxs-lookup"><span data-stu-id="857f1-120">Signed packages should include a timestamp to make sure the signature remains valid when the signing certificate has expired.</span></span> <span data-ttu-id="857f1-121">L'operazione di firma genera un [avviso NU3002](../reference/errors-and-warnings/NU3002.md) se avviene senza un timestamp.</span><span class="sxs-lookup"><span data-stu-id="857f1-121">The sign operation produce a [warning NU3002](../reference/errors-and-warnings/NU3002.md) when signing without a timestamp.</span></span>
 
-## <a name="verify-a-signed-package"></a><span data-ttu-id="af383-122">Verificare un pacchetto firmato</span><span class="sxs-lookup"><span data-stu-id="af383-122">Verify a signed package</span></span>
+## <a name="verify-a-signed-package"></a><span data-ttu-id="857f1-122">Verificare un pacchetto firmato</span><span class="sxs-lookup"><span data-stu-id="857f1-122">Verify a signed package</span></span>
 
-<span data-ttu-id="af383-123">Usare [nuget verify](../tools/cli-ref-verify.md) per visualizzare i dettagli di firma di un determinato pacchetto:</span><span class="sxs-lookup"><span data-stu-id="af383-123">Use [nuget verify](../tools/cli-ref-verify.md) to see the signature details of a given package:</span></span>
+<span data-ttu-id="857f1-123">Usare [nuget verify](../tools/cli-ref-verify.md) per visualizzare i dettagli di firma di un determinato pacchetto:</span><span class="sxs-lookup"><span data-stu-id="857f1-123">Use [nuget verify](../tools/cli-ref-verify.md) to see the signature details of a given package:</span></span>
 
 ```cli
 nuget verify -signature MyPackage.nupkg
 ```
 
-## <a name="install-a-signed-package"></a><span data-ttu-id="af383-124">Installare un pacchetto firmato</span><span class="sxs-lookup"><span data-stu-id="af383-124">Install a signed package</span></span>
+## <a name="install-a-signed-package"></a><span data-ttu-id="857f1-124">Installare un pacchetto firmato</span><span class="sxs-lookup"><span data-stu-id="857f1-124">Install a signed package</span></span>
 
-<span data-ttu-id="af383-125">Non sono richieste azioni specifiche per l'installazione di pacchetti firmati. Tuttavia, se il contenuto è stato modificato dopo la firma, l'installazione viene bloccata e genera un [errore NU3008](../reference/errors-and-warnings/NU3008.md).</span><span class="sxs-lookup"><span data-stu-id="af383-125">Signed packages don't require any specific action to be installed; however, if the content has been modified since it was signed, the installation be blocked and produces a [error NU3008](../reference/errors-and-warnings/NU3008.md).</span></span>
+<span data-ttu-id="857f1-125">Non sono richieste azioni specifiche per l'installazione di pacchetti firmati. Tuttavia, se il contenuto è stato modificato dopo la firma, l'installazione viene bloccata e genera un [errore NU3008](../reference/errors-and-warnings/NU3008.md).</span><span class="sxs-lookup"><span data-stu-id="857f1-125">Signed packages don't require any specific action to be installed; however, if the content has been modified since it was signed, the installation is blocked and produces an [error NU3008](../reference/errors-and-warnings/NU3008.md).</span></span>
 
 > [!Warning]
-> <span data-ttu-id="af383-126">I pacchetti firmati con certificati non attendibili vengono considerati non firmati e installati senza eventuali avvisi o errori come qualsiasi altro pacchetto non firmato.</span><span class="sxs-lookup"><span data-stu-id="af383-126">Packages signed with untrusted certificates are considered as unsigned and are installed without any warnings or errors like any other unsigned package.</span></span>
+> <span data-ttu-id="857f1-126">I pacchetti firmati con certificati non attendibili vengono considerati non firmati e installati senza eventuali avvisi o errori come qualsiasi altro pacchetto non firmato.</span><span class="sxs-lookup"><span data-stu-id="857f1-126">Packages signed with untrusted certificates are considered as unsigned and are installed without any warnings or errors like any other unsigned package.</span></span>
 
-## <a name="see-also"></a><span data-ttu-id="af383-127">Vedere anche</span><span class="sxs-lookup"><span data-stu-id="af383-127">See also</span></span>
+## <a name="see-also"></a><span data-ttu-id="857f1-127">Vedere anche</span><span class="sxs-lookup"><span data-stu-id="857f1-127">See also</span></span>
 
-[<span data-ttu-id="af383-128">Informazioni di riferimento sui pacchetti firmati</span><span class="sxs-lookup"><span data-stu-id="af383-128">Signed Packages Reference</span></span>](../reference/Signed-Packages-Reference.md)
+[<span data-ttu-id="857f1-128">Informazioni di riferimento sui pacchetti firmati</span><span class="sxs-lookup"><span data-stu-id="857f1-128">Signed Packages Reference</span></span>](../reference/Signed-Packages-Reference.md)
