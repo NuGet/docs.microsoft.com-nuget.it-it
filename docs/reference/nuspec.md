@@ -87,7 +87,7 @@ URL di un'immagine 64x64 con sfondo trasparente da usare come icona per il pacch
 #### <a name="requirelicenseacceptance"></a>requireLicenseAcceptance
 Valore booleano che specifica se il client deve richiedere al consumer di accettare la licenza del pacchetto prima di installarlo.
 #### <a name="developmentdependency"></a>developmentDependency
-*(2.8 +)*  Valore booleano che specifica se il pacchetto deve essere contrassegnato come dipendenza solo per lo sviluppo, in modo che il pacchetto non possa essere incluso come dipendenza in altri pacchetti.
+*(2.8+)* Valore booleano che specifica se il pacchetto deve essere contrassegnato come dipendenza solo per lo sviluppo, in modo che il pacchetto non possa essere incluso come dipendenza in altri pacchetti.
 #### <a name="summary"></a>summary
 Descrizione breve del pacchetto per la visualizzazione dell'interfaccia utente. Se omesso, viene usata una versione troncata di `description`.
 #### <a name="releasenotes"></a>releaseNotes
