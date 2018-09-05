@@ -1,29 +1,28 @@
 ---
 title: 3.5 note sulla versione RC
-description: Note sulla versione per NuGet 3.5 RC inclusi dcr, correzioni di bug, le funzionalità aggiunte e problemi noti.
+description: Note sulla versione per NuGet 3.5 RC, tra cui i problemi noti, correzioni di bug, funzionalità aggiunte e dcr.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: d620a8b8d97f9a52cb2bc93a91eb393130a42898
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: 52c443ecd79c9108203f5a3c327078ce9e28b95b
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32044779"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43548538"
 ---
-# <a name="nuget-35-rc-release-notes"></a>Note sulla versione RC NuGet 3.5
+# <a name="nuget-35-rc-release-notes"></a>Note sulla versione per NuGet 3.5 RC
 
-[Note sulla versione 3.5 Beta2 NuGet](../release-notes/nuget-3.5-Beta2.md) | [NuGet 3.5-RTM note sulla versione](../release-notes/nuget-3.5-RTM.md)
+[Note sulla versione per NuGet 3.5-Beta2](../release-notes/nuget-3.5-Beta2.md) | [NuGet 3.5-note sulla versione RTM](../release-notes/nuget-3.5-RTM.md)
 
-versione 3.5 è incentrata sul miglioramento della qualità e prestazioni dei client NuGet. Inoltre, è stato fornito alcune funzionalità come il supporto per [cartelle Fallback](https://github.com/NuGet/Home/issues/2899), [PackageType](https://github.com/NuGet/Home/issues/2476) supporta in `.nuspec` e altro ancora.
+versione 3.5 è incentrata sul miglioramento della qualità e prestazioni dei client di NuGet. Abbiamo, inoltre, abbiamo fornito alcune funzionalità, come il supporto [cartelle di Fallback](https://github.com/NuGet/Home/issues/2899), [PackageType](https://github.com/NuGet/Home/issues/2476) supportare in `.nuspec` e altro ancora.
 
 [Elenco dei problemi](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%223.5%20RC")
 
 ## <a name="bug-fixes"></a>Correzioni di bug
 
-* Installazione o il ripristino di un pacchetto ha esito negativo con "pacchetto contiene più `.nuspec` file." - [#3231](https://github.com/NuGet/Home/issues/3231)
+* Installazione e il ripristino di un pacchetto ha esito negativo con "pacchetto contiene più `.nuspec` file." - [#3231](https://github.com/NuGet/Home/issues/3231)
 
 * pacchetto NuGet aggiunge in modo forzato `.tt` i file di contenuto cartella indipendentemente - [#3203](https://github.com/NuGet/Home/issues/3203)
 
@@ -55,7 +54,7 @@ versione 3.5 è incentrata sul miglioramento della qualità e prestazioni dei cl
 
 * Stringa non corretto: una versione stabile di un pacchetto non deve avere in una versione non definitiva dipendenza. - [#3030](https://github.com/NuGet/Home/issues/3030)
 
-* Creazione di get progetto PCL (net46 e windows 10) NullRef eccezione. - [#3014](https://github.com/NuGet/Home/issues/3014)
+* Creazione di get di progetto libreria di classi Portabile (destinazione net46 e windows 10) l'eccezione NullRef. - [#3014](https://github.com/NuGet/Home/issues/3014)
 
 * Aggiornamento di NuGet deve fornire un messaggio informativo quando una versione successiva è limitata dal vincolo di attributo allowedversions valido - [#3013](https://github.com/NuGet/Home/issues/3013)
 
@@ -69,11 +68,11 @@ versione 3.5 è incentrata sul miglioramento della qualità e prestazioni dei cl
 
 * Risolvere i problemi di accessibilità - [#2745](https://github.com/NuGet/Home/issues/2745)
 
-* Framework portabili con profili sillabati vengono rifiutate. - [#2734](https://github.com/NuGet/Home/issues/2734)
+* Framework portabili con i profili con trattini sono rifiutate. - [#2734](https://github.com/NuGet/Home/issues/2734)
 
 * Gestione pacchetti NuGet deve mettere in evidenza tale elenco di opzioni in dettaglio non è valida per i pacchetti `project.json`  -  [#2665](https://github.com/NuGet/Home/issues/2665)
 
-* NuGet 3.3.0 aggiornamento ha esito negativo con '... un vincolo aggiuntivo definito nel file Packages. config impedisce questa operazione.' - [#1816](https://github.com/NuGet/Home/issues/1816)
+* NuGet 3.3.0 aggiornamento ha esito negativo con '... un ulteriore vincolo definito in Packages. config impedisce l'operazione.' - [#1816](https://github.com/NuGet/Home/issues/1816)
 
 * L'installazione del pacchetto da un'origine locale che non esiste genera un messaggio fittizio - [#1674](https://github.com/NuGet/Home/issues/1674)
 
@@ -83,9 +82,9 @@ versione 3.5 è incentrata sul miglioramento della qualità e prestazioni dei cl
 
 * Prestazioni: Miglioramento ContentModel destinazione framework analisi - [#3162](https://github.com/NuGet/Home/issues/3162)
 
-* Prestazioni: Evitare la lettura `runtime.json` file per i ripristini che non dispongono di RID [#3150](https://github.com/NuGet/Home/issues/3150). Nei computer degli elementi di configurazione, il ripristino di un esempio di che applicazione Web ASP.NET ridotto più di 15 secondi per 3 secondi.
+* Prestazioni: Evitare la lettura `runtime.json` file per i ripristini che non dispongono di RID [#3150](https://github.com/NuGet/Home/issues/3150). Nei computer di integrazione continua, il ripristino di un esempio di che applicazione Web ASP.NET ridotta da più di 15 secondi per 3 secondi.
 
-* Prestazioni: Tempo di caricamento Package Manager Console init.ps1 [#2956](https://github.com/NuGet/Home/issues/2956). Tempo di apertura PackageManagerConsole migliorate in alcuni casi 132s 10s.
+* Prestazioni: Tempo di caricamento Package Manager Console init.ps1 [#2956](https://github.com/NuGet/Home/issues/2956). Tempo di apertura PackageManagerConsole migliorata in alcuni casi da 132s a 10 secondi.
 
 * Risolvere i problemi di prestazioni ReSharper in aggiornamento NuGet - [#3044](https://github.com/NuGet/Home/issues/3044): in un progetto di esempio, tempo impiegato per installare i pacchetti ridotto da 140s a 68s.
 
@@ -99,7 +98,7 @@ versione 3.5 è incentrata sul miglioramento della qualità e prestazioni dei cl
 
 * Stampare il contenuto dell'intestazione NuGet avviso alla console in nuget.exe - [#2934](https://github.com/NuGet/Home/issues/2934)
 
-* Attributo AssemblyMetadata sfruttano `.nuspec` token sostituzioni - [#2851](https://github.com/NuGet/Home/issues/2851)
+* Attributo AssemblyMetadata sfrutta `.nuspec` token sostituzioni - [#2851](https://github.com/NuGet/Home/issues/2851)
 
 * Rimuovere la proprietà bloccata dal file di blocco - [#2379](https://github.com/NuGet/Home/issues/2379)
 
@@ -113,4 +112,4 @@ versione 3.5 è incentrata sul miglioramento della qualità e prestazioni dei cl
 
 * API per ottenere il percorso della cartella di pacchetti globale - [#2403](https://github.com/NuGet/Home/issues/2403)
 
-* Pacchetti nativi aggiornare supporto - [#1291](https://github.com/NuGet/Home/issues/1291)
+* Supporto - aggiornare i pacchetti nativi [#1291](https://github.com/NuGet/Home/issues/1291)

@@ -1,28 +1,27 @@
 ---
 title: Contenuto del pacchetto, NuGet API
-description: L'indirizzo di base del pacchetto è un'interfaccia semplice per recuperare il pacchetto stesso.
+description: L'indirizzo di base del pacchetto è una semplice interfaccia per recuperare il pacchetto stesso.
 author: joelverhagen
 ms.author: jver
-manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: a6ac40368f30d33f35d4ca0b6cc18ce4bd6efee5
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 740defc34077793b81fb35db73a2eee393ae3bac
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31819177"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43547154"
 ---
 # <a name="package-content"></a>Contenuto del pacchetto
 
-È possibile generare un URL per recuperare il contenuto del pacchetto non autorizzato (il file .nupkg) tramite l'API V3. La risorsa utilizzata per il recupero di contenuto del pacchetto è il `PackageBaseAddress` risorse, vedere il [indice servizio](service-index.md). Questa risorsa consente inoltre l'individuazione di tutte le versioni di un pacchetto, elencato o non in elenco.
+È possibile generare un URL per recuperare il contenuto del pacchetto arbitrario (file nupkg) usando l'API di V3. La risorsa usata per recuperare il contenuto del pacchetto è il `PackageBaseAddress` trovare la risorsa nella [indice del servizio](service-index.md). Questa risorsa consente anche l'individuazione di tutte le versioni di un pacchetto, elencati o non in elenco.
 
-Questa risorsa è noto come un "pacchetto indirizzo di base" o "container flat".
+Questa risorsa è noto come entrambi il "pacchetto base address" o il contenitore"flat".
 
 ## <a name="versioning"></a>Controllo delle versioni
 
-Le operazioni seguenti `@type` valore viene utilizzato:
+Nell'esempio `@type` valore viene usato:
 
 Valore di @type              | Note
 ------------------------ | -----
@@ -30,18 +29,18 @@ PackageBaseAddress/3.0.0 | La versione iniziale
 
 ## <a name="base-url"></a>URL di base
 
-L'URL di base per le API seguente è il valore di `@id` proprietà associato alla risorsa menzionati in precedenza `@type` valore. Nel documento seguente, il segnaposto URL di base `{@id}` verrà utilizzato.
+L'URL di base per le API seguente è il valore della `@id` proprietà associato alla risorsa menzionati in precedenza `@type` valore. Nel documento seguente, il segnaposto URL di base `{@id}` verrà utilizzato.
 
 ## <a name="http-methods"></a>Metodi HTTP
 
-Tutti gli URL trovati, il supporto di risorsa di registrazione, i metodi HTTP `GET` e `HEAD`.
+Tutti gli URL disponibili il supporto di risorse di registrazione i metodi HTTP `GET` e `HEAD`.
 
-## <a name="enumerate-package-versions"></a>Enumerare le versioni di pacchetto
+## <a name="enumerate-package-versions"></a>Enumera le versioni dei pacchetti
 
-Se il client conosce un ID pacchetto e desidera individuare quali versioni del pacchetto il pacchetto di origine è disponibile, il client può costruire un URL prevedibile per enumerare tutte le versioni di pacchetto. Questo elenco deve essere un "elenco di directory" per l'API di contenuto del pacchetto riportata di seguito.
+Se il client riconosce un ID pacchetto e vuole scoprire quali versioni dei pacchetti il pacchetto di origine è disponibile, il client può costruire un URL prevedibile per enumerare tutte le versioni del pacchetto. Questo elenco deve essere un "elenco di directory" per l'API di pacchetto contenuto indicato di seguito.
 
 > [!Note]
-> Questo elenco contiene entrambe le versioni di pacchetto elencate e non in elenco.
+> Questo elenco contiene entrambe le versioni dei pacchetti elencati e non in elenco.
 
     GET {@id}/{LOWER_ID}/index.json
 
@@ -51,21 +50,21 @@ nome     | In     | Tipo    | Obbligatorio | Note
 -------- | ------ | ------- | -------- | -----
 LOWER_ID | URL    | stringa  | sì      | L'ID del pacchetto, lettere minuscole
 
-Il `LOWER_ID` valore è l'ID del pacchetto desiderato minuscola usando le regole implementate da. Del NET [ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) metodo.
+Il `LOWER_ID` valore è l'ID pacchetto desiderato minuscola usando le regole implementate da. Di NET [ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) (metodo).
 
 ### <a name="response"></a>Risposta
 
-Se l'origine del pacchetto non dispone di alcuna versione dell'ID pacchetto fornito, viene restituito un codice di 404 stato.
+Se l'origine del pacchetto non ci è versioni dell'ID del pacchetto fornito, viene restituito un codice di 404 stato.
 
-Se l'origine del pacchetto ha una o più versioni, viene restituito un codice di 200 stato. Il corpo della risposta è un oggetto JSON con la seguente proprietà:
+Se l'origine del pacchetto ha una o più versioni, viene restituito un codice di 200 stato. Il corpo della risposta è un oggetto JSON con la proprietà seguente:
 
 nome     | Tipo             | Obbligatorio | Note
 -------- | ---------------- | -------- | -----
 versioni | Matrice di stringhe | sì      | L'ID pacchetto
 
-Le stringhe di `versions` matrice tutti minuscola, [normalizzare le stringhe di versione NuGet](../reference/package-versioning.md#normalized-version-numbers). Le stringhe di versione non contengono i metadati di compilazione SemVer 2.0.0.
+Le stringhe nel `versions` matrice tutte minuscole, [normalizzato le stringhe di versione di NuGet](../reference/package-versioning.md#normalized-version-numbers). Le stringhe di versione non contengono i metadati di compilazione di SemVer 2.0.0.
 
-Lo scopo è che le stringhe di versione trovate in questa matrice consente alla lettera per il `LOWER_VERSION` token, vedere i seguenti endpoint.
+L'intento è che le stringhe di versione disponibili in questa matrice possono essere usate come verbatim per il `LOWER_VERSION` token trovato nell'endpoint seguenti.
 
 ### <a name="sample-request"></a>Richiesta di esempio
 
@@ -75,9 +74,9 @@ Lo scopo è che le stringhe di versione trovate in questa matrice consente alla 
 
 [!code-JSON [package-base-address-index.json](./_data/package-base-address-index.json)]
 
-## <a name="download-package-content-nupkg"></a>Scaricare il contenuto del pacchetto (.nupkg)
+## <a name="download-package-content-nupkg"></a>Scarica contenuto pacchetto (con estensione nupkg)
 
-Se il client conosce un ID pacchetto e una versione e desidera scaricare il contenuto del pacchetto, è necessario solo costruire l'URL seguente:
+Se il client sa un ID pacchetto e versione e si vuole scaricare il contenuto del pacchetto, è sufficiente creare l'URL seguente:
 
     GET {@id}/{LOWER_ID}/{LOWER_VERSION}/{LOWER_ID}.{LOWER_VERSION}.nupkg
 
@@ -86,15 +85,16 @@ Se il client conosce un ID pacchetto e una versione e desidera scaricare il cont
 nome          | In     | Tipo   | Obbligatorio | Note
 ------------- | ------ | ------ | -------- | -----
 LOWER_ID      | URL    | stringa | sì      | L'ID del pacchetto, lettere minuscole
-LOWER_VERSION | URL    | stringa | sì      | La versione del pacchetto, normalizzato e minuscola
+LOWER_VERSION | URL    | stringa | sì      | La versione del pacchetto, normalizzate e minuscola
 
-Entrambi `LOWER_ID` e `LOWER_VERSION` sono minuscole usando le regole implementate da. Del NET [ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) metodo.
+Entrambe `LOWER_ID` e `LOWER_VERSION` sono minuscole usando le regole implementate da. Di NET [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant)
+ProcessOnStatus.
 
-Il `LOWER_VERSION` è la versione del pacchetto desiderato normalizzata usando la versione NuGet [le regole di normalizzazione](../reference/package-versioning.md#normalized-version-numbers). Ciò significa che i metadati di compilazione consentiti dalla specifica SemVer 2.0.0 devono essere escluso in questo caso.
+Il `LOWER_VERSION` è la versione del pacchetto desiderato normalizzata mediante una versione di NuGet [regole di normalizzazione](../reference/package-versioning.md#normalized-version-numbers). Ciò significa che i metadati di compilazione che sono consentito dalla specifica di SemVer 2.0.0 devono essere escluse in questo caso.
 
 ### <a name="response-body"></a>Corpo della risposta
 
-Se il pacchetto esiste nell'origine del pacchetto, viene restituito un codice di 200 stato. Il corpo della risposta sarà il contenuto del pacchetto.
+Se il pacchetto esiste nell'origine del pacchetto, viene restituito un codice di 200 stato. Il corpo della risposta sarà contenuto il pacchetto stesso.
 
 Se il pacchetto non esiste nell'origine pacchetto, viene restituito un codice di 404 stato.
 
@@ -104,11 +104,11 @@ Se il pacchetto non esiste nell'origine pacchetto, viene restituito un codice di
 
 ### <a name="sample-response"></a>Risposta di esempio
 
-Il flusso binario che è il .nupkg per 9.0.1 di newtonsoft. JSON.
+Il flusso di dati binari è il pacchetto. nupkg per newtonsoft. JSON 9.0.1.
 
-## <a name="download-package-manifest-nuspec"></a>Scaricare il manifesto di pacchetto (. nuspec)
+## <a name="download-package-manifest-nuspec"></a>Scaricare il manifesto di pacchetto (con estensione nuspec)
 
-Se il client conosce un ID pacchetto e una versione e desidera scaricare il manifesto di pacchetto, è necessario solo costruire l'URL seguente:
+Se il client sa un ID pacchetto e versione e si vuole scaricare il manifesto del pacchetto, è sufficiente creare l'URL seguente:
 
     GET {@id}/{LOWER_ID}/{LOWER_VERSION}/{LOWER_ID}.nuspec
 
@@ -117,15 +117,15 @@ Se il client conosce un ID pacchetto e una versione e desidera scaricare il mani
 nome          | In     | Tipo    | Obbligatorio | Note
 ------------- | ------ | ------- | -------- | -----
 LOWER_ID      | URL    | stringa  | sì      | L'ID del pacchetto, lettere minuscole
-LOWER_VERSION | URL    | numero intero | sì      | La versione del pacchetto, normalizzato e minuscola
+LOWER_VERSION | URL    | numero intero | sì      | La versione del pacchetto, normalizzate e minuscola
 
-Entrambi `LOWER_ID` e `LOWER_VERSION` sono minuscole usando le regole implementate da. Del NET [ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) metodo.
+Entrambe `LOWER_ID` e `LOWER_VERSION` sono minuscole usando le regole implementate da. Di NET [ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) (metodo).
 
-Il `LOWER_VERSION` è la versione del pacchetto desiderato normalizzata usando la versione NuGet [le regole di normalizzazione](../reference/package-versioning.md#normalized-version-numbers). Ciò significa che i metadati di compilazione consentiti dalla specifica SemVer 2.0.0 devono essere escluso in questo caso.
+Il `LOWER_VERSION` è la versione del pacchetto desiderato normalizzata mediante una versione di NuGet [regole di normalizzazione](../reference/package-versioning.md#normalized-version-numbers). Ciò significa che i metadati di compilazione che sono consentito dalla specifica di SemVer 2.0.0 devono essere escluse in questo caso.
 
 ### <a name="response-body"></a>Corpo della risposta
 
-Se il pacchetto esiste nell'origine del pacchetto, viene restituito un codice di 200 stato. Il corpo della risposta sarà il manifesto del pacchetto, ovvero il. nuspec nel .nupkg corrispondente. I. nuspec è un documento XML.
+Se il pacchetto esiste nell'origine del pacchetto, viene restituito un codice di 200 stato. Il corpo della risposta sarà il manifesto di pacchetto, ovvero il file con estensione nuspec contenuti nel pacchetto. nupkg corrispondente. Il file con estensione nuspec è un documento XML.
 
 Se il pacchetto non esiste nell'origine pacchetto, viene restituito un codice di 404 stato.
 

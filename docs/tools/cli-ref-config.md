@@ -1,23 +1,22 @@
 ---
-title: Comando config NuGet CLI
-description: Riferimento per il comando config di nuget.exe
+title: Comando config di NuGet CLI
+description: Informazioni di riferimento per il comando config nuget.exe
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 9deab9fcca740ea99da61b7d54700a29c1813e88
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 376b69186ad22d4d94a1df51146b833a1f6f9bd9
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818165"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546478"
 ---
-# <a name="config-command-nuget-cli"></a>comando config (NuGet CLI)
+# <a name="config-command-nuget-cli"></a>comando config di NuGet CLI)
 
-**Si applica a:** tutti &bullet; **le versioni supportate**: tutti
+**Si applica a:** tutte &bullet; **le versioni supportate**: tutti
 
-Ottiene o imposta i valori di configurazione NuGet. Per ulteriori informazioni sulla sintassi, vedere [configurazione NuGet comportamento](../consume-packages/configuring-nuget-behavior.md). Per ulteriori informazioni sui nomi di chiave consentiti, vedere il [riferimento al file di configurazione NuGet](../reference/nuget-config-file.md).
+Ottiene o imposta i valori di configurazione NuGet. Per altre informazioni sulla sintassi, vedere [configurazione del comportamento di NuGet](../consume-packages/configuring-nuget-behavior.md). Per informazioni dettagliate sui nomi di chiave consentiti, vedere la [riferimento al file di configurazione NuGet](../reference/nuget-config-file.md).
 
 ## <a name="usage"></a>Utilizzo
 
@@ -26,22 +25,22 @@ nuget config -Set <name>=[<value>] [<name>=<value> ...] [options]
 nuget config -AsPath <name> [options]
 ```
 
-dove `<name>` e `<value>` specificare una coppia chiave-valore da impostare nella configurazione. È possibile specificare un numero di coppie in base alle esigenze. Per rimuovere un valore, specificare il nome e il `=` sign ma nessun valore.
+in cui `<name>` e `<value>` specificare una coppia chiave-valore da impostare nella configurazione. È possibile specificare un numero di coppie in base alle esigenze. Per rimuovere un valore, specificare il nome e il `=` sign ma nessun valore.
 
-Per i nomi di chiave consentiti, vedere il [riferimento al file di configurazione NuGet](../reference/nuget-config-file.md).
+Per i nomi di chiave consentiti, vedere la [riferimento al file di configurazione NuGet](../reference/nuget-config-file.md).
 
-In NuGet 3.4 + `<value>` consente [le variabili di ambiente](cli-ref-environment-variables.md).
+In NuGet 3.4 + `<value>` utilizzabile [variabili di ambiente](cli-ref-environment-variables.md).
 
 ## <a name="options"></a>Opzioni
 
 | Opzione | Descrizione |
 | --- | --- |
-| AsPath | Restituisce la configurazione di valore come un percorso, ignorati quando `-Set` viene utilizzato. |
-| ConfigFile | Il file di configurazione NuGet da modificare. Se non specificato, `%AppData%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Mac o Linux) viene utilizzato.|
-| ForceEnglishOutput | *(3.5 +)*  Forza nuget.exe per eseguire utilizzando le impostazioni cultura invariante, in lingua inglese. |
+| AsPath | Restituisce la configurazione di valore come percorso UNC, ignorati quando `-Set` viene usato. |
+| ConfigFile | Il file di configurazione di NuGet da modificare. Se non specificato, `%AppData%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) viene usato.|
+| ForceEnglishOutput | *(3.5 +)*  Forza nuget.exe affinché venga eseguito usando una cultura invariante e di lingua inglese. |
 | ? | Visualizza la Guida informazioni per il comando. |
-| Non interattivo | Elimina richieste per l'input dell'utente o le conferme. |
-| Livello di dettaglio | Specifica la quantità di dettagli visualizzati nell'output: *normale*, *quiet*, *dettagliate*. |
+| Non interattive | Elimina richieste di input o conferme dell'utente. |
+| Livello di dettaglio | Specifica la quantità di dettaglio visualizzato nell'output: *normali*, *quiet*, *dettagliate*. |
 
 Vedere anche [le variabili di ambiente](cli-ref-environment-variables.md)
 

@@ -1,21 +1,20 @@
 ---
 title: Note sulla versione Beta di NuGet 3.5
-description: Note sulla versione per NuGet 3.5 incluso dcr, correzioni di bug, le funzionalità aggiunte e problemi noti.
+description: Note sulla versione per NuGet 3.5, inclusi i problemi noti, correzioni di bug, funzionalità aggiunte e dcr.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: cdb540229cae0e6e952ac2a0c00c8801ccbbb28d
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: d8df2cb51ddcc03fb3922d9e9def17b39fccc661
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31822591"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43550684"
 ---
 # <a name="nuget-35-release-notes"></a>Note sulla versione 3.5 di NuGet
 
-[Note sulla versione 3.5 RC di NuGet](../release-notes/nuget-3.5-RC.md) | [note sulla versione RC NuGet 4.0](../release-notes/nuget-4.0-RC.md)
+[Note sulla versione 3.5-RC di NuGet](../release-notes/nuget-3.5-RC.md) | [note sulla versione per NuGet 4.0 RC](../release-notes/nuget-4.0-RC.md)
 
 ## <a name="bug-fixes"></a>Correzioni di bug
 
@@ -129,7 +128,7 @@ ms.locfileid: "31822591"
 
 * Comando di aggiornamento potrebbe essere più dettagliato se i richiede che sia necessaria.... - [#2418](https://github.com/NuGet/Home/issues/2418)
 
-* VSIX compilato localmente la compilazione di CI deve essere la stessa DLL e file. - [#2401](https://github.com/NuGet/Home/issues/2401)
+* VSIX compilato localmente deve avere le stesse DLL e i file della compilazione CI. - [#2401](https://github.com/NuGet/Home/issues/2401)
 
 * Risolvere gli avvisi di downgrade di NuGet nella compilazione - [#2396](https://github.com/NuGet/Home/issues/2396)
 
@@ -149,7 +148,7 @@ ms.locfileid: "31822591"
 
 * Creare un pacchetto NuGet punta a downgrade quando batch l'aggiornamento delle relative dipendenze - [#1903](https://github.com/NuGet/Home/issues/1903)
 
-* aggiornamento di NuGet.exe elimina il nome sicuro dell'assembly e l'attributo privata. - [#1778](https://github.com/NuGet/Home/issues/1778)
+* aggiornamento NuGet.exe elimina il nome sicuro dell'assembly e l'attributo privato. - [#1778](https://github.com/NuGet/Home/issues/1778)
 
 * Percorso relativo del file per "DefaultPushSource" - [#1746](https://github.com/NuGet/Home/issues/1746)
 
@@ -161,11 +160,11 @@ ms.locfileid: "31822591"
 
 * Manca una dipendenza nel file NUPKG generato dal progetto se dipendenza indiretta esiste già con un requisito di versione inferiore - [#759](https://github.com/NuGet/Home/issues/759)
 
-* Eliminazione di un progetto chiude una finestra dell'interfaccia utente corrispondente, ma la ridenominazione di un progetto non comporta la ridenominazione la finestra dell'interfaccia utente. Si noti che è in ascolto PMC ridenominazione del progetto e di eventi nei progetti remove - [#670](https://github.com/NuGet/Home/issues/670)
+* L'eliminazione di un progetto chiude una finestra dell'interfaccia utente corrispondente, ma, ridenominazione di un progetto non si rinomina la finestra dell'interfaccia utente. Si noti che è in ascolto PMC ridenominazione del progetto e di eventi nei progetti remove - [#670](https://github.com/NuGet/Home/issues/670)
 
 * [Willow carico di lavoro Web] Creazione Razor v3 WSP si blocca - [#3241](https://github.com/NuGet/Home/issues/3241)
 
-* Installazione o il ripristino di un particolare pacchetto ha esito negativo con "Pacchetto contiene più file nuspec." - [#3231](https://github.com/NuGet/Home/issues/3231)
+* Installazione e il ripristino di un particolare pacchetto ha esito negativo con "Pacchetto contiene più file nuspec." - [#3231](https://github.com/NuGet/Home/issues/3231)
 
 * Minuscolo ID & `packages.config` scenari - [#3209](https://github.com/NuGet/Home/issues/3209)
 
@@ -203,7 +202,7 @@ ms.locfileid: "31822591"
 
 * "Bloccata da Packages" in `project.json` (UWP, dette anche compilazione integrato) progetto - [#3046](https://github.com/NuGet/Home/issues/3046)
 
-* aggiornare dotnet cli installato dallo script di compilazione per preview2-003121, la compilazione di preview2 ufficiale. - [#3045](https://github.com/NuGet/Home/issues/3045)
+* aggiornamento della riga di comando di dotnet installato dallo script di compilazione per preview2-003121, ovvero la compilazione preview2 ufficiale. - [#3045](https://github.com/NuGet/Home/issues/3045)
 
 * Pacchetto interfaccia utente di gestione: non visualizza una nuova versione dopo aver aggiornato un pacchetto- [#3041](https://github.com/NuGet/Home/issues/3041)
 
@@ -213,7 +212,7 @@ ms.locfileid: "31822591"
 
 * Cache OptimizedZipPackage lascia le cartelle vuote - [#3029](https://github.com/NuGet/Home/issues/3029)
 
-* Creazione di get progetto PCL (net46 e windows 10) NullRef eccezione. - [#3014](https://github.com/NuGet/Home/issues/3014)
+* Creazione di get di progetto libreria di classi Portabile (destinazione net46 e windows 10) l'eccezione NullRef. - [#3014](https://github.com/NuGet/Home/issues/3014)
 
 * Aggiornamento di NuGet deve fornire un messaggio informativo quando una versione successiva è limitata dal vincolo di attributo allowedversions valido - [#3013](https://github.com/NuGet/Home/issues/3013)
 
@@ -229,7 +228,7 @@ ms.locfileid: "31822591"
 
 * Etichetta di UIElement senza etichetta nel Package Manager UI per l'accessibilità - [#2745](https://github.com/NuGet/Home/issues/2745)
 
-* Framework portabili con profili sillabati vengono rifiutate. - [#2734](https://github.com/NuGet/Home/issues/2734)
+* Framework portabili con i profili con trattini sono rifiutate. - [#2734](https://github.com/NuGet/Home/issues/2734)
 
 * Gestione pacchetti NuGet deve mettere in evidenza tale elenco di opzioni in dettaglio non è valida per i pacchetti `project.json`  -  [#2665](https://github.com/NuGet/Home/issues/2665)
 
@@ -237,13 +236,13 @@ ms.locfileid: "31822591"
 
 * Rimuovere la proprietà bloccata dal file di blocco - [#2379](https://github.com/NuGet/Home/issues/2379)
 
-* NuGet 3.3.0 aggiornamento ha esito negativo con '... un vincolo aggiuntivo definito nel file Packages. config impedisce questa operazione.' - [#1816](https://github.com/NuGet/Home/issues/1816)
+* NuGet 3.3.0 aggiornamento ha esito negativo con '... un ulteriore vincolo definito in Packages. config impedisce l'operazione.' - [#1816](https://github.com/NuGet/Home/issues/1816)
 
 * L'installazione del pacchetto da un'origine locale che non esiste genera un messaggio fittizio - [#1674](https://github.com/NuGet/Home/issues/1674)
 
 * "Aggiornamento disponibile" filtro consente di visualizzare gli aggiornamenti che violano il vincolo di versione - [#1094](https://github.com/NuGet/Home/issues/1094)
 
-* Non è possibile aggiornare i pacchetti native - [#1291](https://github.com/NuGet/Home/issues/1291)
+* Non è possibile aggiornare i pacchetti nativi - [#1291](https://github.com/NuGet/Home/issues/1291)
 
 
 ## <a name="features"></a>Funzionalità
@@ -290,4 +289,4 @@ ms.locfileid: "31822591"
 
 * Aggiungere il supporto netcoreapp11 e netstandard17 - [#2998](https://github.com/NuGet/Home/issues/2998)
 
-* Attributo AssemblyMetadata sfruttano `.nuspec` token sostituzioni - [#2851](https://github.com/NuGet/Home/issues/2851)
+* Attributo AssemblyMetadata sfrutta `.nuspec` token sostituzioni - [#2851](https://github.com/NuGet/Home/issues/2851)

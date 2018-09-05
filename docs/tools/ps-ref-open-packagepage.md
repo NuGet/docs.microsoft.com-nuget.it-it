@@ -1,23 +1,22 @@
 ---
-title: Riferimento di PowerShell di NuGet Open-PackagePage
-description: Riferimento per il comando Apri PackagePage PowerShell nella Console di gestione pacchetti NuGet in Visual Studio.
+title: Informazioni di riferimento di NuGet Open-PackagePage PowerShell
+description: Informazioni di riferimento per il comando PowerShell Open-PackagePage nella Console di gestione pacchetti NuGet in Visual Studio.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: e64a83c01a7baac330c99fe40ba52f328a2133b8
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 0325aa4ddd718a901dd6a09cdf86cae260e326ab
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817720"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43547168"
 ---
 # <a name="open-packagepage-package-manager-console-in-visual-studio"></a>Open-PackagePage (console di Gestione pacchetti in Visual Studio)
 
-*Deprecato in 3.0 +;) disponibile solo all'interno di [Console di gestione pacchetti NuGet](package-manager-console.md) in Visual Studio in Windows.*
+*Deprecato in 3.0 e versioni successive; disponibile solo all'interno di [Console di gestione pacchetti NuGet](package-manager-console.md) in Visual Studio in Windows.*
 
-Avvia il browser predefinito con il progetto, licenza o report abuso URL per il pacchetto specificato.
+Avvia il browser predefinito con il progetto, licenza o URL per segnalare abusi per il pacchetto specificato.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -30,18 +29,18 @@ Open-PackagePage [-Id] <string> [-Version] [-Source] [-License] [-ReportAbuse]
 
 | Parametro | Descrizione |
 | --- | --- |
-| Id | L'ID del pacchetto del pacchetto desiderato. -Id switch stesso è facoltativo. |
+| Id | L'ID del pacchetto del pacchetto desiderato. -Id commutatore stesso è facoltativo. |
 | Versione | La versione del pacchetto, verrà utilizzato per la versione più recente. |
 | Origine | L'origine del pacchetto, verrà utilizzato per l'origine selezionata nell'elenco a discesa di origine. |
-| Licenza | Apre il browser all'URL di licenza del pacchetto. Se viene specificato - licenza né - ReportAbuse, si apre il browser con URL di progetto del pacchetto. |
-| ReportAbuse | Apre il browser all'URL di evitare eventuali abusi Report del pacchetto. Se viene specificato - licenza né - ReportAbuse, si apre il browser con URL di progetto del pacchetto. |
-| PassThru | Visualizza l'URL; utilizzare con - WhatIf esclusione aprendo il browser. |
+| Licenza | Apre il browser all'URL della licenza del pacchetto. Se viene specificato - licenza né - ReportAbuse, nel browser verrà aperta URL del progetto del pacchetto. |
+| ReportAbuse | Apre il browser all'URL per segnalare abusi del pacchetto. Se viene specificato - licenza né - ReportAbuse, nel browser verrà aperta URL del progetto del pacchetto. |
+| PassThru | Viene visualizzato l'URL; usare con - WhatIf per non visualizzare aprendo il browser. |
 
-Nessuno di questi parametri accettano caratteri jolly o di input di pipeline.
+Nessuno di questi parametri accettano caratteri jolly o input della pipeline.
 
 ## <a name="common-parameters"></a>Parametri comuni
 
-`Open-PackagePage` supporta i seguenti [parametri PowerShell comuni](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, azione di errore, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction e WarningVariable.
+`Open-PackagePage` supporta i seguenti [parametri PowerShell comuni](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, azione per errore, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction e WarningVariable.
 
 ## <a name="examples"></a>Esempi
 

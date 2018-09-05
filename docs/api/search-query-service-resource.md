@@ -1,22 +1,21 @@
 ---
-title: Ricerca, NuGet API
-description: Il servizio di ricerca consente ai client di query per i pacchetti dalla parola chiave e per i risultati del filtro su determinati campi pacchetto.
+title: Ricerca di API NuGet
+description: Il servizio di ricerca consente ai client di query per i pacchetti dalla parola chiave e per filtrare i risultati in determinati campi del pacchetto.
 author: joelverhagen
 ms.author: jver
-manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 76600ee916305ee01ddfb675c83c184e980c5a42
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: f04c6a62fc3b5056ad82930447b8ba46a8797fd2
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31821083"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43548091"
 ---
 # <a name="search"></a>Cerca
 
-È possibile cercare i pacchetti disponibili su un'origine del pacchetto tramite l'API V3. La risorsa utilizzata per la ricerca di `SearchQueryService` risorsa trovata nel [indice servizio](service-index.md).
+È possibile cercare i pacchetti disponibili in un'origine del pacchetto tramite l'API di V3. La risorsa usata per la ricerca è il `SearchQueryService` trovare la risorsa nella [indice del servizio](service-index.md).
 
 ## <a name="versioning"></a>Controllo delle versioni
 
@@ -30,17 +29,17 @@ SearchQueryService/3.0.0-rc   | Alias di `SearchQueryService`
 
 ## <a name="base-url"></a>URL di base
 
-L'URL di base per l'API seguente è il valore di `@id` proprietà associati a uno della risorsa menzionati in precedenza `@type` valori. Nel documento seguente, il segnaposto URL di base `{@id}` verrà utilizzato.
+L'URL di base per l'API seguente è il valore della `@id` proprietà associati a uno della risorsa menzionati in precedenza `@type` valori. Nel documento seguente, il segnaposto URL di base `{@id}` verrà utilizzato.
 
 ## <a name="http-methods"></a>Metodi HTTP
 
-Tutti gli URL trovati, il supporto di risorsa di registrazione, i metodi HTTP `GET` e `HEAD`.
+Tutti gli URL disponibili il supporto di risorse di registrazione i metodi HTTP `GET` e `HEAD`.
 
-## <a name="search-for-packages"></a>Ricerca per i pacchetti
+## <a name="search-for-packages"></a>Ricerca di pacchetti
 
-L'API di ricerca consente al client per eseguire query per una pagina di pacchetti corrispondenti a una query di ricerca specificato. L'interpretazione della query di ricerca (ad esempio, la suddivisione in token i termini di ricerca) è determinata dall'implementazione del server, ma l'aspettativa generale è che la query di ricerca viene utilizzata per l'ID di pacchetto, titoli, descrizioni e tag corrispondenti. Possono anche essere considerate altri campi di metadati del pacchetto.
+L'API di ricerca consente a un client per eseguire query per una pagina di pacchetti corrispondono a una query di ricerca specificati. L'interpretazione della query di ricerca (ad esempio, la suddivisione in token i termini di ricerca) è determinata dall'implementazione del server, ma l'aspettativa generale è che la query di ricerca viene usata per la corrispondenza degli ID di pacchetto, titoli, descrizioni e tag. Possono essere considerate anche gli altri campi di metadati del pacchetto.
 
-Un pacchetto non in elenco devono essere mai presenti nei risultati della ricerca.
+Un package non in elenco dovrebbe essere mai visualizzato nei risultati della ricerca.
 
     GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
 
@@ -49,66 +48,66 @@ Un pacchetto non in elenco devono essere mai presenti nei risultati della ricerc
 nome        | In     | Tipo    | Obbligatorio | Note
 ----------- | ------ | ------- | -------- | -----
 q           | URL    | stringa  | No       | I termini di ricerca da utilizzare per i pacchetti di filtro
-skip        | URL    | numero intero | No       | Il numero di risultati da ignorare per l'impaginazione
+skip        | URL    | numero intero | No       | Il numero di risultati da ignorare, per la paginazione
 Take        | URL    | numero intero | No       | Il numero di risultati da restituire, per la paginazione
-versione provvisoria  | URL    | boolean | No       | `true` o `false` determinano l'opportunità di includere [pacchetti versione non definitiva](../create-packages/prerelease-packages.md)
+versione preliminare  | URL    | boolean | No       | `true` oppure `false` che determina se includere [i pacchetti di versioni non definitive](../create-packages/prerelease-packages.md)
 semVerLevel | URL    | stringa  | No       | Una stringa di versione SemVer 1.0.0 
 
-La query di ricerca `q` viene analizzato in modo che è definito dall'implementazione del server. NuGet.org supporta i filtri di base su un [diversi campi di](../consume-packages/finding-and-choosing-packages.md#search-syntax). Se non `q` viene fornito, devono essere restituiti tutti i pacchetti, entro i limiti imposti da skip e take. In questo modo la scheda "Sfoglia" nell'esperienza NuGet di Visual Studio.
+La query di ricerca `q` viene analizzato in modo che è definito dall'implementazione del server. NuGet.org supporta i filtri di base in un [numerosi campi](../consume-packages/finding-and-choosing-packages.md#search-syntax). Se nessun `q` è specificato, tutti i pacchetti dovrebbero essere restituiti, entro i limiti imposti dal skip e take. In questo modo la scheda "Sfoglia" nell'esperienza di NuGet di Visual Studio.
 
 Il `skip` valori predefiniti dei parametri su 0.
 
-Il `take` parametro deve essere un numero intero maggiore di zero. L'implementazione del server potrebbe avere un valore massimo.
+Il `take` parametro deve essere un numero intero maggiore di zero. L'implementazione del server può imporre un valore massimo.
 
-Se `prerelease` non viene fornito, vengono esclusi i pacchetti pre-release.
+Se `prerelease` non viene specificato, vengono esclusi i pacchetti in versione non definitiva.
 
-Il `semVerLevel` parametro di query viene utilizzato per acconsentire esplicitamente a [SemVer 2.0.0 pacchetti](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29#identifying-semver-v200-packages).
-Se questo parametro di query viene esclusa, verranno restituiti solo i pacchetti con le versioni compatibili SemVer 1.0.0 (con il [standard controllo delle versioni NuGet](../reference/package-versioning.md) avvertenze, ad esempio le stringhe di versione con 4 elementi di tipo integer).
-Se `semVerLevel=2.0.0` viene fornito, verranno restituiti SemVer 1.0.0 sia pacchetti compatibili SemVer 2.0.0. Vedere il [supporto SemVer 2.0.0 per nuget.org](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29) per ulteriori informazioni.
+Il `semVerLevel` parametro di query viene utilizzato per acconsentire [pacchetti di SemVer 2.0.0](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29#identifying-semver-v200-packages).
+Se questo parametro di query è stata esclusa, verranno restituiti solo i pacchetti con le versioni compatibili di SemVer 1.0.0 (con il [controllo delle versioni NuGet standard](../reference/package-versioning.md) avvertenze, ad esempio le stringhe di versione con 4 elementi integer).
+Se `semVerLevel=2.0.0` viene fornito, verranno restituiti SemVer 1.0.0 sia pacchetti compatibili di SemVer 2.0.0. Vedere le [supporto di SemVer 2.0.0 per nuget.org](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29) per altre informazioni.
 
 ### <a name="response"></a>Risposta
 
 La risposta è il documento JSON che contiene fino a `take` i risultati della ricerca. I risultati della ricerca sono raggruppati per ID del pacchetto.
 
-Oggetto JSON radice ha le proprietà seguenti:
+L'oggetto JSON radice ha le proprietà seguenti:
 
 nome      | Tipo             | Obbligatorio | Note
 --------- | ---------------- | -------- | -----
-totalHits | numero intero          | sì      | Il numero complessivo di corrispondenze, non considerando `skip` e `take`
-Data      | Matrice di oggetti | sì      | I risultati della ricerca corrispondenti a richiesta
+totalHits | numero intero          | sì      | Il numero complessivo di corrispondenze, ignorando `skip` e `take`
+Data      | Matrice di oggetti | sì      | I risultati della ricerca trovare una corrispondenza con la richiesta
 
-### <a name="search-result"></a>risultato della ricerca
+### <a name="search-result"></a>Risultato della ricerca
 
 Ogni elemento di `data` matrice è un oggetto JSON costituito da un gruppo di versioni del pacchetto condividere lo stesso ID di pacchetto.
-L'oggetto ha le proprietà seguenti:
+L'oggetto presenta le proprietà seguenti:
 
 nome           | Tipo                       | Obbligatorio | Note
 -------------- | -------------------------- | -------- | -----
 ID             | stringa                     | sì      | L'ID del pacchetto corrispondente
 version        | stringa                     | sì      | La stringa di versione SemVer 2.0.0 completa del pacchetto (può contenere i metadati di compilazione)
 Descrizione    | stringa                     | No       | 
-versioni       | Matrice di oggetti           | sì      | Tutte le versioni del pacchetto corrispondente il `prerelease` parametro
+versioni       | Matrice di oggetti           | sì      | Tutte le versioni dei pacchetti corrispondenti di `prerelease` parametro
 authors        | stringa o matrice di stringhe | No       | 
 iconUrl        | stringa                     | No       | 
 licenseUrl     | stringa                     | No       | 
 owners         | stringa o matrice di stringhe | No       | 
 projectUrl     | stringa                     | No       | 
-registrazione   | stringa                     | No       | L'URL assoluto all'oggetto associato [indice registrazione](registration-base-url-resource.md#registration-index)
+registrazione   | stringa                     | No       | L'URL assoluto associati [indice registrazione](registration-base-url-resource.md#registration-index)
 summary        | stringa                     | No       | 
 tag           | stringa o matrice di stringhe | No       | 
 title          | stringa                     | No       | 
-totalDownloads | numero intero                    | No       | Questo valore può essere dedotto per la somma di download di `versions` matrice
-Verificato       | boolean                    | No       | Valore booleano JSON che indica se il pacchetto è [verificato](../reference/id-prefix-reservation.md)
+totalDownloads | numero intero                    | No       | Questo valore può essere dedotto dalla somma del download nel `versions` matrice
+verificato       | boolean                    | No       | Valore booleano JSON, che indica se il pacchetto è [verificato](../reference/id-prefix-reservation.md)
 
-In nuget.org, un pacchetto verificato è quello che ha un ID di pacchetto corrispondente prefisso ID riservato e proprietà di uno dei proprietari di spazio dei nomi riservato. Per ulteriori informazioni, vedere il [documentazione sulla prenotazione di prefisso ID](../reference/id-prefix-reservation.md).
+In nuget.org, un pacchetto verificato è quello che ha un ID di pacchetto corrispondente prefisso ID riservato e di proprietà di uno dei proprietari di spazio dei nomi riservato. Per altre informazioni, vedere la [documentazione sulla prenotazione del prefisso ID](../reference/id-prefix-reservation.md).
 
 I metadati contenuti nell'oggetto risultato di ricerca da cui proviene la versione più recente del pacchetto. Ogni elemento di `versions` matrice è un oggetto JSON con le proprietà seguenti:
 
 nome      | Tipo    | Obbligatorio | Note
 --------- | ------- | -------- | -----
-@id       | stringa  | sì      | L'URL assoluto all'oggetto associato [foglia di registrazione](registration-base-url-resource.md#registration-leaf)
+@id       | stringa  | sì      | L'URL assoluto associati [foglia di registrazione](registration-base-url-resource.md#registration-leaf)
 version   | stringa  | sì      | La stringa di versione SemVer 2.0.0 completa del pacchetto (può contenere i metadati di compilazione)
-Scarica | numero intero | sì      | Il numero di download per questa versione del pacchetto specifico
+Download | numero intero | sì      | Il numero di download per questa versione del pacchetto specifico
 
 ### <a name="sample-request"></a>Richiesta di esempio
 

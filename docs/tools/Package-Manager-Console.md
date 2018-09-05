@@ -1,31 +1,30 @@
 ---
 title: Guida alla Console di gestione pacchetti NuGet
-description: Istruzioni per l'utilizzo della Console di gestione pacchetti NuGet in Visual Studio per l'utilizzo di pacchetti.
+description: Istruzioni per l'utilizzo della Console di gestione pacchetti NuGet in Visual Studio per l'uso di pacchetti.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/23/2018
 ms.topic: conceptual
 f1_keywords:
 - vs.nuget.packagemanager.console
-ms.openlocfilehash: 06c525cab2dac61c92c4596533173f1d93493d9a
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 88979c67ea7f073f2ea5a02c445186642f77f210
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817658"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546878"
 ---
 # <a name="package-manager-console"></a>Console di Gestione pacchetti
 
-La Console di gestione pacchetti NuGet viene compilata in Visual Studio in Windows 2012 e versioni successive. (Non è incluso in Visual Studio per Mac o codice di Visual Studio.)
+La Console di gestione pacchetti NuGet è incorporata in Visual Studio in Windows 2012 e versioni successive. (Non è incluso in Visual Studio per Mac o Visual Studio Code.)
 
-La console consente di utilizzare [comandi PowerShell di NuGet](../tools/powershell-reference.md) per trovare, installare, disinstallare e aggiornare i pacchetti NuGet. Utilizzando la console è necessario nei casi in cui la UI Package Manager non fornisce un modo per eseguire un'operazione. Per utilizzare `nuget.exe` comandi nella console, vedere [utilizzando nuget.exe CLI nella console di](#using-the-nugetexe-cli-in-the-console).
+La console consente di usare [comandi di PowerShell di NuGet](../tools/powershell-reference.md) per trovare, installare, disinstallare e aggiornare i pacchetti NuGet. Utilizzo della console è necessario nei casi in cui il Package Manager UI non fornisce un modo per eseguire un'operazione. Per utilizzare `nuget.exe` comandi nella console, vedere [tramite la CLI nuget.exe nella console di](#using-the-nugetexe-cli-in-the-console).
 
-Ricerca e l'installazione di un pacchetto, ad esempio, viene eseguita con tre semplici passaggi:
+Ad esempio, ricerca e installazione di un pacchetto avviene in tre semplici passaggi:
 
 1. Aprire il progetto/soluzione in Visual Studio e aprire la console usando il **strumenti > Gestione pacchetti NuGet > Console di gestione pacchetti** comando.
 
-1. Trovare il pacchetto che si desidera installare. Se si conosce già questo, andare al passaggio 3.
+1. Trovare il pacchetto da installare. Se si conosce già questo, andare al passaggio 3.
 
     ```ps
     # Find packages containing the keyword "elmah"
@@ -40,30 +39,30 @@ Ricerca e l'installazione di un pacchetto, ad esempio, viene eseguita con tre se
     ```
 
 > [!Important]
-> Tutte le operazioni che sono disponibili nella console possono essere eseguite anche con il [NuGet CLI](../tools/nuget-exe-cli-reference.md). Tuttavia, i comandi della console operano all'interno del contesto di Visual Studio e una progetto/soluzione salvata e spesso eseguire più i comandi CLI equivalenti. Ad esempio, l'installazione di un pacchetto tramite la console aggiunge un riferimento al progetto mentre il comando CLI non. Per questo motivo, gli sviluppatori che lavorano in Visual Studio, in genere preferiscono utilizzando la console per l'interfaccia CLI.
+> Tutte le operazioni disponibili nella console possono essere eseguite anche con il [NuGet CLI](../tools/nuget-exe-cli-reference.md). Tuttavia, i comandi della console operano all'interno del contesto di Visual Studio e una progetto/soluzione salvata e spesso a una maggiore rispetto i comandi equivalenti di CLI. Ad esempio, installazione di un pacchetto tramite la console aggiunge un riferimento al progetto mentre la riga di comando non le supporta. Per questo motivo, gli sviluppatori che lavorano in genere in Visual Studio preferiscono usare la console per l'interfaccia della riga di comando.
 
 > [!Tip]
-> Molte operazioni di console dipendono dalla presenza di una soluzione aperta in Visual Studio con un nome di percorso noto. Se si dispone di una soluzione non salvata o alcuna soluzione, è possibile visualizzare l'errore, "soluzione non aperta o non salvata. Assicurarsi che disporre di una soluzione aperta e salvata." Indica che la console non è possibile determinare la cartella della soluzione. Salvataggio di una soluzione non salvata, o la creazione e il salvataggio di una soluzione se non si dispone di uno aprire, deve correggere l'errore.
+> Molte operazioni di console dipendono da una soluzione aperta in Visual Studio con un nome di percorso noto. Se si dispone di una soluzione non sono stata salvata o alcuna soluzione, è possibile visualizzare l'errore, "soluzione non è aperto o non salvate. Assicurarsi di che avere una soluzione aperta e viene salvata." Ciò indica che la console non è possibile determinare la cartella della soluzione. Salvataggio di una soluzione non sono stata salvata, o creando e salvando una soluzione se non è aperto, deve correggere l'errore.
 
-## <a name="opening-the-console-and-console-controls"></a>Apertura della console e i controlli di console
+## <a name="opening-the-console-and-console-controls"></a>Aprire la console e i controlli di console
 
-1. Aprire la console in Visual Studio usando il **strumenti > Gestione pacchetti NuGet > Console di gestione pacchetti** comando. La console è una finestra di Visual Studio che può essere disposti e posizionata, tuttavia si desidera (vedere [personalizzare i layout delle finestre in Visual Studio](/visualstudio/ide/customizing-window-layouts-in-visual-studio)).
+1. Aprire la console in Visual Studio usando il **strumenti > Gestione pacchetti NuGet > Console di gestione pacchetti** comando. La console è una finestra di Visual Studio che può essere disposti e posizionata, tuttavia si desidera che (vedere [personalizzare i layout delle finestre in Visual Studio](/visualstudio/ide/customizing-window-layouts-in-visual-studio)).
 
-1. Per impostazione predefinita, i comandi della console funzionano in un'origine pacchetto specifico e un progetto di cui il controllo nella parte superiore della finestra:
+1. Per impostazione predefinita, i comandi della console funzionano su un'origine di pacchetto specifico e un progetto come impostato nel controllo nella parte superiore della finestra:
 
     ![Controlli di Console di gestione pacchetti per l'origine del pacchetto e progetto](media/PackageManagerConsoleControls1.png)
 
-1. La selezione di un'origine pacchetto diverso e/o il progetto modifica tali impostazioni predefinite per i comandi successivi. La maggior parte dei comandi per esegue l'override queste impostazioni senza modificare le impostazioni predefinite, supportano `-Source` e `-ProjectName` opzioni.
+1. Selezione un'origine dei pacchetti diversi e/o progetto comporta la modifica i valori predefiniti per i comandi successivi. La maggior parte dei comandi per esegue l'override queste impostazioni senza dover modificare le impostazioni predefinite, supportano `-Source` e `-ProjectName` opzioni.
 
-1. Per gestire l'origine del pacchetto, selezionare l'icona dell'ingranaggio. Si tratta di un collegamento per il **strumenti > Opzioni > Gestione pacchetti NuGet > origini pacchetti** come descritto nella finestra di dialogo di [UI Package Manager](package-manager-ui.md#package-sources) pagina. Inoltre, il controllo a destra del selettore di progetto Cancella il contenuto della console:
+1. Per la gestione di origini dei pacchetti, selezionare l'icona a forma di ingranaggio. Si tratta di un collegamento per il **strumenti > Opzioni > Gestione pacchetti NuGet > origini pacchetti** come descritto nella finestra di dialogo il [Package Manager UI](package-manager-ui.md#package-sources) pagina. Inoltre, il controllo a destra del selettore di progetto Cancella il contenuto della console:
 
-    ![Impostazioni della Console di gestione pacchetti e deselezionare i controlli](media/PackageManagerConsoleControls2.png)
+    ![Controlli non crittografati e le impostazioni della Console di gestione pacchetti](media/PackageManagerConsoleControls2.png)
 
-1. Pulsante a destra consente di interrompere un comando a esecuzione prolungata. Ad esempio, in esecuzione `Get-Package -ListAvailable -PageSize 500` Elenca i pacchetti superiore a 500 nell'origine predefinita (ad esempio nuget.org), che potrebbe richiedere alcuni minuti per l'esecuzione.
+1. Il pulsante all'estrema destra consente di interrompere un comando a esecuzione prolungata. Ad esempio, l'esecuzione `Get-Package -ListAvailable -PageSize 500` Elenca i primi 500 pacchetti sull'origine predefinita (ad esempio, nuget.org), che potrebbe richiedere alcuni minuti per l'esecuzione.
 
-    ![Controllo di arresto di Console di gestione pacchetti](media/PackageManagerConsoleControls3.png)
+    ![Controllo stop Console di gestione pacchetti](media/PackageManagerConsoleControls3.png)
 
-## <a name="installing-a-package"></a>Installa un pacchetto
+## <a name="installing-a-package"></a>Installazione di un pacchetto
 
 ```ps
 # Add the Elmah package to the default project as specified in the console's project selector
@@ -73,14 +72,14 @@ Install-Package Elmah
 Install-Package Elmah -ProjectName UtilitiesLib
 ```
 
-Vedere [Install-Package](../tools/ps-ref-install-package.md).
+Visualizzare [Install-Package](../tools/ps-ref-install-package.md).
 
-Installa un pacchetto nella console esegue la stessa procedura come descritto nel [cosa accade quando un pacchetto viene installato](../consume-packages/ways-to-install-a-package.md#what-happens-when-a-package-is-installed), con le aggiunte seguenti:
+Installazione di un pacchetto nella console esegue gli stessi passaggi come descritto nella [cosa accade quando viene installato un pacchetto](../consume-packages/ways-to-install-a-package.md#what-happens-when-a-package-is-installed), con le aggiunte seguenti:
 
-- La Console Visualizza condizioni di licenza applicabili in una finestra con contratto implicito. Se non si accettano le condizioni, è necessario disinstallare il pacchetto immediatamente.
+- La Console Visualizza condizioni di licenza applicabili nella relativa finestra con un contratto implicito. Se si accettano le condizioni, è necessario disinstallare il pacchetto immediatamente.
 - Anche un riferimento al pacchetto viene aggiunto al file di progetto e viene visualizzato nella **Esplora soluzioni** sotto il **riferimenti** nodo, è necessario salvare il progetto per visualizzare le modifiche nel file di progetto direttamente.
 
-## <a name="uninstalling-a-package"></a>La disinstallazione di un pacchetto
+## <a name="uninstalling-a-package"></a>Disinstallazione di un pacchetto
 
 ```ps
 # Uninstalls the Elmah package from the default project
@@ -93,15 +92,15 @@ Uninstall-Package Elmah -RemoveDependencies
 Uninstall-Package Elmah -Force
 ```
 
-Vedere [Uninstall-Package](../tools/ps-ref-uninstall-package.md). Utilizzare [Get-Package](../tools/ps-ref-get-package.md) per visualizzare tutti i pacchetti installati nel progetto predefinito se è necessario trovare un identificatore.
+Visualizzare [Uninstall-Package](../tools/ps-ref-uninstall-package.md). Uso [Get-Package](../tools/ps-ref-get-package.md) per visualizzare tutti i pacchetti attualmente installati nel progetto predefinito se è necessario trovare un identificatore.
 
-La disinstallazione di un pacchetto esegue le azioni seguenti:
+Disinstallazione di un pacchetto esegue le azioni seguenti:
 
-- Rimuove i riferimenti al pacchetto dal progetto (e qualsiasi formato di gestione è in uso). I riferimenti non siano più presenti **Esplora soluzioni**. (Potrebbe essere necessario ricompilare il progetto per visualizzarlo rimossa la **Bin** cartella.)
-- Inverte le modifiche apportate al `app.config` o `web.config` quando il pacchetto è stato installato.
-- Dipendenze rimuove installato in precedenza, se i pacchetti rimanenti non utilizzano tali dipendenze.
+- Rimuove i riferimenti al pacchetto dal progetto (e qualsiasi formato di gestione è in uso). I riferimenti non siano più presenti **Esplora soluzioni**. (Potrebbe essere necessario ricompilare il progetto per visualizzarne il rimosso dal **Bin** cartella.)
+- Le eventuali modifiche apportate al `app.config` o `web.config` quando è stato installato il pacchetto.
+- Dipendenze rimuove installata in precedenza, se non ci sono pacchetti rimanenti usano tali dipendenze.
 
-## <a name="updating-a-package"></a>Aggiornamento di un pacchetto
+## <a name="updating-a-package"></a>Aggiorna un pacchetto
 
 ```ps
 # Checks if there are newer versions available for any installed packages
@@ -117,7 +116,7 @@ Update-Package -ProjectName MyProject
 Update-Package
 ```
 
-Vedere [Get-Package](../tools/ps-ref-get-package.md) e [pacchetto di aggiornamento](../tools/ps-ref-update-package.md)
+Visualizzare [Get-Package](../tools/ps-ref-get-package.md) e [Update-Package](../tools/ps-ref-update-package.md)
 
 ## <a name="finding-a-package"></a>Ricerca di un pacchetto
 
@@ -136,27 +135,27 @@ Find-Package logging -First 100
 Find-Package jquery -AllVersions -ExactMatch
 ```
 
-Vedere [Find-Package](../tools/ps-ref-find-package.md). In Visual Studio 2013 e versioni precedenti, utilizzare [Get-Package](../tools/ps-ref-get-package.md) invece.
+Visualizzare [Find-Package](../tools/ps-ref-find-package.md). In Visual Studio 2013 e versioni precedenti, usare [Get-Package](../tools/ps-ref-get-package.md) invece.
 
-## <a name="availability-of-the-console"></a>Disponibilità della console di
+## <a name="availability-of-the-console"></a>Disponibilità della console
 
-In Visual Studio 2017, NuGet e gestione pacchetti NuGet vengono installati automaticamente quando si seleziona uno. Carichi di lavoro correlati alla rete; è possibile anche installare singolarmente controllando il **singoli componenti > codice strumenti > Gestione pacchetti NuGet** opzione nel programma di installazione di Visual Studio 2017.
+In Visual Studio 2017, NuGet e la gestione pacchetti NuGet vengono installati automaticamente quando si seleziona uno. Carichi di lavoro correlati NET; è possibile anche installare singolarmente controllando il **singoli componenti > strumenti per il codice > Gestione pacchetti NuGet** opzione nel programma di installazione di Visual Studio 2017.
 
-Inoltre, assenza Gestione pacchetti NuGet in Visual Studio 2015 e versioni precedenti, controllare **strumenti > estensioni e aggiornamenti...**  e cercare l'estensione Gestione pacchetti NuGet. Se non riesci a usare il programma di installazione di estensioni in Visual Studio, è possibile scaricare l'estensione direttamente dal [ https://dist.nuget.org/index.html ](https://dist.nuget.org/index.html).
+Inoltre, se sono necessari i pacchetti NuGet in Visual Studio 2015 e versioni precedenti, controllare **strumenti > estensioni e aggiornamenti...**  e cercare l'estensione Gestione pacchetti NuGet. Se non si riesce a usare il programma di installazione di estensioni in Visual Studio, è possibile scaricare l'estensione direttamente dal [ https://dist.nuget.org/index.html ](https://dist.nuget.org/index.html).
 
-La Console di gestione pacchetti non è attualmente disponibile in Visual Studio per Mac. I comandi equivalenti, tuttavia, sono disponibili tramite il [NuGet CLI](nuget-exe-CLI-reference.md). Visual Studio per Mac hanno un'interfaccia utente per la gestione dei pacchetti NuGet. Vedere [pacchetto NuGet un inclusi nel progetto](/visualstudio/mac/nuget-walkthrough).
+La Console di gestione pacchetti non è attualmente disponibile in Visual Studio per Mac. I comandi equivalenti, tuttavia, sono disponibili tramite il [NuGet CLI](nuget-exe-CLI-reference.md). Visual Studio per Mac ha un'interfaccia utente per la gestione pacchetti NuGet. Visualizzare [tra cui un pacchetto NuGet nel progetto](/visualstudio/mac/nuget-walkthrough).
 
 Console di gestione pacchetti non è inclusa in Visual Studio Code.
 
 ## <a name="extending-the-package-manager-console"></a>Estendere la Console di gestione pacchetti
 
-Alcuni pacchetti installare nuovi comandi per la console. Ad esempio, `MvcScaffolding` crea comandi come `Scaffold` illustrato di seguito, che genera l'errore ASP.NET MVC controller e visualizzazioni:
+Alcuni pacchetti installati nuovi comandi per la console. Ad esempio, `MvcScaffolding` consente di creare comandi, ad esempio `Scaffold` illustrato di seguito, che genera le visualizzazioni e controller ASP.NET MVC:
 
-![Installazione e utilizzo MvcScaffold](media/PackageManagerConsoleInstall.png)
+![Installazione e l'utilizzo MvcScaffold](media/PackageManagerConsoleInstall.png)
 
-## <a name="setting-up-a-nuget-powershell-profile"></a>Impostazione di un profilo di PowerShell di NuGet
+## <a name="setting-up-a-nuget-powershell-profile"></a>Configurazione di un profilo di PowerShell di NuGet
 
-Un profilo di PowerShell consente di rendere disponibili i comandi di uso comune, ogni volta che è possibile usare PowerShell. NuGet supporta un profilo specifico di NuGet in genere disponibile nel percorso seguente:
+Un profilo di PowerShell consente di rendere disponibili i comandi di uso comune, ogni volta che si usa PowerShell. NuGet supporta un profilo specifico di NuGet in genere disponibile nel percorso seguente:
 
     %UserProfile%\Documents\WindowsPowerShell\NuGet_profile.ps1
 
@@ -167,11 +166,11 @@ $profile
 C:\Users\<user>\Documents\WindowsPowerShell\NuGet_profile.ps1
 ```
 
-Per ulteriori informazioni, vedere [profili di Windows PowerShell](https://technet.microsoft.com/library/bb613488.aspx).
+Per altri dettagli, consultare [profili di Windows PowerShell](https://technet.microsoft.com/library/bb613488.aspx).
 
-## <a name="using-the-nugetexe-cli-in-the-console"></a>Tramite l'interfaccia CLI di nuget.exe nella console di
+## <a name="using-the-nugetexe-cli-in-the-console"></a>Tramite la CLI nuget.exe nella console di
 
-Per rendere il [ `nuget.exe` CLI](nuget-exe-cli-reference.md) disponibile nella Console di gestione pacchetti, installare il [NuGet.CommandLine](http://www.nuget.org/packages/NuGet.CommandLine/) pacchetto dalla console:
+Per rendere il [ `nuget.exe` CLI](nuget-exe-cli-reference.md) disponibile nella Console di gestione pacchetti, installare il [NuGet. CommandLine](http://www.nuget.org/packages/NuGet.CommandLine/) pacchetto dalla console:
 
 ```ps
 # Other versions are available, see http://www.nuget.org/packages/NuGet.CommandLine/

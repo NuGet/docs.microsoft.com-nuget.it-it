@@ -1,23 +1,22 @@
 ---
 title: Comando delete NuGet CLI
-description: Riferimento per il comando delete nuget.exe
+description: Informazioni di riferimento per il comando delete nuget.exe
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: c0f33dd5475521da47972a6f032ac6ea86d98c83
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 11eea6e806d7bfe364587db9c7ef8374da1819f9
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817178"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43548510"
 ---
-# <a name="delete-command-nuget-cli"></a>eliminazione di comando (CLI NuGet)
+# <a name="delete-command-nuget-cli"></a>eliminazione di comando (CLI di NuGet)
 
-**Si applica a:** la pubblicazione del pacchetto &bullet; **le versioni supportate:** tutti
+**Si applica a:** pacchetto di pubblicazione &bullet; **le versioni supportate:** tutti
 
-Elimina o unlists un pacchetto da un'origine del pacchetto. Per nuget.org, il comando delete [unlists il pacchetto](../policies/deleting-packages.md).
+Dall'elenco o elimina un pacchetto da un'origine del pacchetto. Per nuget.org, il comando delete [Elimina il pacchetto](../policies/deleting-packages.md).
 
 ## <a name="usage"></a>Utilizzo
 
@@ -25,19 +24,19 @@ Elimina o unlists un pacchetto da un'origine del pacchetto. Per nuget.org, il co
 nuget delete <packageID> <packageVersion> [options]
 ```
 
-dove `<packageID>` e `<packageVersion>` identificare il pacchetto esatto per eliminare o esclusione. Il comportamento esatto dipende dall'origine. Per le cartelle locali, ad esempio, il pacchetto viene eliminato; per nuget.org il pacchetto è incluso nell'elenco.
+in cui `<packageID>` e `<packageVersion>` identificare l'esatto del pacchetto per eliminare o rimuovere dall'elenco. Il comportamento esatto dipende dall'origine. Per le cartelle locali, ad esempio, il pacchetto viene eliminato. per nuget.org il pacchetto è incluso nell'elenco.
 
 ## <a name="options"></a>Opzioni
 
 | Opzione | Descrizione |
 | --- | --- |
-| apiKey | La chiave API per il repository di destinazione. Se non è presente, viene utilizzato quello specificato nel file di configurazione. |
-| ConfigFile | Il file di configurazione NuGet da applicare. Se non specificato, `%AppData%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Mac o Linux) viene utilizzato.|
-| ForceEnglishOutput | *(3.5 +)*  Forza nuget.exe per eseguire utilizzando le impostazioni cultura invariante, in lingua inglese. |
+| Chiave API | La chiave API per il repository di destinazione. Se non è presente, viene utilizzato quello specificato nel file di configurazione. |
+| ConfigFile | Il file di configurazione di NuGet da applicare. Se non specificato, `%AppData%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) viene usato.|
+| ForceEnglishOutput | *(3.5 +)*  Forza nuget.exe affinché venga eseguito usando una cultura invariante e di lingua inglese. |
 | ? | Visualizza la Guida informazioni per il comando. |
-| Non interattivo | Elimina richieste per l'input dell'utente o le conferme. |
+| Non interattive | Elimina richieste di input o conferme dell'utente. |
 | Origine | Specifica l'URL del server. L'URL per nuget.org è `https://api.nuget.org/v3/index.json`. Per i feed privati, sostituire il nome host, ad esempio, *%hostname%/api/v3*. |
-| Livello di dettaglio | Specifica la quantità di dettagli visualizzati nell'output: *normale*, *quiet*, *dettagliate*. |
+| Livello di dettaglio | Specifica la quantità di dettaglio visualizzato nell'output: *normali*, *quiet*, *dettagliate*. |
 
 Vedere anche [le variabili di ambiente](cli-ref-environment-variables.md)
 

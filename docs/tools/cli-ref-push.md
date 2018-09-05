@@ -1,28 +1,27 @@
 ---
 title: Comando push NuGet CLI
-description: Riferimento per il comando di nuget.exe push
+description: Informazioni di riferimento per il comando push nuget.exe
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 05cafa981ecf42829d1b3d8b8988ed51449d9d86
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 125671ca3f695f82bd74f8097e590c3972003e22
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817191"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43548343"
 ---
 # <a name="push-command-nuget-cli"></a>comando push (NuGet CLI)
 
-**Si applica a:** la pubblicazione del pacchetto &bullet; **le versioni supportate:** tutti; 4.1.0+ necessari per nuget.org
+**Si applica a:** pacchetto di pubblicazione &bullet; **le versioni supportate:** tutte: versione 4.1.0 + necessari per nuget.org
 
 > [!Important]
-> Per inviare pacchetti a nuget.org è necessario utilizzare nuget.exe v4.1.0 +, che implementa la [NuGet protocolli](../api/nuget-protocols.md).
+> Eseguire il push dei pacchetti in nuget.org è necessario usare nuget.exe verze 4.1.0 +, che implementa la necessaria [protocolli NuGet](../api/nuget-protocols.md).
 
-Inserisce un pacchetto a un'origine del pacchetto e la pubblicazione.
+Effettua il push di un pacchetto a un'origine di pacchetto e lo pubblica.
 
-Configurazione predefinita di NuGet consente di ottenere il caricamento `%AppData%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Linux o Mac), quindi caricare qualsiasi `Nuget.Config` o `.nuget\Nuget.Config` file a partire dalla radice dell'unità e di fine nella directory corrente (vedere [configurazione Comportamento di NuGet](../consume-packages/configuring-nuget-behavior.md))
+Configurazione predefinita di NuGet si ottiene caricando `%AppData%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Mac/Linux), quindi caricando qualsiasi `Nuget.Config` oppure `.nuget\Nuget.Config` file a partire dalla radice dell'unità e di fine nella directory corrente (vedere [configurazione Comportamento di NuGet](../consume-packages/configuring-nuget-behavior.md))
 
 ## <a name="usage"></a>Utilizzo
 
@@ -30,24 +29,24 @@ Configurazione predefinita di NuGet consente di ottenere il caricamento `%AppDat
 nuget push <packagePath> [options]
 ```
 
-dove `<packagePath>` identifica il pacchetto da inviare al server.
+in cui `<packagePath>` identifica il pacchetto per effettuare il push nel server.
 
 ## <a name="options"></a>Opzioni
 
 | Opzione | Descrizione |
 | --- | --- |
-| apiKey | La chiave API per il repository di destinazione. Se non è presente, viene utilizzato quello specificato nel file di configurazione. |
-| ConfigFile | Il file di configurazione NuGet da applicare. Se non specificato, `%AppData%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Mac o Linux) viene utilizzato.|
-| DisableBuffering | Disabilita la memorizzazione nel buffer quando push a un server HTTP (s) per ridurre l'utilizzo di memoria. Attenzione: quando si utilizza questa opzione, l'autenticazione integrata di Windows potrebbe non funzionare. |
-| ForceEnglishOutput | *(3.5 +)*  Forza nuget.exe per eseguire utilizzando le impostazioni cultura invariante, in lingua inglese. |
+| Chiave API | La chiave API per il repository di destinazione. Se non è presente, viene utilizzato quello specificato nel file di configurazione. |
+| ConfigFile | Il file di configurazione di NuGet da applicare. Se non specificato, `%AppData%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) viene usato.|
+| DisableBuffering | Disabilita la memorizzazione nel buffer quando si effettua il push a un server HTTP (s) per ridurre gli utilizzi della memoria. Attenzione: quando questa opzione viene usata, l'autenticazione integrata di Windows potrebbe non funzionare. |
+| ForceEnglishOutput | *(3.5 +)*  Forza nuget.exe affinché venga eseguito usando una cultura invariante e di lingua inglese. |
 | ? | Visualizza la Guida informazioni per il comando. |
-| Non interattivo | Elimina richieste per l'input dell'utente o le conferme. |
-| NoSymbols | *(3.5 +)*  Se esiste un pacchetto di simboli, non sarà inserito in un server di simboli. |
-| Origine | Specifica l'URL del server. NuGet identifica un origine cartella locale o UNC e copiato il file anziché il push tramite HTTP.  Inoltre, a partire da NuGet sezione 3.4.2, questo è un parametro obbligatorio, a meno che il `NuGet.Config` file specifica un *DefaultPushSource* valore (vedere [il comportamento di configurazione NuGet](../consume-packages/configuring-nuget-behavior.md)). |
-| SymbolSource | *(3.5 +)*  Specifica l'URL del server di simboli; nuget.smbsrc.net viene usato quando l'inserimento di nuget.org |
-| SymbolApiKey | *(3.5 +)*  Specifica la chiave API per l'URL specificato nel `-SymbolSource`. |
-| Timeout | Specifica il timeout in secondi, per l'inserimento di un server. Il valore predefinito è 300 secondi (5 minuti). |
-| Livello di dettaglio | Specifica la quantità di dettagli visualizzati nell'output: *normale*, *quiet*, *dettagliate*. |
+| Non interattive | Elimina richieste di input o conferme dell'utente. |
+| NoSymbols | *(3.5 +)*  Se esiste un pacchetto di simboli, non verrà inserito in un server di simboli. |
+| Origine | Specifica l'URL del server. NuGet identifica un'origine di cartella locale o UNC e copia semplicemente il file invece di eseguirne il push tramite HTTP.  Inoltre, a partire da NuGet 3.4.2, questo è un parametro obbligatorio, a meno che il `NuGet.Config` file specifica un *DefaultPushSource* valore (vedere [del comportamento di configurazione NuGet](../consume-packages/configuring-nuget-behavior.md)). |
+| SymbolSource | *(3.5 +)*  Specifica l'URL del server di simboli; nuget.smbsrc.net viene usato quando il push in nuget.org |
+| SymbolApiKey | *(3.5 +)*  Specifica la chiave API per l'URL specificato in `-SymbolSource`. |
+| Timeout | Specifica il timeout, espresso in secondi, per effettuare il push a un server. Il valore predefinito è 300 secondi (5 minuti). |
+| Livello di dettaglio | Specifica la quantità di dettaglio visualizzato nell'output: *normali*, *quiet*, *dettagliate*. |
 
 Vedere anche [le variabili di ambiente](cli-ref-environment-variables.md)
 

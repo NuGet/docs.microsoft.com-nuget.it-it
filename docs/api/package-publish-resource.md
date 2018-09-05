@@ -1,26 +1,25 @@
 ---
-title: Eseguire il push ed eliminare, NuGet API
-description: Il servizio di pubblicazione consente ai client di pubblicare nuovi pacchetti e l'esclusione o eliminare i pacchetti esistenti.
+title: Push ed eliminazione, API NuGet
+description: Il servizio di pubblicazione consente ai client di pubblicare nuovi pacchetti e rimuovere dall'elenco o Elimina i pacchetti esistenti.
 author: joelverhagen
 ms.author: jver
-manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 911c8238624f806b1fbb5c7938d02b6bdfbd8614
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: ad66d8e0ffda13aaef744104c213863b0e111e0e
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31819481"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43547521"
 ---
-# <a name="push-and-delete"></a>Push ed eliminare
+# <a name="push-and-delete"></a>Push ed eliminazione
 
-È possibile eseguire il push, eliminare o esclusione, a seconda dell'implementazione di server e rimettere pacchetti utilizzando l'API di NuGet V3. Queste operazioni sono basate sul `PackagePublish` risorse, vedere il [indice servizio](service-index.md).
+È possibile eseguire il push, eliminare o rimuovere dall'elenco, a seconda dell'implementazione di server e includere di nuovo nell'elenco dei pacchetti tramite l'API di NuGet V3. Queste operazioni si basano all'esterno della `PackagePublish` trovare la risorsa nella [indice del servizio](service-index.md).
 
 ## <a name="versioning"></a>Controllo delle versioni
 
-Le operazioni seguenti `@type` valore viene utilizzato:
+Nell'esempio `@type` valore viene usato:
 
 Valore di @type          | Note
 -------------------- | -----
@@ -28,20 +27,20 @@ PackagePublish/2.0.0 | La versione iniziale
 
 ## <a name="base-url"></a>URL di base
 
-L'URL di base per le API seguente è il valore della `@id` proprietà del `PackagePublish/2.0.0` risorse nell'origine del pacchetto [indice servizio](service-index.md). Per la documentazione riportata di seguito, viene utilizzato l'URL di nuget.org. Prendere in considerazione `https://www.nuget.org/api/v2/package` come segnaposto per il `@id` valore trovato in corrispondenza dell'indice del servizio.
+L'URL di base per le API seguente è il valore della `@id` proprietà del `PackagePublish/2.0.0` risorsa nell'origine del pacchetto [indice del servizio](service-index.md). Per la documentazione seguente, viene usato l'URL di nuget.org. Prendere in considerazione `https://www.nuget.org/api/v2/package` come segnaposto per il `@id` valore trovato nell'indice del servizio.
 
-Si noti che questo URL punti nello stesso percorso dell'endpoint di push V2 legacy, poiché il protocollo è gli stessi.
+Si noti che questo URL punta a nello stesso percorso degli endpoint precedenti V2 push, poiché il protocollo è gli stessi.
 
 ## <a name="http-methods"></a>Metodi HTTP
 
-Il `PUT`, `POST` e `DELETE` metodi HTTP supportati da questa risorsa. Per i metodi supportati per ogni endpoint, vedere di seguito.
+Il `PUT`, `POST` e `DELETE` metodi HTTP supportati da questa risorsa. Per i metodi che sono supportati in ogni endpoint, vedere di seguito.
 
 ## <a name="push-a-package"></a>Push di un pacchetto
 
 > [!Note]
-> ha NuGet.org [requisiti aggiuntivi](NuGet-Protocols.md) per l'interazione con l'endpoint di push.
+> dispone di NuGet.org [requisiti aggiuntivi](NuGet-Protocols.md) per l'interazione con l'endpoint di push.
 
-NuGet.org supporta l'inserimento di nuovi pacchetti utilizzando l'API seguente. Se il pacchetto con la versione e l'ID specificato esiste già, nuget.org rifiuterà il push. Altre origini pacchetto supportino la sostituzione di un pacchetto esistente.
+NuGet.org supporta il push dei nuovi pacchetti tramite l'API seguente. Se il pacchetto con l'ID e versione specificati esiste già, nuget.org rifiuterà il push. Altre origini di pacchetti possono supportare la sostituzione di un pacchetto esistente.
 
     PUT https://www.nuget.org/api/v2/package
 
@@ -51,7 +50,7 @@ nome           | In     | Tipo   | Obbligatorio | Note
 -------------- | ------ | ------ | -------- | -----
 X-NuGet-ApiKey | Header | stringa | sì      | Ad esempio, `X-NuGet-ApiKey: {USER_API_KEY}`.
 
-La chiave API è una stringa opaca disponibili dall'origine del pacchetto per l'utente e configurato nel client. Nessun formato determinata stringa è obbligatoria, ma la lunghezza della chiave API non deve superare dimensioni per i valori dell'intestazione HTTP.
+La chiave API è una stringa opaca ricevuto dall'origine del pacchetto dall'utente e configurato nel client. Nessun formato determinata stringa è obbligatoria, ma la lunghezza della chiave API non deve superare una dimensione ragionevole per i valori delle intestazioni HTTP.
 
 ### <a name="request-body"></a>Corpo della richiesta
 
@@ -59,21 +58,21 @@ Il corpo della richiesta deve essere nel formato seguente:
 
 #### <a name="multipart-form-data"></a>Dati del form multipart
 
-L'intestazione della richiesta `Content-Type` è `multipart/form-data` e i byte non elaborati del .nupkg viene inserito il primo elemento nel corpo della richiesta. Gli elementi successivi in più parti corpo vengono ignorati. Il nome del file o qualsiasi altra intestazione degli elementi in più parti vengono ignorata.
+L'intestazione della richiesta `Content-Type` è `multipart/form-data` e il primo elemento nel corpo della richiesta è i byte non elaborati del pacchetto. nupkg esserne eseguito il push. Gli elementi successivi in più parti corpo vengono ignorati. Il nome del file o qualsiasi altra intestazione degli elementi composti da più parti verranno ignorata.
 
 ### <a name="response"></a>Risposta
 
 Codice di stato | Significato
 ----------- | -------
-201, 202    | Il pacchetto è stato inserito correttamente
+201, 202    | Il pacchetto è stato eseguito il push
 400         | Il pacchetto fornito non è valido
-409         | Un pacchetto con la versione e l'ID specificato esiste già
+409         | Un pacchetto con l'ID e versione specificati esiste già
 
-Le implementazioni server variare il codice di stato di esito positivo restituito quando un pacchetto viene inserito correttamente.
+Le implementazioni di server variano il codice di stato riuscito restituito quando un pacchetto viene eseguito il push.
 
 ## <a name="delete-a-package"></a>Eliminare un pacchetto
 
-NuGet.org interpreta la richiesta di eliminazione del pacchetto come un'esclusione"di". Ciò significa che il pacchetto è ancora disponibile per i consumer esistenti del pacchetto, ma il pacchetto non viene più visualizzata nei risultati della ricerca o nell'interfaccia web. Per ulteriori informazioni su questa esercitazione, vedere il [pacchetti eliminati](../policies/deleting-packages.md) criteri. Altre implementazioni di server sono disponibili per interpretare il segnale come un'eliminazione di disco rigido, eliminare temporaneamente o esclusione. Ad esempio, [NuGet.Server](https://www.nuget.org/packages/NuGet.Server) (un'implementazione di server supportano solo l'API V2 precedente) supporta la gestione di questa richiesta come un unlist o una disco rigida delete basata su un'opzione di configurazione.
+NuGet.org interpreta la richiesta di eliminazione del pacchetto come un' "Rimuovi dall'elenco". Ciò significa che il pacchetto è ancora disponibile per i consumer esistenti del pacchetto, ma il pacchetto non viene più visualizzata nei risultati della ricerca o nell'interfaccia web. Per altre informazioni su questa procedura, vedere la [i pacchetti eliminati](../policies/deleting-packages.md) criteri. Altre implementazioni di server sono liberi di interpretare questo segnale come un'eliminazione di disco rigido, tipo "soft" eliminare o rimuovere dall'elenco. Ad esempio, [NuGet. server](https://www.nuget.org/packages/NuGet.Server) (un'implementazione del server che supportano solo l'API V2 meno recente) supporta la gestione di questa richiesta come una rimozione dall'elenco o una disco rigida delete basata su un'opzione di configurazione.
 
     DELETE https://www.nuget.org/api/v2/package/{ID}/{VERSION}
 
@@ -92,9 +91,9 @@ Codice di stato | Significato
 204         | Il pacchetto è stato eliminato
 404         | Nessun pacchetto con l'oggetto fornito `ID` e `VERSION` esiste
 
-## <a name="relist-a-package"></a>Rimettere un pacchetto
+## <a name="relist-a-package"></a>Includere di nuovo nell'elenco un pacchetto
 
-Se un pacchetto è incluso nell'elenco, è possibile rendere nuovamente visibili nei risultati della ricerca utilizzando l'endpoint "rimettere in vendita" che il pacchetto. Questo endpoint è la stessa forma di [eliminare (esclusione) endpoint](#delete-a-package) ma utilizza il `POST` metodo HTTP invece del `DELETE` metodo.
+Se un pacchetto è incluso nell'elenco, è possibile rendere nuovamente visibile nei risultati della ricerca usando l'endpoint "rimessa" che il pacchetto. Questo endpoint è la stessa forma il [eliminare (rimuovere dall'elenco) endpoint](#delete-a-package) , ma usa le `POST` invece del metodo HTTP il `DELETE` (metodo).
 
 Se il pacchetto è già presente, viene comunque completato correttamente la richiesta.
 

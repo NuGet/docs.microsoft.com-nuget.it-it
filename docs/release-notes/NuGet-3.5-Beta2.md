@@ -1,23 +1,22 @@
 ---
-title: 3.5 note sulla versione Beta2
-description: Note sulla versione per NuGet 3.5 Beta 2, inclusi i problemi noti, correzioni di bug, le funzionalità aggiunte e dcr.
+title: 3.5 note sulla versione Beta 2
+description: Note sulla versione per NuGet 3.5 Beta 2, inclusi i problemi noti, correzioni di bug, funzionalità aggiunte e dcr.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 08bbae00a3e63c2a1ff42d5cc04981eb02966850
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 4b47939e2fafc11823c41a849b3c58bbf0800ada
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31822344"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43551991"
 ---
-# <a name="nuget-35-beta2-release-notes"></a>Note sulla versione 3.5 Beta2 di NuGet
+# <a name="nuget-35-beta2-release-notes"></a>Note sulla versione di NuGet 3.5 Beta 2
 
-[Note sulla versione 3.5 Beta NuGet](../release-notes/nuget-3.5-Beta.md) | [note sulla versione 3.5 RC di NuGet](../release-notes/nuget-3.5-RC.md)
+[Note sulla versione 3.5-Beta di NuGet](../release-notes/nuget-3.5-Beta.md) | [note sulla versione 3.5-RC di NuGet](../release-notes/nuget-3.5-RC.md)
 
-Versione RTM di NuGet 3.5 Beta 2 è stato rilasciato il 27 giugno 2016 per Visual Studio 2013 e nuget.exe
+Versione RTM di NuGet 3.5 Beta 2 è stata rilasciata il 27 giugno 2016 per Visual Studio 2013 e nuget.exe
 
 [Log delle modifiche completo](https://github.com/NuGet/NuGet.Client/compare/release-3.5.0-beta...release-3.5.0-beta2)
 
@@ -71,15 +70,15 @@ Versione RTM di NuGet 3.5 Beta 2 è stato rilasciato il 27 giugno 2016 per Visua
 
 * `.nuspec`versione intervallo deve eseguire l'override di versione - IncludeReferencedProjects - [#1983](https://github.com/NuGet/Home/issues/1983)
 
-* NuGet 3.3.0 aggiornamento ha esito negativo con '... un vincolo aggiuntivo definito nel file Packages. config impedisce questa operazione.' - [#1816](https://github.com/NuGet/Home/issues/1816)
+* NuGet 3.3.0 aggiornamento ha esito negativo con '... un ulteriore vincolo definito in Packages. config impedisce l'operazione.' - [#1816](https://github.com/NuGet/Home/issues/1816)
 
-* aggiornamento di NuGet.exe elimina il nome sicuro dell'assembly e l'attributo privata. - [#1778](https://github.com/NuGet/Home/issues/1778)
+* aggiornamento NuGet.exe elimina il nome sicuro dell'assembly e l'attributo privato. - [#1778](https://github.com/NuGet/Home/issues/1778)
 
 * Risolvere i problemi con il percorso relativo del file per "DefaultPushSource" - [#1746](https://github.com/NuGet/Home/issues/1746)
 
 * Migliorare i messaggi di errore di sistema di risoluzione Update - [#1373](https://github.com/NuGet/Home/issues/1373)
 
-## <a name="features-and-behavior-changes"></a>Funzionalità e modifiche del comportamento
+## <a name="features-and-behavior-changes"></a>Le funzionalità e modifiche del comportamento
 
 * NuGet.exe push: parametro di timeout non funziona - [#2785](https://github.com/NuGet/Home/issues/2785)
 

@@ -1,25 +1,24 @@
 ---
-title: Riferimento a File Packages. config di NuGet
+title: Riferimento al File Packages. config di NuGet
 description: In alcuni tipi di progetto, il file packages.config include l'elenco aggiornato dei pacchetti NuGet usati nel progetto.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 05/21/2018
 ms.topic: reference
-ms.openlocfilehash: 2019ce5961a8237fbda855cd7d5b42948808be3a
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 18566671b611899b28fcc8542cf53935f5ee2dfd
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817837"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43551770"
 ---
 # <a name="packagesconfig-reference"></a>Informazioni di riferimento su packages.config
 
 Il file `packages.config` viene usato in alcuni tipi di progetto per gestire l'elenco dei pacchetti a cui fa riferimento il progetto. In questo modo NuGet può ripristinare facilmente le dipendenze del progetto quando il progetto devono essere trasportato in un computer diverso, ad esempio un server di compilazione, senza tutti i pacchetti.
 
-Se utilizzato, `packages.config` in genere si trova nella radice di un progetto. Viene creato automaticamente quando viene eseguita la prima operazione di NuGet, ma può essere creata anche manualmente prima di eseguire qualsiasi comando, ad esempio `nuget restore`.
+Se usato, `packages.config` in genere si trova nella radice di un progetto. Viene creato automaticamente quando viene eseguita la prima operazione di NuGet, ma può essere creata anche manualmente prima di eseguire qualsiasi comando, ad esempio `nuget restore`.
 
-I progetti che utilizzano [PackageReference](../consume-packages/Package-References-in-Project-Files.md) non utilizzano `packages.config`.
+I progetti che utilizzano [PackageReference](../consume-packages/Package-References-in-Project-Files.md) non usare `packages.config`.
 
 ## <a name="schema"></a>Schema
 

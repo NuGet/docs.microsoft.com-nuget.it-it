@@ -1,23 +1,22 @@
 ---
 title: Riferimento di PowerShell Get-pacchetto NuGet
-description: Riferimento per il comando PowerShell Get-Package nella Console di gestione pacchetti NuGet in Visual Studio.
+description: Informazioni di riferimento per il comando PowerShell Get-Package nella Console di gestione pacchetti NuGet in Visual Studio.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: f4b71fc44e44dcbd5d123a0e2fed63adb79964b5
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: a28b29614dfe5abdeb24438b3451d96634a120db
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818503"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43551442"
 ---
 # <a name="get-package-package-manager-console-in-visual-studio"></a>Get-Package (console di Gestione pacchetti in Visual Studio)
 
-*Questo argomento viene descritto il comando all'interno di [Console di gestione pacchetti NuGet](package-manager-console.md) in Visual Studio in Windows. Per il comando PowerShell Get-Package generico, vedere il [riferimento di PowerShell PackageManagement](/powershell/module/packagemanagement/?view=powershell-6).*
+*In questo argomento descrive il comando all'interno di [Console di gestione pacchetti NuGet](package-manager-console.md) in Visual Studio in Windows. Per il comando PowerShell Get-Package generico, vedere la [riferimento di PowerShell PackageManagement](/powershell/module/packagemanagement/?view=powershell-6).*
 
-Recupera l'elenco di pacchetti installati nell'archivio locale, Elenca i pacchetti disponibili da un'origine del pacchetto quando si utilizza l'opzione - ListAvailable o elenca gli aggiornamenti disponibili quando si utilizza l'opzione-Update.
+Recupera l'elenco dei pacchetti installati nel repository locale, sono elencati i pacchetti disponibili da un'origine del pacchetto quando usato con l'opzione - ListAvailable o elenca gli aggiornamenti disponibili quando usato con l'opzione-Update.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -27,28 +26,28 @@ Get-Package -Source <string> [-ListAvailable] [-Updates] [-ProjectName <string>]
     [-PageSize] [<CommonParameters>]
 ```
 
-Senza parametri, `Get-Package` Visualizza l'elenco dei pacchetti installati nel progetto predefinito.
+Senza parametri, `Get-Package` consente di visualizzare l'elenco dei pacchetti installati nel progetto predefinito.
 
 ## <a name="parameters"></a>Parametri
 
 | Parametro | Descrizione |
 | --- | --- |
-| Origine | Il percorso URL o una cartella per il pacchetto. I percorsi di cartella locale possono essere assoluto o relativo della cartella corrente. Se omesso, `Get-Package` Cerca l'origine pacchetto attualmente selezionata. Quando usato con - ListAvailable, per impostazione predefinita nuget.org. |
-| ListAvailable | Elenca i pacchetti disponibili da un'origine del pacchetto, verrà utilizzato nuget.org. Mostra il valore predefinito è 50 pacchetti a meno che non vengono specificati - PageSize e/o - First. |
-| Aggiornamenti | Elenca i pacchetti sono disponibile un aggiornamento dall'origine del pacchetto. |
-| ProjectName | Il progetto da cui recuperare i pacchetti installati. Se omesso, restituisce installati progetti per l'intera soluzione. |
+| Origine | Il percorso URL o una cartella per il pacchetto. I percorsi di cartella locale possono essere assoluto o relativo rispetto alla cartella corrente. Se omesso, `Get-Package` Cerca l'origine del pacchetto attualmente selezionata. Quando usato con - ListAvailable, per impostazione predefinita in nuget.org. |
+| ListAvailable | Elenca i pacchetti disponibili da un'origine del pacchetto, verrà utilizzato in nuget.org. Mostra un valore predefinito di 50 pacchetti a meno che non vengono specificati - PageSize e/o - First. |
+| Aggiornamenti | Elenca i pacchetti che hanno un aggiornamento disponibile dall'origine del pacchetto. |
+| ProjectName | Il progetto da cui ottenere i pacchetti installati. Se omesso, restituisce installati progetti per l'intera soluzione. |
 | Filtro | Una stringa di filtro utilizzata per limitare l'elenco dei pacchetti viene applicato per l'ID del pacchetto, la descrizione e tag. |
-| First | Il numero di pacchetti da restituire dall'inizio dell'elenco. Se non specificato, per impostazione predefinita a 50. |
+| First | Il numero di pacchetti da restituire dall'inizio dell'elenco. Se non specificato, valore predefinito è 50. |
 | Skip | Omette il primo &lt;int&gt; pacchetti nell'elenco visualizzato.  |
-| Completaversioni | Visualizza tutte le versioni disponibili di ogni pacchetto anziché solo la versione più recente. |
-| IncludePrerelease | Include i pacchetti non definitiva nei risultati. |
-| PageSize | *(3.0 +)*  Quando usato con - ListAvailable (obbligatorio), il numero di pacchetti per visualizzare l'elenco prima di consegnare un prompt dei comandi per continuare. |
+| AllVersions | Consente di visualizzare tutte le versioni disponibili di ogni pacchetto invece solo la versione più recente. |
+| IncludePrerelease | Include pacchetti versione non definitivo nei risultati. |
+| PageSize | *(3.0 e versioni successive)*  Quando utilizzato con - ListAvailable (obbligatorio), il numero di pacchetti per ottenere l'elenco prima di fornire un prompt dei comandi per continuare. |
 
-Nessuno di questi parametri accettano caratteri jolly o di input di pipeline.
+Nessuno di questi parametri accettano caratteri jolly o input della pipeline.
 
 ## <a name="common-parameters"></a>Parametri comuni
 
-`Get-Package` supporta i seguenti [parametri PowerShell comuni](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, azione di errore, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction e WarningVariable.
+`Get-Package` supporta i seguenti [parametri PowerShell comuni](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, azione per errore, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction e WarningVariable.
 
 ## <a name="examples"></a>Esempi
 

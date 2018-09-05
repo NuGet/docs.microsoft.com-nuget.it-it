@@ -1,23 +1,22 @@
 ---
-title: Comando di elenco NuGet CLI
-description: Riferimento per il comando di elenco di nuget.exe
+title: Comando di NuGet CLI list
+description: Informazioni di riferimento per il comando list nuget.exe
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: b0f144d8abbba7388fe39cd113e4eeddccbca2c6
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 61294f4c9d85336dc8b718fd66b236c692bab00e
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818438"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43549801"
 ---
-# <a name="list-command-nuget-cli"></a>comando di elenco (NuGet CLI)
+# <a name="list-command-nuget-cli"></a>comando List (NuGet CLI)
 
-**Si applica a:** il consumo di pacchetti, pubblicazione &bullet; **le versioni supportate:** tutti
+**Si applica a:** utilizzo di un pacchetto, la pubblicazione &bullet; **le versioni supportate:** tutti
 
-Visualizza un elenco di pacchetti da un'origine specificata. Se non vengono specificata alcuna origine, tutte le origini definito nel file di configurazione globale, `%AppData%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config`, vengono utilizzati. Se `NuGet.Config` non specifica nessuna origine, quindi `list` Usa il feed predefinito (nuget.org).
+Visualizza un elenco dei pacchetti da un'origine specificata. Se non sono specificate origini, tutte le origini definite nel file di configurazione globali `%AppData%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config`, vengono usati. Se `NuGet.Config` non specifica nessuna origine, quindi `list` Usa il feed predefinito (nuget.org).
 
 ## <a name="usage"></a>Utilizzo
 
@@ -25,21 +24,21 @@ Visualizza un elenco di pacchetti da un'origine specificata. Se non vengono spec
 nuget list [search terms] [options]
 ```
 
-in termini di ricerca facoltativo verranno filtrato l'elenco visualizzato. I termini di ricerca vengono applicati ai nomi dei pacchetti, tag e le descrizioni di pacchetto, esattamente come quando il loro utilizzo su nuget.org.
+in cui i termini di ricerca facoltativo filtrerà l'elenco visualizzato. I termini di ricerca vengono applicati ai nomi dei pacchetti, tag e descrizioni dei pacchetti, esattamente come lo sono quando vengono utilizzati in nuget.org.
 
 ## <a name="options"></a>Opzioni
 
 | Opzione | Descrizione |
 | --- | --- |
-| Completaversioni | Elencare tutte le versioni di un pacchetto. Per impostazione predefinita, viene visualizzata solo la versione più recente del pacchetto. |
-| ConfigFile | Il file di configurazione NuGet da applicare. Se non specificato, `%AppData%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Mac o Linux) viene utilizzato.|
-| ForceEnglishOutput | *(3.5 +)*  Forza nuget.exe per eseguire utilizzando le impostazioni cultura invariante, in lingua inglese. |
+| AllVersions | Elencare tutte le versioni di un pacchetto. Per impostazione predefinita, viene visualizzato solo l'ultima versione del pacchetto. |
+| ConfigFile | Il file di configurazione di NuGet da applicare. Se non specificato, `%AppData%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) viene usato.|
+| ForceEnglishOutput | *(3.5 +)*  Forza nuget.exe affinché venga eseguito usando una cultura invariante e di lingua inglese. |
 | ? | Visualizza la Guida informazioni per il comando. |
-| IncludeDelisted | *(3.2 +)*  Visualizzare i pacchetti. |
-| Non interattivo | Elimina richieste per l'input dell'utente o le conferme. |
-| Versione provvisoria | Include pacchetti della versione provvisoria, nell'elenco. |
-| Origine | Specifica un elenco di origini dei pacchetti per la ricerca. |
-| Livello di dettaglio | Specifica la quantità di dettagli visualizzati nell'output: *normale*, *quiet*, *dettagliate*. |
+| IncludeDelisted | *(3.2 +)*  Visualizzare pacchetti rimossi dall'elenco. |
+| Non interattive | Elimina richieste di input o conferme dell'utente. |
+| Versione preliminare | Include prerelease pacchetti nell'elenco. |
+| Origine | Specifica un elenco di origini di pacchetti per la ricerca. |
+| Livello di dettaglio | Specifica la quantità di dettaglio visualizzato nell'output: *normali*, *quiet*, *dettagliate*. |
 
 Vedere anche [le variabili di ambiente](cli-ref-environment-variables.md)
 

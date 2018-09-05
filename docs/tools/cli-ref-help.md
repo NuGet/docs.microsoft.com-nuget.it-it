@@ -1,23 +1,22 @@
 ---
-title: Comando help NuGet CLI
-description: Riferimento per il comando della Guida di nuget.exe
+title: Comando di NuGet CLI?
+description: Informazioni di riferimento per il comando help nuget.exe
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: d7112209a0a2a267343c3458ebacaf6b744786a9
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 3c8b07cb02144da3d88e06956d079b216b3f530f
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818256"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546563"
 ---
 # <a name="help-or--command-nuget-cli"></a>help or ? (interfaccia della riga di comando di NuGet)
 
-**Si applica a:** tutti &bullet; **le versioni supportate**: tutti
+**Si applica a:** tutte &bullet; **le versioni supportate**: tutti
 
-Generale consente di visualizzare informazioni della Guida e le informazioni sui comandi specifici.
+Generale consente di visualizzare informazioni della Guida e informazioni sui comandi specifici per il supporto.
 
 ## <a name="usage"></a>Utilizzo
 
@@ -29,19 +28,19 @@ nuget ? [command] [options]
 dove [comando] identifica un comando specifico per cui si desidera visualizzare la Guida.
 
 > [!Warning]
-> Con alcuni comandi, tenere in considerazione specificare *Guida* prima, come con `nuget help install`, perché è un pacchetto denominato "help" in nuget.org. Se si fornisce il comando `nuget install help`, si otterranno della Guida sul comando di installazione, ma invece verrà installato il pacchetto denominato della Guida.
+> Con alcuni comandi, tenere conto specificare *aiutare* prima, come con `nuget help install`, essendo presente un pacchetto denominato "help" su nuget.org. Qualora il Licenziatario fornisca il comando `nuget install help`, si otterranno della Guida sul comando install ma verranno invece installare il pacchetto denominato della Guida.
 
 ## <a name="options"></a>Opzioni
 
 | Opzione | Descrizione |
 | --- | --- |
-| Tutti | Stampa la Guida dettagliata per tutti i comandi disponibili; ignorato se non viene specificato un comando specifico. |
-| ConfigFile | Il file di configurazione NuGet da applicare. Se non specificato, `%AppData%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Mac o Linux) viene utilizzato.|
-| ForceEnglishOutput | *(3.5 +)*  Forza nuget.exe per eseguire utilizzando le impostazioni cultura invariante, in lingua inglese. |
-| ? | Visualizza la Guida informazioni per il comando della Guida. |
-| Markdown | Stampare informazioni della Guida dettagliate in formato markdown se utilizzata con `-All`. Ignorato in caso contrario. |
-| Non interattivo | Elimina richieste per l'input dell'utente o le conferme. |
-| Livello di dettaglio | Specifica la quantità di dettagli visualizzati nell'output: *normale*, *quiet*, *dettagliate*. |
+| Tutti | Stampa una Guida dettagliata per tutti i comandi disponibili; ignorato se viene fornito un comando specifico. |
+| ConfigFile | Il file di configurazione di NuGet da applicare. Se non specificato, `%AppData%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) viene usato.|
+| ForceEnglishOutput | *(3.5 +)*  Forza nuget.exe affinché venga eseguito usando una cultura invariante e di lingua inglese. |
+| ? | Visualizza la Guida informazioni per il comando della Guida in linea se stesso. |
+| Markdown | Stampa la Guida dettagliata in formato markdown quando usato con `-All`. Ignorato in caso contrario. |
+| Non interattive | Elimina richieste di input o conferme dell'utente. |
+| Livello di dettaglio | Specifica la quantità di dettaglio visualizzato nell'output: *normali*, *quiet*, *dettagliate*. |
 
 Vedere anche [le variabili di ambiente](cli-ref-environment-variables.md)
 

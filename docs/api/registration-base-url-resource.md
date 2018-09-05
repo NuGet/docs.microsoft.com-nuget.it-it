@@ -1,24 +1,23 @@
 ---
 title: Metadati del pacchetto, NuGet API
-description: L'URL di base di registrazione del pacchetto consente il recupero di metadati sui pacchetti.
+description: L'URL di base di registrazione pacchetto consente il recupero dei metadati sui pacchetti.
 author: joelverhagen
 ms.author: jver
-manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 50064e1450232e9cdedcc042a09c08860f802e76
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: a64c5844a58213415671ab0d202a75bc0ececc89
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31822237"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546784"
 ---
 # <a name="package-metadata"></a>Metadati del pacchetto
 
-È possibile recuperare i metadati relativi ai pacchetti disponibili su un'origine del pacchetto tramite l'API di NuGet V3. Questi metadati possono essere recuperati tramite il `RegistrationsBaseUrl` risorse, vedere il [indice servizio](service-index.md).
+È possibile recuperare i metadati relativi ai pacchetti disponibili in un'origine del pacchetto tramite l'API di NuGet V3. Questi metadati possono essere recuperati tramite il `RegistrationsBaseUrl` trovare la risorsa nella [indice del servizio](service-index.md).
 
-La raccolta dei documenti in `RegistrationsBaseUrl` vengono spesso denominati "registrazioni" o "registrazione BLOB". Il set di documenti in un unico `RegistrationsBaseUrl` viene definito un hive"registrazione". Un hive registrazione contiene tutti i metadati relativi a tutti i pacchetti disponibili su un'origine pacchetto.
+La raccolta dei documenti in `RegistrationsBaseUrl` sono spesso chiamati "registrazioni per" o "registrazione BLOB". Il set di documenti in una singola `RegistrationsBaseUrl` è detto "hive" registrazione". Un hive registrazione contiene tutti i metadati relativi a ogni pacchetto disponibile su un'origine del pacchetto.
 
 ## <a name="versioning"></a>Controllo delle versioni
 
@@ -30,48 +29,48 @@ RegistrationsBaseUrl            | La versione iniziale
 RegistrationsBaseUrl/3.0.0-beta | Alias di `RegistrationsBaseUrl`
 RegistrationsBaseUrl/3.0.0-rc   | Alias di `RegistrationsBaseUrl`
 RegistrationsBaseUrl/3.4.0      | Risposte compresso con gzip
-RegistrationsBaseUrl/3.6.0      | Include pacchetti SemVer 2.0.0
+RegistrationsBaseUrl/3.6.0      | Include i pacchetti di SemVer 2.0.0
 
-Questo rappresenta tre hive registrazione distinct è disponibili per le diverse versioni di client.
+Questo rappresenta tre hive distinti registrazione disponibili per le diverse versioni di client.
 
 ### <a name="registrationsbaseurl"></a>RegistrationsBaseUrl
 
-Queste registrazioni non vengono compressi (vale a dire che utilizzano un implicita `Content-Encoding: identity`). I pacchetti SemVer 2.0.0 sono **esclusi** dall'hive.
+Queste registrazioni non sono stati compressi (vale a dire usano un implicita `Content-Encoding: identity`). Sono pacchetti di SemVer 2.0.0 **esclusi** da questo hive.
 
 ### <a name="registrationsbaseurl340"></a>RegistrationsBaseUrl/3.4.0
 
-Queste registrazioni vengono compressi utilizzando `Content-Encoding: gzip`. I pacchetti SemVer 2.0.0 sono **esclusi** dall'hive.
+Queste registrazioni vengono compressi mediante `Content-Encoding: gzip`. Sono pacchetti di SemVer 2.0.0 **esclusi** da questo hive.
 
 ### <a name="registrationsbaseurl360"></a>RegistrationsBaseUrl/3.6.0
 
-Queste registrazioni vengono compressi utilizzando `Content-Encoding: gzip`. I pacchetti SemVer 2.0.0 sono **incluso** in questo hive.
-Per ulteriori informazioni su SemVer 2.0.0, vedere [supporto SemVer 2.0.0 per nuget.org](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29).
+Queste registrazioni vengono compressi mediante `Content-Encoding: gzip`. Sono pacchetti di SemVer 2.0.0 **inclusi** in questo hive.
+Per altre informazioni su SemVer 2.0.0, vedere [supporto di SemVer 2.0.0 per nuget.org](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29).
 
 ## <a name="base-url"></a>URL di base
 
-L'URL di base per le API seguente è il valore di `@id` proprietà associato alla risorsa menzionati in precedenza `@type` valori. Nel documento seguente, il segnaposto URL di base `{@id}` verrà utilizzato.
+L'URL di base per le API seguente è il valore della `@id` proprietà associato alla risorsa menzionati in precedenza `@type` valori. Nel documento seguente, il segnaposto URL di base `{@id}` verrà utilizzato.
 
 ## <a name="http-methods"></a>Metodi HTTP
 
-Tutti gli URL trovati, il supporto di risorsa di registrazione, i metodi HTTP `GET` e `HEAD`.
+Tutti gli URL disponibili il supporto di risorse di registrazione i metodi HTTP `GET` e `HEAD`.
 
 ## <a name="registration-index"></a>Indice di registrazione
 
-I gruppi di risorse di registrazione del pacchetto dei metadati dall'ID del pacchetto. Non è possibile ottenere i dati relativi a più di un ID di pacchetto alla volta. Questa risorsa non consente di individuare gli ID di pacchetto. Invece il client si presuppone che conosce l'ID pacchetto desiderato. I metadati disponibili relativi a ogni versione del pacchetto variano dall'implementazione di server. I BLOB di registrazione del pacchetto hanno una struttura gerarchica seguente:
+I gruppi di risorse di registrazione del pacchetto dei metadati dall'ID del pacchetto. Non è possibile ottenere dati relativi a più di un ID del pacchetto alla volta. Questa risorsa non fornisce alcun modo per individuare gli ID di pacchetto. Invece il client si presuppone che conosce già l'ID pacchetto desiderato. I metadati disponibili relativi a ogni versione del pacchetto dipende dalla implementazione del server. I BLOB di registrazione pacchetto presentano la struttura gerarchica seguente:
 
-- **Indice**: il punto di ingresso per i metadati del pacchetto, condivisi da tutti i pacchetti su un'origine con lo stesso ID di pacchetto.
-- **Pagina**: un raggruppamento di versioni del pacchetto. Il numero di versioni del pacchetto in una pagina viene definito dall'implementazione di server.
-- **Foglia**: un documento specifico per una versione singolo pacchetto.
+- **Indice**: il punto di ingresso per i metadati del pacchetto, condivisi da tutti i pacchetti in un'origine con lo stesso ID di pacchetto.
+- **Pagina**: un raggruppamento di versioni del pacchetto. Il numero di versioni del pacchetto in una pagina viene definito dall'implementazione del server.
+- **Foglia**: un documento specifico a una versione singolo pacchetto.
 
-L'URL dell'indice registrazione prevedibile e può essere determinato dal client di cui è assegnato un ID pacchetto e la risorsa di registrazione `@id` valore dall'indice di servizio. Gli URL per le pagine di registrazione e le foglie vengono individuati tramite l'analisi dell'indice di registrazione.
+L'URL dell'indice di registrazione è prevedibile e può essere determinato mediante il client ha un ID pacchetto e la risorsa di registrazione `@id` valore dall'indice del servizio. Gli URL per le pagine di registrazione e lascia vengono individuati tramite l'analisi dell'indice di registrazione.
 
-### <a name="registration-pages-and-leaves"></a>Lascia e pagine di registrazione
+### <a name="registration-pages-and-leaves"></a>Lascia e le pagine di registrazione
 
-Sebbene non sia strettamente è necessario per un'implementazione di server archiviare foglie di registrazione di un nei documenti di pagina di registrazione separati, è consigliabile conservare la memoria sul lato client. Anziché l'inlining di tutti registrazione lascia in corrispondenza dell'indice o l'archiviazione immediatamente lascia nei documenti di pagina, è consigliabile che l'implementazione del server di definire un approccio euristico per scegliere tra i due approcci in base al numero di versioni del pacchetto o lascia la dimensione complessiva del pacchetto.
+Sebbene non sia strettamente è obbligatorio per un'implementazione del server archiviare registrazione foglie nei documenti di pagina di registrazione separati, è consigliabile conservare la memoria lato client. Invece di all inlining registrazione lascia in corrispondenza dell'indice o immediatamente l'archiviazione foglie nei documenti di pagina, è consigliabile che l'implementazione del server definire alcune euristica per scegliere tra i due approcci in base al numero di versioni del pacchetto o lascia le dimensioni complessive del pacchetto.
 
-L'archiviazione di tutte le versioni di pacchetto (foglie) nei salvataggi di indice di registrazione per il numero di richieste HTTP necessaria per l'operazione di recupero dei metadati del pacchetto, ma indica che è necessario scaricare un documento più grande e deve essere allocata più memoria del client. D'altra parte, se l'implementazione del server archivia immediatamente registrazione lascia nei documenti di una pagina separata, il client deve eseguire più richieste HTTP per ottenere le informazioni che necessarie.
+L'archiviazione di tutte le versioni dei pacchetti (foglie) nel Salva indice registrazione sul numero di richieste HTTP necessaria per recuperare i metadati del pacchetto, ma significa che è necessario scaricare un documento più grande e deve essere allocata più memoria del client. D'altra parte, se l'implementazione del server archivia immediatamente registrazione lascia in documenti di una pagina separata, il client deve eseguire più richieste HTTP per ottenere le informazioni che necessarie.
 
-L'euristica di nuget.org viene utilizzato come segue: se sono presenti 128 o più versioni di un pacchetto, suddividere le foglie in pagine di dimensioni di 64. Se sono disponibili versioni meno di 128, inline tutti lascia nell'indice della registrazione.
+L'euristica che usa nuget.org è come segue: se sono presenti 128 o più versioni di un pacchetto, le foglie di suddivisione in pagine di dimensioni 64. Se sono presenti versioni minore di 128, inline tutti lascia nell'indice della registrazione.
 
     GET {@id}/{LOWER_ID}/index.json
 
@@ -79,106 +78,106 @@ L'euristica di nuget.org viene utilizzato come segue: se sono presenti 128 o pi�
 
 nome     | In     | Tipo    | Obbligatorio | Note
 -------- | ------ | ------- | -------- | -----
-LOWER_ID | URL    | stringa  | sì      | L'ID del pacchetto, minuscola
+LOWER_ID | URL    | stringa  | sì      | L'ID del pacchetto minuscola
 
-Il `LOWER_ID` valore è l'ID del pacchetto desiderato minuscola usando le regole implementate da. Del NET [ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) metodo.
+Il `LOWER_ID` valore è l'ID pacchetto desiderato minuscola usando le regole implementate da. Di NET [ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) (metodo).
 
 ### <a name="response"></a>Risposta
 
-La risposta è un documento JSON che include un oggetto principale con le proprietà seguenti:
+La risposta è un documento JSON che include un oggetto radice con le proprietà seguenti:
 
 nome  | Tipo             | Obbligatorio | Note
 ----- | ---------------- | -------- | -----
 count | numero intero          | sì      | Il numero di pagine di registrazione nell'indice
-Elementi | Matrice di oggetti | sì      | Matrice di pagine di registrazione
+elementi | Matrice di oggetti | sì      | Matrice di pagine di registrazione
 
-Ogni elemento nell'oggetto indice `items` matrice è un oggetto JSON che rappresenta una pagina di registrazione.
+Ogni elemento dell'oggetto indice `items` matrice è un oggetto JSON che rappresenta una pagina di registrazione.
 
 #### <a name="registration-page-object"></a>Oggetto pagina registrazione
 
-Oggetto della pagina di registrazione trovato nell'indice della registrazione dispone delle proprietà seguenti:
+L'oggetto pagina di registrazione trovato in corrispondenza dell'indice registrazione presenta le proprietà seguenti:
 
 nome   | Tipo             | Obbligatorio | Note
 ------ | ---------------- | -------- | -----
 @id    | stringa           | sì      | L'URL alla pagina di registrazione
 count  | numero intero          | sì      | Il numero di registrazione lascia nella pagina
-Elementi  | Matrice di oggetti | No       | La matrice di registrazione lascia e i relativi metadati associati
-Inferiore  | stringa           | sì      | La versione meno recente SemVer 2.0.0 nella pagina (inclusiva)
+elementi  | Matrice di oggetti | No       | Matrice di foglie di registrazione e i relativi metadati associati
+inferiore  | stringa           | sì      | La versione di SemVer 2.0.0 più bassa nella pagina (inclusiva)
 Elemento padre | stringa           | No       | L'URL per l'indice di registrazione
-superiore  | stringa           | sì      | La versione più recente SemVer 2.0.0 nella pagina (inclusiva)
+superiore  | stringa           | sì      | La versione di SemVer 2.0.0 più alto nella pagina (inclusiva)
 
-Il `lower` e `upper` limiti dell'oggetto di pagina sono utili quando i metadati per una versione di pagina specifica sono necessari.
-Questi limiti possono essere usati per recuperare la pagina di registrazione solo necessita. Rispettino le stringhe di versione [regole per la versione NuGet](../reference/package-versioning.md). Le stringhe di versione sono normalizzate e non includono i metadati di compilazione. Come con tutte le versioni all'interno dell'ecosistema di NuGet, confronto tra stringhe di versione viene implementato utilizzando [le regole di precedenza versione SemVer 2.0.0's](http://semver.org/spec/v2.0.0.html#spec-item-11).
+Il `lower` e `upper` nei limiti dell'oggetto page sono utili quando i metadati per una versione di pagina specifica sono necessari.
+Questi limiti possono essere usati per recuperare la pagina di registrazione solo necessita. Le stringhe di versione rispettano [regole della versione di NuGet](../reference/package-versioning.md). Le stringhe di versione vengono normalizzate e non includono i metadati di compilazione. Come con tutte le versioni dell'ecosistema NuGet, confronto delle stringhe di versione viene implementato usando [regole di precedenza versione SemVer 2.0.0's](http://semver.org/spec/v2.0.0.html#spec-item-11).
 
-Il `parent` proprietà verrà visualizzata solo se l'oggetto di pagina di registrazione ha il `items` proprietà.
+Il `parent` proprietà verrà visualizzata solo se l'oggetto pagina di registrazione ha il `items` proprietà.
 
-Se il `items` proprietà non è presente nell'oggetto della pagina di registrazione, l'URL specificato nella `@id` deve essere usato per recuperare i metadati relativi a versioni singolo pacchetto. Il `items` matrice talvolta viene escluso dall'oggetto page per motivi di ottimizzazione. Se il numero di versioni di un ID pacchetto singolo è molto grande, il documento di indicizzazione di registrazione sarà notevole e dispendiosa al processo per un client che può interessare solo su una versione specifica o un breve intervallo di versioni.
+Se il `items` proprietà non è presente nell'oggetto pagina di registrazione, l'URL specificato nella `@id` deve essere usato per recuperare i metadati relativi a versioni dei singoli pacchetti. Il `items` matrice talvolta viene esclusa dall'oggetto pagina come ottimizzazione. Se il numero di versioni di un ID pacchetto singolo è molto grande, il documento di indice di registrazione sarà inutili al processo per un client che può interessare solo su una versione specifica o una gamma ristretta di versioni e di grandi dimensioni.
 
-Si noti che se il `items` proprietà è presente, il `@id` proprietà non è necessario utilizzare, perché tutti i dati di pagina è già resa inline nel `items` proprietà.
+Si noti che se il `items` proprietà è presente, il `@id` proprietà non è necessario utilizzare, poiché tutti i dati di pagina è già impostato come inline nel `items` proprietà.
 
-Ogni elemento nell'oggetto pagina `items` matrice è un oggetto JSON che rappresenta un nodo foglia di registrazione e sono associati metadati.
+Ogni elemento dell'oggetto pagina `items` matrice è un oggetto JSON che rappresenta una foglia di registrazione e sono associati i metadati.
 
-#### <a name="registration-leaf-object-in-a-page"></a>Oggetto foglia di registrazione in una pagina
+#### <a name="registration-leaf-object-in-a-page"></a>Oggetto di registrazione foglia in una pagina
 
-L'oggetto foglia registrazione trovato in una pagina di registrazione ha le proprietà seguenti:
+L'oggetto di foglia registrazione trovato in una pagina di registrazione ha le proprietà seguenti:
 
 nome           | Tipo   | Obbligatorio | Note
 -------------- | ------ | -------- | -----
 @id            | stringa | sì      | L'URL per la foglia di registrazione
-catalogEntry   | object | sì      | La voce del catalogo che contiene i metadati del pacchetto
-packageContent | stringa | sì      | L'URL per il contenuto del pacchetto (.nupkg)
+catalogEntry   | object | sì      | La voce di catalogo che contiene i metadati del pacchetto
+packageContent | stringa | sì      | L'URL per il contenuto del pacchetto (con estensione nupkg)
 
-Ogni oggetto foglia registrazione rappresenta i dati associati a una versione singolo pacchetto.
+Ogni oggetto di registrazione foglia rappresenta i dati associati a una singolo pacchetto versione.
 
 #### <a name="catalog-entry"></a>Voce di catalogo
 
-Il `catalogEntry` proprietà nell'oggetto foglia registrazione presenta le seguenti proprietà:
+Il `catalogEntry` proprietà nell'oggetto foglia registrazione presenta le proprietà seguenti:
 
 nome                     | Tipo                       | Obbligatorio | Note
 ------------------------ | -------------------------- | -------- | -----
-@id                      | stringa                     | sì      | L'URL documento utilizzato per produrre questo oggetto
+@id                      | stringa                     | sì      | L'URL usato per produrre l'oggetto documento
 authors                  | stringa o matrice di stringhe | No       | 
 dependencyGroups         | Matrice di oggetti           | No       | Le dipendenze del pacchetto, raggruppati per framework di destinazione
 Descrizione              | stringa                     | No       | 
 iconUrl                  | stringa                     | No       | 
 ID                       | stringa                     | sì      | L'ID del pacchetto
 licenseUrl               | stringa                     | No       | 
-disponibili                   | boolean                    | No       | Deve essere considerato come se assente, elencati
+disponibili                   | boolean                    | No       | Deve essere considerata come se assente, elencate
 minClientVersion         | stringa                     | No       | 
 projectUrl               | stringa                     | No       | 
-Pubblicato                | stringa                     | No       | Stringa contenente un timestamp ISO 8601 di quando il pacchetto è stato pubblicato
+Pubblicato                | stringa                     | No       | Stringa che contiene un timestamp di ISO 8601 di quando il pacchetto è stato pubblicato
 requireLicenseAcceptance | boolean                    | No       | 
 summary                  | stringa                     | No       | 
 tag                     | stringa o matrice di stringhe  | No       | 
 title                    | stringa                     | No       | 
 version                  | stringa                     | sì      | La versione del pacchetto
 
-Il `dependencyGroups` proprietà è una matrice di oggetti che rappresentano le dipendenze del pacchetto, raggruppati in base al framework di destinazione. Se il pacchetto senza dipendenze, il `dependencyGroups` proprietà manca, una matrice vuota, o `dependencies` proprietà di tutti i gruppi è vuoto o mancante.
+Il `dependencyGroups` proprietà è una matrice di oggetti che rappresentano le dipendenze del pacchetto, raggruppati per framework di destinazione. Se il pacchetto non ha dipendenze, il `dependencyGroups` proprietà manca, una matrice vuota, o `dependencies` proprietà di tutti i gruppi è vuoto o mancante.
 
 #### <a name="package-dependency-group"></a>Gruppo di dipendenze di pacchetto
 
-Ogni oggetto di dipendenza gruppo dispone delle proprietà seguenti:
+Ogni oggetto gruppo dipendenza presenta le proprietà seguenti:
 
 nome            | Tipo             | Obbligatorio | Note
 --------------- | ---------------- | -------- | -----
 targetFramework | stringa           | No       | Il framework di destinazione che queste dipendenze sono applicabili a
 dependencies    | Matrice di oggetti | No       |
 
-Il `targetFramework` stringa Usa il formato implementato dalla libreria .NET di NuGet [NuGet.Frameworks](https://www.nuget.org/packages/NuGet.Frameworks/). Se non `targetFramework` viene specificato, il gruppo di dipendenze si applica a tutti i framework di destinazione.
+Il `targetFramework` stringa utilizza il formato implementato dalla libreria .NET di NuGet [NuGet.Frameworks](https://www.nuget.org/packages/NuGet.Frameworks/). Se nessun `targetFramework` viene specificato, il gruppo di dipendenze si applica a tutti i framework di destinazione.
 
-Il `dependencies` proprietà è una matrice di oggetti, ognuno dei quali rappresenta una dipendenza pacchetto del pacchetto corrente.
+Il `dependencies` proprietà è una matrice di oggetti, ognuno dei quali rappresenta una dipendenza del pacchetto del pacchetto corrente.
 
-#### <a name="package-dependency"></a>Dipendenze di pacchetto
+#### <a name="package-dependency"></a>Dipendenza del pacchetto
 
-Dipendenza ogni pacchetto ha le proprietà seguenti:
+Ogni dipendenza del pacchetto ha le proprietà seguenti:
 
 nome         | Tipo   | Obbligatorio | Note
 ------------ | ------ | -------- | -----
-ID           | stringa | sì      | L'ID della dipendenza pacchetto
+ID           | stringa | sì      | L'ID della dipendenza del pacchetto
 range        | object | No       | Consentiti [intervallo di versioni](../reference/package-versioning.md#version-ranges-and-wildcards) della dipendenza
 registrazione | stringa | No       | L'URL per l'indice di registrazione per questa dipendenza
 
-Se il `range` è esclusa proprietà o una stringa vuota, il client deve essere predefinito per l'intervallo di versioni `(, )`. Ovvero, qualsiasi versione della dipendenza è consentita.
+Se il `range` proprietà è esclusa o una stringa vuota, il client deve essere predefinito per l'intervallo di versioni `(, )`. Vale a dire, è consentita qualsiasi versione della dipendenza.
 
 ### <a name="sample-request"></a>Richiesta di esempio
 
@@ -188,22 +187,22 @@ Se il `range` è esclusa proprietà o una stringa vuota, il client deve essere p
 
 [!code-JSON [package-registration-index.json](./_data/package-registration-index.json)]
 
-In questo caso specifico, l'indice di registrazione ha una pagina di registrazione inline, non esistono richieste aggiuntive sono necessari per recuperare i metadati relativi a versioni singolo pacchetto.
+In questo caso particolare, l'indice di registrazione ha la pagina di registrazione resa inline in modo che non esistono richieste aggiuntive necessarie per recuperare i metadati relativi a versioni dei pacchetti singoli.
 
 ## <a name="registration-page"></a>Pagina di registrazione
 
-La pagina di registrazione contiene lascia la registrazione. L'URL per recuperare una pagina di registrazione è determinato dal `@id` proprietà il [oggetto pagina registrazione](#registration-page-object) indicato in precedenza.
+La pagina di registrazione contiene le foglie di registrazione. L'URL per recuperare una pagina di registrazione è determinato dal `@id` proprietà nel [oggetto pagina registrazione](#registration-page-object) indicato in precedenza.
 
-Quando il `items` di matrice non viene fornita nell'indice della registrazione, richiesta di una richiesta GET HTTP di `@id` valore verrà restituito un documento JSON che dispone di un oggetto come radice. L'oggetto ha le proprietà seguenti:
+Quando la `items` matrice non viene fornita nell'indice di registrazione, una richiesta GET HTTP richiesta del `@id` valore verrà restituito un documento JSON che dispone di un oggetto come elemento principale. L'oggetto presenta le proprietà seguenti:
 
 nome   | Tipo             | Obbligatorio | Note
 ------ | ---------------- | -------- | -----
 @id    | stringa           | sì      | L'URL alla pagina di registrazione
 count  | numero intero          | sì      | Il numero di registrazione lascia nella pagina
-Elementi  | Matrice di oggetti | sì      | La matrice di registrazione lascia e i relativi metadati associati
-Inferiore  | stringa           | sì      | La versione meno recente SemVer 2.0.0 nella pagina (inclusiva)
+elementi  | Matrice di oggetti | sì      | Matrice di foglie di registrazione e i relativi metadati associati
+inferiore  | stringa           | sì      | La versione di SemVer 2.0.0 più bassa nella pagina (inclusiva)
 Elemento padre | stringa           | sì      | L'URL per l'indice di registrazione
-superiore  | stringa           | sì      | La versione più recente SemVer 2.0.0 nella pagina (inclusiva)
+superiore  | stringa           | sì      | La versione di SemVer 2.0.0 più alto nella pagina (inclusiva)
 
 La forma degli oggetti foglia registrazione è uguale a quello dell'indice di registrazione [sopra](#registration-leaf-object-in-a-page).
 
@@ -217,23 +216,23 @@ La forma degli oggetti foglia registrazione è uguale a quello dell'indice di re
 
 ## <a name="registration-leaf"></a>Foglia di registrazione
 
-Foglia registrazione contiene informazioni su un ID pacchetto specifico e una versione. I metadati sulla versione specifica potrebbero non essere disponibili in questo documento. Metadati del pacchetto devono essere recuperati dal [indice registrazione](#registration-index) o [pagina di registrazione](#registration-page) (che viene individuato tramite l'indice di registrazione).
+La foglia di registrazione contiene informazioni su un ID di pacchetto specifico e una versione. I metadati sulla versione specifica potrebbero non essere disponibili in questo documento. I metadati del pacchetto devono essere recuperati dal [indice registrazione](#registration-index) o nella [pagina di registrazione](#registration-page) (che viene individuato tramite l'indice di registrazione).
 
-L'URL per recuperare un nodo foglia di registrazione viene ottenuta la `@id` proprietà di un oggetto foglia di registrazione in un indice di registrazione o pagina di registrazione.
+L'URL per recuperare una foglia di registrazione viene ottenuto dal `@id` proprietà di un oggetto foglia di registrazione in un indice di registrazione o pagina di registrazione.
 
 La foglia di registrazione è un documento JSON con un oggetto di primo livello con le proprietà seguenti:
 
 nome           | Tipo    | Obbligatorio | Note
 -------------- | ------- | -------- | -----
 @id            | stringa  | sì      | L'URL per la foglia di registrazione
-catalogEntry   | stringa  | No       | L'URL per la voce del catalogo che ha generato questi foglia
-disponibili         | boolean | No       | Deve essere considerato come se assente, elencati
-packageContent | stringa  | No       | L'URL per il contenuto del pacchetto (.nupkg)
-Pubblicato      | stringa  | No       | Stringa contenente un timestamp ISO 8601 di quando il pacchetto è stato pubblicato
+catalogEntry   | stringa  | No       | L'URL per la voce di catalogo che ha prodotto questi foglia
+disponibili         | boolean | No       | Deve essere considerata come se assente, elencate
+packageContent | stringa  | No       | L'URL per il contenuto del pacchetto (con estensione nupkg)
+Pubblicato      | stringa  | No       | Stringa che contiene un timestamp di ISO 8601 di quando il pacchetto è stato pubblicato
 registrazione   | stringa  | No       | L'URL per l'indice di registrazione
 
 > [!Note]
-> In nuget.org, il `published` è impostato su anni 1900 quando il pacchetto è incluso nell'elenco.
+> In nuget.org, il `published` valore è impostato su anni 1900 quando il pacchetto è incluso nell'elenco.
 
 ### <a name="sample-request"></a>Richiesta di esempio
 

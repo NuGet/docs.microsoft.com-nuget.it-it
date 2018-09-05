@@ -3,16 +3,15 @@ title: Riferimento di avvisi e gli errori di NuGet
 description: Informazioni di riferimento complete per avvisi ed errori generati da NuGet durante varie operazioni di NuGet.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 05/18/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: df6ed51e182829ecef441f3a0b467f034e92415b
-ms.sourcegitcommit: c643dd2c44e085601551ff7079d696bcc3ad2b49
+ms.openlocfilehash: 54ab55a4751dead7fc0a3413cc78b435b2815b94
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42793323"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43550740"
 ---
 # <a name="errors-and-warnings"></a>Errori e avvisi
 
