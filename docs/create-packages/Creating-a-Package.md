@@ -3,15 +3,14 @@ title: Come creare un pacchetto NuGet
 description: Guida dettagliata al processo di progettazione e creazione di un pacchetto NuGet, incluse le principali decisioni critiche, ad esempio quelle relative ai file e al controllo delle versioni.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: 435db2d0cddcfd6b9db530cb384cf7facb9170dd
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 37c2208f0942b12428dba9d664f25e7e4f3c0b72
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818464"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43547374"
 ---
 # <a name="creating-nuget-packages"></a>Creazione di pacchetti NuGet
 

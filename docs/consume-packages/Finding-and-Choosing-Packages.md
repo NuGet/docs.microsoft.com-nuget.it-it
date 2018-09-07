@@ -3,15 +3,14 @@ title: Ricerca e scelta di pacchetti NuGet
 description: Panoramica delle modalità di ricerca e scelta dei pacchetti NuGet più appropriati per un progetto, inclusi i dettagli della sintassi di ricerca NuGet.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: f1bb145229b0db0e8fdb7fdb31a59aa50bd1d57b
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 81672abf0362e053da2b71c8bd39bd7f96ddf73b
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817902"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43549415"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Ricerca e valutazione di pacchetti NuGet per un progetto
 

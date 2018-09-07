@@ -3,15 +3,14 @@ title: Creazione e pubblicazione di un pacchetto NuGet con l'interfaccia della r
 description: Esercitazione sulla creazione e pubblicazione di un pacchetto NuGet tramite l'interfaccia della riga di comando di .NET Core, ovvero dotnet.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/24/2018
 ms.topic: quickstart
-ms.openlocfilehash: 0f71da0be27369712f718a7ab80d952a467aff2a
-ms.sourcegitcommit: a76ecc58f41c2c5b3536ff4a3f3fcbdf5258177c
+ms.openlocfilehash: 02aa7bb9d27352bbecfc718ef5bd6ee33501018d
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069674"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43548429"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Guida introduttiva: Creare e pubblicare un pacchetto (interfaccia della riga di comando dotnet)
 

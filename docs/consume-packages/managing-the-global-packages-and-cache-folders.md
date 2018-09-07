@@ -3,15 +3,14 @@ title: Come gestire le cartelle dei pacchetti globale, della cache e temporanea 
 description: Come gestire la cartella di installazione dei pacchetti globale, la cartella della cache dei pacchetti e la cartella temporanea esistenti in un computer, usate durante l'installazione, il ripristino e l'aggiornamento dei pacchetti.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 03/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 545e658d26b557f27d6534bf677f467e65a315b4
-ms.sourcegitcommit: 8d5121af528e68789485405e24e2100fda2868d6
+ms.openlocfilehash: c547ae1d46079d040d7c3aa4c7678e70cd199dce
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42793618"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43548013"
 ---
 # <a name="managing-the-global-packages-cache-and-temp-folders"></a>Gestione delle cartelle dei pacchetti globale, della cache e temporanea
 

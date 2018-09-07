@@ -3,15 +3,14 @@ title: Modi per installare pacchetti NuGet
 description: Descrive il processo di installazione dei pacchetti NuGet in un progetto, incluso cosa accade sul disco e ai file di progetto applicabili.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 02/12/2018
 ms.topic: overview
-ms.openlocfilehash: 0f59c3b7f1e32ae34889921c13d15074ef5c1260
-ms.sourcegitcommit: 8e3546ab630a24cde8725610b6a68f8eb87afa47
+ms.openlocfilehash: 3cb3d5f97e9fb7ce292ddc5a95b61c13f64a17e7
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37843381"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43547666"
 ---
 # <a name="different-ways-to-install-a-nuget-package"></a>Diversi modi per installare un pacchetto NuGet
 
