@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: ce5ad07209a06010150b14092aa1b15ee6f84146
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: dd36987e020c2daa02bb875aa9dbd69c85bba4d3
+ms.sourcegitcommit: 1bd72dca2f85b4267b9924236f1d23dd7b0ed733
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548738"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49951746"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>Creazione di controlli dell'interfaccia utente come pacchetti NuGet
 
@@ -87,7 +87,9 @@ Nell'esempio seguente il controllo implementato in `ManagedPackage.winmd` verrà
 
 ## <a name="add-custom-icons-to-your-controls"></a>Aggiungere icone personalizzate ai controlli
 
-Per visualizzare un'icona personalizzata nella casella degli strumenti e nel riquadro Asset, aggiungere un'immagine al proprio progetto o al corrispondente progetto `design.dll` con il nome "Namespace.ControlName.extension" e impostare l'azione di compilazione su "Risorsa incorporata". I formati supportati sono `.png`, `.jpg`, `.jpeg`, `.gif` e `.bmp`. Le dimensioni dell'immagine consigliate sono pari a 64 x 64 pixel.
+Per visualizzare un'icona personalizzata nella casella degli strumenti e nel riquadro Asset, aggiungere un'immagine al proprio progetto o al corrispondente progetto `design.dll` con il nome "Namespace.ControlName.extension" e impostare l'azione di compilazione su "Risorsa incorporata". È anche necessario assicurarsi che il file `AssemblyInfo.cs` associato specifichi l'attributo ProvideMetadata - `[assembly: ProvideMetadata(typeof(RegisterMetadata))]`. Vedere questo [esempio](https://github.com/NuGet/Samples/blob/master/ExtensionSDKasNuGetPackage/NativePackage.Design/Properties/AssemblyInfo.cs#L20).
+
+I formati supportati sono `.png`, `.jpg`, `.jpeg`, `.gif` e `.bmp`. Le dimensioni dell'immagine consigliate sono pari a 64 x 64 pixel.
 
 Nell'esempio seguente il progetto contiene un file di immagine denominato "ManagedPackage.MyCustomControl.png".
 
