@@ -6,12 +6,12 @@ ms.author: diverdan92
 ms.date: 10/09/2017
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 0711f3ee00b4a387d676ca43c98a9467effed90a
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 32f83bede42f7643a9a4fed593643eefea0453c1
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546590"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981002"
 ---
 # <a name="package-id-prefix-reservation"></a>Prenotazione del prefisso ID pacchetto
 
@@ -65,7 +65,7 @@ Quando un pacchetto proviene da un prefisso riservato, viene visualizzato il sot
 
 1. Esaminare l'accettazione [criteri per la prenotazione del prefisso ID](#id-prefix-reservation-criteria).
 
-2. Determinare gli spazi dei nomi da impostare come riservati, oltre a eventuali [prefisso prenotazione scenari avanzati](#advanced-prefix-reservation-scenarios) potrebbe essere necessaria.
+2. Determinare i prefissi da impostare come riservati, oltre a eventuali [prefisso prenotazione scenari avanzati](#advanced-prefix-reservation-scenarios) potrebbe essere necessaria.
 
 3. Inviare un messaggio a [ account@nuget.org ](mailto:account@nuget.org) con il proprietario del nome visualizzato sul [nuget.org](https://www.nuget.org/), oltre a qualsiasi prefisso riservato richiesta. Subset di prefisso consentono di delegare a più proprietari, assicurarsi che si citare tutti i nomi visualizzati di proprietario e subset del prefisso.
 
