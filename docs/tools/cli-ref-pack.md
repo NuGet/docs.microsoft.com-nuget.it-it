@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: db236b0eaac34ca9f6f67fd15ca3ad6884f6a18d
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 826316bdbce881836836f2a667cfa5297996d14f
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549096"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580311"
 ---
 # <a name="pack-command-nuget-cli"></a>Comando pack (interfaccia della riga di comando di NuGet)
 
@@ -38,6 +38,7 @@ in cui `<nuspecPath>` e `<projectPath>` specificare il `.nuspec` o file, rispett
 | Escludi | Specifica uno o più modelli con caratteri jolly da escludere durante la creazione di un pacchetto. Per specificare più di un criterio, ripetere il - flag di esclusione. Vedere l'esempio riportato di seguito. |
 | ExcludeEmptyDirectories | Impedisce l'inclusione delle directory vuota quando si compila il pacchetto. |
 | ForceEnglishOutput | *(3.5 +)*  Forza nuget.exe affinché venga eseguito usando una cultura invariante e di lingua inglese. |
+| ConfigFile | Specificare il file di configurazione per il comando pack. |
 | ? | Visualizza la Guida informazioni per il comando. |
 | IncludeReferencedProjects | Indica che il pacchetto generato deve includere progetti con riferimenti come dipendenze o come parte del pacchetto. Se un progetto di riferimento ha un corrispondente `.nuspec` file con lo stesso nome del progetto, tale progetto cui viene fatto riferimento viene aggiunto come dipendenza. In caso contrario, il progetto di riferimento viene aggiunto come parte del pacchetto. |
 | MinClientVersion | Impostare il *minClientVersion* attributo per il pacchetto creato. Questo valore sostituirà il valore dell'oggetto esistente *minClientVersion* attributo (se presente) nel `.nuspec` file. |
@@ -48,7 +49,7 @@ in cui `<nuspecPath>` e `<projectPath>` specificare il `.nuspec` o file, rispett
 | OutputDirectory | Specifica la cartella in cui è archiviato il pacchetto creato. Se si specifica alcuna cartella, viene utilizzata la cartella corrente. |
 | Proprietà | Dovrebbe essere visualizzato ultima nella riga di comando dopo le altre opzioni. Specifica un elenco di proprietà che eseguono l'override di valori nel file di progetto. visualizzare [proprietà di progetto MSBuild comuni](/visualstudio/msbuild/common-msbuild-project-properties) per i nomi delle proprietà. In questo caso l'argomento della proprietà è un elenco di token = coppie valore, separate da punti e virgola, in cui ogni occorrenza di `$token$` nella `.nuspec` file verrà sostituito con il valore specificato. I valori possono essere stringhe tra virgolette. Si noti che per la proprietà "Configurazione", il valore predefinito è "Debug". Per modificare una configurazione rilascio, usare `-Properties Configuration=Release`. |
 | Suffisso | *(3.4.4+)*  Aggiunge un suffisso per il numero di versione generata internamente, in genere usato per l'accodamento compilazione o altri identificatori di versione non definitiva. Ad esempio, usando `-suffix nightly` verrà creato un pacchetto con una simile a numeri di versione `1.2.3-nightly`. I suffissi devono iniziare con una lettera per evitare gli avvisi, errori e potenziali incompatibilità con diverse versioni di NuGet e la gestione pacchetti NuGet. |
-| Simboli | Specifica che il pacchetto contiene origini e simboli. Se usato con un `.nuspec` file, verrà creato un file di pacchetto NuGet normale e di pacchetto di simboli corrispondente. |
+| Simboli | Specifica che il pacchetto contiene origini e simboli. Se usato con un `.nuspec` file, verrà creato un file di pacchetto NuGet normale e di pacchetto di simboli corrispondente. Per impostazione predefinita viene creato un [pacchetto di simboli legacy](../create-packages/Symbol-Packages.md). Il nuovo formato consigliato per i pacchetti di simboli è .snupkg. Visualizzare [creazione di pacchetti di simboli (.snupkg)](../create-packages/Symbol-Packages-snupkg.md). |
 | Strumento | Specifica che i file di output del progetto devono essere inseriti nel `tool` cartella. |
 | Livello di dettaglio | Specifica la quantità di dettaglio visualizzato nell'output: *normali*, *quiet*, *dettagliate*. |
 | Versione | Sostituisce il numero di versione dal `.nuspec` file. |
@@ -89,6 +90,9 @@ nuget pack foo.csproj -Build -Symbols -Properties owners=janedoe,xiaop;version="
 
 # Create a package from project foo.csproj, using MSBuild version 12 to build the project
 nuget pack foo.csproj -Build -Symbols -MSBuildVersion 12 -Properties owners=janedoe,xiaop;version="1.0.5
+
+# Create a package from project foo.nuspec and the corresponding symbol package using the new recommended format .snupkg
+nuget pack foo.nuspec -Symbols -SymbolPackageFormat snupkg
 
 nuget pack foo.nuspec -Version 2.1.0
 

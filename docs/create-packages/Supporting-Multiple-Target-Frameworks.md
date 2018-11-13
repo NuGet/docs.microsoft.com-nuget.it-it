@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 09/27/2017
 ms.topic: conceptual
-ms.openlocfilehash: 0b22d48b9151b903a5307beafa5ccef14e5fecf3
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: c59839240935e2a6c590dea3adf623313f79f02f
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551706"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981145"
 ---
 # <a name="supporting-multiple-net-framework-versions"></a>Supporto di più versioni di .NET Framework
 
@@ -65,7 +65,13 @@ Se si dispone di assembly specifici dell'architettura, vale a dire assembly dist
             \native
             \lib\uap10.0
 
+Poiché questi assembly saranno disponibili solo in fase di esecuzione, per fornire l'assembly corrispondente anche in fase di compilazione, l'assembly `AnyCPU` deve essere presente nella cartella `/ref{tfm}`. 
+
+Ricordare che, poiché NuGet seleziona sempre questi asset di compilazione o di runtime da una sola cartella, se sono presenti asset compatibili in `/ref`, `/lib` non verrà considerata per l'aggiunta di assembly in fase di compilazione. Analogamente, se sono presenti asset compatibili in `/runtime`, `/lib` verrà ignorata anche per il runtime.
+
 Vedere [Creare pacchetti UWP](../guides/create-uwp-packages.md) per un esempio di riferimento a questi file nel manifesto `.nuspec`.
+
+Vedere anche [Packing a Windows store app component with NuGet](https://blogs.msdn.microsoft.com/mim/2013/09/02/packaging-a-windows-store-apps-component-with-nuget-part-2) (Creazione di un pacchetto di un componente app di Windows Store con NuGet)
 
 ## <a name="matching-assembly-versions-and-the-target-framework-in-a-project"></a>Corrispondenza tra le versioni di assembly e il framework di destinazione in un progetto
 
