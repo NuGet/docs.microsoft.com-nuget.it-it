@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/11/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8c63abc9971623e0732ae8d973fafcd04c5d9f48
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: c136a3dffac38a68b80f730de1e4c3a3a9c8bd5d
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548804"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580357"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Domande frequenti su NuGet
 
@@ -166,7 +166,7 @@ NuGet consiglia che tutti i pacchetti siano firmati. Uno dei principi di progett
 
 Si noti che le dipendenze elencate per il pacchetto vengono generate automaticamente dal pacchetto stesso e non possono essere modificate.
 
-Inoltre, il caricamento dei pacchetti in [staging.nuget.org](http://staging.nuget.org) è un ottimo modo per testare e convalidare il pacchetto senza rendere disponibile un pacchetto nella raccolta pubblica.
+Il caricamento dei pacchetti in [int.nugettest.org](https://int.nugettest.org) è anche un ottimo modo per testare e convalidare il pacchetto senza rendere disponibile un pacchetto nella raccolta pubblica.
 
 **È possibile riservare nomi per i pacchetti che verranno pubblicati in futuro?**
 
@@ -182,9 +182,9 @@ Microsoft incoraggia la collaborazione tra i membri della community di NuGet per
 
 **È consigliabile caricare i pacchetti di test in nuget.org?**
 
-Per scopi di test, è possibile usare [staging.nuget.org](http://staging.nuget.org) o server NuGet pubblici alternativi, come [myget.org](https://myget.org) o [Visual Studio Team Services](https://blogs.msdn.microsoft.com/visualstudioalm/2015/08/27/announcing-package-management-support-for-vsotfs/).
+Per scopi di test, è possibile usare [int.nugettest.org](https://int.nugettest.org) o server NuGet pubblici alternativi, come [myget.org](https://myget.org) o [Visual Studio Team Services](https://blogs.msdn.microsoft.com/visualstudioalm/2015/08/27/announcing-package-management-support-for-vsotfs/).
 
-Si noti che i pacchetti caricati in staging.nuget.org potrebbero non essere conservati. Vedere [Goodbye preview.nuget.org](http://blog.nuget.org/20130419/goodbye-preview.html) (Addio preview.nuget.org).
+Si noti che i pacchetti caricati in int.nugettest.org potrebbero non essere mantenuti.
 
 **Quali sono le dimensioni massime per i pacchetti che è possibile caricare in nuget.org?**
 

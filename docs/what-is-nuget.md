@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/10/2018
 ms.topic: overview
-ms.openlocfilehash: 0b7105ea5d183d139c8bac915378924ba9c0874a
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: d688aecaa73cecbfee184e3b13801ed22326a852
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548819"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580324"
 ---
 # <a name="an-introduction-to-nuget"></a>Introduzione a NuGet
 
@@ -24,7 +24,7 @@ Dato che NuGet supporta gli host privati oltre all'host nuget.org pubblico, è p
 
 ## <a name="the-flow-of-packages-between-creators-hosts-and-consumers"></a>Flusso dei pacchetti tra autori, host e consumer
 
-Nel proprio ruolo di host pubblico, NuGet gestisce il repository centrale di più di 100.000 pacchetti univoci su [nuget.org](https://www.nuget.org). Questi pacchetti vengono usati da milioni di sviluppatori .NET/.NET Core ogni giorno. NuGet consente anche di ospitare i pacchetti in modo privato nel cloud, ad esempio in Visual Studio Team Services, in una rete privata o anche semplicemente nel file system locale. In questo modo, i pacchetti sono disponibili solo per gli sviluppatori che hanno accesso all'host, offrendo la possibilità di rendere disponibili i pacchetti a uno specifico gruppo di consumer. Le opzioni sono illustrate in [Hosting dei feed NuGet](hosting-packages/overview.md). Tramite le opzioni di configurazione, è anche possibile controllare esattamente quali host sono accessibili da qualsiasi computer specificato, in modo da assicurare che i pacchetti vengano ottenuti da origini specifiche anziché da un repository pubblico come nuget.org.
+Nel proprio ruolo di host pubblico, NuGet gestisce il repository centrale di più di 100.000 pacchetti univoci su [nuget.org](https://www.nuget.org). Questi pacchetti vengono usati da milioni di sviluppatori .NET/.NET Core ogni giorno. NuGet consente anche di ospitare i pacchetti in modo privato nel cloud (ad esempio in Azure DevOps), in una rete privata o anche solo nel file system locale. In questo modo, i pacchetti sono disponibili solo per gli sviluppatori che hanno accesso all'host, offrendo la possibilità di rendere disponibili i pacchetti a uno specifico gruppo di consumer. Le opzioni sono illustrate in [Hosting dei feed NuGet](hosting-packages/overview.md). Tramite le opzioni di configurazione, è anche possibile controllare esattamente quali host sono accessibili da qualsiasi computer specificato, in modo da assicurare che i pacchetti vengano ottenuti da origini specifiche anziché da un repository pubblico come nuget.org.
 
 Qualunque sia la sua natura, un host funge da punto di connessione tra gli *autori* e i *consumer* dei pacchetti. Gli autori compilano utili pacchetti NuGet e li pubblicano in un host. I consumer cercano quindi i pacchetti utili e compatibili negli host accessibili, scaricandoli e includendoli nei loro progetti. Una volta installate in un progetto, le API dei pacchetti sono disponibili per il resto del codice del progetto.
 
@@ -78,7 +78,7 @@ NuGet gestisce invece un semplice elenco di riferimento dei pacchetti da cui dip
 
 Con solo questo elenco di riferimenti, NuGet può quindi reinstallare, ovvero *ripristinare*, successivamente tutti questi pacchetti da host pubblici e/o privati. Quando si esegue il commit di un progetto nel controllo del codice sorgente o lo si condivide in qualsiasi altro modo, è necessario includere solo l'elenco dei riferimenti e non occorre escludere eventuali file binari dei pacchetti (vedere [Pacchetti e controllo del codice sorgente](consume-packages/packages-and-source-control.md)).
 
-Il computer che riceve un progetto, ad esempio un server di compilazione che ottiene una copia del progetto come parte di un sistema di distribuzione automatica, chiede semplicemente a NuGet di ripristinare le dipendenze ogni volta che sono necessarie. Sistemi di compilazione come Visual Studio Team Services forniscono passaggi di "ripristino NuGet" per questo esatto scopo. Analogamente, quando gli sviluppatori ottengono una copia di un progetto (come avviene nel caso della clonazione di un repository), possono richiamare un comando come `nuget restore` (interfaccia della riga di comando di NuGet), `dotnet restore` (interfaccia della riga di comando di dotnet), o `Install-Package` (console di Gestione pacchetti) per ottenere tutti i pacchetti necessari. Visual Studio, per la propria parte, ripristina automaticamente i pacchetti quando compila un progetto, a condizione che il ripristino automatico sia abilitato, come descritto in [Ripristino di pacchetti](consume-packages/package-restore.md).
+Il computer che riceve un progetto, ad esempio un server di compilazione che ottiene una copia del progetto come parte di un sistema di distribuzione automatica, chiede semplicemente a NuGet di ripristinare le dipendenze ogni volta che sono necessarie. Sistemi di compilazione come Azure DevOps prevedono passaggi di "ripristino NuGet" per questo esatto scopo. Analogamente, quando gli sviluppatori ottengono una copia di un progetto (come avviene nel caso della clonazione di un repository), possono richiamare un comando come `nuget restore` (interfaccia della riga di comando di NuGet), `dotnet restore` (interfaccia della riga di comando di dotnet), o `Install-Package` (console di Gestione pacchetti) per ottenere tutti i pacchetti necessari. Visual Studio, per la propria parte, ripristina automaticamente i pacchetti quando compila un progetto, a condizione che il ripristino automatico sia abilitato, come descritto in [Ripristino di pacchetti](consume-packages/package-restore.md).
 
 Chiaramente, quindi, il ruolo primario di NuGet in cui gli sviluppatori sono coinvolti è la gestione di tale elenco di riferimenti per conto del progetto e la disponibilità di strumenti per ripristinare (e aggiornare) in modo efficiente tali pacchetti con riferimenti. Questo elenco viene mantenuto in uno di due *formati di gestione dei pacchetti*:
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: 1bc67927ddc463dcc3a0abe80fe20e625e188e63
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: 1221631b22eed7d2d8e58bd08ff120d91231d49b
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981171"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580396"
 ---
 # <a name="creating-nuget-packages"></a>Creazione di pacchetti NuGet
 
@@ -157,7 +157,7 @@ Si modifica quindi il file manualmente in modo che descriva il contenuto esatto 
 
 ### <a name="from-a-convention-based-working-directory"></a>Da una directory di lavoro basata sulle convenzioni
 
-Dato che un pacchetto NuGet è solo un file ZIP rinominato con l'estensione `.nupkg`, spesso è più semplice creare la struttura di cartelle desiderata nel file system locale, quindi creare il file `.nuspec` direttamente da tale struttura. Il comando `nuget pack` aggiunge quindi automaticamente tutti i file in tale struttura di cartelle, escluse le cartelle che iniziano con `.`, per poter mantenere i file privati nella stessa struttura.
+Dato che un pacchetto NuGet è solo un file ZIP rinominato con l'estensione `.nupkg`, spesso è più semplice creare la struttura di cartelle necessaria nel file system locale e quindi creare il file `.nuspec` direttamente da tale struttura. Il comando `nuget pack` aggiunge quindi automaticamente tutti i file in tale struttura di cartelle, escluse le cartelle che iniziano con `.`, per poter mantenere i file privati nella stessa struttura.
 
 Il vantaggio di questo approccio è che non è necessario specificare nel manifesto i file che si vuole includere nel pacchetto, come illustrato più avanti in questo argomento. È sufficiente fare in modo che il processo di compilazione generi l'esatta struttura di cartelle da inserire nel pacchetto, per poter facilmente includere altri file che altrimenti potrebbero non fare parte di un progetto:
 
@@ -177,7 +177,7 @@ Le convenzioni delle cartelle sono le seguenti:
 | build | File `.targets` e `.props` MSBuild | Vengono automaticamente inseriti nel file di progetto o in `project.lock.json` (NuGet 3.x+). |
 | tools | Script di PowerShell e programmi accessibili dalla console di Gestione pacchetti | La cartella `tools` viene aggiunta alla variabile di ambiente `PATH` solo per la console di Gestione pacchetti, in particolare *non* alla variabile `PATH` impostata per MSBuild durante la compilazione del progetto. |
 
-Poiché la struttura di cartelle può contenere un numero indeterminato di assembly per un numero indeterminato di framework di destinazione, questo metodo è necessario quando si creano pacchetti che supportano più framework 
+Poiché la struttura di cartelle può contenere un numero indeterminato di assembly per un numero indeterminato di framework di destinazione, questo metodo è necessario quando si creano pacchetti che supportano più framework.
 
 In ogni caso, dopo avere creato la struttura di cartelle desiderata, eseguire il comando seguente in tale cartella per creare il file `.nuspec`:
 
@@ -321,7 +321,7 @@ Quando si include un file denominato `readme.txt` nella radice del pacchetto, Vi
 
 In alcuni casi, potrebbe essere necessario aggiungere destinazioni o proprietà di compilazione personalizzata nei progetti che utilizzano il pacchetto, ad esempio l'esecuzione di uno strumento o processo personalizzato durante la compilazione. A tale scopo, inserire i file nel formato `<package_id>.targets` o `<package_id>.props` (ad esempio `Contoso.Utility.UsefulStuff.targets`) nella cartella `\build` del progetto.
 
-I file nella cartella radice `\build` sono considerati adatti a tutti i framework di destinazione. Per fornire file specifici del framework, inserirli prima nelle sottocartelle appropriate, come di seguito:
+I file nella cartella radice `\build` sono considerati adatti a tutti i framework di destinazione. Per indicare file specifici del framework, inserirli prima nelle sottocartelle appropriate, come di seguito:
 
     \build
         \netstandard1.4
