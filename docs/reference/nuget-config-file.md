@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: reference
-ms.openlocfilehash: 504a48224051265164f9ab183e63fa5e7f5867e6
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: c294e4c188db2e90e6bcb62b60f71ed5529977fe
+ms.sourcegitcommit: a1846edf70ddb2505d58e536e08e952d870931b0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546915"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52303519"
 ---
 # <a name="nugetconfig-reference"></a>riferimento di NuGet. config
 
 Il comportamento di NuGet è controllato da impostazioni in diversi file `NuGet.Config`, come descritto in [Configurazione del comportamento di NuGet](../consume-packages/configuring-nuget-behavior.md).
 
-`nuget.config` è un file XML contenente un nodo `<configuration>` di livello superiore, che contiene a sua volta gli elementi per le sezioni descritte in questo argomento. Ogni sezione contiene zero o più elementi `<add>` con gli attributi `key` e `value`. Vedere il [file di configurazione di esempio](#example-config-file). Per i nomi delle impostazioni non viene fatta distinzione tra maiuscole e minuscole e per i valori si possono usare [variabili di ambiente](#using-environment-variables).
+`nuget.config` è un file XML contenente un nodo `<configuration>` di livello superiore, che contiene a sua volta gli elementi per le sezioni descritte in questo argomento. Ogni sezione contiene zero o più elementi. Vedere il [file di configurazione di esempio](#example-config-file). Per i nomi delle impostazioni non viene fatta distinzione tra maiuscole e minuscole e per i valori si possono usare [variabili di ambiente](#using-environment-variables).
 
 In questo argomento
 
@@ -30,6 +30,7 @@ In questo argomento
   - [apikeys](#apikeys)
   - [disabledPackageSources](#disabledpackagesources)
   - [activePackageSource](#activepackagesource)
+- [sezione trustedSigners](#trustedsigners-section)
 - [Uso delle variabili di ambiente](#using-environment-variables)
 - [File di configurazione di esempio](#example-config-file)
 
@@ -51,6 +52,7 @@ Contiene varie impostazioni di configurazione, che possono essere impostate con 
 | repositoryPath (solo `packages.config`) | Percorso in cui installare i pacchetti NuGet invece della cartella `$(Solutiondir)/packages` predefinita. È possibile usare un percorso relativo nei file `nuget.config` specifici del progetto. Questa impostazione viene sostituita dalla variabile di ambiente NUGET_PACKAGES, che ha la precedenza. |
 | defaultPushSource | Identifica l'URL o il percorso dell'origine del pacchetto che deve essere usato come impostazione predefinita se non vengono trovate altre origini di pacchetti per un'operazione. |
 | http_proxy http_proxy.user http_proxy.password no_proxy | Impostazioni del proxy da usare per la connessione a origini di pacchetti. `http_proxy` deve essere nel formato `http://<username>:<password>@<domain>`. Le password vengono crittografate e non possono essere aggiunte manualmente. Per `no_proxy`, il valore è un elenco delimitato da virgole di domini per il bypass del server proxy. In alternativa, è possibile usare le variabili di ambiente http_proxy e no_proxy per questi valori. Per altri dettagli, vedere [NuGet proxy settings](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (Impostazioni del proxy NuGet) (skolima.blogspot.com). |
+| signatureValidationMode | Specifica la modalità di convalida utilizzata per verificare le firme dei pacchetti di installazione del pacchetto e il ripristino. I valori sono `accept`, `require`. Il valore predefinito è `accept`.
 
 **Esempio**:
 
@@ -60,6 +62,7 @@ Contiene varie impostazioni di configurazione, che possono essere impostate con 
     <add key="globalPackagesFolder" value="c:\packages" />
     <add key="repositoryPath" value="c:\installed_packages" />
     <add key="http_proxy" value="http://company-squid:3128@contoso.com" />
+    <add key="signatureValidationMode" value="require" />
 </config>
 ```
 
@@ -115,9 +118,9 @@ Controlla se la cartella `packages` di una soluzione è inclusa nel controllo de
 
 ## <a name="package-source-sections"></a>Sezioni per le origini dei pacchetti
 
-Le sezioni `packageSources`, `packageSourceCredentials`, `apikeys`, `activePackageSource` e `disabledPackageSources` interagiscono tutte per configurare il funzionamento di NuGet con i repository dei pacchetti durante le operazioni di installazione, ripristino e aggiornamento.
+Il `packageSources`, `packageSourceCredentials`, `apikeys`, `activePackageSource`, `disabledPackageSources` e `trustedSigners` tutto il lavoro in modo da configurare come NuGet funziona con i repository dei pacchetti durante l'installazione, ripristino e le operazioni di aggiornamento.
 
-Il [comando `nuget sources`](../tools/cli-ref-sources.md) viene generalmente usato per gestire queste impostazioni, ad eccezione della sezione `apikeys` che viene gestita con il [comando `nuget setapikey`](../tools/cli-ref-setapikey.md).
+Il [ `nuget sources` comandi](../tools/cli-ref-sources.md) viene generalmente usato per gestire queste impostazioni, ad eccezione dei `apikeys` che viene gestita con il [ `nuget setapikey` comando](../tools/cli-ref-setapikey.md), e `trustedSigners` che è gestito usando il [ `nuget trusted-signers` comando](../tools/cli-ref-trusted-signers.md).
 
 Si noti che l'URL di origine di nuget.org è `https://api.nuget.org/v3/index.json`.
 
@@ -237,6 +240,35 @@ Identifica l'origine attualmente attiva o indica l'aggregazione di tutte le orig
     <add key="All" value="(Aggregate source)" />
 </activePackageSource>
 ```
+## <a name="trustedsigners-section"></a>sezione trustedSigners
+
+Gli archivi attendibili i firmatari utilizzati per consentire di pacchetto durante l'installazione o il ripristino. Questo elenco non può essere vuoto quando l'utente imposta `signatureValidationMode` a `require`. 
+
+In questa sezione può essere aggiornata con le [ `nuget trusted-signers` comando](../tools/cli-ref-trusted-signers.md).
+
+**Schema**:
+
+Un'entità attendibile è una raccolta di `certificate` gli elementi che integra tutti i certificati che identificano un firmatario specificato. Un'entità attendibile può essere un' `Author` o un `Repository`.
+
+Attendibile *repository* specifica inoltre il `serviceIndex` per il repository (che deve essere un valore valido `https` uri) e può facoltativamente specificare un elenco delimitato da punti e virgola di `owners` per limitare ulteriormente chi è attendibile da quel repository specifico.
+
+Gli algoritmi hash supportati utilizzati per un'impronta digitale certificato vengono `SHA256`, `SHA384` e `SHA512`.
+
+Se un `certificate` specifica `allowUntrustedRoot` come `true` il certificato specificato è consentito concatenarsi a una radice non attendibile durante la compilazione della catena di certificati come parte della verifica della firma.
+
+**Esempio**:
+
+```xml
+<trustedSigners>
+    <author name="microsoft">
+        <certificate fingerprint="3F9001EA83C560D712C24CF213C3D312CB3BFF51EE89435D3430BD06B5D0EECE" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
+    </author>
+    <repository name="nuget.org" serviceIndex="https://api.nuget.org/v3/index.json">
+        <certificate fingerprint="0E5F38F57DC1BCC806D8494F4F90FBCEDD988B46760709CBEEC6F4219AA6157D" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
+        <owners>microsoft;aspnet;nuget</owners>
+    </repository>
+</trustedSigners>
+```
 
 ## <a name="using-environment-variables"></a>Uso delle variabili di ambiente
 
@@ -313,5 +345,19 @@ Di seguito è riportato un file `nuget.config` di esempio che illustra una serie
     <apikeys>
         <add key="https://MyRepo/ES/api/v2/package" value="encrypted_api_key" />
     </apikeys>
+
+    <!--
+        Used to specify trusted signers to allow during signature verification.
+        See: nuget.exe help trusted-signers
+    -->
+    <trustedSigners>
+        <author name="microsoft">
+            <certificate fingerprint="3F9001EA83C560D712C24CF213C3D312CB3BFF51EE89435D3430BD06B5D0EECE" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
+        </author>
+        <repository name="nuget.org" serviceIndex="https://api.nuget.org/v3/index.json">
+            <certificate fingerprint="0E5F38F57DC1BCC806D8494F4F90FBCEDD988B46760709CBEEC6F4219AA6157D" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
+            <owners>microsoft;aspnet;nuget</owners>
+        </repository>
+    </trustedSigners>
 </configuration>
 ```
