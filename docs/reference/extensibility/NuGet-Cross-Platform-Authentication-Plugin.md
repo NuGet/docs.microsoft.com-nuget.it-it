@@ -5,12 +5,12 @@ author: nkolev92
 ms.author: nikolev
 ms.date: 07/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: d80339eb81ade1cf2c323a604cc4fac06dcb1012
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: b76fab1028ec9a4172d2390083fbf9adb4290a6c
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981054"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453507"
 ---
 # <a name="nuget-cross-platform-authentication-plugin"></a>NuGet cross platform plug-in di autenticazione
 
@@ -32,7 +32,7 @@ Non include alcun commutatore interattivi `dotnet build` e `dotnet publish`.
 ## <a name="authentication-in-msbuild"></a>Autenticazione in MSBuild
 
 Analogamente a dotnet.exe, MSBuild.exe è per impostazione predefinita non che è il meccanismo di autenticazione MSBuild.exe interattiva flusso del dispositivo.
-Per consentire il ripristino sospendere e in attesa per l'autenticazione, chiamare il ripristino con `msbuild /t:restore /p:NuGetInteractive="true"`.
+Per consentire il ripristino sospendere e in attesa per l'autenticazione, chiamare il ripristino con `msbuild -t:restore -p:NuGetInteractive="true"`.
 
 ## <a name="creating-a-cross-platform-authentication-plugin"></a>Creazione di un plug-in di autenticazione cross-platform
 

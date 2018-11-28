@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: d4c13200494ed3c6fa897ce0083a52c13688b44b
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: fd5188c92f8154391359b8da5c8a32f4d5d6f2c0
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547393"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453585"
 ---
 # <a name="catalog"></a>Catalog
 
@@ -213,7 +213,7 @@ tag                    | Matrice di stringhe           | No       |
 title                   | stringa                     | No       |
 verbatimVersion         | stringa                     | No       | La stringa di versione perché si trova in origine nel file con estensione nuspec
 
-Il pacchetto `version` proprietà è la stringa di versione completo, normalizzato. Ciò significa che i dati di compilazione di SemVer 2.0.0 possono essere inclusi di seguito.
+Il pacchetto `version` proprietà è la stringa di versione completo dopo la normalizzazione. Ciò significa che i dati di compilazione di SemVer 2.0.0 possono essere inclusi di seguito.
 
 Il `created` timestamp è quando il pacchetto prima di tutto è stato ricevuto dall'origine del pacchetto, in genere un breve periodo di tempo prima di timestamp di commit dell'elemento del catalogo.
 

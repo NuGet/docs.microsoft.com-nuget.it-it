@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 826316bdbce881836836f2a667cfa5297996d14f
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: b5bd8bd30ad134f36433b8e4721ce131425a1483
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580311"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453364"
 ---
 # <a name="pack-command-nuget-cli"></a>Comando pack (interfaccia della riga di comando di NuGet)
 
 **Si applica a:** creazione del pacchetto &bullet; **le versioni supportate:** 2.7 +
 
-Crea un pacchetto NuGet basato sull'oggetto specificato `.nuspec` o file di progetto. Il `dotnet pack` comando (vedere [comandi dotnet](dotnet-Commands.md)) e `msbuild /t:pack` (vedere [destinazioni di MSBuild](../reference/msbuild-targets.md)) può essere usato come alternative.
+Crea un pacchetto NuGet basato sull'oggetto specificato `.nuspec` o file di progetto. Il `dotnet pack` comando (vedere [comandi dotnet](dotnet-Commands.md)) e `msbuild -t:pack` (vedere [destinazioni di MSBuild](../reference/msbuild-targets.md)) può essere usato come alternative.
 
 > [!Important]
 > In Mono, creazione di un pacchetto da un file di progetto non è supportata. È anche necessario modificare i percorsi locali non nel `.nuspec` file ai percorsi in stile Unix, come nuget.exe non converte percorsi di Windows se stesso.
@@ -49,7 +49,7 @@ in cui `<nuspecPath>` e `<projectPath>` specificare il `.nuspec` o file, rispett
 | OutputDirectory | Specifica la cartella in cui è archiviato il pacchetto creato. Se si specifica alcuna cartella, viene utilizzata la cartella corrente. |
 | Proprietà | Dovrebbe essere visualizzato ultima nella riga di comando dopo le altre opzioni. Specifica un elenco di proprietà che eseguono l'override di valori nel file di progetto. visualizzare [proprietà di progetto MSBuild comuni](/visualstudio/msbuild/common-msbuild-project-properties) per i nomi delle proprietà. In questo caso l'argomento della proprietà è un elenco di token = coppie valore, separate da punti e virgola, in cui ogni occorrenza di `$token$` nella `.nuspec` file verrà sostituito con il valore specificato. I valori possono essere stringhe tra virgolette. Si noti che per la proprietà "Configurazione", il valore predefinito è "Debug". Per modificare una configurazione rilascio, usare `-Properties Configuration=Release`. |
 | Suffisso | *(3.4.4+)*  Aggiunge un suffisso per il numero di versione generata internamente, in genere usato per l'accodamento compilazione o altri identificatori di versione non definitiva. Ad esempio, usando `-suffix nightly` verrà creato un pacchetto con una simile a numeri di versione `1.2.3-nightly`. I suffissi devono iniziare con una lettera per evitare gli avvisi, errori e potenziali incompatibilità con diverse versioni di NuGet e la gestione pacchetti NuGet. |
-| Simboli | Specifica che il pacchetto contiene origini e simboli. Se usato con un `.nuspec` file, verrà creato un file di pacchetto NuGet normale e di pacchetto di simboli corrispondente. Per impostazione predefinita viene creato un [pacchetto di simboli legacy](../create-packages/Symbol-Packages.md). Il nuovo formato consigliato per i pacchetti di simboli è .snupkg. Visualizzare [creazione di pacchetti di simboli (.snupkg)](../create-packages/Symbol-Packages-snupkg.md). |
+| Simboli | Specifica che il pacchetto contiene origini e simboli. Se usato con un `.nuspec` file, verrà creato un file di pacchetto NuGet normale e di pacchetto di simboli corrispondente. Per impostazione predefinita viene creato un [pacchetto di simboli legacy](../create-packages/Symbol-Packages.md). Il nuovo formato consigliato per i pacchetti di simboli è l'estensione snupkg. Vedere [Creazione di pacchetti di simboli (estensione snupkg)](../create-packages/Symbol-Packages-snupkg.md). |
 | Strumento | Specifica che i file di output del progetto devono essere inseriti nel `tool` cartella. |
 | Livello di dettaglio | Specifica la quantità di dettaglio visualizzato nell'output: *normali*, *quiet*, *dettagliate*. |
 | Versione | Sostituisce il numero di versione dal `.nuspec` file. |

@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: a64c5844a58213415671ab0d202a75bc0ececc89
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: ba47d6fdeeaa4ee9de83ef4dd990707bd4928063
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546784"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453559"
 ---
 # <a name="package-metadata"></a>Metadati del pacchetto
 
@@ -150,7 +150,9 @@ requireLicenseAcceptance | boolean                    | No       |
 summary                  | stringa                     | No       | 
 tag                     | stringa o matrice di stringhe  | No       | 
 title                    | stringa                     | No       | 
-version                  | stringa                     | sì      | La versione del pacchetto
+version                  | stringa                     | sì      | La stringa di versione completo dopo la normalizzazione
+
+Il pacchetto `version` proprietà è la stringa di versione completo dopo la normalizzazione. Ciò significa che i dati di compilazione di SemVer 2.0.0 possono essere inclusi di seguito.
 
 Il `dependencyGroups` proprietà è una matrice di oggetti che rappresentano le dipendenze del pacchetto, raggruppati per framework di destinazione. Se il pacchetto non ha dipendenze, il `dependencyGroups` proprietà manca, una matrice vuota, o `dependencies` proprietà di tutti i gruppi è vuoto o mancante.
 
