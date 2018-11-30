@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/26/2017
 ms.topic: conceptual
-ms.openlocfilehash: f911e24da76880410f8dfaa2891b609c7beb4a61
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 6b41b23df115c45e830404afcf9defa23615bd7c
+ms.sourcegitcommit: ce97dded7715f217ec44f6c8368ab0df19c38342
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547889"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52615756"
 ---
 # <a name="package-creation-workflow"></a>Flusso di lavoro della creazione di pacchetti
 
@@ -36,7 +36,7 @@ Per continuare, sono disponibili diverse altre opzioni per i pacchetti:
 - [Creazione di pacchetti localizzati](../create-packages/creating-localized-packages.md) descrive come strutturare un pacchetto con più risorse di lingua e come usare pacchetti satellite localizzati distinti.
 - [Pacchetti in versione non definitiva](../create-packages/prerelease-packages.md) illustra come rilasciare pacchetti versione alfa, beta e rc ai clienti interessati.
 - [Trasformazioni di codice sorgente e file di configurazione](../create-packages/source-and-config-file-transformations.md) descrive come eseguire sostituzioni di token unidirezionali nei file che vengono aggiunti a un progetto e modificare `web.config` e `app.config` con impostazioni che vengono escluse quando si disinstalla il pacchetto.
-- [Pacchetti di simboli](../create-packages/symbol-packages.md) offre le informazioni necessarie per fornire simboli per la libreria che consentono ai consumer di eseguire l'istruzione nel codice durante il debug.
+- [Pacchetti di simboli](../create-packages/symbol-packages-snupkg.md) offre le informazioni necessarie per fornire simboli per la libreria che consentono ai consumer di eseguire l'istruzione nel codice durante il debug.
 - [Controllo delle versioni dei pacchetti](../reference/package-versioning.md) illustra come identificare le versioni esatte consentite per le dipendenze (altri pacchetti utilizzati dal pacchetto).
 - [Pacchetti nativi](../create-packages/native-packages.md) descrive il processo di creazione di un pacchetto per i consumer C++.
 - [Firma dei pacchetti](../create-packages/sign-a-package.md) descrive il processo per l'aggiunta di una firma digitale a un pacchetto.
