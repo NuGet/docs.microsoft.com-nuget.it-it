@@ -5,22 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 71ab5bb464d1513df89ab53e119d9768e880e4e5
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: d4f0177183ee3edf595c4ce10d1f26cbaca5755d
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981028"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453572"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Riferimenti a pacchetti (PackageReference) nei file di progetto
 
-I riferimenti ai pacchetti, tramite il nodo `PackageReference`, consentono di gestire le dipendenze di NuGet direttamente all'interno di file di progetto, invece di dover ricorrere a un file `packages.config` separato. L'uso di PackageReference non influenza altri aspetti di NuGet. Ad esempio le impostazioni nei file `NuGet.
-
-
-
-
-
-fig` (incluse le origini dei pacchetti) vengono comunque applicate come illustrato in [Configurazione del comportamento di NuGet](configuring-nuget-behavior.md).
+I riferimenti ai pacchetti, tramite il nodo `PackageReference`, consentono di gestire le dipendenze di NuGet direttamente all'interno di file di progetto, invece di dover ricorrere a un file `packages.config` separato. L'uso di PackageReference non influenza altri aspetti di NuGet. Ad esempio le impostazioni nei file `NuGet.config` (incluse le origini dei pacchetti) vengono comunque applicate come illustrato in [Configurazione del comportamento di NuGet](configuring-nuget-behavior.md).
 
 Con PackageReference è anche possibile usare condizioni MSBuild per scegliere i riferimenti ai pacchetti in base a framework di destinazione, configurazione, piattaforma o altri raggruppamenti. Consente anche un controllo più capillare delle dipendenze e del flusso del contenuto. (Per altri dettagli, vedere [Pack e restore di NuGet come destinazioni MSBuild ](../reference/msbuild-targets.md).)
 
@@ -204,7 +198,7 @@ Per dotnet.exe, eseguire:
 
 Per msbuild.exe, eseguire:
 ```
-> msbuild.exe /t:restore /p:RestoreLockedMode=true
+> msbuild.exe -t:restore -p:RestoreLockedMode=true
 ```
 
 È anche possibile impostare questa proprietà MSBuild condizionale nel file di progetto:
@@ -238,6 +232,6 @@ Se `ProjectA` ha una dipendenza da `PackageX` versione `2.0.0` e fa anche riferi
 | Opzione | Opzione MSBuild equivalente | 
 |:---  |:--- |
 | `--use-lock-file` | Avvia l'uso del file di blocco per un progetto. In alternativa, è possibile impostare la proprietà `RestorePackagesWithLockFile` nel file di progetto | 
-| `--locked-mode` | Abilita la modalità di blocco per il ripristino. Questa opzione è utile negli scenari di integrazione continua/recapito continuo in cui si vogliono rendere ripetibili le compilazioni. A tal fine, è anche possibile impostare la proprietà MSBuild `RestoreLockedMode` su `true` |  
+| `--locked-mode` | Abilita la modalità di blocco per il ripristino. Questa opzione è utile negli scenari CI/CD in cui si vogliono rendere ripetibili le compilazioni. A tal fine, è anche possibile impostare la proprietà MSBuild `RestoreLockedMode` su `true` |  
 | `--force-evaluate` | Questa opzione è utile con i pacchetti con la versione mobile definita nel progetto. Per impostazione predefinita, il ripristino NuGet non aggiornerà automaticamente la versione del pacchetto a ogni ripristino, a meno che il ripristino non venga eseguito con l'opzione `--force-evaluate`. |
 | `--lock-file-path` | Definisce un percorso di file di blocco personalizzato per un progetto. A questo scopo, è anche possibile impostare la proprietà MSBuild `NuGetLockFilePath`. Per impostazione predefinita, NuGet supporta `packages.lock.json` nella directory radice. Se nella stessa directory sono presenti più progetti, NuGet supporta il file di blocco `packages.<project_name>.lock.json` specifico del progetto |

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 04/09/2018
 ms.topic: quickstart
-ms.openlocfilehash: b3be75a5af85bd3048c8b0eb71d90238b9349e09
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 9e8aa2250c6fc2843f74a925c56f953be5d48221
+ms.sourcegitcommit: 1591bb230e106b94162a87dd1d86fe427366730a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549722"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52671136"
 ---
 # <a name="installing-nuget-client-tools"></a>Installazione degli strumenti client di NuGet
 
@@ -75,27 +75,25 @@ Installazione:
 | Funzionalità | Interfaccia della riga di comando dotnet | Interfaccia della riga di comando nuget (Windows) | Interfaccia della riga di comando nuget (Mono) | Visual Studio (Windows) | Visual Studio per Mac |
 | --- | --- | --- | --- | --- | --- |
 | Ricerche nei pacchetti |  | &#10004; | &#10004; | &#10004; | &#10004; |
-| Installare/disinstallare pacchetti | &#10004;(1) | &#10004;(2) | &#10004; | &#10004; | &#10004; |
+| Installare/disinstallare pacchetti | &#10004; | &#10004;(1) | &#10004; | &#10004; | &#10004; |
 | Aggiornamento di pacchetti | &#10004; | &#10004; | | &#10004; | &#10004; |
-| Ripristinare pacchetti | &#10004; | &#10004; | &#10004;(3) | &#10004; | &#10004; |
+| Ripristinare pacchetti | &#10004; | &#10004; | &#10004;(2) | &#10004; | &#10004; |
 | Gestire feed di pacchetti (origini) | | &#10004; | &#10004; | &#10004; | &#10004; |
-| Gestire i pacchetti in un feed | &#10004;(1) | &#10004; | &#10004; | | |
+| Gestire i pacchetti in un feed | &#10004; | &#10004; | &#10004; | | |
 | Impostare le chiavi API per i feed | | &#10004; | &#10004; | | |
-| Creare pacchetti(4) | &#10004; | &#10004; | &#10004;(5) | &#10004; | |
-| Pubblicazione di pacchetti | &#10004;(1) | &#10004; | &#10004; | &#10004; |  |
+| Creare i pacchetti(3) | &#10004; | &#10004; | &#10004;(4) | &#10004; | |
+| Pubblicazione di pacchetti | &#10004; | &#10004; | &#10004; | &#10004; |  |
 | Replicare pacchetti |  | &#10004; | &#10004; | | |
 | Gestire le cartelle *global-packages* e della cache | &#10004; | &#10004; | &#10004; | | |
 | Gestire la configurazione di NuGet | | &#10004; | &#10004; | | |
 
-(1) Pacchetti solo in nuget.org
+(1) Non influisce sui file di progetto; usare invece `dotnet.exe`.
 
-(2) Non influisce sui file di progetto; usare invece `dotnet.exe`.
+(2) Funziona solo con il file `packages.config` e non con file di soluzione (`.sln`).
 
-(3) Funziona solo con il file `packages.config` e non con file di soluzione (`.sln`).
+(3) Varie funzionalità avanzate per i pacchetti sono disponibili solo tramite l'interfaccia della riga di comando, perché non sono rappresentate negli strumenti dell'interfaccia utente di Visual Studio.
 
-(4) Sono disponibili varie funzionalità avanzate per i pacchetti solo tramite l'interfaccia della riga di comando, perché non sono rappresentate negli strumenti dell'interfaccia utente di Visual Studio.
-
-(5) Funziona con i file `.nuspec` ma non con i file di progetto.
+(4) Funziona con i file `.nuspec` ma non con i file di progetto.
 
 ### <a name="related-topics"></a>Argomenti correlati
 

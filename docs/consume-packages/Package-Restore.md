@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: da69181aebe3bebcea6acd6e15fde6b77dd33452
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: 9acb87a5f5731fb33c91a1ae9b106c6df492ddcd
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580298"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453533"
 ---
 # <a name="package-restore"></a>Ripristino di pacchetti
 
@@ -39,7 +39,7 @@ Il ripristino del pacchetto viene attivato nei modi seguenti:
 
 - **Interfaccia della riga di comando NuGet**: usare il comando [nuget restore](../tools/cli-ref-restore.md), che consente di ripristinare i pacchetti elencati nel file di progetto o in `packages.config`. È anche possibile specificare un file di soluzione.
 
-- **MSBuild**: usare il comando [msbuild /t:restore](../reference/msbuild-targets.md#restore-target), che consente di ripristinare i pacchetti elencati nel file di progetto (solo PackageReference). Disponibile solo in NuGet 4.x+ e MSBuild 15.1 +, inclusi con Visual Studio 2017. Sia `nuget restore` che `dotnet restore` usano questo comando per i progetti applicabili.
+- **MSBuild**: usare il comando [msbuild -t:restore](../reference/msbuild-targets.md#restore-target), che consente di ripristinare i pacchetti elencati nel file di progetto (solo PackageReference). Disponibile solo in NuGet 4.x+ e MSBuild 15.1 +, inclusi con Visual Studio 2017. Sia `nuget restore` che `dotnet restore` usano questo comando per i progetti applicabili.
 
 - **Visual Studio Team Services**: quando si crea una definizione di compilazione in Team Services, includere l'attività di [ripristino NuGet](/vsts/build-release/tasks/package/nuget#restore-nuget-packages) o di [ripristino .NET Core](/vsts/build-release/tasks/build/dotnet-core#restore-nuget-packages) nella definizione prima di qualsiasi attività di compilazione. Questa attività è inclusa per impostazione predefinita in vari modelli di compilazione.
 
