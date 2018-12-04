@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7b3fc72ddd3ad6c9185c2bd0f2563df59e77f1c8
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: a9427d87f69a2e942a9802fbdae5193eead1c724
+ms.sourcegitcommit: af58d59669674c3bc0a230d5764e37020a9a3f1e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453546"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52831020"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Pack e restore di NuGet come destinazioni MSBuild
 
@@ -192,7 +192,7 @@ Se un file di tipo Compile è all'esterno della cartella di progetto, viene semp
 ### <a name="packing-a-license-expression-or-a-license-file"></a>Creazione di un'espressione di licenza o un file di licenza
 
 Quando si usa un'espressione di licenza, usare la proprietà PackageLicenseExpression. 
-[Esempio di espressione licenza](#https://github.com/NuGet/Samples/tree/master/PackageLicenseExpressionExample).
+[Esempio di espressione licenza](https://github.com/NuGet/Samples/tree/master/PackageLicenseExpressionExample).
 
 La creazione di un file di licenza, è necessario usare PackageLicenseFile proprietà per specificare il percorso del pacchetto, relativo alla radice del pacchetto. Inoltre, è necessario assicurarsi che il file è incluso nel pacchetto. Ad esempio:
 
@@ -205,7 +205,7 @@ La creazione di un file di licenza, è necessario usare PackageLicenseFile propr
     <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)"/>
 </ItemGroup>
 ```
-[Esempio di vita della licenza](#https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample).
+[Esempio di file di licenza](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample).
 
 ### <a name="istool"></a>IsTool
 
