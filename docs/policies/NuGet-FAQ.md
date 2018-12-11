@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/11/2018
 ms.topic: conceptual
-ms.openlocfilehash: c136a3dffac38a68b80f730de1e4c3a3a9c8bd5d
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: 93a22b423b193874c4c69c37ff9c6d9b4489a48d
+ms.sourcegitcommit: 673e580ae749544a4a071b4efe7d42fd2bb6d209
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580357"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52977576"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Domande frequenti su NuGet
 
@@ -39,7 +39,7 @@ Per altre informazioni, vedere [Ricerca e scelta di pacchetti](../consume-packag
 - Visual Studio in Windows supporta l'[interfaccia utente di Gestione pacchetti](../tools/package-manager-ui.md) e la [console di Gestione pacchetti](../tools/package-manager-console.md).
 - Visual Studio per Mac include funzionalità incorporate di NuGet come descritto in [Inserimento di un pacchetto NuGet nel progetto](/visualstudio/mac/nuget-walkthrough).
 - Visual Studio Code (tutte le piattaforme) non include alcuna integrazione diretta di NuGet. Usare l'[interfaccia della riga di comando di NuGet](../tools/nuget-exe-cli-reference.md) o l'[interfaccia della riga di comando di dotnet](../tools/dotnet-commands.md).
-- Visual Studio Team Services offre [un passaggio di compilazione per il ripristino dei pacchetti NuGet](/vsts/build-release/tasks/package/nuget). È anche possibile [ospitare feed di pacchetti NuGet privati in Team Services](https://www.visualstudio.com/docs/package/nuget/publish).
+- Azure DevOps offre [un passaggio di compilazione per il ripristino dei pacchetti NuGet](/vsts/build-release/tasks/package/nuget). È anche possibile [ospitare feed di pacchetti NuGet privati in Azure DevOps](https://docs.microsoft.com/azure/devops/artifacts/nuget/publish).
 
 **Come è possibile controllare la versione esatta degli strumenti di NuGet installati?**
 
@@ -182,7 +182,7 @@ Microsoft incoraggia la collaborazione tra i membri della community di NuGet per
 
 **È consigliabile caricare i pacchetti di test in nuget.org?**
 
-Per scopi di test, è possibile usare [int.nugettest.org](https://int.nugettest.org) o server NuGet pubblici alternativi, come [myget.org](https://myget.org) o [Visual Studio Team Services](https://blogs.msdn.microsoft.com/visualstudioalm/2015/08/27/announcing-package-management-support-for-vsotfs/).
+A scopo di test, è possibile usare [int.nugettest.org](https://int.nugettest.org) o server NuGet pubblici alternativi, come [myget.org](https://myget.org) o [Azure DevOps](https://blogs.msdn.microsoft.com/visualstudioalm/2015/08/27/announcing-package-management-support-for-vsotfs/).
 
 Si noti che i pacchetti caricati in int.nugettest.org potrebbero non essere mantenuti.
 

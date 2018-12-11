@@ -6,60 +6,99 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: c598461831323ecfcc5da3877df71bd8d69557f6
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: e8955f9d46bab235c8755d5654814a4291d542d6
+ms.sourcegitcommit: 673e580ae749544a4a071b4efe7d42fd2bb6d209
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551978"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52977563"
 ---
 # <a name="signing-nuget-packages"></a>Firma di pacchetti NuGet
 
-La firma di un pacchetto è un processo per assicurarsi che il pacchetto non sia stato modificato dopo la creazione.
+I pacchetti firmati consentono di eseguire controlli di verifica dell'integrità del contenuto che garantiscono protezione contro eventuali manomissioni del contenuto. La firma del pacchetto, inoltre, funge da single source of truth riguardo all'origine del pacchetto e ne attesta l'autenticità presso il consumer. Questa guida presuppone che [sia già stato creato un pacchetto](creating-a-package.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="get-a-code-signing-certificate"></a>Ottenere un certificato di firma del codice
 
-1. Il pacchetto (file `.nupkg`) da firmare. Vedere [Creazione di un pacchetto](creating-a-package.md).
+Si possono ottenere certificati validi da autorità di certificazione pubbliche, ad esempio [Symantec](https://trustcenter.websecurity.symantec.com/process/trust/productOptions?productType=SoftwareValidationClass3), [DigiCert](https://www.digicert.com/code-signing/), [Go Daddy](https://www.godaddy.com/web-security/code-signing-certificate), [Global Sign](https://www.globalsign.com/en/code-signing-certificate/), [Comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php), [Certum](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml) e così via. L'elenco completo delle autorità di certificazione attendibili per Windows è disponibile in [http://aka.ms/trustcertpartners](http://aka.ms/trustcertpartners).
 
-1. nuget.exe 4.6.0 o versione successiva. Vedere come [installare l'interfaccia della riga di comando di nuget.exe](../install-nuget-client-tools.md#nugetexe-cli).
+A scopo di test è possibile usare l'autocertificazione. Tuttavia, i pacchetti firmati utilizzando l'autocertificazione non sono accettati da NuGet.org. Altre informazioni sulla [creazione di un certificato di test](#create-a-test-certificate)
 
-1. [Un certificato di firma del codice](../reference/signed-packages-reference.md#get-a-code-signing-certificate).
+## <a name="export-the-certificate-file"></a>Esportare il file del certificato
 
-## <a name="sign-a-package"></a>Firmare un pacchetto
+* È possibile esportare un certificato esistente in formato DER binario usando Esportazione guidata certificati.
 
-Per firmare un pacchetto, usare [nuget sign](../tools/cli-ref-sign.md):
+  ![Esportazione guidata certificati](../reference/media/CertificateExportWizard.png)
 
-```cli
-nuget sign MyPackage.nupkg -CertificateSubjectName <MyCertSubjectName> -Timestamper <TimestampServiceURL>
-```
+* È anche possibile esportare il certificato usando il [comando Export-Certificate di PowerShell](/powershell/module/pkiclient/export-certificate.md).
 
-Come descritto nelle informazioni di riferimento sui comandi, è possibile usare un certificato disponibile nell'archivio certificati o usare un certificato da un file.
+## <a name="sign-the-package"></a>Firmare il pacchetto
 
-### <a name="common-problems-when-signing-a-package"></a>Problemi comuni durante la firma di un pacchetto
+> [!note]
+> Richiede nuget.exe 4.6.0 o versione successiva
 
-- Il certificato non è valido per la firma del codice. È necessario assicurarsi che il certificato specificato abbia l'utilizzo chiavi avanzato appropriato (EKU 1.3.6.1.5.5.7.3.3).
-- Il certificato non soddisfa i requisiti di base, ad esempio l'algoritmo di firma RSA SHA-256 o una chiave pubblica a 2048 bit o superiore.
-- Il certificato è scaduto o è stato revocato.
-- Il server di timestamp non soddisfa i requisiti del certificato.
-
-> [!Note]
-> I pacchetti firmati devono includere un timestamp per assicurarsi che la firma rimanga valida dopo la scadenza del certificato di firma. L'operazione di firma genera un [avviso NU3002](../reference/errors-and-warnings/NU3002.md) se avviene senza un timestamp.
-
-## <a name="verify-a-signed-package"></a>Verificare un pacchetto firmato
-
-Usare [nuget verify](../tools/cli-ref-verify.md) per visualizzare i dettagli di firma di un determinato pacchetto:
+Firmare il pacchetto usando il comando [sign](../tools/cli-ref-sign.md) di NuGet:
 
 ```cli
-nuget verify -signature MyPackage.nupkg
+nuget sign MyPackage.nupkg -CertificateFilePath <PathToTheCertificate> -Timestamper <TimestampServiceURL>
 ```
 
-## <a name="install-a-signed-package"></a>Installare un pacchetto firmato
+* È possibile usare un certificato disponibile nell'archivio certificati o usare un certificato da un file. Vedere Informazioni di riferimento sull'interfaccia della riga di comando per il comando [sign](../tools/cli-ref-sign.md) di NuGet.
+* I pacchetti firmati devono includere un timestamp per assicurarsi che la firma rimanga valida dopo la scadenza del certificato di firma. In caso contrario, l'operazione di firma genera un [avviso](../reference/errors-and-warnings/NU3002.md).
+* Per visualizzare i dettagli della firma di un determinato pacchetto, usare il comando [verify](../tools/cli-ref-verify.md) di NuGet.
 
-Non sono richieste azioni specifiche per l'installazione di pacchetti firmati. Tuttavia, se il contenuto è stato modificato dopo la firma, l'installazione viene bloccata e genera un [errore NU3008](../reference/errors-and-warnings/NU3008.md).
+## <a name="register-the-certificate-on-nugetorg"></a>Registrare il certificato su NuGet.org
+
+Per pubblicare un pacchetto firmato, è innanzitutto necessario registrare il certificato su NuGet.org. Il certificato deve essere un file `.cer` in formato DER binario.
+
+1. [Eseguire l'accesso](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) a NuGet.org.
+1. Passare a `Account settings` oppure a `Manage Organization` **>** `Edit Organziation` se si desidera registrare il certificato con un account aziendale.
+1. Espandere la sezione `Certificates` e selezionare `Register new`.
+1. Individuare e selezionare il file di certificato esportato in precedenza.
+  ![Certificati registrati](../reference/media/registered-certs.png)
+
+**Nota**
+* Un utente può inviare più certificati e lo stesso certificato può essere registrato da più utenti.
+* Una volta che un utente dispone di un certificato registrato, tutti i pacchetti futuri inviati **dovranno obbligatoriamente** essere firmati con uno dei certificati. Vedere [Gestire i requisiti di firma per il pacchetto in NuGet.org](#manage-signing-requirements-for-your-package-on-nugetorg)
+* Gli utenti possono anche rimuovere un certificato registrato dall'account. Se un certificato è stato rimosso, i nuovi pacchetti firmati con tale certificato non potranno essere inviati. I pacchetti esistenti non subiscono conseguenze.
+
+## <a name="publish-the-package"></a>Pubblicare il pacchetto
+
+A questo punto si è pronti a pubblicare il pacchetto in NuGet.org. Vedere [Pubblicazione di pacchetti](Publish-a-package.md).
+
+## <a name="create-a-test-certificate"></a>Creare un certificato di test
+
+A scopo di test è possibile usare l'autocertificazione. Per creare un'autocertificazione, usare il [comando New-SelfSignedCertificate di PowerShell](/powershell/module/pkiclient/new-selfsignedcertificate.md).
+
+```ps
+New-SelfSignedCertificate -Subject "CN=NuGet Test Developer, OU=Use for testing purposes ONLY" `
+                          -FriendlyName "NuGetTestDeveloper" `
+                          -Type CodeSigning `
+                          -KeyUsage DigitalSignature `
+                          -KeyLength 2048 `
+                          -KeyAlgorithm RSA `
+                          -HashAlgorithm SHA256 `
+                          -Provider "Microsoft Enhanced RSA and AES Cryptographic Provider" `
+                          -CertStoreLocation "Cert:\CurrentUser\My" 
+```
+
+Il comando crea un certificato di test e lo rende disponibile nell'archivio certificati personali dell'utente corrente. Per visualizzare il certificato appena creato, aprire l'archivio certificati eseguendo `certmgr.msc`.
 
 > [!Warning]
-> I pacchetti firmati con certificati non attendibili vengono considerati non firmati e installati senza eventuali avvisi o errori come qualsiasi altro pacchetto non firmato.
+> NuGet.org non accetta pacchetti firmati con autocertificazione.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="manage-signing-requirements-for-your-package-on-nugetorg"></a>Gestire i requisiti di firma per il pacchetto in NuGet.org
+1. [Eseguire l'accesso](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) a NuGet.org.
 
-[Informazioni di riferimento sui pacchetti firmati](../reference/Signed-Packages-Reference.md)
+1. Passare a `Manage Packages` 
+   ![Configurare i firmatari del pacchetto](../reference/media/configure-package-signers.png)
+
+* Se è l'unico proprietario di un pacchetto, l'utente è il firmatario richiesto, ovvero può usare uno qualsiasi dei certificati registrati per firmare e pubblicare i pacchetti in NuGet.org.
+
+* Se un pacchetto ha più proprietari, per impostazione predefinita, è possibile firmare il pacchetto usando i certificati di "Qualsiasi" proprietario. In qualità di comproprietario del pacchetto, l'utente può indicare se stesso o un altro comproprietario come firmatario richiesto. Se si configura un proprietario che non ha alcun certificato registrato, saranno ammessi i pacchetti non firmati. 
+
+* Analogamente, se l'opzione predefinita "Qualsiasi" è selezionata per un pacchetto in cui un proprietario dispone di un certificato registrato e un altro proprietario non ha alcun certificato registrato, NuGet.org accetterà sia un pacchetto firmato con una firma registrata da uno dei proprietari sia un pacchetto non firmato, dal momento che uno dei proprietari non ha alcun certificato registrato.
+
+## <a name="related-articles"></a>Articoli correlati
+
+- [Installazione di pacchetti firmati](../consume-packages/installing-signed-packages.md)
+- [Informazioni di riferimento sui pacchetti firmati](../reference/Signed-Packages-Reference.md)
