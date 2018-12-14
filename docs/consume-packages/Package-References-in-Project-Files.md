@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: d4f0177183ee3edf595c4ce10d1f26cbaca5755d
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: e4df15be1f29e2c611876aaa49e16ac7d1823938
+ms.sourcegitcommit: be9c51b4b095aea40ef41bbea7e12ef0a194ee74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453572"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53248455"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Riferimenti a pacchetti (PackageReference) nei file di progetto
 
@@ -47,7 +47,7 @@ La convenzione per specificare la versione di un pacchetto è uguale quando si u
 Nell'esempio precedente, 3.6.0 significa qualsiasi versione > = 3.6.0 con preferenza per la versione più bassa, come descritto in [Controllo delle versioni dei pacchetti](../reference/package-versioning.md#version-ranges-and-wildcards).
 
 ## <a name="using-packagereference-for-a-project-with-no-packagereferences"></a>Uso di PackageReference per un progetto senza PackageReference
-Avanzato: se non si hanno pacchetti installati in un progetto (nessun PackageReference nel file di progetto e nessun file packages.config), ma si vuole ripristinare il progetto con stile PackageReference, è possibile impostare una proprietà del progetto RestoreProjectStyle su PackageReference nel file di progetto.
+Avanzato: Se non si hanno pacchetti installati in un progetto (nessun PackageReference nel file di progetto e nessun file packages.config), ma si vuole ripristinare il progetto con stile PackageReference, è possibile impostare una proprietà del progetto RestoreProjectStyle su PackageReference nel file di progetto.
 ```xml
 <PropertyGroup>
     <!--- ... -->
@@ -88,7 +88,7 @@ Le [versioni mobili](../consume-packages/dependency-resolution.md#floating-versi
 
 I tag di metadati seguenti controllano gli asset delle dipendenze:
 
-| Tag | Descrizione | Valore predefinito |
+| Tag | Description | Valore predefinito |
 | --- | --- | --- |
 | IncludeAssets | Questi asset verranno utilizzati | tutti |
 | ExcludeAssets | Questi asset non verranno utilizzati | none |
@@ -96,7 +96,7 @@ I tag di metadati seguenti controllano gli asset delle dipendenze:
 
 I valori consentiti per questi tag sono i seguenti, con più valori separati da un punto e virgola, ad eccezione di `all` e `none` che devono essere usati da soli:
 
-| Valore | Descrizione |
+| Value | Description |
 | --- | ---
 | compile | Contenuti della cartella `lib`. Controlla se il progetto può essere compilato in base agli assembly nella cartella |
 | runtime | Contenuti delle cartelle `lib` e `runtimes`. Controlla se questi assembly verranno copiati nella directory di output build |
@@ -155,7 +155,7 @@ Le condizioni possono essere applicate anche al livello `ItemGroup` e verranno a
 ```
 
 ## <a name="locking-dependencies"></a>Blocco delle dipendenze
-*Questa funzionalità è disponibile con NuGet **4.9** o versione successiva e con Visual Studio 2017 **15.9 Preview 5** o versione successiva.*
+*Questa funzionalità è disponibile con NuGet **4.9** o versione successiva e con Visual Studio 2017 **15.9** o versione successiva.*
 
 L'input per il ripristino NuGet è un set di riferimenti al pacchetto dal file di progetto (dipendenze dirette o di primo livello) e l'output è una chiusura completa di tutte le dipendenze del pacchetto, incluse le dipendenze transitive. NuGet prova a produrre sempre la stessa chiusura completa di dipendenze del pacchetto se l'elenco PackageReference di input non è stato modificato. Esistono tuttavia alcuni scenari in cui non è possibile farlo. Ad esempio:
 
@@ -164,7 +164,7 @@ L'input per il ripristino NuGet è un set di riferimenti al pacchetto dal file d
 
   * Giorno 1: si è specificato `<PackageReference Include="My.Sample.Lib" Version="4.0.0"/>`, ma le versioni disponibili nei repository NuGet erano 4.1.0, 4.2.0 e 4.3.0. In questo caso, NuGet restituirebbe 4.1.0 (la versione minima più vicina)
 
-  * Giorno 2: viene pubblicata la versione 4.0.0. NuGet troverà ora la corrispondenza esatta e inizierà a restituire 4.0.0
+  * Giorno 2: Viene pubblicata la versione 4.0.0. NuGet troverà ora la corrispondenza esatta e inizierà a restituire 4.0.0
 
 * Una versione del pacchetto specifica viene rimossa dal repository. Anche se nuget.org non consente l'eliminazione dei pacchetti, non tutti i repository di pacchetti presentano questo vincolo. NuGet trova di conseguenza la corrispondenza migliore quando non può restituire la versione eliminata.
 
@@ -213,7 +213,7 @@ Per msbuild.exe, eseguire:
 Se la modalità di blocco è `true`, verranno ripristinati i pacchetti esatti elencati nel file di blocco. Il ripristino avrà invece esito negativo se le dipendenze del pacchetto definite per il progetto sono state aggiornate dopo la creazione del file di blocco.
 
 ### <a name="make-lock-file-part-of-your-source-repository"></a>Rendere il file di blocco parte del repository di origine
-Se si compila un'applicazione, un file eseguibile e il progetto in questione sono alla fine della catena di dipendenze, quindi archiviare il file di blocco nel repository di codice sorgente in modo che NuGet possa usarlo durante il ripristino.
+Se si compila un'applicazione, un file eseguibile e il progetto in questione sono alla inizio della catena di dipendenze, quindi archiviare il file di blocco nel repository di codice sorgente in modo che NuGet possa usarlo durante il ripristino.
 
 Se tuttavia il progetto è un progetto libreria che non viene distribuito o un progetto di codice comune da cui dipendono altri progetti, **non è consigliabile** archiviare il file di blocco come parte del codice sorgente. È possibile mantenere il file di blocco, ma le dipendenze del pacchetto bloccato per il progetto di codice comune, elencate nel file di blocco, non possono essere usate durante il ripristino o la compilazione di un progetto che dipende da questo progetto di codice comune.
 
