@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: a9427d87f69a2e942a9802fbdae5193eead1c724
-ms.sourcegitcommit: af58d59669674c3bc0a230d5764e37020a9a3f1e
+ms.openlocfilehash: 878fb582a31667c84f3ae306b554718de72eca7a
+ms.sourcegitcommit: 5c5f0f0e1f79098e27d9566dd98371f6ee16f8b5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52831020"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53645672"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Pack e restore di NuGet come destinazioni MSBuild
 
@@ -117,8 +117,8 @@ Come parte della modifica del [NuGet problema 352](https://github.com/NuGet/Home
 
 Sono disponibili due proprietà di MSBuild che è possibile usare nel file di progetto o nella riga di comando per controllare la destinazione degli assembly di output:
 
-- `IncludeBuildOutput`: valore booleano che determina se gli assembly di output della compilazione devono essere inclusi nel pacchetto.
-- `BuildOutputTargetFolder`: specifica la cartella in cui devono essere posizionati gli assembly di output. Gli assembly di output (e altri file di output) vengono copiati nelle rispettive cartelle per framework.
+- `IncludeBuildOutput`: Valore booleano che determina se gli assembly di output di compilazione devono essere inclusi nel pacchetto.
+- `BuildOutputTargetFolder`: Specifica la cartella in cui deve essere inserito l'assembly di output. Gli assembly di output (e altri file di output) vengono copiati nelle rispettive cartelle per framework.
 
 ### <a name="package-references"></a>Riferimenti ai pacchetti
 
@@ -202,7 +202,7 @@ La creazione di un file di licenza, è necessario usare PackageLicenseFile propr
 </PropertyGroup>
 
 <ItemGroup>
-    <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)"/>
+    <None Include="licenses\LICENSE.txt" Pack="true" PackagePath=""/>
 </ItemGroup>
 ```
 [Esempio di file di licenza](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample).
@@ -217,7 +217,7 @@ Quando si usa `MSBuild -t:pack -p:IsTool=true`, tutti i file, come specificato n
 
 1. `NuspecFile`: percorso relativo o assoluto per il file `.nuspec` usato per la creazione del pacchetto.
 1. `NuspecProperties`: elenco con valori delimitati da punto e virgola di coppie chiave=valore. A causa della modalità di funzionamento dell'analisi della riga di comando di MSBuild, è necessario specificare più proprietà come indicato di seguito: `-p:NuspecProperties=\"key1=value1;key2=value2\"`.  
-1. `NuspecBasePath`: percorso di base per il file `.nuspec`.
+1. `NuspecBasePath`: Percorso di base per il `.nuspec` file.
 
 Se si usa `dotnet.exe` per creare il pacchetto del progetto, usare un comando simile al seguente:
 
@@ -252,15 +252,15 @@ Si noti che un file nuspec di compressione utilizzando msbuild o dotnet.exe comp
 
 Il `pack` destinazione fornisce due punti di estensione che eseguono l'interna, compilazione specifica di framework di destinazione. I punti di estensione supportano includere contenuto specifico di framework di destinazione e gli assembly in un pacchetto:
 
-- `TargetsForTfmSpecificBuildOutput` destinazione: usare per i file all'interno di `lib` cartella o una cartella specificata utilizzando `BuildOutputTargetFolder`.
-- `TargetsForTfmSpecificContentInPackage` destinazione: uso di file all'esterno di `BuildOutputTargetFolder`.
+- `TargetsForTfmSpecificBuildOutput` destinazione: Utilizzo per i file all'interno di `lib` cartella o una cartella specificata utilizzando `BuildOutputTargetFolder`.
+- `TargetsForTfmSpecificContentInPackage` destinazione: Utilizzo per i file all'esterno di `BuildOutputTargetFolder`.
 
 #### <a name="targetsfortfmspecificbuildoutput"></a>TargetsForTfmSpecificBuildOutput
 
 Scrivere una destinazione personalizzata e specificarlo come valore del `$(TargetsForTfmSpecificBuildOutput)` proprietà. Per tutti i file che devono affrontare la `BuildOutputTargetFolder` (lib per impostazione predefinita), la destinazione deve scrivere tali file in ItemGroup `BuildOutputInPackage` e impostare i due valori di metadati seguenti:
 
 - `FinalOutputPath`: Il percorso assoluto del file. Se non specificato, l'identità viene utilizzata per valutare il percorso di origine.
-- `TargetPath`: (Facoltativo) impostare quando il file deve essere inviato in una sottocartella all'interno di `lib\<TargetFramework>` , come assembly satellite che vanno in cartelle delle rispettive impostazioni cultura. Il valore predefinito è il nome del file.
+- `TargetPath`:  (Facoltativo) Impostare quando il file deve essere inviato in una sottocartella all'interno di `lib\<TargetFramework>` , come assembly satellite che vanno in cartelle delle rispettive impostazioni cultura. Il valore predefinito è il nome del file.
 
 Esempio:
 
