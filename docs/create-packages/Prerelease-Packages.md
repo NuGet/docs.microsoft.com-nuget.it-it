@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: a47a3a56e1c290c9a2f228ce1d0313cbdf0c4c34
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: d6925df63daf3096455a8205d6aeb07b4475f715
+ms.sourcegitcommit: 5c5f0f0e1f79098e27d9566dd98371f6ee16f8b5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549206"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53645633"
 ---
 # <a name="building-pre-release-packages"></a>Compilazione di versioni non definitive dei pacchetti
 
@@ -44,7 +44,7 @@ Quando si è pronti per rilasciare una versione stabile, è sufficiente rimuover
 
 Per impostazione predefinita, NuGet non include le versioni non definitive quando si lavora con i pacchetti, ma è possibile modificare questo comportamento come segue:
 
-- **Interfaccia utente di Gestione pacchetti in Visual Studio**: nell'interfaccia utente di **Gestisci pacchetti NuGet** selezionare la casella di controllo **Includi versione preliminare**:
+- **Interfaccia utente di Gestione pacchetti (Visual Studio)**: nell'interfaccia utente di **Gestisci pacchetti NuGet** selezionare la casella di controllo **Includi versione preliminare**:
 
     ![Casella di controllo Includi versione preliminare in Visual Studio](media/Prerelease_02-CheckPrerelease.png)
 
@@ -60,7 +60,7 @@ La [convenzione di versionamento semantico o SemVer](http://semver.org/spec/v1.0
 
 In questa convenzione, ogni versione è composta di tre parti, `Major.Minor.Patch`, con il significato seguente:
 
-- `Major`: modifiche importanti
+- `Major`: Modifiche che causano un'interruzione
 - `Minor`: nuove funzionalità, ma compatibili con le versioni precedenti
 - `Patch`: solo correzioni di bug compatibili con le versioni precedenti
 
