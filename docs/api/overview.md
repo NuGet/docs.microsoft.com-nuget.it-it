@@ -6,18 +6,18 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: bb47c72768b0698d8e712c8261321ff38bba2764
-ms.sourcegitcommit: be9c51b4b095aea40ef41bbea7e12ef0a194ee74
+ms.openlocfilehash: 39b710c483ce4b3f2da30df6bb5b6842f9ee1fca
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53248429"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324838"
 ---
 # <a name="nuget-api"></a>API NuGet
 
 L'API NuGet è un set di endpoint HTTP che può essere utilizzato per scaricare i pacchetti, recuperare i metadati, pubblicare nuovi pacchetti e di eseguire la maggior parte delle altre operazioni disponibili nei client NuGet ufficiale.
 
-Questa API viene usata dal client di NuGet in Visual Studio, nuget.exe e la CLI di .NET per eseguire operazioni di NuGet, ad esempio [ `dotnet restore` ](/dotnet/articles/core/preview3/tools/dotnet-restore), ricerca nell'interfaccia utente di Visual Studio, e [ `nuget.exe push` ](../tools/cli-ref-push.md).
+Questa API viene usata dal client di NuGet in Visual Studio, nuget.exe e la CLI di .NET per eseguire operazioni di NuGet, ad esempio [ `dotnet restore` ](/dotnet/core/tools/dotnet-restore?tabs=netcore2x), ricerca nell'interfaccia utente di Visual Studio, e [ `nuget.exe push` ](../tools/cli-ref-push.md).
 
 Si noti in alcuni casi, nuget.org prevede requisiti aggiuntivi che non vengono applicati da altre origini di pacchetti. Queste differenze sono documentate in base il [protocolli di nuget.org](nuget-protocols.md).
 
@@ -35,7 +35,7 @@ Per altre informazioni sull'indice di servizio, vedere [relativo riferimento all
 
 ## <a name="versioning"></a>Controllo delle versioni
 
-L'API è versione 3 del protocollo HTTP di NuGet. Questo protocollo è talvolta detta "l'API di V3." Questi documenti di riferimento farà riferimento a questa versione del protocollo semplicemente come "l'API".
+L'API è versione 3 del protocollo HTTP di NuGet. Questo protocollo è talvolta detta "l'API V3". Questi documenti di riferimento farà riferimento a questa versione del protocollo semplicemente come "l'API".
 
 La versione dello schema di indice del servizio è indicata dal `version` proprietà nell'indice del servizio. L'API di utilizzo, è necessario che la stringa di versione abbia un numero di versione principale `3`. Quando vengono apportate modifiche non di rilievo allo schema di indice del servizio, versione secondaria della stringa di versione verrà aumentato.
 
@@ -43,7 +43,7 @@ I client meno recenti (ad esempio nuget.exe 2.x) non supportano l'API V3 e suppo
 
 API NuGet V3 è denominato in quanto tale perché è la nuova versione dell'API V2, di cui è stato il protocollo basato su OData implementato dalla versione 2.x del client NuGet ufficiale. L'API V3 inizialmente supportato dalla versione 3.0 del client NuGet ufficiale ed è ancora la versione più recente principali protocollo supportata dal client di NuGet, 4.0 e su. 
 
-Delle modifiche ai protocolli non sostanziale è apportate all'API poiché era prima versione.
+Delle modifiche ai protocolli non sostanziale è apportate all'API poiché è stato rilasciato.
 
 ## <a name="resources-and-schema"></a>Risorse e dello schema
 

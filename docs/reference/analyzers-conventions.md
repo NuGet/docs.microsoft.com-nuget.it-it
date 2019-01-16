@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: a5ccbba5fbc189eb59acfdeb86a4a03dcf907a9a
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 0a8db9f6c55b7e79f9b338119e0b3ac6cb7a1e35
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547631"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324799"
 ---
 # <a name="analyzer-nuget-formats"></a>Formati dell'analizzatore NuGet
 
-.NET Compiler Platform (nota anche come "Roslyn") consente agli sviluppatori di creare [analizzatori](https://github.com/dotnet/roslyn/wiki/How-To-Write-a-C%23-Analyzer-and-Code-Fix) che esaminare la struttura ad albero sintattica e semantica del codice mentre viene scritto. Ciò consente agli sviluppatori di creare strumenti di analisi specifici del dominio, come quelli che forniscono informazioni sull'uso di una particolare API o libreria. È possibile trovare altre informazioni sul wiki GitHub [.NET/Roslyn](https://github.com/dotnet/roslyn/wiki). Vedere anche l'articolo [Usare Roslyn per scrivere un analizzatore di codice live per l'API](https://msdn.microsoft.com/magazine/dn879356.aspx) in MSDN Magazine.
+.NET Compiler Platform (nota anche come "Roslyn") consente agli sviluppatori di creare [analizzatori](https://github.com/dotnet/roslyn/wiki/How-To-Write-a-C%23-Analyzer-and-Code-Fix) che esaminare la struttura ad albero sintattica e semantica del codice mentre viene scritto. Ciò fornisce agli sviluppatori un modo per creare strumenti di analisi specifico di dominio, ad esempio quelli che possono agevolare la Guida per l'uso di una particolare API o una libreria. È possibile trovare altre informazioni sul wiki GitHub [.NET/Roslyn](https://github.com/dotnet/roslyn/wiki). Vedere anche l'articolo [Usare Roslyn per scrivere un analizzatore di codice live per l'API](https://msdn.microsoft.com/magazine/dn879356.aspx) in MSDN Magazine.
 
 Gli analizzatori vengono in genere inseriti in pacchetti e distribuiti come parte dei pacchetti NuGet che implementano l'API o la libreria in questione.
 
@@ -46,13 +46,13 @@ L'uso della cartella `analyzers` è analogo a quello per i [framework di destina
     $/analyzers/{framework_name}{version}/{supported_architecture}/{supported_language}/{analyzer_name}.dll
 
 - **framework_name**: la superficie di attacco dell'API *opzionale* di .NET Framework che le DLL contenute devono eseguire. `dotnet` è attualmente l'unico valore valido perché Roslyn è l'unico host che può eseguire gli analizzatori. Se non è specificata alcuna destinazione, si presuppone che le DLL si applichino a *tutte* le destinazioni.
-- **supported_language**: il linguaggio per cui si applica la DLL, uno tra `cs` (C#), `vb` (Visual Basic) e `fs` (F#). Il linguaggio indica che l'analizzatore deve essere caricato solo per un progetto che usa quel linguaggio. Se non è specificato alcun linguaggio, si presuppone che le DLL si applichino a *tutti* i linguaggi che supportano gli analizzatori.
+- **supported_language**: il linguaggio per cui si applica la DLL, uno tra `cs` (C#), `vb` (Visual Basic) e `fs` (F#). Il linguaggio indica che l'analizzatore deve essere caricato solo per un progetto che usa quel linguaggio. Se viene specificata alcuna lingua, quindi si presuppone che la DLL si applicano a *tutti* linguaggi che supportano gli analizzatori.
 - **analyzer_name**: specifica le DLL dell'analizzatore. Se sono necessari altri file oltre alle DLL, devono essere inclusi tramite un file di destinazioni o delle proprietà.
 
 
 ## <a name="install-and-uninstall-scripts"></a>Script di installazione e disinstallazione
 
-Se il progetto dell'utente usa `packages.config`, lo script di MSBuild che rileva l'analizzatore non entra in gioco, pertanto sono necessari `install.ps1` e `uninstall.ps1` nella cartella `tools` con il contenuto descritto di seguito.
+Se si usa il progetto dell'utente `packages.config`, lo script di MSBuild che rileva l'analizzatore non entra in gioco, pertanto è consigliabile posizionare `install.ps1` e `uninstall.ps1` nel `tools` cartella con il contenuto che sono descritte di seguito.
 
 **Contenuto del file install.ps1**
 

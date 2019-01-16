@@ -6,16 +6,16 @@ ms.author: patbel
 ms.date: 11/12/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: ffd0cf5d50a2deed16e1722b32e43047bc81df2f
-ms.sourcegitcommit: a1846edf70ddb2505d58e536e08e952d870931b0
+ms.openlocfilehash: ee4ffaa7e250cdbf313476fd794a8d87c80b69f9
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52303687"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324708"
 ---
 # <a name="trusted-signers-command-nuget-cli"></a>comando firmatari attendibili (NuGet CLI)
 
-**Si applica a:** consumo del pacchetto &bullet; **le versioni supportate:** 4.9 +
+**Si applica a:** consumo del pacchetto &bullet; **versioni supportate:** 4.9.1+
 
 Ottiene o imposta i firmatari attendibili per la configurazione di NuGet. Per altre informazioni sulla sintassi, vedere [configurazione del comportamento di NuGet](../consume-packages/configuring-nuget-behavior.md). Per informazioni dettagliate su come lo schema di NuGet. config sembra, vedere la [riferimento al file di configurazione NuGet](../reference/nuget-config-file.md).
 
@@ -80,7 +80,7 @@ Forniscono `-Author` e `-Repository` allo stesso tempo non è supportato.
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_Nota_: consente solo di aggiungere repository attendibile. 
+_Nota_: Questa opzione solo aggiungerà i repository attendibili. 
 
 | Opzione | Descrizione |
 | --- | --- |
@@ -94,7 +94,7 @@ _Nota_: consente solo di aggiungere repository attendibile.
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_Nota_: se un'entità attendibile con il nome specificato esiste già, verrà aggiunto l'elemento certificato per tale firmatario. In caso contrario, verrà creato un autore attendibile a un elemento di certificato da fornito informazioni sul certificato.
+_Nota_: Se un'entità attendibile con il nome specificato esiste già, l'elemento certificato verrà aggiunto a tale firmatario. In caso contrario, verrà creato un autore attendibile a un elemento di certificato da fornito informazioni sul certificato.
 
 | Opzione | Descrizione |
 | --- | --- |
@@ -110,7 +110,7 @@ Rimuove tutti i firmatari attendibili che corrispondono al nome specificato.
 
 Richiede l'elenco più recente di certificati usata in un repository attualmente considerato attendibile per aggiornare l'elenco certificato esistente in un'entità attendibile.
 
-_Nota_: questa azione verrà Elimina l'elenco corrente dei certificati e li sostituisce con un elenco aggiornato dal repository.
+_Nota_: Questa azione verrà Elimina l'elenco corrente dei certificati e li sostituisce con un elenco aggiornato dal repository.
 
 ## <a name="options"></a>Opzioni
 

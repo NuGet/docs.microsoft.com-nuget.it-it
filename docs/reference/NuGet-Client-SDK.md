@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8e612d9f86bcffc99870c5541aa6091e678db512
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 97ed3ec7d41d2847c0521af69373a1871eb585dd
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547089"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324682"
 ---
 # <a name="nuget-client-sdk"></a>NuGet Client SDK
 
@@ -29,10 +29,14 @@ Il codice sorgente viene pubblicato in GitHub nel progetto [NuGet/NuGet.Client](
 
 È possibile trovare esempi e documentazione per alcune delle API della serie di blog seguente da Dave Glick, pubblicato 2016:
 
-- [Esplorare le librerie di NuGet v3, parte 1: introduzione e concetti](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-1)
-- [Esplorare le librerie di NuGet v3, parte 2: la ricerca di pacchetti](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-2)
-- [Esplorare le librerie di NuGet v3, parte 3: installazione di pacchetti](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-3)
+- [Esplorare le librerie di NuGet v3, parte 1: Introduzione e concetti](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-1)
+- [Esplorare le librerie di NuGet v3, parte 2: La ricerca di pacchetti](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-2)
+- [Esplorare le librerie di NuGet v3, parte 3: L'installazione dei pacchetti](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-3)
 
 > [!Note]
 > Questi post di blog scritti subito dopo il **3.4.3** versione di NuGet sono stati rilasciati pacchetti SDK client.
 > Le versioni più recenti dei pacchetti possono essere incompatibili con le informazioni contenute nei post di blog.
+
+Martin Björkström ha un post di blog di follow-up per serie di blog di Dave Glick dove presenta un approccio diverso usando il SDK del Client NuGet per l'installazione di pacchetti NuGet:
+
+- [Rivedere le librerie di NuGet v3](https://martinbjorkstrom.com/posts/2018-09-19-revisiting-nuget-client-libraries)

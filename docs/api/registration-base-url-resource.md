@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: ba47d6fdeeaa4ee9de83ef4dd990707bd4928063
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: 19a1f48164f65f1ff805e036e55abb110247aa72
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453559"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324864"
 ---
 # <a name="package-metadata"></a>Metadati del pacchetto
 
@@ -141,7 +141,8 @@ dependencyGroups         | Matrice di oggetti           | No       | Le dipenden
 Descrizione              | stringa                     | No       | 
 iconUrl                  | stringa                     | No       | 
 ID                       | stringa                     | sì      | L'ID del pacchetto
-licenseUrl               | stringa                     | No       | 
+licenseUrl               | stringa                     | No       |
+licenseExpression        | stringa                     | No       | 
 disponibili                   | boolean                    | No       | Deve essere considerata come se assente, elencate
 minClientVersion         | stringa                     | No       | 
 projectUrl               | stringa                     | No       | 
@@ -155,6 +156,8 @@ version                  | stringa                     | sì      | La stringa d
 Il pacchetto `version` proprietà è la stringa di versione completo dopo la normalizzazione. Ciò significa che i dati di compilazione di SemVer 2.0.0 possono essere inclusi di seguito.
 
 Il `dependencyGroups` proprietà è una matrice di oggetti che rappresentano le dipendenze del pacchetto, raggruppati per framework di destinazione. Se il pacchetto non ha dipendenze, il `dependencyGroups` proprietà manca, una matrice vuota, o `dependencies` proprietà di tutti i gruppi è vuoto o mancante.
+
+Il valore della `licenseExpression` è conforme allo [sintassi delle espressioni di NuGet licenza](https://docs.microsoft.com/en-us/nuget/reference/nuspec#license).
 
 #### <a name="package-dependency-group"></a>Gruppo di dipendenze di pacchetto
 
