@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: 641304059c90e360fae4d0956d7b922e34bc6501
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: cf15c4f6a2e3e9f6ce7b6acb2304648041043685
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981119"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324825"
 ---
 # <a name="nuget-48-rtm-release-notes"></a>Note sulla versione per NuGet 4.8 RTM
 
@@ -56,7 +56,7 @@ Eseguire una delle azioni NuGet seguenti:
 * Compilare il progetto, ovvero un altro modo per attivare un ripristino NuGet
 
 A questo punto, l'opzione di migrazione dovrebbe essere visibile. Si noti che questa opzione non è supportata e non verrà visualizzata per i tipi di progetto ASP.NET e C++.
-Nota: questo problema è stato risolto in Visual Studio 2017 15.9 Preview 3.
+Nota: questo problema è stato risolto in Visual Studio 2017 15.9 Preview 3
 
 ## <a name="issues-fixed-in-this-release"></a>Problemi corretti in questa versione
 
@@ -72,7 +72,7 @@ Nota: questo problema è stato risolto in Visual Studio 2017 15.9 Preview 3.
 * La memoria non è valida durante l'aggiornamento delle informazioni sul firmatario in caso di aggiunta di timestamp alla controfirma - [#6840](https://github.com/NuGet/Home/issues/6840)
 * Firma: rimuovere le eccezioni CTL - [#6794](https://github.com/NuGet/Home/issues/6794)
 * Firma: contentUrl DEVE essere HTTPS - [#6777](https://github.com/NuGet/Home/issues/6777)
-* Firma: SignedPackageVerifierSettings.VSClientDefaultPolicy è inutilizzato - [#6601](https://github.com/NuGet/Home/issues/6601)
+* Firma:  SignedPackageVerifierSettings.VSClientDefaultPolicy è inutilizzato - [#6601](https://github.com/NuGet/Home/issues/6601)
 
 
 #### <a name="pack"></a>Pacchetto
