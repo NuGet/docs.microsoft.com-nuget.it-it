@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5f52b00e0c45882fb7a4bd1c1a80022192f3be6b
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: 506a093ff4d62c10c896246f746e6765f64f33f4
+ms.sourcegitcommit: a801052aa728a3a137225ca3ef3ff89f2d1c6b76
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580246"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54403164"
 ---
 # <a name="package-consumption-workflow"></a>Flusso di lavoro dell'utilizzo di pacchetti
 
@@ -35,7 +35,7 @@ Quando si aggiunge il codice del progetto a un repository di origine, in genere 
 
 ![Flusso di ripristino dei pacchetti NuGet tramite la clonazione di un repository e l'uso di un comando di ripristino](media/Overview-02-RestoreFlow.png)
 
-L'opzione [Ripristino pacchetto](../consume-packages/package-restore.md) usa le informazioni nel file di progetto o `packages.config` per reinstallare tutte le dipendenze. Si noti che ci sono differenze nel processo interessato, come descritto in [Risoluzione delle dipendenze](../consume-packages/dependency-resolution.md). Inoltre, il diagramma precedente non visualizza un comando di ripristino per la console di Gestione pacchetti perché con la console si è già nel contesto di Visual Studio, che in genere ripristina automaticamente i pacchetti e fornisce il comando a livello di soluzione, come illustrato.
+L'opzione [Ripristino pacchetto](../consume-packages/package-restore.md) usa le informazioni nel file di progetto o `packages.config` per reinstallare tutte le dipendenze. Si noti che ci sono differenze nel processo interessato, come descritto in [Risoluzione delle dipendenze](../consume-packages/dependency-resolution.md). Il diagramma precedente, poi, non visualizza un comando di ripristino per la console di Gestione pacchetti perché con la console si è già nel contesto di Visual Studio, che in genere ripristina automaticamente i pacchetti e fornisce il comando a livello di soluzione, come illustrato.
 
 In alcuni casi è necessario reinstallare i pacchetti che sono già inclusi in un progetto, reinstallando anche le dipendenze. Si tratta di un'operazione semplice da eseguire con il comando `nuget reinstall` o la console di Gestione pacchetti NuGet. Per maggiori dettagli, vedere [Reinstallazione e aggiornamento di pacchetti](../consume-packages/reinstalling-and-updating-packages.md).
 
