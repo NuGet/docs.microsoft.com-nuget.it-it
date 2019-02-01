@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: cdbe13df04bb27091b684a4ae27b0e751da1098f
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: a561a49f2e733929e32584adf7b6849ea535c440
+ms.sourcegitcommit: 585394f063e95dcbc24d7ac0ce07de643eaf6f4d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549034"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "55046256"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Risoluzione delle dipendenze dei pacchetti in NuGet
 
@@ -117,10 +117,10 @@ Esistono scenari in cui agli assembly con lo stesso nome potrebbe essere fatto r
 
 Per risolvere questa situazione, è necessario fare riferimento direttamente al `C.dll` desiderato (o usare un altro pacchetto che faccia riferimento a quello giusto) e quindi aggiungere una dipendenza dal pacchetto C che escluda tutti i relativi asset. Questa operazione viene eseguita come indicato di seguito a seconda del formato di gestione dei pacchetti in uso:
 
-- [PackageReference](../consume-packages/package-references-in-project-files.md): aggiungere `Exclude="All"` nella dipendenza:
+- [PackageReference](../consume-packages/package-references-in-project-files.md): aggiungere `ExcludeAssets="All"` nella dipendenza:
 
     ```xml
-    <PackageReference Include="PackageC" Version="1.0.0" Exclude="All" />
+    <PackageReference Include="PackageC" Version="1.0.0" ExcludeAssets="All" />
     ```
 
 - `packages.config`: rimuovere il riferimento al pacchetto C (PackageC) dal file `.csproj` in modo che faccia riferimento solo alla versione di `C.dll` desiderata.
