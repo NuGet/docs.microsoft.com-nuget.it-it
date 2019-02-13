@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: d39ec8caf94caa767b6c502cc475e278aa718b95
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: 9db24b2dd6ced0869ac84b25f9796ded5df10f86
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324786"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145644"
 ---
 # <a name="pack-command-nuget-cli"></a>Comando pack (interfaccia della riga di comando di NuGet)
 
@@ -43,7 +43,7 @@ in cui `<nuspecPath>` e `<projectPath>` specificare il `.nuspec` o file, rispett
 | IncludeReferencedProjects | Indica che il pacchetto generato deve includere progetti con riferimenti come dipendenze o come parte del pacchetto. Se un progetto di riferimento ha un corrispondente `.nuspec` file con lo stesso nome del progetto, tale progetto cui viene fatto riferimento viene aggiunto come dipendenza. In caso contrario, il progetto di riferimento viene aggiunto come parte del pacchetto. |
 | MinClientVersion | Impostare il *minClientVersion* attributo per il pacchetto creato. Questo valore sostituirà il valore dell'oggetto esistente *minClientVersion* attributo (se presente) nel `.nuspec` file. |
 | MSBuildPath | *(4.0 +)*  Specifica il percorso di MSBuild da usare con il comando, hanno la precedenza sui `-MSBuildVersion`. |
-| MSBuildVersion | *(3.2 +)*  Specifica la versione di MSBuild da usare con questo comando. Valori supportati sono 4, 12, 14, 15. Per impostazione predefinita che viene selezionato nel proprio percorso di MSBuild, in caso contrario, per impostazione predefinita la versione installata più recente di MSBuild. |
+| MSBuildVersion | *(3.2 +)*  Specifica la versione di MSBuild da usare con questo comando. Valori supportati sono 4, 12, 14, 15.1, versione 15.3, versione 15.4, 15.5, 15.6, 15.7, 15.8, 15.9. Per impostazione predefinita che viene selezionato nel proprio percorso di MSBuild, in caso contrario, per impostazione predefinita la versione installata più recente di MSBuild. |
 | NoDefaultExcludes | Impedisce l'esclusione predefinita di NuGet package file e i file e cartelle che iniziano con un punto, ad esempio `.svn` e `.gitignore`. |
 | NoPackageAnalysis | Specifica che pack non deve eseguire l'analisi del pacchetto dopo la compilazione di quest'ultimo. |
 | OutputDirectory | Specifica la cartella in cui è archiviato il pacchetto creato. Se si specifica alcuna cartella, viene utilizzata la cartella corrente. |

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: fc34550b3669d83466318645987cfd3078bc3c18
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: ded9b571324d810c2f0e1a46ea76375a28940406
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545100"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145605"
 ---
 # <a name="update-command-nuget-cli"></a>Comando update (interfaccia della riga di comando di NuGet)
 
@@ -42,8 +42,8 @@ in cui `<configPath>` identifica uno un `packages.config` o file di soluzione ch
 | ? | Visualizza la Guida informazioni per il comando. |
 | Id | Specifica un elenco di ID per l'aggiornamento del pacchetto. |
 | MSBuildPath | *(4.0 +)*  Specifica il percorso di MSBuild da usare con il comando, hanno la precedenza sui `-MSBuildVersion`. |
-| MSBuildVersion | *(3.2 +)*  Specifica la versione di MSBuild da usare con questo comando. Valori supportati sono 4, 12, 14, 15. Per impostazione predefinita che viene selezionato nel proprio percorso di MSBuild, in caso contrario, per impostazione predefinita la versione installata più recente di MSBuild. |
-| Non interattive | Elimina richieste di input o conferme dell'utente. |
+| MSBuildVersion | *(3.2 +)*  Specifica la versione di MSBuild da usare con questo comando. Valori supportati sono 4, 12, 14, 15.1, versione 15.3, versione 15.4, 15.5, 15.6, 15.7, 15.8, 15.9. Per impostazione predefinita che viene selezionato nel proprio percorso di MSBuild, in caso contrario, per impostazione predefinita la versione installata più recente di MSBuild. |
+| NonInteractive | Elimina richieste di input o conferme dell'utente. |
 | Versione preliminare | Consente l'aggiornamento alle versioni non definitive. Questo flag non è obbligatorio quando l'aggiornamento non definitive dei pacchetti che sono già installate. |
 | RepositoryPath | Specifica la cartella locale in cui sono installati i pacchetti. |
 | Safe | Specifica che vengono aggiornati solo con la versione più recente disponibile all'interno della stessa versione principale e secondaria come verrà installato il pacchetto installato. |

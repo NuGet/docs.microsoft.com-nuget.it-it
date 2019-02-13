@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 06e3a26863761b7e7a42752866e7fe369f5be4ef
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: adf97196f50f2a55d6b8ceed93d53ff12b67657b
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43550352"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145631"
 ---
 # <a name="restore-command-nuget-cli"></a>comando Restore (NuGet CLI)
 
-**Si applica a:** consumo del pacchetto &bullet; **le versioni supportate:** 2.7 +
+**Si applica a:** consumo del pacchetto &bullet; **versioni supportate:** 2.7+
 
 Scarica e installa tutti i pacchetti mancanti dal `packages` cartella. Quando usato con NuGet 4.0 + e il formato PackageReference, genera una `<project>.nuget.props` file, se necessario, nel `obj` cartella. (Il file può essere omesso dal controllo del codice sorgente).
 
@@ -33,15 +33,15 @@ in cui `<projectPath>` specifica il percorso di una soluzione o un `packages.con
 | Opzione | Descrizione |
 | --- | --- |
 | ConfigFile | Il file di configurazione di NuGet da applicare. Se non specificato, `%AppData%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) viene usato.|
-| Download diretti | *(4.0 +)*  Scarica i pacchetti direttamente senza la compilazione di memorizzazione nella cache con tutti i file binari o i metadati. |
+| DirectDownload | *(4.0 +)*  Scarica i pacchetti direttamente senza la compilazione di memorizzazione nella cache con tutti i file binari o i metadati. |
 | DisableParallelProcessing | Disabilita il ripristino di più pacchetti in parallelo. |
 | FallbackSource | *(3.2 +)*  Un elenco di origini dei pacchetti da usare come fallback nel caso in cui il pacchetto non viene trovato nel database primario o di un'origine predefinita. |
 | ForceEnglishOutput | *(3.5 +)*  Forza nuget.exe affinché venga eseguito usando una cultura invariante e di lingua inglese. |
 | ? | Visualizza la Guida informazioni per il comando. |
 | MSBuildPath | *(4.0 +)*  Specifica il percorso di MSBuild da usare con il comando, hanno la precedenza sui `-MSBuildVersion`. |
-| MSBuildVersion | *(3.2 +)*  Specifica la versione di MSBuild da usare con questo comando. Valori supportati sono 4, 12, 14, 15. Per impostazione predefinita che viene selezionato nel proprio percorso di MSBuild, in caso contrario, per impostazione predefinita la versione installata più recente di MSBuild. |
+| MSBuildVersion | *(3.2 +)*  Specifica la versione di MSBuild da usare con questo comando. Valori supportati sono 4, 12, 14, 15.1, versione 15.3, versione 15.4, 15.5, 15.6, 15.7, 15.8, 15.9. Per impostazione predefinita che viene selezionato nel proprio percorso di MSBuild, in caso contrario, per impostazione predefinita la versione installata più recente di MSBuild. |
 | NoCache | Impedisce l'uso di pacchetti memorizzati nella cache NuGet. Visualizzare [gestione dei pacchetti globali e le cartelle cache](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
-| Non interattive | Elimina richieste di input o conferme dell'utente. |
+| NonInteractive | Elimina richieste di input o conferme dell'utente. |
 | OutputDirectory | Specifica la cartella in cui sono installati i pacchetti. Se si specifica alcuna cartella, viene utilizzata la cartella corrente. Obbligatorio quando il ripristino con un `packages.config` file, a meno che `PackagesDirectory` o `SolutionDirectory` viene usato.|
 | PackageSaveMode | Specifica i tipi di file da salvare dopo l'installazione del pacchetto: uno dei `nuspec`, `nupkg`, o `nuspec;nupkg`. |
 | PackagesDirectory | Uguale a `OutputDirectory`. Obbligatorio quando il ripristino con un `packages.config` file, a meno che `OutputDirectory` o `SolutionDirectory` viene usato. |
