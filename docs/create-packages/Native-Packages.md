@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: f054a1cae7328d3e910d11ac1bfc5f98505e5879
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: e0ec5323f7be53bef6637ad69540a66abbf22711
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546533"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145579"
 ---
 # <a name="creating-native-packages"></a>Creazione di pacchetti nativi
 
-Un pacchetto nativo contiene codice C++ nativo invece di codice gestito, in modo che possa essere usato all'interno di progetti C++. (Vedere [Pacchetti C++ nativi](../consume-packages/finding-and-choosing-packages.md#native-c-packages) nella sezione Utilizzare i pacchetti.)
+Un pacchetto nativo contiene file binari nativi anziché assembly gestiti, per poter essere usato all'interno di progetti C++ o progetti simili. (Vedere [Pacchetti C++ nativi](../consume-packages/finding-and-choosing-packages.md#native-c-packages) nella sezione Utilizzare i pacchetti.)
 
 Per essere utilizzabile in un progetto C++, un pacchetto deve essere destinato al framework `native`. Al momento, a questo framework non è assegnato alcun numero di versione perché NuGet considera uguali tutti i progetti C++.
 

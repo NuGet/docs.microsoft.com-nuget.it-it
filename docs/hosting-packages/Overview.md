@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/25/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 4741d780afa4fbe11001aed49a9f72bf608d96d9
-ms.sourcegitcommit: a1846edf70ddb2505d58e536e08e952d870931b0
+ms.openlocfilehash: 45d8a6557ee02998f3d12b128ee2dc4fd6ae48bb
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52303563"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145592"
 ---
 # <a name="hosting-your-own-nuget-feeds"></a>Hosting dei feed NuGet
 
@@ -25,7 +25,7 @@ Per tutti questi scopi, NuGet supporta l'impostazione di origini pacchetto priva
 
 Sono inoltre disponibili diversi altri prodotti di hosting NuGet che supportano feed privati remoti, tra cui:
 
-- [Gestione pacchetti di Visual Studio Team Services](https://www.visualstudio.com/docs/package/nuget/publish), anche disponibile in Team Foundation Server 2017 e versioni successive.
+- [Azure Artifacts](https://www.visualstudio.com/docs/package/nuget/publish), disponibile anche in Team Foundation Server 2017 e versioni successive.
 - [MyGet](http://myget.org)
 - [ProGet](http://inedo.com/proget) di Inedo
 - [NuGet Server](http://nugetserver.net/), un progetto di community di Inedo

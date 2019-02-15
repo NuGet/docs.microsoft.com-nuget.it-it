@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/24/2018
 ms.topic: quickstart
-ms.openlocfilehash: 02aa7bb9d27352bbecfc718ef5bd6ee33501018d
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 3e459999eea45c5ae705a7e07c1a0fbb2e0cd1a1
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548429"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145618"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Guida introduttiva: Creare e pubblicare un pacchetto (interfaccia della riga di comando dotnet)
 
@@ -109,4 +109,5 @@ Dopo aver creato un file `.nupkg`, pubblicarlo in nuget.org usando il comando `d
 - [Supportare più framework di destinazione](../create-packages/supporting-multiple-target-frameworks.md)
 - [Controllo delle versioni dei pacchetti](../reference/package-versioning.md)
 - [Creazione di pacchetti localizzati](../create-packages/creating-localized-packages.md)
+- [Creazione di pacchetti di simboli](../create-packages/symbol-packages-snupkg.md)
 - [Firma dei pacchetti](../create-packages/Sign-a-package.md)

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: a561a49f2e733929e32584adf7b6849ea535c440
-ms.sourcegitcommit: 585394f063e95dcbc24d7ac0ce07de643eaf6f4d
+ms.openlocfilehash: a2aed3950b3e19e30d9d026ad1b9bdaef44c9d37
+ms.sourcegitcommit: 1ab750ff17e55c763d646c50e7630138804ce8b8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "55046256"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56247646"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Risoluzione delle dipendenze dei pacchetti in NuGet
 
@@ -24,7 +24,7 @@ Quando più pacchetti hanno la stessa dipendenza, lo stesso ID di pacchetto può
 
 Quando si installano pacchetti in progetti usando il formato PackageReference, NuGet aggiunge riferimenti a un grafico di pacchetto semplice nel file appropriato e risolve i conflitti in anticipo. Questo processo è noto come *ripristino transitivo*. La reinstallazione o il ripristino dei pacchetti è quindi un processo di download dei pacchetti elencati nel grafico, che genera compilazioni più veloci e più prevedibili. È anche possibile usufruire di versioni con caratteri jolly (mobili), ad esempio 2.8.\*, evitando chiamate costose e soggette a errori a `nuget update` nei computer client e nei server di compilazione.
 
-Quando il processo di ripristino di NuGet viene eseguito prima di una compilazione, risolve le dipendenze prima di tutto in memoria, quindi scrive il grafico risultante in un file denominato `project.assets.json` nella cartella `obj` di un progetto usando PackageReference. MSBuild legge quindi questo file e lo converte in un set di cartelle in cui sono disponibili riferimenti potenziali, aggiungendoli quindi all'albero del progetto in memoria.
+Quando il processo di ripristino di NuGet viene eseguito prima di una compilazione, risolve prima le dipendenze in memoria, quindi scrive il grafico risultante in un file denominato `project.assets.json`. Il file di asset si trova in `MSBuildProjectExtensionsPath`, che per impostazione predefinita corrisponde alla cartella "obj" del progetto. MSBuild legge quindi questo file e lo converte in un set di cartelle in cui sono disponibili riferimenti potenziali, aggiungendoli quindi all'albero del progetto in memoria.
 
 Il file di blocco è temporaneo e non deve essere aggiunto al controllo del codice sorgente. Viene elencato per impostazione predefinita in `.gitignore` e `.tfignore`. Vedere [Pacchetti e controllo del codice sorgente](packages-and-source-control.md).
 

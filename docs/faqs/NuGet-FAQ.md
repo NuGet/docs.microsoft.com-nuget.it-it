@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 290055a306306e944695d3a6ac970819882ee0c6
-ms.sourcegitcommit: 046717af2eba9ff6f619a0533844dee56a600d1c
+ms.openlocfilehash: f15639c883241c328b5fc0a4bf5617540b52b7ee
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55648270"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145683"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Domande frequenti su NuGet
 
@@ -237,15 +237,13 @@ Se il problema persiste, provare i [suggerimenti indicati in questo post di Stac
 
 ## <a name="what-is-the-api-endpoint-for-nugetorg"></a>Qual è l'endpoint API per nuget.org?
 
-Per usare nuget.org come repository di pacchetti con i client NuGet, è necessario usare l'endpoint API V3 seguente: 
+Per usare nuget.org come repository di pacchetti con i client NuGet, è consigliabile usare l'endpoint API V3 seguente: 
 
 **`https://api.nuget.org/v3/index.json`**
 
-I client meno recenti possono comunque usare il protocollo versione 2 per raggiungere nuget.org. Si noti tuttavia che i client NuGet 3.0 o versione successiva avranno un servizio più lento e meno affidabile se usano il protocollo versione 2:
+I client meno recenti possono comunque usare il protocollo V2 per raggiungere nuget.org. Si noti tuttavia che i client NuGet 3.0 o versione successiva avranno un servizio più lento e meno affidabile se usano il protocollo V2:
 
-`https://www.nuget.org/api/v2/` (deprecato) **Nota:** "www." è importante.
-
-Inoltre il comando *NuGet.exe list* funziona solo con il protocollo versione 2.
+`https://www.nuget.org/api/v2` (deprecato) **Nota:** usare "www." per un'affidabilità ottimale.
 
 ## <a name="nugetorg-account-management"></a>Gestione degli account di nuget.org
 
