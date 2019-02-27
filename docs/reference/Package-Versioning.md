@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: b980c1084fe8e31573053a4dcf38bbfa6146e6de
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 6407cd2ea5e5e7a9c9e2be679764a8a0d5dd9260
+ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549773"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56852468"
 ---
 # <a name="package-versioning"></a>Controllo delle versioni dei pacchetti
 
@@ -29,7 +29,7 @@ In questo argomento
 
 Numero di versione specifico è nel formato *Major [-suffisso]*, in cui i componenti hanno i significati seguenti:
 
-- *Principali*: modifiche di rilievo
+- *Principali*: Modifiche che causano un'interruzione
 - *Minori*: nuove funzionalità, ma compatibili con le versioni precedenti
 - *Patch*: solo correzioni di bug compatibili con le versioni precedenti
 - *-Suffisso* (facoltativo): un trattino seguita da una stringa che indica una versione non definitiva (segue il [convenzione di Versionamento semantico o SemVer 1.0](http://semver.org/spec/v1.0.0.html)).
@@ -50,7 +50,7 @@ Tecnicamente, gli autori dei pacchetti possono utilizzare qualsiasi stringa come
 
 Ciò premesso, gli sviluppatori di pacchetti in genere seguono le convenzioni di denominazione riconosciute:
 
-- `-alpha`: Versione alfa, in genere usato per lavoro in corso e sperimentazione.
+- `-alpha`: Versioni alfa, in genere usata per lavoro in corso e sperimentazione.
 - `-beta`: versione beta, in genere completa dal punto di vista funzionale per il successivo rilascio pianificato, ma può contenere bug noti.
 - `-rc`: versione finale candidata, in genere potenzialmente finale (stabile) se non emergono bug significativi.
 
@@ -84,11 +84,11 @@ Per nuget.org, un pacchetto è definito come un pacchetto v2.0.0 SemVer se una d
 
 Se si carica un pacchetto specifico v2.0.0 SemVer su nuget.org, il pacchetto sia visibile ai client meno recenti e disponibile per i seguenti client di NuGet:
 
-- NuGet 4.3.0 +
-- Visual Studio 2017 versione 15.3 +
+- NuGet 4.3.0+
+- Visual Studio 2017 version 15.3+
 - Visual Studio 2015 con [v3.6.0 VSIX di NuGet](https://dist.nuget.org/visualstudio-2015-vsix/latest/NuGet.Tools.vsix)
 - dotnet
-  - dotnetcore.exe (2.0.0+ .NET SDK)
+  - dotnetcore.exe (.NET SDK 2.0.0+)
 
 Client di terze parti:
 
@@ -106,7 +106,7 @@ Quando si fa riferimento alle dipendenze di pacchetto, NuGet supporta utilizzand
 |----------|--------------|-------------|
 | 1.0 | x ≥ 1.0 | Versione minima, inclusivo |
 | (1.0,) | x > 1.0 | Versione minima, esclusivo |
-| [1.0] | x = = 1.0 | Corrispondenza esatta della versione |
+| [1.0] | x == 1.0 | Corrispondenza esatta della versione |
 | (,1.0] | x ≤ 1.0 | Versione massima, inclusivo |
 | (,1.0) | x < 1.0 | Versione massima, esclusivo |
 | [1.0,2.0] | 1.0 ≤ x ≤ 2.0 | Intervallo esatto, inclusivo |
@@ -187,9 +187,6 @@ Il `version` dell'attributo un `<dependency>` elemento descrive le versioni di i
 ```xml
 <!-- Accepts any version 6.1 and above. -->
 <dependency id="ExamplePackage" version="6.1" />
-
-<!-- Accepts any 6.x.y version. -->
-<dependency id="ExamplePackage" version="6.*" />
 
 <!-- Accepts any version above, but not including 4.1.3. Could be
      used to guarantee a dependency with a specific bug fix. -->

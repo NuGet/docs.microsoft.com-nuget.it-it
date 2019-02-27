@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 08/16/2018
 ms.topic: conceptual
 ms.reviewer: kraigb
-ms.openlocfilehash: 6184fe8e987e0637cb912999f2e3fa3a3dc9b4ba
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 003139abac7808dbdaef4aa66119e09772db2b4f
+ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546935"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56852533"
 ---
 # <a name="toolsjson-for-discovering-nugetexe-versions"></a>per individuare le versioni nuget.exe Tools.JSON
 
@@ -45,14 +45,14 @@ Ogni oggetto di `nuget.exe` matrice presenta le proprietà seguenti:
 
 nome     | Tipo   | Obbligatorio | Note
 -------- | ------ | -------- | -----
-version  | stringa | sì      | Una stringa di SemVer 2.0.0
-url      | stringa | sì      | Un URL assoluto per il download di questa versione di nuget.exe
-Fase    | stringa | sì      | Una stringa di enum
-caricato | stringa | sì      | Un timestamp di quando è stata resa disponibile la versione approssimativo
+version  | string | sì      | Una stringa di SemVer 2.0.0
+url      | string | sì      | Un URL assoluto per il download di questa versione di nuget.exe
+Fase    | string | sì      | Una stringa di enum
+caricato | string | sì      | Un timestamp di ISO 8601 approssimativo di quando è stata resa disponibile la versione
 
-Gli elementi della matrice verranno ordinati in senso decrescente, SemVer 2.0.0. Questa garanzia è progettata per semplificare il carico di lavoro in un client cerca la versione più recente. 
+Gli elementi della matrice verranno ordinati in senso decrescente, SemVer 2.0.0. Questa garanzia è progettata per ridurre il carico di lavoro di un client che interessata più alto numero di versione. Tuttavia, ciò significa che l'elenco non verrà ordinato in ordine cronologico. Ad esempio, se una versione principale precedente viene gestita in una data successiva rispetto a una versione principale successiva, questa versione servita non verrà visualizzato nella parte superiore dell'elenco. Se si desidera che la versione più recente rilasciata da *timestamp*, è sufficiente ordinare della matrice in base il `uploaded` stringa. Questo procedimento funziona perché il `uploaded` timestamp è espresso nel [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) formato che può essere ordinato in ordine cronologico con un ordinamento lessicografico (vale a dire un ordinamento semplice stringa).
 
-Il `stage` proprietà indica la modalità vettect questa versione dello strumento. 
+Il `stage` proprietà indica la versione dello strumento esaminato come è. 
 
 Fase              | Significato
 ------------------ | ------
@@ -60,7 +60,7 @@ EarlyAccessPreview | Non è ancora visibile sulla [pagina web di download](https
 Rilasciata           | Disponibile nel sito di download, ma non è ancora consigliato per l'utilizzo di diffusa
 ReleasedAndBlessed | Disponibile nel sito di download ed è consigliata per l'utilizzo
 
-Un approccio semplice per avere la versione più recente, versione consigliata deve eseguire la prima versione nell'elenco che contiene il `stage` pari a `ReleasedAndBlessed`.
+Un approccio semplice per avere la versione più recente, versione consigliata deve eseguire la prima versione nell'elenco che contiene il `stage` pari a `ReleasedAndBlessed`. Questo procedimento funziona perché le versioni sono ordinate in ordine di SemVer 2.0.0.
 
 Il `NuGet.CommandLine` pacchetto in nuget.org in genere viene aggiornata solo con `ReleasedAndBlessed` versioni.
 
