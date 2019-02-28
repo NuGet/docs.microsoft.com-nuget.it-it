@@ -87,6 +87,7 @@
 ## [NuGet Client SDK](reference/nuget-client-sdk.md)
 ## [Pacchetti firmati](reference/signed-packages-reference.md)
 ## [Organizzazioni in NuGet.org](reference/organizations-on-nuget-org.md)
+## [licenses.nuget.org](reference/licenses.nuget.org.md)
 ## [Errori e avvisi](reference/Errors-and-Warnings.md)
 ### [NU1000](reference/errors-and-warnings/NU1000.md)
 ### [NU1001](reference/errors-and-warnings/NU1001.md)
