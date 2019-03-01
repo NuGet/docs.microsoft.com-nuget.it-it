@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: f15639c883241c328b5fc0a4bf5617540b52b7ee
-ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
+ms.openlocfilehash: 03223e949eeeadd7eaa6e392297ba79d28eed2f2
+ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56145683"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56852546"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Domande frequenti su NuGet
 
@@ -166,7 +166,7 @@ NuGet consiglia che tutti i pacchetti siano firmati. Uno dei principi di progett
 
 Si noti che le dipendenze elencate per il pacchetto vengono generate automaticamente dal pacchetto stesso e non possono essere modificate.
 
-Il caricamento dei pacchetti in [int.nugettest.org](https://int.nugettest.org) è anche un ottimo modo per testare e convalidare il pacchetto senza rendere disponibile un pacchetto nella raccolta pubblica.
+Il caricamento dei pacchetti in [int.nugettest.org](https://int.nugettest.org) è anche un ottimo modo per testare e convalidare il pacchetto senza rendere disponibile un pacchetto nella raccolta pubblica. Endpoint API: https://apiint.nugettest.org/v3/index.json
 
 **È possibile riservare nomi per i pacchetti che verranno pubblicati in futuro?**
 
