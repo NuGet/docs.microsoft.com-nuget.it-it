@@ -5,19 +5,61 @@ author: anangaur
 ms.author: anangaur
 ms.date: 1/25/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5889ea52f993fa8fe841f8eb83b6da659cdede93
-ms.sourcegitcommit: 1ab750ff17e55c763d646c50e7630138804ce8b8
+ms.openlocfilehash: 57b66b347ac47a3d05907a4bb237002de8981ecc
+ms.sourcegitcommit: 85bf94e0efcfcee1f914650bdc142309ef3e06d9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56247659"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196200"
 ---
 # <a name="nuget-50-preview-release-notes"></a>Note sulla versione di NuGet 5.0 Preview
 
 ## <a name="nuget-50-preview-releases"></a>Versioni di anteprima 5.0 di NuGet
 
+* 27 febbraio 2010 - [NuGet 5.0 Preview 4](#summary-whats-new-in-50-preview-4)
 * 13 febbraio 2019 - [NuGet 5.0 Preview 3](#summary-whats-new-in-50-preview-3)
 * 23 gennaio 2019 - [NuGet 5.0 Preview 2](#summary-whats-new-in-50-preview-2)
+
+## <a name="summary-whats-new-in-nuget-50-preview-4"></a>Riepilogo: What ' s New in NuGet 5.0 Preview 4
+
+### <a name="issues-fixed-in-this-release"></a>Problemi corretti in questa versione
+
+**Bug:**
+
+* NuGet.VisualStudio.IVsPackageInstaller - chiamata in un progetto con alcun pacchetto fa riferimento sempre Packages. config viene utilizzato, anche se il valore predefinito è impostato su PackageReference - [7005 #](https://github.com/NuGet/Home/issues/7005)
+
+* PMC: Update-Package reinstallare ha esito negativo ("Impossibile trovare il pacchetto") nel venga rimosso dall'elenco dei pacchetti. - [#7268](https://github.com/NuGet/Home/issues/7268)
+
+* Aggiungi avviso di terze parti nel nostro repository e VSIX - [7409 #](https://github.com/NuGet/Home/issues/7409)
+
+* NuGet.VisualStudio.IVsPackageInstaller.InstallPackage consigliabile installare la versione più recente quando nessuna versione di base - [7493 #](https://github.com/NuGet/Home/issues/7493)
+
+* -supporto interattivo per dotnet nuget push - [7519 #](https://github.com/NuGet/Home/issues/7519)
+
+* Durante il ripristino con file di blocco, NU1603 avviso non deve essere generato. - [#7529](https://github.com/NuGet/Home/issues/7529)
+
+* NuGet non deve essere stampata percorso del progetto durante il ripristino con registrazione minima - [7647 #](https://github.com/NuGet/Home/issues/7647)
+
+* -supporto interattivo per dotnet remove package - [7727 #](https://github.com/NuGet/Home/issues/7727)
+
+* Aggiungere nuovo NuGet.Packaging.Core con attrs TypeForwardedTo - [7768 #](https://github.com/NuGet/Home/issues/7768)
+
+* plugins_cache deve percorso più breve per funzionare bene - [7770 #](https://github.com/NuGet/Home/issues/7770)
+
+* Preferire percorso per l'individuazione di msbuild, se l'utente non richieda la versione di msbuild specifica - [7786 #](https://github.com/NuGet/Home/issues/7786)
+
+**DCR:**
+
+* limitare il numero di richiesta http per ogni origine tramite NuGet. config - [4538 #](https://github.com/NuGet/Home/issues/4538)
+
+* NuGet deve avere come destinazione Net472 (per consentire la compilazione di VSIX 16,0 pulizia) - [7143 #](https://github.com/NuGet/Home/issues/7143)
+
+* PMC: Comando OpenPackagePage - Rimuovi [7384 #](https://github.com/NuGet/Home/issues/7384)
+
+* Mappa di NetCoreApp 3.0 apportare a NetStandard 2.1 - [7762 #](https://github.com/NuGet/Home/issues/7762)
+
+* Aggiungere il supporto netstandard2.0 pacchetti NuGet.* - [6516 #](https://github.com/NuGet/Home/issues/6516)
+
 
 ## <a name="summary-whats-new-in-nuget-50-preview-3"></a>Riepilogo: What ' s New in NuGet 5.0 Preview 3
 
@@ -39,7 +81,7 @@ ms.locfileid: "56247659"
 
 * livello di dettaglio di MSBuild /t: Restore minimo deve essere più minimo - [4695 #](https://github.com/NuGet/Home/issues/4695)
 
-**DCRs**
+**DCR:**
 
 * Consentire agli autori di pacchetti di definire il comportamento transitiva gli asset di compilazione - [6091 #](https://github.com/NuGet/Home/issues/6091)
 
@@ -92,7 +134,7 @@ ms.locfileid: "56247659"
 
 * dotnet-restore non riesce a causa di disabilitato macchina wide feed - [5410 #](https://github.com/NuGet/Home/issues/5410)
 
-**DCRs**
+**DCR:**
 
 * Gli assembly di NuGet 5.0 in modo da richiedere .NET 4.7.2 (tramite modifica TFM, target) - [7510 #](https://github.com/NuGet/Home/issues/7510)
 
@@ -109,10 +151,6 @@ ms.locfileid: "56247659"
 [Elenco di tutti i problemi risolti in questa versione 5.0.0-preview2](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.2")
 
 ### <a name="known-issues"></a>Problemi noti
-
-#### <a name="dotnet-nuget-push---interactive-gives-an-error-on-mac---7519httpsgithubcomnugethomeissues7519"></a>dotnet nuget push --interactive genera un errore in Mac. - [#7519](https://github.com/NuGet/Home/issues/7519)
-**Problema** il `--interactive` argomento non viene inoltrato da dotnet cli e genera l'errore `error: Missing value for option 'interactive'` 
- **soluzione alternativa** eseguire qualsiasi altro comando di dotnet con l'opzione interattiva, ad esempio `dotnet restore --interactive` ed eseguire l'autenticazione. L'autenticazione potrebbe essere così memorizzata nella cache dal provider di credenziali. Eseguire quindi `dotnet nuget push`.
 
 #### <a name="packages-in-fallbackfolders-installed-by-net-core-sdk-are-custom-installed-and-fail-signature-validation---7414httpsgithubcomnugethomeissues7414"></a>I pacchetti in FallbackFolders installati da .NET Core SDK hanno un'installazione personalizzata e non superano la convalida della firma. - [#7414](https://github.com/NuGet/Home/issues/7414)
 **Problema** quando si usa dotnet.exe 2.x in modo da ripristinare tale netcoreapp a più destinazioni di un progetto 1.x e netcoreapp 2.x, la cartella di fallback viene considerato come un file di feed. Questo significa che, durante il ripristino, NuGet selezionerà il pacchetto dalla cartella di fallback e tenterà di installarlo nella cartella dei pacchetti globale e di eseguire la consueta convalida delle firme che avrà esito negativo.
