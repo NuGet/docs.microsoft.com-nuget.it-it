@@ -6,12 +6,12 @@ ms.author: diverdan92
 ms.date: 10/09/2017
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 32f83bede42f7643a9a4fed593643eefea0453c1
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: e8b902c89427333afb7a27ee9de0eeb99a92f391
+ms.sourcegitcommit: 571644118e3c5a2fd818891d305b4b8de8ef21de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981002"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57225875"
 ---
 # <a name="package-id-prefix-reservation"></a>Prenotazione del prefisso ID pacchetto
 
@@ -31,7 +31,7 @@ Quando un prefisso è riservato in [nuget.org](https://www.nuget.org/), si verif
 
 1. Ogni volta che un pacchetto viene inviato a [nuget.org](https://www.nuget.org/) con un ID che corrisponde il prefisso dell'ID riservato, il pacchetto viene rifiutato a meno che non ha origine in proprietari riservato il prefisso dell'ID.
 
-1. I pacchetti che corrisponde al prefisso ID riservato e ha origine dal proprietari riservato il prefisso dell'ID saranno necessario un indicatore visivo in Visual Studio 2017 versione 15.4 o versioni successive e nel [nuget.org](https://www.nuget.org/) che indica che il pacchetto si trova sotto prefisso ID riservato. Questo vale per gli invii di nuovo pacchetto oltre a pacchetti esistenti in proprietari. **Nota:** l'indicatore in Visual Studio viene visualizzato solo se si seleziona un singolo feed come origine del pacchetto.
+1. I pacchetti che corrisponde al prefisso ID riservato e ha origine dal proprietari riservato il prefisso dell'ID saranno necessario un indicatore visivo in Visual Studio 2017 versione 15.4 o versioni successive e nel [nuget.org](https://www.nuget.org/) che indica che il pacchetto si trova sotto prefisso ID riservato. Questo vale per gli invii di nuovo pacchetto oltre a pacchetti esistenti in proprietari. **Nota:** L'indicatore in Visual Studio viene visualizzato solo se si seleziona un singolo feed come origine del pacchetto.
 
 1. Tutti i pacchetti già esistenti che corrispondono al prefisso ID riservato, ma che sono *non* appartenenti al proprietario di riservato prefisso rimarrà invariato (non potranno essere rimossi dall'elenco, ma non avranno anche l'indicatore visivo). Inoltre, i proprietari di questi pacchetti ancora potranno inviare nuove versioni per il pacchetto.
 
@@ -55,8 +55,8 @@ Esistono diversi scenari prenotazione prefisso più avanzati descritti di seguit
 
 Quando un pacchetto proviene da un prefisso riservato, viene visualizzato il sotto gli indicatori visivi sul [nuget.org](https://www.nuget.org/) gallery e in Visual Studio 2017 versione 15.4 o versioni successive:
 
-**Raccolta NuGet.org**
-![raccolta nuget.org](media/nuget-gallery-reserved-prefix.png)
+**nuget.org Gallery**
+![nuget.org Gallery](media/nuget-gallery-reserved-prefix.png)
 
 **Visual Studio**
 ![Visual Studio](media/visual-studio-reserved-prefix.png)
@@ -84,6 +84,8 @@ Durante la revisione di tutte le applicazioni per la prenotazione del prefisso I
 1. Verrebbe *non* riservare il prefisso dell'ID pacchetto causare ambiguità e confusione per gli altri utenti?
 
 1. Sono le proprietà di identificazione dei pacchetti che soddisfano il prefisso ID pacchetto chiaro e coerente (in particolare l'autore del pacchetto)?
+
+1. I pacchetti hanno una licenza (tramite il [licenza](https://docs.microsoft.com/en-us/nuget/reference/nuspec#license) metadati elemento e non licenseUrl che sarà deprecato)?
 
 ## <a name="third-party-feed-provider-scenarios"></a>Scenari di provider di feed di terze parti
 

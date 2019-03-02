@@ -5,26 +5,26 @@ author: anangaur
 ms.author: anangaur
 ms.date: 1/25/2019
 ms.topic: conceptual
-ms.openlocfilehash: 57b66b347ac47a3d05907a4bb237002de8981ecc
-ms.sourcegitcommit: 85bf94e0efcfcee1f914650bdc142309ef3e06d9
+ms.openlocfilehash: 4b05dcb9a2960c1e3231e81d4b4c122d3a518753
+ms.sourcegitcommit: 571644118e3c5a2fd818891d305b4b8de8ef21de
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196200"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57225888"
 ---
 # <a name="nuget-50-preview-release-notes"></a>Note sulla versione di NuGet 5.0 Preview
 
 ## <a name="nuget-50-preview-releases"></a>Versioni di anteprima 5.0 di NuGet
 
-* 27 febbraio 2010 - [NuGet 5.0 Preview 4](#summary-whats-new-in-50-preview-4)
-* 13 febbraio 2019 - [NuGet 5.0 Preview 3](#summary-whats-new-in-50-preview-3)
-* 23 gennaio 2019 - [NuGet 5.0 Preview 2](#summary-whats-new-in-50-preview-2)
+* 27 febbraio 2019 - [NuGet 5.0 Preview 4](#whats-new-in-nuget-50-preview-4)
+* 13 febbraio 2019 - [NuGet 5.0 Preview 3](#whats-new-in-nuget-50-preview-3)
+* 23 gennaio 2019 - [NuGet 5.0 Preview 2](#whats-new-in-nuget-50-preview-2)
 
-## <a name="summary-whats-new-in-nuget-50-preview-4"></a>Riepilogo: What ' s New in NuGet 5.0 Preview 4
+## <a name="whats-new-in-nuget-50-preview-4"></a>What ' s New in NuGet 5.0 Preview 4
 
 ### <a name="issues-fixed-in-this-release"></a>Problemi corretti in questa versione
 
-**Bug:**
+**Bug**
 
 * NuGet.VisualStudio.IVsPackageInstaller - chiamata in un progetto con alcun pacchetto fa riferimento sempre Packages. config viene utilizzato, anche se il valore predefinito è impostato su PackageReference - [7005 #](https://github.com/NuGet/Home/issues/7005)
 
@@ -48,7 +48,7 @@ ms.locfileid: "57196200"
 
 * Preferire percorso per l'individuazione di msbuild, se l'utente non richieda la versione di msbuild specifica - [7786 #](https://github.com/NuGet/Home/issues/7786)
 
-**DCR:**
+**DCRs**
 
 * limitare il numero di richiesta http per ogni origine tramite NuGet. config - [4538 #](https://github.com/NuGet/Home/issues/4538)
 
@@ -61,11 +61,11 @@ ms.locfileid: "57196200"
 * Aggiungere il supporto netstandard2.0 pacchetti NuGet.* - [6516 #](https://github.com/NuGet/Home/issues/6516)
 
 
-## <a name="summary-whats-new-in-nuget-50-preview-3"></a>Riepilogo: What ' s New in NuGet 5.0 Preview 3
+## <a name="whats-new-in-nuget-50-preview-3"></a>What ' s New in NuGet 5.0 Preview 3
 
 ### <a name="issues-fixed-in-this-release"></a>Problemi corretti in questa versione 
 
-**Bug:**
+**Bug**
 
 * nuget.exe /? dovrebbe elencare le versioni corrette di msbuild - [7794 #](https://github.com/NuGet/Home/issues/7794)
 
@@ -81,18 +81,18 @@ ms.locfileid: "57196200"
 
 * livello di dettaglio di MSBuild /t: Restore minimo deve essere più minimo - [4695 #](https://github.com/NuGet/Home/issues/4695)
 
-**DCR:**
+**DCRs**
 
 * Consentire agli autori di pacchetti di definire il comportamento transitiva gli asset di compilazione - [6091 #](https://github.com/NuGet/Home/issues/6091)
 
 * Abilitare il ripristino in VS abbia esito positivo se un progetto non fa parte della soluzione o non è stato caricato, ma è stato ripristinato in precedenza - [5820 #](https://github.com/NuGet/Home/issues/5820)
 
 
-## <a name="summary-whats-new-in-50-preview-2"></a>Riepilogo: What ' s New in 5.0 Preview 2
+## <a name="whats-new-in-nuget-50-preview-2"></a>What ' s New in NuGet 5.0 Preview 2
 
 ### <a name="issues-fixed-in-this-release"></a>Problemi corretti in questa versione
 
-**Bug:**
+**Bug**
 
 * Visual Studio alla 16.0 UI NuGet sono disponibili schede illeggibile a causa di problemi di colore - [7735 #](https://github.com/NuGet/Home/issues/7735)
 
@@ -134,7 +134,7 @@ ms.locfileid: "57196200"
 
 * dotnet-restore non riesce a causa di disabilitato macchina wide feed - [5410 #](https://github.com/NuGet/Home/issues/5410)
 
-**DCR:**
+**DCRs**
 
 * Gli assembly di NuGet 5.0 in modo da richiedere .NET 4.7.2 (tramite modifica TFM, target) - [7510 #](https://github.com/NuGet/Home/issues/7510)
 
