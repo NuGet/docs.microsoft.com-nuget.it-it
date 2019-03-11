@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 901eb09711a6e32740c70829028da66b782870a0
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 833f4a67bc75c5d650e85180b52ecd8f69218f15
+ms.sourcegitcommit: 85bf94e0efcfcee1f914650bdc142309ef3e06d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548128"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196187"
 ---
 # <a name="deleting-packages"></a>Eliminazione di pacchetti
 
@@ -23,7 +23,7 @@ nuget.org supporta invece la *rimozione dall'elenco* di un pacchetto, che può e
 
 ## <a name="exceptions"></a>Eccezioni
 
-In situazioni eccezionali, quali violazione del copyright e contenuto potenzialmente dannoso, i pacchetti possono essere eliminati manualmente dal team di NuGet. Inviare una richiesta di supporto tramite la [raccolta NuGet](http://www.nuget.org) per avviare il processo.
+In situazioni eccezionali, quali violazione del copyright e contenuto potenzialmente dannoso, i pacchetti possono essere eliminati manualmente dal team di NuGet. È possibile segnalare un pacchetto usando il pulsante "Segnala abusi" nella pagina dei dettagli del pacchetto NuGet.org. I proprietari dei pacchetti possono accedere al proprio account NuGet.org per contattare il supporto NuGet tramite il pulsante "Supporto tecnico" nella pagina dei dettagli del pacchetto NuGet.org.
 
 ## <a name="prohibited-use"></a>Uso non consentito
 

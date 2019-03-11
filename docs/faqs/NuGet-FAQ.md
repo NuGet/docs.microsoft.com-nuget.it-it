@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 03223e949eeeadd7eaa6e392297ba79d28eed2f2
-ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
+ms.openlocfilehash: 1c838116f9737b01ea3f9ca17f5d5002f6548044
+ms.sourcegitcommit: 85bf94e0efcfcee1f914650bdc142309ef3e06d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56852546"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196213"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Domande frequenti su NuGet
 
@@ -158,7 +158,7 @@ Ogni pacchetto è disciplinato dalle condizioni incluse nel pacchetto. È necess
 
 Se per un pacchetto non sono specificate le condizioni di licenza, contattare il proprietario del pacchetto direttamente usando il collegamento **Contact owners** (Contatta proprietari) nella pagina del pacchetto su nuget.org. Microsoft non concede in licenza all'utente alcuna proprietà intellettuale dei provider di pacchetti di terze parti e non è responsabile per le informazioni fornite da terze parti.
 
-## <a name="managing-packages-on-nugetorg"></a>Gestione dei pacchetti in nuget.org
+## <a name="managing-packages-on-nugetorg"></a>Gestione dei pacchetti in NuGet.org
 
 **È possibile modificare i metadati del pacchetto dopo che è stato caricato?**
 
@@ -167,6 +167,10 @@ NuGet consiglia che tutti i pacchetti siano firmati. Uno dei principi di progett
 Si noti che le dipendenze elencate per il pacchetto vengono generate automaticamente dal pacchetto stesso e non possono essere modificate.
 
 Il caricamento dei pacchetti in [int.nugettest.org](https://int.nugettest.org) è anche un ottimo modo per testare e convalidare il pacchetto senza rendere disponibile un pacchetto nella raccolta pubblica. Endpoint API: https://apiint.nugettest.org/v3/index.json
+
+**È possibile eliminare un pacchetto pubblicato in NuGet.org?**
+
+L'eliminazione di un pacchetto pubblicato in NuGet.org in genere non è supportata. Vedere i [criteri relativi all'eliminazione di pacchetti](../policies/deleting-packages).
 
 **È possibile riservare nomi per i pacchetti che verranno pubblicati in futuro?**
 
