@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: bd19bc402ff9d66d7e2baa4f326d75f0ed444f30
-ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
+ms.openlocfilehash: 6d183100a8319b517347567f34d276e94eb4e15d
+ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56852572"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58432543"
 ---
 # <a name="publishing-packages"></a>Pubblicazione di pacchetti
 
@@ -74,7 +74,7 @@ Per eseguire il push dei pacchetti in nuget.org, è necessario usare [nuget.exe 
 
 #### <a name="publish-signed-packages"></a>Pubblicare i pacchetti firmati
 
-Per inviare pacchetti firmati, è prima di tutto necessario [registrare il certificato](../reference/Signed-Packages-Reference.md#register-certificate-on-nugetorg) usato per firmare i pacchetti. 
+Per inviare pacchetti firmati, è prima di tutto necessario [registrare il certificato](../create-packages/Sign-a-Package.md#register-the-certificate-on-nugetorg) usato per firmare i pacchetti. 
 
 > [!Warning]
 > nuget.org rifiuta i pacchetti che non soddisfano i [requisiti per i pacchetti firmati](../reference/Signed-Packages-Reference.md#signature-requirements-on-nugetorg).
@@ -83,7 +83,7 @@ Per inviare pacchetti firmati, è prima di tutto necessario [registrare il certi
 
 I pacchetti di cui viene eseguito il push in nuget.org vengono sottoposti a diverse convalide, ad esempio il controllo antivirus. (Tutti i pacchetti in nuget.org vengono analizzati periodicamente.)
 
-. Quando il pacchetto ha superato tutti i controlli di convalida, l'indicizzazione e la visualizzazione del pacchetto nei risultati della ricerca potrebbero richiedere qualche minuto. Al termine dell'indicizzazione, viene visualizzato un messaggio di posta elettronica che conferma che il pacchetto è stato pubblicato. Se il pacchetto non supera un controllo di convalida, la pagina dei dettagli del pacchetto verrà aggiornata con l'errore associato e si riceverà anche una notifica tramite posta elettronica.
+Quando il pacchetto ha superato tutti i controlli di convalida, l'indicizzazione e la visualizzazione del pacchetto nei risultati della ricerca potrebbero richiedere qualche minuto. Al termine dell'indicizzazione, viene visualizzato un messaggio di posta elettronica che conferma che il pacchetto è stato pubblicato. Se il pacchetto non supera un controllo di convalida, la pagina dei dettagli del pacchetto verrà aggiornata con l'errore associato e si riceverà anche una notifica tramite posta elettronica.
 
 La convalida e l'indicizzazione del pacchetto richiedono in genere meno di 15 minuti. Se la pubblicazione del pacchetto richiede più tempo del previsto, visitare [status.nuget.org](https://status.nuget.org/) per controllare se si stanno verificando interruzioni in nuget.org. Se tutti i sistemi sono operativi e il pacchetto non viene pubblicato entro un'ora, accedere a nuget.org e usare il collegamento per contattare il supporto tecnico nella pagina del pacchetto.
 

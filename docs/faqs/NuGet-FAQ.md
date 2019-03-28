@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1c838116f9737b01ea3f9ca17f5d5002f6548044
-ms.sourcegitcommit: 85bf94e0efcfcee1f914650bdc142309ef3e06d9
+ms.openlocfilehash: 3b6257287c1f8c6345765e0a081bac11b34e05cb
+ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196213"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58432582"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Domande frequenti su NuGet
 
@@ -346,8 +346,8 @@ Seguire i passaggi descritti nella sezione [Non è possibile usare l'account di 
 ### <a name="unable-to-use-microsoft-login-how-do-i-recover-my-nugetorg-account"></a>Non è possibile usare l'account di accesso Microsoft. Come si recupera l'account di nuget.org?
 
 Se si è provato a usare l'[assistenza all'accesso](#which-microsoft-account-is-linked-to-my-nugetorg-account) e non si ha accesso all'account Microsoft associato all'account di nuget.org, attenersi alla procedura seguente per collegare un nuovo account Microsoft all'account di nuget.org.
-1. **Requisito**: è necessario l'accesso a un account Microsoft (non associato ad alcun account di nuget.org esistente). Se non se ne ha alcuno, è possibile [crearne uno](https://signup.live.com).
-2. Seguire i [passaggi per recuperare l'account di accesso tramite password](#how-to-recover-nugetorg-password-login). Se si dispone di un account di accesso tramite password, ignorare questo passaggio.
+1. **Requisito**: è necessario l'accesso a un account Microsoft non associato ad alcun account di nuget.org esistente. Se non se ne ha alcuno, è possibile [crearne uno](https://signup.live.com).
+2. Se si dimenticano il nome utente e la password per l'account di nuget.org, seguire la [procedura per ripristinare l'account di accesso con password](#how-to-recover-nugetorg-password-login).
 3. [Accedere a nuget.org](https://www.nuget.org/users/account/LogOnNuGetAccount) usando l'account di accesso tramite nome utente e password.
 4. Dopo l'accesso, verrà visualizzata la finestra di dialogo popup illustrata più avanti. Si tratta di finestra di dialogo che informa della sospensione delle password.
 5. **NOTA**: Ignorare l'istruzione di accedere con l'account Microsoft specificato. È ora possibile collegare l'account di nuget.org a qualsiasi altro account di accesso Microsoft.
