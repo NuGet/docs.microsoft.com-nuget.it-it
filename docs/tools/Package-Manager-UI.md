@@ -10,12 +10,12 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-ms.openlocfilehash: 1de6ddeca6295c621a90409807af198bc3c7a068
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: 422faf99e58e058d86db774a8f3c1c576b3dc393
+ms.sourcegitcommit: 2af17c8bb452a538977794bf559cdd78d58f2790
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981184"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58637623"
 ---
 # <a name="nuget-package-manager-ui"></a>Interfaccia utente di gestione pacchetti NuGet
 
@@ -71,7 +71,7 @@ In questo argomento
     ![Aggiorna un pacchetto](media/UpdatePackages.png)
 
 1. <a name="implicit_reference"></a>Per alcuni pacchetti, la **Update** pulsante è disabilitato e viene visualizzato un messaggio che informa che è "in modo implicito fa un SDK" (o "AutoReferenced"). Questo messaggio indica che il pacchetto fa parte di un framework o SDK di dimensioni superiori e non deve essere aggiornato in modo indipendente. (Tali pacchetti internamente sono contrassegnati con `<IsImplicitlyDefined>True</IsImplicitlyDefined>`.) Ad esempio, `Microsoft.NETCore.App` fa parte di .NET Core SDK e la versione del pacchetto non è la stessa versione di framework runtime usati dall'applicazione. Devi [aggiornare l'installazione di .NET Core](https://aka.ms/dotnet-download) per ottenere nuove versioni del runtime di ASP.NET Core e .NET Core. [Vedere questo documento per altri dettagli sulla metapacchetti .NET Core e controllo delle versioni](/dotnet/core/packages). Questo vale per i pacchetti di usati comune seguenti:
-    * Microsoft. aspnetcore.
+    * Microsoft.AspNetCore.All
     * Microsoft.AspNetCore.App
     * Microsoft.NETCore.App
     * NETStandard.Library
@@ -127,7 +127,7 @@ Gestire le origini pacchetto:
 1. Per modificare un'origine del pacchetto, selezionarlo, apportare modifiche nel **Name** e **origine** caselle, quindi selezionare **Update**.
 1. Per disabilitare un'origine del pacchetto, deselezionare la casella a sinistra del nome nell'elenco.
 1. Per rimuovere un'origine del pacchetto, selezionarlo e quindi selezionare il **X** pulsante.
-1. Utilizzare le frecce su e freccia in giù per modificare l'ordine di priorità le origini pacchetto. Visual Studio cerca queste origini nell'ordine di priorità per il ripristino dei pacchetti per un progetto. Per altre informazioni, vedere [ripristino del pacchetto](../consume-packages/package-restore.md).
+1. Utilizzando la freccia giù e freccia giù pulsanti non viene modificato l'ordine di priorità le origini pacchetto. Visual Studio ignora l'ordine delle origini dei pacchetti, Usa il pacchetto da qualsiasi origine prima di rispondere alle richieste. Per altre informazioni, vedere [ripristino del pacchetto](../consume-packages/package-restore.md).
 
 > [!Tip]
 > Se un'origine del pacchetto viene nuovamente visualizzato dopo l'eliminazione, potrebbe essere presente in un livello di computer o utente `NuGet.Config` file. Vedere [comportamento di configurazione NuGet](../consume-packages/configuring-nuget-behavior.md) per il percorso di questi file, quindi rimuovere l'origine modificando i file manualmente o tramite il [nuget origini comando](../tools/nuget-exe-CLI-reference.md).
