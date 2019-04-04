@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: reference
-ms.openlocfilehash: c294e4c188db2e90e6bcb62b60f71ed5529977fe
-ms.sourcegitcommit: a1846edf70ddb2505d58e536e08e952d870931b0
+ms.openlocfilehash: d7c943c1f13edf782dabe4afee9d19a1a42bd42a
+ms.sourcegitcommit: 9f94e00428d83aef4a7a87db679129eff7720c59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52303519"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58911088"
 ---
 # <a name="nugetconfig-reference"></a>riferimento di NuGet. config
 
 Il comportamento di NuGet è controllato da impostazioni in diversi file `NuGet.Config`, come descritto in [Configurazione del comportamento di NuGet](../consume-packages/configuring-nuget-behavior.md).
 
-`nuget.config` è un file XML contenente un nodo `<configuration>` di livello superiore, che contiene a sua volta gli elementi per le sezioni descritte in questo argomento. Ogni sezione contiene zero o più elementi. Vedere il [file di configurazione di esempio](#example-config-file). Per i nomi delle impostazioni non viene fatta distinzione tra maiuscole e minuscole e per i valori si possono usare [variabili di ambiente](#using-environment-variables).
+`nuget.config` è un file XML che contiene un livello superiore `<configuration>` nodo che contiene a sua volta gli elementi di sezione descritti in questo argomento. Ogni sezione contiene zero o più elementi. Vedere il [file di configurazione di esempio](#example-config-file). Per i nomi delle impostazioni non viene fatta distinzione tra maiuscole e minuscole e per i valori si possono usare [variabili di ambiente](#using-environment-variables).
 
 In questo argomento
 
@@ -45,7 +45,7 @@ Contiene varie impostazioni di configurazione, che possono essere impostate con 
 
 `dependencyVersion` e `repositoryPath` si applicano solo ai progetti che usano `packages.config`. `globalPackagesFolder` si applica solo ai progetti che usano il formato PackageReference.
 
-| Chiave | Valore |
+| Chiave | Value |
 | --- | --- |
 | dependencyVersion (solo `packages.config`) | Valore `DependencyVersion` predefinito per l'installazione, il ripristino e l'aggiornamento del pacchetto, quando non viene specificata direttamente l'opzione `-DependencyVersion`. Questo valore viene usato anche dall'interfaccia utente di Gestione pacchetti NuGet. I valori sono `Lowest`, `HighestPatch`, `HighestMinor`, `Highest`. |
 | globalPackagesFolder (progetti usando solo PackageReference) | Percorso della cartella dei pacchetti globale predefinita. L'impostazione predefinita è `%userprofile%\.nuget\packages` (Windows) o `~/.nuget/packages` (Mac/Linux). È possibile usare un percorso relativo nei file `nuget.config` specifici del progetto. Questa impostazione viene sostituita dalla variabile di ambiente NUGET_PACKAGES, che ha la precedenza. |
@@ -70,7 +70,7 @@ Contiene varie impostazioni di configurazione, che possono essere impostate con 
 
 Specifica se NuGet esegue o meno i reindirizzamenti di binding automatici quando viene installato un pacchetto.
 
-| Chiave | Valore |
+| Chiave | Value |
 | --- | --- |
 | skip | Valore booleano che indica se ignorare i reindirizzamenti di binding automatici. Il valore predefinito è false. |
 
@@ -86,7 +86,7 @@ Specifica se NuGet esegue o meno i reindirizzamenti di binding automatici quando
 
 Controlla il ripristino dei pacchetti durante le compilazioni.
 
-| Chiave | Valore |
+| Chiave | Value |
 | --- | --- |
 | enabled | Valore booleano che indica se NuGet può eseguire il ripristino automatico. È anche possibile impostare la variabile di ambiente `EnableNuGetPackageRestore` con il valore `True` invece di impostare questa chiave nel file di configurazione. |
 | automatico | Valore booleano che indica se NuGet deve controllare se mancano pacchetti durante la compilazione. |
@@ -104,7 +104,7 @@ Controlla il ripristino dei pacchetti durante le compilazioni.
 
 Controlla se la cartella `packages` di una soluzione è inclusa nel controllo del codice sorgente. Questa sezione funziona solo nei file `nuget.config` in una cartella della soluzione.
 
-| Chiave | Valore |
+| Chiave | Value |
 | --- | --- |
 | disableSourceControlIntegration | Valore booleano che indica se ignorare la cartella dei pacchetti quando si utilizza il controllo del codice sorgente. Il valore predefinito è false. |
 
@@ -128,7 +128,7 @@ Si noti che l'URL di origine di nuget.org è `https://api.nuget.org/v3/index.jso
 
 Elenca tutte le origini di pacchetti note. L'ordine viene ignorato durante le operazioni di ripristino e con qualsiasi progetto usando il formato PackageReference. NuGet rispetta l'ordine delle origini per l'installazione e operazioni di aggiornamento con i progetti che usano `packages.config`.
 
-| Chiave | Valore |
+| Chiave | Value |
 | --- | --- |
 | (nome da assegnare all'origine di pacchetti) | Percorso o URL dell'origine di pacchetti. |
 
@@ -146,7 +146,7 @@ Elenca tutte le origini di pacchetti note. L'ordine viene ignorato durante le op
 
 Archivia i nomi utente e le password per le origini, in genere specificati con le opzioni `-username` e `-password` con `nuget sources`. Le password vengono crittografate per impostazione predefinita, a meno che non venga usata anche l'opzione `-storepasswordincleartext`.
 
-| Chiave | Valore |
+| Chiave | Value |
 | --- | --- |
 | nomeutente | Nome utente per l'origine in testo normale. |
 | password | Password crittografata per l'origine. |
@@ -188,7 +188,7 @@ Quando si usano password non crittografate:
 
 Archivia le chiavi per le origini che usano l'autenticazione con chiave API, in base alle impostazioni specificate con il [comando `nuget setapikey`](../tools/cli-ref-setapikey.md).
 
-| Chiave | Valore |
+| Chiave | Value |
 | --- | --- |
 | (URL di origine) | Chiave API crittografata. |
 
@@ -204,7 +204,7 @@ Archivia le chiavi per le origini che usano l'autenticazione con chiave API, in 
 
 Identifica le origini attualmente disabilitate. Può essere vuoto.
 
-| Chiave | Valore |
+| Chiave | Value |
 | --- | --- |
 | (nome dell'origine) | Valore booleano che indica se l'origine è disabilitata. |
 
@@ -221,11 +221,11 @@ Identifica le origini attualmente disabilitate. Può essere vuoto.
 
 ### <a name="activepackagesource"></a>activePackageSource
 
-*(Solo versione 2.x; deprecata nella versione 3.x+)*
+*(solo versione 2.x; deprecata nella versione 3.x+)*
 
 Identifica l'origine attualmente attiva o indica l'aggregazione di tutte le origini.
 
-| Chiave | Valore |
+| Chiave | Value |
 | --- | --- |
 | (nome dell'origine) o `All` | Se la chiave è il nome di un'origine, il valore è il percorso o l'URL dell'origine. Se `All`, il valore deve essere `(Aggregate source)` per combinare tutte le origini di pacchetti non disabilitate in altro modo. |
 

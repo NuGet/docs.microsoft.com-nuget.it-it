@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 2d2b20c1ea439ec0a3225cf983d9a4d2eedb0333
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: fdc3ad8aa239a42d8a4c169a757715e856bdcb41
+ms.sourcegitcommit: 9f94e00428d83aef4a7a87db679129eff7720c59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324760"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58911049"
 ---
 # <a name="autocomplete"></a>Completamento automatico
 
@@ -45,13 +45,13 @@ Un pacchetto con solo le versioni non in elenco non verrà visualizzato nei risu
 
 ### <a name="request-parameters"></a>Parametri della richiesta
 
-nome        | In     | Tipo    | Obbligatorio | Note
+Nome        | In     | Tipo    | Obbligatorio | Note
 ----------- | ------ | ------- | -------- | -----
-q           | URL    | stringa  | No       | La stringa da confrontare con gli ID pacchetto
+q           | URL    | string  | No       | La stringa da confrontare con gli ID pacchetto
 skip        | URL    | numero intero | No       | Il numero di risultati da ignorare, per la paginazione
 Take        | URL    | numero intero | No       | Il numero di risultati da restituire, per la paginazione
 versione preliminare  | URL    | boolean | No       | `true` oppure `false` che determina se includere [i pacchetti di versioni non definitive](../create-packages/prerelease-packages.md)
-semVerLevel | URL    | stringa  | No       | Una stringa di versione SemVer 1.0.0 
+semVerLevel | URL    | string  | No       | Una stringa di versione SemVer 1.0.0 
 
 La query di completamento automatico `q` viene analizzato in modo che è definito dall'implementazione del server. NuGet.org supporta l'esecuzione di query per il prefisso del token ID pacchetto, che sono pezzi dell'ID di prodotti dalla suddivisione originale da caratteri le iniziali maiuscole e simboli.
 
@@ -71,7 +71,7 @@ La risposta è il documento JSON che contiene fino a `take` i risultati di compl
 
 L'oggetto JSON radice ha le proprietà seguenti:
 
-nome      | Tipo             | Obbligatorio | Note
+Nome      | Tipo             | Obbligatorio | Note
 --------- | ---------------- | -------- | -----
 totalHits | numero intero          | sì      | Il numero complessivo di corrispondenze, ignorando `skip` e `take`
 Data      | Matrice di stringhe | sì      | Il pacchetto ID trovare una corrispondenza con la richiesta
@@ -94,11 +94,11 @@ Una versione del pacchetto che è incluso nell'elenco non verrà visualizzato ne
 
 ### <a name="request-parameters"></a>Parametri della richiesta
 
-nome        | In     | Tipo    | Obbligatorio | Note
+Nome        | In     | Tipo    | Obbligatorio | Note
 ----------- | ------ | ------- | -------- | -----
-ID          | URL    | stringa  | sì      | Per recuperare le versioni per l'ID del pacchetto
+ID          | URL    | string  | sì      | Per recuperare le versioni per l'ID del pacchetto
 versione preliminare  | URL    | boolean | No       | `true` oppure `false` che determina se includere [i pacchetti di versioni non definitive](../create-packages/prerelease-packages.md)
-semVerLevel | URL    | stringa  | No       | Una stringa di versione di SemVer 2.0.0 
+semVerLevel | URL    | string  | No       | Una stringa di versione di SemVer 2.0.0 
 
 Se `prerelease` non viene specificato, vengono esclusi i pacchetti in versione non definitiva.
 
@@ -110,11 +110,11 @@ La risposta è il documento JSON contenente tutte le versioni del pacchetto dell
 
 L'oggetto JSON radice ha la proprietà seguente:
 
-nome      | Tipo             | Obbligatorio | Note
+Nome      | Tipo             | Obbligatorio | Note
 --------- | ---------------- | -------- | -----
 Data      | Matrice di stringhe | sì      | Le versioni del pacchetto corrispondente alla richiesta
 
-Le versioni dei pacchetti nel `data` matrice può contenere i metadati di SemVer 2.0.0 compilazione (ad esempio `1.0.0+metadata`) se il `semVerLevel=2.0.0` è stato specificato nella stringa di query.
+Le versioni dei pacchetti nel `data` matrice può contenere i metadati di SemVer 2.0.0 compilazione (ad esempio `1.0.0+metadata`) se il `semVerLevel=2.0.0` viene fornito nella stringa di query.
 
 ### <a name="sample-request"></a>Richiesta di esempio
 

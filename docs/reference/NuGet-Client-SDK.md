@@ -5,19 +5,19 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 97ed3ec7d41d2847c0521af69373a1871eb585dd
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: 8f96bf289e8121fd25262fb95c2f36dfc89045c5
+ms.sourcegitcommit: 9f94e00428d83aef4a7a87db679129eff7720c59
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324682"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58911036"
 ---
 # <a name="nuget-client-sdk"></a>NuGet Client SDK
 
 > [!Note]
 > Non deve essere confusa con la [NuGet *Web* API](https://docs.microsoft.com/en-us/nuget/api/overview)
 
-Il *NuGet Client SDK* fa riferimento a un gruppo di librerie .NET incentrati [NuGet](https://www.nuget.org/packages/NuGet.Client), [Nuget.Packaging](https://www.nuget.org/packages/NuGet.Packaging), e [NuGet. Protocol](https://www.nuget.org/packages/NuGet.Protocol). Questi pacchetti sostituiscono la precedente [togliere](https://www.nuget.org/packages/NuGet.Core/) libreria.
+Il *NuGet Client SDK* fa riferimento a un gruppo di librerie .NET incentrati [NuGet.Commands](https://www.nuget.org/packages/NuGet.Commands), [Nuget.Packaging](https://www.nuget.org/packages/NuGet.Packaging), e [NuGet. Protocol](https://www.nuget.org/packages/NuGet.Protocol). Questi pacchetti sostituiscono la precedente [togliere](https://www.nuget.org/packages/NuGet.Core/) libreria.
 
 Microsoft sta lavorando con una superficie di attacco stabile che è possibile documentare a breve.
 
@@ -31,7 +31,7 @@ Il codice sorgente viene pubblicato in GitHub nel progetto [NuGet/NuGet.Client](
 
 - [Esplorare le librerie di NuGet v3, parte 1: Introduzione e concetti](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-1)
 - [Esplorare le librerie di NuGet v3, parte 2: La ricerca di pacchetti](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-2)
-- [Esplorare le librerie di NuGet v3, parte 3: L'installazione dei pacchetti](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-3)
+- [Esplorare le librerie di NuGet v3, parte 3: Installazione di pacchetti](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-3)
 
 > [!Note]
 > Questi post di blog scritti subito dopo il **3.4.3** versione di NuGet sono stati rilasciati pacchetti SDK client.
