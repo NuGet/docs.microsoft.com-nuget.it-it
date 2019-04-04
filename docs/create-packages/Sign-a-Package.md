@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: e8955f9d46bab235c8755d5654814a4291d542d6
-ms.sourcegitcommit: 673e580ae749544a4a071b4efe7d42fd2bb6d209
+ms.openlocfilehash: 8ff92e5a3ab2d5c13ee02a9e49709866e2ac0e87
+ms.sourcegitcommit: 8793f528a11bd8e8fb229cd12e9abba50d61e104
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52977563"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58921572"
 ---
 # <a name="signing-nuget-packages"></a>Firma di pacchetti NuGet
 
@@ -29,7 +29,7 @@ A scopo di test è possibile usare l'autocertificazione. Tuttavia, i pacchetti f
 
   ![Esportazione guidata certificati](../reference/media/CertificateExportWizard.png)
 
-* È anche possibile esportare il certificato usando il [comando Export-Certificate di PowerShell](/powershell/module/pkiclient/export-certificate.md).
+* È anche possibile esportare il certificato usando il [comando Export-Certificate di PowerShell](/powershell/module/pkiclient/export-certificate).
 
 ## <a name="sign-the-package"></a>Firmare il pacchetto
 
@@ -39,8 +39,11 @@ A scopo di test è possibile usare l'autocertificazione. Tuttavia, i pacchetti f
 Firmare il pacchetto usando il comando [sign](../tools/cli-ref-sign.md) di NuGet:
 
 ```cli
-nuget sign MyPackage.nupkg -CertificateFilePath <PathToTheCertificate> -Timestamper <TimestampServiceURL>
+nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper <TimestampServiceURL>
 ```
+
+> [!Tip]
+> Il provider di certificati offre spesso anche un URL del server di timestamp che è possibile usare per l'argomento facoltativo `Timestamper` mostrato in precedenza. Consultare la documentazione e/o rivolgersi al supporto tecnico del provider per ottenere tale URL del servizio.
 
 * È possibile usare un certificato disponibile nell'archivio certificati o usare un certificato da un file. Vedere Informazioni di riferimento sull'interfaccia della riga di comando per il comando [sign](../tools/cli-ref-sign.md) di NuGet.
 * I pacchetti firmati devono includere un timestamp per assicurarsi che la firma rimanga valida dopo la scadenza del certificato di firma. In caso contrario, l'operazione di firma genera un [avviso](../reference/errors-and-warnings/NU3002.md).
@@ -67,7 +70,7 @@ A questo punto si è pronti a pubblicare il pacchetto in NuGet.org. Vedere [Pubb
 
 ## <a name="create-a-test-certificate"></a>Creare un certificato di test
 
-A scopo di test è possibile usare l'autocertificazione. Per creare un'autocertificazione, usare il [comando New-SelfSignedCertificate di PowerShell](/powershell/module/pkiclient/new-selfsignedcertificate.md).
+A scopo di test è possibile usare l'autocertificazione. Per creare un'autocertificazione, usare il [comando New-SelfSignedCertificate di PowerShell](/powershell/module/pkiclient/new-selfsignedcertificate).
 
 ```ps
 New-SelfSignedCertificate -Subject "CN=NuGet Test Developer, OU=Use for testing purposes ONLY" `
