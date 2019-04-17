@@ -44,9 +44,9 @@ in cui `<packagePath>` è il nome del percorso al pacchetto da aggiungere, e `<s
 | ConfigFile | Il file di configurazione di NuGet da applicare. Se non specificato, `%AppData%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) viene usato.|
 | Expand | Aggiunge tutti i file nel pacchetto per l'origine del pacchetto. |
 | ForceEnglishOutput | *(3.5 +)*  Forza nuget.exe affinché venga eseguito usando una cultura invariante e di lingua inglese. |
-| ? | Visualizza la Guida informazioni per il comando. |
-| Non interattive | Elimina richieste di input o conferme dell'utente. |
-| Livello di dettaglio | Specifica la quantità di dettaglio visualizzato nell'output: *normali*, *quiet*, *dettagliate*. |
+| Help | Visualizza la Guida informazioni per il comando. |
+| NonInteractive | Elimina richieste di input o conferme dell'utente. |
+| Verbosity | Specifica la quantità di dettaglio visualizzato nell'output: *normali*, *quiet*, *dettagliate*. |
 
 Vedere anche [le variabili di ambiente](cli-ref-environment-variables.md)
 
