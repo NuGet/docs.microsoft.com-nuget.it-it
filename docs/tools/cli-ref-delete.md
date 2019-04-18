@@ -30,11 +30,11 @@ in cui `<packageID>` e `<packageVersion>` identificare l'esatto del pacchetto pe
 
 | Opzione | Descrizione |
 | --- | --- |
-| Chiave API | La chiave API per il repository di destinazione. Se non è presente, viene utilizzato quello specificato nel file di configurazione. |
+| ApiKey | La chiave API per il repository di destinazione. Se non è presente, viene utilizzato quello specificato nel file di configurazione. |
 | ConfigFile | Il file di configurazione di NuGet da applicare. Se non specificato, `%AppData%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) viene usato.|
 | ForceEnglishOutput | *(3.5 +)*  Forza nuget.exe affinché venga eseguito usando una cultura invariante e di lingua inglese. |
 | Help | Visualizza la Guida informazioni per il comando. |
-| Non interattive | Elimina richieste di input o conferme dell'utente. |
+| NonInteractive | Elimina richieste di input o conferme dell'utente. |
 | Source | Specifica l'URL del server. L'URL per nuget.org è `https://api.nuget.org/v3/index.json`. Per i feed privati, sostituire il nome host, ad esempio, *%hostname%/api/v3*. |
 | Verbosity | Specifica la quantità di dettaglio visualizzato nell'output: *normali*, *quiet*, *dettagliate*. |
 
