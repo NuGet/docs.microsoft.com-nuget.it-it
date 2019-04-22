@@ -6,17 +6,17 @@ ms.author: karann
 ms.date: 10/25/2017
 ms.topic: reference
 ms.openlocfilehash: d7c943c1f13edf782dabe4afee9d19a1a42bd42a
-ms.sourcegitcommit: 9f94e00428d83aef4a7a87db679129eff7720c59
+ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58911088"
 ---
 # <a name="nugetconfig-reference"></a>riferimento di NuGet. config
 
 Il comportamento di NuGet è controllato da impostazioni in diversi file `NuGet.Config`, come descritto in [Configurazione del comportamento di NuGet](../consume-packages/configuring-nuget-behavior.md).
 
-`nuget.config` è un file XML che contiene un livello superiore `<configuration>` nodo che contiene a sua volta gli elementi di sezione descritti in questo argomento. Ogni sezione contiene zero o più elementi. Vedere il [file di configurazione di esempio](#example-config-file). Per i nomi delle impostazioni non viene fatta distinzione tra maiuscole e minuscole e per i valori si possono usare [variabili di ambiente](#using-environment-variables).
+`nuget.config` è un file XML contenente un nodo `<configuration>` di livello superiore, che contiene a sua volta gli elementi per le sezioni descritte in questo argomento. Ogni sezione contiene zero o più elementi. Vedere il [file di configurazione di esempio](#example-config-file). Per i nomi delle impostazioni non viene fatta distinzione tra maiuscole e minuscole e per i valori si possono usare [variabili di ambiente](#using-environment-variables).
 
 In questo argomento
 
@@ -221,7 +221,7 @@ Identifica le origini attualmente disabilitate. Può essere vuoto.
 
 ### <a name="activepackagesource"></a>activePackageSource
 
-*(solo versione 2.x; deprecata nella versione 3.x+)*
+*(Solo versione 2.x; deprecata nella versione 3.x+)*
 
 Identifica l'origine attualmente attiva o indica l'aggregazione di tutte le origini.
 

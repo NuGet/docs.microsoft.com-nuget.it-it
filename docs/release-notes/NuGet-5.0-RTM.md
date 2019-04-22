@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 04/02/2019
 ms.topic: conceptual
 ms.openlocfilehash: 5e48ff19ea5c4908d7eb0a3cb19a31b738e348eb
-ms.sourcegitcommit: 8793f528a11bd8e8fb229cd12e9abba50d61e104
+ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58921585"
 ---
 # <a name="nuget-50-release-notes"></a>Note sulla versione 5.0 di NuGet
@@ -18,7 +18,7 @@ Veicoli per la distribuzione di NuGet:
 
 | Versione di NuGet | Disponibile nella versione di Visual Studio| Disponibile in .NET SDK|
 |:---|:---|:---|
-| [**5.0.0**](https://nuget.org/downloads) | [Visual Studio 2019 versione 16.0](https://visualstudio.microsoft.com/downloads/) | [2.1.602](https://dotnet.microsoft.com/download/dotnet-core/2.1)<sup>1</sup>, [2.2.202](https://dotnet.microsoft.com/download/dotnet-core/2.2)<sup>2</sup> |
+| [**5.0.0**](https://nuget.org/downloads) | [Visual Studio 2019 version 16.0](https://visualstudio.microsoft.com/downloads/) | [2.1.602](https://dotnet.microsoft.com/download/dotnet-core/2.1)<sup>1</sup>, [2.2.202](https://dotnet.microsoft.com/download/dotnet-core/2.2)<sup>2</sup> |
 
 <sup>1</sup>installata con Visual Studio 2019 con carico di lavoro di .NET Core 
 
@@ -118,7 +118,7 @@ Veicoli per la distribuzione di NuGet:
 
 * dotnet-restore non riesce a causa di disabilitato macchina wide feed - [5410 #](https://github.com/NuGet/Home/issues/5410)
 
-**DCR**
+**DCRs**
 
 * Avvisa di futura rimozione di "dotnet pack file Project. JSON" - [7928 #](https://github.com/NuGet/Home/issues/7928)
  

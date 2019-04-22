@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 01/09/2018
 ms.topic: conceptual
 ms.openlocfilehash: 8f96bf289e8121fd25262fb95c2f36dfc89045c5
-ms.sourcegitcommit: 9f94e00428d83aef4a7a87db679129eff7720c59
+ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58911036"
 ---
 # <a name="nuget-client-sdk"></a>NuGet Client SDK
@@ -31,7 +31,7 @@ Il codice sorgente viene pubblicato in GitHub nel progetto [NuGet/NuGet.Client](
 
 - [Esplorare le librerie di NuGet v3, parte 1: Introduzione e concetti](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-1)
 - [Esplorare le librerie di NuGet v3, parte 2: La ricerca di pacchetti](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-2)
-- [Esplorare le librerie di NuGet v3, parte 3: Installazione di pacchetti](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-3)
+- [Esplorare le librerie di NuGet v3, parte 3: L'installazione dei pacchetti](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-3)
 
 > [!Note]
 > Questi post di blog scritti subito dopo il **3.4.3** versione di NuGet sono stati rilasciati pacchetti SDK client.

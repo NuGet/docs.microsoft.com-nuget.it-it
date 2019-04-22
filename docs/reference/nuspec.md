@@ -10,7 +10,7 @@ ms.openlocfilehash: ebb1dd929042a1fcd269d0ac50154ae6b8234be2
 ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59509101"
 ---
 # <a name="nuspec-reference"></a>Informazioni di riferimento sul file .nuspec
@@ -84,13 +84,11 @@ URL della pagina iniziale del pacchetto, spesso visualizzato nell'interfaccia ut
 
 URL della licenza del pacchetto, spesso visualizzato nell'interfaccia utente e in nuget.org.
 #### <a name="license"></a>licenza
-Espressione di licenza SPDX o percorso di un file di licenza all'interno del pacchetto, spesso visualizzato nell'interfaccia utente oltre che in nuget.org. Se ottenere la licenza del pacchetto con una licenza comune, ad esempio MIT o BSD-2-clausola, usare l'identificatore di licenza SPDX associato.<br>Ad esempio:
-`<license type="expression">MIT</license>`
+Espressione di licenza SPDX o percorso di un file di licenza all'interno del pacchetto, spesso visualizzato nell'interfaccia utente oltre che in nuget.org. Se ottenere la licenza del pacchetto con una licenza comune, ad esempio MIT o BSD-2-clausola, usare l'identificatore di licenza SPDX associato.<br>Ad esempio: `<license type="expression">MIT</license>`
 
 Ecco l'elenco completo degli [identificatori di licenza SPDX](https://spdx.org/licenses/). NuGet.org accetta solo licenze approvate OSI o FSF quando si usa un'espressione del tipo di licenza.
 
-Se il pacchetto è concesso in licenza con licenze comuni più, è possibile specificare una licenza composita tramite il [SPDX versione sintassi di espressione 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60).<br>Ad esempio:
-`<license type="expression">BSD-2-Clause OR MIT</license>`
+Se il pacchetto è concesso in licenza con licenze comuni più, è possibile specificare una licenza composita tramite il [SPDX versione sintassi di espressione 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60).<br>Ad esempio: `<license type="expression">BSD-2-Clause OR MIT</license>`
 
 Se si usa una licenza che non è stata assegnata un identificatore SPDX o è una licenza personalizzata, è possibile comprimere un file (solo `.txt` o `.md`) con il testo di licenza. Ad esempio:
 ```xml
@@ -161,7 +159,7 @@ Raccolta di zero o più elementi `<dependency>` che specificano le dipendenze pe
 #### <a name="frameworkassemblies"></a>frameworkAssemblies
 *(1.2 +)* Raccolta di zero o più elementi `<frameworkAssembly>` che identificano i riferimenti ad assembly .NET Framework richiesti dal pacchetto. Ciò assicura che i riferimenti vengano aggiunti ai progetti che utilizzano il pacchetto. Ogni frameworkAssembly include gli attributi *assemblyName* e *targetFramework*. Vedere [Riferimenti agli assembly del framework](#specifying-framework-assembly-references-gac) più avanti. |
 #### <a name="references"></a>riferimenti
-*(1.5 +)* Raccolta di zero o più elementi `<reference>` per la denominazione degli assembly nella cartella `lib` del pacchetto, aggiunti come riferimenti al progetto. Ogni riferimento include un attributo *file*. `<references>` può inoltre contenere una `<group>` elemento con un *targetFramework* attributo, che contiene a sua volta `<reference>` elementi. Se omesso, vengono inclusi tutti i riferimenti in `lib`. Vedere [Riferimenti espliciti agli assembly](#specifying-explicit-assembly-references) più avanti.
+*(1.5 +)* Raccolta di zero o più elementi `<reference>` per la denominazione degli assembly nella cartella `lib` del pacchetto, aggiunti come riferimenti al progetto. Ogni riferimento include un attributo *file*. `<references>` può anche contenere un elemento `<group>` con un attributo *targetFramework*, che contiene a sua volta elementi `<reference>`. Se omesso, vengono inclusi tutti i riferimenti in `lib`. Vedere [Riferimenti espliciti agli assembly](#specifying-explicit-assembly-references) più avanti.
 #### <a name="contentfiles"></a>contentFiles
 *(3.3 +)* Raccolta di elementi `<files>` che identificano i file di contenuto da includere nel progetto che utilizza il pacchetto. Questi file sono specificati con un set di attributi che descrivono come devono essere usati all'interno del sistema del progetto. Vedere [Inclusione di file di assembly](#specifying-files-to-include-in-the-package) più avanti.
 #### <a name="files"></a>file 
@@ -193,9 +191,9 @@ Ad eccezione di `$configuration$`, i valori nel progetto vengono usati preferenz
 | Token | Origine del valore | Value
 | --- | --- | ---
 | **$id$** | File di progetto | AssemblyName (titolo) dal file di progetto |
-| **$ $version** | AssemblyInfo | AssemblyInformationalVersion se presente, in caso contrario AssemblyVersion |
+| **$version$** | AssemblyInfo | AssemblyInformationalVersion se presente, in caso contrario AssemblyVersion |
 | **$author$** | AssemblyInfo | AssemblyCompany |
-| **$ $title** | AssemblyInfo | AssemblyTitle |
+| **$title$** | AssemblyInfo | AssemblyTitle |
 | **$description$** | AssemblyInfo | AssemblyDescription |
 | **$copyright$** | AssemblyInfo | AssemblyCopyright |
 | **$configuration$** | DLL dell'assembly | Configurazione usata per compilare l'assembly, con impostazione predefinita Debug. Si noti che per creare un pacchetto con la configurazione Rilascio, è sempre necessario usare `-properties Configuration=Release` nella riga di comando. |
@@ -259,7 +257,7 @@ Nota: Quando si crea una `.nuspec` da un progetto mediante `nuget spec`, le dipe
 
 ### <a name="dependency-groups"></a>Gruppi di dipendenze
 
-*Versione 2.0 o successive*
+*Versione 2.0+*
 
 In alternativa a un unico elenco semplice, è possibile specificare le dipendenze in base al profilo del framework del progetto di destinazione usando elementi `<group>` all'interno di `<dependencies>`.
 
@@ -500,7 +498,7 @@ Per i file di contenuto, usare semplicemente lo stesso formato usato per i file 
         content\css\mobile\wp7\style.css
         content\css\browser\style.css
 
-**File di contenuto specifico per un framework di destinazione**
+**File di contenuto specifico di un framework di destinazione**
 
     Source file:
         css\cool\style.css
@@ -524,7 +522,7 @@ In questo caso, NuGet rileva che l'estensione in `target` non corrisponde all'es
     Packaged result:
         content\images\package.icons\picture.png
 
-**File di contenuto senza estensioni**
+**File di contenuto senza estensione**
 
 Per includere i file senza estensione, usare i caratteri jolly `*` o `**`:
 
@@ -595,7 +593,7 @@ Questi file sono specificati con un set di attributi che descrivono come devono 
 | **exclude** | Elenco delimitato da punti e virgola dei file o dei modelli di file da escludere dal percorso `src`. Il carattere jolly `*` è consentito e il carattere jolly doppio `**` implica una ricerca ricorsiva nelle cartelle. |
 | **buildAction** | Azione di compilazione da assegnare all'elemento di contenuto per MSBuild, ad esempio `Content`, `None`, `Embedded Resource`, `Compile` e così via. Il valore predefinito è `Compile`. |
 | **copyToOutput** | Valore booleano che indica se copiare gli elementi di contenuto per la compilazione (o pubblicare) cartella di output. Il valore predefinito è false. |
-| **rendere flat** | Valore booleano che indica se copiare gli elementi di contenuto di una singola cartella nell'output di compilazione (true) o se mantenere la struttura di cartelle nel pacchetto (false). Questo flag funziona solo quando il flag copyToOutput è impostato su true. Il valore predefinito è false. |
+| **flatten** | Valore booleano che indica se copiare gli elementi di contenuto di una singola cartella nell'output di compilazione (true) o se mantenere la struttura di cartelle nel pacchetto (false). Questo flag funziona solo quando il flag copyToOutput è impostato su true. Il valore predefinito è false. |
 
 Quando si installa un pacchetto, NuGet applica gli elementi figlio di `<contentFiles>` dall'alto verso il basso. Se più voci corrispondono allo stesso file, vengono applicate tutte le voci. La voce di livello superiore sostituisce le voci inferiori in presenza di un conflitto per lo stesso attributo.
 
@@ -605,8 +603,8 @@ Il progetto del pacchetto deve strutturare il contenuto in base al modello segue
 
     /contentFiles/{codeLanguage}/{TxM}/{any?}
 
-- `codeLanguages` potrebbe essere `cs`, `vb`, `fs`, `any`, o equivalente minuscolo di un determinato `$(ProjectLanguage)`
-- `TxM` è qualsiasi moniker del framework di destinazione valido supportato da NuGet (vedere [Framework di destinazione](../reference/target-frameworks.md)).
+- `codeLanguages` può essere `cs`, `vb`, `fs`, `any` o l'equivalente in caratteri minuscoli di uno specifico `$(ProjectLanguage)`
+- `TxM` è qualsiasi moniker di framework di destinazione valido supportato da NuGet (vedere [Framework di destinazione](../reference/target-frameworks.md)).
 - Qualsiasi struttura di cartelle può essere aggiunta alla fine di questa sintassi.
 
 Ad esempio:
@@ -649,7 +647,7 @@ Le cartelle vuote possono usare `.` per rifiutare esplicitamente di fornire cont
 
 ## <a name="example-nuspec-files"></a>File nuspec di esempio
 
-**Un semplice `.nuspec` che non specifica dipendenze o file**
+**File `.nuspec` semplice che non specifica dipendenze o file**
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -666,7 +664,7 @@ Le cartelle vuote possono usare `.` per rifiutare esplicitamente di fornire cont
 </package>
 ```
 
-**Oggetto `.nuspec` con dipendenze**
+**File `.nuspec` con dipendenze**
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -683,7 +681,7 @@ Le cartelle vuote possono usare `.` per rifiutare esplicitamente di fornire cont
 </package>
 ```
 
-**Oggetto `.nuspec` con i file**
+**File `.nuspec` con file**
 
 ```xml
 <?xml version="1.0"?>
@@ -701,7 +699,7 @@ Le cartelle vuote possono usare `.` per rifiutare esplicitamente di fornire cont
 </package>
 ```
 
-**Oggetto `.nuspec` con assembly di framework**
+**File `.nuspec` con assembly di framework**
 
 ```xml
 <?xml version="1.0"?>

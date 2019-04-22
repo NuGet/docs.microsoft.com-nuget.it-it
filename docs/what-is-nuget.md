@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/10/2018
 ms.topic: overview
-ms.openlocfilehash: d688aecaa73cecbfee184e3b13801ed22326a852
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: 87f7494ea97a4fa65be04b2692d7b894938c3fe5
+ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580324"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59509126"
 ---
 # <a name="an-introduction-to-nuget"></a>Introduzione a NuGet
 
@@ -43,7 +43,7 @@ Gli sviluppatori di pacchetti che devono usare API al di fuori di .NET Standard,
 
 Oltre a ospitare il supporto, NuGet fornisce anche un'ampia gamma di strumenti usati da autori e consumer. Vedere [Installazione degli strumenti client di NuGet](install-nuget-client-tools.md) per istruzioni su come ottenere strumenti specifici.
 
-| Strumento | Piattaforme | Scenari possibili | Descrizione |
+| Strumento | Piattaforme | Scenari possibili | Description |
 | --- | --- | --- | --- |
 | [Interfaccia della riga di comando di nuget.exe](tools/nuget-exe-cli-reference.md) | Tutti | Creazione, utilizzo | Fornisce tutte le funzionalità di NuGet, con alcuni comandi applicabili in modo specifico agli autori dei pacchetti, altri applicabili solo ai consumer e altri ancora applicabili a entrambi. Ad esempio, gli autori dei pacchetti usano il comando `nuget pack` per creare un pacchetto da vari assembly e file correlati, i consumer dei pacchetti usano `nuget install` per includere i pacchetti in una cartella di progetto e tutti gli utenti usano `nuget config` per impostare le variabili di configurazione di NuGet. In quanto strumento indipendente dalla piattaforma, l'interfaccia della riga di comando di NuGet non interagisce con i progetti di Visual Studio. |
 | [Interfaccia della riga di comando di dotnet](tools/dotnet-Commands.md) | Tutti | Creazione, utilizzo | Fornisce determinate funzionalità dell'interfaccia della riga di comando di NuGet direttamente all'interno della toolchain di .NET Core. Come per l'interfaccia della riga di comando di NuGet, l'interfaccia della riga di comando di dotnet non interagisce con i progetti di Visual Studio. |
