@@ -39,10 +39,10 @@
 ## [NuGet.Server](hosting-packages/nuget-server.md)
 # Strumenti
 ## [Informazioni di riferimento sull'interfaccia della riga di comando di nuget.exe](tools/nuget-exe-cli-reference.md)
-### [aggiunta](tools/cli-ref-add.md)
+### [add](tools/cli-ref-add.md)
 ### [config](tools/cli-ref-config.md)
 ### [delete](tools/cli-ref-delete.md)
-### [help o ?](tools/cli-ref-help.md)
+### [help or ?](tools/cli-ref-help.md)
 ### [init](tools/cli-ref-init.md)
 ### [install](tools/cli-ref-install.md)
 ### [list](tools/cli-ref-list.md)
@@ -52,10 +52,10 @@
 ### [push](tools/cli-ref-push.md)
 ### [restore](tools/cli-ref-restore.md)
 ### [setapikey](tools/cli-ref-setapikey.md)
-### [segno](tools/cli-ref-sign.md)
+### [sign](tools/cli-ref-sign.md)
 ### [sources](tools/cli-ref-sources.md)
 ### [spec](tools/cli-ref-spec.md)
-### [aggiorna](tools/cli-ref-update.md)
+### [update](tools/cli-ref-update.md)
 ### [verify](tools/cli-ref-verify.md)
 ### [trusted-signers](tools/cli-ref-trusted-signers.md)
 ### [Variabili di ambiente](tools/cli-ref-environment-variables.md)
@@ -229,12 +229,12 @@
 ## Contenuti in archivio
 ### [Formato di gestione project.json](archive/project-json.md)
 ### [project.json e UWP](archive/project-json-and-uwp.md)
-### [Impatto di project.json](archive/project-json-impact.md)
+### [project.json impact](archive/project-json-impact.md)
 # API
 ## [Panoramica](api/overview.md)
 ## Risorse
 ### [Completamento automatico](api/search-autocomplete-service-resource.md)
-### [Catalog](api/catalog-resource.md)
+### [Catalogo](api/catalog-resource.md)
 ### [Contenuto dei pacchetti](api/package-base-address-resource.md)
 ### [URL dei dettagli dei pacchetti](api/package-details-template-resource.md)
 ### [Metadati dei pacchetti](api/registration-base-url-resource.md)
@@ -242,7 +242,7 @@
 ### [Eseguire il push dei pacchetti di simboli](api/symbol-package-publish-resource.md)
 ### [URL per segnalare abusi](api/report-abuse-resource.md)
 ### [Firme di repository](api/repository-signatures-resource.md)
-### [Cerca](api/search-query-service-resource.md)
+### [Ricerca](api/search-query-service-resource.md)
 ### [Indice dei servizi](api/service-index.md)
 ## [Procedura: Query per recuperare tutti i pacchetti tramite l'API](guides/api/query-for-all-published-packages.md)
 ## [Limiti di velocità](api/rate-limits.md)
@@ -251,7 +251,7 @@
 # Estendibilità in Visual Studio
 ## [API NuGet in Visual Studio](visual-studio-extensibility/nuget-api-in-visual-studio.md)
 ## [Supporto del sistema di progetto](visual-studio-extensibility/project-system-support.md)
-## [modelli di Visual Studio](visual-studio-extensibility/visual-studio-templates.md)
+## [Modelli di Visual Studio](visual-studio-extensibility/visual-studio-templates.md)
 # Criteri
 ## [Governance](policies/governance.md)
 ## [Ecosistema](policies/ecosystem.md)
