@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8132595cbfaf553736fbcc81aada283a44d6cdbf
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: 1e89aeb46f2538d46c013561a51a41702b2472d8
+ms.sourcegitcommit: 6b71926f062ecddb8729ef8567baf67fd269642a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324851"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59932099"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Pack e restore di NuGet come destinazioni MSBuild
 
@@ -322,7 +322,7 @@ Ad esempio:
 
 1. Lettura di tutti i riferimenti da progetto a progetto
 1. Lettura delle proprietà del progetto per trovare la cartella intermedia e i framework di destinazione
-1. Passaggio dei dati msbuild a NuGet.Build.Tasks.dll
+1. Passare i dati di MSBuild NuGet.Build.Tasks.dll
 1. Esecuzione di restore
 1. Download dei pacchetti
 1. Scrittura dei file di asset, delle destinazioni e delle proprietà
@@ -341,9 +341,14 @@ Possono esistere ulteriori impostazioni di ripristino derivate da proprietà di 
 | RestoreConfigFile | Percorso per un file `Nuget.Config` da applicare. |
 | RestoreNoCache | Se true, evita di utilizzare pacchetti memorizzati nella cache. Visualizzare [gestione dei pacchetti globali e le cartelle cache](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
 | RestoreIgnoreFailedSources | Se true, ignora le origini di pacchetti in errore o mancanti. |
+| RestoreFallbackFolders | Cartelle di fallback, usati nello stesso modo i pacchetti di utente cartella viene usata. |
+| RestoreAdditionalProjectSources | Altre origini da usare durante il ripristino. |
+| RestoreAdditionalProjectFallbackFolders | Cartelle di fallback aggiuntive da utilizzare durante il ripristino. |
+| RestoreAdditionalProjectFallbackFoldersExcludes | Esclude le cartelle di fallback specificate in `RestoreAdditionalProjectFallbackFolders` |
 | RestoreTaskAssemblyFile | Percorso di `NuGet.Build.Tasks.dll`. |
 | RestoreGraphProjectInput | Elenco delimitato da punto e virgola dei progetti da ripristinare, che deve contenere percorsi assoluti. |
-| RestoreOutputPath | Cartella di output. Per impostazione predefinita, la cartella `obj`. |
+| RestoreUseSkipNonexistentTargets  | Quando i progetti vengono raccolte tramite MSBuild determina se vengono raccolti tramite il `SkipNonexistentTargets` ottimizzazione. Se non impostato, per impostazione predefinita `true`. La conseguenza è un comportamento fail-fast quando non è possibile importare le destinazioni del progetto. |
+| MSBuildProjectExtensionsPath | Cartella di output, l'impostazione `BaseIntermediateOutputPath` e il `obj` cartella. |
 
 #### <a name="examples"></a>Esempi
 
@@ -370,6 +375,23 @@ Il ripristino crea i file seguenti nella cartella `obj` di compilazione:
 | `project.assets.json` | Contiene il grafico delle dipendenze di tutti i riferimenti ai pacchetti. |
 | `{projectName}.projectFileExtension.nuget.g.props` | Riferimenti alle proprietà di MSBuild contenute nei pacchetti |
 | `{projectName}.projectFileExtension.nuget.g.targets` | Riferimenti alle destinazioni di MSBuild contenute nei pacchetti |
+
+### <a name="restoring-and-building-with-one-msbuild-command"></a>Il ripristino e la compilazione con un comando di MSBuild
+
+Dovuto al fatto che NuGet può ripristinare i pacchetti che portano a discesa proprietà e destinazioni MSBuild, ripristino e le valutazioni di compilazione vengono eseguite con proprietà globali diverse.
+Ciò significa che l'esempio avrà un comportamento imprevedibile e spesso non corretto.
+
+```cli
+msbuild -t:restore,build
+```
+
+ L'approccio consigliato è invece:
+
+```cli
+msbuild -t:build -restore
+```
+
+La stessa logica si applica ad altre destinazioni simile a `build`.
 
 ### <a name="packagetargetfallback"></a>PackageTargetFallback
 
