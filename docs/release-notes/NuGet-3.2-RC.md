@@ -7,7 +7,7 @@ ms.date: 11/11/2016
 ms.topic: conceptual
 ms.openlocfilehash: eafdedc3ad022a6794dbeb390de87d7f317e28f1
 ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/04/2018
 ms.locfileid: "43551498"
@@ -47,7 +47,7 @@ Si tratta della prima versione del client nuget.exe che supporta i server di NuG
 
 * Comando di push non è più consente di eseguire un'operazione GET prima un'operazione PUT su un'origine pacchetto - [1237](https://github.com/NuGet/Home/issues/1237)
 * Comando Elenca non ripete non è più numeri di versione - [1185](https://github.com/NuGet/Home/issues/1185)
-* Pack argumentem-build ora correttamente supporta c# 6.0 - [1107](https://github.com/NuGet/Home/issues/1107)
+* Pack argumentem-build ora correttamente supporta C# 6.0 - [1107](https://github.com/NuGet/Home/issues/1107)
 * Corretti problemi di tentativo di compattare un progetto F # compilate con Visual Studio 2015 - [1048](https://github.com/NuGet/Home/issues/1048)
 * Ripristinare questo punto non esegue nessuna operazione quando i pacchetti sono già presenti - [1040](https://github.com/NuGet/Home/issues/1040)
 * I messaggi di errore migliorato quando `packages.config` file non è valido - [1034](https://github.com/NuGet/Home/issues/1034)
