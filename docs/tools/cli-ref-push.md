@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 125671ca3f695f82bd74f8097e590c3972003e22
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 4a9460944e2c232e2a72195434a491d26eee3559
+ms.sourcegitcommit: 3fc93f7a64be040699fe12125977dd25a7948470
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548343"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64877950"
 ---
 # <a name="push-command-nuget-cli"></a>comando push (NuGet CLI)
 
@@ -35,18 +35,18 @@ in cui `<packagePath>` identifica il pacchetto per effettuare il push nel server
 
 | Opzione | Descrizione |
 | --- | --- |
-| Chiave API | La chiave API per il repository di destinazione. Se non è presente, viene utilizzato quello specificato nel file di configurazione. |
+| ApiKey | La chiave API per il repository di destinazione. Se non è presente, viene utilizzato quello specificato nel file di configurazione. |
 | ConfigFile | Il file di configurazione di NuGet da applicare. Se non specificato, `%AppData%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) viene usato.|
 | DisableBuffering | Disabilita la memorizzazione nel buffer quando si effettua il push a un server HTTP (s) per ridurre gli utilizzi della memoria. Attenzione: quando questa opzione viene usata, l'autenticazione integrata di Windows potrebbe non funzionare. |
 | ForceEnglishOutput | *(3.5 +)*  Forza nuget.exe affinché venga eseguito usando una cultura invariante e di lingua inglese. |
-| ? | Visualizza la Guida informazioni per il comando. |
-| Non interattive | Elimina richieste di input o conferme dell'utente. |
+| Help | Visualizza la Guida informazioni per il comando. |
+| NonInteractive | Elimina richieste di input o conferme dell'utente. |
 | NoSymbols | *(3.5 +)*  Se esiste un pacchetto di simboli, non verrà inserito in un server di simboli. |
 | Origine | Specifica l'URL del server. NuGet identifica un'origine di cartella locale o UNC e copia semplicemente il file invece di eseguirne il push tramite HTTP.  Inoltre, a partire da NuGet 3.4.2, questo è un parametro obbligatorio, a meno che il `NuGet.Config` file specifica un *DefaultPushSource* valore (vedere [del comportamento di configurazione NuGet](../consume-packages/configuring-nuget-behavior.md)). |
 | SymbolSource | *(3.5 +)*  Specifica l'URL del server di simboli; nuget.smbsrc.net viene usato quando il push in nuget.org |
 | SymbolApiKey | *(3.5 +)*  Specifica la chiave API per l'URL specificato in `-SymbolSource`. |
 | Timeout | Specifica il timeout, espresso in secondi, per effettuare il push a un server. Il valore predefinito è 300 secondi (5 minuti). |
-| Livello di dettaglio | Specifica la quantità di dettaglio visualizzato nell'output: *normali*, *quiet*, *dettagliate*. |
+| Verbosity | Specifica la quantità di dettaglio visualizzato nell'output: *normali*, *quiet*, *dettagliate*. |
 
 Vedere anche [le variabili di ambiente](cli-ref-environment-variables.md)
 
@@ -67,5 +67,5 @@ nuget push foo.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a -Source https://api.nu
 
 nuget push foo.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a
 
-nuget push foo.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a -s https://customsource/
+nuget push foo.nupkg 4003d786-cc37-4004-bfdf-c4f3e8ef9b3a -src https://customsource/
 ```
