@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 150fc61e51fe10622fe6b369b60dfc61a9ac916f
-ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
+ms.openlocfilehash: 696f51905198defdbfd475ba7d010ac3e27ac557
+ms.sourcegitcommit: 3fc93f7a64be040699fe12125977dd25a7948470
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58432452"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64877948"
 ---
 # <a name="building-pre-release-packages"></a>Compilazione di versioni non definitive dei pacchetti
 
@@ -22,7 +22,7 @@ Una versione stabile è una versione considerata sufficientemente affidabile da 
 
 Per supportare il ciclo di vita di rilascio del software, NuGet 1.6 e versioni successive consentono la distribuzione di pacchetti in versione non definitiva, in cui il numero di versione include un suffisso per il controllo delle versioni semantico, ad esempio `-alpha`, `-beta` o `-rc`. Per altre informazioni, vedere [Controllo delle versioni dei pacchetti](../reference/package-versioning.md#pre-release-versions).
 
-È possibile specificare tali versioni in due modi:
+È possibile specificare tali versioni in tre modi:
 
 - File `.nuspec`: includere il suffisso di versione semantico nell'elemento `version`:
 
@@ -30,7 +30,15 @@ Per supportare il ciclo di vita di rilascio del software, NuGet 1.6 e versioni s
     <version>1.0.1-alpha</version>
     ```
 
-- Attributi dell'assembly: quando si compila un pacchetto da un progetto di Visual Studio (`.csproj` o `.vbproj`), usare `AssemblyInformationalVersionAttribute` per specificare la versione:
+- File `.csproj`: includere il suffisso di versione semantico nell'elemento `PackageVersion`:
+
+    ```xml
+    <PropertyGroup>
+        <PackageVersion>1.0.1-alpha</PackageVersion>
+    </PropertyGroup>
+    ```
+
+- Attributi dell'assembly: specificare la versione usando `AssemblyInformationalVersionAttribute`:
 
     ```cs
     [assembly: AssemblyInformationalVersion("1.0.1-beta")]
