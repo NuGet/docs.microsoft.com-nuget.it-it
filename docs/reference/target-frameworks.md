@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: c74a128c87a7700232a4fbddb73ff7c8f1984a29
-ms.sourcegitcommit: 885973352d31808e3ddbb45da6d6e54d1e4fca9d
+ms.openlocfilehash: 0b2a4fe45d0311b7540c73b481d6821357c723af
+ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56224957"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610654"
 ---
 # <a name="target-frameworks"></a>Framework di destinazione
 
@@ -32,7 +32,7 @@ In genere si fa riferimento a un framework tramite un breve moniker del framewor
 
 I client NuGet supportano i framework nella tabella seguente. Gli equivalenti sono visualizzati tra parentesi quadre []. Si noti che alcuni strumenti, ad esempio `dotnet`, potrebbero usare varianti dei moniker TFM canonici in alcuni file. Ad esempio, `dotnet pack` usa `.NETCoreApp2.0` in un file `.nuspec` invece di `netcoreapp2.0`. I vari strumenti client NuGet gestiscono queste variazioni correttamente, ma è consigliabile usare sempre i TFM canonici quando si modificano direttamente i file.
 
-| nome | Abbreviazione | TFM/TxM |
+| Nome | Abbreviazione | TFM/TxM |
 | ------------- | ------------ | --------- |
 |.NET Framework | net | net11 |
 | | | net20 |
@@ -48,6 +48,7 @@ I client NuGet supportano i framework nella tabella seguente. Gli equivalenti so
 | | | net47 |
 | | | net471 |
 | | | net472 |
+| | | net48 |
 |Microsoft Store (Windows Store) | netcore | netcore [netcore45] |
 | | | netcore45 [win, win8] |
 | | | netcore451 [win81] |
@@ -80,6 +81,7 @@ App .NET Core | netcoreapp | netcoreapp1.0 |
 | | | netcoreapp1.1 |
 | | | netcoreapp2.0 |
 | | | netcoreapp2.1 |
+| | | netcoreapp2.2 |
 Tizen | tizen | tizen3 |
 | | | tizen4 |
 
@@ -280,7 +282,7 @@ I framework aggiuntivi definiti da terze parti garantiscono la compatibilità co
 
 Inoltre, i pacchetti NuGet destinati a Xamarin possono usare framework aggiuntivi definiti da Xamarin. Vedere [Manually Creating NuGet Packages for Xamarin](https://developer.xamarin.com/guides/cross-platform/advanced/nuget/) (Creazione manuale di pacchetti NuGet per Xamarin).
 
-| nome | Descrizione | .NET Standard |
+| Nome | Descrizione | .NET Standard |
 | --- | --- | ---
 | monoandroid | Supporto di Mono per sistema operativo Android | netstandard1.4 |
 | monotouch | Supporto di Mono per iOS | netstandard1.4 |

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: ac1bf2b65ab6ec4e8cf864810181fc661236262a
-ms.sourcegitcommit: 6b71926f062ecddb8729ef8567baf67fd269642a
+ms.openlocfilehash: 9f26f75a70a996cad158fd125e86d98e10c3dac1
+ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59931982"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610631"
 ---
 # <a name="nuget-cli-environment-variables"></a>Variabili di ambiente NuGet CLI
 
@@ -33,7 +33,7 @@ L'elenco di proprietà documentate nel [NuGet pack e restore come destinazioni M
 | NUGET_HTTP_CACHE_PATH | Percorso da usare per la *http-cache* cartella come descritto in [gestione dei pacchetti globali e le cartelle cache](../consume-packages/managing-the-global-packages-and-cache-folders.md). | Specificato come percorso assoluto. |
 | NUGET_PERSIST_DG | Flag che indica se devono essere mantenuti i file di gruppo di distribuzione (i dati raccolti da MSBuild). | Specificato come *true* oppure *false* (impostazione predefinita), se non impostato NUGET_PERSIST_DG_PATH verrà archiviato in una directory temporanea (NuGetScratch cartella nella directory temp di ambiente corrente). |
 | NUGET_PERSIST_DG_PATH | Percorso per rendere persistenti i file di gruppo di distribuzione. | Specificato come percorso assoluto, questa opzione viene usata solo quando *NUGET_PERSIST_DG* è impostato su true. |
-| NUGET_RESTORE_MSBUILD_ARGS | Imposta gli argomenti MSBuild aggiuntivi. | |
+| NUGET_RESTORE_MSBUILD_ARGS | Imposta gli argomenti MSBuild aggiuntivi. | Passare gli argomenti è identico al modo in cui si sarebbe passarli MSBuild.exe. Un esempio di impostazione di una proprietà di progetto Foo dalla riga di comando alla barra di valore può essere /p:Foo = barra |
 | NUGET_RESTORE_MSBUILD_VERBOSITY | Imposta il livello di dettaglio del log di MSBuild. | Il valore predefinito è *quiet* ("/ v: q"). I valori possibili *q [uiet]*, *m [inimal]*, *n [ormal]*, *1!d [etailed]*, e *diag [nostic]*. |
 | NUGET_SHOW_STACK | Determina se l'eccezione completa (tra cui analisi dello stack) deve essere visualizzato all'utente. | Specificato come *true* oppure *false* (impostazione predefinita). |
 | NUGET_XMLDOC_MODE | Determina la modalità di gestione dell'estrazione di file di documentazione XML degli assembly. | Sono supportate le modalità *ignorare* (non estrarre i file di documentazione XML), *comprimere* (memorizzare i file con estensione doc XML come archivio zip) o *none* (valore predefinito, considerare i file con estensione doc XML come normale file). |
