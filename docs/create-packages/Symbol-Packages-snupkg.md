@@ -16,12 +16,12 @@ keywords: Pacchetti di simboli NuGet, debug dei pacchetti NuGet, supporto per il
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 43f346dc64ebbc59d02b9c7875b04205d8c5d83a
-ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
+ms.openlocfilehash: 18d54e28d77f2bdcfea70ff9ae9def05278cb26c
+ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56852442"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610564"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Creazione di pacchetti di simboli (estensione snupkg)
 
@@ -54,7 +54,7 @@ Se si usa dotnet.exe o MSBuild, è possibile usare i passaggi seguenti per crear
 
 1. Eseguire un pacchetto del progetto con `dotnet pack MyPackage.csproj` o `msbuild -t:pack MyPackage.csproj`.
 
-La proprietà `SymbolPackageFormat` può avere uno dei due valori seguenti: `symbols.nupkg` (predefinito) o `snupkg`. Se non viene specificata la proprietà `SymbolPackageFormat`, verrà impostata sul valore predefinito `symbols.nupkg` e verrà creato un pacchetto di simboli legacy.
+La proprietà [`SymbolPackageFormat`](/dotnet/core/tools/csproj.md#symbolpackageformat) può avere uno dei due valori seguenti: `symbols.nupkg` (predefinito) o `snupkg`. Se non viene specificata la proprietà [`SymbolPackageFormat`](/dotnet/core/tools/csproj.md#symbolpackageformat), verrà creato un pacchetto di simboli legacy.
 
 > [!Note]
 > Il formato legacy `.symbols.nupkg` è ancora supportato ma solo per motivi di compatibilità (vedere [Pacchetti di simboli legacy](Symbol-Packages.md)). Il server di simboli di NuGet.org accetta solo il nuovo formato di pacchetto di simboli `.snupkg`.
@@ -80,6 +80,9 @@ La proprietà `SymbolPackageFormat` può avere uno dei due valori seguenti: `sym
     ```
 
 NuGet pubblicherà entrambi i pacchetti in nuget.org. `MyPackage.nupkg` verrà pubblicato per primo, seguito da `MyPackage.snupkg`.
+
+> [!Note]
+> Se il pacchetto di simboli non viene pubblicato, verificare di aver configurato l'origine di NuGet.org come `https://api.nuget.org/v3/index.json`. La pubblicazione del pacchetto di simboli è supportata solo dall'[API NuGet V3](../api/overview.md#versioning).
 
 ## <a name="nugetorg-symbol-server"></a>Server di simboli NuGet.org
 

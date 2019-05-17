@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: c23b464ca39fd8d872f21846a7d6d34edf9dce93
-ms.sourcegitcommit: 1bd72dca2f85b4267b9924236f1d23dd7b0ed733
+ms.openlocfilehash: db968189e892723c8fd080cb01a7222696c9d3f3
+ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50088917"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610574"
 ---
 # <a name="configuring-nuget-behavior"></a>Configurazione del comportamento di NuGet
 
@@ -18,7 +18,7 @@ Il comportamento di NuGet si basa sulle impostazioni accumulate in uno o più fi
 
 ## <a name="config-file-locations-and-uses"></a>Percorsi e usi dei file di configurazione
 
-| Ambito | Percorso del file NuGet.Config | Descrizione |
+| Ambito | Percorso del file NuGet.Config | Description |
 | --- | --- | --- |
 | Progetto | Cartella corrente (ovvero la cartella di progetto) o qualsiasi cartella fino alla radice dell'unità| In una cartella di progetto le impostazioni si applicano solo a tale progetto. Nelle cartelle padre contenenti più sottocartelle di progetto, le impostazioni si applicano a tutti i progetti in tali sottocartelle. |
 | Utente | Windows: `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.config/NuGet/NuGet.Config` o `~/.nuget/NuGet/NuGet.Config` (a seconda della distribuzione del sistema operativo) | Le impostazioni si applicano a tutte le operazioni, ma ne viene eseguito l'override dalle impostazioni a livello di progetto. |
@@ -192,11 +192,11 @@ NuGet quindi carica e applica le impostazioni come segue, a seconda della posizi
 
 - **Chiamata da disk_drive_2/Project1 o disk_drive_2/Project1/Source**: prima viene caricato il file a livello di utente (A), quindi NuGet carica il file (B) dalla radice di disk_drive_2, seguito dal file (C). Le impostazioni in (C) eseguono l'override di quelle in (B) e (A), quindi i pacchetti vengono installati nel `repositoryPath` disk_drive_2/Project1/External/Packages invece che in *disk_drive_2/tmp*. Inoltre, poiché (C) cancella `<packageSources>`, nuget.org non è più disponibile come origine e rimane solo `https://MyPrivateRepo/ES/nuget`.
 
-- **Chiamata da disk_drive_2/Project2 o disk_drive_2/Project2/Source**: viene caricato prima il file a livello di utente (A) seguito dal file (B) e dal file (D). Poiché `packageSources` non viene cancellato, sia `nuget.org` che `https://MyPrivateRepo/DQ/nuget` sono disponibili come origini. I pacchetti vengono espansi in disk_drive_2/tmp, come specificato in (B).
+- **Chiamata da disk_drive_2/Project2 o disk_drive_2/Project2/Source**: prima viene caricato il file a livello di utente (A), seguito dal file (B) e dal file (D). Poiché `packageSources` non viene cancellato, sia `nuget.org` che `https://MyPrivateRepo/DQ/nuget` sono disponibili come origini. I pacchetti vengono espansi in disk_drive_2/tmp, come specificato in (B).
 
 ## <a name="nuget-defaults-file"></a>File delle impostazioni predefinite di NuGet
 
-Lo scopo del file `NuGetDefaults.Config` è quello di specificare le origini da cui i pacchetti vengono installati e aggiornati e di controllare la destinazione predefinita per la pubblicazione dei pacchetti con `nuget push`. Poiché gli amministratori possono distribuire facilmente agli sviluppatori e ai computer di compilazione (ad esempio usando i Criteri di gruppo) file `NuGetDefaults.Config` coerenti, possono assicurarsi che tutti nell'organizzazione usino le origini dei pacchetti corrette invece di nuget.org.
+Lo scopo del file `NuGetDefaults.Config` è quello di specificare le origini da cui i pacchetti vengono installati e aggiornati e di controllare la destinazione predefinita per la pubblicazione dei pacchetti con `nuget push`. Poiché gli amministratori possono distribuire facilmente file `NuGetDefaults.Config` coerenti agli sviluppatori e ai computer di compilazione (ad esempio usando Criteri di gruppo), possono assicurarsi che tutti nell'organizzazione usino le origini dei pacchetti corrette invece di nuget.org.
 
 > [!Important]
 > Il file `NuGetDefaults.Config` non causa mai la rimozione di un pacchetto dalla configurazione NuGet di uno sviluppatore. Se dunque lo sviluppatore ha già usato NuGet e quindi l'origine del pacchetto nuget.org è già registrata, non verrà rimossa dopo la creazione di un file `NuGetDefaults.Config`.
