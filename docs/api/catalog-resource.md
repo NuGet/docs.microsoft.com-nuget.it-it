@@ -6,16 +6,16 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: fd5188c92f8154391359b8da5c8a32f4d5d6f2c0
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: 4884de71151ee1ae3c0a78b803c9222f9c1d86ec
+ms.sourcegitcommit: ef08f376688f0191a8d3d873b6a4386afd799373
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453585"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266351"
 ---
 # <a name="catalog"></a>Catalog
 
-Il **catalogo** è una risorsa in cui vengono registrate tutte le operazioni di pacchetto in un'origine di pacchetto, ad esempio creazioni e delle eliminazioni. La risorsa di catalogo contiene il `Catalog` digitare il [indice del servizio](service-index.md).
+Il **catalogo** è una risorsa in cui vengono registrate tutte le operazioni di pacchetto in un'origine di pacchetto, ad esempio creazioni e delle eliminazioni. La risorsa di catalogo contiene il `Catalog` digitare il [indice del servizio](service-index.md). È possibile usare questa risorsa per [eseguire una query per tutti i pacchetti pubblicati](../guides/api/query-for-all-published-packages.md).
 
 > [!Note]
 > Poiché il catalogo non viene usato dal client NuGet ufficiale, non tutte le origini pacchetto implementano il catalogo.
@@ -27,7 +27,7 @@ Il **catalogo** è una risorsa in cui vengono registrate tutte le operazioni di 
 
 Nell'esempio `@type` valore viene usato:
 
-Valore di @type   | Note
+Valore di@type    | Note
 ------------- | -----
 Catalog/3.0.0 | La versione iniziale
 
@@ -67,10 +67,10 @@ La richiesta seguente recupera l'indice del catalogo.
 
 L'indice del catalogo è un documento JSON che contiene un oggetto con le proprietà seguenti:
 
-nome            | Tipo             | Obbligatorio | Note
+Nome            | Tipo             | Obbligatorio | Note
 --------------- | ---------------- | -------- | -----
-commitId        | stringa           | sì      | Un ID univoco associato al commit più recente
-commitTimeStamp | stringa           | sì      | Un timestamp del commit più recente
+commitId        | string           | sì      | Un ID univoco associato al commit più recente
+commitTimeStamp | string           | sì      | Un timestamp del commit più recente
 count           | numero intero          | sì      | Il numero di pagine nell'indice
 elementi           | Matrice di oggetti | sì      | Una matrice di oggetti, ogni oggetto che rappresenta una pagina
 
@@ -84,11 +84,11 @@ Man mano che gli elementi vengono aggiunti al catalogo, l'indice `commitId` camb
 
 Gli oggetti della pagina del catalogo trovati dell'indice del catalogo `items` proprietà hanno le proprietà seguenti:
 
-nome            | Tipo    | Obbligatorio | Note
+Nome            | Tipo    | Obbligatorio | Note
 --------------- | ------- | -------- | -----
-@id             | stringa  | sì      | L'URL al recupero di una pagina del catalogo
-commitId        | stringa  | sì      | Un ID univoco associato con il commit più recente in questa pagina
-commitTimeStamp | stringa  | sì      | Un timestamp del commit più recente in questa pagina
+@id             | string  | sì      | L'URL al recupero di una pagina del catalogo
+commitId        | string  | sì      | Un ID univoco associato con il commit più recente in questa pagina
+commitTimeStamp | string  | sì      | Un timestamp del commit più recente in questa pagina
 count           | numero intero | sì      | Il numero di elementi nella pagina catalogo
 
 A differenza di [risorsa dei metadati del pacchetto](registration-base-url-resource.md) che in alcuni casi inlines lascia nell'indice, elementi foglia del catalogo non è mai resa inline in corrispondenza dell'indice e deve sempre essere recuperato tramite la pagina `@id` URL.
@@ -109,13 +109,13 @@ Nella pagina dell'indice del catalogo solo con il timestamp di commit più eleva
 
 Documento di pagina del catalogo è un oggetto JSON con le proprietà seguenti:
 
-nome            | Tipo             | Obbligatorio | Note
+Nome            | Tipo             | Obbligatorio | Note
 --------------- | ---------------- | -------- | -----
-commitId        | stringa           | sì      | Un ID univoco associato con il commit più recente in questa pagina
-commitTimeStamp | stringa           | sì      | Un timestamp del commit più recente in questa pagina
+commitId        | string           | sì      | Un ID univoco associato con il commit più recente in questa pagina
+commitTimeStamp | string           | sì      | Un timestamp del commit più recente in questa pagina
 count           | numero intero          | sì      | Il numero di elementi nella pagina
 elementi           | Matrice di oggetti | sì      | Gli elementi del catalogo in questa pagina
-Elemento padre          | stringa           | sì      | Un URL per l'indice del catalogo
+Elemento padre          | string           | sì      | Un URL per l'indice del catalogo
 
 Ogni elemento di `items` matrice è un oggetto con alcuni dettagli minimi sull'elemento del catalogo. Questi oggetti elemento non contengono tutti i dati dell'elemento del catalogo. L'ordine degli elementi della pagina `items` matrice non è definita. Gli elementi possono essere ordinati dal client in memoria con relativi `commitTimeStamp` proprietà.
 
@@ -129,14 +129,14 @@ Quando vengono aggiunti elementi alla pagina, il `commitId` modifiche e `commitT
 
 Gli oggetti elemento del catalogo trovati nella pagina del catalogo `items` proprietà hanno le proprietà seguenti:
 
-nome            | Tipo    | Obbligatorio | Note
+Nome            | Tipo    | Obbligatorio | Note
 --------------- | ------- | -------- | -----
-@id             | stringa  | sì      | L'URL per recuperare l'elemento del catalogo
-@type           | stringa  | sì      | Il tipo dell'elemento del catalogo
-commitId        | stringa  | sì      | L'ID commit associato a questo elemento del catalogo
-commitTimeStamp | stringa  | sì      | Il timestamp di commit di questo elemento del catalogo
-NuGet:ID        | stringa  | sì      | L'ID del pacchetto che è correlato questo foglia
-NuGet:Version   | stringa  | sì      | La versione del pacchetto che è correlato questo foglia
+@id             | string  | sì      | L'URL per recuperare l'elemento del catalogo
+@type           | string  | sì      | Il tipo dell'elemento del catalogo
+commitId        | string  | sì      | L'ID commit associato a questo elemento del catalogo
+commitTimeStamp | string  | sì      | Il timestamp di commit di questo elemento del catalogo
+nuget:id        | string  | sì      | L'ID del pacchetto che è correlato questo foglia
+nuget:version   | string  | sì      | La versione del pacchetto che è correlato questo foglia
 
 Il `@type` valore sarà uno dei due valori seguenti:
 
@@ -159,14 +159,14 @@ La foglia del catalogo contiene i metadati relativi a un ID di pacchetto specifi
 
 Il documento foglia del catalogo è un oggetto JSON con le proprietà seguenti:
 
-nome                    | Tipo                       | Obbligatorio | Note
+Nome                    | Tipo                       | Obbligatorio | Note
 ----------------------- | -------------------------- | -------- | -----
 @type                   | stringa o matrice di stringhe | sì      | I tipi di elemento del catalogo
-catalog:commitId        | stringa                     | sì      | Un ID commit associato a questo elemento del catalogo
-catalog:commitTimeStamp | stringa                     | sì      | Il timestamp di commit di questo elemento del catalogo
-ID                      | stringa                     | sì      | L'ID del pacchetto dell'elemento del catalogo
-Pubblicato               | stringa                     | sì      | La data di pubblicazione dell'elemento del catalogo pacchetti
-version                 | stringa                     | sì      | La versione del pacchetto dell'elemento del catalogo
+catalog:commitId        | string                     | sì      | Un ID commit associato a questo elemento del catalogo
+catalog:commitTimeStamp | string                     | sì      | Il timestamp di commit di questo elemento del catalogo
+ID                      | string                     | sì      | L'ID del pacchetto dell'elemento del catalogo
+Pubblicato               | string                     | sì      | La data di pubblicazione dell'elemento del catalogo pacchetti
+version                 | string                     | sì      | La versione del pacchetto dell'elemento del catalogo
 
 ### <a name="item-types"></a>Tipi di elemento
 
@@ -190,28 +190,28 @@ I client utilizzano gli elementi del catalogo non tentare di determinare quale d
 
 Gli elementi del catalogo dei dettagli del pacchetto hanno le proprietà seguenti oltre a quelli [incluso in tutti gli elementi foglia del catalogo](#catalog-leaf).
 
-nome                    | Tipo                       | Obbligatorio | Note
+Nome                    | Tipo                       | Obbligatorio | Note
 ----------------------- | -------------------------- | -------- | -----
-authors                 | stringa                     | No       |
-created                 | stringa                     | No       | Timestamp di quando è stato creato il pacchetto. Proprietà di fallback: `published`.
+authors                 | string                     | No       |
+created                 | string                     | No       | Timestamp di quando è stato creato il pacchetto. Proprietà di fallback: `published`.
 dependencyGroups        | Matrice di oggetti           | No       | Stesso formato del [risorsa dei metadati del pacchetto](registration-base-url-resource.md#package-dependency-group)
-Descrizione             | stringa                     | No       |
-iconUrl                 | stringa                     | No       |
+Descrizione             | string                     | No       |
+iconUrl                 | string                     | No       |
 isPrerelease            | boolean                    | No       | La versione del pacchetto è o meno versione non definitiva. Possono essere rilevati da `version`.
-language                | stringa                     | No       |
-licenseUrl              | stringa                     | No       |
+language                | string                     | No       |
+licenseUrl              | string                     | No       |
 disponibili                  | boolean                    | No       | Se il pacchetto è elencato
-minClientVersion        | stringa                     | No       |
-packageHash             | stringa                     | sì      | L'hash del pacchetto, la codifica mediante [Base64 standard](https://tools.ietf.org/html/rfc4648#section-4)
-packageHashAlgorithm    | stringa                     | sì      |
+minClientVersion        | string                     | No       |
+packageHash             | string                     | sì      | L'hash del pacchetto, la codifica mediante [Base64 standard](https://tools.ietf.org/html/rfc4648#section-4)
+packageHashAlgorithm    | string                     | sì      |
 packageSize             | numero intero                    | sì      | Le dimensioni del pacchetto. nupkg pacchetto in byte
-projectUrl              | stringa                     | No       |
-releaseNotes            | stringa                     | No       |
+projectUrl              | string                     | No       |
+releaseNotes            | string                     | No       |
 requireLicenseAgreement | boolean                    | No       | Si supponga `false` se escluso
-summary                 | stringa                     | No       |
+summary                 | string                     | No       |
 tag                    | Matrice di stringhe           | No       |
-title                   | stringa                     | No       |
-verbatimVersion         | stringa                     | No       | La stringa di versione perché si trova in origine nel file con estensione nuspec
+title                   | string                     | No       |
+verbatimVersion         | string                     | No       | La stringa di versione perché si trova in origine nel file con estensione nuspec
 
 Il pacchetto `version` proprietà è la stringa di versione completo dopo la normalizzazione. Ciò significa che i dati di compilazione di SemVer 2.0.0 possono essere inclusi di seguito.
 
@@ -226,7 +226,7 @@ Il `published` timestamp è ora quando il pacchetto è stato ultima indicato.
 
 #### <a name="sample-request"></a>Richiesta di esempio
 
-OTTIENI https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
+GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
 
 #### <a name="sample-response"></a>Risposta di esempio
 
@@ -247,7 +247,7 @@ Il `published` proprietà indica il tempo quando pacchetto è stato eliminato, o
 
 #### <a name="sample-request"></a>Richiesta di esempio
 
-OTTIENI https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_lib.1.0.0-test.json
+GET https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_lib.1.0.0-test.json
 
 #### <a name="sample-response"></a>Risposta di esempio
 
