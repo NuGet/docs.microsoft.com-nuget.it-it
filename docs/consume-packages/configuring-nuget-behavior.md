@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: db968189e892723c8fd080cb01a7222696c9d3f3
-ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
+ms.openlocfilehash: 963d1d59ea7e65e3d75bc7105b8864e3e4045938
+ms.sourcegitcommit: ef08f376688f0191a8d3d873b6a4386afd799373
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610574"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266348"
 ---
 # <a name="configuring-nuget-behavior"></a>Configurazione del comportamento di NuGet
 
@@ -20,7 +20,7 @@ Il comportamento di NuGet si basa sulle impostazioni accumulate in uno o più fi
 
 | Ambito | Percorso del file NuGet.Config | Description |
 | --- | --- | --- |
-| Progetto | Cartella corrente (ovvero la cartella di progetto) o qualsiasi cartella fino alla radice dell'unità| In una cartella di progetto le impostazioni si applicano solo a tale progetto. Nelle cartelle padre contenenti più sottocartelle di progetto, le impostazioni si applicano a tutti i progetti in tali sottocartelle. |
+| Soluzione | Cartella corrente (ovvero la cartella della soluzione) o qualsiasi cartella fino alla radice dell'unità.| Nella cartella di una soluzione le impostazioni si applicano a tutti i progetti presenti nelle sottocartelle. Si noti che se un file di configurazione viene inserito in una cartella di progetto, non ha alcun effetto su tale progetto. |
 | Utente | Windows: `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.config/NuGet/NuGet.Config` o `~/.nuget/NuGet/NuGet.Config` (a seconda della distribuzione del sistema operativo) | Le impostazioni si applicano a tutte le operazioni, ma ne viene eseguito l'override dalle impostazioni a livello di progetto. |
 | Computer | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME`. Se `$XDG_DATA_HOME` è null o vuoto, verrà usato `~/.local/share` o `/usr/local/share` (a seconda della distribuzione del sistema operativo)  | Le impostazioni si applicano a tutte le operazioni sul computer, ma ne viene eseguito l'override dalle impostazioni a livello di utente o di progetto. |
 
