@@ -3,14 +3,14 @@ title: Migrazione da package per i formati PackageReference
 description: Informazioni dettagliate su come eseguire la migrazione di un progetto dal formato di gestione di package a PackageReference come supportato da NuGet 4.0 + e Visual Studio 2017 e .NET Core 2.0
 author: karann-msft
 ms.author: karann
-ms.date: 03/27/2018
+ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 05a82e48c7083a19c50a05fa1df74ebfff8030d1
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 09d132aeaf00d2a1d095b9638b455cc23de91f2c
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546686"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812885"
 ---
 # <a name="migrate-from-packagesconfig-to-packagereference"></a>Eseguire la migrazione da Packages. config a PackageReference
 
@@ -18,11 +18,11 @@ Visual Studio 2017 versione 15.7 e successive supporta la migrazione di un proge
 
 ## <a name="benefits-of-using-packagereference"></a>Vantaggi dell'uso di PackageReference
 
-* **Gestire tutte le dipendenze di progetto in un'unica posizione**: come riferimenti da progetto a progetto e riferimenti ad assembly, fa riferimento a pacchetto NuGet (usando il `PackageReference` nodo) vengono gestiti direttamente nel file di progetto anziché un oggetto separato file Packages. config.
-* **Si riempia di elementi di visualizzazione delle dipendenze di primo livello**: a differenza di Packages. config, PackageReference, vengono elencati solo i pacchetti NuGet è installato direttamente nel progetto. Di conseguenza, la UI di gestione pacchetti NuGet e il file di progetto non sono congestionate da dipendenze di livello inferiore.
-* **Miglioramenti delle prestazioni**: quando si usa PackageReference, i pacchetti vengono mantenuti nel *global-packages* cartella (come descritto in [gestione dei pacchetti globali e le cartelle cache](../consume-packages/managing-the-global-packages-and-cache-folders.md) piuttosto che in un `packages` cartella all'interno della soluzione. Di conseguenza, PackageReference eseguita più velocemente e richiede meno spazio su disco.
-* **Controllo delle dipendenze e il flusso del contenuto dettagliato**: grazie alle funzionalità esistenti di MSBuild consente [in modo condizionale fanno riferimento a un pacchetto NuGet](../consume-packages/Package-References-in-Project-Files.md#adding-a-packagereference-condition) e scegliere i riferimenti ai pacchetti per ogni framework di destinazione, configurazione, piattaforma o altri punti.
-* **PackageReference è in fase di sviluppo**: vedere [PackageReference problemi in GitHub](https://aka.ms/nuget-pr-improvements). Packages. config non è più in fase di sviluppo.
+* **Gestire tutte le dipendenze di progetto in un'unica posizione**: Proprio come i riferimenti da progetto a progetto e riferimenti ad assembly, fa riferimento a pacchetto NuGet (usando il `PackageReference` nodo) vengono gestiti direttamente nel file di progetto anziché un file Packages. config separato.
+* **Si riempia di elementi di visualizzazione delle dipendenze di primo livello**: A differenza di Packages. config, PackageReference Elenca solo i pacchetti NuGet è installato direttamente nel progetto. Di conseguenza, la UI di gestione pacchetti NuGet e il file di progetto non sono congestionate da dipendenze di livello inferiore.
+* **Miglioramenti delle prestazioni**: Quando si usa PackageReference, i pacchetti vengono mantenuti nel *global-packages* cartella (come descritto in [gestione dei pacchetti globali e delle cartelle della cache](../consume-packages/managing-the-global-packages-and-cache-folders.md) piuttosto che in un `packages` cartella all'interno di soluzione. Di conseguenza, PackageReference eseguita più velocemente e richiede meno spazio su disco.
+* **Controllo delle dipendenze e il flusso del contenuto dettagliato**: Grazie alle funzionalità esistenti di MSBuild consente [in modo condizionale fanno riferimento a un pacchetto NuGet](../consume-packages/Package-References-in-Project-Files.md#adding-a-packagereference-condition) e scegliere i riferimenti ai pacchetti per ogni framework di destinazione, configurazione, piattaforma o altri punti.
+* **PackageReference è in fase di sviluppo**: Visualizzare [PackageReference problemi in GitHub](https://aka.ms/nuget-pr-improvements). Packages. config non è più in fase di sviluppo.
 
 ### <a name="limitations"></a>Limitazioni
 
@@ -87,6 +87,10 @@ A questo punto, l'opzione di migrazione dovrebbe essere visibile. Si noti che qu
    ```ps
    update-package -reinstall
    ```
+
+## <a name="create-a-package-after-migration"></a>Creare un pacchetto dopo la migrazione
+
+Al termine della migrazione, è consigliabile aggiungere un riferimento al [nuget.build.tasks.pack](https://www.nuget.org/packages/nuget.build.tasks.pack) nuget pacchetti e quindi usare [pacchetto msbuild](../reference/msbuild-targets.md#pack-target) per creare il pacchetto. Sebbene in alcuni scenari è possibile usare `dotnet.exe pack` invece di `msbuild pack`, non è consigliabile.
 
 ## <a name="package-compatibility-issues"></a>Problemi di compatibilità dei pacchetti
 
