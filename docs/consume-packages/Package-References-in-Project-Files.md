@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: e4df15be1f29e2c611876aaa49e16ac7d1823938
-ms.sourcegitcommit: be9c51b4b095aea40ef41bbea7e12ef0a194ee74
+ms.openlocfilehash: c2dfce8de6b28aaee99e3d5ab75cd28950a8cb0f
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53248455"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812833"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Riferimenti a pacchetti (PackageReference) nei file di progetto
 
@@ -18,7 +18,11 @@ I riferimenti ai pacchetti, tramite il nodo `PackageReference`, consentono di ge
 
 Con PackageReference è anche possibile usare condizioni MSBuild per scegliere i riferimenti ai pacchetti in base a framework di destinazione, configurazione, piattaforma o altri raggruppamenti. Consente anche un controllo più capillare delle dipendenze e del flusso del contenuto. (Per altri dettagli, vedere [Pack e restore di NuGet come destinazioni MSBuild ](../reference/msbuild-targets.md).)
 
-Per impostazione predefinita, PackageReference viene usato per i progetti .NET Core, i progetti .NET Standard e i progetti UWP destinati a Windows 10 Build 15063 (Creators Update) e versioni successive, con l'eccezione dei progetti UWP C++. I progetti .NET Framework supportano PackageReference, ma usano attualmente `packages.config` per impostazione predefinita. Per usare PackageReference, eseguire la migrazione delle dipendenze da `packages.config` nel file di progetto e quindi rimuovere packages.config.
+## <a name="project-type-support"></a>Supporto dei tipi di progetto
+
+Per impostazione predefinita, PackageReference viene usato per i progetti .NET Core, i progetti .NET Standard e i progetti UWP destinati a Windows 10 Build 15063 (Creators Update) e versioni successive, con l'eccezione dei progetti UWP C++. I progetti .NET Framework supportano PackageReference, ma usano attualmente `packages.config` per impostazione predefinita. Per usare PackageReference, eseguire la [migrazione](../reference/migrate-packages-config-to-package-reference.md) delle dipendenze da `packages.config` nel file di progetto e quindi rimuovere packages.config.
+
+Le app ASP.NET destinate a .NET Framework includono solo un [supporto limitato](https://github.com/NuGet/Home/issues/5877) per PackageReference. I tipi di progetto C++ e JavaScript non sono supportati.
 
 ## <a name="adding-a-packagereference"></a>Aggiunta di PackageReference
 
@@ -103,7 +107,7 @@ I valori consentiti per questi tag sono i seguenti, con più valori separati da 
 | contentFiles | Contenuto della cartella `contentfiles` |
 | build | Proprietà e destinazioni nella cartella `build` |
 | analyzers | Analizzatori .NET |
-| native | Contenuto della cartella `native` |
+| nativi | Contenuto della cartella `native` |
 | none | Non viene usato alcuno dei valori precedenti. |
 | tutti | Tutti i valori precedenti (ad eccezione di `none`) |
 

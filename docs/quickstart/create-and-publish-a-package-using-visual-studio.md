@@ -3,14 +3,14 @@ title: Creare e pubblicare un pacchetto .NET Standard con Visual Studio in Windo
 description: Esercitazione sulla creazione e pubblicazione di un pacchetto NuGet .NET Standard con Visual Studio 2017 in Windows.
 author: karann-msft
 ms.author: karann
-ms.date: 05/18/2018
+ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: faea00372bd387aee1502e388ad1ea88de07b95d
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: d30e89473b5f00895136b75a90d8d95b7645a100
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453520"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812987"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Guida introduttiva: Creare e pubblicare un pacchetto NuGet con Visual Studio (.NET Standard, solo Windows)
 
@@ -23,9 +23,11 @@ La creazione di un pacchetto NuGet da una libreria di classi .NET Standard in Vi
 
 1. Installare qualsiasi edizione di Visual Studio 2017 da [visualstudio.com](https://www.visualstudio.com/) con qualsiasi carico di lavoro correlato a .NET. Visual Studio 2017 include automaticamente le funzionalità di NuGet quando viene installato un carico di lavoro .NET.
 
-1. Installare l'interfaccia della riga di comando `nuget.exe` scaricandola da [nuget.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe), salvare il file `.exe` in una cartella appropriata e aggiungere tale cartella alla variabile di ambiente PATH.
+1. Installare uno degli strumenti dell'interfaccia della riga di comando.
 
-    In alternativa, se è installato [.NET Core SDK](https://www.microsoft.com/net/download/), è possibile usare l'interfaccia della riga di comando `dotnet`.
+   * Per l'interfaccia della riga di comando `dotnet`, installare [.NET Core SDK](https://www.microsoft.com/net/download/). L'interfaccia della riga di comando dotnet è necessaria per i progetti .NET Standard che usano il formato in stile SDK (attributo SDK).
+
+   * Per l'interfaccia della riga di comando `nuget.exe`, scaricarla da [nuget.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe), salvare il file `.exe` in una cartella appropriata e aggiungere tale cartella alla variabile di ambiente PATH. L'interfaccia della riga di comando nuget.exe viene usata per le librerie .NET Standard in formato non in stile SDK.
 
 1. [Registrarsi per ottenere un account gratuito in nuget.org](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) se non è già disponibile. Quando si crea un nuovo account, viene inviato un messaggio di posta elettronica di conferma. È necessario confermare l'account prima di poter caricare un pacchetto.
 
@@ -112,7 +114,13 @@ Dopo aver creato un file `.nupkg`, pubblicarlo in nuget.org usando l'interfaccia
 
 [!INCLUDE [publish-api-key](includes/publish-api-key.md)]
 
-### <a name="publish-with-nuget-push"></a>Pubblicare con nuget push
+### <a name="publish-with-dotnet-nuget-push-dotnet-cli"></a>Pubblicare con dotnet nuget push (interfaccia della riga di comando dotnet)
+
+Questo passaggio è un'alternativa all'uso di `nuget.exe`.
+
+[!INCLUDE [publish-dotnet](includes/publish-dotnet.md)]
+
+### <a name="publish-with-nuget-push-nugetexe-cli"></a>Pubblicare con nuget push (interfaccia della riga di comando nuget.exe)
 
 Questo passaggio è un'alternativa all'uso di `dotnet.exe`.
 
@@ -134,12 +142,6 @@ Questo passaggio è un'alternativa all'uso di `dotnet.exe`.
     ```
 
 Vedere [nuget push](../tools/cli-ref-push.md).
-
-### <a name="publish-with-dotnet-nuget-push"></a>Pubblicare con dotnet nuget push
-
-Questo passaggio è un'alternativa all'uso di `nuget.exe`.
-
-[!INCLUDE [publish-dotnet](includes/publish-dotnet.md)]
 
 ### <a name="publish-errors"></a>Errori di pubblicazione
 

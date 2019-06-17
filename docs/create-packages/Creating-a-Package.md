@@ -3,25 +3,31 @@ title: Come creare un pacchetto NuGet
 description: Guida dettagliata al processo di progettazione e creazione di un pacchetto NuGet, incluse le principali decisioni critiche, ad esempio quelle relative ai file e al controllo delle versioni.
 author: karann-msft
 ms.author: karann
-ms.date: 12/12/2017
+ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: f0d9667b752caf7831278ac3fd63cfd67f7d34a4
-ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
+ms.openlocfilehash: 5e362673acfab4b31c8a2e02a521afd8b19d2754
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610583"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812914"
 ---
 # <a name="creating-nuget-packages"></a>Creazione di pacchetti NuGet
 
-Indipendentemente dalle operazioni eseguite dal pacchetto o dal tipo di codice contenuto, `nuget.exe` viene usato per rendere disponibili tali funzionalità in un componente condivisibile e utilizzabile da altri sviluppatori. Per installare `nuget.exe`, vedere [Installare l'interfaccia della riga di comando di NuGet](../install-nuget-client-tools.md#nugetexe-cli). Si noti che `nuget.exe` non è incluso automaticamente in Visual Studio.
+Indipendentemente dalle operazioni eseguite dal pacchetto o dal tipo di codice contenuto, è possibile usare uno degli strumenti dell'interfaccia della riga di comando, ovvero `nuget.exe` o `dotnet.exe`. per rendere disponibili tali funzionalità in un componente condivisibile e utilizzabile da altri sviluppatori. Per installare gli strumenti dell'interfaccia della riga di comando di NuGet, vedere [Installare gli strumenti client di NuGet](../install-nuget-client-tools.md). Si noti che Visual Studio non include automaticamente uno strumento dell'interfaccia della riga di comando.
+
+- Per i progetti .NET Core e .NET Standard che usano il formato in stile SDK ([Attributo Sdk](/dotnet/core/tools/csproj#additions)), e qualsiasi altro progetto in stile SDK, NuGet usa le informazioni nel file di progetto direttamente per creare un pacchetto. Per informazioni dettagliate, vedere [Creare pacchetti .NET Standard con Visual Studio 2017](../quickstart/create-and-publish-a-package-using-visual-studio.md) e [Pack e restore di NuGet come destinazioni MSBuild](../reference/msbuild-targets.md).
+
+- Per i progetti non in stile SDK, seguire la procedura descritta in questo articolo per creare un pacchetto.
+
+- Per i progetti migrati da `packages.config` a [PackageReference](../consume-packages/package-references-in-project-files.md), usare [msbuild -t:pack](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
 
 Da un punto di vista tecnico, un pacchetto NuGet è solo un file ZIP rinominato con l'estensione `.nupkg` e i cui contenuti rispettano determinate convenzioni. Questo argomento descrive il processo dettagliato di creazione di un pacchetto che soddisfa tali convenzioni. Per una procedura dettagliata specifica, vedere [Guida introduttiva: Creare e pubblicare un pacchetto](../quickstart/create-and-publish-a-package.md).
 
 La creazione di un pacchetto inizia con il codice compilato (assembly), i simboli e/o altri file che si vuole distribuire come pacchetto. Vedere [Panoramica e flusso di lavoro](overview-and-workflow.md). Questo processo è indipendente dalla compilazione o comunque dalla generazione dei file inseriti nel pacchetto, anche se è possibile usare le informazioni contenute in un file di progetto per mantenere sincronizzati i pacchetti e gli assembly compilati.
 
 > [!Note]
-> Questo argomento si applica a tipi di progetto diversi dai progetti .NET Core, che usano Visual Studio 2017 e NuGet 4.0+. In questi progetti .NET Core, NuGet usa direttamente le informazioni contenute nel file di progetto. Per informazioni dettagliate, vedere [Creare pacchetti .NET Standard con Visual Studio 2017](../guides/create-net-standard-packages-vs2017.md) e [Pack e restore di NuGet come destinazioni MSBuild](../reference/msbuild-targets.md).
+> Questo argomento si applica ai progetti non in stile SDK, in genere progetti diversi dai progetti .NET Core e .NET Standard che usano Visual Studio 2017 e NuGet 4.0+.
 
 ## <a name="deciding-which-assemblies-to-package"></a>Scelta degli assembly per cui creare un pacchetto
 

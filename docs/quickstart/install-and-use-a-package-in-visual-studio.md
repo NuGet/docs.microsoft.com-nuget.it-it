@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: 15268ae33d56042a765420e5076dac49db6cce04
-ms.sourcegitcommit: 1591bb230e106b94162a87dd1d86fe427366730a
+ms.openlocfilehash: 8cfb7bd31c37847d83ffe31f11ba61eadc717eb8
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52671175"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812904"
 ---
 # <a name="quickstart-install-and-use-a-package-in-visual-studio"></a>Guida introduttiva: Installare e usare un pacchetto in Visual Studio
 
@@ -28,11 +28,13 @@ Al termine dell'installazione, fare riferimento al pacchetto nel codice con `usi
 
 È possibile installare l'edizione 2017 Community gratuitamente da [visualstudio.com](https://www.visualstudio.com/) o usare le edizioni Professional o Enterprise.
 
+Se si usa Visual Studio per Mac, vedere [Inserimento di un pacchetto NuGet nel progetto](/visualstudio/mac/nuget-walkthrough).
+
 ## <a name="create-a-project"></a>Creare un progetto
 
 I pacchetti NuGet possono essere installati in qualsiasi progetto .NET, a condizione che il pacchetto supporti lo stesso framework di destinazione del progetto.
 
-Per questa procedura dettagliata viene usata una semplice app di Windows universale (UWP). Creare un progetto in Visual Studio scegliendo **File > Nuovo progetto** e selezionando **Universale di Windows > App vuota (Windows universale)**. Accettare i valori predefiniti per Versione di destinazione e Versione minima quando richiesto.
+Per questa procedura dettagliata viene usata una semplice app di Windows universale (UWP). Creare un progetto in Visual Studio scegliendo **File > Nuovo progetto** e selezionando **Universale di Windows > App vuota (Windows universale)** . Accettare i valori predefiniti per Versione di destinazione e Versione minima quando richiesto.
 
 ## <a name="add-the-newtonsoftjson-nuget-package"></a>Aggiungere il pacchetto NuGet Newtonsoft.Json
 

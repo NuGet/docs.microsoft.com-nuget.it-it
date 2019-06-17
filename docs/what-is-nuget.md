@@ -3,14 +3,14 @@ title: Che cos'è NuGet e cosa fa?
 description: Un'introduzione completa a che cos'è NuGet e cosa fa.
 author: karann-msft
 ms.author: karann
-ms.date: 01/10/2018
+ms.date: 05/24/2019
 ms.topic: overview
-ms.openlocfilehash: 87f7494ea97a4fa65be04b2692d7b894938c3fe5
-ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
+ms.openlocfilehash: 4ab87f072bdace9dd18cecc4100de52b3547136d
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59509126"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66813003"
 ---
 # <a name="an-introduction-to-nuget"></a>Introduzione a NuGet
 
@@ -45,8 +45,8 @@ Oltre a ospitare il supporto, NuGet fornisce anche un'ampia gamma di strumenti u
 
 | Strumento | Piattaforme | Scenari possibili | Description |
 | --- | --- | --- | --- |
-| [Interfaccia della riga di comando di nuget.exe](tools/nuget-exe-cli-reference.md) | Tutti | Creazione, utilizzo | Fornisce tutte le funzionalità di NuGet, con alcuni comandi applicabili in modo specifico agli autori dei pacchetti, altri applicabili solo ai consumer e altri ancora applicabili a entrambi. Ad esempio, gli autori dei pacchetti usano il comando `nuget pack` per creare un pacchetto da vari assembly e file correlati, i consumer dei pacchetti usano `nuget install` per includere i pacchetti in una cartella di progetto e tutti gli utenti usano `nuget config` per impostare le variabili di configurazione di NuGet. In quanto strumento indipendente dalla piattaforma, l'interfaccia della riga di comando di NuGet non interagisce con i progetti di Visual Studio. |
-| [Interfaccia della riga di comando di dotnet](tools/dotnet-Commands.md) | Tutti | Creazione, utilizzo | Fornisce determinate funzionalità dell'interfaccia della riga di comando di NuGet direttamente all'interno della toolchain di .NET Core. Come per l'interfaccia della riga di comando di NuGet, l'interfaccia della riga di comando di dotnet non interagisce con i progetti di Visual Studio. |
+| [Interfaccia della riga di comando di dotnet](tools/dotnet-Commands.md) | Tutti | Creazione, utilizzo | Strumento della riga di comando per librerie .NET Core e .NET Standard e per progetti in stile SDK destinati a .NET Framework (vedere [Attributo Sdk](/dotnet/core/tools/csproj#additions)). Fornisce determinate funzionalità dell'interfaccia della riga di comando di NuGet direttamente all'interno della toolchain di .NET Core. Come per l'interfaccia della riga di comando di NuGet, l'interfaccia della riga di comando di dotnet non interagisce con i progetti di Visual Studio. |
+| [Interfaccia della riga di comando di nuget.exe](tools/nuget-exe-cli-reference.md) | Tutti | Creazione, utilizzo | Strumento della riga di comando per librerie .NET Framework e per i progetti non in stile SDK destinati alle librerie .NET Standard. Fornisce tutte le funzionalità di NuGet, con alcuni comandi applicabili in modo specifico agli autori dei pacchetti, altri applicabili solo ai consumer e altri ancora applicabili a entrambi. Ad esempio, gli autori dei pacchetti usano il comando `nuget pack` per creare un pacchetto da vari assembly e file correlati, i consumer dei pacchetti usano `nuget install` per includere i pacchetti in una cartella di progetto e tutti gli utenti usano `nuget config` per impostare le variabili di configurazione di NuGet. In quanto strumento indipendente dalla piattaforma, l'interfaccia della riga di comando di NuGet non interagisce con i progetti di Visual Studio. |
 | [Console di Gestione pacchetti](tools/package-manager-console.md) | Visual Studio su Windows | Utilizzo | Fornisce i [comandi di PowerShell](tools/Powershell-Reference.md) per l'installazione e la gestione dei pacchetti nei progetti Visual Studio. |
 | [Interfaccia utente di Gestione pacchetti](tools/package-manager-ui.md) | Visual Studio su Windows | Utilizzo | Fornisce un'interfaccia utente di facile utilizzo per l'installazione e la gestione dei pacchetti nei progetti Visual Studio. |
 | [Interfaccia utente di Gestisci pacchetti NuGet](/visualstudio/mac/nuget-walkthrough) | Visual Studio per Mac | Utilizzo | Fornisce un'interfaccia utente di semplice utilizzo per l'installazione e la gestione dei pacchetti nei progetti di Visual Studio per Mac. |
@@ -82,9 +82,9 @@ Il computer che riceve un progetto, ad esempio un server di compilazione che ott
 
 Chiaramente, quindi, il ruolo primario di NuGet in cui gli sviluppatori sono coinvolti è la gestione di tale elenco di riferimenti per conto del progetto e la disponibilità di strumenti per ripristinare (e aggiornare) in modo efficiente tali pacchetti con riferimenti. Questo elenco viene mantenuto in uno di due *formati di gestione dei pacchetti*:
 
-- [`packages.config`](reference/packages-config.md): *(NuGet 1.0+)* File XML che gestisce un elenco completo di tutte le dipendenze nel progetto, incluse le dipendenze di altri pacchetti installati. I pacchetti installati o ripristinati vengono archiviati in una cartella `packages`.
-
 - [PackageReference](consume-packages/package-references-in-project-files.md) (o "riferimenti ai pacchetti nei file di progetto") | *(NuGet 4.0+)* Gestisce un elenco di dipendenze di livello superiore di un progetto direttamente all'interno del file di progetto, pertanto non occorre un file separato. Un file associato, `obj/project.assets.json`, viene generato dinamicamente per gestire il grafico delle dipendenze complessive dei pacchetti usati da un progetto insieme a tutte le dipendenze di livello inferiore. PackageReference viene sempre usato dai progetti .NET Core.
+
+- [`packages.config`](reference/packages-config.md): *(NuGet 1.0+)* File XML che gestisce un elenco completo di tutte le dipendenze nel progetto, incluse le dipendenze di altri pacchetti installati. I pacchetti installati o ripristinati vengono archiviati in una cartella `packages`.
 
 Il formato di gestione dei pacchetti usato in un determinato progetto dipende dal tipo di progetto e dalla versione di NuGet (e/o Visual Studio) disponibile. Per verificare il formato in uso, è sufficiente cercare `packages.config` nella radice del progetto dopo l'installazione del primo pacchetto. Se tale file non è disponibile, cercare direttamente un elemento \<PackageReference\> nel file di progetto.
 
