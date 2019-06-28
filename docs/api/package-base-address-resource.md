@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 740defc34077793b81fb35db73a2eee393ae3bac
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 2f0f93e0cee78ea03cbd53194cdc2a10871fd7e1
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547154"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426757"
 ---
 # <a name="package-content"></a>Contenuto del pacchetto
 
@@ -23,7 +23,7 @@ Questa risorsa è noto come entrambi il "pacchetto base address" o il contenitor
 
 Nell'esempio `@type` valore viene usato:
 
-Valore di @type              | Note
+Valore di@type              | Note
 ------------------------ | -----
 PackageBaseAddress/3.0.0 | La versione iniziale
 
@@ -46,9 +46,9 @@ Se il client riconosce un ID pacchetto e vuole scoprire quali versioni dei pacch
 
 ### <a name="request-parameters"></a>Parametri della richiesta
 
-nome     | In     | Tipo    | Obbligatorio | Note
+Nome     | In     | Tipo    | Obbligatorio | Note
 -------- | ------ | ------- | -------- | -----
-LOWER_ID | URL    | stringa  | sì      | L'ID del pacchetto, lettere minuscole
+LOWER_ID | URL    | string  | sì      | L'ID del pacchetto, lettere minuscole
 
 Il `LOWER_ID` valore è l'ID pacchetto desiderato minuscola usando le regole implementate da. Di NET [ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) (metodo).
 
@@ -58,7 +58,7 @@ Se l'origine del pacchetto non ci è versioni dell'ID del pacchetto fornito, vie
 
 Se l'origine del pacchetto ha una o più versioni, viene restituito un codice di 200 stato. Il corpo della risposta è un oggetto JSON con la proprietà seguente:
 
-nome     | Tipo             | Obbligatorio | Note
+Nome     | Tipo             | Obbligatorio | Note
 -------- | ---------------- | -------- | -----
 versioni | Matrice di stringhe | sì      | L'ID pacchetto
 
@@ -82,10 +82,10 @@ Se il client sa un ID pacchetto e versione e si vuole scaricare il contenuto del
 
 ### <a name="request-parameters"></a>Parametri della richiesta
 
-nome          | In     | Tipo   | Obbligatorio | Note
+Nome          | In     | Tipo   | Obbligatorio | Note
 ------------- | ------ | ------ | -------- | -----
-LOWER_ID      | URL    | stringa | sì      | L'ID del pacchetto, lettere minuscole
-LOWER_VERSION | URL    | stringa | sì      | La versione del pacchetto, normalizzate e minuscola
+LOWER_ID      | URL    | string | sì      | L'ID del pacchetto, lettere minuscole
+LOWER_VERSION | URL    | string | sì      | La versione del pacchetto, normalizzate e minuscola
 
 Entrambe `LOWER_ID` e `LOWER_VERSION` sono minuscole usando le regole implementate da. Di NET [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant)
 ProcessOnStatus.
@@ -114,10 +114,10 @@ Se il client sa un ID pacchetto e versione e si vuole scaricare il manifesto del
 
 ### <a name="request-parameters"></a>Parametri della richiesta
 
-nome          | In     | Tipo    | Obbligatorio | Note
-------------- | ------ | ------- | -------- | -----
-LOWER_ID      | URL    | stringa  | sì      | L'ID del pacchetto, lettere minuscole
-LOWER_VERSION | URL    | numero intero | sì      | La versione del pacchetto, normalizzate e minuscola
+Nome          | In     | Tipo   | Obbligatorio | Note
+------------- | ------ | ------ | -------- | -----
+LOWER_ID      | URL    | string | sì      | L'ID del pacchetto, lettere minuscole
+LOWER_VERSION | URL    | string | sì      | La versione del pacchetto, normalizzate e minuscola
 
 Entrambe `LOWER_ID` e `LOWER_VERSION` sono minuscole usando le regole implementate da. Di NET [ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) (metodo).
 

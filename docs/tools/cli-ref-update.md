@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: ded9b571324d810c2f0e1a46ea76375a28940406
-ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
+ms.openlocfilehash: a242d02a54fd86899cbe274ab63538b53307c1bb
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56145605"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425911"
 ---
 # <a name="update-command-nuget-cli"></a>Comando update (interfaccia della riga di comando di NuGet)
 
@@ -39,7 +39,7 @@ in cui `<configPath>` identifica uno un `packages.config` o file di soluzione ch
 | ConfigFile | Il file di configurazione di NuGet da applicare. Se non specificato, `%AppData%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) viene usato.|
 | FileConflictAction | Specifica l'azione da intraprendere quando viene richiesto di sovrascrivere o ignorare i file esistenti farvi riferimento il progetto. I valori sono *sovrascrivere, ignorare, Nessuno*. |
 | ForceEnglishOutput | *(3.5 +)*  Forza nuget.exe affinché venga eseguito usando una cultura invariante e di lingua inglese. |
-| ? | Visualizza la Guida informazioni per il comando. |
+| Help | Visualizza la Guida informazioni per il comando. |
 | Id | Specifica un elenco di ID per l'aggiornamento del pacchetto. |
 | MSBuildPath | *(4.0 +)*  Specifica il percorso di MSBuild da usare con il comando, hanno la precedenza sui `-MSBuildVersion`. |
 | MSBuildVersion | *(3.2 +)*  Specifica la versione di MSBuild da usare con questo comando. Valori supportati sono 4, 12, 14, 15.1, versione 15.3, versione 15.4, 15.5, 15.6, 15.7, 15.8, 15.9. Per impostazione predefinita che viene selezionato nel proprio percorso di MSBuild, in caso contrario, per impostazione predefinita la versione installata più recente di MSBuild. |
@@ -48,8 +48,8 @@ in cui `<configPath>` identifica uno un `packages.config` o file di soluzione ch
 | RepositoryPath | Specifica la cartella locale in cui sono installati i pacchetti. |
 | Safe | Specifica che vengono aggiornati solo con la versione più recente disponibile all'interno della stessa versione principale e secondaria come verrà installato il pacchetto installato. |
 | self | Aggiorna nuget.exe alla versione più recente; tutti gli altri argomenti vengono ignorati. |
-| Origine | Specifica l'elenco delle origini dei pacchetti (sotto forma di URL) da usare per gli aggiornamenti. Se omesso, il comando Usa le origini fornite nei file di configurazione, vedere [comportamento di configurazione NuGet](../consume-packages/configuring-nuget-behavior.md). |
-| Livello di dettaglio | Specifica la quantità di dettaglio visualizzato nell'output: *normali*, *quiet*, *dettagliate*. |
+| Origine | Specifica l'elenco delle origini dei pacchetti (sotto forma di URL) da usare per gli aggiornamenti. Se omesso, il comando Usa le origini fornite nei file di configurazione, vedere [configurazioni comuni per NuGet](../consume-packages/configuring-nuget-behavior.md). |
+| Verbosity | Specifica la quantità di dettaglio visualizzato nell'output: *normali*, *quiet*, *dettagliate*. |
 | Versione | Se usato con un ID di pacchetto, specifica la versione del pacchetto da aggiornare. |
 
 Vedere anche [le variabili di ambiente](cli-ref-environment-variables.md)

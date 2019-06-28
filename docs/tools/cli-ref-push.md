@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: bce04864224a66019a52cdfff8355f68dc424204
-ms.sourcegitcommit: 69b5eb1494a1745a4b1a7f320a91255d5d8356a9
+ms.openlocfilehash: b4f73e2b816d8a93e123d6de83ad0a15fbb24d18
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65974996"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425925"
 ---
 # <a name="push-command-nuget-cli"></a>comando push (NuGet CLI)
 
@@ -21,7 +21,7 @@ ms.locfileid: "65974996"
 
 Effettua il push di un pacchetto a un'origine di pacchetto e lo pubblica.
 
-Configurazione predefinita di NuGet si ottiene caricando `%AppData%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Mac/Linux), quindi caricando qualsiasi `Nuget.Config` oppure `.nuget\Nuget.Config` file a partire dalla radice dell'unità e di fine nella directory corrente (vedere [configurazione Comportamento di NuGet](../consume-packages/configuring-nuget-behavior.md))
+Configurazione predefinita di NuGet si ottiene caricando `%AppData%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Mac/Linux), quindi caricando qualsiasi `Nuget.Config` oppure `.nuget\Nuget.Config` file a partire dalla radice dell'unità e di fine nella directory corrente (vedere [comuni per NuGet le configurazioni](../consume-packages/configuring-nuget-behavior.md))
 
 ## <a name="usage"></a>Utilizzo
 
@@ -43,7 +43,7 @@ in cui `<packagePath>` identifica il pacchetto per effettuare il push nel server
 | NonInteractive | Elimina richieste di input o conferme dell'utente. |
 | NoSymbols | *(3.5 +)*  Se esiste un pacchetto di simboli, non verrà inserito in un server di simboli. |
 | Origine | Specifica l'URL del server. NuGet identifica un'origine di cartella locale o UNC e copia semplicemente il file invece di eseguirne il push tramite HTTP.  Inoltre, a partire da NuGet 3.4.2, questo è un parametro obbligatorio, a meno che il `NuGet.Config` file specifica un *DefaultPushSource* valore (vedere [del comportamento di configurazione NuGet](../consume-packages/configuring-nuget-behavior.md)). |
-| SkipDuplicate | Se esiste già un pacchetto e versione, ignorarlo e continuare con il pacchetto successivo nel push, se presente. |
+| SkipDuplicate | *(5.1 e successive)*  Se esiste già un pacchetto e versione, ignorarlo e continuare con il pacchetto successivo nel push, se presente. |
 | SymbolSource | *(3.5 +)*  Specifica l'URL del server di simboli; nuget.smbsrc.net viene usato quando il push in nuget.org |
 | SymbolApiKey | *(3.5 +)*  Specifica la chiave API per l'URL specificato in `-SymbolSource`. |
 | Timeout | Specifica il timeout, espresso in secondi, per effettuare il push a un server. Il valore predefinito è 300 secondi (5 minuti). |

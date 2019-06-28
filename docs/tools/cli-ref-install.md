@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 8261cdb83af72d9d9379124f4c446c7cd2a50299
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 8088c6dcb7d453650950c219e1cc4dd047a64417
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549136"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425989"
 ---
 # <a name="install-command-nuget-cli"></a>Comando install (interfaccia della riga di comando di NuGet)
 
@@ -21,7 +21,7 @@ Scarica e installa un pacchetto in un progetto, utilizzando per impostazione pre
 > [!Tip]
 > Per scaricare il pacchetto direttamente all'esterno del contesto di un progetto, visitare la pagina del pacchetto su [nuget.org](https://www.nuget.org) e selezionare il **scaricare** collegamento.
 
-Se non sono specificate origini, quelli elencati nel file di configurazione globali `%appdata%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Mac/Linux), vengono usati. Visualizzare [comportamento di configurazione NuGet](../consume-packages/configuring-nuget-behavior.md) per altri dettagli.
+Se non sono specificate origini, quelli elencati nel file di configurazione globali `%appdata%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Mac/Linux), vengono usati. Visualizzare [configurazioni comuni per NuGet](../consume-packages/configuring-nuget-behavior.md) per altri dettagli.
 
 Se non ci sono pacchetti specifici vengono specificati, `install` installa tutti i pacchetti elencati del progetto `packages.config` file, rendendola simile [ `restore` ](cli-ref-restore.md).
 
@@ -50,14 +50,14 @@ in cui `<packageID>` denomina il pacchetto di installazione (usando la versione 
 | Framework | *(4.4 +)*  Framework di destinazione usato per la selezione di dipendenze. Il valore predefinito è 'Any' Se non specificato. |
 | ? | Visualizza la Guida informazioni per il comando. |
 | NoCache | Impedisce l'uso di pacchetti memorizzati nella cache NuGet. Visualizzare [gestione dei pacchetti globali e le cartelle cache](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
-| Non interattive | Elimina richieste di input o conferme dell'utente. |
+| NonInteractive | Elimina richieste di input o conferme dell'utente. |
 | OutputDirectory | Specifica la cartella in cui sono installati i pacchetti. Se si specifica alcuna cartella, viene utilizzata la cartella corrente. |
 | PackageSaveMode | Specifica i tipi di file da salvare dopo l'installazione del pacchetto: uno dei `nuspec`, `nupkg`, o `nuspec;nupkg`. |
 | Versione preliminare | Consente a pacchetti versione non definitivo da installare. Questo flag non è obbligatorio quando il ripristino dei pacchetti con `packages.config`. |
 | RequireConsent | Verifica che il ripristino dei pacchetti sia abilitato prima di scaricare e installare i pacchetti. Per informazioni dettagliate, vedere [ripristino dei pacchetti](../consume-packages/package-restore.md). |
 | SolutionDirectory | Specifica la cartella radice della soluzione per cui si desidera ripristinare i pacchetti. |
-| Origine | Specifica l'elenco delle origini dei pacchetti (sotto forma di URL) per l'uso. Se omesso, il comando Usa le origini fornite nei file di configurazione, vedere [comportamento di configurazione NuGet](../consume-packages/configuring-nuget-behavior.md). |
-| Livello di dettaglio | Specifica la quantità di dettaglio visualizzato nell'output: *normali*, *quiet*, *dettagliate*. |
+| Origine | Specifica l'elenco delle origini dei pacchetti (sotto forma di URL) per l'uso. Se omesso, il comando Usa le origini fornite nei file di configurazione, vedere [configurazioni comuni per NuGet](../consume-packages/configuring-nuget-behavior.md). |
+| Verbosity | Specifica la quantità di dettaglio visualizzato nell'output: *normali*, *quiet*, *dettagliate*. |
 | Versione | Specifica la versione del pacchetto da installare. |
 
 Vedere anche [le variabili di ambiente](cli-ref-environment-variables.md)

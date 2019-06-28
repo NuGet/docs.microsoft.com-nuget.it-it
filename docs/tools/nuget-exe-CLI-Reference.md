@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: reference
-ms.openlocfilehash: 2743dde63487124c706f2b1521ef2c6c3b28339d
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: a257dbbd9d56b5989e050ed4096d096cd1036184
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548078"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426014"
 ---
 # <a name="nuget-cli-reference"></a>Riferimento di NuGet CLI
 
@@ -19,6 +19,8 @@ NuGet interfaccia della riga di comando (CLI), `nuget.exe`, fornisce l'ambito co
 Per utilizzare qualsiasi comando, aprire una finestra di comando o bash shell, quindi eseguire `nuget` seguito dal comando e opzioni appropriate, ad esempio `nuget help pack` (per visualizzare la Guida sul comando pack).
 
 Questa documentazione riflette la versione più recente di NuGet CLI. Per informazioni dettagliate esatte per qualsiasi versione in uso, eseguire `nuget help` per il comando desiderato.
+
+Per informazioni su come usare i comandi di base con il `nuget.exe` CLI, vedere [installare e usare pacchetti tramite la CLI di nuget.exe](../consume-packages/install-use-packages-nuget-cli.md).
 
 ## <a name="installing-nugetexe"></a>Installazione nuget.exe
 
@@ -57,7 +59,7 @@ I comandi disponibili e l'applicabilità alla creazione del pacchetto, l'utilizz
 | [init](cli-ref-init.md) | Creazione | 3.3+ | Consente di aggiungere pacchetti da una cartella a un'origine pacchetto tramite layout organizzato gerarchicamente. |
 | [install](cli-ref-install.md) | Utilizzo | Tutti | Installa un pacchetto in corrente in un progetto, ma non modifica i progetti o fare riferimento ai file. |
 | [list](cli-ref-list.md) | Utilizzo, ad esempio la pubblicazione | Tutti | Consente di visualizzare i pacchetti da un'origine specificata. |
-| [mirror](cli-ref-mirror.md) | Pubblicazione | 3.2 + deprecato in | Riflette un pacchetto e le relative dipendenze da un'origine a un repository di destinazione. |
+| [mirror](cli-ref-mirror.md) | Pubblicazione | 3\.2 + deprecato in | Riflette un pacchetto e le relative dipendenze da un'origine a un repository di destinazione. |
 | [sources](cli-ref-sources.md) | Il consumo, pubblicazione | Tutti | Gestisce le origini di pacchetti nei file di configurazione. |
 | [update](cli-ref-update.md) | Utilizzo | Tutti | Aggiorna pacchetti del progetto per le versioni più recenti disponibili. Non è supportato durante l'esecuzione in Mono. |
 

@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 6c545ddeddb0c5909f57e879912eaeed744e42d5
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: e4c57c0580fe9018703291c08d60e559f95183dc
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812934"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426197"
 ---
 # <a name="nuspec-reference"></a>Informazioni di riferimento sul file .nuspec
 
@@ -85,7 +85,7 @@ Elenco con valori delimitati da virgola di autori di pacchetti, corrispondenti a
 #### <a name="title"></a>title
 Titolo del pacchetto facilmente comprensibile per l'utente, usato di solito per la visualizzazione dell'interfaccia utente, ad esempio in nuget.org e in Gestione pacchetti in Visual Studio. Se non specificato, viene usato l'ID del pacchetto. 
 #### <a name="owners"></a>owners
-Elenco con valori delimitati da virgola di autori di pacchetti, corrispondenti ai nomi di profili in nuget.org. Si tratta spesso dello stesso elenco in `authors` e viene ignorato durante il caricamento del pacchetto in nuget.org. Vedere [Gestione dei proprietari dei pacchetti in nuget.org](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg). 
+Elenco con valori delimitati da virgola di autori di pacchetti, corrispondenti ai nomi di profili in nuget.org. Si tratta spesso dello stesso elenco in `authors` e viene ignorato durante il caricamento del pacchetto in nuget.org. Vedere [Gestione dei proprietari dei pacchetti in nuget.org](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg). 
 #### <a name="projecturl"></a>projectUrl
 URL della pagina iniziale del pacchetto, spesso visualizzato nell'interfaccia utente e in nuget.org. 
 #### <a name="licenseurl"></a>licenseUrl
@@ -300,7 +300,7 @@ L'esempio seguente mostra variazioni diverse dell'elemento `<group>`:
 
 ## <a name="explicit-assembly-references"></a>Riferimenti espliciti agli assembly
 
-L'elemento `<references>` specifica in modo esplicito gli assembly a cui deve fare riferimento il progetto di destinazione quando usa il pacchetto. Quando questo elemento è presente, NuGet aggiunge riferimenti solo agli assembly solo elencati e non aggiunge alcun riferimento per eventuali altri assembly nella cartella `lib` del pacchetto.
+Il `<references>` elemento viene usato dai progetti che usano `packages.config` specificare in modo esplicito gli assembly che deve fare riferimento a progetto di destinazione quando si usa il pacchetto. I riferimenti espliciti vengono generalmente usati per gli assembly solo della fase di progettazione. Per altre informazioni, vedere la pagina sul [selezionando gli assembly cui viene fatto riferimento dai progetti](../create-packages/select-assemblies-referenced-by-projects.md) per altre informazioni.
 
 Ad esempio, l'elemento `<references>` seguente indica a NuGet di aggiungere riferimenti solo a `xunit.dll` e a `xunit.extensions.dll` anche se sono presenti altri assembly nel pacchetto:
 
@@ -310,10 +310,6 @@ Ad esempio, l'elemento `<references>` seguente indica a NuGet di aggiungere rife
     <reference file="xunit.extensions.dll" />
 </references>
 ```
-
-I riferimenti espliciti vengono generalmente usati per gli assembly solo della fase di progettazione. Quando si usano [contratti di codice](/dotnet/framework/debug-trace-profile/code-contracts), ad esempio, gli assembly del contratto devono essere in prossimità degli assembly di runtime che estendono, in modo che Visual Studio possa trovarli, ma non è necessario che il progetto faccia riferimento agli assembly di contratto oppure che vengano copiati nella cartella `bin` del progetto.
-
-In modo analogo, si possono usare riferimenti espliciti per i framework di unit test, ad esempio XUnit, che richiedono che gli assembly degli strumenti siano collocati in prossimità degli assembly di runtime, ma non che siano inclusi riferimenti del progetto.
 
 ### <a name="reference-groups"></a>Gruppi di riferimenti
 

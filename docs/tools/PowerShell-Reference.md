@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/02/2017
 ms.topic: reference
-ms.openlocfilehash: 45c8be9956ceaab844bdcd89f1b96adc256f805c
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 977e06d36962366abd69f1c7f21ef33eca4e5029
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546664"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426129"
 ---
-# <a name="powershell-reference"></a>Riferimento di PowerShell
+# <a name="powershell-reference"></a>Informazioni di riferimento su PowerShell
 
-La Console di gestione pacchetti fornisce un'interfaccia di PowerShell all'interno di Visual Studio in Windows per interagire con NuGet tramite i comandi specifici elencati di seguito. (La console non è attualmente disponibile in Visual Studio per Mac.) Per una Guida all'utilizzo della console, vedere la [Console di gestione pacchetti](../tools/package-manager-console.md) argomento.
+La Console di gestione pacchetti fornisce un'interfaccia di PowerShell all'interno di Visual Studio in Windows per interagire con NuGet tramite i comandi specifici elencati di seguito. (La console non è attualmente disponibile in Visual Studio per Mac.) Per una Guida all'utilizzo della console, vedere [installare e gestire i pacchetti con PowerShell](../tools/package-manager-console.md) argomento.
 
 > [!Tip]
 > Tutti i comandi di PowerShell sono correlate solo all'utilizzo di un pacchetto. I comandi di PowerShell non sono correlati alla creazione e pubblicazione di pacchetti tranne nella misura in cui un pacchetto può anche essere un consumer di altri pacchetti.

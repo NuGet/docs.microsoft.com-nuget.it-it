@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 9964186dcbfedfbf2415a57102f8f019a1eef23a
-ms.sourcegitcommit: 6b71926f062ecddb8729ef8567baf67fd269642a
+ms.openlocfilehash: 3d7a4188de4fb6f812ca19e7f9e302a5a133c58b
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59931995"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425963"
 ---
 # <a name="restore-command-nuget-cli"></a>comando Restore (NuGet CLI)
 
@@ -49,8 +49,8 @@ in cui `<projectPath>` specifica il percorso di una soluzione o un `packages.con
 | Ricorsivo | *(4.0 +)*  Ripristina tutti i riferimenti a progetti per i progetti UWP e .NET Core. Non si applica ai progetti che usano `packages.config`. |
 | RequireConsent | Verifica che il ripristino dei pacchetti sia abilitato prima di scaricare e installare i pacchetti. Per informazioni dettagliate, vedere [ripristino dei pacchetti](../consume-packages/package-restore.md). |
 | SolutionDirectory | Specifica la cartella della soluzione. Non è valido durante il ripristino dei pacchetti per una soluzione. Obbligatorio quando il ripristino con un `packages.config` file, a meno che `PackagesDirectory` o `OutputDirectory` viene usato. |
-| Source | Specifica l'elenco delle origini dei pacchetti (sotto forma di URL) da usare per il ripristino. Se omesso, il comando Usa le origini fornite nei file di configurazione, vedere [comportamento di configurazione NuGet](../consume-packages/configuring-nuget-behavior.md). |
-| Verbosity |> specifica la quantità di dettaglio visualizzato nell'output: *normali*, *quiet*, *dettagliate*. |
+| Origine | Specifica l'elenco delle origini dei pacchetti (sotto forma di URL) da usare per il ripristino. Se omesso, il comando Usa le origini fornite nei file di configurazione, vedere [comportamento di configurazione NuGet](../consume-packages/configuring-nuget-behavior.md). |
+| Verbosity | Specifica la quantità di dettaglio visualizzato nell'output: *normali*, *quiet*, *dettagliate*. |
 
 Vedere anche [le variabili di ambiente](cli-ref-environment-variables.md)
 

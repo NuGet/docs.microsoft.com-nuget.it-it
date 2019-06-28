@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: b47f73c1c225540226d3780e17053427b8ea4a8a
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 5d10d6bf27614980a144c30c3af6f9892a109061
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545687"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426194"
 ---
 # <a name="nuget-12-release-notes"></a>Note sulla versione 1.2 di NuGet
 
 [Note sulla versione 1.0 e 1.1 di NuGet](../release-notes/nuget-1.1.md) | [note sulla versione di NuGet 1.3](../release-notes/nuget-1.3.md)
 
-1.2 di NuGet è stato rilasciato il 30 marzo 2011.
+1\.2 di NuGet è stato rilasciato il 30 marzo 2011.
 
 ## <a name="new-features"></a>Nuove funzionalità
 
@@ -54,7 +54,7 @@ Questi assembly non vengono inclusi nel pacchetto come questi sono considerati i
 
 ### <a name="nugetexe-now-is-able-to-store-api-key-credentials"></a>NuGet.exe ora è in grado di archiviare le credenziali di chiave API
 
-Quando si usa lo strumento da riga di comando nuget.exe, è ora possibile usare il comando SetApiKey per archiviare la chiave API. In questo modo, non sarà necessario specificarla ogni volta che si attiva un pacchetto. Per altre informazioni su come salvare la chiave API con nuget.exe, [leggere la documentazione sulla pubblicazione di un pacchetto](../create-packages/publish-a-package.md).
+Quando si usa lo strumento da riga di comando nuget.exe, è ora possibile usare il comando SetApiKey per archiviare la chiave API. In questo modo, non sarà necessario specificarla ogni volta che si attiva un pacchetto. Per altre informazioni su come salvare la chiave API con nuget.exe, [leggere la documentazione sulla pubblicazione di un pacchetto](../nuget-org/publish-a-package.md).
 
 ### <a name="package-explorer"></a>Esplora pacchetti
 Esplora pacchetti è stata aggiornata per il supporto di NuGet 1.2. Per altre informazioni, consultare il [note sulla versione di Package Explorer](http://nuget.codeplex.com/wikipage?title=New%20features%20in%20NuGet%20Package%20Explorer%201.0).
@@ -65,6 +65,6 @@ Nell'elenco precedente sono stati i più evidenti delle molte nuove funzionalit�
 
 ## <a name="known-issues"></a>Problemi noti
 
-* **1.2 creare il pacchetto incompatibilità**: i pacchetti compilati con la versione più recente dello strumento della riga di comando, nuget.exe (1.2 >) non funziona con le versioni precedenti di Visual Studio NuGet aggiuntivo (ad esempio 1.1). Se si verifica un messaggio di errore che indica che qualcosa sullo schema incompatibile, si eseguono in alcuni casi questo errore. Eseguire l'aggiornamento di NuGet alla versione più recente.
-* **Incompatibilità di NuGet. server**: se si ospita un feed utilizzando il progetto NuGet. server interno in NuGet, è necessario aggiornare il progetto con la versione più recente di NuGet. Server.
-* **Errore di mancata corrispondenza della firma**: se si verifica un errore durante l'aggiornamento con un messaggio su una firma di mancata corrispondenza, è necessario innanzitutto disinstallare NuGet e quindi installarlo. Questa opzione è presente nel nostro [pagina dei problemi noti](../release-notes/known-issues.md) fornisce ulteriori dettagli. Il problema interessa quelli che eseguono Visual Studio 2010 SP1 solo e dispone di una versione di NuGet 1.0 installato che è stato firmato in modo non corretto. Questa versione è stata resi disponibile solo dal sito Web CodePlex per un breve periodo di tempo in modo che questo problema non hanno impatto su troppi utenti.
+* **1.2 creare il pacchetto incompatibilità**: I pacchetti compilati con la versione più recente dello strumento della riga di comando, nuget.exe (1.2 >) non funzionerà con le versioni precedenti di Visual Studio NuGet aggiuntivo (ad esempio 1.1). Se si verifica un messaggio di errore che indica che qualcosa sullo schema incompatibile, si eseguono in alcuni casi questo errore. Eseguire l'aggiornamento di NuGet alla versione più recente.
+* **Incompatibilità di NuGet. server**: Se si ospita un feed utilizzando il progetto NuGet. server interno in NuGet, è necessario aggiornare il progetto con la versione più recente di NuGet. Server.
+* **Errore di mancata corrispondenza della firma**: Se si verifica un errore durante l'aggiornamento con un messaggio su una firma di mancata corrispondenza, è necessario innanzitutto disinstallare NuGet e quindi installarlo. Questa opzione è presente nel nostro [pagina dei problemi noti](../release-notes/known-issues.md) fornisce ulteriori dettagli. Il problema interessa quelli che eseguono Visual Studio 2010 SP1 solo e dispone di una versione di NuGet 1.0 installato che è stato firmato in modo non corretto. Questa versione è stata resi disponibile solo dal sito Web CodePlex per un breve periodo di tempo in modo che questo problema non hanno impatto su troppi utenti.

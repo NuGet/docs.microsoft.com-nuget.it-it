@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 05/18/2018
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 486bf4032e156168f9b2fef57ccdae0c372b2eff
-ms.sourcegitcommit: 673e580ae749544a4a071b4efe7d42fd2bb6d209
+ms.openlocfilehash: 952256a24246543ecd4c37285cd001622aa2bc46
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52977511"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426181"
 ---
 # <a name="signed-packages"></a>Pacchetti firmati
 
@@ -20,7 +20,7 @@ ms.locfileid: "52977511"
 I pacchetti NuGet possono includere una firma digitale che offre protezione contro i contenuti manomessi. Questa firma viene generata da un certificato X.509 che aggiunge inoltre prove autenticità per l'origine del pacchetto effettiva.
 
 I pacchetti firmati forniscono la convalida end-to-end più attendibili. Esistono due diversi tipi di firme di NuGet:
-- **Creare una firma**. Una firma di autore garantisce che il pacchetto non è stato modificato dopo l'autore firma il pacchetto, non importa da quale metodo viene recapitato il pacchetto del trasporto repository o un'azione. Inoltre, pacchetti firmati dall'autore forniscono un meccanismo di autenticazione extra per la pipeline di pubblicazione di nuget.org perché il certificato di firma deve essere registrato anticipatamente. Per altre informazioni, vedere [registrare i certificati](#register-certificate-on-nugetorg).
+- **Creare una firma**. Una firma di autore garantisce che il pacchetto non è stato modificato dopo l'autore firma il pacchetto, non importa da quale metodo viene recapitato il pacchetto del trasporto repository o un'azione. Inoltre, pacchetti firmati dall'autore forniscono un meccanismo di autenticazione extra per la pipeline di pubblicazione di nuget.org perché il certificato di firma deve essere registrato anticipatamente. Per altre informazioni, vedere [registrare i certificati](#signature-requirements-on-nugetorg).
 - **Firma repository**. Le firme di repository forniscono una garanzia di integrità per **tutti** in un repository di pacchetti che siano autore firmato o No, anche se tali pacchetti sono ottenuti da una posizione diversa nel repository originale dove si trovavano eseguito l'accesso.   
 
 Per informazioni dettagliate sulla creazione di un pacchetto firmato autore, vedere [firma dei pacchetti](../create-packages/Sign-a-package.md) e il [comando nuget sign](../tools/cli-ref-sign.md).
@@ -56,5 +56,5 @@ NuGet.org prevede requisiti aggiuntivi per l'accettazione di un pacchetto firmat
   
 ## <a name="related-articles"></a>Articoli correlati
 
-- [Firma dei pacchetti NuGet](../create-packages/Sign-a-Package.md)
-- [Installazione di pacchetti firmati](../consume-packages/installing-signed-packages.md)
+- [Firma di pacchetti NuGet](../create-packages/Sign-a-Package.md)
+- [Gestire i limiti di trust per pacchetto](../consume-packages/installing-signed-packages.md)

@@ -6,18 +6,18 @@ ms.author: patbel
 ms.date: 11/12/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: ee4ffaa7e250cdbf313476fd794a8d87c80b69f9
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: c22c7f0a6b6878bec4f8396e02e2d97998170455
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324708"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425987"
 ---
 # <a name="trusted-signers-command-nuget-cli"></a>comando firmatari attendibili (NuGet CLI)
 
 **Si applica a:** consumo del pacchetto &bullet; **versioni supportate:** 4.9.1+
 
-Ottiene o imposta i firmatari attendibili per la configurazione di NuGet. Per altre informazioni sulla sintassi, vedere [configurazione del comportamento di NuGet](../consume-packages/configuring-nuget-behavior.md). Per informazioni dettagliate su come lo schema di NuGet. config sembra, vedere la [riferimento al file di configurazione NuGet](../reference/nuget-config-file.md).
+Ottiene o imposta i firmatari attendibili per la configurazione di NuGet. Per altre informazioni sulla sintassi, vedere [configurazioni comuni per NuGet](../consume-packages/configuring-nuget-behavior.md). Per informazioni dettagliate su come lo schema di NuGet. config sembra, vedere la [riferimento al file di configurazione NuGet](../reference/nuget-config-file.md).
 
 ## <a name="usage"></a>Utilizzo
 
@@ -119,7 +119,7 @@ _Nota_: Questa azione verrà Elimina l'elenco corrente dei certificati e li sost
 | ConfigFile | Il file di configurazione di NuGet da applicare. Se non specificato, `%AppData%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) viene usato.|
 | ForceEnglishOutput | Forza nuget.exe affinché venga eseguito usando una cultura invariante e di lingua inglese. |
 | ? | Visualizza la Guida informazioni per il comando. |
-| Livello di dettaglio | Specifica la quantità di dettaglio visualizzato nell'output: *normali*, *quiet*, *dettagliate*. |
+| Verbosity | Specifica la quantità di dettaglio visualizzato nell'output: *normali*, *quiet*, *dettagliate*. |
 
 ## <a name="examples"></a>Esempi
 

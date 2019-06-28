@@ -1,5 +1,5 @@
 ---
-title: Riferimento all'interfaccia utente di gestione pacchetti NuGet
+title: Installare e gestire pacchetti NuGet in Visual Studio
 description: Istruzioni per l'uso di NuGet Package Manager UI in Visual Studio per l'uso di pacchetti NuGet.
 author: karann-msft
 ms.author: karann
@@ -10,30 +10,21 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-ms.openlocfilehash: 422faf99e58e058d86db774a8f3c1c576b3dc393
-ms.sourcegitcommit: 2af17c8bb452a538977794bf559cdd78d58f2790
+ms.openlocfilehash: 97e5de3f07199cd3c6a645749c8f2f1603ca630e
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58637623"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426241"
 ---
-# <a name="nuget-package-manager-ui"></a>Interfaccia utente di gestione pacchetti NuGet
+# <a name="install-and-manage-packages-in-visual-studio"></a>Installare e gestire pacchetti in Visual Studio
 
 L'UI Gestione pacchetti NuGet in Visual Studio in Windows consente di installare, disinstallare e aggiornare i pacchetti NuGet in progetti e soluzioni. Per l'esperienza in Visual Studio per Mac, vedere [tra cui un pacchetto NuGet nel progetto](/visualstudio/mac/nuget-walkthrough). Il Package Manager UI non è inclusa in Visual Studio Code.
 
-In questo argomento
-
-- [Ricerca e installazione di un pacchetto (scheda esplorazione)](#finding-and-installing-a-package)
-- [Disinstallazione di un pacchetto (scheda installati)](#uninstalling-a-package)
-- [Aggiorna un pacchetto (schede installati e gli aggiornamenti)](#updating-a-package) (include le ["Riferimento in modo implicito da un SDK" o "AutoReferenced" messaggio](#implicit_reference))
-- [La gestione dei pacchetti per la soluzione](#managing-packages-for-the-solution) (utilizzo di più progetti contemporaneamente).
-- [Origini dei pacchetti](#package-sources)
-- [Controllano le opzioni di gestione pacchetti](#package-manager-options-control)
-
-> [!Note]
+> [!NOTE]
 > Se sono necessari i pacchetti NuGet in Visual Studio 2015, controllare **strumenti > estensioni e aggiornamenti...**  e cercare la *Gestione pacchetti NuGet* estensione. Se non si riesce a usare il programma di installazione di estensioni in Visual Studio, scaricare l'estensione direttamente dal [ https://dist.nuget.org/index.html ](https://dist.nuget.org/index.html).
 >
-> In Visual Studio 2017, NuGet e la gestione pacchetti NuGet vengono installati automaticamente con qualsiasi. Carichi di lavoro correlate alla rete. Installare singolarmente selezionando i **singoli componenti > strumenti per il codice > Gestione pacchetti NuGet** opzione nel programma di installazione di Visual Studio 2017.
+> A partire da Visual Studio 2017, NuGet e la gestione pacchetti NuGet vengono installati automaticamente con qualsiasi. Carichi di lavoro correlate alla rete. Installare singolarmente selezionando i **singoli componenti > strumenti per il codice > Gestione pacchetti NuGet** opzione nel programma di installazione di Visual Studio.
 
 ## <a name="finding-and-installing-a-package"></a>Ricerca e installazione di un pacchetto
 
@@ -123,14 +114,14 @@ Gestire le origini pacchetto:
 
     ![Opzioni di origini dei pacchetti](media/options.png)
 
-1. Per aggiungere un'origine, selezionare **+**, modificare il nome, immettere l'URL o percorso nel **origine** controllare, quindi selezionare **Update**. L'origine viene ora visualizzato nel selettore di elenco a discesa.
+1. Per aggiungere un'origine, selezionare **+** , modificare il nome, immettere l'URL o percorso nel **origine** controllare, quindi selezionare **Update**. L'origine viene ora visualizzato nel selettore di elenco a discesa.
 1. Per modificare un'origine del pacchetto, selezionarlo, apportare modifiche nel **Name** e **origine** caselle, quindi selezionare **Update**.
 1. Per disabilitare un'origine del pacchetto, deselezionare la casella a sinistra del nome nell'elenco.
 1. Per rimuovere un'origine del pacchetto, selezionarlo e quindi selezionare il **X** pulsante.
 1. Utilizzando la freccia giù e freccia giù pulsanti non viene modificato l'ordine di priorità le origini pacchetto. Visual Studio ignora l'ordine delle origini dei pacchetti, Usa il pacchetto da qualsiasi origine prima di rispondere alle richieste. Per altre informazioni, vedere [ripristino del pacchetto](../consume-packages/package-restore.md).
 
 > [!Tip]
-> Se un'origine del pacchetto viene nuovamente visualizzato dopo l'eliminazione, potrebbe essere presente in un livello di computer o utente `NuGet.Config` file. Vedere [comportamento di configurazione NuGet](../consume-packages/configuring-nuget-behavior.md) per il percorso di questi file, quindi rimuovere l'origine modificando i file manualmente o tramite il [nuget origini comando](../tools/nuget-exe-CLI-reference.md).
+> Se un'origine del pacchetto viene nuovamente visualizzato dopo l'eliminazione, potrebbe essere presente in un livello di computer o utente `NuGet.Config` file. Visualizzare [configurazioni comuni per NuGet](../consume-packages/configuring-nuget-behavior.md) per il percorso di questi file, quindi rimuovere l'origine modificando i file manualmente o tramite il [nuget origini comando](../tools/nuget-exe-CLI-reference.md).
 
 ## <a name="package-manager-options-control"></a>Controllano le opzioni di gestione pacchetti
 
