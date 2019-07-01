@@ -7,12 +7,12 @@ ms.date: 02/12/2018
 ms.topic: overview
 layout: HubPage
 hide_bc: true
-ms.openlocfilehash: 35eef5125c40689da0f888992ea8376bb9eb096b
-ms.sourcegitcommit: a801052aa728a3a137225ca3ef3ff89f2d1c6b76
+ms.openlocfilehash: 399e4f80afb3e3d6278618055dde38a87184e3ff
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54403151"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426646"
 ---
 <div id="main" class="v2">
 <div class="container">
@@ -81,7 +81,7 @@ ms.locfileid: "54403151"
                             </a>
                         </li>
                         <li>
-                            <a href="create-packages/overview-and-workflow.md">
+                            <a href="create-packages/creating-a-package.md">
                             <div class="cardSize">
                                 <div class="cardPadding">
                                     <div class="card">
@@ -148,7 +148,7 @@ ms.locfileid: "54403151"
                     <a href="#tools-all"></a>
                     <ul id="tools-all" class="cardsC">
                         <li>
-                            <a href="tools/nuget-exe-cli-reference.md">
+                            <a href="install-nuget-client-tools.md">
                             <div class="cardSize">
                                 <div class="cardPadding">
                                     <div class="card">
@@ -159,7 +159,7 @@ ms.locfileid: "54403151"
                                         </div>
                                         <div class="cardText">
                                             <h3>Strumenti</h3>
-                                            <p>Guide complete per lo strumento da riga di comando nuget.exe, l'interfaccia utente di Gestione pacchetti e la console di Gestione pacchetti in Visual Studio.</p>
+                                            <p>Informazioni sugli strumenti disponibili per usare NuGet e su come ottenerli.</p>
                                         </div>
                                     </div>
                                 </div>
