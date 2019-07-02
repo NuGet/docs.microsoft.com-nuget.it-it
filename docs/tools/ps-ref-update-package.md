@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: d47e1978ab7d827e0b8b97cd4e7237019185b50f
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: a5b5a11ee11d9e2cf6a90d56ac63b1f7bad750ea
+ms.sourcegitcommit: 2a9d149bc6f5ff76b0b657324820bd0429cddeef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546076"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67496482"
 ---
 # <a name="update-package-package-manager-console-in-visual-studio"></a>Update-Package (console di Gestione pacchetti in Visual Studio)
 
@@ -37,7 +37,7 @@ Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 |  Parametro | Descrizione |
 | --- | --- |
 | Id | L'identificatore del pacchetto da aggiornare. Se omesso, Aggiorna tutti i pacchetti. -Id commutatore stesso è facoltativo. |
-| MSI | Ignora l'aggiornamento delle dipendenze del pacchetto. |
+| IgnoreDependencies | Ignora l'aggiornamento delle dipendenze del pacchetto. |
 | ProjectName | Il nome del progetto che contiene i pacchetti da aggiornare, utilizzando per impostazione predefinita a tutti i progetti. |
 | Versione | La versione da usare per l'aggiornamento, verrà utilizzato per la versione più recente. In NuGet 3.0 +, il valore della versione deve essere uno dei *minima, massima, HighestMinor*, o *HighestPatch* (equivalente a - Safe). |
 | Safe | Vincola gli aggiornamenti alle versioni sole con la stessa versione principale e secondaria del pacchetto attualmente installata. |
@@ -46,15 +46,15 @@ Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 | Reinstallazione | Pacchetti Resintalls utilizzando le versioni attualmente installate. Vedere [Reinstallazione e aggiornamento di pacchetti](../consume-packages/reinstalling-and-updating-packages.md). |
 | FileConflictAction | L'azione da intraprendere quando viene richiesto di sovrascrivere o ignorare i file esistenti farvi riferimento il progetto. I valori possibili sono *Sovrascrivi, Ignore, None, OverwriteAll*, e *IgnoreAll* (3.0 e versioni successive). |
 | DependencyVersion | La versione dei pacchetti di dipendenza da usare, che può essere uno dei seguenti:<br/><ul><li>*Più basso* (impostazione predefinita): la versione più bassa</li><li>*HighestPatch*: la versione con patch più bassa principali, più bassa secondaria, più alto</li><li>*HighestMinor*: la versione con il minimo principali, patch secondaria, massima più alto</li><li>*Più alto* (valore predefinito per Update-Package senza parametri): la versione più recente</li></ul>È possibile impostare il valore predefinito usando il [ `dependencyVersion` ](../reference/nuget-config-file.md#config-section) impostazione nel `Nuget.Config` file. |
-| ToHighestPatch | Vincola gli aggiornamenti solo alle versioni con la stessa versione secondaria del pacchetto attualmente installata. |
+| ToHighestPatch | equivalente allo - Safe. |
 | ToHighestMinor | Vincola gli aggiornamenti solo alle versioni con la stessa versione principale del pacchetto attualmente installata. |
-| WhatIf | Viene illustrato che cosa accadrebbe quando si esegue il comando senza eseguire effettivamente l'aggiornamento. |
+| Whatif | Viene illustrato che cosa accadrebbe quando si esegue il comando senza eseguire effettivamente l'aggiornamento. |
 
 Nessuno di questi parametri accettano caratteri jolly o input della pipeline.
 
 ### <a name="common-parameters"></a>Parametri comuni
 
-`Update-Package` supporta i seguenti [parametri PowerShell comuni](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, azione per errore, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction e WarningVariable.
+`Update-Package` supporta i seguenti [parametri PowerShell comuni](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, azione per errore, ErrorVariable, OutBuffer, OutVariable PipelineVariable, Verbose, WarningAction e WarningVariable.
 
 ### <a name="examples"></a>Esempi
 

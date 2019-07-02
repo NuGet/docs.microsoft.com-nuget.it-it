@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 34c205e7dac60c7abfb6323b4dc45bf4f074d46a
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 8e4fb376e471a207333d241aeb414da7d5c3571e
+ms.sourcegitcommit: 2a9d149bc6f5ff76b0b657324820bd0429cddeef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426783"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67496531"
 ---
 # <a name="catalog"></a>Catalog
 
@@ -194,7 +194,8 @@ Nome                    | Tipo                       | Obbligatorio | Note
 ----------------------- | -------------------------- | -------- | -----
 authors                 | string                     | No       |
 created                 | string                     | No       | Timestamp di quando è stato creato il pacchetto. Proprietà di fallback: `published`.
-dependencyGroups        | Matrice di oggetti           | No       | Stesso formato del [risorsa dei metadati del pacchetto](registration-base-url-resource.md#package-dependency-group)
+dependencyGroups        | Matrice di oggetti           | No       | Le dipendenze del pacchetto, raggruppati per framework di destinazione ([stesso formato di risorsa dei metadati del pacchetto](registration-base-url-resource.md#package-dependency-group))
+Elementi deprecati             | object                     | No       | La deprecazione associata al pacchetto ([stesso formato di risorsa dei metadati del pacchetto](registration-base-url-resource.md#package-deprecation))
 Descrizione             | string                     | No       |
 iconUrl                 | string                     | No       |
 isPrerelease            | boolean                    | No       | La versione del pacchetto è o meno versione non definitiva. Possono essere rilevati da `version`.
