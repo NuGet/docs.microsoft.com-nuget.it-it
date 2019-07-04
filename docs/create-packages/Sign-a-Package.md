@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 8ff92e5a3ab2d5c13ee02a9e49709866e2ac0e87
-ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
+ms.openlocfilehash: abdd06642ccc652527a1a005eda2689ce97df74c
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58921572"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426819"
 ---
 # <a name="signing-nuget-packages"></a>Firma di pacchetti NuGet
 
@@ -66,7 +66,7 @@ Per pubblicare un pacchetto firmato, è innanzitutto necessario registrare il ce
 
 ## <a name="publish-the-package"></a>Pubblicare il pacchetto
 
-A questo punto si è pronti a pubblicare il pacchetto in NuGet.org. Vedere [Pubblicazione di pacchetti](Publish-a-package.md).
+A questo punto si è pronti a pubblicare il pacchetto in NuGet.org. Vedere [Pubblicazione di pacchetti](../nuget-org/Publish-a-package.md).
 
 ## <a name="create-a-test-certificate"></a>Creare un certificato di test
 
@@ -103,5 +103,5 @@ Il comando crea un certificato di test e lo rende disponibile nell'archivio cert
 
 ## <a name="related-articles"></a>Articoli correlati
 
-- [Installazione di pacchetti firmati](../consume-packages/installing-signed-packages.md)
+- [Gestire i limiti di attendibilità dei pacchetti](../consume-packages/installing-signed-packages.md)
 - [Informazioni di riferimento sui pacchetti firmati](../reference/Signed-Packages-Reference.md)

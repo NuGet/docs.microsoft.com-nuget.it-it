@@ -16,12 +16,12 @@ keywords: Pacchetti di simboli NuGet, debug dei pacchetti NuGet, supporto per il
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 18d54e28d77f2bdcfea70ff9ae9def05278cb26c
-ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
+ms.openlocfilehash: 0d82cf8614b88247bc3a3ba3019c11bf1b5e2593
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610564"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426794"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Creazione di pacchetti di simboli (estensione snupkg)
 
@@ -61,7 +61,7 @@ La proprietà [`SymbolPackageFormat`](/dotnet/core/tools/csproj.md#symbolpackage
 
 ## <a name="publishing-a-symbol-package"></a>Pubblicazione di un pacchetto di simboli
 
-1. Per praticità, salvare prima la chiave API con NuGet (vedere [Pubblicazione di pacchetti](../create-packages/publish-a-package.md)).
+1. Per praticità, salvare prima la chiave API con NuGet (vedere [Pubblicazione di pacchetti](../nuget-org/publish-a-package.md)).
 
     ```cli
     nuget SetApiKey Your-API-Key

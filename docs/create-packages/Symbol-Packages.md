@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 09/12/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 56125516345b2255998c1f734db60b58b9a92a06
-ms.sourcegitcommit: 585394f063e95dcbc24d7ac0ce07de643eaf6f4d
+ms.openlocfilehash: 40f934f3c3fcea62acae66639c22108a93363b8b
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "55046328"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426772"
 ---
 # <a name="creating-symbol-packages-legacy"></a>Creazione di pacchetti di simboli (legacy)
 
@@ -102,7 +102,7 @@ Un pacchetto di simboli può essere generato in base alle convenzioni, da una st
 > [!Important]
 > Per eseguire il push dei pacchetti in nuget.org, è necessario usare [nuget.exe v4.9.1 o versione successiva](https://www.nuget.org/downloads), che implementa i [protocolli NuGet](../api/nuget-protocols.md) necessari.
 
-1. Per praticità, salvare la chiave API con NuGet (vedere [Pubblicare un pacchetto](../create-packages/publish-a-package.md)), che si applicherà sia a nuget.org che a symbolsource.org, dal momento che symbolsource.org controllerà con nuget.org per verificare che l'utente sia il proprietario del pacchetto.
+1. Per praticità, salvare la chiave API con NuGet (vedere [Pubblicare un pacchetto](../nuget-org/publish-a-package.md)), che si applicherà sia a nuget.org che a symbolsource.org, dal momento che symbolsource.org controllerà con nuget.org per verificare che l'utente sia il proprietario del pacchetto.
 
     ```cli
     nuget SetApiKey Your-API-Key
