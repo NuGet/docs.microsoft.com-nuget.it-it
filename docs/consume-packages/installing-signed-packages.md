@@ -1,18 +1,18 @@
 ---
-title: Installare un pacchetto NuGet firmato
+title: Gestire i limiti di attendibilità dei pacchetti
 description: Viene descritto il processo di installazione di pacchetti NuGet firmati e di configurazione delle impostazioni di attendibilità della firma dei pacchetti.
 author: karann-msft
 ms.author: karann
 ms.date: 11/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 11ffaee96b6f6a9260f38c534328b6631cd96abf
-ms.sourcegitcommit: 673e580ae749544a4a071b4efe7d42fd2bb6d209
+ms.openlocfilehash: 8da57dc295ea78f2eb183226fc9b2f4a37e3f5db
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52977835"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426627"
 ---
-# <a name="install-a-signed-package"></a>Installare un pacchetto firmato
+# <a name="manage-package-trust-boundaries"></a>Gestire i limiti di attendibilità dei pacchetti
 
 Non sono richieste azioni specifiche per l'installazione di pacchetti firmati. Tuttavia, se il contenuto è stato modificato dopo la firma, l'installazione viene bloccata con l'[errore NU3008](../reference/errors-and-warnings/NU3008.md).
 
@@ -24,7 +24,7 @@ Non sono richieste azioni specifiche per l'installazione di pacchetti firmati. T
 > [!Note]
 > Richiede NuGet 4.9.0+ e Visual Studio 15.9 o versioni successive su Windows
 
-Per configurare come i client NuGet verificano le firme dei pacchetti, impostare `signatureValidationMode` su `require` nel file [nuget.config](../reference/nuget-config-file) utilizzando il comando [`nuget config`](../tools/cli-ref-config).
+Per configurare come i client NuGet verificano le firme dei pacchetti, impostare `signatureValidationMode` su `require` nel file [nuget.config](../reference/nuget-config-file.md) utilizzando il comando [`nuget config`](../tools/cli-ref-config.md).
 
 ```cmd
 nuget.exe config -set signatureValidationMode=require
@@ -40,7 +40,7 @@ Questa modalità verifica che tutti i pacchetti siano firmati da uno dei certifi
 
 ### <a name="trust-package-author"></a>Considerare attendibile l'autore del pacchetto
 
-Per considerare attendibili i pacchetti in base alla firma dell'autore, usare il comando [`trusted-signers`](..tools/cli-ref-trusted-signers) per impostare la proprietà `author` in nuget.config.
+Per considerare attendibili i pacchetti in base alla firma dell'autore, usare il comando [`trusted-signers`](../tools/cli-ref-trusted-signers.md) per impostare la proprietà `author` in nuget.config.
 
 ```cmd
 nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE40881FF5F0AD3E58965DA20A9F571EF1651A56933748E1BF1C99E537C4E039 -FingerprintAlgorithm SHA256
@@ -55,7 +55,7 @@ nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE408
 ```
 
 >[!TIP]
->Usare il [comando verify](https://docs.microsoft.com/en-us/nuget/tools/cli-ref-verify) di `nuget.exe` per ottenere il valore `SHA256` dell'impronta digitale del certificato.
+>Usare il [comando verify](../tools/cli-ref-verify.md) di `nuget.exe` per ottenere il valore `SHA256` dell'impronta digitale del certificato.
 
 
 ### <a name="trust-all-packages-from-a-repository"></a>Considerare attendibili tutti i pacchetti di un archivio
@@ -95,14 +95,13 @@ In alcune situazioni può essere opportuno abilitare la verifica usando certific
 
 ### <a name="sync-repository-certificates"></a>Sincronizzazione dei certificati del repository
 
-I repository dei pacchetti devono annunciare i certificati usati nel loro [indice dei servizi](https://docs.microsoft.com/en-us/nuget/api/service-index). Prima o poi, il repository aggiornerà questi certificati, ad esempio, allo scadere del certificato. Quando ciò avviene, i client con criteri specifici richiederanno un aggiornamento della configurazione per includere il certificato appena aggiunto. I firmatari attendibili associati a un repository possono essere aggiornati facilmente usando il `nuget.exe` [comando trusted-signers sync](/nuget/tools/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-).
+I repository dei pacchetti devono annunciare i certificati usati nel loro [indice dei servizi](../api/service-index.md). Prima o poi, il repository aggiornerà questi certificati, ad esempio, allo scadere del certificato. Quando ciò avviene, i client con criteri specifici richiederanno un aggiornamento della configurazione per includere il certificato appena aggiunto. I firmatari attendibili associati a un repository possono essere aggiornati facilmente usando il `nuget.exe` [comando trusted-signers sync](../tools/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-).
 
 ### <a name="schema-reference"></a>Riferimento allo schema
 
-Il riferimento allo schema completo per i criteri client è reperibile in [nuget.config reference](/nuget/reference/nuget-config-file#trustedsigners-section) (Informazioni di riferimento su nuget.config)
+Il riferimento allo schema completo per i criteri client è reperibile in [nuget.config reference](../reference/nuget-config-file.md#trustedsigners-section) (Informazioni di riferimento su nuget.config)
 
 ## <a name="related-articles"></a>Articoli correlati
 
-- [Diversi modi per installare un pacchetto NuGet](ways-to-install-a-package.md)
 - [Firma di pacchetti NuGet](../create-packages/Sign-a-Package.md)
 - [Informazioni di riferimento sui pacchetti firmati](../reference/Signed-Packages-Reference.md)

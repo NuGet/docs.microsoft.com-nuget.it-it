@@ -1,16 +1,16 @@
 ---
 title: Creare e pubblicare un pacchetto .NET Framework con Visual Studio in Windows
-description: Esercitazione sulla creazione e pubblicazione di un pacchetto NuGet .NET Framework con Visual Studio 2017 in Windows.
+description: Esercitazione dettagliata sulla creazione e pubblicazione di un pacchetto NuGet .NET Framework con Visual Studio in Windows.
 author: karann-msft
 ms.author: karann
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: 68593211da1a34649c7050753a5db0f3a03cb41b
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: efdaa0128d47f948c86c3cc83d6a332410cbf99f
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549628"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426332"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Guida introduttiva: Creare e pubblicare un pacchetto con Visual Studio (.NET Framework, Windows)
 
@@ -31,7 +31,7 @@ La creazione di un pacchetto NuGet da una libreria di classi .NET Framework prev
 
 È possibile usare un progetto libreria di classi .NET Framework esistente per il codice che si vuole includere in un pacchetto oppure creare un progetto semplice come segue:
 
-1. In Visual Studio scegliere **File > Nuovo > Progetto**, selezionare il nodo **Visual C#**, selezionare il modello "Libreria di classi (.NET Framework)", assegnare al progetto il nome AppLogger e fare clic su **OK**.
+1. In Visual Studio scegliere **File > Nuovo > Progetto**, selezionare il nodo **Visual C#** , selezionare il modello "Libreria di classi (.NET Framework)", assegnare al progetto il nome AppLogger e fare clic su **OK**.
 
 1. Fare clic con il pulsante destro del mouse sul file di progetto risultante e scegliere **Compila** per verificare che il progetto sia stato creato correttamente. La DLL è presente nella cartella Debug (o Release se si crea invece tale configurazione).
 
@@ -175,7 +175,7 @@ Vedere [nuget push](../tools/cli-ref-push.md).
 ## <a name="related-topics"></a>Argomenti correlati
 
 - [Creare un pacchetto](../create-packages/creating-a-package.md)
-- [Pubblicare un pacchetto](../create-packages/publish-a-package.md)
+- [Pubblicare un pacchetto](../nuget-org/publish-a-package.md)
 - [Pacchetti in versione non definitiva](../create-packages/Prerelease-Packages.md)
 - [Supportare più framework di destinazione](../create-packages/supporting-multiple-target-frameworks.md)
 - [Controllo delle versioni dei pacchetti](../reference/package-versioning.md)

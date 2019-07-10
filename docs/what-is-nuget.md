@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: overview
-ms.openlocfilehash: 4ab87f072bdace9dd18cecc4100de52b3547136d
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: 087bb043ba4b388b9de6d94cd838915a2e7247f4
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66813003"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426139"
 ---
 # <a name="an-introduction-to-nuget"></a>Introduzione a NuGet
 
 Uno strumento essenziale per qualsiasi piattaforma di sviluppo moderna è un meccanismo attraverso il quale gli sviluppatori possano creare, condividere e utilizzare codice utile. Spesso questo codice viene incluso in "pacchetti" che contengono codice compilato, ad esempio file DLL, insieme ad altri contenuti necessari nei progetti che utilizzano questi pacchetti.
 
-Per .NET (incluso .NET Core), il meccanismo supportato da Microsoft per la condivisione del codice è **NuGet**, che definisce in che modo vengono creati, ospitati e utilizzati i pacchetti per .NET e fornisce gli strumenti per ognuno di questi ruoli.
+Per .NET (incluso .NET Core), il meccanismo supportato da Microsoft per la condivisione del codice è **NuGet**, che definisce in che modo vengono creati, ospitati e utilizzati i pacchetti per .NET e [fornisce gli strumenti](install-nuget-client-tools.md) per ognuno di questi ruoli.
 
 In altri termini, un pacchetto NuGet è un singolo file ZIP con l'estensione `.nupkg` che contiene codice compilato (DLL), altri file correlati a tale codice e un manifesto descrittivo che include informazioni come il numero di versione del pacchetto. Gli sviluppatori con codice da condividere creano pacchetti e li pubblicano in un host pubblico o privato. I consumer di pacchetti ottengono tali pacchetti dagli host appropriati, li aggiungono ai loro progetti e quindi chiamano le funzionalità di un pacchetto nel codice dei progetti. NuGet gestisce tutti i dettagli intermedi.
 
@@ -43,10 +43,10 @@ Gli sviluppatori di pacchetti che devono usare API al di fuori di .NET Standard,
 
 Oltre a ospitare il supporto, NuGet fornisce anche un'ampia gamma di strumenti usati da autori e consumer. Vedere [Installazione degli strumenti client di NuGet](install-nuget-client-tools.md) per istruzioni su come ottenere strumenti specifici.
 
-| Strumento | Piattaforme | Scenari possibili | Description |
+| Strumento | Piattaforme | Scenari possibili | DESCRIZIONE |
 | --- | --- | --- | --- |
-| [Interfaccia della riga di comando di dotnet](tools/dotnet-Commands.md) | Tutti | Creazione, utilizzo | Strumento della riga di comando per librerie .NET Core e .NET Standard e per progetti in stile SDK destinati a .NET Framework (vedere [Attributo Sdk](/dotnet/core/tools/csproj#additions)). Fornisce determinate funzionalità dell'interfaccia della riga di comando di NuGet direttamente all'interno della toolchain di .NET Core. Come per l'interfaccia della riga di comando di NuGet, l'interfaccia della riga di comando di dotnet non interagisce con i progetti di Visual Studio. |
-| [Interfaccia della riga di comando di nuget.exe](tools/nuget-exe-cli-reference.md) | Tutti | Creazione, utilizzo | Strumento della riga di comando per librerie .NET Framework e per i progetti non in stile SDK destinati alle librerie .NET Standard. Fornisce tutte le funzionalità di NuGet, con alcuni comandi applicabili in modo specifico agli autori dei pacchetti, altri applicabili solo ai consumer e altri ancora applicabili a entrambi. Ad esempio, gli autori dei pacchetti usano il comando `nuget pack` per creare un pacchetto da vari assembly e file correlati, i consumer dei pacchetti usano `nuget install` per includere i pacchetti in una cartella di progetto e tutti gli utenti usano `nuget config` per impostare le variabili di configurazione di NuGet. In quanto strumento indipendente dalla piattaforma, l'interfaccia della riga di comando di NuGet non interagisce con i progetti di Visual Studio. |
+| [Interfaccia della riga di comando di dotnet](consume-packages/install-use-packages-dotnet-cli.md) | Tutti | Creazione, utilizzo | Strumento della riga di comando per librerie .NET Core e .NET Standard e per progetti in stile SDK destinati a .NET Framework (vedere [Attributo Sdk](/dotnet/core/tools/csproj#additions)). Fornisce determinate funzionalità dell'interfaccia della riga di comando di NuGet direttamente all'interno della toolchain di .NET Core. Come per l'interfaccia della riga di comando di NuGet, l'interfaccia della riga di comando di dotnet non interagisce con i progetti di Visual Studio. |
+| [Interfaccia della riga di comando di nuget.exe](consume-packages/install-use-packages-nuget-cli.md) | Tutti | Creazione, utilizzo | Strumento della riga di comando per librerie .NET Framework e per i progetti non in stile SDK destinati alle librerie .NET Standard. Fornisce tutte le funzionalità di NuGet, con alcuni comandi applicabili in modo specifico agli autori dei pacchetti, altri applicabili solo ai consumer e altri ancora applicabili a entrambi. Ad esempio, gli autori dei pacchetti usano il comando `nuget pack` per creare un pacchetto da vari assembly e file correlati, i consumer dei pacchetti usano `nuget install` per includere i pacchetti in una cartella di progetto e tutti gli utenti usano `nuget config` per impostare le variabili di configurazione di NuGet. In quanto strumento indipendente dalla piattaforma, l'interfaccia della riga di comando di NuGet non interagisce con i progetti di Visual Studio. |
 | [Console di Gestione pacchetti](tools/package-manager-console.md) | Visual Studio su Windows | Utilizzo | Fornisce i [comandi di PowerShell](tools/Powershell-Reference.md) per l'installazione e la gestione dei pacchetti nei progetti Visual Studio. |
 | [Interfaccia utente di Gestione pacchetti](tools/package-manager-ui.md) | Visual Studio su Windows | Utilizzo | Fornisce un'interfaccia utente di facile utilizzo per l'installazione e la gestione dei pacchetti nei progetti Visual Studio. |
 | [Interfaccia utente di Gestisci pacchetti NuGet](/visualstudio/mac/nuget-walkthrough) | Visual Studio per Mac | Utilizzo | Fornisce un'interfaccia utente di semplice utilizzo per l'installazione e la gestione dei pacchetti nei progetti di Visual Studio per Mac. |

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 02/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: 7b1ccfbede4cec53cee3ec7d1c023e4c5be60bf0
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: af0c42853a9e407557a010ff2793406499b4b2ef
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545913"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426873"
 ---
 # <a name="create-net-standard-and-net-framework-packages-with-visual-studio-2015"></a>Creare pacchetti .NET Standard e .NET Framework con Visual Studio 2015
 
@@ -31,7 +31,7 @@ Questa guida illustra la creazione di un pacchetto NuGet destinato a .NET Standa
 
 ## <a name="create-the-class-library-project"></a>Creare il progetto di libreria di classi
 
-1. In Visual Studio **File > Nuovo > Progetto**, espandere il nodo **Visual C# > Windows**, selezionare **Libreria di classi (portabile)**, modificare il nome in AppLogger e selezionare **OK**.
+1. In Visual Studio **File > Nuovo > Progetto**, espandere il nodo **Visual C# > Windows**, selezionare **Libreria di classi (portabile)** , modificare il nome in AppLogger e selezionare **OK**.
 
     ![Creare il nuovo progetto di libreria di classi](media/NetStandard-NewProject.png)
 
@@ -159,7 +159,7 @@ Questo codice genera `AppLogger.YOUR_NAME.1.0.0.nupkg`. Aprendo il file in uno s
 > [!Tip]
 > Un file `.nupkg` è solo un file ZIP con un'estensione diversa. È anche possibile esaminare i contenuti del pacchetto, modificando `.nupkg` in `.zip`, ma si ricordi di ripristinare l'estensione prima di caricare un pacchetto in nuget.org.
 
-Per rendere disponibile il pacchetto per altri sviluppatori, seguire le istruzioni in [Pubblicare un pacchetto](../create-packages/publish-a-package.md).
+Per rendere disponibile il pacchetto per altri sviluppatori, seguire le istruzioni in [Pubblicare un pacchetto](../nuget-org/publish-a-package.md).
 
 Si noti che `pack` richiede Mono 4.4.2 su Mac OS X e non funziona nei sistemi Linux. In un Mac è anche necessario convertire i nomi di percorso di Windows nel file `.nuspec` in percorsi di tipo Unix.
 

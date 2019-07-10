@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: c547ae1d46079d040d7c3aa4c7678e70cd199dce
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 4b365488c8dd0e081449552b06451e7b40b5223b
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548013"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426622"
 ---
 # <a name="managing-the-global-packages-cache-and-temp-folders"></a>Gestione delle cartelle dei pacchetti globale, della cache e temporanea
 
@@ -30,7 +30,7 @@ Tramite le cartelle della cache e *global-packages*, NuGet evita in genere il do
 
 Quando viene richiesto di recuperare un pacchetto, NuGet controlla prima di tutto nella cartella *global-packages*. Se nella cartella non è disponibile la versione esatta del pacchetto, NuGet controlla tutte le origini di pacchetti non HTTP. Se il pacchetto non viene trovato, NuGet cerca il pacchetto nella cartella *http-cache* a meno che non si specifichi `--no-cache` con i comandi `dotnet.exe` o `-NoCache` con i comandi `nuget.exe`. Se il pacchetto non è presente nella cache o la cache non viene usata, NuGet recupera il pacchetto tramite HTTP.
 
-Per altre informazioni, vedere [Cosa accade quando viene installato un pacchetto](ways-to-install-a-package.md#what-happens-when-a-package-is-installed).
+Per altre informazioni, vedere [Cosa accade quando viene installato un pacchetto](../concepts/package-installation-process.md).
 
 ## <a name="viewing-folder-locations"></a>Visualizzazione delle posizioni delle cartelle
 
@@ -100,7 +100,7 @@ nuget locals all -clear
 
 Gli eventuali pacchetti usati dai progetti aperti in Visual Studio non vengono cancellati dalla cartella *global-packages*.
 
-In Visual Studio 2017 usare il comando di menu **Strumenti > Gestione pacchetti NuGet > Impostazioni di Gestione pacchetti** e quindi selezionare **Cancella tutte le cache NuGet**. La gestione delle cache non è attualmente disponibile tramite la console di Gestione pacchetti. In Visual Studio 2015 usare invece i comandi dell'interfaccia della riga di comando.
+A partire da Visual Studio 2017, usare il comando di menu **Strumenti > Gestione pacchetti NuGet > Impostazioni di Gestione pacchetti**, quindi selezionare **Cancella tutte le cache NuGet**. La gestione delle cache non è attualmente disponibile tramite la console di Gestione pacchetti. In Visual Studio 2015 usare invece i comandi dell'interfaccia della riga di comando.
 
 ![Comando NuGet per la cancellazione delle cache](media/options-clear-caches.png)
 
@@ -108,7 +108,7 @@ In Visual Studio 2017 usare il comando di menu **Strumenti > Gestione pacchetti 
 
 Durante l'uso di `nuget locals` o `dotnet nuget locals` possono verificarsi gli errori seguenti:
 
-- *Errore: Impossibile accedere al file <package> perché utilizzato da un altro processo* o *La cancellazione delle risorse locali non è riuscita. Non è possibile eliminare uno o più file*
+- *Errore: Impossibile accedere al file <package> perché usato in un altro processo* o *La cancellazione delle risorse locali non è riuscita: Non è possibile eliminare uno o più file*
 
     Uno o più file nella cartella sono in uso da un altro processo. Ad esempio, è aperto un progetto di Visual Studio che fa riferimento ai pacchetti nella cartella *global-packages*. Chiudere i processi e riprovare.
 
@@ -116,6 +116,6 @@ Durante l'uso di `nuget locals` o `dotnet nuget locals` possono verificarsi gli 
 
     Non si è autorizzati a eliminare i file nella cache. Modificare le autorizzazioni della cartella, se possibile, e riprovare. In caso contrario, contattare l'amministratore di sistema.
 
-- *Errore: Percorso e/o nome di file specificato troppo lungo. Il nome di file completo deve contenere meno di 260 caratteri, mentre il nome di directory deve contenere meno di 248 caratteri.*
+- *Errore: Il percorso specificato, il nome file o entrambi sono troppo lunghi. Il nome di file completo deve contenere meno di 260 caratteri, mentre il nome di directory deve contenere meno di 248 caratteri.*
 
     Abbreviare i nomi delle cartelle e riprovare.

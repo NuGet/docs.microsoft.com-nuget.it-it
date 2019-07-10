@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: aa5cd1a2f3e3a6707a9d68204306db85651b0a18
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: d43f002b740b669de13f5872844ac0df97fc8fdc
+ms.sourcegitcommit: b9a134a6e10d7d8502613f389f7d5f9b9e206ec8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545200"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67467790"
 ---
 # <a name="projectjson-archive"></a>archivio project.json
 
@@ -38,7 +38,7 @@ Funziona con `project.json`.
 
 ## <a name="constraining-package-versions-with-restore"></a>Vincolo delle versioni dei pacchetti con il ripristino
 
-*Originariamente in [Ripristino di pacchetti](../consume-packages/package-restore.md#constraining-package-versions-with-restore).*
+*Originariamente in [Ripristino di pacchetti](../consume-packages/package-restore.md#constrain-package-versions-with-restore).*
 
 - `project.json`: specificare un intervallo di versioni direttamente con il numero di versione della dipendenza. Ad esempio:
 
@@ -105,7 +105,7 @@ Con .NET Core 1.x, quando viene installato un pacchetto DotnetCliTool, Visual St
 
 I tipi di pacchetto vengono impostati in `project.json`.
 
-- `project.json`: indica il tipo di pacchetto in un codice json della proprietà `packOptions.packageType`:
+- `project.json`: indica il tipo di pacchetto all'interno di codice json della proprietà `packOptions.packageType`:
 
     ```json
     {

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: c86a07c30631b7ee99526b014ac9c3b9f136aa81
-ms.sourcegitcommit: 1591bb230e106b94162a87dd1d86fe427366730a
+ms.openlocfilehash: 8cd7529c4a1ecf659abde03fb1632e26431aebf3
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52671188"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426742"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Ricerca e valutazione di pacchetti NuGet per un progetto
 
@@ -54,15 +54,15 @@ Per impostazione predefinita, nuget.org mostra anche i pacchetti in versione non
 
 In Visual Studio e quando si usano le interfacce della riga di comando di NuGet e dotnet, NuGet non include le versioni non definitive per impostazione predefinita. Per modificare questo comportamento, attenersi alla procedura seguente:
 
-- **Interfaccia utente di Gestione pacchetti in Visual Studio**: nell'interfaccia utente di **Gestisci pacchetti NuGet** selezionare la casella di controllo **Includi versione preliminare**. La selezione o la deselezione di questa casella di controllo aggiorna l'interfaccia utente di Gestione pacchetti e l'elenco delle versioni disponibili che è possibile installare.
+- **Interfaccia utente di Gestione pacchetti (Visual Studio)** : nell'interfaccia utente di **Gestisci pacchetti NuGet** impostare la casella di controllo **Includi versione preliminare**. La selezione o la deselezione di questa casella di controllo aggiorna l'interfaccia utente di Gestione pacchetti e l'elenco delle versioni disponibili che è possibile installare.
 
     ![Casella di controllo Includi versione preliminare in Visual Studio](media/Prerelease_02-CheckPrerelease.png)
 
 - **Console di Gestione pacchetti**: usare l'opzione `-IncludePrerelease` con i comandi `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package` e `Update-Package`. Vedere [Informazioni di riferimento su PowerShell](../tools/powershell-reference.md).
 
-- **Interfaccia della riga di comando nuget.exe**: usare l'opzione `-prerelease` con i comandi `install`, `update`, `delete` e `mirror`. Vedere [NuGet CLI reference](../tools/nuget-exe-cli-reference.md) (Informazioni di riferimento sull'interfaccia della riga di comando di NuGet).
+- **Interfaccia della riga di comando di nuget.exe**: usare l'opzione `-prerelease` con i comandi `install`, `update`, `delete` e `mirror`. Vedere [NuGet CLI reference](../tools/nuget-exe-cli-reference.md) (Informazioni di riferimento sull'interfaccia della riga di comando di NuGet).
 
-- **Interfaccia della riga di comando dotnet.exe**: specificare l'esatta versione non definitiva tramite l'argomento `-v`. Vedere le [informazioni di riferimento su dotnet add package](/dotnet/core/tools/dotnet-add-package).
+- **Interfaccia della riga di comando di dotnet.exe**: specificare l'esatta versione preliminare usando l'argomento `-v`. Vedere le [informazioni di riferimento su dotnet add package](/dotnet/core/tools/dotnet-add-package).
 
 <a name="native-cpp-packages"></a>
 
@@ -96,13 +96,13 @@ Allo stesso tempo, usare un pacchetto NuGet implica la creazione di una dipenden
 
 - *Contatti con i proprietari*: i nuovi sviluppatori dimostrano indiscutibilmente il loro impegno a realizzare ottimi pacchetti utilizzabili dall'utente, pertanto è opportuno dar loro la possibilità di dare il proprio contributo nell'ecosistema NuGet. Se si vuole, è possibile contattare direttamente lo sviluppatore di un pacchetto tramite l'opzione **Contact Owners** (Contatta proprietari) in **Info** nella pagina di presentazione del pacchetto. Ci sono buone probabilità che sia lieto di collaborare per soddisfare le esigenze dei suoi utenti.
 
-- *Prefissi ID pacchetto riservati*: molti proprietari di pacchetti hanno richiesto e ottenuto un [prefisso ID pacchetto riservato](../reference/id-prefix-reservation.md). Un segno di spunta visualizzato accanto all'ID di un pacchetto in [nuget.org](https://www.nuget.org/) o in Visual Studio indica che il proprietario del pacchetto soddisfa i [criteri](../reference/id-prefix-reservation.md#id-prefix-reservation-criteria) stabiliti per la prenotazione del prefisso ID. Ciò significa che il proprietario del pacchetto renderà disponibile il suo identificativo e quello del pacchetto.
+- *Prefissi ID pacchetto riservati*: molti proprietari di pacchetti hanno richiesto e ottenuto un [prefisso ID pacchetto riservato](../nuget-org/id-prefix-reservation.md). Un segno di spunta visualizzato accanto all'ID di un pacchetto in [nuget.org](https://www.nuget.org/) o in Visual Studio indica che il proprietario del pacchetto soddisfa i [criteri](../nuget-org/id-prefix-reservation.md#id-prefix-reservation-criteria) stabiliti per la prenotazione del prefisso ID. Ciò significa che il proprietario del pacchetto renderà disponibile il suo identificativo e quello del pacchetto.
 
 > [!Note]
 > Tenere sempre in considerazione le condizioni di licenza di un pacchetto, che è possibile visualizzare selezionando **License Info** (Informazioni di licenza) nella pagina di presentazione di un pacchetto su nuget.org. Se per un pacchetto non sono specificate le condizioni di licenza, contattare il proprietario del pacchetto direttamente usando il collegamento **Contact owners** (Contatta proprietari) nella pagina del pacchetto. Microsoft non concede in licenza all'utente alcuna proprietà intellettuale dei provider di pacchetti di terze parti e non è responsabile per le informazioni fornite da terze parti.
 
 ## <a name="license-url-deprecation"></a>Deprecazione dell'URL della licenza
-Durante la transizione da [licenseUrl](../reference/nuspec#licenseurl) a [license](../reference/nuspec#license), alcuni client NuGet e feed NuGet potrebbero non avere ancora la possibilità di esporre le informazioni sulla licenza in alcuni casi. Per mantenere la compatibilità con le versioni precedenti, l'URL della licenza punta a questo documento che illustra come recuperare le informazioni sulla licenza in tali casi.
+Durante la transizione da [licenseUrl](../reference/nuspec.md#licenseurl) a [license](../reference/nuspec.md#license), alcuni client NuGet e feed NuGet potrebbero non avere ancora la possibilità di esporre le informazioni sulla licenza in alcuni casi. Per mantenere la compatibilità con le versioni precedenti, l'URL della licenza punta a questo documento che illustra come recuperare le informazioni sulla licenza in tali casi.
 
 Se quando si fa clic sull'URL della licenza per un pacchetto si viene indirizzati a questa pagina, significa che il pacchetto contiene un file di licenza e
 * Si è connessi a un feed che non sa ancora come interpretare ed esporre le nuove informazioni di licenza per il client **O**

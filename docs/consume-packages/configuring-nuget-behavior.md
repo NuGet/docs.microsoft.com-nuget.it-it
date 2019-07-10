@@ -1,24 +1,24 @@
 ---
-title: Configurazione del comportamento di NuGet
+title: Configurazioni comuni di NuGet
 description: I file NuGet.Config controllano il comportamento di NuGet sia a livello globale che di progetto e vengono modificati con il comando nuget config.
 author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: 963d1d59ea7e65e3d75bc7105b8864e3e4045938
-ms.sourcegitcommit: ef08f376688f0191a8d3d873b6a4386afd799373
+ms.openlocfilehash: 57b7f29b533a8e6d7db2710c7e42a239f50199a1
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266348"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426657"
 ---
-# <a name="configuring-nuget-behavior"></a>Configurazione del comportamento di NuGet
+# <a name="common-nuget-configurations"></a>Configurazioni comuni di NuGet
 
 Il comportamento di NuGet si basa sulle impostazioni accumulate in uno o più file `NuGet.Config` (XML) che possono esistere a livello di progetto, di utente e di computer. Un file `NuGetDefaults.Config` globale configura anche in particolare le origini dei pacchetti. Le impostazioni si applicano a tutti i comandi eseguiti nell'interfaccia della riga di comando, nella console di Gestione pacchetti e nell'interfaccia utente di Gestione pacchetti.
 
 ## <a name="config-file-locations-and-uses"></a>Percorsi e usi dei file di configurazione
 
-| Ambito | Percorso del file NuGet.Config | Description |
+| Ambito | Percorso del file NuGet.Config | DESCRIZIONE |
 | --- | --- | --- |
 | Soluzione | Cartella corrente (ovvero la cartella della soluzione) o qualsiasi cartella fino alla radice dell'unità.| Nella cartella di una soluzione le impostazioni si applicano a tutti i progetti presenti nelle sottocartelle. Si noti che se un file di configurazione viene inserito in una cartella di progetto, non ha alcun effetto su tale progetto. |
 | Utente | Windows: `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.config/NuGet/NuGet.Config` o `~/.nuget/NuGet/NuGet.Config` (a seconda della distribuzione del sistema operativo) | Le impostazioni si applicano a tutte le operazioni, ma ne viene eseguito l'override dalle impostazioni a livello di progetto. |
