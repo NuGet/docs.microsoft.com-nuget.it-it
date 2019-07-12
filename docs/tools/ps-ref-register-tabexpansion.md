@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 98171c598bd4a3468bd23e2d6060e267c38021b4
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 8adb80af85e2e32fa8c35e5272cf90ff0c0ddcbb
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546605"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842491"
 ---
 # <a name="register-tabexpansion-package-manager-console-in-visual-studio"></a>Register-TabExpansion (Console di gestione pacchetti in Visual Studio)
 
-*Disponibile solo all'interno di [Console di gestione pacchetti NuGet](package-manager-console.md) in Visual Studio in Windows.*
+*Disponibile solo all'interno di [Console di gestione pacchetti](package-manager-console.md) in Visual Studio in Windows.*
 
 Registra un'espansione tramite tab per i parametri del comando specificato, in modo che quando scheda viene usata quando si immette un comando, i valori espansi vengono visualizzati come opzioni disponibili per il parametro in questione. Qualsiasi espansioni precedente per il comando vengono sovrascritti.
 
@@ -28,14 +28,14 @@ Register-TabExpansion [-Name] <String> [-Definition] <Object> [<CommonParameters
 
 | Parametro | Descrizione |
 | --- | --- |
-| nome | (Obbligatorio) Il comando per cui si desidera registrare le espansioni. -Nome commutatore stesso è facoltativo. |
+| Name | (Obbligatorio) Il comando per cui si desidera registrare le espansioni. -Nome commutatore stesso è facoltativo. |
 | Definizione | (Obbligatorio) Oggetto che descrive l'argomento nella sintassi `@{'<parameter>' = {'<value1>', '<value2>', ...}}` in cui `<parameter>` è il nome del parametro da modificare e ogni `<value>` fornisce un'espansione specifica. Le virgolette singole e doppie sono accettate. |
 
 Nessuno di questi parametri accettano caratteri jolly o input della pipeline.
 
 ## <a name="common-parameters"></a>Parametri comuni
 
-`Register-TabExpansion` supporta i seguenti [parametri PowerShell comuni](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, azione per errore, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction e WarningVariable.
+`Register-TabExpansion` supporta i seguenti [parametri PowerShell comuni](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, azione per errore, ErrorVariable, OutBuffer, OutVariable PipelineVariable, Verbose, WarningAction e WarningVariable.
 
 ## <a name="examples"></a>Esempi
 

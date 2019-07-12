@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 9db24b2dd6ced0869ac84b25f9796ded5df10f86
-ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
+ms.openlocfilehash: c3a01b7747be96f02f7b93b3bf66f5d1783ceed7
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56145644"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842546"
 ---
 # <a name="pack-command-nuget-cli"></a>Comando pack (interfaccia della riga di comando di NuGet)
 
@@ -47,12 +47,13 @@ in cui `<nuspecPath>` e `<projectPath>` specificare il `.nuspec` o file, rispett
 | NoDefaultExcludes | Impedisce l'esclusione predefinita di NuGet package file e i file e cartelle che iniziano con un punto, ad esempio `.svn` e `.gitignore`. |
 | NoPackageAnalysis | Specifica che pack non deve eseguire l'analisi del pacchetto dopo la compilazione di quest'ultimo. |
 | OutputDirectory | Specifica la cartella in cui è archiviato il pacchetto creato. Se si specifica alcuna cartella, viene utilizzata la cartella corrente. |
-| Proprietà | Dovrebbe essere visualizzato ultima nella riga di comando dopo le altre opzioni. Specifica un elenco di proprietà che eseguono l'override di valori nel file di progetto. visualizzare [proprietà di progetto MSBuild comuni](/visualstudio/msbuild/common-msbuild-project-properties) per i nomi delle proprietà. In questo caso l'argomento della proprietà è un elenco di token = coppie valore, separate da punti e virgola, in cui ogni occorrenza di `$token$` nella `.nuspec` file verrà sostituito con il valore specificato. I valori possono essere stringhe tra virgolette. Si noti che per la proprietà "Configurazione", il valore predefinito è "Debug". Per modificare una configurazione rilascio, usare `-Properties Configuration=Release`. |
+| Properties | Dovrebbe essere visualizzato ultima nella riga di comando dopo le altre opzioni. Specifica un elenco di proprietà che eseguono l'override di valori nel file di progetto. visualizzare [proprietà di progetto MSBuild comuni](/visualstudio/msbuild/common-msbuild-project-properties) per i nomi delle proprietà. In questo caso l'argomento della proprietà è un elenco di token = coppie valore, separate da punti e virgola, in cui ogni occorrenza di `$token$` nella `.nuspec` file verrà sostituito con il valore specificato. I valori possono essere stringhe tra virgolette. Si noti che per la proprietà "Configurazione", il valore predefinito è "Debug". Per modificare una configurazione rilascio, usare `-Properties Configuration=Release`. |
 | Suffisso | *(3.4.4+)*  Aggiunge un suffisso per il numero di versione generata internamente, in genere usato per l'accodamento compilazione o altri identificatori di versione non definitiva. Ad esempio, usando `-suffix nightly` verrà creato un pacchetto con una simile a numeri di versione `1.2.3-nightly`. I suffissi devono iniziare con una lettera per evitare gli avvisi, errori e potenziali incompatibilità con diverse versioni di NuGet e la gestione pacchetti NuGet. |
 | Simboli | Specifica che il pacchetto contiene origini e simboli. Se usato con un `.nuspec` file, verrà creato un file di pacchetto NuGet normale e di pacchetto di simboli corrispondente. Per impostazione predefinita viene creato un [pacchetto di simboli legacy](../create-packages/Symbol-Packages.md). Il nuovo formato consigliato per i pacchetti di simboli è l'estensione snupkg. Vedere [Creazione di pacchetti di simboli (estensione snupkg)](../create-packages/Symbol-Packages-snupkg.md). |
+| SymbolPackageFormat | Specifica il formato del pacchetto simboli: *symbols* (legacy) o *snupkg* (scelta consigliata). Per impostazione predefinita viene creato un [pacchetto di simboli legacy](../create-packages/Symbol-Packages.md). Vedere [Creazione di pacchetti di simboli (estensione snupkg)](../create-packages/Symbol-Packages-snupkg.md). |
 | Strumento | Specifica che i file di output del progetto devono essere inseriti nel `tool` cartella. |
-| Livello di dettaglio | Specifica la quantità di dettaglio visualizzato nell'output: *normali*, *quiet*, *dettagliate*. |
-| Versione | Sostituisce il numero di versione dal `.nuspec` file. |
+| Verbosity | Specifica la quantità di dettaglio visualizzato nell'output: *normali*, *quiet*, *dettagliate*. |
+| Version | Sostituisce il numero di versione dal `.nuspec` file. |
 
 Vedere anche [le variabili di ambiente](cli-ref-environment-variables.md)
 

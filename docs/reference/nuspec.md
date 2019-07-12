@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: e4c57c0580fe9018703291c08d60e559f95183dc
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: fd6ecab05a392a2a0b4ddf1ac15eb108f2653703
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426197"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842404"
 ---
 # <a name="nuspec-reference"></a>Informazioni di riferimento sul file .nuspec
 
@@ -32,7 +32,7 @@ In questo argomento
 
 - Usare `.nuspec` con `nuget.exe pack` per non-SDK-style i progetti che utilizzano `packages.config`.
 
-- Oggetto `.nuspec` file non è necessario per creare pacchetti per i progetti di tipo SDK (.NET Core e .NET Standard, i progetti che utilizzano il [attributo SDK](/dotnet/core/tools/csproj#additions)). (Si noti che un `.nuspec` viene generato quando si crea il pacchetto.)
+- Oggetto `.nuspec` file non è necessario per creare pacchetti per la [progetti in stile SDK](../resources/check-project-format.md) (in genere .NET Core e .NET Standard i progetti che utilizzano il [attributo SDK](/dotnet/core/tools/csproj#additions)). (Si noti che un `.nuspec` viene generato quando si crea il pacchetto.)
 
    Se si sta creando un pacchetto tramite `dotnet.exe pack` o `msbuild pack target`, è consigliabile che si [includono tutte le proprietà](../reference/msbuild-targets.md#pack-target) che sono in genere presenti il `.nuspec` invece del file nel file di progetto. Tuttavia, è invece possibile scegliere di [usano un `.nuspec` file riunire usando `dotnet.exe` o `msbuild pack target` ](../reference/msbuild-targets.md#packing-using-a-nuspec).
 
@@ -71,36 +71,43 @@ Anche se gli elementi seguenti sono i requisiti minimi per un pacchetto, è cons
 
 Questi elementi devono essere visualizzati all'interno di un elemento `<metadata>`.
 
-#### <a name="id"></a>ID 
-Identificatore del pacchetto senza distinzione tra maiuscole e minuscole che deve essere univoco in nuget.org o in qualsiasi raccolta in cui risiede il pacchetto. L'ID non può contenere spazi o caratteri non validi per un URL e in genere segue le regole dello spazio dei nomi .NET. Vedere [Choosing a unique package identifier and setting the version number](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number) (Scelta di un identificatore univoco del pacchetto e impostazione del numero di versione) per altre indicazioni.
+#### <a name="id"></a>id 
+Identificatore del pacchetto senza distinzione tra maiuscole e minuscole che deve essere univoco in nuget.org o in qualsiasi raccolta in cui risiede il pacchetto. L'ID non può contenere spazi o caratteri non validi per un URL e in genere segue le regole dello spazio dei nomi .NET. Vedere [Choosing a unique package identifier and setting the version number](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number) (Scelta di un identificatore univoco del pacchetto e impostazione del numero di versione) per altre indicazioni.
 #### <a name="version"></a>version
 La versione del pacchetto secondo il criterio *principale.secondaria.patch*. I numeri di versione possono includere un suffisso di versione non definitiva, come descritto in [Controllo delle versioni dei pacchetti](../reference/package-versioning.md#pre-release-versions). 
-#### <a name="description"></a>Descrizione
+#### <a name="description"></a>description
 Descrizione lunga del pacchetto per la visualizzazione dell'interfaccia utente. 
 #### <a name="authors"></a>authors
 Elenco con valori delimitati da virgola di autori di pacchetti, corrispondenti ai nomi di profili in nuget.org. Questi, visualizzati nella raccolta NuGet in nuget.org, vengono usati per creare riferimenti incrociati ai pacchetti dello stesso autore. 
 
 ### <a name="optional-metadata-elements"></a>Elementi dei metadati facoltativi
 
-#### <a name="title"></a>title
-Titolo del pacchetto facilmente comprensibile per l'utente, usato di solito per la visualizzazione dell'interfaccia utente, ad esempio in nuget.org e in Gestione pacchetti in Visual Studio. Se non specificato, viene usato l'ID del pacchetto. 
 #### <a name="owners"></a>owners
 Elenco con valori delimitati da virgola di autori di pacchetti, corrispondenti ai nomi di profili in nuget.org. Si tratta spesso dello stesso elenco in `authors` e viene ignorato durante il caricamento del pacchetto in nuget.org. Vedere [Gestione dei proprietari dei pacchetti in nuget.org](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg). 
+
 #### <a name="projecturl"></a>projectUrl
 URL della pagina iniziale del pacchetto, spesso visualizzato nell'interfaccia utente e in nuget.org. 
+
 #### <a name="licenseurl"></a>licenseUrl
 > [!Important]
 > licenseUrl stia diventando deprecato. Usare licenze.
 
-URL della licenza del pacchetto, spesso visualizzato nell'interfaccia utente e in nuget.org.
+URL della licenza del pacchetto, spesso visualizzato nelle interfacce utente come nuget.org.
+
 #### <a name="license"></a>licenza
-Espressione di licenza SPDX o percorso di un file di licenza all'interno del pacchetto, spesso visualizzato nell'interfaccia utente oltre che in nuget.org. Se ottenere la licenza del pacchetto con una licenza comune, ad esempio MIT o BSD-2-clausola, usare l'identificatore di licenza SPDX associato.<br>Ad esempio: `<license type="expression">MIT</license>`
+Un'espressione di licenza SPDX o percorso di un file di licenza all'interno del pacchetto, spesso visualizzato nelle interfacce utente come nuget.org. Se ottenere la licenza del pacchetto con una licenza comune, ad esempio MIT o BSD-2-clausola, usare l'oggetto associato [identificatore di licenza SPDX](https://spdx.org/licenses/). Ad esempio:
 
-Ecco l'elenco completo degli [identificatori di licenza SPDX](https://spdx.org/licenses/). NuGet.org accetta solo licenze approvate OSI o FSF quando si usa un'espressione del tipo di licenza.
+`<license type="expression">MIT</license>`
 
-Se il pacchetto è concesso in licenza con licenze comuni più, è possibile specificare una licenza composita tramite il [SPDX versione sintassi di espressione 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60).<br>Ad esempio: `<license type="expression">BSD-2-Clause OR MIT</license>`
+> [!Note]
+> NuGet.org accetta solo le espressioni di licenza che vengono approvate per l'origine iniziativa o Free Software Foundation.
 
-Se si usa una licenza che non è stata assegnata un identificatore SPDX o è una licenza personalizzata, è possibile comprimere un file (solo `.txt` o `.md`) con il testo di licenza. Ad esempio:
+Se il pacchetto è concesso in licenza con licenze comuni più, è possibile specificare una licenza composita tramite il [SPDX versione sintassi di espressione 2.0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60). Ad esempio:
+
+`<license type="expression">BSD-2-Clause OR MIT</license>`
+
+Se si usa una licenza personalizzata che non è supportata dalle espressioni di licenza, è possibile creare un pacchetto una `.txt` o `.md` file con il testo della licenza. Ad esempio:
+
 ```xml
 <package>
   <metadata>
@@ -140,30 +147,41 @@ URL di un'immagine 64x64 con sfondo trasparente da usare come icona per il pacch
 
 #### <a name="requirelicenseacceptance"></a>requireLicenseAcceptance
 Valore booleano che specifica se il client deve richiedere al consumer di accettare la licenza del pacchetto prima di installarlo.
+
 #### <a name="developmentdependency"></a>developmentDependency
-*(2.8+)* Valore booleano che specifica se il pacchetto deve essere contrassegnato come dipendenza solo per lo sviluppo, in modo che il pacchetto non possa essere incluso come dipendenza in altri pacchetti. Con PackageReference (NuGet 4.8), questo flag significa anche che gli asset in fase di compilazione verrà escluso dalla compilazione. Vedere [DevelopmentDependency supporto di PackageReference](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference)
+*(2.8 +)*  Valore booleano che specifica se il pacchetto deve essere contrassegnato come dipendenza solo per lo sviluppo, in modo che il pacchetto non possa essere incluso come dipendenza in altri pacchetti. Con PackageReference (NuGet 4.8), questo flag significa anche che gli asset in fase di compilazione verrà escluso dalla compilazione. Vedere [DevelopmentDependency supporto di PackageReference](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference)
+
 #### <a name="summary"></a>summary
 Descrizione breve del pacchetto per la visualizzazione dell'interfaccia utente. Se omesso, viene usata una versione troncata di `description`.
+
 #### <a name="releasenotes"></a>releaseNotes
 *(1.5+)* Descrizione delle modifiche apportate in questa versione del pacchetto, spesso usata nell'interfaccia utente, come la scheda **Aggiornamenti** di Gestione pacchetti di Visual Studio, in sostituzione della descrizione del pacchetto.
+
 #### <a name="copyright"></a>copyright
 *(1.5+)* Informazioni sul copyright per il pacchetto.
+
 #### <a name="language"></a>language
 ID delle impostazioni locali per il pacchetto. Vedere [Creazione di pacchetti localizzati](../create-packages/creating-localized-packages.md).
-#### <a name="tags"></a>tag
+
+#### <a name="tags"></a>tags
 Elenco di tag e parole chiave delimitati da spazi che descrivono il pacchetto e facilitano l'individuabilità dei pacchetti tramite meccanismi di ricerca e filtro. 
+
 #### <a name="serviceable"></a>utilizzabile dai servizi 
 *(3.3+)* Solo per uso interno in NuGet.
+
 #### <a name="repository"></a>repository
 I metadati del repository, costituiti da quattro attributi facoltativi: *tipo* e *url* *(4.0 +)* , e *ramo* e  *commit* *(4.6 e versioni successive)* . Questi attributi consentono di eseguire il mapping del pacchetto. nupkg per i repository che lo hanno generato, con la possibilità di ottenere come descritto in dettaglio come singolo ramo o commit che creato il pacchetto. Deve trattarsi di un url disponibile pubblicamente che può essere richiamati direttamente da un software di controllo di versione. Poiché questo è valido per il computer non deve essere una pagina html. Per il collegamento alla pagina del progetto, usare il `projectUrl` invece campo.
 
 #### <a name="minclientversion"></a>minClientVersion
 Specifica la versione minima del client NuGet, imposta da nuget.exe e da Gestione pacchetti di Visual Studio, che può installare questo pacchetto. Questo attributo viene usato ogni volta che il pacchetto dipende da funzionalità specifiche del file `.nuspec` aggiunte in una particolare versione del client NuGet. Ad esempio, un pacchetto che usa l'attributo `developmentDependency` deve specificare "2.8" per `minClientVersion`. Analogamente, un pacchetto che usa l'elemento `contentFiles` (vedere la sezione successiva) deve impostare `minClientVersion` su "3.3". Si noti che poiché i client NuGet prima della versione 2.5 non riconoscono questo flag, essi rifiutano *sempre* di installare il pacchetto indipendentemente dal contenuto di `minClientVersion`.
 
+#### <a name="title"></a>title
+Consente di visualizzare un titolo Converto del pacchetto che può essere usato in un'interfaccia utente. (nuget.org e la gestione di pacchetti in Visual Studio non Mostra titolo)
+
 #### <a name="collection-elements"></a>Elementi di raccolta
 
 #### <a name="packagetypes"></a>packageTypes
-*(3.5 +)* Raccolta di zero o più elementi `<packageType>` che specificano il tipo del pacchetto se diverso da un pacchetto di dipendenza tradizionale. Ogni packageType include gli attributi di *name* e *version*. Vedere [Setting a package type](../create-packages/creating-a-package.md#setting-a-package-type) (Impostazione di un tipo di pacchetto).
+*(3.5 +)* Raccolta di zero o più elementi `<packageType>` che specificano il tipo del pacchetto se diverso da un pacchetto di dipendenza tradizionale. Ogni packageType include gli attributi di *name* e *version*. Vedere [Setting a package type](../create-packages/set-package-type.md) (Impostazione di un tipo di pacchetto).
 #### <a name="dependencies"></a>dependencies
 Raccolta di zero o più elementi `<dependency>` che specificano le dipendenze per il pacchetto. Ogni dipendenza include gli attributi *id*, *version*, *include* (3.x+) ed *exclude* (3.x+). Vedere [Dipendenze](#dependencies-element) di seguito.
 #### <a name="frameworkassemblies"></a>frameworkAssemblies
@@ -172,7 +190,7 @@ Raccolta di zero o più elementi `<dependency>` che specificano le dipendenze pe
 *(1.5 +)* Raccolta di zero o più elementi `<reference>` per la denominazione degli assembly nella cartella `lib` del pacchetto, aggiunti come riferimenti al progetto. Ogni riferimento include un attributo *file*. `<references>` può anche contenere un elemento `<group>` con un attributo *targetFramework*, che contiene a sua volta elementi `<reference>`. Se omesso, vengono inclusi tutti i riferimenti in `lib`. Vedere [Riferimenti espliciti agli assembly](#specifying-explicit-assembly-references) più avanti.
 #### <a name="contentfiles"></a>contentFiles
 *(3.3 +)* Raccolta di elementi `<files>` che identificano i file di contenuto da includere nel progetto che utilizza il pacchetto. Questi file sono specificati con un set di attributi che descrivono come devono essere usati all'interno del sistema del progetto. Vedere [Inclusione di file di assembly](#specifying-files-to-include-in-the-package) più avanti.
-#### <a name="files"></a>file 
+#### <a name="files"></a>files 
 Il `<package>` nodo può contenere un `<files>` nodo come un elemento di pari livello `<metadata>`e un `<contentFiles>` figlio sotto `<metadata>`per specificare i file di assembly e il contenuto da includere nel pacchetto. Vedere [Inclusione di file di assembly](#including-assembly-files) e [Inclusione di file di contenuto](#including-content-files) più avanti in questo argomento per ulteriori dettagli.
 
 ## <a name="replacement-tokens"></a>Token di sostituzione
@@ -228,7 +246,7 @@ E si compila un assembly il cui `AssemblyName` è `LoggingLibrary` con la config
 
 L'elemento `<dependencies>` all'interno di `<metadata>` contiene qualsiasi numero di elementi `<dependency>` che identificano altri pacchetti da cui dipende il pacchetto di livello superiore. Gli attributi per ogni `<dependency>` sono i seguenti:
 
-| Attributo | Descrizione |
+| Attributo | DESCRIZIONE |
 | --- | --- |
 | `id` | (Obbligatorio) ID pacchetto della dipendenza, ad esempio "EntityFramework" e "NUnit", ovvero il nome di pacchetto che nuget.org mostra nella pagina di un pacchetto. |
 | `version` | (Obbligatorio) Intervallo di versioni accettabili come dipendenza. Per la sintassi esatta, vedere [Controllo delle versioni dei pacchetti](../reference/package-versioning.md#version-ranges-and-wildcards). |
@@ -348,7 +366,7 @@ Gli assembly del framework sono quelli che fanno parte di .NET Framework e devon
 
 L'elemento `<frameworkAssemblies>` contiene zero o più elementi `<frameworkAssembly>`, ognuno dei quali specifica gli attributi seguenti:
 
-| Attributo | Descrizione |
+| Attributo | DESCRIZIONE |
 | --- | --- |
 | **assemblyName** | (Obbligatorio) Nome completo dell'assembly. |
 | **targetFramework** | (Facoltativo) Specifica il framework di destinazione a cui si applica questo riferimento. Se omesso, indica che il riferimento si applica a tutti i framework. Vedere [Framework di destinazione](../reference/target-frameworks.md) per gli identificatori di framework esatti. |
@@ -593,7 +611,7 @@ Per controllare quali file sono inclusi, l'elemento `<contentFiles>` specifica u
 
 Questi file sono specificati con un set di attributi che descrivono come devono essere usati all'interno del sistema del progetto:
 
-| Attributo | Descrizione |
+| Attributo | DESCRIZIONE |
 | --- | --- |
 | **include** | (Obbligatorio) Percorso del file o dei file da includere, soggetto alle esclusioni specificate dall'attributo `exclude`. Il percorso è relativo al file `.nuspec`, a meno che non venga specificato un percorso assoluto. Il carattere jolly `*` è consentito e il carattere jolly doppio `**` implica una ricerca ricorsiva nelle cartelle. |
 | **exclude** | Elenco delimitato da punti e virgola dei file o dei modelli di file da escludere dal percorso `src`. Il carattere jolly `*` è consentito e il carattere jolly doppio `**` implica una ricerca ricorsiva nelle cartelle. |

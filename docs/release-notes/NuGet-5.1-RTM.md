@@ -1,10 +1,16 @@
 ---
-ms.openlocfilehash: 48306e77a017c11fa7dc0d695e0177edf4e79d1e
-ms.sourcegitcommit: 69b5eb1494a1745a4b1a7f320a91255d5d8356a9
+title: Note sulla versione 5.1 RTM di NuGet
+description: Note sulla versione per NuGet 5.1 incluse nuove funzionalità, correzioni di bug e dcr.
+author: karann-msft
+ms.author: karann
+ms.date: 05/21/2019
+ms.topic: conceptual
+ms.openlocfilehash: 384145947b19af6577dc1255985df1a361c72bb5
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65975835"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842571"
 ---
 # <a name="nuget-51-release-notes"></a>Note sulla versione 5.1 di NuGet
 
@@ -12,7 +18,7 @@ Veicoli per la distribuzione di NuGet:
 
 | Versione di NuGet | Disponibile nella versione di Visual Studio| Disponibile in .NET SDK|
 |:---|:---|:---|
-| [**5.1.0**](https://nuget.org/downloads) | [Visual Studio 2019 version 16.1](https://visualstudio.microsoft.com/downloads/) | [2.1.70X](https://dotnet.microsoft.com/download/dotnet-core/2.1)<sup>1</sup>, [2.2.30X](https://dotnet.microsoft.com/download/dotnet-core/2.2)<sup>2</sup> |
+| [**5.1.0**](https://nuget.org/downloads) | [Visual Studio 2019 versione 16.1](https://visualstudio.microsoft.com/downloads/) | [2.1.70X](https://dotnet.microsoft.com/download/dotnet-core/2.1)<sup>1</sup>, [2.2.30X](https://dotnet.microsoft.com/download/dotnet-core/2.2)<sup>2</sup> |
 
 <sup>1</sup>installata con Visual Studio 2019 con carico di lavoro di .NET Core 
 

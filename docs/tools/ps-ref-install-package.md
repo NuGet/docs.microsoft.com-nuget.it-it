@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/01/2017
 ms.topic: reference
-ms.openlocfilehash: e7ddf9ad97cbb4ec9cfc8b01f366511239f41416
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 755c87bbc68d3b688c81e16edbc1faabdc9e0520
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546026"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842504"
 ---
 # <a name="install-package-package-manager-console-in-visual-studio"></a>Install-Package (console di Gestione pacchetti in Visual Studio)
 
-*In questo argomento descrive il comando all'interno di [Console di gestione pacchetti NuGet](package-manager-console.md) in Visual Studio in Windows. Per il comando di PowerShell Install-Package generico, vedere la [riferimento di PowerShell PackageManagement](/powershell/module/packagemanagement/?view=powershell-6).*
+*In questo argomento descrive il comando all'interno di [Console di gestione pacchetti](package-manager-console.md) in Visual Studio in Windows. Per il comando di PowerShell Install-Package generico, vedere la [riferimento di PowerShell PackageManagement](/powershell/module/packagemanagement/?view=powershell-6).*
 
 Installa un pacchetto e le relative dipendenze in un progetto.
 
@@ -36,21 +36,21 @@ Install-Package Microsoft.AspNet.MVC -Version 5.0.0.
 
 | Parametro | Descrizione |
 | --- | --- |
-| Id | (Obbligatorio) L'identificatore del pacchetto da installare. (*3.0 e versioni successive*) l'identificatore può essere un percorso o URL di un `packages.config` file o un `.nupkg` file. -Id commutatore stesso è facoltativo. |
-| MSI | Installare solo il pacchetto e non le relative dipendenze. |
+| ID | (Obbligatorio) L'identificatore del pacchetto da installare. (*3.0 e versioni successive*) l'identificatore può essere un percorso o URL di un `packages.config` file o un `.nupkg` file. -Id commutatore stesso è facoltativo. |
+| IgnoreDependencies | Installare solo il pacchetto e non le relative dipendenze. |
 | ProjectName | Il progetto in cui si desidera installare il pacchetto, verrà utilizzato per il progetto predefinito. |
-| Origine | Il percorso URL o una cartella per l'origine del pacchetto da cercare. I percorsi di cartella locale possono essere assoluto o relativo rispetto alla cartella corrente. Se omesso, `Install-Package` Cerca l'origine del pacchetto attualmente selezionata. |
-| Versione | La versione del pacchetto da installare, verrà utilizzato per la versione più recente. |
+| `Source` | Il percorso URL o una cartella per l'origine del pacchetto da cercare. I percorsi di cartella locale possono essere assoluto o relativo rispetto alla cartella corrente. Se omesso, `Install-Package` Cerca l'origine del pacchetto attualmente selezionata. |
+| Version | La versione del pacchetto da installare, verrà utilizzato per la versione più recente. |
 | IncludePrerelease | Prende in considerazione i pacchetti di versione non definitivo per l'installazione. Se omesso, vengono considerati solo i pacchetti stabili. |
 | FileConflictAction | L'azione da intraprendere quando viene richiesto di sovrascrivere o ignorare i file esistenti farvi riferimento il progetto. I valori possibili sono *Sovrascrivi, Ignore, None, OverwriteAll*, e *(3.0 e versioni successive)* *IgnoreAll*. |
 | DependencyVersion | La versione dei pacchetti di dipendenza da usare, che può essere uno dei seguenti:<br/><ul><li>*Più basso* (impostazione predefinita): la versione più bassa</li><li>*HighestPatch*: la versione con patch più bassa principali, più bassa secondaria, più alto</li><li>*HighestMinor*: la versione con il minimo principali, patch secondaria, massima più alto</li><li>*Più alto* (valore predefinito per Update-Package senza parametri): la versione più recente</li></ul>È possibile impostare il valore predefinito usando il [ `dependencyVersion` ](../reference/nuget-config-file.md#config-section) impostazione nel `Nuget.Config` file. |
-| WhatIf | Viene illustrato che cosa accadrebbe quando si esegue il comando senza eseguire effettivamente l'installazione. |
+| Whatif | Viene illustrato che cosa accadrebbe quando si esegue il comando senza eseguire effettivamente l'installazione. |
 
 Nessuno di questi parametri accettano caratteri jolly o input della pipeline.
 
 ## <a name="common-parameters"></a>Parametri comuni
 
-`Install-Package` supporta i seguenti [parametri PowerShell comuni](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, azione per errore, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction e WarningVariable.
+`Install-Package` supporta i seguenti [parametri PowerShell comuni](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, azione per errore, ErrorVariable, OutBuffer, OutVariable PipelineVariable, Verbose, WarningAction e WarningVariable.
 
 ## <a name="examples"></a>Esempi
 

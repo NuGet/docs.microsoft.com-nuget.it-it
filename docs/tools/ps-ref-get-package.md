@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: a28b29614dfe5abdeb24438b3451d96634a120db
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: d0d25cb6e21f6d0d42389e08340b6f1e1baf8a64
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551442"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842509"
 ---
 # <a name="get-package-package-manager-console-in-visual-studio"></a>Get-Package (console di Gestione pacchetti in Visual Studio)
 
-*In questo argomento descrive il comando all'interno di [Console di gestione pacchetti NuGet](package-manager-console.md) in Visual Studio in Windows. Per il comando PowerShell Get-Package generico, vedere la [riferimento di PowerShell PackageManagement](/powershell/module/packagemanagement/?view=powershell-6).*
+*In questo argomento descrive il comando all'interno di [Console di gestione pacchetti](package-manager-console.md) in Visual Studio in Windows. Per il comando PowerShell Get-Package generico, vedere la [riferimento di PowerShell PackageManagement](/powershell/module/packagemanagement/?view=powershell-6).*
 
 Recupera l'elenco dei pacchetti installati nel repository locale, sono elencati i pacchetti disponibili da un'origine del pacchetto quando usato con l'opzione - ListAvailable o elenca gli aggiornamenti disponibili quando usato con l'opzione-Update.
 
@@ -32,12 +32,12 @@ Senza parametri, `Get-Package` consente di visualizzare l'elenco dei pacchetti i
 
 | Parametro | Descrizione |
 | --- | --- |
-| Origine | Il percorso URL o una cartella per il pacchetto. I percorsi di cartella locale possono essere assoluto o relativo rispetto alla cartella corrente. Se omesso, `Get-Package` Cerca l'origine del pacchetto attualmente selezionata. Quando usato con - ListAvailable, per impostazione predefinita in nuget.org. |
+| `Source` | Il percorso URL o una cartella per il pacchetto. I percorsi di cartella locale possono essere assoluto o relativo rispetto alla cartella corrente. Se omesso, `Get-Package` Cerca l'origine del pacchetto attualmente selezionata. Quando usato con - ListAvailable, per impostazione predefinita in nuget.org. |
 | ListAvailable | Elenca i pacchetti disponibili da un'origine del pacchetto, verrà utilizzato in nuget.org. Mostra un valore predefinito di 50 pacchetti a meno che non vengono specificati - PageSize e/o - First. |
 | Aggiornamenti | Elenca i pacchetti che hanno un aggiornamento disponibile dall'origine del pacchetto. |
 | ProjectName | Il progetto da cui ottenere i pacchetti installati. Se omesso, restituisce installati progetti per l'intera soluzione. |
 | Filtro | Una stringa di filtro utilizzata per limitare l'elenco dei pacchetti viene applicato per l'ID del pacchetto, la descrizione e tag. |
-| First | Il numero di pacchetti da restituire dall'inizio dell'elenco. Se non specificato, valore predefinito è 50. |
+| Primo | Il numero di pacchetti da restituire dall'inizio dell'elenco. Se non specificato, valore predefinito è 50. |
 | Skip | Omette il primo &lt;int&gt; pacchetti nell'elenco visualizzato.  |
 | AllVersions | Consente di visualizzare tutte le versioni disponibili di ogni pacchetto invece solo la versione più recente. |
 | IncludePrerelease | Include pacchetti versione non definitivo nei risultati. |
@@ -47,7 +47,7 @@ Nessuno di questi parametri accettano caratteri jolly o input della pipeline.
 
 ## <a name="common-parameters"></a>Parametri comuni
 
-`Get-Package` supporta i seguenti [parametri PowerShell comuni](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, azione per errore, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction e WarningVariable.
+`Get-Package` supporta i seguenti [parametri PowerShell comuni](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, azione per errore, ErrorVariable, OutBuffer, OutVariable PipelineVariable, Verbose, WarningAction e WarningVariable.
 
 ## <a name="examples"></a>Esempi
 
