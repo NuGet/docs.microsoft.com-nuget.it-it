@@ -16,12 +16,12 @@ keywords: Pacchetti di simboli NuGet, debug dei pacchetti NuGet, supporto per il
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 0d82cf8614b88247bc3a3ba3019c11bf1b5e2593
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 9f9cdd188cf2ec678bc9047604e618f1af9124ae
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426794"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842457"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Creazione di pacchetti di simboli (estensione snupkg)
 
@@ -54,7 +54,7 @@ Se si usa dotnet.exe o MSBuild, è possibile usare i passaggi seguenti per crear
 
 1. Eseguire un pacchetto del progetto con `dotnet pack MyPackage.csproj` o `msbuild -t:pack MyPackage.csproj`.
 
-La proprietà [`SymbolPackageFormat`](/dotnet/core/tools/csproj.md#symbolpackageformat) può avere uno dei due valori seguenti: `symbols.nupkg` (predefinito) o `snupkg`. Se non viene specificata la proprietà [`SymbolPackageFormat`](/dotnet/core/tools/csproj.md#symbolpackageformat), verrà creato un pacchetto di simboli legacy.
+La proprietà [`SymbolPackageFormat`](/dotnet/core/tools/csproj#symbolpackageformat) può avere uno dei due valori seguenti: `symbols.nupkg` (predefinito) o `snupkg`. Se non viene specificata la proprietà [`SymbolPackageFormat`](/dotnet/core/tools/csproj#symbolpackageformat), verrà creato un pacchetto di simboli legacy.
 
 > [!Note]
 > Il formato legacy `.symbols.nupkg` è ancora supportato ma solo per motivi di compatibilità (vedere [Pacchetti di simboli legacy](Symbol-Packages.md)). Il server di simboli di NuGet.org accetta solo il nuovo formato di pacchetto di simboli `.snupkg`.

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: tutorial
-ms.openlocfilehash: d737b70febd1e18aa8a39cc73a9a9cf333f758c6
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 81f78de02d9b6510f195e04c78436e38f9b7353d
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426833"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842427"
 ---
 # <a name="create-packages-for-xamarin-with-visual-studio-2015"></a>Creare pacchetti per Xamarin con Visual Studio 2015
 
@@ -111,7 +111,7 @@ Per eseguire un'implementazione specifica della piattaforma dell'interfaccia `IL
     ```
 
 1. Rinominare questo file in `LoggingLibrary.nuspec` e aprirlo in un editor.
-1. Aggiornare il file in modo che corrisponda a quanto segue, sostituendo YOUR_NAME con un valore appropriato. Il valore `<id>`, in particolare, deve essere univoco in nuget.org. Vedere le convenzioni di denominazione descritte in [Creazione di un pacchetto](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number). Tenere inoltre presente che è anche necessario aggiornare i tag relativi all'autore e alla descrizione o si verifica un errore durante il passaggio di creazione del pacchetto.
+1. Aggiornare il file in modo che corrisponda a quanto segue, sostituendo YOUR_NAME con un valore appropriato. Il valore `<id>`, in particolare, deve essere univoco in nuget.org. Vedere le convenzioni di denominazione descritte in [Creazione di un pacchetto](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number). Tenere inoltre presente che è anche necessario aggiornare i tag relativi all'autore e alla descrizione o si verifica un errore durante il passaggio di creazione del pacchetto.
 
     ```xml
     <?xml version="1.0"?>
@@ -268,5 +268,5 @@ Per rendere disponibile il pacchetto per altri sviluppatori, seguire le istruzio
 - [Pacchetti di simboli](../create-packages/symbol-packages.md)
 - [Controllo delle versioni dei pacchetti](../reference/package-versioning.md)
 - [Supporto di più versioni di .NET Framework](../create-packages/supporting-multiple-target-frameworks.md)
-- [Inclusione di proprietà e destinazioni MSBuild in un pacchetto](../create-packages/creating-a-package.md#including-msbuild-props-and-targets-in-a-package)
+- [Includere proprietà e destinazioni MSBuild in un pacchetto](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
 - [Creazione di pacchetti localizzati](../create-packages/creating-localized-packages.md)
