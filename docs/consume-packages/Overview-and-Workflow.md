@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: eeae62a09a9f405d27cd113ff586393f6305ba47
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 4cfc2fde08b240288851b87a391dc42c1ac8ecaf
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426704"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842311"
 ---
 # <a name="package-consumption-workflow"></a>Flusso di lavoro dell'utilizzo di pacchetti
 
@@ -49,5 +49,5 @@ I pacchetti NuGet vengono scaricati e installati usando uno dei metodi descritti
 | --- | --- |
 | [Interfaccia della riga di comando di dotnet.exe](install-use-packages-dotnet-cli.md) | (Tutte le piattaforme) Strumento della riga di comando per librerie .NET Core e .NET Standard e per progetti in stile SDK destinati a .NET Framework (vedere [Attributo Sdk](/dotnet/core/tools/csproj#additions)). Recupera il pacchetto identificato da \<package_name\> e aggiunge un riferimento al file di progetto. Inoltre, recupera e installa le dipendenze. |
 | Visual Studio | (Windows e Mac) Offre un'interfaccia utente tramite la quale è possibile esplorare, selezionare e installare i pacchetti e le relative dipendenze in un progetto da un'origine di pacchetti specificata. Aggiunge i riferimenti ai pacchetti installati nel file di progetto.<ul><li>[Installare e gestire i pacchetti con Visual Studio](../tools/package-manager-ui.md)</li><li>[Inserimento di un pacchetto NuGet nel progetto (Mac)](/visualstudio/mac/nuget-walkthrough)</li></ul> |
-| [PowerShell in Visual Studio](../tools/package-manager-console.md) | (Solo Windows) Recupera e installa il pacchetto identificato da \<package_name\> da un'origine selezionata in un progetto specificato nella soluzione, quindi aggiunge un riferimento al file di progetto. Inoltre, recupera e installa le dipendenze. |
+| [Console di Gestione pacchetti in Visual Studio](../tools/package-manager-console.md) | (Solo Windows) Recupera e installa il pacchetto identificato da \<package_name\> da un'origine selezionata in un progetto specificato nella soluzione, quindi aggiunge un riferimento al file di progetto. Inoltre, recupera e installa le dipendenze. |
 | [Interfaccia della riga di comando di nuget.exe](install-use-packages-dotnet-cli.md) | (Tutte le piattaforme) Strumento della riga di comando per librerie .NET Framework e per progetti non in stile SDK destinati alle librerie .NET Standard. Recupera il pacchetto identificato da \<package_name\> e ne espande il contenuto in una cartella nella directory corrente. Può anche recuperare tutti i pacchetti elencati in un file `packages.config`. Inoltre, recupera e installa le dipendenze, ma non apporta modifiche ai file di progetto o a `packages.config`. |

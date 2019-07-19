@@ -5,18 +5,18 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: e60bca8fe2f80b044e466db2a100d6c6d167edb7
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: a7177b956930835693921163e634321548c22462
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427376"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842375"
 ---
 # <a name="manage-packages-using-the-nugetexe-cli"></a>Gestire pacchetti tramite l'interfaccia della riga di comando nuget.exe
 
 Lo strumento della riga di comando consente di aggiornare e ripristinare facilmente pacchetti NuGet in progetti e soluzioni. Questo strumento offre tutte le funzionalità di NuGet in Windows e anche la maggior parte delle funzionalità in Mac e Linux per l'esecuzione in Mono.
 
-L'interfaccia della riga di comando di nuget.exe viene usata per il progetto .NET Framework e per i progetti non in stile SDK, ad esempio i progetti per le librerie .NET Standard. Se si usa un progetto non in stile SDK, di cui è stata eseguita la migrazione in `PackageReference`, usare in alternativa l'interfaccia della riga di comando di dotnet. L'interfaccia della riga di comando NuGet richiede un file [packages.config](../reference/packages-config.md) per i riferimenti ai pacchetti.
+L'interfaccia della riga di comando di nuget.exe viene usata per il progetto .NET Framework e per i progetti non di tipo SDK, ad esempio un progetto non di tipo SDK destinato alle librerie .NET Standard. Se si usa un progetto non in stile SDK, di cui è stata eseguita la migrazione in `PackageReference`, usare in alternativa l'interfaccia della riga di comando di dotnet. L'interfaccia della riga di comando NuGet richiede un file [packages.config](../reference/packages-config.md) per i riferimenti ai pacchetti.
 
 > [!NOTE]
 > Nella maggior parte degli scenari è consigliabile [eseguire la migrazione dei progetti non in stile SDK](../reference/migrate-packages-config-to-package-reference.md) che usano `packages.config` per PackageReference e poter poi usare l'interfaccia della riga di comando di dotnet anziché l'interfaccia della riga di comando `nuget.exe`. La migrazione non è attualmente disponibile per i progetti C++ e ASP.NET.
@@ -113,6 +113,8 @@ nuget update
 Usare il comando [restore](../tools/cli-ref-restore.md) che scarica e installa tutti i pacchetti mancanti dalla cartella *packages*.
 
 Il comando `restore` aggiunge soltanto pacchetti su disco, ma non modifica le dipendenze di un progetto. Per ripristinare le dipendenze del progetto, modificare `packages.config`, quindi usare il comando `restore`.
+
+Come per gli altri comandi dell'interfaccia della riga di comando `dotnet`, aprire prima di tutto una riga di comando e passare alla directory che contiene il file di progetto.
 
 Per ripristinare un pacchetto tramite `restore`:
 

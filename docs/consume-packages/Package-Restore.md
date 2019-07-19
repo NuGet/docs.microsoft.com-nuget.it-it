@@ -5,14 +5,14 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3b64c035886818496339fe1bdd8f9abce060278a
-ms.sourcegitcommit: b9a134a6e10d7d8502613f389f7d5f9b9e206ec8
+ms.openlocfilehash: e85d8cc3fd9492118bd8f34cfd05f20a9724c281
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67467802"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842345"
 ---
-# <a name="package-restore"></a>Ripristino di pacchetti
+# <a name="package-restore-options"></a>Opzioni di ripristino pacchetti
 
 Per ottenere un ambiente di sviluppo più ordinato e ridurre le dimensioni dei repository, l'opzione **Ripristino pacchetto** di NuGet installa tutte le dipendenze di un progetto elencate nel file di progetto o in `packages.config`. I comandi `dotnet build` e `dotnet run` di .NET Core 2.0 + eseguono un ripristino automatico dei pacchetti. Visual Studio può ripristinare i pacchetti automaticamente durante la compilazione di un progetto. È possibile ripristinare i pacchetti in qualsiasi momento usando Visual Studio, `nuget restore`, `dotnet restore`e xbuild in Mono.
 
@@ -27,25 +27,29 @@ Se un pacchetto non è già installato, NuGet tenta prima di tutto di recuperarl
 > [!Note]
 > NuGet non indica un errore di ripristino di un pacchetto fino a quando non sono state controllate tutte le origini. In quel momento, NuGet segnala un errore solo per l'ultima origine nell'elenco. Questo tipo di errore implica che il pacchetto non era presente in *alcuna* delle origini, anche se gli errori non vengono visualizzati singolarmente per ogni origine.
 
+## <a name="restore-packages"></a>Ripristinare pacchetti
+
 È possibile attivare l'opzione Ripristino pacchetto in uno dei modi seguenti:
 
-- **Interfaccia della riga di comando di dotnet**: usare il comando [dotnet restore](/dotnet/core/tools/dotnet-restore?tabs=netcore2x) per ripristinare i pacchetti elencati nel file di progetto con [PackageReference](../consume-packages/package-references-in-project-files.md). Con .NET Core 2.0 e versioni successive il ripristino viene eseguito automaticamente con i comandi `dotnet build` e `dotnet run`.  
+- **Visual Studio**: In Visual Studio in Windows usare uno dei metodi seguenti.
 
-- **Gestione pacchetti**: In Visual Studio in Windows il ripristino dei pacchetti viene eseguito automaticamente quando si crea un progetto da un modello o si compila un progetto. Tale comportamento è soggetto alle opzioni impostate in [Abilitare e disabilitare il ripristino dei pacchetti](#enable-and-disable-package-restore). In NuGet 4.0 + il ripristino avviene automaticamente anche quando vengono apportate modifiche a un progetto basato su .NET Core SDK.
+    - Ripristinare automaticamente i pacchetti. Il ripristino dei pacchetti viene eseguito automaticamente quando si crea un progetto da un modello o si compila un progetto. Tale comportamento è soggetto alle opzioni impostate in [Abilitare e disabilitare il ripristino dei pacchetti](#enable-and-disable-package-restore-visual-studio). In NuGet 4.0 +, il ripristino avviene automaticamente quando si apportano modifiche a un progetto di tipo SDK (in genere un progetto .NET Core o .NET Standard).
 
-    Per eseguire il ripristino dei pacchetti manualmente, fare clic con il pulsante destro del mouse in **Esplora soluzioni** e selezionare**Ripristina pacchetti NuGet**. Se uno o più pacchetti singoli non sono ancora installati correttamente, in **Esplora soluzioni** viene visualizzata un'icona di errore. Fare clic con il pulsante destro del mouse e selezionare **Gestisci pacchetti NuGet**. Usare **Gestione pacchetti** per disinstallare e reinstallare i pacchetti interessati. Per altre informazioni, vedere [Reinstallare e aggiornare pacchetti](../consume-packages/reinstalling-and-updating-packages.md)
+    - Ripristinare manualmente i pacchetti. Per eseguire il ripristino manualmente, fare clic con il pulsante destro del mouse sulla soluzione in **Esplora soluzioni** e scegliere **Ripristina pacchetti NuGet**. Se uno o più pacchetti singoli non sono ancora installati correttamente, in **Esplora soluzioni** viene visualizzata un'icona di errore. Fare clic con il pulsante destro del mouse e selezionare **Gestisci pacchetti NuGet**. Usare **Gestione pacchetti** per disinstallare e reinstallare i pacchetti interessati. Per altre informazioni, vedere [Reinstallare e aggiornare pacchetti](../consume-packages/reinstalling-and-updating-packages.md)
 
-    Se viene visualizzato l'errore "Questo progetto fa riferimento a uno o più pacchetti NuGet che non sono presenti in questo computer" o "Impossibile ripristinare uno o più pacchetti NuGet perché il consenso non è stato concesso", [abilitare il ripristino automatico](#enable-and-disable-package-restore). Vedere anche [Risoluzione degli errori relativi al ripristino dei pacchetti](Package-restore-troubleshooting.md).
+    Se viene visualizzato l'errore "Questo progetto fa riferimento a uno o più pacchetti NuGet che non sono presenti in questo computer" o "Impossibile ripristinare uno o più pacchetti NuGet perché il consenso non è stato concesso", [abilitare il ripristino automatico](#enable-and-disable-package-restore-visual-studio). Vedere anche [Eseguire la migrazione al ripristino dei pacchetti automatico](#migrate-to-automatic-package-restore-visual-studio) e [Risoluzione dei problemi di ripristino dei pacchetti](Package-restore-troubleshooting.md).
 
-- **Interfaccia della riga di comando di nuget.exe**: usare il comando [nuget restore](../tools/cli-ref-restore.md) per ripristinare i pacchetti elencati nel file di progetto o di soluzione, oppure in `packages.config`. 
+- **Interfaccia della riga di comando di dotnet**: Nella riga di comando passare alla cartella che contiene il progetto e quindi usare il comando [dotnet restore](/dotnet/core/tools/dotnet-restore?tabs=netcore2x) per ripristinare i pacchetti elencati nel file di progetto con [PackageReference](../consume-packages/package-references-in-project-files.md). Con .NET Core 2.0 e versioni successive il ripristino viene eseguito automaticamente con i comandi `dotnet build` e `dotnet run`.  
+
+- **Interfaccia della riga di comando di nuget.exe**: Nella riga di comando passare alla cartella che contiene il progetto, quindi usare il comando [nuget restore](../tools/cli-ref-restore.md) per ripristinare i pacchetti elencati in un file di progetto o di soluzione oppure in `packages.config`. 
 
 - **MSBuild**: usare il comando [msbuild -t:restore](../reference/msbuild-targets.md#restore-target) per ripristinare i pacchetti elencati nel file di progetto con PackageReference. Questo comando è disponibile solo in NuGet 4.x+ e MSBuild 15.1 +, inclusi con Visual Studio 2017 e versioni successive. Sia `nuget restore` che `dotnet restore` usano questo comando per i progetti applicabili.
 
-- **Azure Pipelines**: quando si crea una definizione di compilazione in Azure Pipelines, includere l'attività di [ripristino](/azure/devops/pipelines/tasks/package/nuget#restore-nuget-packages) di NuGet o l'attività di [ripristino](/azure/devops/pipelines/tasks/build/dotnet-core#restore-nuget-packages) di .NET Core nella definizione prima di qualsiasi attività di compilazione. Alcuni modelli di compilazione includono l'attività di ripristino per impostazione predefinita.
+- **Azure Pipelines**: quando si crea una definizione di compilazione in Azure Pipelines, includere l'attività di [ripristino](/azure/devops/pipelines/tasks/package/nuget#restore-nuget-packages) di NuGet o l'attività di [ripristino](/azure/devops/pipelines/tasks/build/dotnet-core-cli?view=azure-devops) di .NET Core nella definizione prima di qualsiasi attività di compilazione. Alcuni modelli di compilazione includono l'attività di ripristino per impostazione predefinita.
 
 - **Azure DevOps Server**: in Azure DevOps Server e TFS 2013 e versioni successive i pacchetti vengono ripristinati automaticamente durante la compilazione, a condizione che si usi un modello di Team Build per TFS 2013 o versioni successive. Per le versioni di TFS precedenti, è possibile includere un passaggio di compilazione per eseguire un'opzione di ripristino dalla riga di comando o eventualmente eseguire la migrazione del modello di compilazione a una versione successiva. Per altre informazioni, vedere [Configurare il ripristino dei pacchetti con Team Foundation Build](../consume-packages/team-foundation-build.md).
 
-## <a name="enable-and-disable-package-restore"></a>Abilitare e disabilitare il ripristino dei pacchetti
+## <a name="enable-and-disable-package-restore-visual-studio"></a>Abilitare e disabilitare il ripristino dei pacchetti (Visual Studio)
 
 In Visual Studio il ripristino dei pacchetti viene controllato principalmente in **Strumenti** > **Opzioni** > **Gestione pacchetti NuGet**:
 
@@ -120,6 +124,25 @@ Per evitare di usare la cache per le origini HTTP, eseguire una delle operazioni
 - Usare l'opzione `-NoCache` con `nuget restore` o l'opzione `--no-cache` con `dotnet restore`. Queste opzioni non influiscono sulle operazioni di ripristino tramite l'interfaccia utente o la console di Gestione pacchetti di Visual Studio.
 - Cancellare la cache con `nuget locals http-cache -clear` o `dotnet nuget locals http-cache --clear`.
 - Impostare temporaneamente la variabile di ambiente NUGET_HTTP_CACHE_PATH in una cartella diversa.
+
+## <a name="migrate-to-automatic-package-restore-visual-studio"></a>Eseguire la migrazione al ripristino dei pacchetti automatico (Visual Studio)
+
+Per NuGet 2.6 e versioni precedenti era precedentemente supportato il ripristino dei pacchetti integrato in MSBuild, ma non è più così. In genere veniva abilitato facendo clic con il pulsante destro del mouse su una soluzione in Visual Studio e scegliendo **Enable NuGet Package Restore** (Abilita il ripristino dei pacchetti NuGet). Se il progetto usa il ripristino dei pacchetti integrato in MSBuild deprecato, eseguire la migrazione al ripristino dei pacchetti automatico.
+
+I progetti che usano il ripristino dei pacchetti integrato in MSBuild contengono in genere una cartella *.nuget* con tre file: *NuGet.config*, *nuget.exe* e *NuGet.targets*. La presenza di un file *NuGet.targets* determina se NuGet continuerà a usare l'approccio integrato in MSBuild, con conseguente necessità di rimuovere questo file durante la migrazione.
+
+Per eseguire la migrazione al ripristino dei pacchetti automatico:
+
+1. Chiudere Visual Studio.
+2. Eliminare *.nuget/nuget.exe* e *.nuget/NuGet.targets*.
+3. Per ogni file di progetto rimuovere l'elemento `<RestorePackages>` e rimuovere qualsiasi riferimento a *NuGet.targets*.
+
+Per testare il ripristino dei pacchetti automatico:
+
+1. Rimuovere la cartella *packages* dalla soluzione.
+2. Aprire la soluzione in Visual Studio e avviare una compilazione.
+
+   Il ripristino dei pacchetti automatico dovrebbe scaricare e installare ogni pacchetto di dipendenze, senza aggiungerli al controllo del codice sorgente.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 

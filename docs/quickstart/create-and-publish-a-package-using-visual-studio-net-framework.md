@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: efdaa0128d47f948c86c3cc83d6a332410cbf99f
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: bf561d36a06bf42c029eb96ff1b7930abffa4c0a
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426332"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842055"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Guida introduttiva: Creare e pubblicare un pacchetto con Visual Studio (.NET Framework, Windows)
 
@@ -145,7 +145,7 @@ Dopo aver creato un file `.nupkg`, pubblicarlo in nuget.org usando `nuget.exe` i
 
 ### <a name="publish-with-nuget-push"></a>Pubblicare con nuget push
 
-1. Passare alla cartella contenente il file `.nupkg`.
+1. Aprire una riga di comando e passare alla cartella che contiene il file `.nupkg`.
 
 1. Eseguire il comando seguente, specificando il nome del pacchetto e sostituendo il valore di chiave con la chiave API:
 

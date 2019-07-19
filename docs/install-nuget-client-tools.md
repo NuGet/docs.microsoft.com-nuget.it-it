@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/20/2019
 ms.topic: quickstart
-ms.openlocfilehash: 6e3011493b7b89bc43cd9a267aea7fd32d668cec
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: a4a3f5509792e56c09d18b3da98588d17f4756ee
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426565"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67841935"
 ---
 # <a name="install-nuget-client-tools"></a>Installare gli strumenti client di NuGet
 
@@ -20,8 +20,8 @@ Per usare NuGet, come consumer o autore di pacchetti, è possibile usare gli str
 
 | Tool&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | DESCRIZIONE | Download&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
 |:------------- |:-------------|:-----|
-| [dotnet.exe](#dotnetexe-cli) | Strumento dell'interfaccia della riga di comando per librerie .NET Core e .NET Standard e per progetti in stile SDK, ad esempio quelli destinati a .NET Framework (vedere [Attributo Sdk](/dotnet/core/tools/csproj#additions)). Incluso in .NET Core SDK, offre le principali funzionalità NuGet per tutte le piattaforme. | [.NET Core SDK](https://www.microsoft.com/net/download/) |
-| [nuget.exe](#nugetexe-cli) | Strumento dell'interfaccia della riga di comando per librerie .NET Framework e per progetti non in stile SDK destinati alle librerie .NET Standard. Fornisce tutte le funzionalità di NuGet in Windows e la maggior parte delle funzionalità in Mac e Linux per l'esecuzione in Mono. | [nuget.exe](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) |
+| [dotnet.exe](#dotnetexe-cli) | Strumento dell'interfaccia della riga di comando per librerie .NET Core e .NET Standard e per qualsiasi [progetto di tipo SDK](resources/check-project-format.md), ad esempio quelli destinati a .NET Framework. Incluso in .NET Core SDK, offre le principali funzionalità NuGet per tutte le piattaforme. A partire da Visual Studio 2017, l'interfaccia della riga di comando dotnet viene installata automaticamente con qualsiasi carico di lavoro correlato a .NET Core.| [.NET Core SDK](https://www.microsoft.com/net/download/) |
+| [nuget.exe](#nugetexe-cli) | Strumento dell'interfaccia della riga di comando per librerie .NET Framework e per [progetti non di tipo SDK](resources/check-project-format.md) destinati alle librerie .NET Standard. Fornisce tutte le funzionalità di NuGet in Windows e la maggior parte delle funzionalità in Mac e Linux per l'esecuzione in Mono. | [nuget.exe](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) |
 | [Visual Studio](#visual-studio) | In Windows, fornisce le funzionalità NuGet tramite l'interfaccia utente di Gestione pacchetti e la console di Gestione pacchetti, incluse nei carichi di lavoro correlati a .NET. In Mac, fornisce alcune funzionalità tramite l'interfaccia utente. In Visual Studio Code, le funzionalità di NuGet vengono offerte tramite le estensioni. | [Visual Studio 2017](https://www.visualstudio.com/downloads/) |
 
 Anche l'[interfaccia della riga di comando di MSBuild](reference/msbuild-targets.md) offre la possibilità di ripristinare e creare pacchetti, utile principalmente nei server di compilazione. MSBuild non è uno strumento generico per l'utilizzo di NuGet.
@@ -31,7 +31,7 @@ Anche l'[interfaccia della riga di comando di MSBuild](reference/msbuild-targets
 I due strumenti di interfaccia della riga di comando NuGet sono `dotnet.exe` e `nuget.exe`. Vedere la [disponibilità delle funzionalità](#feature-availability) per un confronto.
 
 * Per impostare come destinazione .NET Core o .NET Standard, usare l'interfaccia della riga di comando dotnet. L'interfaccia della riga di comando dotnet è richiesta per il formato di progetto in stile SDK, che usa l'[attributo Sdk](/dotnet/core/tools/csproj#additions).
-* Per avere come destinazione .NET Framework (solo progetti non in stile SDK), usare `nuget.exe CLI`. Se viene eseguita la migrazione del progetto a `packages.config`, usare l'interfaccia della riga di comando di dotnet.
+* Per avere come destinazione .NET Framework (solo progetti non in stile SDK), usare `nuget.exe CLI`. Se viene eseguita la migrazione del progetto da `packages.config` a PackageReference, usare l'interfaccia della riga di comando dotnet.
 
 ### <a name="dotnetexe-cli"></a>Interfaccia della riga di comando di dotnet.exe
 
@@ -39,7 +39,7 @@ L'interfaccia della riga di comando di .NET Core 2.0, `dotnet.exe`, funziona in 
 
 Installazione:
 
-- Nei computer degli sviluppatori installare [.NET Core SDK](https://aka.ms/dotnetcoregs).
+- Nei computer degli sviluppatori installare [.NET Core SDK](https://aka.ms/dotnetcoregs). A partire da Visual Studio 2017, l'interfaccia della riga di comando di dotnet viene installata automaticamente con qualsiasi carico di lavoro .NET Core correlato.
 - Per i server di compilazione, seguire le istruzioni in [Uso di .NET Core SDK e dei relativi strumenti in integrazione continua](/dotnet/core/tools/using-ci-with-cli).
 
 Per informazioni su come usare i comandi di base con l'interfaccia della riga di comando di dotnet, vedere [Installare e usare pacchetti tramite l'interfaccia della riga di comando di dotnet](consume-packages/install-use-packages-dotnet-cli.md).
@@ -48,14 +48,14 @@ Per informazioni su come usare i comandi di base con l'interfaccia della riga di
 
 L'interfaccia della riga di comando di `nuget.exe`, `nuget.exe`, è l'utilità da riga di comando per Windows che offre tutte le funzionalità di NuGet. Può essere eseguita anche in Mac OSX e Linux tramite [Mono](http://www.mono-project.com/docs/getting-started/install/), con alcune limitazioni.
 
+Per informazioni su come usare i comandi di base con l'interfaccia della riga di comando di `nuget.exe`, vedere [Installare e usare pacchetti tramite l'interfaccia della riga di comando di nuget.exe](consume-packages/install-use-packages-nuget-cli.md).
+
 Installazione:
 
 [!INCLUDE [install-cli](includes/install-cli.md)]
 
 > [!Tip]
 > Usare `nuget update -self` in Windows per aggiornare una copia esistente di nuget.exe alla versione più recente.
-
-Per informazioni su come usare i comandi di base con l'interfaccia della riga di comando di `nuget.exe`, vedere [Installare e usare pacchetti tramite l'interfaccia della riga di comando di nuget.exe](consume-packages/install-use-packages-nuget-cli.md).
 
 > [!Note]
 > La versione più recente consigliata dell'interfaccia della riga di comando di NuGet è sempre disponibile all'indirizzo `https://dist.nuget.org/win-x86-commandline/latest/nuget.exe`. Per motivi di compatibilità con sistemi di integrazione continua meno recenti, da un URL precedente, `https://nuget.org/nuget.exe`, è attualmente possibile ottenere la [versione 2.8.6 deprecata dell'interfaccia della riga di comando](https://github.com/NuGet/NuGetGallery/issues/5381).
@@ -103,7 +103,7 @@ Per informazioni su come usare i comandi di base con l'interfaccia della riga di
 ### <a name="related-topics"></a>Argomenti correlati
 
 - [Installare e gestire pacchetti con Visual Studio](tools/package-manager-ui.md)
-- [Installare e gestire pacchetti con PowerShell](tools/package-manager-console.md)
+- [Installare e gestire pacchetti con la console di Gestione pacchetti](tools/package-manager-console.md)
 - [Installare e gestire pacchetti con l'interfaccia della riga di comando di dotnet](consume-packages/install-use-packages-dotnet-cli.md)
 - [Installare e gestire pacchetti con l'interfaccia della riga di comando di nuget.exe](consume-packages/install-use-packages-nuget-cli.md)
 - [Package Manager Console PowerShell reference (Informazioni di riferimento sull'interfaccia PowerShell per la console di Gestione pacchetti)](tools/powershell-reference.md)

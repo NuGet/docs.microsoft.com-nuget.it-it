@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: c2fc11c0f5dd5d98c40c8b97f9d5a72c4a334b79
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: fd846632e7a1f5c49fa72d75b18e51cfc7539949
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427286"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67841950"
 ---
 # <a name="nugetorg-frequently-asked-questions"></a>Domande frequenti su NuGet.org
 
@@ -252,13 +252,15 @@ Seguire i passaggi descritti nelle sezioni [Eliminare l'account di nuget.org](#h
 
 Per eliminare l'account, si noti che è consigliabile trasferire la proprietà di tutti i pacchetti di cui l'account da eliminare è l'unico proprietario. Altre informazioni sulla [gestione dei proprietari dei pacchetti](https://docs.microsoft.com/en-us/nuget/create-packages/publish-a-package#managing-package-owners-on-nugetorg) e su come eseguire questa operazione. Ciò risulta utile anche per accelerare la richiesta.
 
+Se si desidera trasformare l'account in un'organizzazione, seguire la procedura descritta in [Trasformare l'account personale di nuget.org in un'organizzazione](#how-to-transform-my-nugetorg-account-to-an-organization).
+
 > [!Important]
 > L'eliminazione dell'utente avrà i risultati seguenti:
+>  1. Il nome utente sarà riservato e nessuno potrà riutilizzarlo per creare un account personale o un account dell'organizzazione.
 >  1. Revoca delle chiavi API associate. 
->  2. Rimozione dell'account come proprietario per tutti i pacchetti figlio.
->  3. Annullamento dell'associazione di tutte le prenotazioni di prefisso ID esistenti in precedenza per l'account.
->  4. Rimozione dell'account come membro di tutte le organizzazioni.
->  5. Il nome utente resterà riservato e nessuno potrà riutilizzarlo senza l'autorizzazione di nuget.org.
+>  1. Rimozione dell'account come proprietario per tutti i pacchetti figlio.
+>  1. Annullamento dell'associazione di tutte le prenotazioni di prefisso ID esistenti in precedenza per l'account.
+>  1. Rimozione dell'account come membro di tutte le organizzazioni.
 
 Seguire questi passaggi per procedere con l'eliminazione dell'account.
 1. [Accedere a nuget.org](https://www.nuget.org/users/account/LogOn) con l'account da eliminare.
