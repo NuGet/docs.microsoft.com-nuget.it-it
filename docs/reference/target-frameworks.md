@@ -1,38 +1,39 @@
 ---
-title: Riferimento ai framework di destinazione per NuGet
+title: Informazioni di riferimento sui Framework di destinazione per NuGet
 description: I riferimenti ai framework di destinazione NuGet consentono di identificare e isolare i componenti dipendenti dai framework di un pacchetto.
 author: karann-msft
 ms.author: karann
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 0b2a4fe45d0311b7540c73b481d6821357c723af
-ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
+ms.openlocfilehash: ea9f699b202d7f32648f0ccfeac3ceb1ca325b7e
+ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610654"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68342437"
 ---
 # <a name="target-frameworks"></a>Framework di destinazione
 
 NuGet usa I riferimenti ai framework di destinazione in svariate posizioni per identificare e isolare i componenti dipendenti dai framework di un pacchetto:
 
-- [manifesto. nuspec](../reference/nuspec.md): Un pacchetto può indicare i pacchetti distinti da includere in un progetto a seconda del framework di destinazione del progetto.
-- [nome della cartella con estensione nupkg](../create-packages/creating-a-package.md#from-a-convention-based-working-directory): Le cartelle all'interno di un pacchetto `lib` cartella può essere denominata in base al framework di destinazione e ognuna delle quali contiene le DLL e altro contenuto appropriati per tale framework.
-- [packages.config](../reference/packages-config.md): Il `targetframework` attributo di una dipendenza specifica la variante di un pacchetto da installare.
+- [file di progetto](../create-packages/multiple-target-frameworks-project-file.md): Per i progetti di tipo SDK, il *. csproj* contiene i riferimenti al Framework di destinazione.
+- [manifesto. NuSpec](../reference/nuspec.md): Un pacchetto può indicare pacchetti distinti da includere in un progetto a seconda del Framework di destinazione del progetto.
+- [nome della cartella. nupkg](../create-packages/creating-a-package.md#from-a-convention-based-working-directory): Le cartelle all'interno della cartella `lib` di un pacchetto possono essere denominate in base al Framework di destinazione, ognuna delle quali contiene le dll e altri contenuti appropriati per tale Framework.
+- [packages.config](../reference/packages-config.md): L' `targetframework` attributo di una dipendenza specifica la variante di un pacchetto da installare.
 
 > [!Note]
 > Il codice sorgente del client NuGet che consente di calcolare le tabelle riportate di seguito è disponibile nelle posizioni seguenti:
-> - Nomi dei framework supportati: [FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
-> - Precedenza di Framework e di mapping: [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
+> - Nomi di Framework supportati: [FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
+> - Precedenza e mapping del Framework: [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
 
 ## <a name="supported-frameworks"></a>Framework supportati
 
-In genere si fa riferimento a un framework tramite un breve moniker del framework di destinazione o TFM (Target Framework Moniker). In .NET Standard questo viene inoltre generalizzato in *TxM* per consentire un unico riferimento a più Framework.
+In genere si fa riferimento a un framework tramite un breve moniker del framework di destinazione o TFM (Target Framework Moniker). In .NET Standard viene anche generalizzato in *TXM* per consentire un unico riferimento a più Framework.
 
 I client NuGet supportano i framework nella tabella seguente. Gli equivalenti sono visualizzati tra parentesi quadre []. Si noti che alcuni strumenti, ad esempio `dotnet`, potrebbero usare varianti dei moniker TFM canonici in alcuni file. Ad esempio, `dotnet pack` usa `.NETCoreApp2.0` in un file `.nuspec` invece di `netcoreapp2.0`. I vari strumenti client NuGet gestiscono queste variazioni correttamente, ma è consigliabile usare sempre i TFM canonici quando si modificano direttamente i file.
 
-| Nome | Abbreviazione | TFM/TxM |
+| Name | Abbreviazione | TFM/TxM |
 | ------------- | ------------ | --------- |
 |.NET Framework | net | net11 |
 | | | net20 |
@@ -54,7 +55,7 @@ I client NuGet supportano i framework nella tabella seguente. Gli equivalenti so
 | | | netcore451 [win81] |
 | | | netcore50 |
 |.NET MicroFramework | netmf | netmf |
-|WINDOWS | win | win [win8, netcore45] |
+|Windows | win | win [win8, netcore45] |
 | | | win8 [netcore45, win] |
 | | | win81 [netcore451] |
 | | | win10 (non supportato dalla piattaforma Windows 10) |
@@ -68,7 +69,7 @@ Windows Phone (SL) | wp | wp [wp7] |
 Windows Phone (UWP) | | wpa81 |
 Piattaforma UWP (Universal Windows Platform) | uap | uap [uap10.0] |
 | | | uap10.0 |
-| | | uap10.0.xxxxx (dove 10.0.xxxxx è versione minima piattaforma di destinazione dell'app consumer) |
+| | | UAP 10.0. xxxxx (dove 10.0. xxxxx è la versione minima della piattaforma di destinazione dell'app di consumo) |
 .NET Standard | netstandard | netstandard1.0 |
 | | | netstandard1.1 |
 | | | netstandard1.2 |
@@ -120,9 +121,9 @@ Alcuni framework sono correlati e compatibili tra loro, ma non necessariamente e
 | win (Microsoft Store) | winrt |
 | | |
 
-## <a name="net-platform-standard"></a>NET Platform Standard
+## <a name="net-standard"></a>NET standard
 
-[.NET Platform Standard](https://github.com/dotnet/corefx/blob/master/Documentation/architecture/net-platform-standard.md) semplifica i riferimenti tra framework compatibili con il codice binario, consentendo a un framework di destinazione singolo di fare riferimento a una combinazione di altri framework. (Per informazioni generali, vedere [Nozioni di base su .NET](/dotnet/articles/standard/index).)
+[.NET standard](/dotnet/standard/net-standard) semplifica i riferimenti tra Framework compatibili con i binari, consentendo a un singolo Framework di destinazione di fare riferimento a una combinazione di altri. (Per informazioni generali, vedere [Nozioni di base su .NET](/dotnet/articles/standard/index).)
 
 Lo [strumento NuGet Get Nearest Framework](https://aka.ms/s2m3th) simula la logica usata da NuGet per la selezione di un framework da molte risorse di framework disponibili in un pacchetto sulla base del framework di progetto.
 
@@ -131,7 +132,7 @@ La serie `dotnet` di moniker deve essere usata in NuGet 3.3 e versioni precedent
 ## <a name="portable-class-libraries"></a>Librerie di classi portabili
 
 > [!Warning]
-> **Le librerie di classi portabili (PCL) non sono consigliate**. Anche se sono supportate, gli autori di pacchetti devono supportare netstandard. .NET Platform Standard è un'evoluzione delle librerie di classi portabili e rappresenta la portabilità binaria su più piattaforme tramite un singolo moniker associato a una libreria statica, ad esempio *portable-a + b + c* moniker.
+> **Le librerie di classi portabili (PCL) non sono consigliate**. Anche se sono supportate, gli autori di pacchetti devono supportare netstandard. .NET Platform Standard è un'evoluzione di classi portabili e rappresenta la portabilità binaria tra le piattaforme usando un unico moniker non collegato a una libreria statica come i moniker portabili a *+ b + c* .
 
 Per definire un framework di destinazione che fa riferimento a più framework di destinazione figlio, la parola chiave `portable` viene usata come prefisso per l'elenco dei framework a cui si fa riferimento. Evitare di includere artificialmente framework aggiuntivi non usati direttamente per la compilazione, perché ciò può portare a effetti collaterali imprevisti in tali framework.
 
@@ -165,9 +166,9 @@ I framework aggiuntivi definiti da terze parti garantiscono la compatibilità co
  | | Silverlight 4.0 |
  Profile24 | .NETFramework 4.5 | portable-net45+sl5
  | | Silverlight 5.0 |
- Profile31 | Windows 8,1 | portable-win81+wp81 | netstandard1.0
+ Profile31 | Windows 8.1 | portable-win81+wp81 | netstandard1.0
  | | WindowsPhone 8.1 (SL) |
- Profile32 | Windows 8,1 | portable-win81+wpa81 | netstandard1.2
+ Profile32 | Windows 8.1 | portable-win81+wpa81 | netstandard1.2
  | | WindowsPhone 8.1 (UWP) |
  Profile36 | .NETFramework 4.0 | portable-net40+sl4+win8+wp8
  | | Silverlight 4.0 |
@@ -183,7 +184,7 @@ I framework aggiuntivi definiti da terze parti garantiscono la compatibilità co
  | | Silverlight 5.0 |
  | | Windows 8.0 |
  Profile44 | .NETFramework 4.5.1 | portable-net451+win81 | netstandard1.2
- | | Windows 8,1 |
+ | | Windows 8.1 |
  Profile46 | .NETFramework 4.5 | portable-net45+sl4+win8
  | | Silverlight 4.0 |
  | | Windows 8.0 |
@@ -235,13 +236,13 @@ I framework aggiuntivi definiti da terze parti garantiscono la compatibilità co
  | | Windows 8.0 |
  | | WindowsPhone 8.0 (SL) |
  Profile151 | NETFramework 4.5.1 | portable-net451+win81+wpa81 | netstandard1.2
- | | Windows 8,1 |
+ | | Windows 8.1 |
  | | WindowsPhone 8.1 (UWP) |
  Profile154 | .NETFramework 4.5 | portable-net45+sl4+win8+wp8
  | | Silverlight 4.0 |
  | | Windows 8.0 |
  | | WindowsPhone 8.0 (SL) |
- Profile157 | Windows 8,1 | portable-win81+wp81+wpa81 | netstandard1.0
+ Profile157 | Windows 8.1 | portable-win81+wp81+wpa81 | netstandard1.0
  | | WindowsPhone 8.1 (SL) |
  | | WindowsPhone 8.1 (UWP) |
  Profile158 | .NETFramework 4.5 | portable-net45+sl5+win8+wp8
@@ -282,7 +283,7 @@ I framework aggiuntivi definiti da terze parti garantiscono la compatibilità co
 
 Inoltre, i pacchetti NuGet destinati a Xamarin possono usare framework aggiuntivi definiti da Xamarin. Vedere [Manually Creating NuGet Packages for Xamarin](https://developer.xamarin.com/guides/cross-platform/advanced/nuget/) (Creazione manuale di pacchetti NuGet per Xamarin).
 
-| Nome | Descrizione | .NET Standard |
+| NOME | Descrizione | .NET Standard |
 | --- | --- | ---
 | monoandroid | Supporto di Mono per sistema operativo Android | netstandard1.4 |
 | monotouch | Supporto di Mono per iOS | netstandard1.4 |

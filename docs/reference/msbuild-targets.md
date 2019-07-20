@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: acf80a9f919a56c9a9f21a9c8850dc5c1c67df33
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: b450a5bfa3dcf70056c99a951f51a78845ef8438
+ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317203"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68342455"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Pack e restore di NuGet come destinazioni MSBuild
 
@@ -52,7 +52,7 @@ Si noti che le proprietà `Owners` e `Summary` da `.nuspec` non sono supportate 
 | Autori | Autori | Nome utente dell'utente corrente | |
 | Proprietari | N/D | Non presente in NuSpec | |
 | Titolo | Titolo | PackageId| |
-| Descrizione | Descrizione | "Descrizione del pacchetto" | |
+| Descrizione | DESCRIZIONE | "Descrizione del pacchetto" | |
 | Copyright | Copyright | vuoto | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
 | licenza | PackageLicenseExpression | vuoto | Corrisponde a`<license type="expression">` |
@@ -226,7 +226,9 @@ Quando si usa `MSBuild -t:pack -p:IsTool=true`, tutti i file, come specificato n
 
 ### <a name="packing-using-a-nuspec"></a>Creazione di un pacchetto con un file .nuspec
 
-È possibile usare un `.nuspec` file per comprimere il progetto a condizione che si disponga di un file `NuGet.Build.Tasks.Pack.targets` di progetto SDK da importare, in modo che l'attività Pack possa essere eseguita. Prima di poter comprimere un file nuspec, è ancora necessario ripristinare il progetto. Il Framework di destinazione del file di progetto non è rilevante e non viene usato per la compressione di un NuSpec. Le tre proprietà di MSBuild seguenti sono rilevanti per la creazione di pacchetti con un file `.nuspec`:
+Sebbene sia consigliabile includere in alternativa [tutte le proprietà](../reference/msbuild-targets.md#pack-target) che in genere si trovano nel `.nuspec` file del progetto, è possibile scegliere di utilizzare un `.nuspec` file per comprimere il progetto. Per un progetto non di tipo SDK che utilizza `PackageReference`, è necessario importare `NuGet.Build.Tasks.Pack.targets` in modo che l'attività Pack possa essere eseguita. Prima di poter comprimere un file nuspec, è ancora necessario ripristinare il progetto. Un progetto di tipo SDK include le destinazioni di tipo pack per impostazione predefinita.
+
+Il Framework di destinazione del file di progetto non è rilevante e non viene usato per la compressione di un NuSpec. Le tre proprietà di MSBuild seguenti sono rilevanti per la creazione di pacchetti con un file `.nuspec`:
 
 1. `NuspecFile`: percorso relativo o assoluto per il file `.nuspec` usato per la creazione del pacchetto.
 1. `NuspecProperties`: elenco con valori delimitati da punto e virgola di coppie chiave=valore. A causa della modalità di funzionamento dell'analisi della riga di comando di MSBuild, è necessario specificare più proprietà come indicato di seguito: `-p:NuspecProperties=\"key1=value1;key2=value2\"`.  
@@ -244,9 +246,9 @@ Se si usa MSBuild per creare il pacchetto del progetto, usare un comando simile 
 msbuild -t:pack <path to .csproj file> -p:NuspecFile=<path to nuspec file> -p:NuspecProperties=<> -p:NuspecBasePath=<Base path> 
 ```
 
-Si noti che la compressione di un NuSpec con dotnet. exe o MSBuild comporta anche la compilazione del progetto per impostazione predefinita. Questa operazione può essere evitata ```--no-build``` passando la proprietà a dotnet. exe, che è l'equivalente ```<NoBuild>true</NoBuild> ``` dell'impostazione nel file di progetto, insieme ```<IncludeBuildOutput>false</IncludeBuildOutput> ``` all'impostazione nel file di progetto
+Si noti che la compressione di un NuSpec con dotnet. exe o MSBuild comporta anche la compilazione del progetto per impostazione predefinita. Questa operazione può essere evitata ```--no-build``` passando la proprietà a dotnet. exe, che è l'equivalente ```<NoBuild>true</NoBuild> ``` dell'impostazione nel file di progetto, insieme ```<IncludeBuildOutput>false</IncludeBuildOutput> ``` all'impostazione nel file di progetto.
 
-Un esempio di file csproj per comprimere un file nuspec è:
+Un esempio di file con estensione *csproj* per la compressione di un file nuspec è:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -370,7 +372,7 @@ File di progetto:
 
 Il ripristino crea i file seguenti nella cartella `obj` di compilazione:
 
-| File | Descrizione |
+| File | DESCRIZIONE |
 |--------|--------|
 | `project.assets.json` | Contiene il grafico delle dipendenze di tutti i riferimenti ai pacchetti. |
 | `{projectName}.projectFileExtension.nuget.g.props` | Riferimenti alle proprietà di MSBuild contenute nei pacchetti |
