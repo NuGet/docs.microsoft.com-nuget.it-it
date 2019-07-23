@@ -31,12 +31,14 @@
 ### [packages.config](reference/packages-config.md)
 # Creazione di pacchetti
 ## [Panoramica e flusso di lavoro](create-packages/overview-and-workflow.md)
-## [Creare un pacchetto](create-packages/creating-a-package.md)
+## [Creare un pacchetto (interfaccia della riga di comando dotnet)](create-packages/creating-a-package-dotnet-cli.md)
+## [Creare un pacchetto (interfaccia della riga di comando nuget.exe)](create-packages/creating-a-package.md)
 ## [Creare un pacchetto usando MSBuild](reference/msbuild-targets.md)
-## [Supportare più framework di destinazione](create-packages/supporting-multiple-target-frameworks.md)
+## [Supportare framework a più destinazioni nel file di progetto](create-packages/multiple-target-frameworks-project-file.md)
 ## [Compilare un pacchetto per versione non definitiva](create-packages/prerelease-packages.md)
 ## [Creare un pacchetto di simboli](create-packages/symbol-packages-snupkg.md)
 ## Attività avanzate
+### [Supportare più framework di destinazione](create-packages/supporting-multiple-target-frameworks.md)
 ### [Modificare il codice sorgente e i file di configurazione](create-packages/source-and-config-file-transformations.md)
 ### [Selezionare gli assembly cui i progetti fanno riferimento](create-packages/select-assemblies-referenced-by-projects.md)
 ### [Impostare il tipo di pacchetto](create-packages/set-package-type.md)
