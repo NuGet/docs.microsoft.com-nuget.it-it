@@ -4,247 +4,255 @@ description: NuGet è lo strumento di gestione dei pacchetti per le piattaforme 
 author: karann-msft
 ms.author: karann
 ms.date: 02/12/2018
-ms.topic: overview
+ms.topic: hub-page
 layout: HubPage
 hide_bc: true
-ms.openlocfilehash: 399e4f80afb3e3d6278618055dde38a87184e3ff
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 5fd6556470f544b4f42512708be469bbf8bb72c0
+ms.sourcegitcommit: f9e39ff9ca19ba4a26e52b8a5e01e18eb0de5387
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426646"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68433323"
 ---
 <div id="main" class="v2">
-<div class="container">
-    <h1>Documentazione di NuGet</h1>
-    <ul class="pivots">
+    <div class="container">
+        <h1>Documentazione di NuGet</h1>
+        <p>NuGet è lo strumento di gestione dei pacchetti per .NET. Consente agli sviluppatori di creare, condividere e utilizzare librerie .NET utili. Gli strumenti client di NuGet offrono la possibilità di creare e utilizzare queste librerie come "pacchetti".</p> 
+
+<ul id="index1" class="cardsF panelContent singlePanelContent cols cols4" style="float: left; display: flex!important;">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="https://docs.microsoft.com/media/logos/logo_nuget.svg" alt="NuGet logo" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3><a href="what-is-nuget.md">Introduzione a NuGet</a></h3>
+                        <p>
+                            <a href="what-is-nuget.md">Che cos'è NuGet?</a>
+                        </p>
+                        <p>
+                            <a href="install-nuget-client-tools.md">Installare gli strumenti client di NuGet</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="https://docs.microsoft.com/media/common/i_get-started.svg" alt="Get started icon" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3><a href="install-nuget-client-tools.md">Introduzione</a></h3>
+                        <p>
+                            <a href="quickstart/install-and-use-a-package-using-the-dotnet-cli.md">Installare e usare un pacchetto - interfaccia della riga di comando di dotnet</a>
+                        </p>
+                        <p>
+                            <a href="quickstart/install-and-use-a-package-in-visual-studio.md">Installare e usare un pacchetto - Visual Studio</a>
+                        </p>
+                        <p>
+                            <a href="quickstart/create-and-publish-a-package-using-the-dotnet-cli.md">Creare un pacchetto - interfaccia della riga di comando dotnet</a>
+                        </p>
+                        <p>
+                            <a href="quickstart/create-and-publish-a-package-using-visual-studio.md">Creare un pacchetto - Visual Studio</a>
+                        </p>
+                        <p>
+                            <a href="quickstart/create-and-publish-a-package-using-visual-studio-net-framework.md">Creare un pacchetto .NET Framework - Visual Studio</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="https://docs.microsoft.com//media/common/i_download-install.svg" alt="Download and install icon" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3><a href="consume-packages/overview-and-workflow.md">Utilizzare i pacchetti</a></h3>
+                        <p>
+                            <a href="consume-packages/overview-and-workflow.md">Flusso di lavoro (panoramica)</a>
+                        </p>
+                        <p>
+                            <a href="consume-packages/finding-and-choosing-packages.md">Trovare e scegliere pacchetti</a>
+                        </p>
+                        <p>
+                            <a href="consume-packages/install-use-packages-visual-studio.md">Usare Visual Studio</a>
+                        </p>
+                        <p>
+                            <a href="consume-packages/install-use-packages-dotnet-cli.md">Usare l'interfaccia della riga di comando dotnet</a>
+                        </p>
+                        <p>
+                            <a href="consume-packages/install-use-packages-nuget-cli.md">Usare l'interfaccia della riga di comando nuget.exe</a>
+                        </p>
+                        <p>
+                            <a href="consume-packages/install-use-packages-powershell.md">Usare la console di Gestione pacchetti</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="https://docs.microsoft.com/media/common/i_build.svg" alt="Build icon" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3><a href="create-packages/overview-and-workflow.md">Creare pacchetti</a></h3>
+                        <p>
+                            <a href="create-packages/overview-and-workflow.md">Flusso di lavoro (panoramica)</a>
+                        </p>
+                        <p>
+                            <a href="create-packages/creating-a-package-dotnet-cli.md">Creare un pacchetto - interfaccia della riga di comando dotnet</a>
+                        </p>
+                        <p>
+                            <a href="create-packages/creating-a-package.md">Creare un pacchetto - interfaccia della riga di comando nuget.exe</a>
+                        </p>
+                        <p>
+                            <a href="create-packages/multiple-target-frameworks-project-file.md">Supportare più framework di destinazione</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
         <li>
-            <a href="#start">Introduzione</a>
-            <ul id="start">
-                <li>
-                    <a href="#start-all"></a>
-                    <ul id="start-all" class="cardsC">
-                        <li>
-                            <a href="what-is-nuget.md">
-                            <div class="cardSize">
-                                <div class="cardPadding">
-                                    <div class="card">
-                                        <div class="cardImageOuter">
-                                            <div class="cardImage  bgdAccent1">
-                                                <img src="media/hub/nuget-get-started-what-is-nuget.svg" alt="" /><br/>                                            </div>
-                                        </div>
-                                        <div class="cardText">
-                                            <h3>Che cos'è NuGet?</h3>
-                                            <p>Informazioni su come NuGet, lo strumento di gestione dei pacchetti per .NET, consente agli sviluppatori di creare, condividere e utilizzare le librerie.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="quickstart/install-and-use-a-package-using-the-dotnet-cli.md">
-                            <div class="cardSize">
-                                <div class="cardPadding">
-                                    <div class="card">
-                                        <div class="cardImageOuter">
-                                            <div class="cardImage  bgdAccent1">
-                                                <img src="media/hub/nuget-get-started-quickstarts.svg" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="cardText">
-                                            <h3>Guida introduttiva: Uso di un pacchetto</h3>
-                                            <p>Informazioni su come installare e usare un pacchetto NuGet all'interno di un progetto (sono disponibili procedure dettagliate sia per l'interfaccia della riga di comando di dotnet che per Visual Studio).</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="quickstart/create-and-publish-a-package-using-the-dotnet-cli.md">
-                            <div class="cardSize">
-                                <div class="cardPadding">
-                                    <div class="card">
-                                        <div class="cardImageOuter">
-                                            <div class="cardImage  bgdAccent1">
-                                                <img src="media/hub/nuget-get-started-guides.svg" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="cardText">
-                                            <h3>Guida introduttiva: Creazione di un pacchetto</h3>
-                                            <p>Sperimentare gli strumenti e le funzionalità NuGet per la creazione dei pacchetti (sono disponibili procedure dettagliate sia per l'interfaccia della riga di comando di dotnet che per Visual Studio).</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="create-packages/creating-a-package.md">
-                            <div class="cardSize">
-                                <div class="cardPadding">
-                                    <div class="card">
-                                        <div class="cardImageOuter">
-                                            <div class="cardImage  bgdAccent1">
-                                                <img src="media/hub/nuget-get-started-create-packages.svg" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="cardText">
-                                            <h3>Creazione di pacchetti</h3>
-                                            <p>Tutto quello che serve sapere sulla creazione di pacchetti NuGet, dal flusso di lavoro generale al controllo delle versioni, i pacchetti in versione non definitiva e altri pacchetti specializzati.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="consume-packages/overview-and-workflow.md">
-                            <div class="cardSize">
-                                <div class="cardPadding">
-                                    <div class="card">
-                                        <div class="cardImageOuter">
-                                            <div class="cardImage  bgdAccent1">
-                                                <img src="media/hub/nuget-get-started-consume-packages.svg" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="cardText">
-                                            <h3>Utilizzare i pacchetti</h3>
-                                            <p>Tutto quello che serve sapere sull'uso dei pacchetti NuGet, dalla ricerca e la scelta dei pacchetti ottimali agli aggiornamenti di ripristino e la memorizzazione nella cache.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="hosting-packages/overview.md">
-                            <div class="cardSize">
-                                <div class="cardPadding">
-                                    <div class="card">
-                                        <div class="cardImageOuter">
-                                            <div class="cardImage  bgdAccent1">
-                                                <img src="media/hub/nuget-get-started-host-packages.svg" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="cardText">
-                                            <h3>Hosting dei pacchetti</h3>
-                                            <p>Informazioni su come ospitare i pacchetti in server o raccolte propri per renderli disponibili solo a un gruppo di destinatari limitato.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="https://docs.microsoft.com/media/common/i_delivery.svg" alt="Delivery icon" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3><a href="nuget-org/publish-a-package.md">Pubblicare pacchetti</a></h3>
+                        <p>
+                            <a href="nuget-org/publish-a-package.md">Pubblicare in NuGet.org</a>
+                        </p>
+                        <p>
+                            <a href="hosting-packages/overview.md">Pubblicare in un feed privato</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="https://docs.microsoft.com/media/logos/logo_nuget.svg" alt="NuGet logo" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3><a href="nuget-org/overview-nuget-org.md">NuGet.org</a></h3>
+                        <p>
+                            <a href="nuget-org/overview-nuget-org.md">Panoramica</a>
+                        </p>
+                        <p>
+                            <a href="nuget-org/individual-accounts.md">Account personali</a>
+                        </p>
+                        <p>
+                            <a href="nuget-org/organizations-on-nuget-org.md">Organizzazioni</a>
+                        </p>
+                        <p>
+                            <a href="nuget-org/scoped-api-keys.md">Chiavi API</a>
+                        </p>
+                        <p>
+                            <a href="nuget-org/publish-a-package.md">Pubblicare un pacchetto</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
         <li>
-            <a href="#tools">Strumenti &amp; Informazioni di riferimento</a>
-            <ul id="tools">
-                <li>
-                    <a href="#tools-all"></a>
-                    <ul id="tools-all" class="cardsC">
-                        <li>
-                            <a href="install-nuget-client-tools.md">
-                            <div class="cardSize">
-                                <div class="cardPadding">
-                                    <div class="card">
-                                        <div class="cardImageOuter">
-                                            <div class="cardImage  bgdAccent1">
-                                                <img src="media/hub/nuget-tools-tools.svg" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="cardText">
-                                            <h3>Strumenti</h3>
-                                            <p>Informazioni sugli strumenti disponibili per usare NuGet e su come ottenerli.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="reference/nuspec.md">
-                            <div class="cardSize">
-                                <div class="cardPadding">
-                                    <div class="card">
-                                        <div class="cardImageOuter">
-                                            <div class="cardImage  bgdAccent1">
-                                                <img src="media/hub/nuget-tools-reference.svg" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="cardText">
-                                            <h3>Riferimenti</h3>
-                                            <p>Informazioni dettagliate sugli artefatti e i formati usati da NuGet, i framework supportati, nonché gli errori e gli avvisi.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="api/overview.md">
-                            <div class="cardSize">
-                                <div class="cardPadding">
-                                    <div class="card">
-                                        <div class="cardImageOuter">
-                                            <div class="cardImage  bgdAccent1">
-                                                <img src="media/hub/nuget-tools-api.svg" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="cardText">
-                                            <h3>API</h3>
-                                            <p>Informazioni dettagliate sul protocollo HTTP NuGet e l'interazione a livello di codice con le origini di pacchetti.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="visual-studio-extensibility/nuget-api-in-visual-studio.md">
-                            <div class="cardSize">
-                                <div class="cardPadding">
-                                    <div class="card">
-                                        <div class="cardImageOuter">
-                                            <div class="cardImage  bgdAccent1">
-                                                <img src="media/hub/nuget-tools-vs-extensibility.svg" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="cardText">
-                                            <h3>Estendibilità in Visual Studio</h3>
-                                            <p>Informazioni dettagliate sull'API per l'interfaccia utente e la console di Gestione pacchetti NuGet in Visual Studio, il supporto del sistema di progetti e l'integrazione nei modelli di Visual Studio.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="policies/governance.md">
-                            <div class="cardSize">
-                                <div class="cardPadding">
-                                    <div class="card">
-                                        <div class="cardImageOuter">
-                                            <div class="cardImage  bgdAccent1">
-                                                <img src="media/hub/nuget-tools-policies.svg" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="cardText">
-                                            <h3>Criteri</h3>
-                                            <p>Informazioni su NuGet come progetto open source e su governance, ecosistema e risoluzione di controversie.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-    </ul>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="https://docs.microsoft.com/media/common/i_reference.svg" alt="API icon" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3><a href="reference/nuspec.md">Riferimento</a></h3>
+                        <p>
+                            <a href="reference/dotnet-commands.md">Interfaccia della riga di comando dotnet</a>
+                        </p>
+                        <p>
+                            <a href="reference/nuget-exe-cli-reference.md">Interfaccia della riga di comando nuget.exe</a>
+                        <p>
+                            <a href="consume-packages/package-references-in-project-files.md">Riferimenti ai pacchetti</a>
+                        </p>
+                        </p>
+                        <p>
+                            <a href="reference/nuspec.md">.nuspec</a>
+                        </p>
+                        <p>
+                            <a href="reference/nuget-config-file.md">nuget.config</a>
+                        </p>
+                        <p>
+                            <a href="api/overview.md">API NuGet</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="https://docs.microsoft.com//media/common/i_multi-connect.svg" alt="Multi-connect icon" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3><a href="policies/governance.md">Risorse</a></h3>
+                        <p>
+                            <a href="policies/governance.md">Criteri - NuGet</a>
+                        </p>
+                        <p>
+                            <a href="nuget-org/policies/data-requests.md">Criteri - NuGet.org</a>
+                        </p>
+                        <p>
+                            <a href="release-notes/">Note sulla versione</a>
+                        </p>
+                        <p>
+                            <a href="faqs/nuget-faq.md">Domande frequenti - NuGet</a>
+                        </p>
+                        <p>
+                            <a href="nuget-org/nuget-org-faq.md">Domande frequenti - NuGet.org</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+    </div>
 </div>
