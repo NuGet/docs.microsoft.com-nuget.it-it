@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: b450a5bfa3dcf70056c99a951f51a78845ef8438
-ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
+ms.openlocfilehash: 8e662194fffc031d0cfc0aa129a5a15b555a4231
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68342455"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68420020"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Pack e restore di NuGet come destinazioni MSBuild
 
 *NuGet 4.0+*
 
-Con il formato PackageReference, NuGet 4.0 + può archiviare tutti i metadati del manifesto direttamente all'interno di un file di progetto, invece di usare un file `.nuspec` separato.
+Con il formato [PackageReference](../consume-packages/package-references-in-project-files.md) , NuGet 4.0 + può archiviare tutti i metadati del manifesto direttamente all'interno di un file di progetto `.nuspec` anziché usare un file separato.
 
 Con MSBuild 15.1 +, anche NuGet è un membro di MSBuild di prima classe con le destinazioni `pack` e `restore` come descritto di seguito. Queste destinazioni consentono di usare NuGet come qualsiasi altra attività o destinazione MSBuild. Per NuGet 3.x e versioni precedenti, usare invece i comandi [pack](../reference/cli-reference/cli-ref-pack.md) e [restore](../reference/cli-reference/cli-ref-restore.md) tramite l'interfaccia della riga di comando di NuGet.
 
@@ -52,7 +52,7 @@ Si noti che le proprietà `Owners` e `Summary` da `.nuspec` non sono supportate 
 | Autori | Autori | Nome utente dell'utente corrente | |
 | Proprietari | N/D | Non presente in NuSpec | |
 | Titolo | Titolo | PackageId| |
-| Descrizione | DESCRIZIONE | "Descrizione del pacchetto" | |
+| DESCRIZIONE | Descrizione | "Descrizione del pacchetto" | |
 | Copyright | Copyright | vuoto | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
 | licenza | PackageLicenseExpression | vuoto | Corrisponde a`<license type="expression">` |
@@ -76,7 +76,7 @@ Si noti che le proprietà `Owners` e `Summary` da `.nuspec` non sono supportate 
 - PackageVersion
 - PackageId
 - Autori
-- DESCRIZIONE
+- Descrizione
 - Copyright
 - PackageRequireLicenseAcceptance
 - DevelopmentDependency
@@ -372,7 +372,7 @@ File di progetto:
 
 Il ripristino crea i file seguenti nella cartella `obj` di compilazione:
 
-| File | DESCRIZIONE |
+| File | Descrizione |
 |--------|--------|
 | `project.assets.json` | Contiene il grafico delle dipendenze di tutti i riferimenti ai pacchetti. |
 | `{projectName}.projectFileExtension.nuget.g.props` | Riferimenti alle proprietà di MSBuild contenute nei pacchetti |

@@ -1,21 +1,21 @@
 ---
-title: Panoramica dell'API NuGet
-description: L'API NuGet è un set di endpoint HTTP che possono essere usati per scaricare i pacchetti, recuperare i metadati, pubblicare nuovi pacchetti e così via.
+title: Panoramica dell'API del server NuGet
+description: L'API del server NuGet è un set di endpoint HTTP che possono essere usati per scaricare i pacchetti, recuperare i metadati, pubblicare nuovi pacchetti e così via.
 author: joelverhagen
 ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: e8e8fdeee4f0765e2409aea261db8217744ae2c7
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: aacf56a5dc5af9abf6f60d42bc7fd530a128d0d8
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317002"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419826"
 ---
-# <a name="nuget-api"></a>API NuGet
+# <a name="nuget-server-api"></a>API server NuGet
 
-L'API NuGet è un set di endpoint HTTP che è possibile usare per scaricare i pacchetti, recuperare i metadati, pubblicare nuovi pacchetti ed eseguire la maggior parte delle altre operazioni disponibili nei client NuGet ufficiali.
+L'API del server NuGet è un set di endpoint HTTP che possono essere usati per scaricare i pacchetti, recuperare i metadati, pubblicare nuovi pacchetti ed eseguire la maggior parte delle altre operazioni disponibili nei client NuGet ufficiali.
 
 Questa API viene usata dal client NuGet in Visual Studio, NuGet. exe e dall'interfaccia della riga di comando di .NET per eseguire operazioni [`dotnet restore`](/dotnet/core/tools/dotnet-restore?tabs=netcore2x)NuGet come, cercare nell'interfaccia utente di Visual [`nuget.exe push`](../reference/cli-reference/cli-ref-push.md)studio e.
 
@@ -49,7 +49,7 @@ Sono state apportate modifiche al protocollo senza interruzioni dell'API da quan
 
 L' **indice del servizio** descrive un'ampia gamma di risorse. Il set corrente di risorse supportate è il seguente:
 
-Nome della risorsa                                                        | Obbligatoria | DESCRIZIONE
+Nome della risorsa                                                        | Obbligatoria | Descrizione
 -------------------------------------------------------------------- | -------- | -----------
 [Catalogo](catalog-resource.md)                                       | no       | Record completo di tutti gli eventi del pacchetto.
 [PackageBaseAddress](package-base-address-resource.md)               | sì      | Ottenere il contenuto del pacchetto (. nupkg).
@@ -97,7 +97,7 @@ DELETE | Elimina o rimuove l'elenco di una risorsa.
 
 ## <a name="http-status-codes"></a>Codici di stato HTTP
 
-Codice | DESCRIZIONE
+Codice | Descrizione
 ---- | -----
 200  | Success e c'è un corpo della risposta.
 201  | Success e la risorsa è stata creata.
@@ -119,7 +119,7 @@ Nel caso di un codice di stato a livello di 500, il client può implementare un 
 
 ## <a name="http-request-headers"></a>Intestazioni di richiesta HTTP
 
-Name                     | DESCRIZIONE
+Name                     | Descrizione
 ------------------------ | -----------
 X-NuGet-ApiKey           | Obbligatorio per push ed Delete, vedere [ `PackagePublish` Resource](package-publish-resource.md)
 X-NuGet-Client-Version   | **Deprecato** e sostituito da`X-NuGet-Protocol-Version`

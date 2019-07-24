@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: cd9e223a4ee93552b67e7357afa2ccb4e6fdb432
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 5b9be55b593890127d8fe0ad1a9357b89527a09a
+ms.sourcegitcommit: f9e39ff9ca19ba4a26e52b8a5e01e18eb0de5387
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317246"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68433363"
 ---
 # <a name="nuspec-reference"></a>Informazioni di riferimento sul file .nuspec
 
@@ -170,7 +170,19 @@ Elenco di tag e parole chiave delimitati da spazi che descrivono il pacchetto e 
 *(3.3+)* Solo per uso interno in NuGet.
 
 #### <a name="repository"></a>repository
-Metadati del repository, composti da quattro attributi facoltativi: *tipo* e *URL* *(4.0 +)* , *Branch* e *commit* *(4.6 +)* . Questi attributi consentono di eseguire il mapping del nupkg al repository che lo ha compilato, con la possibilità di ottenere informazioni dettagliate sul singolo Branch o sul commit che ha compilato il pacchetto. Deve trattarsi di un URL disponibile pubblicamente che può essere richiamato direttamente da un software di controllo della versione. Non deve trattarsi di una pagina HTML, perché è destinata al computer. Per il collegamento alla pagina del progetto, usare `projectUrl` invece il campo.
+Metadati del repository, composti da quattro attributi facoltativi `type` : `url` and `branch` *(4.0 +)* , and `commit` e *(4.6 +)* . Questi attributi consentono di eseguire il `.nupkg` mapping di al repository che lo ha compilato, con la possibilità di ottenere informazioni dettagliate come il nome del singolo ramo e/o l'hash SHA-1 di commit che ha compilato il pacchetto. Deve trattarsi di un URL disponibile pubblicamente che può essere richiamato direttamente da un software di controllo della versione. Non deve trattarsi di una pagina HTML, perché è destinata al computer. Per il collegamento alla pagina del progetto, usare `projectUrl` invece il campo.
+
+Ad esempio:
+```xml
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2016/06/nuspec.xsd">
+    <metadata>
+        ...
+        <repository type="git" url="https://github.com/NuGet/NuGet.Client.git" branch="dev" commit="e1c65e4524cd70ee6e22abe33e6cb6ec73938cb3" />
+        ...
+    </metadata>
+</package>
+```
 
 #### <a name="minclientversion"></a>minClientVersion
 Specifica la versione minima del client NuGet, imposta da nuget.exe e da Gestione pacchetti di Visual Studio, che può installare questo pacchetto. Questo attributo viene usato ogni volta che il pacchetto dipende da funzionalità specifiche del file `.nuspec` aggiunte in una particolare versione del client NuGet. Ad esempio, un pacchetto che usa l'attributo `developmentDependency` deve specificare "2.8" per `minClientVersion`. Analogamente, un pacchetto che usa l'elemento `contentFiles` (vedere la sezione successiva) deve impostare `minClientVersion` su "3.3". Si noti che poiché i client NuGet prima della versione 2.5 non riconoscono questo flag, essi rifiutano *sempre* di installare il pacchetto indipendentemente dal contenuto di `minClientVersion`.
@@ -216,7 +228,7 @@ In genere, quando si dispone di un progetto, si crea inizialmente il file `.nusp
 
 Ad eccezione di `$configuration$`, i valori nel progetto vengono usati preferenzialmente rispetto a qualsiasi altro valore assegnato allo stesso token nella riga di comando.
 
-| Token | Origine del valore | Valore
+| Token | Origine del valore | Value
 | --- | --- | ---
 | **$id$** | File di progetto | AssemblyName (title) dal file di progetto |
 | **$version$** | AssemblyInfo | AssemblyInformationalVersion se presente, in caso contrario AssemblyVersion |
@@ -246,7 +258,7 @@ E si compila un assembly il cui `AssemblyName` è `LoggingLibrary` con la config
 
 L'elemento `<dependencies>` all'interno di `<metadata>` contiene qualsiasi numero di elementi `<dependency>` che identificano altri pacchetti da cui dipende il pacchetto di livello superiore. Gli attributi per ogni `<dependency>` sono i seguenti:
 
-| Attributo | DESCRIZIONE |
+| Attributo | Descrizione |
 | --- | --- |
 | `id` | (Obbligatorio) ID pacchetto della dipendenza, ad esempio "EntityFramework" e "NUnit", ovvero il nome di pacchetto che nuget.org mostra nella pagina di un pacchetto. |
 | `version` | (Obbligatorio) Intervallo di versioni accettabili come dipendenza. Per la sintassi esatta, vedere [Controllo delle versioni dei pacchetti](../reference/package-versioning.md#version-ranges-and-wildcards). |
@@ -366,7 +378,7 @@ Gli assembly del framework sono quelli che fanno parte di .NET Framework e devon
 
 L'elemento `<frameworkAssemblies>` contiene zero o più elementi `<frameworkAssembly>`, ognuno dei quali specifica gli attributi seguenti:
 
-| Attributo | DESCRIZIONE |
+| Attributo | Descrizione |
 | --- | --- |
 | **assemblyName** | (Obbligatorio) Nome completo dell'assembly. |
 | **targetFramework** | (Facoltativo) Specifica il framework di destinazione a cui si applica questo riferimento. Se omesso, indica che il riferimento si applica a tutti i framework. Vedere [Framework di destinazione](../reference/target-frameworks.md) per gli identificatori di framework esatti. |
@@ -611,7 +623,7 @@ Per controllare quali file sono inclusi, l'elemento `<contentFiles>` specifica u
 
 Questi file sono specificati con un set di attributi che descrivono come devono essere usati all'interno del sistema del progetto:
 
-| Attributo | DESCRIZIONE |
+| Attributo | Descrizione |
 | --- | --- |
 | **include** | (Obbligatorio) Percorso del file o dei file da includere, soggetto alle esclusioni specificate dall'attributo `exclude`. Il percorso è relativo al file `.nuspec`, a meno che non venga specificato un percorso assoluto. Il carattere jolly `*` è consentito e il carattere jolly doppio `**` implica una ricerca ricorsiva nelle cartelle. |
 | **exclude** | Elenco delimitato da punti e virgola dei file o dei modelli di file da escludere dal percorso `src`. Il carattere jolly `*` è consentito e il carattere jolly doppio `**` implica una ricerca ricorsiva nelle cartelle. |

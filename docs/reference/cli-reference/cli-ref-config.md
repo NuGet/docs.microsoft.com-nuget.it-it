@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 51c4c9937483e7f8a57356515c06a60c0f9e6f62
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 384e708187a747221de103720cc51af07acf713e
+ms.sourcegitcommit: f9e39ff9ca19ba4a26e52b8a5e01e18eb0de5387
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327848"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68433309"
 ---
 # <a name="config-command-nuget-cli"></a>comando config (interfaccia della riga di comando di NuGet)
 
@@ -33,10 +33,10 @@ In NuGet 3.4 +, `<value>` può usare le [variabili di ambiente](cli-ref-environm
 
 ## <a name="options"></a>Opzioni
 
-| Opzione | DESCRIZIONE |
+| Opzione | Descrizione |
 | --- | --- |
 | AsPath | Restituisce il valore di configurazione come percorso, ignorato quando `-Set` si utilizza. |
-| ConfigFile | File di configurazione NuGet da modificare. Se non è specificato `%AppData%\NuGet\NuGet.Config` , viene usato ( `~/.nuget/NuGet/NuGet.Config` Windows) o (Mac/Linux).|
+| ConfigFile | File di configurazione NuGet da modificare. Se non specificato, viene usato`%AppData%\NuGet\NuGet.Config` il file predefinito (Windows) o `~/.config/NuGet/NuGet.Config` (Mac/Linux) o `~/.nuget/NuGet/NuGet.Config` (varia in base alla distribuzione del sistema operativo).|
 | ForceEnglishOutput | *(3.5 +)* Impone l'esecuzione di NuGet. exe con impostazioni cultura invarianti basate sull'inglese. |
 | Help | Visualizza le informazioni della Guida per il comando. |
 | NonInteractive | Evita la richiesta di input o conferme dell'utente. |
