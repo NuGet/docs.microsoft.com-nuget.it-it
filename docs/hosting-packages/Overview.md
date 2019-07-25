@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/25/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: f05c3a7a51bdc0760097422004cfc4339bf9ee2c
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 737b13be70de9aaa7dec7904d4c2a4ec494ef7b3
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426599"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317558"
 ---
 # <a name="hosting-your-own-nuget-feeds"></a>Hosting dei feed NuGet
 
@@ -38,4 +38,4 @@ Sono inoltre disponibili diversi altri prodotti di hosting NuGet che supportano 
 - [Nexus](http://www.sonatype.org/nexus/) di Sonatype
 - [TeamCity](https://www.jetbrains.com/teamcity/) di JetBrains
 
-Indipendentemente dalla modalità di hosting, i pacchetti diventano accessibili una volta aggiunti all'elenco delle origini disponibili in `NuGet.Config`. Questa operazione può essere eseguita in Visual Studio come descritto nella sezione [Package Sources](../tools/package-manager-ui.md#package-sources) (Origini dei pacchetti) o dalla riga di comando tramite [`nuget sources`](../tools/cli-ref-sources.md). Il percorso di un'origine può essere un nome di percorso di una cartella locale, un nome di rete o un URL.
+Indipendentemente dalla modalità di hosting, i pacchetti diventano accessibili una volta aggiunti all'elenco delle origini disponibili in `NuGet.Config`. Questa operazione può essere eseguita in Visual Studio come descritto nella sezione [Package Sources](../consume-packages/install-use-packages-visual-studio.md#package-sources) (Origini dei pacchetti) o dalla riga di comando tramite [`nuget sources`](../reference/cli-reference/cli-ref-sources.md). Il percorso di un'origine può essere un nome di percorso di una cartella locale, un nome di rete o un URL.

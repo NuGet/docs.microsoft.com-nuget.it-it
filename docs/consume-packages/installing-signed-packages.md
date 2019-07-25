@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8da57dc295ea78f2eb183226fc9b2f4a37e3f5db
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 7b92d07d19a2e9073ecc38ed37b4ee2491080443
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426627"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317762"
 ---
 # <a name="manage-package-trust-boundaries"></a>Gestire i limiti di attendibilità dei pacchetti
 
@@ -24,7 +24,7 @@ Non sono richieste azioni specifiche per l'installazione di pacchetti firmati. T
 > [!Note]
 > Richiede NuGet 4.9.0+ e Visual Studio 15.9 o versioni successive su Windows
 
-Per configurare come i client NuGet verificano le firme dei pacchetti, impostare `signatureValidationMode` su `require` nel file [nuget.config](../reference/nuget-config-file.md) utilizzando il comando [`nuget config`](../tools/cli-ref-config.md).
+Per configurare come i client NuGet verificano le firme dei pacchetti, impostare `signatureValidationMode` su `require` nel file [nuget.config](../reference/nuget-config-file.md) utilizzando il comando [`nuget config`](../reference/cli-reference/cli-ref-config.md).
 
 ```cmd
 nuget.exe config -set signatureValidationMode=require
@@ -40,7 +40,7 @@ Questa modalità verifica che tutti i pacchetti siano firmati da uno dei certifi
 
 ### <a name="trust-package-author"></a>Considerare attendibile l'autore del pacchetto
 
-Per considerare attendibili i pacchetti in base alla firma dell'autore, usare il comando [`trusted-signers`](../tools/cli-ref-trusted-signers.md) per impostare la proprietà `author` in nuget.config.
+Per considerare attendibili i pacchetti in base alla firma dell'autore, usare il comando [`trusted-signers`](../reference/cli-reference/cli-ref-trusted-signers.md) per impostare la proprietà `author` in nuget.config.
 
 ```cmd
 nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE40881FF5F0AD3E58965DA20A9F571EF1651A56933748E1BF1C99E537C4E039 -FingerprintAlgorithm SHA256
@@ -55,7 +55,7 @@ nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE408
 ```
 
 >[!TIP]
->Usare il [comando verify](../tools/cli-ref-verify.md) di `nuget.exe` per ottenere il valore `SHA256` dell'impronta digitale del certificato.
+>Usare il [comando verify](../reference/cli-reference/cli-ref-verify.md) di `nuget.exe` per ottenere il valore `SHA256` dell'impronta digitale del certificato.
 
 
 ### <a name="trust-all-packages-from-a-repository"></a>Considerare attendibili tutti i pacchetti di un archivio
@@ -95,7 +95,7 @@ In alcune situazioni può essere opportuno abilitare la verifica usando certific
 
 ### <a name="sync-repository-certificates"></a>Sincronizzazione dei certificati del repository
 
-I repository dei pacchetti devono annunciare i certificati usati nel loro [indice dei servizi](../api/service-index.md). Prima o poi, il repository aggiornerà questi certificati, ad esempio, allo scadere del certificato. Quando ciò avviene, i client con criteri specifici richiederanno un aggiornamento della configurazione per includere il certificato appena aggiunto. I firmatari attendibili associati a un repository possono essere aggiornati facilmente usando il `nuget.exe` [comando trusted-signers sync](../tools/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-).
+I repository dei pacchetti devono annunciare i certificati usati nel loro [indice dei servizi](../api/service-index.md). Prima o poi, il repository aggiornerà questi certificati, ad esempio, allo scadere del certificato. Quando ciò avviene, i client con criteri specifici richiederanno un aggiornamento della configurazione per includere il certificato appena aggiunto. I firmatari attendibili associati a un repository possono essere aggiornati facilmente usando il `nuget.exe` [comando trusted-signers sync](../reference/cli-reference/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-).
 
 ### <a name="schema-reference"></a>Riferimento allo schema
 

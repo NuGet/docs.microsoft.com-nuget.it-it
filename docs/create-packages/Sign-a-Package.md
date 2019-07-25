@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: abdd06642ccc652527a1a005eda2689ce97df74c
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 85a862852761b68db882abdc1ca0e84d83d95f07
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426819"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317633"
 ---
 # <a name="signing-nuget-packages"></a>Firma di pacchetti NuGet
 
@@ -36,7 +36,7 @@ A scopo di test è possibile usare l'autocertificazione. Tuttavia, i pacchetti f
 > [!note]
 > Richiede nuget.exe 4.6.0 o versione successiva
 
-Firmare il pacchetto usando il comando [sign](../tools/cli-ref-sign.md) di NuGet:
+Firmare il pacchetto usando il comando [sign](../reference/cli-reference/cli-ref-sign.md) di NuGet:
 
 ```cli
 nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper <TimestampServiceURL>
@@ -45,9 +45,9 @@ nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper 
 > [!Tip]
 > Il provider di certificati offre spesso anche un URL del server di timestamp che è possibile usare per l'argomento facoltativo `Timestamper` mostrato in precedenza. Consultare la documentazione e/o rivolgersi al supporto tecnico del provider per ottenere tale URL del servizio.
 
-* È possibile usare un certificato disponibile nell'archivio certificati o usare un certificato da un file. Vedere Informazioni di riferimento sull'interfaccia della riga di comando per il comando [sign](../tools/cli-ref-sign.md) di NuGet.
+* È possibile usare un certificato disponibile nell'archivio certificati o usare un certificato da un file. Vedere Informazioni di riferimento sull'interfaccia della riga di comando per il comando [sign](../reference/cli-reference/cli-ref-sign.md) di NuGet.
 * I pacchetti firmati devono includere un timestamp per assicurarsi che la firma rimanga valida dopo la scadenza del certificato di firma. In caso contrario, l'operazione di firma genera un [avviso](../reference/errors-and-warnings/NU3002.md).
-* Per visualizzare i dettagli della firma di un determinato pacchetto, usare il comando [verify](../tools/cli-ref-verify.md) di NuGet.
+* Per visualizzare i dettagli della firma di un determinato pacchetto, usare il comando [verify](../reference/cli-reference/cli-ref-verify.md) di NuGet.
 
 ## <a name="register-the-certificate-on-nugetorg"></a>Registrare il certificato su NuGet.org
 

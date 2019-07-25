@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: 64f3a1978cd336064a77c9f3872357e65c37fc10
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: a796c7a7537c3052259c7cf3f17d60981a495442
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842351"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317712"
 ---
 # <a name="install-and-manage-packages-using-the-dotnet-cli"></a>Installare e gestire pacchetti usando l'interfaccia della riga di comando di dotnet
 
@@ -18,7 +18,7 @@ Lo strumento della riga di comando consente di installare, disinstallare e aggio
 
 L'interfaccia della riga di comando di dotnet viene usata per i progetti .NET Core e .NET Standard (tipi di progetto in stile SDK) e per qualsiasi altro progetto in stile SDK, ad esempio i progetti in stile SDK per .NET Framework. Per altre informazioni, vedere [Attributo SDK](/dotnet/core/tools/csproj#additions).
 
-Questo articolo illustra l'utilizzo di base di alcuni dei comandi più comuni dell'interfaccia della riga di comando di dotnet. Per la maggior parte di questi comandi, lo strumento della riga di comando cerca un file di progetto nella directory corrente, a meno che non venga specificato un file di progetto nel comando. Il file di progetto è un'opzione facoltativa. Per un elenco completo dei comandi e degli argomenti che è possibile usare, vedere [Strumenti dell'interfaccia della riga di comando di .NET Core](../tools/dotnet-commands.md).
+Questo articolo illustra l'utilizzo di base di alcuni dei comandi più comuni dell'interfaccia della riga di comando di dotnet. Per la maggior parte di questi comandi, lo strumento della riga di comando cerca un file di progetto nella directory corrente, a meno che non venga specificato un file di progetto nel comando. Il file di progetto è un'opzione facoltativa. Per un elenco completo dei comandi e degli argomenti che è possibile usare, vedere [Strumenti dell'interfaccia della riga di comando di .NET Core](../reference/dotnet-commands.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 

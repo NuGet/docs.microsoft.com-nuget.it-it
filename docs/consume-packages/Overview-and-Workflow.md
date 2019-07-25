@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4cfc2fde08b240288851b87a391dc42c1ac8ecaf
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 0b3ecb535c07459bff517102b3cf6f4e6dc42195
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842311"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317052"
 ---
 # <a name="package-consumption-workflow"></a>Flusso di lavoro dell'utilizzo di pacchetti
 
@@ -22,7 +22,7 @@ Tra nuget.org e le raccolte di pacchetti private che un'organizzazione può stab
 
 Per altri dettagli, vedere [Ricerca e scelta di pacchetti](../consume-packages/finding-and-choosing-packages.md) e [Cosa accade quando viene installato un pacchetto?](../concepts/package-installation-process.md).
 
-NuGet memorizza l'identità e il numero di versione di ogni pacchetto installato, registrandoli nel file di progetto (con [PackageReference](../consume-packages/package-references-in-project-files.md)) o in [`packages.config`](../reference/packages-config.md), a seconda del tipo di progetto e della versione di NuGet in uso. Con NuGet 4.0+ è preferito PackageReference, anche se questa opzione è configurabile in Visual Studio tramite l'[interfaccia utente di Gestione pacchetti](../tools/package-manager-ui.md). In tutti i casi, è possibile esaminare il file appropriato in qualsiasi momento per visualizzare l'elenco completo delle dipendenze per il progetto.
+NuGet memorizza l'identità e il numero di versione di ogni pacchetto installato, registrandoli nel file di progetto (con [PackageReference](../consume-packages/package-references-in-project-files.md)) o in [`packages.config`](../reference/packages-config.md), a seconda del tipo di progetto e della versione di NuGet in uso. Con NuGet 4.0+ è preferito PackageReference, anche se questa opzione è configurabile in Visual Studio tramite l'[interfaccia utente di Gestione pacchetti](install-use-packages-visual-studio.md). In tutti i casi, è possibile esaminare il file appropriato in qualsiasi momento per visualizzare l'elenco completo delle dipendenze per il progetto.
 
 > [!Tip]
 > È consigliabile verificare sempre la licenza per ogni pacchetto che si intende usare nel software. Su nuget.org è disponibile un collegamento **License Info** (Informazioni di licenza) sul lato destro della pagina di descrizione di ogni pacchetto. Se per un pacchetto non sono specificate le condizioni di licenza, contattare il proprietario del pacchetto direttamente usando il collegamento **Contact owners** (Contatta proprietari) nella pagina del pacchetto. Microsoft non concede in licenza all'utente alcuna proprietà intellettuale dei provider di pacchetti di terze parti e non è responsabile delle informazioni fornite da terze parti.
@@ -48,6 +48,6 @@ I pacchetti NuGet vengono scaricati e installati usando uno dei metodi descritti
 | Strumento | DESCRIZIONE |
 | --- | --- |
 | [Interfaccia della riga di comando di dotnet.exe](install-use-packages-dotnet-cli.md) | (Tutte le piattaforme) Strumento della riga di comando per librerie .NET Core e .NET Standard e per progetti in stile SDK destinati a .NET Framework (vedere [Attributo Sdk](/dotnet/core/tools/csproj#additions)). Recupera il pacchetto identificato da \<package_name\> e aggiunge un riferimento al file di progetto. Inoltre, recupera e installa le dipendenze. |
-| Visual Studio | (Windows e Mac) Offre un'interfaccia utente tramite la quale è possibile esplorare, selezionare e installare i pacchetti e le relative dipendenze in un progetto da un'origine di pacchetti specificata. Aggiunge i riferimenti ai pacchetti installati nel file di progetto.<ul><li>[Installare e gestire i pacchetti con Visual Studio](../tools/package-manager-ui.md)</li><li>[Inserimento di un pacchetto NuGet nel progetto (Mac)](/visualstudio/mac/nuget-walkthrough)</li></ul> |
-| [Console di Gestione pacchetti in Visual Studio](../tools/package-manager-console.md) | (Solo Windows) Recupera e installa il pacchetto identificato da \<package_name\> da un'origine selezionata in un progetto specificato nella soluzione, quindi aggiunge un riferimento al file di progetto. Inoltre, recupera e installa le dipendenze. |
-| [Interfaccia della riga di comando di nuget.exe](install-use-packages-dotnet-cli.md) | (Tutte le piattaforme) Strumento della riga di comando per librerie .NET Framework e per progetti non in stile SDK destinati alle librerie .NET Standard. Recupera il pacchetto identificato da \<package_name\> e ne espande il contenuto in una cartella nella directory corrente. Può anche recuperare tutti i pacchetti elencati in un file `packages.config`. Inoltre, recupera e installa le dipendenze, ma non apporta modifiche ai file di progetto o a `packages.config`. |
+| Visual Studio | (Windows e Mac) Offre un'interfaccia utente tramite la quale è possibile esplorare, selezionare e installare i pacchetti e le relative dipendenze in un progetto da un'origine di pacchetti specificata. Aggiunge i riferimenti ai pacchetti installati nel file di progetto.<ul><li>[Installare e gestire i pacchetti con Visual Studio](install-use-packages-visual-studio.md)</li><li>[Inserimento di un pacchetto NuGet nel progetto (Mac)](/visualstudio/mac/nuget-walkthrough)</li></ul> |
+| [Console di Gestione pacchetti (Visual Studio)](install-use-packages-powershell.md) | (Solo Windows) Recupera e installa il pacchetto identificato da \<package_name\> da un'origine selezionata in un progetto specificato nella soluzione, quindi aggiunge un riferimento al file di progetto. Inoltre, recupera e installa le dipendenze. |
+| [Interfaccia della riga di comando di nuget.exe](install-use-packages-nuget-cli.md) | (Tutte le piattaforme) Strumento della riga di comando per librerie .NET Framework e per progetti non in stile SDK destinati alle librerie .NET Standard. Recupera il pacchetto identificato da \<package_name\> e ne espande il contenuto in una cartella nella directory corrente. Può anche recuperare tutti i pacchetti elencati in un file `packages.config`. Inoltre, recupera e installa le dipendenze, ma non apporta modifiche ai file di progetto o a `packages.config`. |

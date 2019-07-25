@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8cd7529c4a1ecf659abde03fb1632e26431aebf3
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 3af29e2f9b09ba5bd82779f9aacf314bd8933436
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426742"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317022"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Ricerca e valutazione di pacchetti NuGet per un progetto
 
@@ -40,7 +40,7 @@ Alcuni pacchetti elencano i framework supportati direttamente nella raccolta nug
 
 Fortunatamente, è possibile determinare i framework supportati in altri due modi:
 
-1. Tentare di installare un pacchetto in un progetto usando il comando [`Install-Package`](../tools/ps-ref-install-package.md) nella console di Gestione pacchetti NuGet. Se il pacchetto non è compatibile, questo comando mostra i framework supportati del pacchetto.
+1. Tentare di installare un pacchetto in un progetto usando il comando [`Install-Package`](../reference/ps-reference/ps-ref-install-package.md) nella console di Gestione pacchetti NuGet. Se il pacchetto non è compatibile, questo comando mostra i framework supportati del pacchetto.
 
 1. Scaricare il pacchetto dalla relativa pagina su nuget.org tramite il collegamento **Manual download** (Download manuale) in **Info**. Modificare l'estensione da `.nupkg` in `.zip` e aprire il file per esaminare il contenuto della relativa cartella `lib`. Vengono elencate le sottocartelle per ognuno dei framework supportati, in cui ogni sottocartella è denominata con un moniker del framework di destinazione (vedere [Framework di destinazione](../reference/target-frameworks.md)). Se non vengono visualizzate sottocartelle in `lib` ed è visibile solo una singola DLL, sarà necessario tentare di installare il pacchetto nel progetto per individuarne la compatibilità.
 
@@ -58,9 +58,9 @@ In Visual Studio e quando si usano le interfacce della riga di comando di NuGet 
 
     ![Casella di controllo Includi versione preliminare in Visual Studio](media/Prerelease_02-CheckPrerelease.png)
 
-- **Console di Gestione pacchetti**: usare l'opzione `-IncludePrerelease` con i comandi `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package` e `Update-Package`. Vedere [Informazioni di riferimento su PowerShell](../tools/powershell-reference.md).
+- **Console di Gestione pacchetti**: usare l'opzione `-IncludePrerelease` con i comandi `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package` e `Update-Package`. Vedere [Informazioni di riferimento su PowerShell](../reference/powershell-reference.md).
 
-- **Interfaccia della riga di comando di nuget.exe**: usare l'opzione `-prerelease` con i comandi `install`, `update`, `delete` e `mirror`. Vedere [NuGet CLI reference](../tools/nuget-exe-cli-reference.md) (Informazioni di riferimento sull'interfaccia della riga di comando di NuGet).
+- **Interfaccia della riga di comando di nuget.exe**: usare l'opzione `-prerelease` con i comandi `install`, `update`, `delete` e `mirror`. Vedere [NuGet CLI reference](../reference/nuget-exe-cli-reference.md) (Informazioni di riferimento sull'interfaccia della riga di comando di NuGet).
 
 - **Interfaccia della riga di comando di dotnet.exe**: specificare l'esatta versione preliminare usando l'argomento `-v`. Vedere le [informazioni di riferimento su dotnet add package](/dotnet/core/tools/dotnet-add-package).
 

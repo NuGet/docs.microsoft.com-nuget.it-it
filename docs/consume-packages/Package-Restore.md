@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: e85d8cc3fd9492118bd8f34cfd05f20a9724c281
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 0df2b0ebcf438fba99291558f1cf929dcb32618b
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842345"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68316992"
 ---
 # <a name="package-restore-options"></a>Opzioni di ripristino pacchetti
 
@@ -41,7 +41,7 @@ Se un pacchetto non è già installato, NuGet tenta prima di tutto di recuperarl
 
 - **Interfaccia della riga di comando di dotnet**: Nella riga di comando passare alla cartella che contiene il progetto e quindi usare il comando [dotnet restore](/dotnet/core/tools/dotnet-restore?tabs=netcore2x) per ripristinare i pacchetti elencati nel file di progetto con [PackageReference](../consume-packages/package-references-in-project-files.md). Con .NET Core 2.0 e versioni successive il ripristino viene eseguito automaticamente con i comandi `dotnet build` e `dotnet run`.  
 
-- **Interfaccia della riga di comando di nuget.exe**: Nella riga di comando passare alla cartella che contiene il progetto, quindi usare il comando [nuget restore](../tools/cli-ref-restore.md) per ripristinare i pacchetti elencati in un file di progetto o di soluzione oppure in `packages.config`. 
+- **Interfaccia della riga di comando di nuget.exe**: Nella riga di comando passare alla cartella che contiene il progetto, quindi usare il comando [nuget restore](../reference/cli-reference/cli-ref-restore.md) per ripristinare i pacchetti elencati in un file di progetto o di soluzione oppure in `packages.config`. 
 
 - **MSBuild**: usare il comando [msbuild -t:restore](../reference/msbuild-targets.md#restore-target) per ripristinare i pacchetti elencati nel file di progetto con PackageReference. Questo comando è disponibile solo in NuGet 4.x+ e MSBuild 15.1 +, inclusi con Visual Studio 2017 e versioni successive. Sia `nuget restore` che `dotnet restore` usano questo comando per i progetti applicabili.
 
