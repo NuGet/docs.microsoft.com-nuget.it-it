@@ -1,166 +1,166 @@
 ---
-title: Note sulla versione 2.7 di NuGet
-description: Note sulla versione per NuGet 2.7, inclusi i problemi noti, correzioni di bug, funzionalità aggiunte e dcr.
+title: Note sulla versione di NuGet 2,7
+description: Note sulla versione per NuGet 2,7, inclusi problemi noti, correzioni di bug, funzionalità aggiunte e DCR.
 author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 97d3e5f0238fd6947a54e5eb3229b89b6746f18c
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: f26ac80046ec321ce5bdbf2bac23c0e1939cd69a
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43550965"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317074"
 ---
-# <a name="nuget-27-release-notes"></a>Note sulla versione 2.7 di NuGet
+# <a name="nuget-27-release-notes"></a>Note sulla versione di NuGet 2,7
 
-[NuGet 2.6.1 per WebMatrix Release Notes](../release-notes/nuget-2.6.1-for-webmatrix.md) | [note sulla versione di NuGet 2.7.1](../release-notes/nuget-2.7.1.md)
+[](../release-notes/nuget-2.6.1-for-webmatrix.md) | Note sulla versione di NuGet 2.6.1 per WebMatrix note sulla[versione di NuGet 2.7.1](../release-notes/nuget-2.7.1.md)
 
-NuGet 2.7 è stato rilasciato il 22 agosto 2013.
+NuGet 2,7 è stato rilasciato il 22 agosto 2013.
 
 ## <a name="acknowledgements"></a>Riconoscimenti
 
-Vorremmo ringraziare i collaboratori esterni seguenti per i contributi significativi per NuGet 2.7:
+Vorremmo ringraziare i collaboratori esterni seguenti per i contributi significativi a NuGet 2,7:
 
 1. [Mike Roth](http://www.codeplex.com/site/users/view/mxrss) ([@mxrss](https://twitter.com/mxrss))
-    - Mostra l'url di licenza quando elenco di pacchetti e livello di dettaglio è descritta in dettaglio.
-2. [ADAM Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
-    - [#1956](http://nuget.codeplex.com/workitem/1956) -aggiungere attributo developmentDependency `packages.config` e usarlo nel comando pack da includere solo i pacchetti di runtime
+    - Mostra l'URL della licenza quando si elencano i pacchetti e il livello di dettaglio.
+2. [Adam Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
+    - [#1956](http://nuget.codeplex.com/workitem/1956) -aggiungere l'attributo developmentDependency `packages.config` a e usarlo nel comando Pack per includere solo i pacchetti di runtime
 3. [Rafael Nicoletti](http://www.codeplex.com/site/users/view/tkrafael) ([@tkrafael](https://twitter.com/tkrafael))
-    - Evitare di chiave duplicata di proprietà nel comando pack nuget.exe.
-4. [Bruno Phegan](http://www.codeplex.com/site/users/view/benphegan) ([@BenPhegan](https://twitter.com/benphegan))
-    - [#2610](http://nuget.codeplex.com/workitem/2610) -aumentare le dimensioni della cache macchina su 200.
-5. [Slava Trenogin](http://www.codeplex.com/site/users/view/derigel) ([@derigel](https://twitter.com/derigel))
-    - [#3217](http://nuget.codeplex.com/workitem/3217) -finestra di dialogo NuGet correggere con gli aggiornamenti nella scheda errata
-    - Può essere null in ManagerProgetto Project.TargetFramework correzione
-    - [#3248](http://nuget.codeplex.com/workitem/3248) -correggere SharedPackageRepository FindPackage/FindPackagesById avrà esito negativo in packageId inesistente
+    - Evitare la chiave delle proprietà duplicate nel comando di NuGet. exe Pack.
+4. [Ben Phegan](http://www.codeplex.com/site/users/view/benphegan) ([@BenPhegan](https://twitter.com/benphegan))
+    - [#2610](http://nuget.codeplex.com/workitem/2610) aumentare le dimensioni della cache del computer a 200.
+5. [Trenogin slave](http://www.codeplex.com/site/users/view/derigel) ([@derigel](https://twitter.com/derigel))
+    - [#3217](http://nuget.codeplex.com/workitem/3217) -correggere la finestra di dialogo NuGet che Mostra gli aggiornamenti nella scheda errata
+    - FIX Project. TargetFramework può essere null in ProjectManager
+    - [#3248](http://nuget.codeplex.com/workitem/3248) -Fix SharedPackageRepository FindPackage/FindPackagesById avrà esito negativo in packageId non esistenti
 6. [Kevin Boyle](http://www.codeplex.com/site/users/view/KevinBoyleRG) ([@kevfromireland](https://twitter.com/kevfromireland))
-    - [#3234](http://nuget.codeplex.com/workitem/3234) -abilitare il supporto per il progetto Nomad
-7. [Corin Blaikie](http://www.codeplex.com/site/users/view/corinblaikie) ([@corinblaikie](https://twitter.com/corinblaikie))
+    - [#3234](http://nuget.codeplex.com/workitem/3234) -Abilita il supporto per il progetto Nomad
+7. [Blaikie Corin](http://www.codeplex.com/site/users/view/corinblaikie) ([@corinblaikie](https://twitter.com/corinblaikie))
     - [#3252](http://nuget.codeplex.com/workitem/3252) -correzione push comando non riesce con exit codice 0 quando il file non esiste.
 8. [Martin Veselý](http://www.codeplex.com/site/users/view/veselkamartin)
-    - [#3226](http://nuget.codeplex.com/workitem/3226) -correzione di bug con il comando Add-BindingRedirect quando un progetto fa riferimento a un progetto di database.
+    - [#3226](http://nuget.codeplex.com/workitem/3226) -correggere un bug con il comando Add-bindingRedirect quando un progetto fa riferimento a un progetto di database.
 9. [Miroslav Bajtos](http://www.codeplex.com/site/users/view/miroslavbajtos) ([@bajtos](https://twitter.com/bajtos))
-    - [#2891](http://nuget.codeplex.com/workitem/2891) -correzione di bug di nuget.pack con caratteri jolly nell'attributo 'exclude' di analisi in modo non corretto.
-10. [Justin Dearing](http://www.codeplex.com/site/users/view/zippy1981) ([@zippy1981](https://twitter.com/zippy1981))
-     - [#3307](http://nuget.codeplex.com/workitem/3307) -correzione di bug `NuGet.targets` passare $ (Platform) a nuget.exe durante il ripristino dei pacchetti.
+    - [#2891](http://nuget.codeplex.com/workitem/2891) correggere il problema relativo al carattere jolly di analisi di NuGet. Pack nell'attributo ' exclude ' in modo errato.
+10. [Justin Dear](http://www.codeplex.com/site/users/view/zippy1981) ([@zippy1981](https://twitter.com/zippy1981))
+     - [#3307](http://nuget.codeplex.com/workitem/3307) -Fix bug `NuGet.targets` non passa $ (Platform) a NuGet. exe durante il ripristino dei pacchetti.
 11. [Brian Federici](http://www.codeplex.com/site/users/view/benerdin)
-     - [#3294](http://nuget.codeplex.com/workitem/3294) -correzione di bug nel comando pacchetto nuget.exe che consentirà di aggiunta di file con lo stesso nome ma con maiuscole e minuscole diverse, infine causano eccezioni "Elemento esiste già".
-12. [Daniel Cazzulino](http://www.codeplex.com/site/users/view/dcazzulino) ([@kzu](https://twitter.com/kzu))
-     - [#2990](http://nuget.codeplex.com/workitem/2990) : proprietà aggiungere Version alla classe NetPortableProfile.
+     - [#3294](http://nuget.codeplex.com/workitem/3294) -correggere un bug nel comando del pacchetto NuGet. exe che consente di aggiungere file con lo stesso nome ma con maiuscole e minuscole diverse, causando infine l'eccezione "elemento già esistente".
+12. [Daniel CAZZULINO](http://www.codeplex.com/site/users/view/dcazzulino) ([@kzu](https://twitter.com/kzu))
+     - [#2990](http://nuget.codeplex.com/workitem/2990) aggiunta della proprietà Version alla classe NetPortableProfile.
 13. [David Simner](https://www.codeplex.com/site/users/view/DavidSimner)
-     - [#3460](https://nuget.codeplex.com/workitem/3460) -correzione del bug NullReferenceException se requireApiKey = true, ma l'intestazione X-NUGET-APIKEY non è presente
+     - [#3460](https://nuget.codeplex.com/workitem/3460) correggere il bug NullReferenceException se requireApiKey = true, ma l'intestazione X-NUGET-APIKEY non è presente
 14. [Michael Friis](https://www.codeplex.com/site/users/view/friism) ([@friism](https://twitter.com/friism))
-     - [#3278](https://nuget.codeplex.com/workitem/3278) -corregge NuGet.Build destinazioni file, in modo che funzioni correttamente in MonoDevelop
-15. [Pranav Krishnamoorthy](https://www.codeplex.com/site/users/view/pranavkm) ([@pranav_km](https://twitter.com/pranav_km))
-     - Migliorare le prestazioni di comando di ripristino, aumentando la parallelizzazione
+     - [#3278](https://nuget.codeplex.com/workitem/3278) : corregge il file di destinazioni NuGet. Build in in modo che funzioni correttamente in MonoDevelop
+15. [](https://www.codeplex.com/site/users/view/pranavkm) Per la prima ([@pranav_km](https://twitter.com/pranav_km))
+     - Migliorare le prestazioni del comando di ripristino aumentando la parallelizzazione
 
-## <a name="notable-features-in-the-release"></a>Funzionalità di rilievo nella versione
+## <a name="notable-features-in-the-release"></a>Funzionalità rilevanti della versione
 
-### <a name="package-restore-by-default-with-implicit-consent"></a>Ripristino dei pacchetti per impostazione predefinita (con il consenso implicito)
+### <a name="package-restore-by-default-with-implicit-consent"></a>Ripristino dei pacchetti per impostazione predefinita (con consenso implicito)
 
-Introduce un nuovo approccio per ripristino del pacchetto, NuGet 2.7 e consente anche di superare un ostacolo principale: il consenso di ripristino del pacchetto è ora attivata per impostazione predefinita. La combinazione di consenso implicito e il nuovo approccio semplificherà notevolmente gli scenari di ripristino del pacchetto.
+NuGet 2,7 introduce un nuovo approccio per il ripristino del pacchetto, oltre a superare un ostacolo principale: Il consenso per il ripristino dei pacchetti è ora attiva per impostazione predefinita. La combinazione del nuovo approccio e del consenso implicito consente di semplificare notevolmente gli scenari di ripristino dei pacchetti.
 
 #### <a name="implicit-consent"></a>Consenso implicito
 
-Con le versioni di NuGet 2.0, 2.1, 2.2, 2.5 e 2.6, gli utenti necessari per consentire in modo esplicito a NuGet di scaricare i pacchetti mancanti durante la compilazione. Se questo consenso non è stato assegnato in modo esplicito, quindi soluzioni che ha attivato il ripristino dei pacchetti in grado di creare fino a quando l'utente ha concesso il consenso.
+Con NuGet versioni 2,0, 2,1, 2,2, 2,5 e 2,6, gli utenti hanno dovuto consentire in modo esplicito a NuGet di scaricare i pacchetti mancanti durante la compilazione. Se il consenso non è stato specificato in modo esplicito, le soluzioni che hanno abilitato il ripristino del pacchetto non vengono compilate fino a quando l'utente non ha concesso il consenso.
 
-A partire da NuGet 2.7, il consenso di ripristino del pacchetto è impostata su ON per impostazione predefinita, consentendo agli utenti in modo esplicito *opt out* di ripristino del pacchetto se si desidera, usando la casella di controllo nelle impostazioni di NuGet in Visual Studio. Questa modifica per il consenso implicito interessa NuGet negli ambienti seguenti:
+A partire da NuGet 2,7, il consenso per il ripristino dei pacchetti è ON per impostazione predefinita, consentendo agli utenti di *rifiutare* esplicitamente il ripristino del pacchetto, se lo si desidera, usando la casella di controllo nelle impostazioni di NuGet in Visual Studio. Questa modifica per il consenso implicito influiscono su NuGet negli ambienti seguenti:
 
 * Visual Studio 2013 Preview
 * Visual Studio 2012
 * Visual Studio 2010
-* Utilità della riga di comando NuGet.exe
+* Utilità da riga di comando NuGet. exe
 
-#### <a name="automatic-package-restore-in-visual-studio"></a>Ripristino automatico dei pacchetti in Visual Studio
+#### <a name="automatic-package-restore-in-visual-studio"></a>Ripristino automatico del pacchetto in Visual Studio
 
-A partire da NuGet 2.7, NuGet scaricherà automaticamente i pacchetti mancanti durante la compilazione in Visual Studio, anche se il ripristino del pacchetto non è ancora stato abilitato in modo esplicito per la soluzione. Questo ripristino automatico dei pacchetti avviene in Visual Studio quando si compila un progetto o la soluzione, ma prima che MSBuild viene richiamato. Ciò produce alcuni vantaggi significativi:
+A partire da NuGet 2,7, NuGet Scarica automaticamente i pacchetti mancanti durante la compilazione in Visual Studio, anche se il ripristino del pacchetto non è stato abilitato in modo esplicito per la soluzione. Il ripristino automatico dei pacchetti avviene in Visual Studio quando si compila un progetto o la soluzione, ma prima che venga richiamato MSBuild. Questo produce alcuni vantaggi significativi:
 
-1. Non è necessario utilizzare il movimento "Abilita ripristino dei pacchetti NuGet" sulla tua soluzione
-1. I progetti non devono essere modificati e NuGet non apportare modifiche al progetto per assicurarsi che sia abilitato il ripristino dei pacchetti
-1. Tutti i pacchetti NuGet, incluse quelle incluse importazioni MSBuild per i file di proprietà/destinazioni, verranno ripristinati *prima di* MSBuild viene richiamato, assicurando tali proprietà/destinazioni sono riconosciute correttamente durante la compilazione
+1. Non è necessario usare il gesto "Abilita ripristino del pacchetto NuGet" nella soluzione
+1. Non è necessario modificare i progetti e NuGet non apporterà modifiche al progetto per assicurarsi che il ripristino dei pacchetti sia abilitato
+1. Tutti i pacchetti NuGet, inclusi quelli che includono le importazioni di MSBuild per i file props/targets, verranno ripristinati *prima* che venga richiamato MSBuild, assicurando che tali oggetti/destinazioni vengano riconosciuti correttamente durante la compilazione
 
-Per poter usare ripristino automatico dei pacchetti in Visual Studio, è sufficiente eseguire una (azione in):
+Per usare il ripristino automatico del pacchetto in Visual Studio, è sufficiente eseguire un'azione (in):
 
-1. Non si collegano i `packages` cartella
+1. Non archiviare la `packages` cartella
 
-Esistono diversi modi per omettere i `packages` cartella dal controllo del codice sorgente. Per altre informazioni, vedere la [i pacchetti e controllo del codice sorgente](../consume-packages/packages-and-source-control.md) argomento.
+Esistono diversi modi per omettere la `packages` cartella dal controllo del codice sorgente. Per ulteriori informazioni, vedere l'argomento [pacchetti e controllo del codice sorgente](../consume-packages/packages-and-source-control.md) .
 
-Mentre tutti gli utenti sono implicitamente scelto di consenso di ripristino automatico dei pacchetti, è possibile facilmente rifiutare esplicitamente tramite le impostazioni di gestione pacchetti in Visual Studio.
+Anche se tutti gli utenti sono implicitamente esplicitamente consentiti al consenso automatico per il ripristino del pacchetto, è possibile rifiutare facilmente le impostazioni di gestione pacchetti in Visual Studio.
 
 ![Impostazioni di gestione pacchetti](./media/NuGet-2.7/package-manager-settings.png)
 
-#### <a name="simplified-package-restore-from-the-command-line"></a>Ripristino dei pacchetti semplificata dalla riga di comando
+#### <a name="simplified-package-restore-from-the-command-line"></a>Ripristino semplificato dei pacchetti dalla riga di comando
 
-NuGet 2.7 introduce una nuova funzionalità per nuget.exe: `nuget.exe restore`
+NuGet 2,7 introduce una nuova funzionalità per NuGet. exe:`nuget.exe restore`
 
-Questo nuovo comando di ripristino consente di ripristinare facilmente tutti i pacchetti per una soluzione con un singolo comando, mediante l'accettazione di un file di soluzione o una cartella come argomento. Inoltre, tale argomento è implicito quando esiste solo un'unica soluzione nella cartella corrente. Ciò significa che tutti i seguenti Usa una cartella che contiene un singolo file di soluzione (soluzione. sln):
+Questo nuovo comando Restore consente di ripristinare facilmente tutti i pacchetti per una soluzione con un unico comando, accettando un file o una cartella della soluzione come argomento. Inoltre, questo argomento è implicito quando è presente una sola soluzione nella cartella corrente. Ciò significa che l'operazione seguente viene eseguita da una cartella che contiene un singolo file di soluzione (la soluzione. sln):
 
-1. ripristino NuGet.exe soluzione. sln
-1. ripristino NuGet.exe.
-1. ripristino NuGet.exe
+1. NuGet. exe ripristino di una soluzione. sln
+1. ripristino di NuGet. exe.
+1. ripristino di NuGet. exe
 
-Il comando Restore verrà aprire il file della soluzione e trovare tutti i progetti all'interno della soluzione. Da qui, verrà trovato il `packages.config` file per ognuno dei progetti e ripristina tutti i pacchetti disponibili. Consente inoltre di ripristinare i pacchetti a livello di soluzione trovata nel `.nuget\packages.config` file. Altre informazioni sul nuovo comando di ripristino sono reperibile nel [Command-Line Reference](../tools/cli-ref-restore.md).
+Tramite il comando Restore si aprirà il file della soluzione e si troveranno tutti i progetti all'interno della soluzione. Da qui, troveranno i `packages.config` file per ognuno dei progetti e ripristinerà tutti i pacchetti trovati. Ripristina inoltre i `.nuget\packages.config` pacchetti a livello di soluzione trovati nel file. Ulteriori informazioni sul nuovo comando Restore sono disponibili nella Guida di [riferimento alla riga di comando](../reference/cli-reference/cli-ref-restore.md).
 
-#### <a name="the-new-package-restore-workflow"></a>Il nuovo flusso di lavoro ripristino pacchetto
+#### <a name="the-new-package-restore-workflow"></a>Nuovo flusso di lavoro di ripristino del pacchetto
 
-Siamo entusiasti di queste modifiche al ripristino dei pacchetti, perché introduce un nuovo flusso di lavoro. Se si desidera omettere i pacchetti dal controllo del codice sorgente è semplicemente non eseguire il commit di `packages` cartella. Visual Studio utenti aprire e compilare la soluzione visualizzeranno i pacchetti vengono ripristinati automaticamente. Per le compilazioni da riga di comando, è sufficiente richiamare `nuget.exe restore` prima di richiamare `msbuild`. Non è più necessario ricordare di usare il movimento "Abilita ripristino dei pacchetti NuGet" sulla tua soluzione e non sarà non è più necessario modificare i progetti per modificare la compilazione. E anche il risultato è un'esperienza di gran lunga migliore per i pacchetti che includono importazioni MSBuild, in particolare per le importazioni aggiunte tramite funzionalità recenti di NuGet per [automaticamente l'importazione di proprietà/destinazioni file](../release-notes/nuget-2.5.md#automatic-import-of-msbuild-targets-and-props-files) dalla cartella di \build.
+Queste modifiche vengono apportate al ripristino del pacchetto, in quanto introduce un nuovo flusso di lavoro. Se si desidera omettere i pacchetti dal controllo del codice sorgente, è sufficiente `packages` non eseguire il commit della cartella. Gli utenti di Visual Studio che aprono e compilano la soluzione vedranno i pacchetti ripristinati automaticamente. Per le compilazioni da riga di `nuget.exe restore` comando, è `msbuild`sufficiente richiamare prima di richiamare. Non è più necessario ricordare di usare il gesto "Abilita ripristino del pacchetto NuGet" nella soluzione e non sarà più necessario modificare i progetti per modificare la compilazione. Questo consente anche di ottenere un'esperienza molto migliorata per i pacchetti che includono importazioni di MSBuild, in particolare per le importazioni aggiunte tramite la funzionalità recente di NuGet per l' [importazione automatica dei file props/targets](../release-notes/nuget-2.5.md#automatic-import-of-msbuild-targets-and-props-files) dalla cartella \Build.
 
-Oltre il lavoro che svolto noi stessi, anche lavoriamo con alcuni partner importante per questo nuovo approccio. Non esiste ancora concrete sequenze temporali per ognuno di questi, ma ogni partner è come entusiasti come in questo caso sul nuovo approccio.
+Oltre al lavoro svolto, stiamo lavorando anche con alcuni partner importanti per aggirare questo nuovo approccio. Non sono ancora presenti sequenze temporali concrete per nessuno di questi, ma ogni partner è entusiasta del nuovo approccio.
 
-* Team Foundation Service - funzionano per integrare la chiamata a `nuget.exe restore` nell'impostazione predefinita gli scenari di compilazione.
-* Siti Web di Azure di Windows - funzionano per consentire di eseguire il push al progetto Azure e avere `nuget.exe restore` chiamato prima che il sito web è stato creato.
-* TeamCity - si sta aggiornando i plug-in di programma di installazione NuGet per TeamCity 8.x
-* AppHarbor - funzionano per consentire di eseguire il push nel repository AppHarbor e avere `nuget.exe restore` chiamato prima che la soluzione sia di compilazione.
+* Team Foundation Service: lavorano per integrare la chiamata a `nuget.exe restore` negli scenari di compilazione predefiniti.
+* Siti Web di Microsoft Azure: consentono di eseguire il push del progetto in Azure e `nuget.exe restore` di chiamare prima della compilazione del sito Web.
+* TeamCity-aggiornano il plug-in di programma di installazione NuGet per TeamCity 8. x
+* AppHarbor: lavorano per consentire di eseguire il push del repository in AppHarbor e hanno `nuget.exe restore` chiamato prima della compilazione della soluzione.
 
-Con ogni partner precedente, si utilizzerebbe la propria copia dei nuget.exe e non è necessario eseguire nuget.exe nella soluzione.
+Con ogni partner precedente, utilizzerebbe la propria copia di NuGet. exe e non sarebbe necessario eseguire NuGet. exe nella soluzione.
 
 #### <a name="known-issues"></a>Problemi noti
 
-Si sono verificati due problemi noti con ripristino nuget.exe con la versione 2.7 iniziale, ma sono stati corretti 9 luglio 6/2013 con un aggiornamento per il [il pacchetto NuGet. CommandLine](http://www.nuget.org/packages/NuGet.CommandLine/).  Questo aggiornamento è disponibile in anche il [pagina di download di NuGet 2.7](https://nuget.codeplex.com/releases/view/107605) su CodePlex.  Esecuzione `nuget.exe update -self` verrà aggiornato alla versione più recente.
+Si sono verificati due problemi noti con il ripristino di NuGet. exe con la versione iniziale 2,7, ma sono stati corretti in 9/6/2013 con un aggiornamento del [pacchetto NuGet. CommandLine](http://www.nuget.org/packages/NuGet.CommandLine/).  Questo aggiornamento è disponibile anche nella [pagina di download di NuGet 2,7](https://nuget.codeplex.com/releases/view/107605) su CodePlex.  L' `nuget.exe update -self` esecuzione di eseguirà l'aggiornamento alla versione più recente.
 
-Sono stati fissi:
+I corretti erano:
 
-1. [Nuovo ripristino dei pacchetti non funziona su Mono, quando si usano file SLN](https://nuget.codeplex.com/workitem/3596)
-1. [Nuovo ripristino dei pacchetti non funziona con i progetti di Wix](https://nuget.codeplex.com/workitem/3598)
+1. [Il ripristino di un nuovo pacchetto non funziona in mono quando si usa il file SLN](https://nuget.codeplex.com/workitem/3596)
+1. [Il ripristino di un nuovo pacchetto non funziona con i progetti WiX](https://nuget.codeplex.com/workitem/3598)
 
-È inoltre disponibile un problema noto con il nuovo pacchetto ripristino del flusso di lavoro in base al quale [ripristino automatico dei pacchetti non funziona per i progetti in una cartella della soluzione](https://nuget.codeplex.com/workitem/3625). Questo problema è stato risolto in NuGet 2.7.1.
+Esiste anche un problema noto con il nuovo flusso di lavoro di ripristino del pacchetto, in base al quale il [Ripristino automatico dei pacchetti non funziona per i progetti in una cartella della soluzione](https://nuget.codeplex.com/workitem/3625). Questo problema è stato risolto in NuGet 2.7.1.
 
-### <a name="project-retargeting-and-upgrade-build-errorswarnings"></a>Gli errori/avvisi di compilazione di ridestinazione del progetto e aggiornamento
+### <a name="project-retargeting-and-upgrade-build-errorswarnings"></a>Ridestinazione del progetto e errori/avvisi di compilazione aggiornamento
 
-Numero di volte dopo la ridestinazione o l'aggiornamento del progetto, individuare che alcuni pacchetti NuGet non funzionino correttamente. Sfortunatamente, è presente alcuna indicazione di questo oggetto e non vi sarà alcuna indicazione su come risolvere il problema. Con NuGet 2.7, è ora usare alcuni eventi di Visual Studio per riconoscere quando è stato ridestinato o aggiornato il progetto in modo che interessa i pacchetti NuGet installati.
+Molte volte dopo aver ridestinato o aggiornato il progetto, si noterà che alcuni pacchetti NuGet non funzionano correttamente. Sfortunatamente, non è presente alcuna indicazione e non sono disponibili indicazioni su come risolverlo. Con NuGet 2,7, ora si usano alcuni eventi di Visual Studio per riconoscere quando è stata ridestinata o aggiornata il progetto in un modo che influisca sui pacchetti NuGet installati.
 
-Se si rileva che i pacchetti sono stati interessati dalla ridestinazione o aggiornamento, si saranno producono errori di compilazione immediata per informare gli utenti. Oltre all'errore di compilazione immediato, abbiamo inoltre salvare in modo permanente un `requireReinstallation="true"` flag nel `packages.config` file per tutti i pacchetti che sono stati interessati dal reindirizzamento e ogni successivo di compilazione in Visual Studio genera avvisi di compilazione per tali pacchetti.
+Se si rileva che i pacchetti sono stati interessati dalla ridestinazione o dall'aggiornamento, verranno generati errori di compilazione immediati per comunicare. Oltre all'errore di compilazione immediato, viene anche mantenuto un `requireReinstallation="true"` flag `packages.config` nel file per tutti i pacchetti interessati dalla ridestinazione e ogni compilazione successiva in Visual Studio genererà avvisi di compilazione per tali pacchetti.
 
-Anche se NuGet non può intraprendere l'azione automatica per reinstallare i pacchetti interessati, ci auguriamo che questa indicazione e avviso forniranno assistenza è individuare quando è necessario reinstallare i pacchetti. Stiamo anche lavorando [documentazione di materiale sussidiario reinstallazione del pacchetto](../consume-packages/reinstalling-and-updating-packages.md) che questi messaggi di errore indirizzato a.
+Anche se NuGet non è in grado di eseguire l'azione automatica per reinstallare i pacchetti interessati, ci auguriamo che questa indicazione e avviso guideranno l'utente per individuare quando è necessario reinstallare i pacchetti. Si sta lavorando anche alla [documentazione delle linee guida](../consume-packages/reinstalling-and-updating-packages.md) per la reinstallazione di pacchetti a cui indirizzare questi messaggi di errore.
 
 ### <a name="nuget-configuration-defaults"></a>Impostazioni predefinite di configurazione NuGet
 
-Molte aziende usano NuGet internamente, ma hanno avuto difficoltà ad arrivare agli sviluppatori per l'uso dell'origine del pacchetto interno invece di nuget.org. NuGet 2.7 introduce una funzionalità di impostazioni predefinite di configurazione che consente a livello di computer il valore predefinito è possibile specificare per:
+Molte aziende usano NuGet internamente, ma hanno avuto un tempo difficile per consentire agli sviluppatori di usare le origini dei pacchetti interne invece di nuget.org. NuGet 2,7 introduce una funzionalità di impostazioni predefinite di configurazione che consente di specificare valori predefiniti a livello di computer per:
 
-1. Origini dei pacchetti abilitata
-1. Registrato ma origini pacchetto disabilitate
-1. Origine push predefinita nuget.exe
+1. Origini pacchetti abilitate
+1. Origini pacchetti registrate, ma disabilitate
+1. Origine push NuGet. exe predefinita
 
-Ognuno di questi è ora possibile configurare all'interno di un file che si trova in `%ProgramData%\NuGet\NuGetDefaults.Config`. Se questo file di configurazione specifica dell'origine del pacchetto, quindi l'origine del pacchetto nuget.org predefinita non verranno registrato automaticamente, mentre quelle in `NuGetDefaults.Config` verrà registrato.
+Ognuna di queste impostazioni può ora essere configurata all'interno `%ProgramData%\NuGet\NuGetDefaults.Config`di un file che si trova in. Se questo file di configurazione specifica le origini dei pacchetti, l'origine del pacchetto NuGet.org predefinita non verrà registrata automaticamente e le impostazioni `NuGetDefaults.Config` in verranno registrate.
 
-Sebbene non sia necessario per usare questa funzionalità, si prevede che alle aziende di distribuire `NuGetDefaults.Config` di file usando criteri di gruppo.
+Sebbene non sia necessario utilizzare questa funzionalità, è previsto che le aziende `NuGetDefaults.Config` distribuiscano i file utilizzando criteri di gruppo.
 
-*Si noti che questa funzionalità non causerà mai un'origine pacchetto essere rimosso dalle impostazioni di NuGet di uno sviluppatore. Ciò significa che se lo sviluppatore è già usato NuGet e pertanto è l'origine del pacchetto nuget.org è registrato, non verrà rimossa dopo la creazione di un `NuGetDefaults.Config` file.*
+*Si noti che questa funzionalità non comporterà la rimozione di un'origine pacchetto dalle impostazioni NuGet di uno sviluppatore. Ciò significa che se lo sviluppatore ha già usato NuGet e pertanto ha registrato l'origine del pacchetto NuGet.org, non verrà rimosso dopo la creazione di `NuGetDefaults.Config` un file.*
 
-Visualizzare [impostazioni predefinite di configurazione NuGet](../consume-packages/configuring-nuget-behavior.md#nuget-defaults-file) per altre informazioni su questa funzionalità.
+Per ulteriori informazioni su questa funzionalità, vedere [impostazioni predefinite della configurazione di NuGet](../consume-packages/configuring-nuget-behavior.md#nuget-defaults-file) .
 
-### <a name="renaming-the-default-package-source"></a>Ridenominazione di origine del pacchetto predefinito
+### <a name="renaming-the-default-package-source"></a>Ridenominazione dell'origine del pacchetto predefinita
 
-NuGet ha sempre registrato un'origine di pacchetto predefinito denominata "Origine pacchetto ufficiale NuGet" che punta a nuget.org. Questo nome è stato dettagliato e inoltre non specifica dove cui stava puntando effettivamente. Per risolvere tali due problemi, è stata rinominata questa origine pacchetto per semplicemente "nuget.org" nell'interfaccia utente. L'URL per l'origine del pacchetto è stata anche modificata per includere il "www". prefisso group. Dopo aver usato NuGet 2.7, l'origine pacchetto ufficiale"NuGet esistente" verrà aggiornato automaticamente su "nuget.org" come nome e "<https://www.nuget.org/api/v2/>" come l'URL corrispondente.
+NuGet ha sempre registrato un'origine pacchetto predefinita denominata "origine pacchetto ufficiale NuGet" che punta a nuget.org. Il nome è dettagliato e non è stato specificato il punto in cui è stato effettivamente puntato. Per risolvere questi due problemi, l'origine del pacchetto è stata rinominata semplicemente "nuget.org" nell'interfaccia utente. Anche l'URL per l'origine del pacchetto è stato modificato in modo da includere "www". prefisso group. Dopo aver usato NuGet 2,7, l'"origine del pacchetto ufficiale NuGet" esistente verrà automaticamente aggiornata a "NuGet.org" come nome e "<https://www.nuget.org/api/v2/>" come URL.
 
 ### <a name="performance-improvements"></a>Miglioramenti delle prestazioni
 
-Abbiamo apportato alcuni miglioramenti delle prestazioni in 2.7 che restituirà footprint di memoria più piccolo, meno l'utilizzo del disco e l'installazione più veloce del pacchetto. Abbiamo anche le query più intelligenti ai feed basato su OData che consentiranno di ridurre il payload complessivo.
+Si è apportato un miglioramento delle prestazioni in 2,7 che garantisce un footprint di memoria inferiore, meno utilizzo del disco e un'installazione più rapida dei pacchetti. Sono state inoltre apportate query più intelligenti ai feed basati su OData che ridurrà il payload complessivo.
 
 ### <a name="new-extensibility-apis"></a>Nuove API di estendibilità
 
-Abbiamo aggiunto alcune nuove API per i servizi di estendibilità per riempire i gap di funzionalità mancanti nelle versioni precedenti.
+Sono state aggiunte nuove API ai servizi di estendibilità per colmare il gap delle funzionalità mancanti nelle versioni precedenti.
 
 #### <a name="ivspackageinstallerservices"></a>IVsPackageInstallerServices
 
@@ -182,18 +182,18 @@ Abbiamo aggiunto alcune nuove API per i servizi di estendibilità per riempire i
     void InstallPackagesFromVSExtensionRepository(string extensionId, bool isPreUnzipped, bool skipAssemblyReferences, Project project, IDictionary<string, string> packageVersions);
     ```
 
-### <a name="development-only-dependencies"></a>Dipendenze solo allo sviluppo
+### <a name="development-only-dependencies"></a>Dipendenze solo per lo sviluppo
 
-Questa funzionalità è stato reso disponibile da [Adam Ralph](https://twitter.com/adamralph) e consente agli autori di dichiarare dipendenze che sono state usate solo in fase di sviluppo di tempo e non richiedono le dipendenze dei pacchetti. Aggiungendo un `developmentDependency="true"` dell'attributo a un pacchetto in `packages.config`, `nuget.exe pack` non comprenderanno più che il pacchetto come dipendenza.
+Questa funzionalità è stata introdotta da [Adam Ralph](https://twitter.com/adamralph) e consente agli autori di pacchetti di dichiarare dipendenze che sono state usate solo in fase di sviluppo e non richiedono le dipendenze dei pacchetti. Se si aggiunge `developmentDependency="true"` un attributo a un pacchetto `packages.config`in `nuget.exe pack` , il pacchetto non sarà più incluso come dipendenza.
 
 ### <a name="removed-support-for-visual-studio-2010-express-for-windows-phone"></a>Rimosso il supporto per Visual Studio 2010 Express per Windows Phone
 
-Il nuovo modello di ripristino di pacchetti in 2.7 è implementato da un nuovo pacchetto VSPackage che è diverso dal NuGet VSPackage principale. A causa di un problema tecnico, non funziona correttamente in questo nuovo VSPackage la *Visual Studio 2010 Express per Windows Phone* SKU come si condividono la stessa base di codice con altri SKU di Visual Studio è supportata. Pertanto, a partire da NuGet 2.7, si sta eliminando il supporto per *Visual Studio 2010 Express per Windows Phone* dall'estensione pubblicato. Supporto per *Visual Studio 2010 Express per Web* è ancora incluso nell'estensione primario pubblicato per la raccolta di estensioni di Visual Studio.
+Il nuovo modello di ripristino del pacchetto in 2,7 è implementato da un nuovo VSPackage che è diverso dal VSPackage principale di NuGet. A causa di un problema tecnico, questo nuovo pacchetto VSPackage non funziona correttamente nello SKU di *Visual studio 2010 Express per Windows Phone* perché condivide la stessa codebase con altri SKU di Visual Studio supportati. Quindi, a partire da NuGet 2,7, viene eliminato il supporto per *Visual Studio 2010 Express per Windows Phone* dall'estensione pubblicata. Il supporto per *Visual Studio 2010 Express per il Web* è ancora incluso nell'estensione primaria pubblicata nella raccolta di estensioni di Visual Studio.
 
-Poiché si è certi di quanti sviluppatori siano ancora usando NuGet in quella versione/edizione di Visual Studio, stiamo pubblicazione di un'estensione di Visual Studio separata in modo specifico per gli utenti e pubblicarlo su CodePlex (anziché la raccolta di estensioni di Visual Studio) . Non si intende continuare a mantenere tale estensione, ma se questa influenza è possibile comunicarlo inviando un problema nel sito CodePlex.
+Poiché non si è certi del numero di sviluppatori che usano ancora NuGet nella versione o nell'edizione di Visual Studio, viene pubblicata un'estensione di Visual Studio separata in modo specifico per tali utenti e la pubblicazione su CodePlex, anziché sulla raccolta di estensioni di Visual Studio. . Non si prevede di continuare a mantenere questa estensione, ma se si influiscono sul problema si segnala un problema in CodePlex.
 
-Per scaricare Gestione pacchetti NuGet (per Visual Studio 2010 Express per Windows Phone), visitare il [download di NuGet 2.7](https://nuget.codeplex.com/releases/view/107605) pagina.
+Per scaricare gestione pacchetti NuGet (per Visual Studio 2010 Express per Windows Phone), visitare la pagina [download di nuget 2,7](https://nuget.codeplex.com/releases/view/107605) .
 
 ### <a name="bug-fixes"></a>Correzioni di bug
 
-Oltre a queste funzionalità, questa versione di NuGet include anche molte altre correzioni di bug. Si sono verificati 97 totali problemi risolti nella versione. Per un elenco completo di lavoro elementi di risolti in NuGet 2.7, vista la [NuGet Issue Tracker per questa versione](https://nuget.codeplex.com/workitem/list/advanced?release=NuGet%202.7&status=all).
+Oltre a queste funzionalità, questa versione di NuGet include anche molte altre correzioni di bug. Nella versione sono stati rilevati 97 problemi totali. Per un elenco completo degli elementi di lavoro corretti in NuGet 2,7, vedere la pagina [relativa al rilevamento dei problemi di NuGet per questa versione](https://nuget.codeplex.com/workitem/list/advanced?release=NuGet%202.7&status=all).
