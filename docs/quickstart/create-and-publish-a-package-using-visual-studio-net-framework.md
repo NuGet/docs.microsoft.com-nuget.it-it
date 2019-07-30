@@ -1,16 +1,16 @@
 ---
-title: Creare e pubblicare un pacchetto .NET Framework con Visual Studio in Windows
+title: Creare e pubblicare un pacchetto NuGet .NET Framework con Visual Studio in Windows
 description: Esercitazione dettagliata sulla creazione e pubblicazione di un pacchetto NuGet .NET Framework con Visual Studio in Windows.
 author: karann-msft
 ms.author: karann
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: bf561d36a06bf42c029eb96ff1b7930abffa4c0a
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 75160bf2b01f6d4707162e019a6263ddc64a6f5e
+ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842055"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68342515"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Guida introduttiva: Creare e pubblicare un pacchetto con Visual Studio (.NET Framework, Windows)
 
@@ -162,7 +162,7 @@ Dopo aver creato un file `.nupkg`, pubblicarlo in nuget.org usando `nuget.exe` i
     Your package was pushed.
     ```
 
-Vedere [nuget push](../tools/cli-ref-push.md).
+Vedere [nuget push](../reference/cli-reference/cli-ref-push.md).
 
 ### <a name="publish-errors"></a>Errori di pubblicazione
 
@@ -172,9 +172,15 @@ Vedere [nuget push](../tools/cli-ref-push.md).
 
 [!INCLUDE [publish-manage](includes/publish-manage.md)]
 
-## <a name="related-topics"></a>Argomenti correlati
+## <a name="next-steps"></a>Passaggi successivi
 
-- [Creare un pacchetto](../create-packages/creating-a-package.md)
+È stato creato il primo pacchetto NuGet.
+
+> [!div class="nextstepaction"]
+> [Creare un pacchetto](../create-packages/creating-a-package.md)
+
+Per esplorare in modo più approfondito ciò che NuGet può offrire, selezionare i collegamenti seguenti.
+
 - [Pubblicare un pacchetto](../nuget-org/publish-a-package.md)
 - [Pacchetti in versione non definitiva](../create-packages/Prerelease-Packages.md)
 - [Supportare più framework di destinazione](../create-packages/supporting-multiple-target-frameworks.md)

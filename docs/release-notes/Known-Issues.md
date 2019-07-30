@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: fc338ba3810a125f638a937cf14456bf519a24a8
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: b104eb39ddeacd9ca1ea45937cf98ad57531112a
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548474"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317134"
 ---
 # <a name="known-issues-with-nuget"></a>Problemi noti con NuGet
 
@@ -29,7 +29,7 @@ $PAT = "token di accesso personale" $Feed = "URL" .\nuget.exe sources add -Name 
 
 **Soluzione alternativa:**
 
-Archiviare le password in testo non crittografato usando l'opzione [-StorePasswordInClearText](../tools/cli-ref-sources.md).
+Archiviare le password in testo non crittografato usando l'opzione [-StorePasswordInClearText](../reference/cli-reference/cli-ref-sources.md).
 
 ## <a name="error-installing-packages-with-nuget-34-341"></a>Errore durante l'installazione di pacchetti con NuGet 3.4, 3.4.1
 
@@ -45,7 +45,7 @@ Il file `NuGet.Config` nella cartella `%AppData%\NuGet\` (Windows) o `~/.nuget/`
 
 **Problema:**
 
-In NuGet 2.7 o versione successiva, quando si tenta di installare qualsiasi pacchetto che contiene riferimenti ad assembly, è possibile che venga visualizzato il messaggio di errore **"Formato della stringa di input non corretto."**, come di seguito:
+In NuGet 2.7 o versione successiva, quando si tenta di installare qualsiasi pacchetto che contiene riferimenti ad assembly, è possibile che venga visualizzato il messaggio di errore **"Formato della stringa di input non corretto."** , come di seguito:
 
 ```ps
 install-package log4net
@@ -75,7 +75,7 @@ Per altre informazioni su questo errore, vedere questo [elemento di lavoro](http
 
 ## <a name="build-failure-after-package-update-in-vs-2012"></a>Errore di compilazione dopo l'aggiornamento del pacchetto in Visual Studio 2012
 
-Il problema: si usa Visual Studio 2012 RTM. Quando si aggiornano i pacchetti NuGet, viene visualizzato il messaggio: "Non è stato possibile disinstallare completamente uno o più pacchetti." e viene richiesto di riavviare Visual Studio. Dopo il riavvio di Visual Studio, si verificano strani errori di compilazione.
+Problema: Si usa Visual Studio 2012 RTM. Quando si aggiornano i pacchetti NuGet viene visualizzato questo messaggio: "Non è stato possibile disinstallare completamente uno o più pacchetti." e viene richiesto di riavviare Visual Studio. Dopo il riavvio di Visual Studio, si verificano strani errori di compilazione.
 
 La causa è che alcuni file nei pacchetti precedenti sono bloccati da un processo di MSBuild in background. Anche dopo il riavvio di Visual Studio, il processo di MSBuild in background usa ancora i file nei pacchetti precedenti, causando gli errori di compilazione.
 
@@ -134,7 +134,7 @@ oppure
 
 È stato contattato l'autore del componente aggiuntivo nella speranza di trovare una soluzione.
 
-<p class="info">Aggiornamento: è stato verificato che la versione più recente di Reflector, 6.5, non causa questa eccezione nella console.</p>
+<p class="info">Aggiornamento: è stato verificato che la versione più recente di Reflector, 6.5, non causa più questa eccezione nella console.</p>
 
 ## <a name="opening-package-manager-console-fails-with-objectsecurity-exception"></a>Errore di apertura della console di Gestione pacchetti con eccezione ObjectSecurity
 

@@ -1,24 +1,24 @@
 ---
-title: Come creare un pacchetto NuGet
+title: Creare un pacchetto NuGet con l'interfaccia della riga di comando di nuget.exe
 description: Guida dettagliata al processo di progettazione e creazione di un pacchetto NuGet, incluse le principali decisioni critiche, ad esempio quelle relative ai file e al controllo delle versioni.
 author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1dce8556448131c36680167fdc3605e4378b9178
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 894a39e9e67508234295db128928b09da7f468f0
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842302"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419825"
 ---
-# <a name="create-nuget-packages"></a>Creare pacchetti NuGet
+# <a name="create-a-package-using-the-nugetexe-cli"></a>Creare un pacchetto usando l'interfaccia della riga di comando di nuget.exe
 
 Indipendentemente dalle operazioni eseguite dal pacchetto o dal tipo di codice contenuto, è possibile usare uno degli strumenti dell'interfaccia della riga di comando, ovvero `nuget.exe` o `dotnet.exe`. per rendere disponibili tali funzionalità in un componente condivisibile e utilizzabile da altri sviluppatori. Per installare gli strumenti dell'interfaccia della riga di comando di NuGet, vedere [Installare gli strumenti client di NuGet](../install-nuget-client-tools.md). Si noti che Visual Studio non include automaticamente uno strumento dell'interfaccia della riga di comando.
 
-- Per i progetti .NET Core e .NET Standard che usano il [formato di tipo SDK](../resources/check-project-format.md), e qualsiasi altro progetto di tipo SDK, NuGet usa le informazioni nel file di progetto direttamente per creare un pacchetto. Per la procedura dettagliata, vedere [Creare e pubblicare un pacchetto (interfaccia della riga di comando dotnet)](../quickstart/create-and-publish-a-package-using-the-dotnet-cli.md), [Creare e pubblicare un pacchetto NuGet con Visual Studio (.NET Standard, solo Windows)](../quickstart/create-and-publish-a-package-using-visual-studio.md) o [Pack e restore di NuGet come destinazioni MSBuild](../reference/msbuild-targets.md).
+- Per i progetti non di tipo SDK, in genere progetti .NET Framework, seguire la procedura descritta in questo articolo per creare un pacchetto. Per istruzioni dettagliate sull'uso di Visual Studio e dell'interfaccia della riga di comando di `nuget.exe`, vedere [Creare e pubblicare un pacchetto .NET Framework](../quickstart/create-and-publish-a-package-using-visual-studio-net-framework.md).
 
-- Per i progetti non di tipo SDK, in genere progetti .NET Framework, seguire la procedura descritta in questo articolo per creare un pacchetto. È anche possibile seguire la procedura descritta in [Creare e pubblicare un pacchetto di .NET Framework](../quickstart/create-and-publish-a-package-using-visual-studio-net-framework.md) per creare un pacchetto usando l'interfaccia della riga di comando `nuget.exe` e Visual Studio.
+- Per i progetti .NET Core e .NET Standard che usano il [formato di tipo SDK](../resources/check-project-format.md), e qualsiasi altro progetto di tipo SDK, vedere [Creare un pacchetto NuGet con l'interfaccia della riga di comando di dotnet](creating-a-package-dotnet-cli.md).
 
 - Per i progetti migrati da `packages.config` a [PackageReference](../consume-packages/package-references-in-project-files.md), usare [msbuild -t:pack](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
 
@@ -65,7 +65,7 @@ Proprietà facoltative comuni:
 
 - Note sulla versione
 - Informazioni sul copyright
-- Breve descrizione dell'[interfaccia utente di Gestione pacchetti in Visual Studio](../tools/package-manager-ui.md)
+- Breve descrizione dell'[interfaccia utente di Gestione pacchetti in Visual Studio](../consume-packages/install-use-packages-visual-studio.md)
 - ID impostazioni locali
 - URL progetto
 - Licenza come espressione o file (`licenseUrl` è deprecato, usare l'elemento di metadati [`license` di nuspec](../reference/nuspec.md#license))
@@ -369,7 +369,7 @@ Dopo la corretta esecuzione di `nuget pack`, è disponibile un file `.nupkg` che
 
 ### <a name="additional-options"></a>Opzioni aggiuntive
 
-Tra le altre funzionalità, è possibile usare diverse opzioni della riga di comando con `nuget pack` per escludere i file, eseguire l'override del numero di versione nel manifesto e modificare la cartella di output. Per un elenco completo, vedere le [informazioni di riferimento sul comando pack](../tools/cli-ref-pack.md).
+Tra le altre funzionalità, è possibile usare diverse opzioni della riga di comando con `nuget pack` per escludere i file, eseguire l'override del numero di versione nel manifesto e modificare la cartella di output. Per un elenco completo, vedere le [informazioni di riferimento sul comando pack](../reference/cli-reference/cli-ref-pack.md).
 
 Le seguenti sono alcune opzioni comuni ai progetti di Visual Studio:
 
@@ -404,7 +404,7 @@ Prima di pubblicare un pacchetto, in genere si preferisce testarne il processo d
 Per i test automatizzati, il processo di base è il seguente:
 
 1. Copiare il file `.nupkg` in una cartella locale.
-1. Aggiungere la cartella alle origini del pacchetto usando il comando `nuget sources add -name <name> -source <path>`. Vedere [nuget sources](../tools/cli-ref-sources.md). Si noti che è necessario impostare l'origine locale solo una volta in ogni computer.
+1. Aggiungere la cartella alle origini del pacchetto usando il comando `nuget sources add -name <name> -source <path>`. Vedere [nuget sources](../reference/cli-reference/cli-ref-sources.md). Si noti che è necessario impostare l'origine locale solo una volta in ogni computer.
 1. Installare il pacchetto da tale origine usando `nuget install <packageID> -source <name>` dove `<name>` corrisponde al nome dell'origine specificata in `nuget sources`. Specificando l'origine, il pacchetto viene con certezza installato solo da tale origine.
 1. Esaminare il file system per controllare che i file siano installati correttamente.
 

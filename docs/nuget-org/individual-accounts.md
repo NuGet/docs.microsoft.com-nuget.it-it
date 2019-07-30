@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: e1e31e0534706dab43f8d7b1b0db059cd6f29b80
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: c88b88015bd6d5bae4789765126c0a3dec527e24
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427136"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419878"
 ---
 # <a name="individual-accounts"></a>Account personali
 
@@ -45,3 +45,27 @@ Per creare un account di NuGet.org, è necessario avere un account Microsoft per
 1. Fare clic sul pulsante **Register** (Registra).
 
 Si ha ora un account di NuGet.org. È possibile eseguire la gestione degli account nella pagina [Account Settings](https://www.nuget.org/account) (Impostazioni account).
+
+## <a name="enable-two-factor-authentication-2fa"></a>Abilitare l'autenticazione a due fattori (2FA)
+
+Per migliorare la protezione dell'account, abilitare l'autenticazione a due fattori (scelta consigliata).
+
+1. Quando si è connessi all'account, aprire il profilo e scegliere **Abilita** in **Account di accesso**.
+
+   ![Abilitare 2FA](media/nuget-org-register-2fa.png)
+
+   Verrà visualizzato un messaggio in cui viene indicato che al successivo accesso a *nuget.org* verranno richieste altre credenziali.
+
+2. Per completare l'autenticazione in questo momento, disconnettersi e quindi accedere di nuovo.
+
+3. Quando si accede, scegliere testo o posta elettronica come seconda forma di autenticazione.
+
+   Verificare il numero di telefono o l'indirizzo di posta elettronica già associato all'account Microsoft. Potrebbe essere necessario immettere un nuovo numero di telefono o un nuovo indirizzo di posta elettronica per l'account. In tal caso, immettere le informazioni richieste come indicato e quindi fare clic su **Avanti**.
+
+   ![Abilitare 2FA](media/nuget-org-sign-in-2fa.png)
+
+4. Controllare il dispositivo o l'account di posta elettronica e immettere il codice appena inviato.
+
+   ![Abilitare 2FA](media/nuget-org-enter-code-2fa.png)
+
+5. Seguire eventuali istruzioni aggiuntive per completare l'autenticazione a due fattori.

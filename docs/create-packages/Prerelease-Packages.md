@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 845f0ea84bcb92fedf9e5f4fb2b1deee1462a004
-ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
+ms.openlocfilehash: 726f983c2522fdb538dfce858fdf2371ec0ce188
+ms.sourcegitcommit: f9e39ff9ca19ba4a26e52b8a5e01e18eb0de5387
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610491"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68433345"
 ---
 # <a name="building-pre-release-packages"></a>Compilazione di versioni non definitive dei pacchetti
 
@@ -24,7 +24,7 @@ Per supportare il ciclo di vita di rilascio del software, NuGet 1.6 e versioni s
 
 È possibile specificare tali versioni usando uno dei modi seguenti:
 
-- **Se il progetto usa [`PackageReference`](../consume-packages/package-references-in-project-files.md)**: includere il suffisso di versione semantico nell'elemento [`PackageVersion`](/dotnet/core/tools/csproj.md#packageversion) del file `.csproj`:
+- **Se il progetto usa [`PackageReference`](../consume-packages/package-references-in-project-files.md)** : includere il suffisso di versione semantico nell'elemento [`PackageVersion`](/dotnet/core/tools/csproj.md#packageversion) del file `.csproj`:
 
     ```xml
     <PropertyGroup>
@@ -32,7 +32,7 @@ Per supportare il ciclo di vita di rilascio del software, NuGet 1.6 e versioni s
     </PropertyGroup>
     ```
 
-- **Se il progetto include un file [`packages.config`](../reference/packages-config.md)**: includere il suffisso di versione semantico nell'elemento [`version`](../reference/nuspec.md#version) del file [`.nuspec`](../reference/nuspec.md):
+- **Se il progetto include un file [`packages.config`](../reference/packages-config.md)** : includere il suffisso di versione semantico nell'elemento [`version`](../reference/nuspec.md#version) del file [`.nuspec`](../reference/nuspec.md):
 
     ```xml
     <version>1.0.1-alpha</version>
@@ -44,15 +44,15 @@ Quando si è pronti per rilasciare una versione stabile, è sufficiente rimuover
 
 Per impostazione predefinita, NuGet non include le versioni non definitive quando si lavora con i pacchetti, ma è possibile modificare questo comportamento come segue:
 
-- **Interfaccia utente di Gestione pacchetti (Visual Studio)**: nell'interfaccia utente di **Gestisci pacchetti NuGet** selezionare la casella di controllo **Includi versione preliminare**:
+- **Interfaccia utente di Gestione pacchetti (Visual Studio)** : nell'interfaccia utente di **Gestisci pacchetti NuGet** selezionare la casella di controllo **Includi versione preliminare**:
 
     ![Casella di controllo Includi versione preliminare in Visual Studio](media/Prerelease_02-CheckPrerelease.png)
 
     La selezione o la deselezione di questa casella di controllo aggiorna l'interfaccia utente di Gestione pacchetti e l'elenco delle versioni disponibili che è possibile installare.
 
-- **Console di Gestione pacchetti**: usare l'opzione `-IncludePrerelease` con i comandi `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package` e `Update-Package`. Vedere [Informazioni di riferimento su PowerShell](../tools/powershell-reference.md).
+- **Console di Gestione pacchetti**: usare l'opzione `-IncludePrerelease` con i comandi `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package` e `Update-Package`. Vedere [Informazioni di riferimento su PowerShell](../reference/powershell-reference.md).
 
-- **Interfaccia della riga di comando di NuGet**: usare l'opzione `-prerelease` con i comandi `install`, `update`, `delete` e `mirror`. Vedere [NuGet CLI reference](../tools/nuget-exe-cli-reference.md) (Informazioni di riferimento sull'interfaccia della riga di comando di NuGet).
+- **Interfaccia della riga di comando di NuGet**: usare l'opzione `-prerelease` con i comandi `install`, `update`, `delete` e `mirror`. Vedere [NuGet CLI reference](../reference/nuget-exe-cli-reference.md) (Informazioni di riferimento sull'interfaccia della riga di comando di NuGet).
 
 ## <a name="semantic-versioning"></a>Versionamento semantico
 
@@ -81,10 +81,12 @@ Indipendentemente dai suffissi usati, tuttavia, NuGet stabilirà sempre la prece
     1.0.1-zzz
     1.0.1-rc
     1.0.1-open
-    1.0.1-beta12
-    1.0.1-beta05
+    1.0.1-beta.12
+    1.0.1-beta.5
     1.0.1-beta
-    1.0.1-alpha2
+    1.0.1-alpha.2
     1.0.1-alpha
 
-Come illustrato, la versione senza suffisso avrà sempre la precedenza rispetto alle versioni non definitive. Si noti inoltre che se si usano suffissi numerici con i tag di versione non definitiva che potrebbero usare numeri a due cifre (o più), è buona norma usare zeri iniziali come in beta01 e beta05 per assicurare un ordinamento corretto con l'aumentare dei numeri.
+Come illustrato, la versione senza suffisso avrà sempre la precedenza rispetto alle versioni non definitive.
+
+Gli zeri iniziali non sono necessari con semver2, ma lo sono con lo schema della versione precedente. Se si usano suffissi numerici con i tag di versione non definitiva che potrebbero usare numeri a due cifre (o più), è buona norma usare zeri iniziali come in beta.01 e beta.05 per assicurare un ordinamento corretto con l'aumentare dei numeri. Questa raccomandazione si applica solo allo schema della versione precedente.

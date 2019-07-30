@@ -1,16 +1,16 @@
 ---
-title: Guida introduttiva all'uso di pacchetti NuGet tramite l'interfaccia della riga di comando di dotnet
+title: Installare e usare un pacchetto NuGet con l'interfaccia della riga di comando di dotnet
 description: Esercitazione dettagliata sul processo di installazione e uso di un pacchetto NuGet in un progetto .NET Core.
 author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: 0d637c441cf9f36e8e3e04e47b524b2defecae52
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: ee456fd49675db37fee78dc14502a897d84a2b99
+ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67841663"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68342465"
 ---
 # <a name="quickstart-install-and-use-a-package-using-the-dotnet-cli"></a>Guida introduttiva: Installare e usare un pacchetto con l'interfaccia della riga di comando di dotnet
 
@@ -101,9 +101,15 @@ I pacchetti NuGet possono essere installati in un progetto .NET di qualche tipo.
     }
     ```
 
-## <a name="related-articles"></a>Articoli correlati
+## <a name="next-steps"></a>Passaggi successivi
 
-- [Installare e usare pacchetti tramite l'interfaccia della riga di comando di dotnet](../consume-packages/install-use-packages-dotnet-cli.md)
+È stato installato e usato il primo pacchetto NuGet.
+
+> [!div class="nextstepaction"]
+> [Installare e usare pacchetti tramite l'interfaccia della riga di comando di dotnet](../consume-packages/install-use-packages-dotnet-cli.md)
+
+Per esplorare in modo più approfondito ciò che NuGet può offrire, selezionare i collegamenti seguenti.
+
 - [Panoramica e flusso di lavoro dell'utilizzo di pacchetti](../consume-packages/overview-and-workflow.md)
 - [Ricerca e scelta di pacchetti](../consume-packages/finding-and-choosing-packages.md)
-- [Configurazioni comuni di NuGet](../consume-packages/configuring-nuget-behavior.md)
+- [Riferimenti ai pacchetti nei file di progetto](../consume-packages/package-references-in-project-files.md)

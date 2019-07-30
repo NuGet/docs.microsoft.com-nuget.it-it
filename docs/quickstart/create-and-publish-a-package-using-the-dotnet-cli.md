@@ -1,16 +1,16 @@
 ---
-title: Creazione e pubblicazione di un pacchetto NuGet con l'interfaccia della riga di comando di dotnet
+title: Creare e pubblicare un pacchetto NuGet con l'interfaccia della riga di comando di dotnet
 description: Esercitazione sulla creazione e pubblicazione di un pacchetto NuGet tramite l'interfaccia della riga di comando di .NET Core, ovvero dotnet.
 author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: 4e96d9969c8b4570ee69501d6529986f891ea4dc
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 30a77b427fe0a33b41262c5784045e5a6b10852f
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842598"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419994"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Guida introduttiva: Creare e pubblicare un pacchetto (interfaccia della riga di comando dotnet)
 
@@ -101,12 +101,18 @@ Dopo aver creato un file `.nupkg`, pubblicarlo in nuget.org usando il comando `d
 
 [!INCLUDE [publish-manage](includes/publish-manage.md)]
 
-## <a name="related-topics"></a>Argomenti correlati
+## <a name="next-steps"></a>Passaggi successivi
 
-- [Creare un pacchetto](../create-packages/creating-a-package.md)
+È stato creato il primo pacchetto NuGet.
+
+> [!div class="nextstepaction"]
+> [Creare un pacchetto](../create-packages/creating-a-package-dotnet-cli.md)
+
+Per esplorare in modo più approfondito ciò che NuGet può offrire, selezionare i collegamenti seguenti.
+
 - [Pubblicare un pacchetto](../nuget-org/publish-a-package.md)
 - [Pacchetti in versione non definitiva](../create-packages/Prerelease-Packages.md)
-- [Supportare più framework di destinazione](../create-packages/supporting-multiple-target-frameworks.md)
+- [Supportare più framework di destinazione](../create-packages/multiple-target-frameworks-project-file.md)
 - [Controllo delle versioni dei pacchetti](../reference/package-versioning.md)
 - [Creazione di pacchetti localizzati](../create-packages/creating-localized-packages.md)
 - [Creazione di pacchetti di simboli](../create-packages/symbol-packages-snupkg.md)

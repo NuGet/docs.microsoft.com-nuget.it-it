@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4b365488c8dd0e081449552b06451e7b40b5223b
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: f5d418fd5b6b9bb88958d6b7e9e3034f40485a7d
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426622"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419965"
 ---
 # <a name="managing-the-global-packages-cache-and-temp-folders"></a>Gestione delle cartelle dei pacchetti globale, della cache e temporanea
 
@@ -18,7 +18,7 @@ Quando si installa, aggiorna o ripristina un pacchetto, NuGet gestisce i pacchet
 
 | nome | Descrizione e posizione (per utente)|
 | --- | --- |
-| global&#8209;packages | La cartella *global-packages* è la posizione in cui NuGet installa i pacchetti scaricati. Ogni pacchetto viene espanso completamente in una sottocartella corrispondente all'identificatore del pacchetto e al numero di versione. I progetti che usano il formato PackageReference usano sempre i pacchetti direttamente da questa cartella. Quando si usa il file `packages.config`, i pacchetti vengono installati nella cartella *global-packages* e quindi copiati nella cartella `packages` del progetto.<br/><ul><li>Windows: `%userprofile%\.nuget\packages`</li><li>Mac/Linux: `~/.nuget/packages`</li><li>Eseguire l'override usando la variabile di ambiente NUGET_PACKAGES, [le impostazioni di configurazione](../reference/nuget-config-file.md#config-section) `globalPackagesFolder` o `repositoryPath` (rispettivamente quando si usa PackageReference e `packages.config`) o la proprietà MSBuild `RestorePackagesPath` (solo MSBuild). La variabile di ambiente ha la precedenza rispetto all'impostazione di configurazione.</li></ul> |
+| global&#8209;packages | La cartella *global-packages* è la posizione in cui NuGet installa i pacchetti scaricati. Ogni pacchetto viene espanso completamente in una sottocartella corrispondente all'identificatore del pacchetto e al numero di versione. I progetti che usano il formato [PackageReference](package-references-in-project-files.md) usano sempre i pacchetti direttamente da questa cartella. Quando si usa il file [packages.config](../reference/packages-config.md), i pacchetti vengono installati nella cartella *global-packages* e quindi copiati nella cartella `packages` del progetto.<br/><ul><li>Windows: `%userprofile%\.nuget\packages`</li><li>Mac/Linux: `~/.nuget/packages`</li><li>Eseguire l'override usando la variabile di ambiente NUGET_PACKAGES, [le impostazioni di configurazione](../reference/nuget-config-file.md#config-section) `globalPackagesFolder` o `repositoryPath` (rispettivamente quando si usa PackageReference e `packages.config`) o la proprietà MSBuild `RestorePackagesPath` (solo MSBuild). La variabile di ambiente ha la precedenza rispetto all'impostazione di configurazione.</li></ul> |
 | http&#8209;cache | Gestione pacchetti di Visual Studio (NuGet 3.x+) e lo strumento `dotnet` archiviano copie dei pacchetti scaricati nella cache (salvati come file `.dat`), organizzati in sottocartelle per ogni origine di pacchetti. I pacchetti non vengono espansi e la cache ha una scadenza di 30 minuti.<br/><ul><li>Windows: `%localappdata%\NuGet\v3-cache`</li><li>Mac/Linux: `~/.local/share/NuGet/v3-cache`</li><li>Eseguire l'override usando la variabile di ambiente NUGET_HTTP_CACHE_PATH.</li></ul> |
 | temp | Cartella in cui NuGet archivia i file temporanei durante le varie operazioni.<br/><li>Windows: `%temp%\NuGetScratch`</li><li>Mac/Linux: `/tmp/NuGetScratch`</li></ul> |
 | plugins-cache **4.8+** | Cartella in cui NuGet archivia i risultati dalla richiesta di attestazioni delle operazioni.<br/><ul><li>Windows: `%localappdata%\NuGet\plugins-cache`</li><li>Mac/Linux: `~/.local/share/NuGet/plugins-cache`</li><li>Eseguire l'override usando la variabile di ambiente NUGET_PLUGINS_CACHE_PATH.</li></ul> |
@@ -34,7 +34,7 @@ Per altre informazioni, vedere [Cosa accade quando viene installato un pacchetto
 
 ## <a name="viewing-folder-locations"></a>Visualizzazione delle posizioni delle cartelle
 
-È possibile visualizzare le posizioni con il [comando nuget locals](../tools/cli-ref-locals.md):
+È possibile visualizzare le posizioni con il [comando nuget locals](../reference/cli-reference/cli-ref-locals.md):
 
 ```cli
 # Display locals for all folders: global-packages, http cache, temp and plugins cache

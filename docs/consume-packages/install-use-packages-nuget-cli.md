@@ -5,23 +5,23 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: a7177b956930835693921163e634321548c22462
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 9eefed6f2c1a362f27c4a5d33d07645d743379fa
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842375"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317739"
 ---
 # <a name="manage-packages-using-the-nugetexe-cli"></a>Gestire pacchetti tramite l'interfaccia della riga di comando nuget.exe
 
 Lo strumento della riga di comando consente di aggiornare e ripristinare facilmente pacchetti NuGet in progetti e soluzioni. Questo strumento offre tutte le funzionalità di NuGet in Windows e anche la maggior parte delle funzionalità in Mac e Linux per l'esecuzione in Mono.
 
-L'interfaccia della riga di comando di nuget.exe viene usata per il progetto .NET Framework e per i progetti non di tipo SDK, ad esempio un progetto non di tipo SDK destinato alle librerie .NET Standard. Se si usa un progetto non in stile SDK, di cui è stata eseguita la migrazione in `PackageReference`, usare in alternativa l'interfaccia della riga di comando di dotnet. L'interfaccia della riga di comando NuGet richiede un file [packages.config](../reference/packages-config.md) per i riferimenti ai pacchetti.
+L'interfaccia della riga di comando di `nuget.exe` viene usata per il progetto .NET Framework e per i progetti non di tipo SDK, ad esempio un progetto non di tipo SDK destinato alle librerie .NET Standard. Se si usa un progetto non di tipo SDK, di cui è stata eseguita la migrazione a `PackageReference`, usare invece l'interfaccia della riga di comando di `dotnet`. L'interfaccia della riga di comando di `nuget.exe` richiede un file [packages.config](../reference/packages-config.md) per i riferimenti ai pacchetti.
 
 > [!NOTE]
-> Nella maggior parte degli scenari è consigliabile [eseguire la migrazione dei progetti non in stile SDK](../reference/migrate-packages-config-to-package-reference.md) che usano `packages.config` per PackageReference e poter poi usare l'interfaccia della riga di comando di dotnet anziché l'interfaccia della riga di comando `nuget.exe`. La migrazione non è attualmente disponibile per i progetti C++ e ASP.NET.
+> Nella maggior parte degli scenari è consigliabile [eseguire la migrazione dei progetti non di tipo SDK](../reference/migrate-packages-config-to-package-reference.md) che usano `packages.config` a PackageReference, per poter poi usare l'interfaccia della riga di comando di `dotnet` anziché l'interfaccia della riga di comando di `nuget.exe`. La migrazione non è attualmente disponibile per i progetti C++ e ASP.NET.
 
-Questo articolo illustra l'utilizzo di base di alcuni dei comandi più comuni dell'interfaccia della riga di comando di nuget.exe. Per la maggior parte di questi comandi, lo strumento della riga di comando cerca un file di progetto nella directory corrente, a meno che non venga specificato un file di progetto nel comando. Per un elenco completo dei comandi e degli argomenti che è possibile usare, vedere [Informazioni di riferimento sull'interfaccia della riga di comando di nuget.exe](../tools/nuget-exe-cli-reference.md).
+Questo articolo illustra l'utilizzo di base di alcuni dei comandi più comuni dell'interfaccia della riga di comando di `nuget.exe`. Per la maggior parte di questi comandi, lo strumento della riga di comando cerca un file di progetto nella directory corrente, a meno che non venga specificato un file di progetto nel comando. Per un elenco completo dei comandi e degli argomenti che è possibile usare, vedere [Informazioni di riferimento sull'interfaccia della riga di comando di nuget.exe](../reference/nuget-exe-cli-reference.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -29,7 +29,7 @@ Questo articolo illustra l'utilizzo di base di alcuni dei comandi più comuni de
 
 ## <a name="install-a-package"></a>Installa un pacchetto
 
-Il comando [install](../tools/cli-ref-install.md) scarica e installa un pacchetto in un progetto (per impostazione predefinita nella cartella corrente) usando le origini pacchetto specificate. Installare i nuovi pacchetti nella cartella *packages* nella directory radice del progetto.
+Il comando [install](../reference/cli-reference/cli-ref-install.md) scarica e installa un pacchetto in un progetto (per impostazione predefinita nella cartella corrente) usando le origini pacchetto specificate. Installare i nuovi pacchetti nella cartella *packages* nella directory radice del progetto.
 
 > [!IMPORTANT]
 > Il comando `install` non modifica un file di progetto o *il file packages.config*. È pertanto simile a `restore` perché aggiunge soltanto pacchetti su disco, ma non modifica le dipendenze di un progetto. Per aggiungere una dipendenza, aggiungere un pacchetto tramite l'interfaccia utente di Gestione pacchetti o la console in Visual Studio oppure modificare il file *packages.config*, quindi eseguire `install` o `restore`.
@@ -56,7 +56,7 @@ nuget install packages.config -OutputDirectory packages
 
 ## <a name="install-a-specific-version-of-a-package"></a>Installare una versione specifica di un pacchetto
 
-Se la versione non viene specificata quando si usa il comando [install](../tools/cli-ref-install.md), NuGet installa la versione più recente del pacchetto. È anche possibile installare una versione specifica di un pacchetto Nuget:
+Se la versione non viene specificata quando si usa il comando [install](../reference/cli-reference/cli-ref-install.md), NuGet installa la versione più recente del pacchetto. È anche possibile installare una versione specifica di un pacchetto Nuget:
 
 ```cli
 nuget install <packageID | configFilePath> -Version <version>
@@ -78,7 +78,7 @@ Se si vuole reinstallare i pacchetti, usare il comando `restore` o `install`.
 
 ## <a name="list-packages"></a>Elencare i pacchetti
 
-È possibile visualizzare un elenco dei pacchetti da un'origine specificata usando il comando [list](../tools/cli-ref-list.md). Usare l'opzione `-Source` per limitare la ricerca.
+È possibile visualizzare un elenco dei pacchetti da un'origine specificata usando il comando [list](../reference/cli-reference/cli-ref-list.md). Usare l'opzione `-Source` per limitare la ricerca.
 
 ```cli
 nuget list -Source <source>
@@ -102,7 +102,7 @@ Se la versione del pacchetto non viene specificata, NuGet installa la versione d
 
 ## <a name="update-all-packages"></a>Aggiornare tutti i pacchetti
 
-Usare il comando [update](../tools/cli-ref-update.md) per aggiornare tutti i pacchetti. Esegue l'aggiornamento di tutti i pacchetti in un progetto (usando `packages.config`) alle versioni disponibili più recenti. È consigliabile eseguire il comando `restore` prima di eseguire il comando `update`.
+Usare il comando [update](../reference/cli-reference/cli-ref-update.md) per aggiornare tutti i pacchetti. Esegue l'aggiornamento di tutti i pacchetti in un progetto (usando `packages.config`) alle versioni disponibili più recenti. È consigliabile eseguire il comando `restore` prima di eseguire il comando `update`.
 
 ```cli
 nuget update
@@ -110,11 +110,11 @@ nuget update
 
 ## <a name="restore-packages"></a>Ripristinare pacchetti
 
-Usare il comando [restore](../tools/cli-ref-restore.md) che scarica e installa tutti i pacchetti mancanti dalla cartella *packages*.
+Usare il comando [restore](../reference/cli-reference/cli-ref-restore.md) che scarica e installa tutti i pacchetti mancanti dalla cartella *packages*.
 
 Il comando `restore` aggiunge soltanto pacchetti su disco, ma non modifica le dipendenze di un progetto. Per ripristinare le dipendenze del progetto, modificare `packages.config`, quindi usare il comando `restore`.
 
-Come per gli altri comandi dell'interfaccia della riga di comando `dotnet`, aprire prima di tutto una riga di comando e passare alla directory che contiene il file di progetto.
+Come per gli altri comandi dell'interfaccia della riga di comando `nuget.exe`, aprire prima di tutto una riga di comando e passare alla directory che contiene il file di progetto.
 
 Per ripristinare un pacchetto tramite `restore`:
 
