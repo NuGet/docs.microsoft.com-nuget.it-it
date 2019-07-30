@@ -1,16 +1,16 @@
 ---
-title: Creare e pubblicare un pacchetto .NET Standard con Visual Studio in Windows
+title: Creare e pubblicare un pacchetto NuGet .NET Standard con Visual Studio in Windows
 description: Esercitazione sulla creazione e pubblicazione di un pacchetto NuGet .NET Standard con Visual Studio in Windows.
 author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: quickstart
-ms.openlocfilehash: d9eccfa373a5a283542fd158e76ba74b1872f3d6
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 86e71460094de9b799384db83456a68db57647af
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842129"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419914"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Guida introduttiva: Creare e pubblicare un pacchetto NuGet con Visual Studio (.NET Standard, solo Windows)
 
@@ -21,9 +21,9 @@ La creazione di un pacchetto NuGet da una libreria di classi .NET Standard in Vi
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-1. Installare qualsiasi edizione di Visual Studio 2017 o versione successiva da [visualstudio.com](https://www.visualstudio.com/) con qualsiasi carico di lavoro correlato a .NET. Visual Studio 2017 e versioni successive includono automaticamente le funzionalità di NuGet quando viene installato un carico di lavoro .NET.
+1. Installare qualsiasi edizione di Visual Studio 2017 o versione successiva da [visualstudio.com](https://www.visualstudio.com/) con un carico di lavoro correlato a .NET Core.
 
-1. Installare l'interfaccia della riga di comando `dotnet`.
+1. Se non è già installata, installare l'interfaccia della riga di comando di `dotnet`.
 
    Per l'interfaccia della riga di comando `dotnet`, a partire da Visual Studio 2017, l'interfaccia della riga di comando `dotnet` viene installata automaticamente con qualsiasi carico di lavoro .NET Core correlato. In caso contrario, installare [.NET Core SDK](https://www.microsoft.com/net/download/) per ottenere l'interfaccia della riga di comando `dotnet`. L'interfaccia della riga di comando `dotnet` è necessaria per i progetti .NET Standard che usano il [formato di tipo SDK](../resources/check-project-format.md) (attributo SDK). Il modello di libreria di classi predefinito in Visual Studio 2017 e versioni successive, usato in questo articolo, usa l'attributo SDK.
    
@@ -150,7 +150,7 @@ Questo passaggio è un'alternativa all'uso di `dotnet.exe`.
     Your package was pushed.
     ```
 
-Vedere [nuget push](../tools/cli-ref-push.md).
+Vedere [nuget push](../reference/cli-reference/cli-ref-push.md).
 
 ### <a name="publish-errors"></a>Errori di pubblicazione
 
@@ -185,7 +185,7 @@ Verrà incluso un file denominato `readme.txt` nella radice del pacchetto. Visua
 - [Creare un pacchetto](../create-packages/creating-a-package.md)
 - [Pubblicare un pacchetto](../nuget-org/publish-a-package.md)
 - [Pacchetti in versione non definitiva](../create-packages/Prerelease-Packages.md)
-- [Supportare più framework di destinazione](../create-packages/supporting-multiple-target-frameworks.md)
+- [Supportare più framework di destinazione](../create-packages/multiple-target-frameworks-project-file.md)
 - [Controllo delle versioni dei pacchetti](../reference/package-versioning.md)
 - [Creazione di pacchetti localizzati](../create-packages/creating-localized-packages.md)
 - [Documentazione della libreria .NET Standard](/dotnet/articles/standard/library)
