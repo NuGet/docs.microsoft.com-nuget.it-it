@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1ff02871872cee9e8cbf8c7d7c74d804f7dc5b99
-ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
+ms.openlocfilehash: b7870bb6aac39f0865d88efc8c16751fdbecc3a8
+ms.sourcegitcommit: cae759ad8518c049575a30ad3bf04fe5d06244fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68346116"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68616771"
 ---
 # <a name="support-multiple-net-framework-versions-in-your-project-file"></a>Supportare più versioni di .NET Framework nel file di progetto
 
@@ -72,5 +72,5 @@ Questo è il file *.csproj* generato con i passaggi precedenti e .NET Core SDK 2
 
 ## <a name="see-also"></a>Vedere anche
 
-[Come specificare framework di destinazione](/dotnet/standard/frameworks#how-to-specify-target-frameworks)
-[Specifica di destinazioni multipiattaforma](/dotnet/standard/library-guidance/cross-platform-targeting)
+* [Come specificare framework di destinazione](/dotnet/standard/frameworks#how-to-specify-target-frameworks)
+* [Supporto multipiattaforma](/dotnet/standard/library-guidance/cross-platform-targeting)
