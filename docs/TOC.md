@@ -39,7 +39,6 @@
 ## [Creare un pacchetto di simboli](create-packages/symbol-packages-snupkg.md)
 ## Attività avanzate
 ### [Supportare più framework di destinazione](create-packages/supporting-multiple-target-frameworks.md)
-### [Specificare le destinazioni pack e restore MSBuild](reference/msbuild-targets.md)
 ### [Modificare il codice sorgente e i file di configurazione](create-packages/source-and-config-file-transformations.md)
 ### [Selezionare gli assembly cui i progetti fanno riferimento](create-packages/select-assemblies-referenced-by-projects.md)
 ### [Impostare il tipo di pacchetto](create-packages/set-package-type.md)
@@ -71,6 +70,7 @@
 ## [.nuspec](reference/nuspec.md)
 ## [File nuget.config](reference/nuget-config-file.md)
 ## [Framework di destinazione](reference/target-frameworks.md)
+## [Pack e restore come destinazioni MSBuild](reference/msbuild-targets.md)
 ## [Interfaccia della riga di comando di dotnet](reference/dotnet-Commands.md)
 ## [Informazioni di riferimento sull'interfaccia della riga di comando di nuget.exe](reference/nuget-exe-cli-reference.md)
 ### [add](reference/cli-reference/cli-ref-add.md)
