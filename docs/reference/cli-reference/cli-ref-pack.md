@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 0e12944bdd5d43b8b9e84908be480a5249dd924f
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: cab56cb87f46335f9fdebdbc1649fead16459877
+ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327658"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959728"
 ---
 # <a name="pack-command-nuget-cli"></a>Comando pack (interfaccia della riga di comando di NuGet)
 
 **Si applica a:** &bullet; **versioni supportate** per la creazione di pacchetti: 2.7+
 
-Crea un pacchetto NuGet basato sul file di `.nuspec` progetto o specificato. Il `dotnet pack` comando (vedere i [comandi DotNet](../dotnet-Commands.md)) `msbuild -t:pack` e (vedere [destinazioni MSBuild](../msbuild-targets.md)) può essere usato come alternativa.
+Crea un pacchetto NuGet basato sul file con [estensione NuSpec](../nuspec.md) o Project specificato. Il `dotnet pack` comando (vedere i [comandi DotNet](../dotnet-Commands.md)) `msbuild -t:pack` e (vedere [destinazioni MSBuild](../msbuild-targets.md)) può essere usato come alternativa.
 
 > [!Important]
 > In mono la creazione di un pacchetto da un file di progetto non è supportata. È anche necessario modificare i `.nuspec` percorsi non locali nel file nei percorsi di tipo UNIX, perché NuGet. exe non converte i nomi di percorso di Windows.
@@ -31,9 +31,9 @@ dove `<nuspecPath>` `.nuspec` e `<projectPath>` specificano rispettivamente il f
 
 ## <a name="options"></a>Opzioni
 
-| Opzione | Descrizione |
+| Opzione | DESCRIZIONE |
 | --- | --- |
-| BasePath | Imposta il percorso di base dei file definiti nel `.nuspec` file. |
+| BasePath | Imposta il percorso di base dei file definiti nel file con [estensione NuSpec](../nuspec.md) . |
 | Compilazione | Specifica che il progetto deve essere compilato prima della compilazione del pacchetto. |
 | Escludi | Specifica uno o più criteri jolly da escludere durante la creazione di un pacchetto. Per specificare più di un modello, ripetere il flag-exclude. Vedere l'esempio seguente. |
 | ExcludeEmptyDirectories | Impedisce l'inclusione di directory vuote durante la compilazione del pacchetto. |

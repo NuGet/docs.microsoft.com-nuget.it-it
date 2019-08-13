@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 82113d460f7f5ff467b0a0552cc49283de95de25
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 211f24ff67c06da00d6a014e679cc422d493d6d5
+ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327638"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959734"
 ---
 # <a name="restore-command-nuget-cli"></a>comando Restore (interfaccia della riga di comando di NuGet)
 
@@ -30,12 +30,12 @@ dove `<projectPath>` specifica il percorso di una soluzione o di `packages.confi
 
 ## <a name="options"></a>Opzioni
 
-| Opzione | Descrizione |
+| Opzione | DESCRIZIONE |
 | --- | --- |
 | ConfigFile | File di configurazione NuGet da applicare. Se non è specificato `%AppData%\NuGet\NuGet.Config` , viene usato ( `~/.nuget/NuGet/NuGet.Config` Windows) o (Mac/Linux).|
 | DirectDownload | *(4.0 +)* Scarica i pacchetti direttamente senza popolare le cache con i file binari o i metadati. |
 | DisableParallelProcessing | Disabilita il ripristino di più pacchetti in parallelo. |
-| FallbackSource | *(3.2 +)* Elenco di origini di pacchetti da usare come fallback nel caso in cui il pacchetto non venga trovato nell'origine primaria o predefinita. |
+| FallbackSource | *(3.2 +)* Elenco di origini di pacchetti da usare come fallback nel caso in cui il pacchetto non venga trovato nell'origine primaria o predefinita. Utilizzare un punto e virgola per separare le voci dell'elenco. |
 | ForceEnglishOutput | *(3.5 +)* Impone l'esecuzione di NuGet. exe con impostazioni cultura invarianti basate sull'inglese. |
 | Help | Visualizza le informazioni della Guida per il comando. |
 | MSBuildPath | *(4.0 +)* Specifica il percorso di MSBuild da usare con il comando, avendo la precedenza `-MSBuildVersion`su. |
@@ -46,10 +46,10 @@ dove `<projectPath>` specifica il percorso di una soluzione o di `packages.confi
 | PackageSaveMode | Specifica i tipi di file da salvare dopo l'installazione del pacchetto: `nuspec`uno `nupkg`tra, `nuspec;nupkg`o. |
 | PackagesDirectory | Uguale a `OutputDirectory`. Obbligatorio quando si esegue il `packages.config` ripristino con un `OutputDirectory` file `SolutionDirectory` a meno che non venga usato o. |
 | Project2ProjectTimeOut | Timeout in secondi per la risoluzione di riferimenti da progetto a progetto. |
-| ricorsiva | *(4.0 +)* Ripristina tutti i progetti di riferimento per i progetti UWP e .NET Core. Non si applica ai progetti che `packages.config`usano. |
+| Ricorsiva | *(4.0 +)* Ripristina tutti i progetti di riferimento per i progetti UWP e .NET Core. Non si applica ai progetti che `packages.config`usano. |
 | RequireConsent | Verifica che il ripristino dei pacchetti sia abilitato prima di scaricare e installare i pacchetti. Per informazioni dettagliate, vedere [ripristino di pacchetti](../../consume-packages/package-restore.md). |
 | SolutionDirectory | Specifica la cartella della soluzione. Non valido durante il ripristino dei pacchetti per una soluzione. Obbligatorio quando si esegue il `packages.config` ripristino con un `PackagesDirectory` file `OutputDirectory` a meno che non venga usato o. |
-| Source | Specifica l'elenco di origini di pacchetti (come URL) da usare per il ripristino. Se omesso, il comando usa le origini fornite nei file di configurazione, vedere [configurazione del comportamento di NuGet](../../consume-packages/configuring-nuget-behavior.md). |
+| Source | Specifica l'elenco di origini di pacchetti (come URL) da usare per il ripristino. Se omesso, il comando usa le origini fornite nei file di configurazione, vedere [configurazione del comportamento di NuGet](../../consume-packages/configuring-nuget-behavior.md). Utilizzare un punto e virgola per separare le voci dell'elenco. |
 | Verbosity | Specifica il livello di dettaglio visualizzato nell'output: *normale*, *silenzioso*, *dettagliato*. |
 
 Vedere anche [variabili di ambiente](cli-ref-environment-variables.md)

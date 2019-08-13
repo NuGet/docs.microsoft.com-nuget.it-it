@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 076d7a480e2f07149e4ec7ac58c7ab37040e7a8f
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 81866172bfbf55c42ee96c213c0117f1f986235c
+ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327668"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959717"
 ---
 # <a name="mirror-command-nuget-cli"></a>Comando mirror (interfaccia della riga di comando di NuGet)
 
@@ -19,7 +19,7 @@ ms.locfileid: "68327668"
 Rispecchia un pacchetto e le relative dipendenze dai repository di origine specificati al repository di destinazione.
 
 > [!NOTE]
-> Per abilitare questo comando per le versioni di NuGet prima del 3,2 [https://nuget.codeplex.com/releases](https://nuget.codeplex.com/releases), passare a, selezionare la versione stabile `NuGet.ServerExtensions.dll` più `Nuget-Signed.exe` recente, scaricare e nel disco `Nuget-Signed.exe` locale `nuget.exe` e rinominare in.
+> NuGet. ServerExtensions. dll e NuGet-Signed. exe che in precedenza supportano questo comando in NuGet 2. x (rinominando NuGet-Signed. exe in NuGet. exe) non sono più disponibili per il download. Per usare un comando simile a questo, provare [NuGetMirror](https://www.nuget.org/packages/NuGetMirror/).
 
 ## <a name="usage"></a>Utilizzo
 
@@ -35,7 +35,7 @@ Se il repository di destinazione è `https://machine/repo` in esecuzione [NuGet.
 
 ## <a name="options"></a>Opzioni
 
-| Opzione | DESCRIZIONE |
+| Opzione | Descrizione |
 | --- | --- |
 | ApiKey | Chiave API per il repository di destinazione. Se non è presente, viene usato quello specificato nel file di configurazione (`%AppData%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Mac/Linux)). |
 | ? | Visualizza le informazioni della Guida per il comando. |

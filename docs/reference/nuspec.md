@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 9c608c5455bc83874b670b7f2b9a0ceeeafdc8e5
-ms.sourcegitcommit: dec3fa44547c6a00d0ae6cbb6c64cdc65660d808
+ms.openlocfilehash: 67bc95135f746c4a4685773808756df399cbf01e
+ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912583"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959699"
 ---
 # <a name="nuspec-reference"></a>Informazioni di riferimento sul file .nuspec
 
@@ -184,9 +184,6 @@ Ad esempio:
 </package>
 ```
 
-#### <a name="minclientversion"></a>minClientVersion
-Specifica la versione minima del client NuGet, imposta da nuget.exe e da Gestione pacchetti di Visual Studio, che può installare questo pacchetto. Questo attributo viene usato ogni volta che il pacchetto dipende da funzionalità specifiche del file `.nuspec` aggiunte in una particolare versione del client NuGet. Ad esempio, un pacchetto che usa l'attributo `developmentDependency` deve specificare "2.8" per `minClientVersion`. Analogamente, un pacchetto che usa l'elemento `contentFiles` (vedere la sezione successiva) deve impostare `minClientVersion` su "3.3". Si noti che poiché i client NuGet prima della versione 2.5 non riconoscono questo flag, essi rifiutano *sempre* di installare il pacchetto indipendentemente dal contenuto di `minClientVersion`.
-
 #### <a name="title"></a>title
 Titolo descrittivo del pacchetto che può essere usato in alcune visualizzazioni dell'interfaccia utente. (nuget.org e gestione pacchetti in Visual Studio non mostrano titolo)
 
@@ -204,6 +201,29 @@ Raccolta di zero o più elementi `<dependency>` che specificano le dipendenze pe
 *(3.3 +)* Raccolta di elementi `<files>` che identificano i file di contenuto da includere nel progetto che utilizza il pacchetto. Questi file sono specificati con un set di attributi che descrivono come devono essere usati all'interno del sistema del progetto. Vedere [Inclusione di file di assembly](#specifying-files-to-include-in-the-package) più avanti.
 #### <a name="files"></a>files 
 Il `<package>` nodo può contenere un `<files>` nodo di `<metadata>`pari livello e un `<contentFiles>` elemento figlio in `<metadata>`per specificare l'assembly e i file di contenuto da includere nel pacchetto. Vedere [Inclusione di file di assembly](#including-assembly-files) e [Inclusione di file di contenuto](#including-content-files) più avanti in questo argomento per ulteriori dettagli.
+
+### <a name="metadata-attributes"></a>attributi di metadati
+
+#### <a name="minclientversion"></a>minClientVersion
+Specifica la versione minima del client NuGet, imposta da nuget.exe e da Gestione pacchetti di Visual Studio, che può installare questo pacchetto. Questo attributo viene usato ogni volta che il pacchetto dipende da funzionalità specifiche del file `.nuspec` aggiunte in una particolare versione del client NuGet. Ad esempio, un pacchetto che usa l'attributo `developmentDependency` deve specificare "2.8" per `minClientVersion`. Analogamente, un pacchetto che usa l'elemento `contentFiles` (vedere la sezione successiva) deve impostare `minClientVersion` su "3.3". Si noti che poiché i client NuGet prima della versione 2.5 non riconoscono questo flag, essi rifiutano *sempre* di installare il pacchetto indipendentemente dal contenuto di `minClientVersion`.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
+    <metadata minClientVersion="100.0.0.1">
+        <id>dasdas</id>
+        <version>2.0.0</version>
+        <title />
+        <authors>dsadas</authors>
+        <owners />
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>My package description.</description>
+    </metadata>
+    <files>
+        <file src="content\one.txt" target="content\one.txt" />
+    </files>
+</package>
+```
 
 ## <a name="replacement-tokens"></a>Token di sostituzione
 
@@ -228,7 +248,7 @@ In genere, quando si dispone di un progetto, si crea inizialmente il file `.nusp
 
 Ad eccezione di `$configuration$`, i valori nel progetto vengono usati preferenzialmente rispetto a qualsiasi altro valore assegnato allo stesso token nella riga di comando.
 
-| Token | Origine del valore | Value
+| Token | Origine del valore | Valore
 | --- | --- | ---
 | **$id$** | File di progetto | AssemblyName (title) dal file di progetto |
 | **$version$** | AssemblyInfo | AssemblyInformationalVersion se presente, in caso contrario AssemblyVersion |
@@ -258,10 +278,10 @@ E si compila un assembly il cui `AssemblyName` è `LoggingLibrary` con la config
 
 L'elemento `<dependencies>` all'interno di `<metadata>` contiene qualsiasi numero di elementi `<dependency>` che identificano altri pacchetti da cui dipende il pacchetto di livello superiore. Gli attributi per ogni `<dependency>` sono i seguenti:
 
-| Attributo | Descrizione |
+| Attributo | DESCRIZIONE |
 | --- | --- |
 | `id` | (Obbligatorio) ID pacchetto della dipendenza, ad esempio "EntityFramework" e "NUnit", ovvero il nome di pacchetto che nuget.org mostra nella pagina di un pacchetto. |
-| `version` | (Obbligatorio) Intervallo di versioni accettabili come dipendenza. Per la sintassi esatta, vedere [Controllo delle versioni dei pacchetti](../reference/package-versioning.md#version-ranges-and-wildcards). |
+| `version` | (Obbligatorio) Intervallo di versioni accettabili come dipendenza. Per la sintassi esatta, vedere [Controllo delle versioni dei pacchetti](../reference/package-versioning.md#version-ranges-and-wildcards). Le versioni con caratteri jolly (mobili) non sono supportate. |
 | include | Elenco delimitato da virgole di tag di inclusione/esclusione (vedere di seguito) che indicano la dipendenza da includere nel pacchetto finale. Il valore predefinito è `all`. |
 | exclude | Elenco delimitato da virgole di tag di inclusione/esclusione (vedere di seguito) che indicano la dipendenza da escludere nel pacchetto finale. Il valore predefinito è `build,analyzers` , che può essere sovrascritto. Ma `content/ ContentFiles` sono esclusi anche in modo implicito nel pacchetto finale che non può essere sovrascritto. I tag specificati con `exclude` hanno la precedenza rispetto a quelli specificati con `include`. Ad esempio, `include="runtime, compile" exclude="compile"` equivale a `include="runtime"`. |
 
@@ -318,8 +338,8 @@ L'esempio seguente mostra variazioni diverse dell'elemento `<group>`:
     </group>
 
     <group targetFramework="net40">
-        <dependency id="jQuery" />
-        <dependency id="WebActivator" />
+        <dependency id="jQuery" version="1.6.2" />
+        <dependency id="WebActivator" version="1.4.4" />
     </group>
 
     <group targetFramework="sl30">
@@ -626,7 +646,7 @@ Questi file sono specificati con un set di attributi che descrivono come devono 
 
 | Attributo | Descrizione |
 | --- | --- |
-| **include** | (Obbligatorio) Percorso del file o dei file da includere, soggetto alle esclusioni specificate dall'attributo `exclude`. Il percorso è relativo al file `.nuspec`, a meno che non venga specificato un percorso assoluto. Il carattere jolly `*` è consentito e il carattere jolly doppio `**` implica una ricerca ricorsiva nelle cartelle. |
+| **include** | (Obbligatorio) Percorso del file o dei file da includere, soggetto alle esclusioni specificate dall'attributo `exclude`. Il percorso è relativo alla `contentFiles` cartella, a meno che non sia specificato un percorso assoluto. Il carattere jolly `*` è consentito e il carattere jolly doppio `**` implica una ricerca ricorsiva nelle cartelle. |
 | **exclude** | Elenco delimitato da punti e virgola dei file o dei modelli di file da escludere dal percorso `src`. Il carattere jolly `*` è consentito e il carattere jolly doppio `**` implica una ricerca ricorsiva nelle cartelle. |
 | **buildAction** | Azione di compilazione da assegnare all'elemento di contenuto per MSBuild, ad esempio `Content`, `None`, `Embedded Resource`, `Compile` e così via. Il valore predefinito è `Compile`. |
 | **copyToOutput** | Valore booleano che indica se copiare gli elementi di contenuto nella cartella di output di compilazione o pubblicazione. Il valore predefinito è false. |
