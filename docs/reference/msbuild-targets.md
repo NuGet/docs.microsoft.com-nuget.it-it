@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8403ae38b5d2e907c6f06b162a18cdcd5425565b
-ms.sourcegitcommit: 5aa49478dc466c67db5c3edda7c6ce8dcd8ae033
+ms.openlocfilehash: d8d1b2ef0185381d16c1bb73035588fe90bcfd14
+ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817530"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959689"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Pack e restore di NuGet come destinazioni MSBuild
 
@@ -34,6 +34,9 @@ Dato che `pack` e `restore` sono destinazioni MSBuild, è possibile accedervi pe
 ```
 
 Analogamente, è possibile scrivere un'attività MSBuild, scrivere la propria destinazione e utilizzare proprietà NuGet nell'attività MSBuild.
+
+> [!NOTE]
+> `$(OutputPath)`è relativo e prevede che si esegua il comando dalla radice del progetto.
 
 ## <a name="pack-target"></a>Destinazione pack
 
@@ -76,7 +79,7 @@ Si noti che le proprietà `Owners` e `Summary` da `.nuspec` non sono supportate 
 - PackageVersion
 - PackageId
 - Autori
-- Descrizione
+- DESCRIZIONE
 - Copyright
 - PackageRequireLicenseAcceptance
 - DevelopmentDependency
@@ -372,7 +375,7 @@ File di progetto:
 
 Il ripristino crea i file seguenti nella cartella `obj` di compilazione:
 
-| File | DESCRIZIONE |
+| File | Descrizione |
 |--------|--------|
 | `project.assets.json` | Contiene il grafico delle dipendenze di tutti i riferimenti ai pacchetti. |
 | `{projectName}.projectFileExtension.nuget.g.props` | Riferimenti alle proprietà di MSBuild contenute nei pacchetti |
