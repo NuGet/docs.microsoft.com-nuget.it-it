@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3af29e2f9b09ba5bd82779f9aacf314bd8933436
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: cbe6fd964e88b054b9e2c5c8ead71d1f9090d63c
+ms.sourcegitcommit: 5aa49478dc466c67db5c3edda7c6ce8dcd8ae033
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317022"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68817583"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Ricerca e valutazione di pacchetti NuGet per un progetto
 
@@ -82,6 +82,10 @@ Allo stesso tempo, usare un pacchetto NuGet implica la creazione di una dipenden
 
     ![Statistiche di download nella pagina di presentazione del pacchetto](media/Finding-03-Downloads.png)
 
+- *Utilizzo di GitHub*: la sezione **GitHub Usage** (Utilizzo di GitHub) nella pagina del pacchetto elenca i principali repository GitHub che dipendono da questo pacchetto. Un pacchetto da cui dipendono molti repository GitHub comuni è in genere una scelta migliore.
+
+    ![Utilizzo di GitHub](media/GitHub-Usage.png)
+
 - *Cronologia delle versioni*: nella pagina del pacchetto cercare in **Info** la data dell'ultimo aggiornamento ed esaminare la voce **Version History** (Cronologia versioni). Un pacchetto ben gestito ha aggiornamenti recenti e una cronologia versioni dettagliata. I pacchetti trascurati hanno pochi aggiornamenti e spesso non sono stati aggiornati da tempo.
 
     ![Cronologia delle versioni nella pagina di presentazione del pacchetto](media/Finding-04-VersionHistory.png)
@@ -115,6 +119,7 @@ Ecco come è possibile leggere le informazioni contenute nel file di licenza all
 1. Deve avere un tag simile a `<license type="file">license\license.txt</license>`. Ciò implica che il file di licenza è denominato `license.txt` e si trova all'interno di una cartella denominata `license` che sarà anche alla radice della cartella.
 1. Passare alla cartella `license` e aprire il file `license.txt`.
 
+Per l'equivalente in MSBuild dell'impostazione della licenza in `.nuspec`, vedere [Compressione di un'espressione di licenza o di un file di licenza](/nuget/reference/msbuild-targets#packing-a-license-expression-or-a-license-file).
 
 ## <a name="search-syntax"></a>Sintassi di ricerca
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: 30a77b427fe0a33b41262c5784045e5a6b10852f
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
+ms.openlocfilehash: f663b1b2176a5f0ae5bc6d82873193638e0efdaa
+ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68419994"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68833391"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Guida introduttiva: Creare e pubblicare un pacchetto (interfaccia della riga di comando dotnet)
 
@@ -26,9 +26,15 @@ La creazione di un pacchetto NuGet da una libreria di classi .NET e la pubblicaz
 
 È possibile usare un progetto libreria di classi .NET esistente per il codice che si vuole includere in un pacchetto oppure creare un progetto semplice come segue:
 
-1. Creare una cartella denominata `AppLogger` e passare a tale cartella.
+1. Creare una cartella denominata `AppLogger`.
 
-1. Creare il progetto con `dotnet new classlib`, che usa il nome della cartella corrente per il progetto.
+1. Aprire un prompt dei comandi e passare alla cartella `AppLogger`.
+
+1. Digitare `dotnet new classlib`, che usa il nome della cartella corrente per il progetto.
+
+   Verrà creato il nuovo progetto.
+
+1. Usare `dotnet run` per verificare che l'app sia stata creata correttamente.
 
 ## <a name="add-package-metadata-to-the-project-file"></a>Aggiungere i metadati del pacchetto al file di progetto
 

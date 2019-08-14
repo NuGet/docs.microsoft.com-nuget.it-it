@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 894a39e9e67508234295db128928b09da7f468f0
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
+ms.openlocfilehash: f33624cf50248d8a137216ed0d725ed88c0defd2
+ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68419825"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68833369"
 ---
 # <a name="create-a-package-using-the-nugetexe-cli"></a>Creare un pacchetto usando l'interfaccia della riga di comando di nuget.exe
 
@@ -138,7 +138,7 @@ Di seguito è riportato un file `.nuspec` tipico (ma fittizio), con commenti che
 </package>
 ```
 
-Per informazioni dettagliate sulla dichiarazione delle dipendenze e sulla specifica dei numeri di versione, vedere [Controllo delle versioni dei pacchetti](../reference/package-versioning.md). È anche possibile esporre gli asset dalle dipendenze direttamente nel pacchetto usando gli attributi `include` ed `exclude` nell'elemento `dependency`. Vedere la [sezione Dipendenze delle informazioni di riferimento sul file .nuspec](../reference/nuspec.md#dependencies).
+Per informazioni dettagliate sulla dichiarazione delle dipendenze e sulla specifica dei numeri di versione, vedere [packages.config](../reference/packages-config.md) e [Controllo delle versioni dei pacchetti](../reference/package-versioning.md). È anche possibile esporre gli asset dalle dipendenze direttamente nel pacchetto usando gli attributi `include` ed `exclude` nell'elemento `dependency`. Vedere la [sezione Dipendenze delle informazioni di riferimento sul file .nuspec](../reference/nuspec.md#dependencies).
 
 Poiché il manifesto è incluso nel pacchetto creato, per trovare altri esempi, esaminare i pacchetti esistenti. Una valida fonte è la cartella *global-packages* nel computer, la posizione della quale viene restituita dal comando seguente:
 
