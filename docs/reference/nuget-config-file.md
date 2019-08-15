@@ -3,36 +3,20 @@ title: informazioni di riferimento sul file NuGet. config
 description: Informazioni di riferimento sul file NuGet.Config, incluse le sezioni config, bindingRedirects, packageRestore, solution e packageSource.
 author: karann-msft
 ms.author: karann
-ms.date: 10/25/2017
+ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: b03bb8da0191a679671e5898ac70fff2024d52f2
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: a2955617b899bfadab42d1ae98dd20c8fc6ddca9
+ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317215"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69020044"
 ---
 # <a name="nugetconfig-reference"></a>informazioni di riferimento su NuGet. config
 
 Il comportamento di NuGet è controllato da impostazioni `NuGet.Config` in file diversi, come descritto in [configurazioni comuni di NuGet](../consume-packages/configuring-nuget-behavior.md).
 
 `nuget.config` è un file XML contenente un nodo `<configuration>` di livello superiore, che contiene a sua volta gli elementi per le sezioni descritte in questo argomento. Ogni sezione contiene zero o più elementi. Vedere il [file di configurazione di esempio](#example-config-file). Per i nomi delle impostazioni non viene fatta distinzione tra maiuscole e minuscole e per i valori si possono usare [variabili di ambiente](#using-environment-variables).
-
-In questo argomento
-
-- [Sezione config](#config-section)
-- [Sezione bindingRedirects](#bindingredirects-section)
-- [Sezione packageRestore](#packagerestore-section)
-- [Sezione solution](#solution-section)
-- [Sezioni per le origini dei pacchetti](#package-source-sections):
-  - [packageSources](#packagesources)
-  - [packageSourceCredentials](#packagesourcecredentials)
-  - [apikeys](#apikeys)
-  - [disabledPackageSources](#disabledpackagesources)
-  - [activePackageSource](#activepackagesource)
-- [sezione trustedSigners](#trustedsigners-section)
-- [Uso delle variabili di ambiente](#using-environment-variables)
-- [File di configurazione di esempio](#example-config-file)
 
 <a name="dependencyVersion"></a>
 <a name="globalPackagesFolder"></a>
@@ -70,7 +54,7 @@ Contiene varie impostazioni di configurazione, che possono essere impostate con 
 
 Specifica se NuGet esegue o meno i reindirizzamenti di binding automatici quando viene installato un pacchetto.
 
-| Chiave | Valore |
+| Chiave | Value |
 | --- | --- |
 | skip | Valore booleano che indica se ignorare i reindirizzamenti di binding automatici. Il valore predefinito è false. |
 
@@ -204,7 +188,7 @@ Archivia le chiavi per le origini che usano l'autenticazione con chiave API, in 
 
 Identifica le origini attualmente disabilitate. Può essere vuoto.
 
-| Chiave | Value |
+| Chiave | Valore |
 | --- | --- |
 | (nome dell'origine) | Valore booleano che indica se l'origine è disabilitata. |
 
@@ -240,6 +224,7 @@ Identifica l'origine attualmente attiva o indica l'aggregazione di tutte le orig
     <add key="All" value="(Aggregate source)" />
 </activePackageSource>
 ```
+
 ## <a name="trustedsigners-section"></a>sezione trustedSigners
 
 Archivia i firmatari attendibili utilizzati per consentire il pacchetto durante l'installazione o il ripristino. Questo elenco non può essere vuoto quando l'utente `signatureValidationMode` imposta `require`su. 
@@ -268,6 +253,50 @@ Se un `certificate` oggetto `allowUntrustedRoot` specifica `true` come il certif
         <owners>microsoft;aspnet;nuget</owners>
     </repository>
 </trustedSigners>
+```
+
+## <a name="fallbackpackagefolders-section"></a>sezione fallbackPackageFolders
+
+*(3.5 +)* Consente di preinstallare i pacchetti in modo che non sia necessario eseguire alcuna operazione se il pacchetto viene trovato nelle cartelle di fallback. Le cartelle dei pacchetti di fallback hanno esattamente la stessa struttura di cartelle e file della cartella del pacchetto globale: *. nupkg* è presente e tutti i file vengono estratti.
+
+La logica di ricerca per questa configurazione è la seguente:
+
+- Cercare nella cartella del pacchetto globale per verificare se il pacchetto o la versione è già stata scaricata.
+
+- Esaminare le cartelle di fallback per una corrispondenza del pacchetto o della versione.
+
+Se una delle due ricerche ha esito positivo, non è necessario eseguire il download.
+
+Se non viene trovata alcuna corrispondenza, NuGet controlla le origini file e quindi le origini http, quindi Scarica i pacchetti.
+
+| Chiave | Value |
+| --- | --- |
+| (nome della cartella di fallback) | Percorso della cartella di fallback. |
+
+**Esempio**:
+
+```xml
+<fallbackPackageFolders>
+   <add key="XYZ Offline Packages" value="C:\somePath\someFolder\"/>
+</fallbackPackageFolders>
+```
+
+## <a name="packagemanagement-section"></a>sezione packageManagement
+
+Imposta il formato di gestione dei pacchetti predefinito, ovvero *packages. config* o PackageReference. I progetti in stile SDK utilizzano sempre PackageReference.
+
+| Chiave | Value |
+| --- | --- |
+| format | Valore booleano che indica il formato di gestione dei pacchetti predefinito. Se `1`, il formato è PackageReference. Se `0`, format è *packages. config*. |
+| disabilitati | Valore booleano che indica se visualizzare la richiesta di selezione di un formato di pacchetto predefinito durante la prima installazione del pacchetto. `False`nasconde la richiesta. |
+
+**Esempio**:
+
+```xml
+<packageManagement>
+   <add key="format" value="1" />
+   <add key="disabled" value="False" />
+</packageManagement>
 ```
 
 ## <a name="using-environment-variables"></a>Uso delle variabili di ambiente
