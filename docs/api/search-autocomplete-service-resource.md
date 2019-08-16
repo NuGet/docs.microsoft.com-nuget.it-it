@@ -1,80 +1,80 @@
 ---
 title: Completamento automatico, API NuGet
-description: Il servizio di ricerca autocomplete supporta le versioni e individuazione interattiva di ID di pacchetto.
+description: Il servizio di completamento automatico di ricerca supporta l'individuazione interattiva di ID e versioni del pacchetto.
 author: joelverhagen
 ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: fdc3ad8aa239a42d8a4c169a757715e856bdcb41
-ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
+ms.openlocfilehash: 1179ad649da560766f28c18ab6fa670fd8fa6d8b
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58911049"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488300"
 ---
 # <a name="autocomplete"></a>Completamento automatico
 
-È possibile creare un pacchetto ID e la versione autocomplete esperienza tramite l'API di V3. La risorsa utilizzata per l'esecuzione di query di completamento automatico è il `SearchAutocompleteService` trovare la risorsa nella [indice del servizio](service-index.md).
+È possibile creare un ID pacchetto e un'esperienza di completamento automatico della versione usando l'API V3. La risorsa utilizzata per eseguire query di completamento automatico è `SearchAutocompleteService` la risorsa presente nell' [indice del servizio](service-index.md).
 
 ## <a name="versioning"></a>Controllo delle versioni
 
-Nell'esempio `@type` vengono utilizzati i valori:
+Vengono usati `@type` i valori seguenti:
 
-Valore di@type                           | Note
+Valore di @type                          | Note
 ------------------------------------ | -----
-SearchAutocompleteService            | La versione iniziale
-SearchAutocompleteService/3.0.0-beta | Alias di `SearchAutocompleteService`
-SearchAutocompleteService/3.0.0-rc   | Alias di `SearchAutocompleteService`
+SearchAutocompleteService            | Versione iniziale
+SearchAutocompleteService/3.0.0-beta | Alias di`SearchAutocompleteService`
+SearchAutocompleteService/3.0.0-rc   | Alias di`SearchAutocompleteService`
 
 ## <a name="base-url"></a>URL di base
 
-L'URL di base per le API seguente è il valore della `@id` proprietà associati a uno della risorsa menzionati in precedenza `@type` valori. Nel documento seguente, il segnaposto URL di base `{@id}` verrà utilizzato.
+L'URL di base per le API seguenti è il valore della `@id` proprietà associata a uno dei valori di risorsa `@type` menzionati sopra. Nel documento seguente verrà usato l'URL `{@id}` di base segnaposto.
 
 ## <a name="http-methods"></a>Metodi HTTP
 
-Tutti gli URL disponibili il supporto di risorse di registrazione i metodi HTTP `GET` e `HEAD`.
+Tutti gli URL trovati nella risorsa di registrazione supportano i metodi `GET` http `HEAD`e.
 
-## <a name="search-for-package-ids"></a>Ricerca per ID pacchetto
+## <a name="search-for-package-ids"></a>Ricerca di ID pacchetto
 
-L'API di completamento automatico prima supporta la ricerca di parte di una stringa di ID di pacchetto. Ciò è ideale quando si desidera fornire una funzionalità di completamento automatico del pacchetto in un'interfaccia utente integrata con un'origine del pacchetto NuGet.
+La prima API di completamento automatico supporta la ricerca di una parte di una stringa ID pacchetto. Questo è molto utile quando si vuole fornire una funzionalità di typeahead del pacchetto in un'interfaccia utente integrata con un'origine del pacchetto NuGet.
 
-Un pacchetto con solo le versioni non in elenco non verrà visualizzato nei risultati.
+Un pacchetto solo con versioni non in elenco non verrà visualizzato nei risultati.
 
     GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
 
 ### <a name="request-parameters"></a>Parametri della richiesta
 
-Nome        | In     | Tipo    | Obbligatorio | Note
+Name        | In     | Type    | Obbligatoria | Note
 ----------- | ------ | ------- | -------- | -----
-q           | URL    | stringa  | No       | La stringa da confrontare con gli ID pacchetto
-skip        | URL    | numero intero | No       | Il numero di risultati da ignorare, per la paginazione
-Take        | URL    | numero intero | No       | Il numero di risultati da restituire, per la paginazione
-versione preliminare  | URL    | boolean | No       | `true` oppure `false` che determina se includere [i pacchetti di versioni non definitive](../create-packages/prerelease-packages.md)
-semVerLevel | URL    | stringa  | No       | Una stringa di versione SemVer 1.0.0 
+q           | URL    | string  | no       | Stringa da confrontare con gli ID del pacchetto
+skip        | URL    | integer | no       | Numero di risultati da ignorare per la paginazione
+prendere        | URL    | integer | no       | Numero di risultati da restituire per la paginazione
+prerelease  | URL    | boolean | no       | `true`o `false` determinare se includere i [pacchetti in versione non definitiva](../create-packages/prerelease-packages.md)
+semVerLevel | URL    | string  | no       | Una stringa di versione SemVer 1.0.0 
 
-La query di completamento automatico `q` viene analizzato in modo che è definito dall'implementazione del server. NuGet.org supporta l'esecuzione di query per il prefisso del token ID pacchetto, che sono pezzi dell'ID di prodotti dalla suddivisione originale da caratteri le iniziali maiuscole e simboli.
+La query `q` di completamento automatico viene analizzata in modo definito dall'implementazione del server. nuget.org supporta l'esecuzione di query per il prefisso dei token ID del pacchetto, che sono parti dell'ID prodotto suddividendo il case originale per Camel e i caratteri simbolo.
 
-Il `skip` valori predefiniti dei parametri su 0.
+Il `skip` valore predefinito del parametro è 0.
 
 Il `take` parametro deve essere un numero intero maggiore di zero. L'implementazione del server può imporre un valore massimo.
 
-Se `prerelease` non viene specificato, vengono esclusi i pacchetti in versione non definitiva.
+Se `prerelease` non viene specificato, i pacchetti di versioni non definitive vengono esclusi.
 
-Il `semVerLevel` parametro di query viene utilizzato per acconsentire [pacchetti di SemVer 2.0.0](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29#identifying-semver-v200-packages).
-Se questo parametro di query è stata esclusa, verranno restituiti solo gli ID di pacchetto con le versioni compatibili di SemVer 1.0.0 (con il [controllo delle versioni NuGet standard](../reference/package-versioning.md) avvertenze, ad esempio le stringhe di versione con 4 elementi integer).
-Se `semVerLevel=2.0.0` viene fornito, verranno restituiti SemVer 1.0.0 sia pacchetti compatibili di SemVer 2.0.0. Vedere le [supporto di SemVer 2.0.0 per nuget.org](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29) per altre informazioni.
+Il `semVerLevel` parametro di query viene usato per acconsentire esplicitamente ai [pacchetti SemVer 2.0.0](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29#identifying-semver-v200-packages).
+Se questo parametro di query è escluso, verranno restituiti solo gli ID pacchetto con versioni compatibili con SemVer 1.0.0 (con le avvertenze di [controllo delle versioni standard di NuGet](../concepts/package-versioning.md) , ad esempio le stringhe di versione con 4 parti Integer).
+Se `semVerLevel=2.0.0` viene specificato, verranno restituiti sia i pacchetti compatibili con SemVer 1.0.0 che SemVer 2.0.0. Per ulteriori informazioni, vedere il [supporto di SemVer 2.0.0 per NuGet.org](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29) .
 
 ### <a name="response"></a>Risposta
 
-La risposta è il documento JSON che contiene fino a `take` i risultati di completamento automatico.
+La risposta è un documento JSON che contiene `take` i risultati di completamento automatico.
 
-L'oggetto JSON radice ha le proprietà seguenti:
+L'oggetto JSON radice presenta le proprietà seguenti:
 
-Nome      | Tipo             | Obbligatorio | Note
+NOME      | Type             | Obbligatoria | Note
 --------- | ---------------- | -------- | -----
-totalHits | numero intero          | sì      | Il numero complessivo di corrispondenze, ignorando `skip` e `take`
-Data      | Matrice di stringhe | sì      | Il pacchetto ID trovare una corrispondenza con la richiesta
+totalHits | integer          | sì      | Il numero totale di corrispondenze, che `skip` non riguardano e`take`
+data      | matrice di stringhe | sì      | ID del pacchetto corrispondenti alla richiesta
 
 ### <a name="sample-request"></a>Richiesta di esempio
 
@@ -84,37 +84,37 @@ Data      | Matrice di stringhe | sì      | Il pacchetto ID trovare una corrisp
 
 [!code-JSON [autocomplete-id-result.json](./_data/autocomplete-id-result.json)]
 
-## <a name="enumerate-package-versions"></a>Enumera le versioni dei pacchetti
+## <a name="enumerate-package-versions"></a>Enumera versioni pacchetto
 
-Dopo che viene rilevato un ID di pacchetto tramite l'API precedente, un client può usare l'API di completamento automatico per enumerare le versioni dei pacchetti per un ID pacchetto specificato.
+Una volta individuato l'ID di un pacchetto usando l'API precedente, un client può usare l'API di completamento automatico per enumerare le versioni del pacchetto per un ID pacchetto specificato.
 
-Una versione del pacchetto che è incluso nell'elenco non verrà visualizzato nei risultati.
+Una versione del pacchetto non in elenco non verrà visualizzata nei risultati.
 
     GET {@id}?id={ID}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
 
 ### <a name="request-parameters"></a>Parametri della richiesta
 
-Nome        | In     | Tipo    | Obbligatorio | Note
+Name        | In     | Type    | Obbligatoria | Note
 ----------- | ------ | ------- | -------- | -----
-ID          | URL    | stringa  | sì      | Per recuperare le versioni per l'ID del pacchetto
-versione preliminare  | URL    | boolean | No       | `true` oppure `false` che determina se includere [i pacchetti di versioni non definitive](../create-packages/prerelease-packages.md)
-semVerLevel | URL    | stringa  | No       | Una stringa di versione di SemVer 2.0.0 
+id          | URL    | string  | sì      | ID del pacchetto per cui recuperare le versioni
+prerelease  | URL    | boolean | no       | `true`o `false` determinare se includere i [pacchetti in versione non definitiva](../create-packages/prerelease-packages.md)
+semVerLevel | URL    | string  | no       | Una stringa di versione SemVer 2.0.0 
 
-Se `prerelease` non viene specificato, vengono esclusi i pacchetti in versione non definitiva.
+Se `prerelease` non viene specificato, i pacchetti di versioni non definitive vengono esclusi.
 
-Il `semVerLevel` parametro di query viene utilizzato per acconsentire esplicitamente a pacchetti di SemVer 2.0.0. Se questo parametro di query è stata esclusa, verranno restituite solo le versioni di SemVer 1.0.0. Se `semVerLevel=2.0.0` è specificato, verranno restituite sia SemVer 1.0.0 e le versioni di SemVer 2.0.0. Vedere le [supporto di SemVer 2.0.0 per nuget.org](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29) per altre informazioni.
+Il `semVerLevel` parametro di query viene usato per acconsentire esplicitamente ai pacchetti SemVer 2.0.0. Se questo parametro di query è escluso, verranno restituite solo le versioni SemVer 1.0.0. Se `semVerLevel=2.0.0` viene specificato, verranno restituite sia le versioni SemVer 1.0.0 che SemVer 2.0.0. Per ulteriori informazioni, vedere il [supporto di SemVer 2.0.0 per NuGet.org](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29) .
 
 ### <a name="response"></a>Risposta
 
-La risposta è il documento JSON contenente tutte le versioni del pacchetto dell'ID pacchetto fornito, il filtro per i parametri di query specificata.
+La risposta è un documento JSON contenente tutte le versioni dei pacchetti dell'ID pacchetto specificato, filtrando in base ai parametri di query specificati.
 
-L'oggetto JSON radice ha la proprietà seguente:
+L'oggetto JSON radice presenta la proprietà seguente:
 
-Nome      | Tipo             | Obbligatorio | Note
+Name      | Type             | Obbligatoria | Note
 --------- | ---------------- | -------- | -----
-Data      | Matrice di stringhe | sì      | Le versioni del pacchetto corrispondente alla richiesta
+data      | matrice di stringhe | sì      | Versioni del pacchetto corrispondenti alla richiesta
 
-Le versioni dei pacchetti nel `data` matrice può contenere i metadati di SemVer 2.0.0 compilazione (ad esempio `1.0.0+metadata`) se il `semVerLevel=2.0.0` viene fornito nella stringa di query.
+Le versioni del pacchetto nella `data` matrice possono contenere i metadati di compilazione SemVer 2.0.0 ( `1.0.0+metadata`ad esempio) `semVerLevel=2.0.0` se è specificato nella stringa di query.
 
 ### <a name="sample-request"></a>Richiesta di esempio
 

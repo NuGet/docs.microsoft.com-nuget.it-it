@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: de76cf610e580a36014be9274b9c2c762b1015ac
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 5f1d3ed6a1b20fb07437f1718faafaac0a193773
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317169"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488702"
 ---
 # <a name="nuget-14-release-notes"></a>Note sulla versione di NuGet 1,4
 
@@ -60,7 +60,7 @@ Per ulteriori informazioni, vedere l'argomento relativo alla [gestione dei pacch
 Per impostazione predefinita, quando si `Update-Package` esegue il comando in un pacchetto (o si aggiorna il pacchetto utilizzando la finestra di dialogo), questo verrà aggiornato alla versione più recente nel feed. Con il nuovo supporto per l'aggiornamento di tutti i pacchetti, in alcuni casi è possibile che si desideri bloccare un pacchetto in un intervallo di versioni specifico. Ad esempio, è possibile che si sappia che l'applicazione funzionerà solo con la versione 2. * di un pacchetto, ma non con 3,0 e versioni successive. Per evitare l'aggiornamento accidentale del pacchetto a 3, NuGet 1,4 aggiunge il supporto per limitare l'intervallo di versioni in cui i pacchetti possono essere aggiornati manualmente modificando il `packages.config` file usando il nuovo `allowedVersions` attributo.
 
 Ad esempio, nell'esempio seguente viene illustrato come bloccare il `SomePackage` pacchetto con intervallo di versione 2,0-3,0 (esclusivo).
-L' `allowedVersions` attributo accetta valori usando il [formato dell'intervallo di versioni](../reference/package-versioning.md#version-ranges-and-wildcards).
+L' `allowedVersions` attributo accetta valori usando il [formato dell'intervallo di versioni](../concepts/package-versioning.md#version-ranges-and-wildcards).
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -72,7 +72,7 @@ L' `allowedVersions` attributo accetta valori usando il [formato dell'intervallo
 Si noti che in 1,4, il blocco di un pacchetto in un intervallo di versioni specifico deve essere modificato manualmente. In NuGet 1,5 si prevede di aggiungere il supporto per l'inserimento di questo `Install-Package` intervallo tramite il comando.
 
 ### <a name="package-visualizer"></a>Visualizzatore pacchetti
-Il nuovo Visualizzatore di pacchetti, avviato tramite l'opzione**di menu** **strumenti** -> **libreria pacchetti di gestione** -> pacchetti, consente di visualizzare facilmente tutti i progetti e le dipendenze dei pacchetti all'interno di un soluzione.
+Il nuovo Visualizzatore di pacchetti, avviato tramite l'opzione di menu **strumenti** -> **libreria pacchetti di gestione** -> pacchetti, consente di visualizzare facilmente tutti i progetti e le dipendenze dei pacchetti all'interno di un soluzione.
 
 _**Nota importante:** Questa funzionalità sfrutta i vantaggi del supporto di DGML in Visual Studio. La creazione della visualizzazione è supportata solo in Visual Studio Ultimate. La visualizzazione di un diagramma DGML è supportata solo in Visual Studio Premium o versione successiva._
 
