@@ -5,16 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: conceptual
-ms.openlocfilehash: 32b01e6066cf60f7a0942508e640fdd5658b4444
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: bc077220e05b14180baac9611fda9234675ad640
+ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68316969"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68860532"
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Come reinstallare e aggiornare pacchetti
 
 Esistono diverse situazioni, descritte di seguito in [Quando reinstallare un pacchetto](#when-to-reinstall-a-package), in cui i riferimenti a un pacchetto potrebbero essere interrotti all'interno di un progetto di Visual Studio. In questi casi la disinstallazione e la successiva reinstallazione della stessa versione del pacchetto ripristineranno tali riferimenti mettendoli in condizione di funzionare. Aggiornare un pacchetto significa semplicemente installarne una versione aggiornata, un'operazione che spesso consente di ripristinare un pacchetto rendendolo funzionante.
+
+In Visual Studio la console di gestione pacchetti offre molte opzioni flessibili per l'aggiornamento e la reinstallazione dei pacchetti.
 
 Le operazioni di aggiornamento e reinstallazione dei pacchetti vengono eseguite come indicato di seguito:
 
@@ -25,7 +27,7 @@ Le operazioni di aggiornamento e reinstallazione dei pacchetti vengono eseguite 
 | Interfaccia della riga di comando di nuget.exe | Comando `nuget update` | Per tutti i pacchetti, eliminare la cartella del pacchetto e quindi eseguire `nuget install`. Per un singolo pacchetto, eliminare la cartella del pacchetto e usare `nuget install <id>` per reinstallarla. |
 
 > [!NOTE]
-> Per l'interfaccia della riga di comando di dotnet, non è richiesta la procedura equivalente. In uno scenario simile è possibile [ripristinare i pacchetti con l'interfaccia della riga di comando di dotnet](../consume-packages/install-use-packages-dotnet-cli.md#restore-packages).
+> Per l'interfaccia della riga di comando di dotnet, non è richiesta la procedura equivalente. In uno scenario simile è possibile [ripristinare i pacchetti con l'interfaccia della riga di comando di dotnet](package-restore.md#restore-using-the-dotnet-cli).
 
 Contenuto dell'articolo:
 
@@ -61,7 +63,7 @@ In tutti i casi, usare la notazione descritta in [Controllo delle versioni dei p
 
 ## <a name="using-update-package"></a>Uso di Update-Package
 
-Tenendo presenti le [Considerazioni](#considerations) riportate di seguito, è possibile reinstallare facilmente un pacchetto usando il [comando Update-Package](../reference/ps-reference/ps-ref-update-package.md) nella console di Gestione pacchetti di Visual Studio (**Strumenti** > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**):
+Tenendo presenti le [Considerazioni](#considerations) riportate di seguito, è possibile reinstallare facilmente un pacchetto usando il [comando Update-Package](../reference/ps-reference/ps-ref-update-package.md) nella console di Gestione pacchetti di Visual Studio (**Strumenti** > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**).
 
 ```ps
 Update-Package -Id <package_name> –reinstall

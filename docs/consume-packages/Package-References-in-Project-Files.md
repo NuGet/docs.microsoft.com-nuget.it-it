@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 16a14a72f8bb2e5d5a56f6c3c277f0988869273d
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 05ece5f36ff7ae5920960c42cfde8b271dc3e712
+ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426702"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69020006"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Riferimenti a pacchetti (PackageReference) nei file di progetto
 
@@ -105,7 +105,9 @@ I valori consentiti per questi tag sono i seguenti, con più valori separati da 
 | compile | Contenuti della cartella `lib`. Controlla se il progetto può essere compilato in base agli assembly nella cartella |
 | runtime | Contenuti delle cartelle `lib` e `runtimes`. Controlla se questi assembly verranno copiati nella directory di output build |
 | contentFiles | Contenuto della cartella `contentfiles` |
-| build | Proprietà e destinazioni nella cartella `build` |
+| build | `.props` e `.targets` nella cartella `build` |
+| buildMultitargeting | `.props` e `.targets` nella cartella `buildMultitargeting` per più framework di destinazione |
+| buildTransitive | *(5.0 +)* `.props` e `.targets` nella cartella `buildTransitive` per gli asset che si propagano in modo transitivo a qualsiasi progetto che gli utilizza. Vedere la pagina delle [funzionalità](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior). |
 | analyzers | Analizzatori .NET |
 | nativi | Contenuto della cartella `native` |
 | none | Non viene usato alcuno dei valori precedenti. |

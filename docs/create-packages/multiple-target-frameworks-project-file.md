@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: b7870bb6aac39f0865d88efc8c16751fdbecc3a8
-ms.sourcegitcommit: cae759ad8518c049575a30ad3bf04fe5d06244fb
+ms.openlocfilehash: 8c1d8a479747f6f7bce388c1555589543c8824a0
+ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68616771"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69020066"
 ---
 # <a name="support-multiple-net-framework-versions-in-your-project-file"></a>Supportare più versioni di .NET Framework nel file di progetto
 
@@ -27,9 +27,13 @@ Per i progetti di tipo SDK, è possibile configurare il supporto per più framew
 
    Si consiglia di creare una libreria di classi .NET Standard per ottenere una compatibilità ottimale.
 
-2. Modificare il file con estensione *csproj* per supportare i framework di destinazione.
-
-   Ad esempio, modificare `<TargetFramework>netstandard2.0</TargetFramework>` in `<TargetFrameworks>netstandard2.0;net45</TargetFrameworks>`.
+2. Modificare il file con estensione *csproj* per supportare i framework di destinazione. Ad esempio, modificare
+   
+   `<TargetFramework>netstandard2.0</TargetFramework>`
+   
+   in:
+   
+   `<TargetFrameworks>netstandard2.0;net45</TargetFrameworks>`
 
    Assicurarsi di modificare l'elemento XML modificato da singolare a plurale, ovvero aggiungere "s" ai tag di apertura e di chiusura.
 
