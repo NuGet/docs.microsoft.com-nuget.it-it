@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: tutorial
-ms.openlocfilehash: 81f78de02d9b6510f195e04c78436e38f9b7353d
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 927991429d8d4ce54aa35be3e450475a38141b11
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842427"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488918"
 ---
 # <a name="create-packages-for-xamarin-with-visual-studio-2015"></a>Creare pacchetti per Xamarin con Visual Studio 2015
 
@@ -266,7 +266,7 @@ Per rendere disponibile il pacchetto per altri sviluppatori, seguire le istruzio
 
 - [Informazioni di riferimento sul file con estensione nuspec](../reference/nuspec.md)
 - [Pacchetti di simboli](../create-packages/symbol-packages.md)
-- [Controllo delle versioni dei pacchetti](../reference/package-versioning.md)
+- [Controllo delle versioni dei pacchetti](../concepts/package-versioning.md)
 - [Supporto di più versioni di .NET Framework](../create-packages/supporting-multiple-target-frameworks.md)
 - [Includere proprietà e destinazioni MSBuild in un pacchetto](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
 - [Creazione di pacchetti localizzati](../create-packages/creating-localized-packages.md)

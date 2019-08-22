@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8d732e87f01c55bde87da0a2e382fd6d509886a3
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 87116669c1e685ffd0dbe4142c2f7e357c413497
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317008"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488254"
 ---
 # <a name="projectjson-archive"></a>archivio project.json
 
@@ -54,19 +54,19 @@ Funziona con `project.json`.
 
 ## <a name="dependency-resolution-with-packagereference"></a>Risoluzione delle dipendenze con PackageReference
 
-*Originariamente in [Risoluzione delle dipendenze](../consume-packages/dependency-resolution.md#dependency-resolution-with-packagereference).*
+*Originariamente in [Risoluzione delle dipendenze](../concepts/dependency-resolution.md#dependency-resolution-with-packagereference).*
 
 Il comportamento di PackageReference si applica anche a `project.json`. Il ripristino NuGet scrive il grafico dipendenze in un file denominato `project.lock.json` insieme a `project.json`.
 
 ## <a name="managing-dependency-assets"></a>Gestione degli asset delle dipendenze
 
-*Originariamente in [Risoluzione delle dipendenze](../consume-packages/dependency-resolution.md#managing-dependency-assets).*
+*Originariamente in [Risoluzione delle dipendenze](../concepts/dependency-resolution.md#managing-dependency-assets).*
 
 Quando si usa il formato `project.json`, è possibile controllare quali asset delle dipendenze vengono inseriti nel progetto di primo livello. Per informazioni dettagliate, vedere [project.json](project-json.md).
 
 ## <a name="excluding-references"></a>Esclusione dei riferimenti
 
-*Originariamente in [Risoluzione delle dipendenze](../consume-packages/dependency-resolution.md#excluding-references).*
+*Originariamente in [Risoluzione delle dipendenze](../concepts/dependency-resolution.md#excluding-references).*
 
 - `project.json`: aggiungere `"exclude" : "all"` nella dipendenza per il pacchetto C (PackageC):
 
@@ -83,7 +83,7 @@ Quando si usa il formato `project.json`, è possibile controllare quali asset de
 
 ## <a name="resolving-incompatible-package-errors"></a>Risoluzione degli errori dei pacchetti incompatibili
 
-*Originariamente in [Risoluzione delle dipendenze](../consume-packages/dependency-resolution.md#resolving-incompatible-package-errors).*
+*Originariamente in [Risoluzione delle dipendenze](../concepts/dependency-resolution.md#resolving-incompatible-package-errors).*
 
 Un ulteriore metodo per la risoluzione degli errori:
 
@@ -124,7 +124,7 @@ Quando si usa `project.json`, le destinazioni non vengono aggiunte al progetto, 
 
 ### <a name="package-versioning"></a>Controllo delle versioni dei pacchetti
 
-*Originariamente in [Controllo delle versioni dei pacchetti](../reference/package-versioning.md).*
+*Originariamente in [Controllo delle versioni dei pacchetti](../concepts/package-versioning.md).*
 
 Quando si usa il formato `project.json`, NuGet supporta anche l'uso di una notazione con caratteri jolly, \*, per le parti del numero suffisso per versione principale, secondaria, patch e non definitiva.
 

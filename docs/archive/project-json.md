@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/27/2017
 ms.topic: reference
-ms.openlocfilehash: e4d8b5b9ab4605516827ead8939f278d110c7a48
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 5ecbcd4855de8ea7b6301a5e307779216baf96fc
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547784"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488288"
 ---
 # <a name="projectjson-reference"></a>Riferimenti di project.json
 
@@ -62,7 +62,7 @@ L'ID del pacchetto corrisponde all'ID del pacchetto in nuget.org, che è uguale 
 
 Quando si ripristinano i pacchetti, il vincolo della versione `"5.0.0"` implica `>= 5.0.0`, vale a dire che se la versione 5.0.0 non è disponibile sul server, ma la 5.0.1 lo è, NuGet installa la 5.0.1 e avvisa dell'aggiornamento. In caso contrario, NuGet seleziona la versione più bassa possibile corrispondente al vincolo.
 
-Per altre informazioni dettagliate sulle regole di risoluzione, vedere [Risoluzione delle dipendenze](../consume-packages/dependency-resolution.md).
+Per altre informazioni dettagliate sulle regole di risoluzione, vedere [Risoluzione delle dipendenze](../concepts/dependency-resolution.md).
 
 ### <a name="managing-dependency-assets"></a>Gestione degli asset delle dipendenze
 
@@ -74,7 +74,7 @@ Per controllare quali asset delle dipendenze confluiscono nel progetto di primo 
 | runtime | Runtime, Resources e FrameworkAssemblies  |
 | compile | lib |
 | build | build (proprietà e destinazioni MSBuild) |
-| native | native |
+| nativi | nativi |
 | none | Nessuna cartella |
 | tutti | Tutte le cartelle |
 

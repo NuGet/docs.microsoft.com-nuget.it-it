@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8222e1edfa13951d2fda9a2384d93bba38ef4979
-ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
+ms.openlocfilehash: 40a42be91d3848db3e721a674e3fec4096fccd08
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68833295"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69489018"
 ---
 # <a name="create-a-nuget-package-using-the-dotnet-cli"></a>Creare un pacchetto NuGet con l'interfaccia della riga di comando di dotnet
 
@@ -66,7 +66,7 @@ L'esempio seguente illustra un file di progetto semplice e completo con queste p
 > [!NOTE]
 > Per i pacchetti compilati per uso pubblico, prestare particolare attenzione alla proprietà **PackageTags**, perché questi tag consentono ad altri utenti di trovare il pacchetto e di comprenderne le funzioni.
 
-Per informazioni dettagliate sulla dichiarazione delle dipendenze e sulla specifica dei numeri di versione, vedere [Riferimenti ai pacchetti nei file di progetto](../consume-packages/package-references-in-project-files.md) e [Controllo delle versioni dei pacchetti](../reference/package-versioning.md). È anche possibile esporre gli asset dalle dipendenze direttamente nel pacchetto usando gli attributi `<IncludeAssets>` e `<ExcludeAssets>`. Per altre informazioni, vedere [Controllo degli asset delle dipendenze](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets).
+Per informazioni dettagliate sulla dichiarazione delle dipendenze e sulla specifica dei numeri di versione, vedere [Riferimenti ai pacchetti nei file di progetto](../consume-packages/package-references-in-project-files.md) e [Controllo delle versioni dei pacchetti](../concepts/package-versioning.md). È anche possibile esporre gli asset dalle dipendenze direttamente nel pacchetto usando gli attributi `<IncludeAssets>` e `<ExcludeAssets>`. Per altre informazioni, vedere [Controllo degli asset delle dipendenze](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets).
 
 ## <a name="choose-a-unique-package-identifier-and-set-the-version-number"></a>Scegliere un identificatore univoco del pacchetto e impostare il numero di versione
 
@@ -120,7 +120,7 @@ Dopo aver creato un pacchetto, ovvero un file `.nupkg`, è possibile pubblicarlo
 
 Potrebbe anche essere necessario estendere le funzionalità del pacchetto o supportare altri scenari, come descritto negli argomenti seguenti:
 
-- [Controllo delle versioni dei pacchetti](../reference/package-versioning.md)
+- [Controllo delle versioni dei pacchetti](../concepts/package-versioning.md)
 - [Supportare più framework di destinazione](../create-packages/multiple-target-frameworks-project-file.md)
 - [Trasformazioni di file di origine e di configurazione](../create-packages/source-and-config-file-transformations.md)
 - [Localizzazione](../create-packages/creating-localized-packages.md)
@@ -130,5 +130,5 @@ Potrebbe anche essere necessario estendere le funzionalità del pacchetto o supp
 
 Sono infine disponibili altri tipi di pacchetti da tenere presenti:
 
-- [Pacchetti nativi](../create-packages/native-packages.md)
+- [Pacchetti nativi](../guides/native-packages.md)
 - [Pacchetti di simboli](../create-packages/symbol-packages.md)

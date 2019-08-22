@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/26/2017
 ms.topic: conceptual
-ms.openlocfilehash: 58ad05cb854c8f7233d90d03c1b320f8797ca2ab
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: e4b9f6dae3a4be69e523888cc9bd2f212b45829c
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842396"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488849"
 ---
 # <a name="package-creation-workflow"></a>Flusso di lavoro della creazione di pacchetti
 
@@ -35,8 +35,8 @@ Per continuare, sono disponibili diverse altre opzioni per i pacchetti:
 - [Pacchetti in versione non definitiva](../create-packages/prerelease-packages.md) illustra come rilasciare pacchetti versione alfa, beta e rc ai clienti interessati.
 - [Trasformazioni di codice sorgente e file di configurazione](../create-packages/source-and-config-file-transformations.md) descrive come eseguire sostituzioni di token unidirezionali nei file che vengono aggiunti a un progetto e modificare `web.config` e `app.config` con impostazioni che vengono escluse quando si disinstalla il pacchetto.
 - [Pacchetti di simboli](../create-packages/symbol-packages-snupkg.md) offre le informazioni necessarie per fornire simboli per la libreria che consentono ai consumer di eseguire l'istruzione nel codice durante il debug.
-- [Controllo delle versioni dei pacchetti](../reference/package-versioning.md) illustra come identificare le versioni esatte consentite per le dipendenze (altri pacchetti utilizzati dal pacchetto).
-- [Pacchetti nativi](../create-packages/native-packages.md) descrive il processo di creazione di un pacchetto per i consumer C++.
+- [Controllo delle versioni dei pacchetti](../concepts/package-versioning.md) illustra come identificare le versioni esatte consentite per le dipendenze (altri pacchetti utilizzati dal pacchetto).
+- [Pacchetti nativi](../guides/native-packages.md) descrive il processo di creazione di un pacchetto per i consumer C++.
 - [Firma dei pacchetti](../create-packages/sign-a-package.md) descrive il processo per l'aggiunta di una firma digitale a un pacchetto.
 
 Quando si è pronti per pubblicare un pacchetto su nuget.org, seguire la semplice procedura riportata in [Pubblicare un pacchetto](../nuget-org/publish-a-package.md).

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8c85c1a89469c491c6be1f81961197450744349c
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 34b08f06f04efdcf7bf73efc2cbdb5a5494ae2d9
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545573"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488203"
 ---
 # <a name="impact-of-projectjson-when-creating-packages"></a>Impatto di project.json durante la creazione di pacchetti
 
@@ -25,7 +25,7 @@ I tradizionali pacchetti NuGet supportano un set di funzionalità che non passan
 
 ### <a name="install-and-uninstall-scripts-are-ignored"></a>Gli script di installazione e disinstallazione vengono ignorati
 
-Il modello di ripristino transitivo, illustrato in [Risoluzione delle dipendenze](../consume-packages/dependency-resolution.md#dependency-resolution-with-packagereference), non contempla il concetto di "fase di installazione dei pacchetti". Un pacchetto è presento o non presente, ma non esiste un processo coerente eseguito quando viene installato un pacchetto.
+Il modello di ripristino transitivo, illustrato in [Risoluzione delle dipendenze](../concepts/dependency-resolution.md#dependency-resolution-with-packagereference), non contempla il concetto di "fase di installazione dei pacchetti". Un pacchetto è presento o non presente, ma non esiste un processo coerente eseguito quando viene installato un pacchetto.
 
 Gli script di installazione inoltre erano supportati solo in Visual Studio. Gli altri IDE dovevano simulare l'API di estendibilità di Visual Studio per provare a supportare tali script e nessun supporto era disponibile negli editor e negli strumenti da riga di comando comuni.
 

@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3d8745ea30115a2d7f3954d171d92b75a434a55b
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: b151547e40e567b38acc2b0b9ee84c50d85000c9
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67843443"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488486"
 ---
 # <a name="identify-the-project-format"></a>Identificare il formato del progetto
 
@@ -23,7 +23,7 @@ Il fatto che il progetto sia o meno di tipo SDK dipende dal metodo usato per cre
 | .NET Standard | Stile SDK | [Interfaccia della riga di comando di dotnet](../install-nuget-client-tools.md#dotnetexe-cli) | I progetti creati prima di Visual Studio 2017 non sono di tipo SDK. Usare l'interfaccia della riga di comando `nuget.exe`. |
 | .NET Core | Stile SDK | [Interfaccia della riga di comando di dotnet](../install-nuget-client-tools.md#dotnetexe-cli) | I progetti creati prima di Visual Studio 2017 non sono di tipo SDK. Usare l'interfaccia della riga di comando `nuget.exe`. |
 | .NET Framework | Non di tipo SDK | [Interfaccia della riga di comando di nuget.exe](../install-nuget-client-tools.md#nugetexe-cli) | I progetti .NET Framework creati con altri metodi possono essere progetti di tipo SDK. Per questi progetti, usare invece l'[interfaccia della riga di comando dotnet](../install-nuget-client-tools.md#dotnetexe-cli). |
-| Progetto .NET [migrato](../reference/migrate-packages-config-to-package-reference.md) | Non di tipo SDK| Per creare pacchetti, usare [msbuild -t:pack](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration). | Per creare pacchetti, è consigliabile usare `msbuild -t:pack`. Altrimenti, usare l'[interfaccia della riga di comando dotnet](../install-nuget-client-tools.md#dotnetexe-cli). I progetti migrati sono progetti non di tipo SDK. |
+| Progetto .NET [migrato](../consume-packages/migrate-packages-config-to-package-reference.md) | Non di tipo SDK| Per creare pacchetti, usare [msbuild -t:pack](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration). | Per creare pacchetti, è consigliabile usare `msbuild -t:pack`. Altrimenti, usare l'[interfaccia della riga di comando dotnet](../install-nuget-client-tools.md#dotnetexe-cli). I progetti migrati sono progetti non di tipo SDK. |
 
 ## <a name="check-the-project-format"></a>Controllare il formato del progetto
 
