@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: b1c2511c1fbafc7f52029c23521fa55671b0b5c5
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: dbc3781bd17f815c6b32fc70b275469337148f41
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546895"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488839"
 ---
 # <a name="creating-localized-nuget-packages"></a>Creazione di pacchetti localizzati NuGet
 
@@ -84,7 +84,7 @@ La creazione di bundle che includono tutte le lingue in un singolo pacchetto pre
 Esistono tuttavia anche alcuni vantaggi:
 
 1. **Semplicità**: gli utenti del pacchetto ottengono tutte le lingue supportate in una singola installazione, invece di dover installare separatamente ogni lingua. Un pacchetto singolo è anche più facile da trovare su nuget.org.
-1. **Versioni accoppiate**: poiché tutti gli assembly di risorse sono nello stesso pacchetto dell'assembly primario, condividono tutti lo stesso numero di versione e non corrono il rischio di venire erroneamente disaccoppiati.
+1. **Versioni accoppiate**: poiché tutti gli assembly di risorse sono nello stesso pacchetto dell'assembly primario, condividono tutti lo stesso numero di versione e non corrono il rischio di essere erroneamente disaccoppiati.
 
 ## <a name="localized-satellite-packages"></a>Pacchetti satellite localizzati
 
@@ -101,7 +101,7 @@ Un assembly satellite usa quindi la convenzione di denominazione `{identifier}.{
 
 Essendo un pacchetto separato, ha il proprio file `.nuspec` contenente i metadati localizzati. Tenere presente che la lingua in `.nuspec` **deve** corrispondere a quella usata nel nome file.
 
-L'assembly satellite **deve** anche dichiarare una versione esatta del pacchetto primario come dipendenza, usando la notazione di versione []. Vedere [Controllo delle versioni dei pacchetti](../reference/package-versioning.md). `ContosoUtilities.de.1.0.0.nupkg`, ad esempio, deve dichiarare una dipendenza da `ContosoUtilities.1.0.0.nupkg` usando la notazione `[1.0.0]`. Il pacchetto satellite può ovviamente avere un numero di versione diverso da quello del pacchetto primario.
+L'assembly satellite **deve** anche dichiarare una versione esatta del pacchetto primario come dipendenza, usando la notazione di versione []. Vedere [Controllo delle versioni dei pacchetti](../concepts/package-versioning.md). `ContosoUtilities.de.1.0.0.nupkg`, ad esempio, deve dichiarare una dipendenza da `ContosoUtilities.1.0.0.nupkg` usando la notazione `[1.0.0]`. Il pacchetto satellite può ovviamente avere un numero di versione diverso da quello del pacchetto primario.
 
 La struttura del pacchetto satellite deve quindi includere l'assembly di risorse e il file IntelliSense XML in una sottocartella che corrisponde all'elemento `{language}` del nome file del pacchetto:
 

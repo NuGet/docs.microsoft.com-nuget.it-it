@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: a9224ce4e515cf98893a7134077c90a47df1862a
-ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
+ms.openlocfilehash: e4223c25daa1c14c30de1ef063cd0f48df70c8b5
+ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69020081"
+ms.lasthandoff: 08/17/2019
+ms.locfileid: "69564582"
 ---
 # <a name="create-a-package-using-the-nugetexe-cli"></a>Creare un pacchetto usando l'interfaccia della riga di comando di nuget.exe
 
@@ -20,7 +20,7 @@ Indipendentemente dalle operazioni eseguite dal pacchetto o dal tipo di codice c
 
 - Per i progetti .NET Core e .NET Standard che usano il [formato di tipo SDK](../resources/check-project-format.md), e qualsiasi altro progetto di tipo SDK, vedere [Creare un pacchetto NuGet con l'interfaccia della riga di comando di dotnet](creating-a-package-dotnet-cli.md).
 
-- Per i progetti migrati da `packages.config` a [PackageReference](../consume-packages/package-references-in-project-files.md), usare [msbuild -t:pack](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
+- Per i progetti migrati da `packages.config` a [PackageReference](../consume-packages/package-references-in-project-files.md), usare [msbuild -t:pack](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
 
 Da un punto di vista tecnico, un pacchetto NuGet è solo un file ZIP rinominato con l'estensione `.nupkg` e i cui contenuti rispettano determinate convenzioni. Questo argomento descrive il processo dettagliato di creazione di un pacchetto che soddisfa tali convenzioni.
 
@@ -138,7 +138,7 @@ Di seguito è riportato un file `.nuspec` tipico (ma fittizio), con commenti che
 </package>
 ```
 
-Per informazioni dettagliate sulla dichiarazione delle dipendenze e sulla specifica dei numeri di versione, vedere [packages.config](../reference/packages-config.md) e [Controllo delle versioni dei pacchetti](../reference/package-versioning.md). È anche possibile esporre gli asset dalle dipendenze direttamente nel pacchetto usando gli attributi `include` ed `exclude` nell'elemento `dependency`. Vedere la [sezione Dipendenze delle informazioni di riferimento sul file .nuspec](../reference/nuspec.md#dependencies).
+Per informazioni dettagliate sulla dichiarazione delle dipendenze e sulla specifica dei numeri di versione, vedere [packages.config](../reference/packages-config.md) e [Controllo delle versioni dei pacchetti](../concepts/package-versioning.md). È anche possibile esporre gli asset dalle dipendenze direttamente nel pacchetto usando gli attributi `include` ed `exclude` nell'elemento `dependency`. Vedere la [sezione Dipendenze delle informazioni di riferimento sul file .nuspec](../reference/nuspec.md#dependencies).
 
 Poiché il manifesto è incluso nel pacchetto creato, per trovare altri esempi, esaminare i pacchetti esistenti. Una valida fonte è la cartella *global-packages* nel computer, la posizione della quale viene restituita dal comando seguente:
 
@@ -184,8 +184,8 @@ Le convenzioni delle cartelle sono le seguenti:
 | ref/{tfm} | File di assembly (`.dll`) e di simboli (`.pdb`) per il moniker del framework di destinazione (TFM, Target Framework Moniker) specificato | Gli assembly vengono aggiunti come riferimenti solo per la fase di compilazione. Non verrà quindi copiato nulla nella cartella bin del progetto. |
 | runtimes | File di assembly (`.dll`), di simboli (`.pdb`) e di risorse native (`.pri`) specifici dell'architettura | Gli assembly vengono aggiunti come riferimenti solo per il runtime. Gli altri file vengono copiati nelle cartelle di progetto. Deve esistere sempre un assembly specifico `AnyCPU` corrispondente (TFM) sotto la cartella `/ref/{tfm}` per fornire l'assembly della fase di compilazione corrispondente. Vedere [Supporto di più framework di destinazione](supporting-multiple-target-frameworks.md). |
 | contenuto | File arbitrari | I contenuti vengono copiati nella radice del progetto. La cartella **content** può essere considerata come la radice dell'applicazione di destinazione che in definitiva utilizza il pacchetto. Per fare in modo che il pacchetto aggiunga un'immagine nella cartella */images* dell'applicazione, inserirla nella cartella *content/images* del pacchetto. |
-| build | File `.targets` e `.props` MSBuild | Vengono automaticamente inseriti nel progetto (NuGet 3.x+). |
-| buildMultiTargeting | File `.targets` e `.props` di MSBuild per l'assegnazione di più framework di destinazione | Vengono automaticamente inseriti nel progetto. |
+| build | *(3.x+)* File `.targets` e `.props` di MSBuild | Vengono automaticamente inseriti nel progetto. |
+| buildMultiTargeting | *(4.0+)* File `.targets` e `.props` di MSBuild per l'assegnazione di più framework di destinazione | Vengono automaticamente inseriti nel progetto. |
 | buildTransitive | *(5.0 +)* File `.targets` e `.props` di MSBuild che si propagano in modo transitivo a qualsiasi progetto che gli utilizza. Vedere la pagina delle [funzionalità](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior). | Vengono automaticamente inseriti nel progetto. |
 | tools | Script di PowerShell e programmi accessibili dalla console di Gestione pacchetti | La cartella `tools` viene aggiunta alla variabile di ambiente `PATH` solo per la console di Gestione pacchetti, in particolare *non* alla variabile `PATH` impostata per MSBuild durante la compilazione del progetto. |
 
@@ -226,9 +226,8 @@ In presenza di dipendenze del pacchetto da includere nel file con estensione *nu
 # Use in a folder containing a project file <project-name>.csproj or <project-name>.vbproj
 nuget pack myproject.csproj
 ```
-```
 
-A token is delimited by `$` symbols on both sides of the project property. For example, the `<id>` value in a manifest generated in this way typically appears as follows:
+Un token è delimitato dai simboli `$` su entrambi i lati della proprietà del progetto. Ad esempio, il valore `<id>` in un manifesto generato in questo modo solitamente viene visualizzato come segue:
 
 ```xml
 <id>$id$</id>
@@ -273,7 +272,7 @@ L'identificatore del pacchetto (elemento `<id>`) e il numero di versione (elemen
 **Procedure consigliate per la versione del pacchetto:**
 
 - In generale, impostare la versione del pacchetto in modo che corrisponda alla libreria, anche se non è strettamente necessario. È davvero semplicissimo quando si limita un pacchetto a un singolo assembly, come descritto precedentemente in [Scelta degli assembly per cui creare un pacchetto](#decide-which-assemblies-to-package). In generale, tenere presente che, durante la risoluzione delle dipendenze, di per sé NuGet gestisce le versioni dei pacchetti, non le versioni degli assembly.
-- Quando si usa uno schema della versione non standard, tenere in considerazione le regole di controllo delle versioni di NuGet, come illustrato in [Controllo delle versioni dei pacchetti](../reference/package-versioning.md).
+- Quando si usa uno schema della versione non standard, tenere in considerazione le regole di controllo delle versioni di NuGet, come illustrato in [Controllo delle versioni dei pacchetti](../concepts/package-versioning.md).
 
 > Per informazioni sul controllo delle versioni, vedere anche la serie seguente di brevi post di blog:
 >
@@ -424,7 +423,7 @@ Dopo aver creato un pacchetto, ovvero un file `.nupkg`, è possibile pubblicarlo
 
 Potrebbe anche essere necessario estendere le funzionalità del pacchetto o supportare altri scenari, come descritto negli argomenti seguenti:
 
-- [Controllo delle versioni dei pacchetti](../reference/package-versioning.md)
+- [Controllo delle versioni dei pacchetti](../concepts/package-versioning.md)
 - [Supporto di più framework di destinazione](../create-packages/supporting-multiple-target-frameworks.md)
 - [Trasformazioni di file di origine e di configurazione](../create-packages/source-and-config-file-transformations.md)
 - [Localizzazione](../create-packages/creating-localized-packages.md)
@@ -434,5 +433,5 @@ Potrebbe anche essere necessario estendere le funzionalità del pacchetto o supp
 
 Sono infine disponibili altri tipi di pacchetti da tenere presenti:
 
-- [Pacchetti nativi](../create-packages/native-packages.md)
+- [Pacchetti nativi](../guides/native-packages.md)
 - [Pacchetti di simboli](../create-packages/symbol-packages.md)

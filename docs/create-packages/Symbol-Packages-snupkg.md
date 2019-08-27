@@ -12,12 +12,12 @@ keywords: Pacchetti di simboli NuGet, debug dei pacchetti NuGet, supporto per il
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: e62d1872497e0e5e703bf7c49a87249ce9a996c7
-ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
+ms.openlocfilehash: 992b3ddd04a1bb34e7aca25dfaa6f7df5485907b
+ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959670"
+ms.lasthandoff: 08/17/2019
+ms.locfileid: "69564540"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Creazione di pacchetti di simboli (estensione snupkg)
 
@@ -118,7 +118,7 @@ Il file con estensione nupkg è esattamente lo stesso di oggi, ma il file con es
 
 4) Se un autore decide di usare un file con estensione nuspec personalizzato per compilare i propri file con estensione nupkg e snupkg, il file con estensione snupkg deve avere la stessa gerarchia di cartelle e gli stessi file descritti in dettaglio al punto 2).
 5) I campi ```authors``` e ```owners``` verranno esclusi dal file con estensione nuspec del pacchetto con estensione snupkg.
-6) Non usare l'elemento <license>. Un file con estensione snupkg è coperto dalla stessa licenza del file con estensione nupk corrispondente.
+6) Non usare l'elemento <license>. Un file con estensione snupkg è coperto dalla stessa licenza del file con estensione nupkg corrispondente.
 
 ## <a name="see-also"></a>Vedere anche
 

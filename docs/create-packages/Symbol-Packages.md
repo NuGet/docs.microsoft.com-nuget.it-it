@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 09/12/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 40f934f3c3fcea62acae66639c22108a93363b8b
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: f7503dd413a976997580aa03da26df0c462ff0e1
+ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426772"
+ms.lasthandoff: 08/17/2019
+ms.locfileid: "69564546"
 ---
 # <a name="creating-symbol-packages-legacy"></a>Creazione di pacchetti di simboli (legacy)
 
@@ -127,7 +127,7 @@ Un pacchetto di simboli può essere generato in base alle convenzioni, da una st
     ```
 
    > [!Note]
-   > Con nuget.exe 4.5.0 o versioni successive, non viene eseguito automaticamente il push dei pacchetti di simboli in symbolsource.org, ma sarà necessario eseguire il push dei pacchetti di simboli separatamente, come illustrato nel passaggio successivo.
+   > Con nuget.exe 4.5.0 o versioni successive, non viene eseguito automaticamente il push dei pacchetti di simboli in symbolsource.org, ma sarà necessario eseguire il push dei pacchetti di simboli separatamente, come illustrato nei passaggi precedenti.
    
 In questo caso, NuGet pubblicherà `MyPackage.symbols.nupkg`, se presente, in https://nuget.smbsrc.net/ (URL di push per symbolsource.org), dopo la pubblicazione del pacchetto principale in nuget.org.
 

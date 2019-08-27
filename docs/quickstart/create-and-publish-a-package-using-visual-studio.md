@@ -1,16 +1,16 @@
 ---
-title: Creare e pubblicare un pacchetto NuGet .NET Standard con Visual Studio in Windows
+title: Creare e pubblicare un pacchetto NuGet .NET Standard - Visual Studio in Windows
 description: Esercitazione sulla creazione e pubblicazione di un pacchetto NuGet .NET Standard con Visual Studio in Windows.
 author: karann-msft
 ms.author: karann
-ms.date: 07/09/2019
+ms.date: 08/16/2019
 ms.topic: quickstart
-ms.openlocfilehash: 0fc3b15c6d5ffa93eb6e26660f71cea2286ba77d
-ms.sourcegitcommit: aed04cc04b0902403612de6736a900d41c265afd
+ms.openlocfilehash: 9552f6c5291f950430bfb723cb713bf76a79ea66
+ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68821430"
+ms.lasthandoff: 08/17/2019
+ms.locfileid: "69564606"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Guida introduttiva: Creare e pubblicare un pacchetto NuGet con Visual Studio (.NET Standard, solo Windows)
 
@@ -21,14 +21,14 @@ La creazione di un pacchetto NuGet da una libreria di classi .NET Standard in Vi
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-1. Installare qualsiasi edizione di Visual Studio 2017 o versione successiva da [visualstudio.com](https://www.visualstudio.com/) con un carico di lavoro correlato a .NET Core.
+1. Installare qualsiasi edizione di Visual Studio 2019 da [visualstudio.com](https://www.visualstudio.com/) con qualsiasi carico di lavoro correlato a .NET Core.
 
 1. Se non è già installata, installare l'interfaccia della riga di comando di `dotnet`.
 
-   Per l'interfaccia della riga di comando `dotnet`, a partire da Visual Studio 2017, l'interfaccia della riga di comando `dotnet` viene installata automaticamente con qualsiasi carico di lavoro .NET Core correlato. In caso contrario, installare [.NET Core SDK](https://www.microsoft.com/net/download/) per ottenere l'interfaccia della riga di comando `dotnet`. L'interfaccia della riga di comando `dotnet` è necessaria per i progetti .NET Standard che usano il [formato di tipo SDK](../resources/check-project-format.md) (attributo SDK). Il modello di libreria di classi predefinito in Visual Studio 2017 e versioni successive, usato in questo articolo, usa l'attributo SDK.
+   Per l'interfaccia della riga di comando `dotnet`, a partire da Visual Studio 2017, l'interfaccia della riga di comando `dotnet` viene installata automaticamente con qualsiasi carico di lavoro .NET Core correlato. In caso contrario, installare [.NET Core SDK](https://www.microsoft.com/net/download/) per ottenere l'interfaccia della riga di comando `dotnet`. L'interfaccia della riga di comando `dotnet` è necessaria per i progetti .NET Standard che usano il [formato di tipo SDK](../resources/check-project-format.md) (attributo SDK). Il modello di libreria di classi .NET Standard predefinito in Visual Studio 2017 e versioni successive, usato in questo articolo, usa l'attributo SDK.
    
    > [!Important]
-   > Per questo articolo, è consigliabile usare l'interfaccia della riga di comando `dotnet`. Sebbene sia possibile pubblicare un pacchetto NuGet usando l'interfaccia della riga di comando `nuget.exe`, alcuni dei passaggi descritti in questo articolo sono specifici per i progetti di tipo SDK e l'interfaccia della riga di comando dotnet. L'interfaccia della riga di comando nuget.exe per i [progetti non di tipo SDK](../resources/check-project-format.md) (in genere .NET Framework). Se si utilizza un progetto non di tipo SDK, seguire le procedure in [Creare e pubblicare un pacchetto .NET Framework (Visual Studio)](create-and-publish-a-package-using-visual-studio-net-framework.md) per creare e pubblicare il pacchetto.
+   > Se si utilizza un progetto non di tipo SDK, seguire invece le procedure in [Creare e pubblicare un pacchetto .NET Framework (Visual Studio)](create-and-publish-a-package-using-visual-studio-net-framework.md) per creare e pubblicare il pacchetto. Per questo articolo, è consigliabile usare l'interfaccia della riga di comando `dotnet`. Sebbene sia possibile pubblicare un pacchetto NuGet usando l'interfaccia della riga di comando `nuget.exe`, alcuni dei passaggi descritti in questo articolo sono specifici per i progetti di tipo SDK e l'interfaccia della riga di comando dotnet. L'interfaccia della riga di comando nuget.exe per i [progetti non di tipo SDK](../resources/check-project-format.md) (in genere .NET Framework).
 
 1. [Registrarsi per ottenere un account gratuito in nuget.org](https://docs.microsoft.com/en-us/nuget/nuget-org/individual-accounts#add-a-new-individual-account) se non è già disponibile. Quando si crea un nuovo account, viene inviato un messaggio di posta elettronica di conferma. È necessario confermare l'account prima di poter caricare un pacchetto.
 
@@ -37,6 +37,9 @@ La creazione di un pacchetto NuGet da una libreria di classi .NET Standard in Vi
 È possibile usare un progetto libreria di classi .NET Standard esistente per il codice che si vuole includere in un pacchetto oppure creare un progetto semplice come segue:
 
 1. In Visual Studio scegliere **File > Nuovo > Progetto**, espandere il nodo **Visual C# > .NET Standard**, selezionare il modello "Libreria di classi (.NET Standard)", assegnare al progetto il nome AppLogger e fare clic su **OK**.
+
+   > [!Tip]
+   > A meno che non esista un motivo valido per decidere diversamente, .NET Standard è la destinazione preferita per i pacchetti NuGet, perché garantisce la compatibilità con la gamma più ampia di progetti consumer.
 
 1. Fare clic con il pulsante destro del mouse sul file di progetto risultante e scegliere **Compila** per verificare che il progetto sia stato creato correttamente. La DLL è presente nella cartella Debug (o Release se si crea invece tale configurazione).
 
@@ -55,28 +58,25 @@ namespace AppLogger
 }
 ```
 
-> [!Tip]
-> A meno che non esista un motivo valido per decidere diversamente, .NET Standard è la destinazione preferita per i pacchetti NuGet, perché garantisce la compatibilità con la gamma più ampia di progetti consumer.
-
 ## <a name="configure-package-properties"></a>Configurare le proprietà del pacchetto
 
 1. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere il comando di menu **Proprietà**, quindi selezionare la scheda **Pacchetto**.
 
-   La scheda **Pacchetto** viene visualizzata solo per i progetti di tipo SDK in Visual Studio, in genere progetti di libreria di classi .NET Standard o .NET Core. Per i progetti non di tipo SDK (in genere .NET Framework), [eseguire la migrazione del progetto](../reference/migrate-packages-config-to-package-reference.md) e usare l'interfaccia della riga di comando `dotnet` oppure vedere [Creare e pubblicare un pacchetto .NET Framework](create-and-publish-a-package-using-visual-studio-net-framework.md) per istruzioni dettagliate.
+   La scheda **Pacchetto** viene visualizzata solo per i progetti di tipo SDK in Visual Studio, in genere progetti di libreria di classi .NET Standard o .NET Core. Per i progetti non di tipo SDK (in genere .NET Framework), [eseguire la migrazione del progetto](../consume-packages/migrate-packages-config-to-package-reference.md) o vedere [Creare e pubblicare un pacchetto .NET Framework](create-and-publish-a-package-using-visual-studio-net-framework.md) per istruzioni dettagliate.
 
     ![Proprietà del pacchetto NuGet in un progetto di Visual Studio](media/qs_create-vs-01-package-properties.png)
 
     > [!Note]
     > Per i pacchetti compilati per uso pubblico, prestare particolare attenzione alla proprietà **Tags**, perché i tag consentono ad altri utenti di trovare il pacchetto e di comprenderne le funzioni.
 
-1. Assegnare al pacchetto un identificatore univoco e compilare tutte le altre proprietà desiderate. Per una descrizione delle diverse proprietà, vedere [Informazioni di riferimento sul file .nuspec](../reference/nuspec.md). Tutte queste proprietà vengono incluse nel manifesto `.nuspec` creato da Visual Studio per il progetto.
+1. Assegnare al pacchetto un identificatore univoco e compilare tutte le altre proprietà desiderate. Per un mapping delle proprietà di MSBuild (progetto di tipo SDK) alle proprietà in un file con estensione *nuspec*, vedere [Destinazione pack](../reference/msbuild-targets.md#pack-target). Per le descrizioni delle proprietà, vedere [Informazioni di riferimento sul file .nuspec](../reference/nuspec.md). Tutte queste proprietà vengono incluse nel manifesto `.nuspec` creato da Visual Studio per il progetto.
 
     > [!Important]
     > È necessario assegnare al pacchetto un identificatore univoco in nuget.org o per qualsiasi host in uso. Per questa procedura dettagliata, si consiglia di includere "Sample" o "Test" nel nome, perché il passaggio di pubblicazione descritto più avanti rende il pacchetto visibile pubblicamente (nonostante sia improbabile che chiunque lo usi effettivamente).
     >
     > Se si tenta di pubblicare un pacchetto con un nome già esistente, viene visualizzato un errore.
 
-1. Facoltativo: per visualizzare le proprietà direttamente nel file di progetto, fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e selezionare **Edit AppLogger.csproj** (Modifica AppLogger.csproj).
+1. (Facoltativo) Per visualizzare le proprietà direttamente nel file di progetto, fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere **Modifica AppLogger.csproj**.
 
    Questa opzione è disponibile solo a partire da Visual Studio 2017 per i progetti che usano l'attributo SDK. In caso contrario, fare clic con il pulsante destro del mouse sul progetto e scegliere **Scarica progetto**. Fare quindi clic con il pulsante destro del mouse sul progetto scaricato e scegliere **Modifica AppLogger.csproj**.
 
@@ -88,7 +88,7 @@ namespace AppLogger
 
     ![Comando pack NuGet nel menu di scelta rapida del progetto di Visual Studio](media/qs_create-vs-02-pack-command.png)
 
-    Se non viene visualizzato il comando **Pack**, il progetto non è probabilmente un progetto di tipo SDK ed è necessario usare l'interfaccia della riga di comando `nuget.exe`. [Eseguire la migrazione del progetto](../reference/migrate-packages-config-to-package-reference.md) e usare l'interfaccia della riga di comando `dotnet` oppure vedere [Creare e pubblicare un pacchetto .NET Framework](create-and-publish-a-package-using-visual-studio-net-framework.md) per istruzioni dettagliate.
+    Se non viene visualizzato il comando **Pack**, il progetto non è probabilmente un progetto di tipo SDK ed è necessario usare l'interfaccia della riga di comando `nuget.exe`. [Eseguire la migrazione del progetto](../consume-packages/migrate-packages-config-to-package-reference.md) e usare l'interfaccia della riga di comando `dotnet` oppure vedere [Creare e pubblicare un pacchetto .NET Framework](create-and-publish-a-package-using-visual-studio-net-framework.md) per istruzioni dettagliate.
 
 1. Visual Studio compila il progetto e crea il file `.nupkg`. Esaminare i dettagli nella finestra **Output** (simile alla seguente), che contiene il percorso del file di pacchetto. Si noti inoltre che l'assembly compilato si trova in `bin\Release\netstandard2.0` secondo quanto conforme alla destinazione .NET Standard 2.0.
 
@@ -128,7 +128,11 @@ Dopo aver creato un file `.nupkg`, pubblicarlo in nuget.org usando l'interfaccia
 
 [!INCLUDE [publish-api-key](includes/publish-api-key.md)]
 
-### <a name="publish-with-dotnet-nuget-push-dotnet-cli"></a>Pubblicare con dotnet nuget push (interfaccia della riga di comando dotnet)
+### <a name="publish-with-the-dotnet-cli-or-nugetexe-cli"></a>Pubblicare con l'interfaccia della riga di comando di dotnet o nuget.exe
+
+Selezionare la scheda per lo strumento dell'interfaccia della riga di comando, ovvero **Interfaccia della riga di comando di .NET Core** (interfaccia della riga di comando di dotnet) o **NuGet** (Interfaccia della riga di comando di nuget.exe).
+
+# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
 
 Questo passaggio è l'alternativa consigliata all'uso di `nuget.exe`.
 
@@ -136,7 +140,7 @@ Prima di poter pubblicare il pacchetto, è necessario aprire una riga di comando
 
 [!INCLUDE [publish-dotnet](includes/publish-dotnet.md)]
 
-### <a name="publish-with-nuget-push-nugetexe-cli"></a>Pubblicare con nuget push (interfaccia della riga di comando nuget.exe)
+# <a name="nugettabnuget"></a>[NuGet](#tab/nuget)
 
 Questo passaggio è un'alternativa all'uso di `dotnet.exe`.
 
@@ -158,6 +162,8 @@ Questo passaggio è un'alternativa all'uso di `dotnet.exe`.
     ```
 
 Vedere [nuget push](../reference/cli-reference/cli-ref-push.md).
+
+---
 
 ### <a name="publish-errors"></a>Errori di pubblicazione
 
@@ -189,11 +195,11 @@ Verrà incluso un file denominato `readme.txt` nella radice del pacchetto. Visua
 
 ## <a name="related-topics"></a>Argomenti correlati
 
-- [Creare un pacchetto](../create-packages/creating-a-package.md)
+- [Creare un pacchetto](../create-packages/creating-a-package-dotnet-cli.md)
 - [Pubblicare un pacchetto](../nuget-org/publish-a-package.md)
 - [Pacchetti in versione non definitiva](../create-packages/Prerelease-Packages.md)
 - [Supportare più framework di destinazione](../create-packages/multiple-target-frameworks-project-file.md)
-- [Controllo delle versioni dei pacchetti](../reference/package-versioning.md)
+- [Controllo delle versioni dei pacchetti](../concepts/package-versioning.md)
 - [Creazione di pacchetti localizzati](../create-packages/creating-localized-packages.md)
 - [Documentazione della libreria .NET Standard](/dotnet/articles/standard/library)
 - [Portabilità in .NET Core da .NET Framework](/dotnet/articles/core/porting/index)

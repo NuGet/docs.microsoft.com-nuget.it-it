@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9ef990c16cca62a1fbad25ff1582bfa543135fab
-ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
+ms.openlocfilehash: 7039dd27f2dddebc3c84e5ad35d5efec59547792
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68860567"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488824"
 ---
 # <a name="manage-packages-using-the-nugetexe-cli"></a>Gestire pacchetti tramite l'interfaccia della riga di comando nuget.exe
 
@@ -19,7 +19,7 @@ Lo strumento della riga di comando consente di aggiornare e ripristinare facilme
 L'interfaccia della riga di comando di `nuget.exe` viene usata per il progetto .NET Framework e per i progetti non di tipo SDK, ad esempio un progetto non di tipo SDK destinato alle librerie .NET Standard. Se si usa un progetto non di tipo SDK, di cui è stata eseguita la migrazione a `PackageReference`, usare invece l'interfaccia della riga di comando di `dotnet`. L'interfaccia della riga di comando di `nuget.exe` richiede un file [packages.config](../reference/packages-config.md) per i riferimenti ai pacchetti.
 
 > [!NOTE]
-> Nella maggior parte degli scenari è consigliabile [eseguire la migrazione dei progetti non di tipo SDK](../reference/migrate-packages-config-to-package-reference.md) che usano `packages.config` a PackageReference, per poter poi usare l'interfaccia della riga di comando di `dotnet` anziché l'interfaccia della riga di comando di `nuget.exe`. La migrazione non è attualmente disponibile per i progetti C++ e ASP.NET.
+> Nella maggior parte degli scenari è consigliabile [eseguire la migrazione dei progetti non di tipo SDK](../consume-packages/migrate-packages-config-to-package-reference.md) che usano `packages.config` a PackageReference, per poter poi usare l'interfaccia della riga di comando di `dotnet` anziché l'interfaccia della riga di comando di `nuget.exe`. La migrazione non è attualmente disponibile per i progetti C++ e ASP.NET.
 
 Questo articolo illustra l'utilizzo di base di alcuni dei comandi più comuni dell'interfaccia della riga di comando di `nuget.exe`. Per la maggior parte di questi comandi, lo strumento della riga di comando cerca un file di progetto nella directory corrente, a meno che non venga specificato un file di progetto nel comando. Per un elenco completo dei comandi e degli argomenti che è possibile usare, vedere [Informazioni di riferimento sull'interfaccia della riga di comando di nuget.exe](../reference/nuget-exe-cli-reference.md).
 
@@ -111,3 +111,13 @@ nuget update
 ## <a name="restore-packages"></a>Ripristinare pacchetti
 
 [!INCLUDE [restore-nuget-exe-cli](includes/restore-nuget-exe-cli.md)]
+
+## <a name="get-the-cli-version"></a>Ottenere la versione dell'interfaccia della riga di comando
+
+Usare questo comando:
+
+```cli
+nuget help
+```
+
+La prima riga nell'output del comando help mostra la versione. Per evitare lo scorrimento, usare invece `nuget help | more`.
