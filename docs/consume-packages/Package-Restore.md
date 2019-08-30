@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: dfe5f2ef4f0ababd81b91073938752aab2bdc01e
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 93a94a5468b48179d27b89825cebf2447657c8f2
+ms.sourcegitcommit: 7c9f157ba02d9be543de34ab06813ab1ec10192a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488814"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69999988"
 ---
 # <a name="restore-packages-using-package-restore"></a>Ripristinare i pacchetti con Ripristino pacchetto
 
@@ -44,7 +44,7 @@ Ripristino pacchetto tenta di installare tutte le dipendenze del pacchetto nello
 
    Per i progetti che usano PackageReference, dopo un ripristino riuscito il pacchetto dovrebbe essere presente nella cartella *global-packages* e il file `obj/project.assets.json` viene ricreato. Per i progetti che usano `packages.config`, il pacchetto dovrebbe essere visualizzato nella cartella `packages` del progetto. La compilazione del progetto dovrebbe ora avvenire senza problemi. 
 
-2. Dopo l'esecuzione di Ripristino pacchetto, se si verificano ancora pacchetti mancanti o errori correlati al pacchetto (ad esempio, icone di errore in Esplora soluzioni in Visual Studio), potrebbe essere necessario [reinstallare e aggiornare i pacchetti](../consume-packages/reinstalling-and-updating-packages.md).
+2. Dopo l'esecuzione di Ripristino pacchetto, se si verificano ancora pacchetti mancanti o errori correlati al pacchetto (ad esempio, icone di errore in Esplora soluzioni in Visual Studio), potrebbe essere necessario seguire le istruzioni descritte in [Risoluzione degli errori relativi al ripristino dei pacchetti](package-restore-troubleshooting.md) o, in alternativa, [reinstallare e aggiornare i pacchetti](../consume-packages/reinstalling-and-updating-packages.md).
 
    In Visual Studio la console di gestione pacchetti offre diverse opzioni flessibili per la reinstallazione dei pacchetti. Vedere [Uso di Package-Update](reinstalling-and-updating-packages.md#using-update-package).
 

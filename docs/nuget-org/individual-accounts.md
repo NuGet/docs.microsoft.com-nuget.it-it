@@ -1,18 +1,18 @@
 ---
-title: Account personali
+title: Account personali - NuGet.org
 description: Per pubblicare i pacchetti sono necessari account personali in NuGet.org
 author: mikejo5000
 ms.author: mikejo
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: c88b88015bd6d5bae4789765126c0a3dec527e24
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
+ms.openlocfilehash: 63c6b5eb5ad635e436b4d53a5f833af35f72d76f
+ms.sourcegitcommit: 7c9f157ba02d9be543de34ab06813ab1ec10192a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68419878"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69999972"
 ---
-# <a name="individual-accounts"></a>Account personali
+# <a name="individual-accounts-on-nugetorg"></a>Account personali in NuGet.org
 
 È necessario creare un account personale per pubblicare e gestire i pacchetti in NuGet.org.
 
@@ -69,3 +69,7 @@ Per migliorare la protezione dell'account, abilitare l'autenticazione a due fatt
    ![Abilitare 2FA](media/nuget-org-enter-code-2fa.png)
 
 5. Seguire eventuali istruzioni aggiuntive per completare l'autenticazione a due fattori.
+
+## <a name="delete-a-nugetorg-account"></a>Eliminare un account di NuGet.org
+
+Per informazioni su altre attività correlate all'account, ad esempio l'eliminazione di un account NuGet.org , vedere [Gestione degli account di NuGet.org](nuget-org-faq.md#nugetorg-account-management).
