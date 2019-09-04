@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: b898b389ee6c962831ce789a7c304c75e6bd8774
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: be25e9bf72b9115de8ae55f6296195fed3152f10
+ms.sourcegitcommit: ac9a00ccaf90e539a381e92b650074910b21eb0d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488205"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70235121"
 ---
 # <a name="search"></a>Cerca
 
@@ -103,7 +103,7 @@ In nuget.org, un pacchetto verificato è uno che dispone di un ID pacchetto corr
 
 I metadati contenuti nell'oggetto risultato della ricerca sono ricavati dalla versione più recente del pacchetto. Ogni elemento nella `versions` matrice è un oggetto JSON con le proprietà seguenti:
 
-Name      | Type    | Obbligatoria | Note
+NOME      | Type    | Obbligatoria | Note
 --------- | ------- | -------- | -----
 @id       | string  | sì      | URL assoluto della [foglia di registrazione](registration-base-url-resource.md#registration-leaf) associata
 version   | string  | sì      | Stringa di versione SemVer 2.0.0 completa del pacchetto (potrebbe contenere metadati di compilazione)
@@ -111,7 +111,7 @@ Download | integer | sì      | Numero di download per la versione specifica del
 
 ### <a name="sample-request"></a>Richiesta di esempio
 
-    GET https://api-v2v3search-0.nuget.org/query?q=NuGet.Versioning&prerelease=false
+    GET https://azuresearch-usnc.nuget.org/query?q=NuGet.Versioning&prerelease=false&semVerLevel=2.0.0
 
 ### <a name="sample-response"></a>Risposta di esempio
 
