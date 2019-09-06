@@ -5,23 +5,23 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: 7bfe041c01114ac61e811497ecc31ebfdad45029
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.openlocfilehash: 40e240478918d327fbea0013bbf271ea2ee1fc47
+ms.sourcegitcommit: a0807671386782021acb7588741390e6f07e94e1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488895"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70384489"
 ---
-# <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Guida introduttiva: Creare e pubblicare un pacchetto con Visual Studio (.NET Framework, Windows)
+# <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Avvio rapido: Creare e pubblicare un pacchetto con Visual Studio (.NET Framework, Windows)
 
 La creazione di un pacchetto NuGet da una libreria di classi .NET Framework prevede la creazione della DLL in Visual Studio in Windows, quindi l'uso dello strumento da riga di comando nuget.exe per creare e pubblicare il pacchetto.
 
 > [!Note]
-> Questa guida introduttiva si applica solo a Visual Studio 2017 per Windows. Visual Studio per Mac non include le funzionalità descritte di seguito. Usare invece gli [strumenti dell'interfaccia della riga di comando dotnet](create-and-publish-a-package-using-the-dotnet-cli.md).
+> Questa Guida introduttiva si applica solo a Visual Studio 2017 e versioni successive per Windows. Visual Studio per Mac non include le funzionalità descritte di seguito. Usare invece gli [strumenti dell'interfaccia della riga di comando dotnet](create-and-publish-a-package-using-the-dotnet-cli.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-1. Installare qualsiasi edizione di Visual Studio 2017 da [visualstudio.com](https://www.visualstudio.com/) con qualsiasi carico di lavoro correlato a .NET. Visual Studio 2017 include automaticamente le funzionalità di NuGet quando viene installato un carico di lavoro .NET.
+1. Installare qualsiasi edizione di Visual Studio 2017 o versione successiva da [visualstudio.com](https://www.visualstudio.com/) con qualsiasi carico di lavoro correlato a .NET. Visual Studio 2017 include automaticamente le funzionalità di NuGet quando viene installato un carico di lavoro .NET.
 
 1. Installare l'interfaccia della riga di comando `nuget.exe` scaricandola da [nuget.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe), salvare il file `.exe` in una cartella appropriata e aggiungere tale cartella alla variabile di ambiente PATH.
 
@@ -119,7 +119,7 @@ Eseguire `nuget spec` una sola volta per generare il manifesto iniziale. Quando 
     - projectUrl
     - iconUrl
     - releaseNotes
-    - tag
+    - tags
 
 1. Per i pacchetti compilati per uso pubblico, prestare particolare attenzione alla proprietà **Tags**, perché i tag consentono ad altri utenti di trovare il pacchetto in origini come nuget.org e di comprenderne le funzioni.
 

@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 29c52b6684dff252e9c45bf5365d83b6a3fe5201
-ms.sourcegitcommit: c65e7a889ddf64a8e2ff7bc59ec08edb308e16ca
+ms.openlocfilehash: ea40f80a482a290b7399e5a6abc69e0c6fe32b77
+ms.sourcegitcommit: a0807671386782021acb7588741390e6f07e94e1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70060239"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70384451"
 ---
 # <a name="nuspec-reference"></a>Informazioni di riferimento sul file .nuspec
 
@@ -90,7 +90,7 @@ URL della pagina iniziale del pacchetto, spesso visualizzato nell'interfaccia ut
 
 #### <a name="licenseurl"></a>licenseUrl
 > [!Important]
-> licenseUrl verrà deprecato. Usare invece la licenza.
+> licenseUrl è deprecato. Usare invece la licenza.
 
 URL per la licenza del pacchetto, spesso visualizzato in interfacce utente come nuget.org.
 
@@ -143,7 +143,36 @@ license-expression =  1*1(simple-expression / compound-expression / UNLICENSED)
 ```
 
 #### <a name="iconurl"></a>iconUrl
+
+> [!Important]
+> iconUrl è deprecato. Usare invece l'icona.
+
 URL di un'immagine 64x64 con sfondo trasparente da usare come icona per il pacchetto nella visualizzazione dell'interfaccia utente. Assicurarsi che questo elemento contenga l'*URL diretto dell'immagine* e non l'URL di una pagina Web contenente l'immagine. Ad esempio, per usare un'immagine da GitHub, usare l'URL del file non <em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>elaborato come. 
+   
+#### <a name="icon"></a>icona
+
+Si tratta di un percorso di un file di immagine all'interno del pacchetto, spesso visualizzato in interfacce utente come nuget.org come icona del pacchetto. Le dimensioni del file di immagine sono limitate a 1 MB. I formati di file supportati sono JPEG e PNG. Si consiglia un'immagine Resoulution di 64x64.
+
+Ad esempio, quando si crea un pacchetto con NuGet. exe, è necessario aggiungere il codice seguente al NuSpec:
+
+```xml
+<package>
+  <metadata>
+    ...
+    <icon>images\icon.png</icon>
+    ...
+  </metadata>
+  <files>
+    ...
+    <file src="..\icon.png" target="images\" />
+    ...
+  </files>
+</package>
+```
+
+[Esempio di icona del pacchetto NuSpec.](https://github.com/NuGet/Samples/tree/master/PackageIconNuspecExample)
+
+Per l'equivalente MSBuild, vedere la pagina [relativa all'imballaggio di un file di immagine icona](msbuild-targets.md#packing-an-icon-image-file).
 
 #### <a name="requirelicenseacceptance"></a>requireLicenseAcceptance
 Valore booleano che specifica se il client deve richiedere al consumer di accettare la licenza del pacchetto prima di installarlo.
@@ -251,7 +280,7 @@ In genere, quando si dispone di un progetto, si crea inizialmente il file `.nusp
 
 Ad eccezione di `$configuration$`, i valori nel progetto vengono usati preferenzialmente rispetto a qualsiasi altro valore assegnato allo stesso token nella riga di comando.
 
-| Token | Origine del valore | Valore
+| Token | Origine del valore | Value
 | --- | --- | ---
 | **$id$** | File di progetto | AssemblyName (title) dal file di progetto |
 | **$version$** | AssemblyInfo | AssemblyInformationalVersion se presente, in caso contrario AssemblyVersion |

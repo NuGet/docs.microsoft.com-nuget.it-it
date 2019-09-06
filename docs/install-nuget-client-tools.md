@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/20/2019
 ms.topic: quickstart
-ms.openlocfilehash: d7aa2e4bdb78dcc6747d9775cbdf0d6c41855b96
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
-ms.translationtype: HT
+ms.openlocfilehash: 417388872a74b29a469d6a5c17c079a0d1a35dc3
+ms.sourcegitcommit: a0807671386782021acb7588741390e6f07e94e1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68419808"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70384466"
 ---
 # <a name="install-nuget-client-tools"></a>Installare gli strumenti client di NuGet
 
@@ -22,7 +22,7 @@ Per usare NuGet, come consumer o autore di pacchetti, è possibile usare gli str
 |:------------- |:-------------|:-----|
 | [dotnet.exe](#dotnetexe-cli) | Strumento dell'interfaccia della riga di comando per librerie .NET Core e .NET Standard e per qualsiasi [progetto di tipo SDK](resources/check-project-format.md), ad esempio quelli destinati a .NET Framework. Incluso in .NET Core SDK, offre le principali funzionalità NuGet per tutte le piattaforme. A partire da Visual Studio 2017, l'interfaccia della riga di comando dotnet viene installata automaticamente con qualsiasi carico di lavoro correlato a .NET Core.| [.NET Core SDK](https://www.microsoft.com/net/download/) |
 | [nuget.exe](#nugetexe-cli) | Strumento dell'interfaccia della riga di comando per librerie .NET Framework e per qualsiasi [progetto non di tipo SDK](resources/check-project-format.md), ad esempio quelli destinati a librerie .NET Standard. Fornisce tutte le funzionalità di NuGet in Windows e la maggior parte delle funzionalità in Mac e Linux per l'esecuzione in Mono. | [nuget.exe](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) |
-| [Visual Studio](#visual-studio) | In Windows, fornisce le funzionalità NuGet tramite l'interfaccia utente di Gestione pacchetti e la console di Gestione pacchetti, incluse nei carichi di lavoro correlati a .NET. In Mac, fornisce alcune funzionalità tramite l'interfaccia utente. In Visual Studio Code, le funzionalità di NuGet vengono offerte tramite le estensioni. | [Visual Studio 2017](https://www.visualstudio.com/downloads/) |
+| [Visual Studio](#visual-studio) | In Windows, fornisce le funzionalità NuGet tramite l'interfaccia utente di Gestione pacchetti e la console di Gestione pacchetti, incluse nei carichi di lavoro correlati a .NET. In Mac, fornisce alcune funzionalità tramite l'interfaccia utente. In Visual Studio Code, le funzionalità di NuGet vengono offerte tramite le estensioni. | [Visual Studio](https://www.visualstudio.com/downloads/) |
 
 Anche l'[interfaccia della riga di comando di MSBuild](reference/msbuild-targets.md) offre la possibilità di ripristinare e creare pacchetti, utile principalmente nei server di compilazione. MSBuild non è uno strumento generico per l'utilizzo di NuGet.
 
@@ -73,7 +73,7 @@ Installazione:
   - I comandi della console di Gestione pacchetti funzionano solo all'interno di Visual Studio in Windows e non all'interno di altri ambienti di PowerShell.
   - Per Visual Studio 2010 e versioni precedenti, installare l'estensione "NuGet Package Manager per Visual Studio".
   - Le estensioni NuGet per Visual Studio 2013 e 2015 possono anche essere scaricate da [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html).
-  - Se si desidera visualizzare in anteprima le funzionalità future di NuGet, installare [Visual Studio 2017 Preview](https://www.visualstudio.com/vs/preview/), una versione di anteprima affiancata alle versioni stabili di Visual Studio. Per segnalare problemi o condividere idee per le anteprime, aprire un problema nel [repository GitHub di NuGet](https://github.com/Nuget/Home/issues).
+  - Per visualizzare in anteprima le funzionalità NuGet future, installare un' [Anteprima di Visual Studio](https://www.visualstudio.com/vs/preview/), che può essere affiancata alle versioni stabili di Visual Studio. Per segnalare problemi o condividere idee per le anteprime, aprire un problema nel [repository GitHub di NuGet](https://github.com/Nuget/Home/issues).
 
 ## <a name="feature-availability"></a>Disponibilità delle funzionalità
 
