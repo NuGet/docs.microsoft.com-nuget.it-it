@@ -1,61 +1,61 @@
 ---
-title: Modello di URL dettagli del pacchetto, NuGet API
-description: Il modello di URL dei dettagli del pacchetto consente ai client di visualizzare l'interfaccia utente web collegamento a ulteriori dettagli del pacchetto
+title: Modello di URL dei dettagli del pacchetto, API NuGet
+description: Il modello di URL dei dettagli del pacchetto consente ai client di visualizzare nell'interfaccia utente un collegamento Web a più dettagli del pacchetto
 author: joelverhagen
 ms.author: jver
 ms.date: 3/1/2019
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: c01fd35c5d96c44279c9d0254f89d8b1b9fe59d8
-ms.sourcegitcommit: 2af17c8bb452a538977794bf559cdd78d58f2790
+ms.openlocfilehash: 6657536ea6c699a834f57494c66b2a7d741dfcb7
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58638074"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488172"
 ---
-# <a name="package-details-url-template"></a>Modello di URL dei dettagli del pacchetto
+# <a name="package-details-url-template"></a>Modello URL Dettagli pacchetto
 
-È possibile che un client per creare un URL che può essere utilizzato dall'utente per visualizzare ulteriori dettagli del pacchetto nel web browser. Ciò è utile quando si desidera visualizzare informazioni aggiuntive relative a un pacchetto che potrebbe non rientrare nell'ambito di ciò che l'applicazione client di NuGet Mostra un'origine del pacchetto.
+È possibile che un client crei un URL che può essere usato dall'utente per visualizzare altri dettagli del pacchetto nel Web browser. Questa operazione è utile quando un'origine del pacchetto desidera visualizzare informazioni aggiuntive su un pacchetto che potrebbero non rientrare nell'ambito di ciò che viene visualizzato nell'applicazione client NuGet.
 
-La risorsa usata per la creazione di questo URL è il `PackageDetailsUriTemplate` trovare la risorsa nella [indice del servizio](service-index.md).
+La risorsa utilizzata per la compilazione di questo URL `PackageDetailsUriTemplate` è la risorsa presente nell' [indice del servizio](service-index.md).
 
 ## <a name="versioning"></a>Controllo delle versioni
 
-Nell'esempio `@type` vengono utilizzati i valori:
+Vengono usati `@type` i valori seguenti:
 
 Valore di @type                     | Note
 ------------------------------- | -----
-PackageDetailsUriTemplate/5.1.0 | La versione iniziale
+PackageDetailsUriTemplate/5.1.0 | Versione iniziale
 
-## <a name="url-template"></a>Modello di URL
+## <a name="url-template"></a>Modello URL
 
-L'URL per l'API seguente è il valore della `@id` proprietà associati a uno della risorsa menzionati in precedenza `@type` valori.
+L'URL per l'API seguente è il valore della `@id` proprietà associata a uno dei valori di risorsa `@type` indicati sopra.
 
 ## <a name="http-methods"></a>Metodi HTTP
 
-Anche se il client non può effettuare richieste all'URL dei dettagli del pacchetto per conto dell'utente, la pagina web deve supportare il `GET` metodo per consentire un URL selezionato essere facilmente aperto in un web browser.
+Anche se il client non è destinato a eseguire richieste all'URL dei dettagli del pacchetto per conto dell'utente, la pagina Web deve supportare `GET` il metodo per consentire l'apertura semplice di un URL selezionato in un Web browser.
 
-## <a name="construct-the-url"></a>Creare l'URL
+## <a name="construct-the-url"></a>Costruire l'URL
 
-Dato un ID noto pacchetto e versione, l'implementazione client può creare un URL utilizzato per accedere a un'interfaccia web. L'implementazione client deve visualizzare questo URL costruito (o un collegamento selezionabile) all'utente e consente loro di aprire un web browser all'URL e per altre informazioni sul pacchetto. Il contenuto della pagina dei dettagli del pacchetto è determinato dall'implementazione del server.
+Dato un ID e una versione del pacchetto noti, l'implementazione client può costruire un URL usato per accedere a un'interfaccia Web. L'implementazione client deve visualizzare l'URL costruito (o collegamento selezionabile) per consentire all'utente di aprire un Web browser all'URL e di ottenere ulteriori informazioni sul pacchetto. Il contenuto della pagina dei dettagli del pacchetto è determinato dall'implementazione del server.
 
 L'URL deve essere un URL assoluto e lo schema (protocollo) deve essere HTTPS.
 
-Il valore della `@id` nel servizio di indice è una stringa URL contenente uno dei token di segnaposto seguente:
+Il valore di `@id` nell'indice del servizio è una stringa URL contenente uno dei token segnaposto seguenti:
 
 ### <a name="url-placeholders"></a>Segnaposto URL
 
-Nome        | Tipo    | Obbligatorio | Note
+Name        | Type    | Obbligatoria | Note
 ----------- | ------- | -------- | -----
-`{id}`      | string  | No       | L'ID del pacchetto per ottenere i dettagli per
-`{version}` | string  | No       | La versione del pacchetto per ottenere i dettagli per
+`{id}`      | string  | no       | ID del pacchetto per cui ottenere i dettagli
+`{version}` | string  | no       | Versione del pacchetto per cui ottenere i dettagli
 
-Il server deve accettare `{id}` e `{version}` valori con qualsiasi maiuscole e minuscole. Inoltre, il server non deve essere sensibile alle se è la versione [normalizzato](https://docs.microsoft.com/en-us/nuget/reference/package-versioning#normalized-version-numbers). In altre parole, il server deve accettare accettano anche le versioni non normalizzato.
+Il server deve accettare `{id}` i `{version}` valori e con qualsiasi combinazione di maiuscole e minuscole. Inoltre, il server non deve essere sensibile alla [normalizzazione](https://docs.microsoft.com/en-us/nuget/concepts/package-versioning#normalized-version-numbers)della versione. In altre parole, il server deve accettare anche versioni non normalizzate.
 
-Ad esempio, modello di dettagli del pacchetto di nuget.org aspetto simile al seguente:
+Ad esempio, il modello di dettagli del pacchetto NuGet. org è simile al seguente:
 
     https://www.nuget.org/packages/{id}/{version}
 
-Se l'implementazione client deve visualizzare un collegamento per i dettagli del pacchetto per NuGet.Versioning 4.3.0, verrebbe generato l'URL seguente e offrirlo all'utente:
+Se l'implementazione client deve visualizzare un collegamento ai dettagli del pacchetto per NuGet. Versioning 4.3.0, produrrebbe l'URL seguente e lo fornirà all'utente:
 
     https://www.nuget.org/packages/NuGet.Versioning/4.3.0
