@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: cab56cb87f46335f9fdebdbc1649fead16459877
-ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
+ms.openlocfilehash: 76829d45ea9821da3b7fdaa2f88d30dbb104fea1
+ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959728"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70815357"
 ---
 # <a name="pack-command-nuget-cli"></a>Comando pack (interfaccia della riga di comando di NuGet)
 
@@ -31,10 +31,11 @@ dove `<nuspecPath>` `.nuspec` e `<projectPath>` specificano rispettivamente il f
 
 ## <a name="options"></a>Opzioni
 
-| Opzione | DESCRIZIONE |
+| Opzione | Descrizione |
 | --- | --- |
 | BasePath | Imposta il percorso di base dei file definiti nel file con [estensione NuSpec](../nuspec.md) . |
 | Compilazione | Specifica che il progetto deve essere compilato prima della compilazione del pacchetto. |
+| Deterministico | Specificare se il comando deve creare un pacchetto deterministico. Più chiamate del comando Pack generano esattamente lo stesso pacchetto byte-byte. L'output del comando Pack non è influenzato dallo stato di ambiente del computer. In particolare, le voci zip verranno restituite come 1980-01-01. Per ottenere il determinismo completo, gli assembly devono essere compilati con l'opzione del compilatore corrispondente [deterministica](/dotnet/csharp/language-reference/compiler-options/deterministic-compiler-option). |
 | Escludi | Specifica uno o più criteri jolly da escludere durante la creazione di un pacchetto. Per specificare più di un modello, ripetere il flag-exclude. Vedere l'esempio seguente. |
 | ExcludeEmptyDirectories | Impedisce l'inclusione di directory vuote durante la compilazione del pacchetto. |
 | ForceEnglishOutput | *(3.5 +)* Impone l'esecuzione di NuGet. exe con impostazioni cultura invarianti basate sull'inglese. |
@@ -52,7 +53,7 @@ dove `<nuspecPath>` `.nuspec` e `<projectPath>` specificano rispettivamente il f
 | Simboli | Specifica che il pacchetto contiene origini e simboli. Quando viene usato con `.nuspec` un file, viene creato un normale file di pacchetto NuGet e il pacchetto di simboli corrispondente. Per impostazione predefinita, crea un [pacchetto di simboli legacy](../../create-packages/Symbol-Packages.md). Il nuovo formato consigliato per i pacchetti di simboli è l'estensione snupkg. Vedere [Creazione di pacchetti di simboli (estensione snupkg)](../../create-packages/Symbol-Packages-snupkg.md). |
 | Strumento | Specifica che i file di output del progetto devono essere inseriti nella `tool` cartella. |
 | Verbosity | Specifica il livello di dettaglio visualizzato nell'output: *normale*, *silenzioso*, *dettagliato*. |
-| Version | Esegue l'override del numero di `.nuspec` versione dal file. |
+| Versione | Esegue l'override del numero di `.nuspec` versione dal file. |
 
 Vedere anche [variabili di ambiente](cli-ref-environment-variables.md)
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: a9331ad2ea0482737d84f4ea9a9babf95da8d66f
-ms.sourcegitcommit: d5cc3f01a92c2d69b794343c09aff07ba9e912e5
+ms.openlocfilehash: 16b8ff532b87a3e3f96029e77dd166eb39294c0b
+ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70385899"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70815340"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Pack e restore di NuGet come destinazioni MSBuild
 
@@ -55,7 +55,7 @@ Si noti che le proprietà `Owners` e `Summary` da `.nuspec` non sono supportate 
 | Autori | Autori | Nome utente dell'utente corrente | |
 | Proprietari | N/D | Non presente in NuSpec | |
 | Titolo | Titolo | PackageId| |
-| Descrizione | Descrizione | "Descrizione del pacchetto" | |
+| DESCRIZIONE | DESCRIZIONE | "Descrizione del pacchetto" | |
 | Copyright | Copyright | vuoto | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
 | licenza | PackageLicenseExpression | vuoto | Corrisponde a`<license type="expression">` |
@@ -80,7 +80,7 @@ Si noti che le proprietà `Owners` e `Summary` da `.nuspec` non sono supportate 
 - PackageVersion
 - PackageId
 - Autori
-- Descrizione
+- DESCRIZIONE
 - Copyright
 - PackageRequireLicenseAcceptance
 - DevelopmentDependency
@@ -109,6 +109,7 @@ Si noti che le proprietà `Owners` e `Summary` da `.nuspec` non sono supportate 
 - NuspecFile
 - NuspecBasePath
 - NuspecProperties
+- Deterministico
 
 ## <a name="pack-scenarios"></a>Scenari pack
 
@@ -172,6 +173,18 @@ I riferimenti da progetto a progetto sono considerati per impostazione predefini
 <IncludeAssets>
 <ExcludeAssets>
 <PrivateAssets>
+```
+
+### <a name="deterministic"></a>Deterministico
+
+Quando si `MSBuild -t:pack -p:Deterministic=true`utilizza, più chiamate della destinazione Pack generano esattamente lo stesso pacchetto.
+L'output del comando Pack non è influenzato dallo stato di ambiente del computer. In particolare, le voci zip verranno restituite come 1980-01-01. Per ottenere il determinismo completo, gli assembly devono essere compilati con l'opzione del compilatore corrispondente [deterministica](/dotnet/csharp/language-reference/compiler-options/deterministic-compiler-option).
+È consigliabile specificare la proprietà deterministica come segue, in modo che sia il compilatore che NuGet lo rispettino.
+
+```xml
+<PropertyGroup>
+  <Deterministic>true</Deterministic>
+</PropertyGroup>
 ```
 
 ### <a name="including-content-in-a-package"></a>Inclusione di contenuto in un pacchetto
@@ -402,7 +415,7 @@ File di progetto:
 
 Il ripristino crea i file seguenti nella cartella `obj` di compilazione:
 
-| File | DESCRIZIONE |
+| File | Descrizione |
 |--------|--------|
 | `project.assets.json` | Contiene il grafico delle dipendenze di tutti i riferimenti ai pacchetti. |
 | `{projectName}.projectFileExtension.nuget.g.props` | Riferimenti alle proprietà di MSBuild contenute nei pacchetti |

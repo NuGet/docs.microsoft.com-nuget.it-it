@@ -1,17 +1,17 @@
 ---
 title: Prenotazione del prefisso ID
 description: Descrizione della funzionalità di prenotazione del prefisso ID del pacchetto e guida alla creazione.
-author: diverdan92
-ms.author: diverdan92
-ms.date: 10/09/2017
+author: karann-msft
+ms.author: karann
+ms.date: 09/07/2019
 ms.topic: reference
-ms.reviewer: ananguar
-ms.openlocfilehash: 650f570ec65a665e3d452af732ea22337835d8d9
-ms.sourcegitcommit: cae759ad8518c049575a30ad3bf04fe5d06244fb
-ms.translationtype: HT
+ms.reviewer: karann
+ms.openlocfilehash: 630c2b193500ec0b9aa5a7fe4af3ea95ae52aeec
+ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68616808"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70815284"
 ---
 # <a name="package-id-prefix-reservation"></a>Prenotazione del prefisso ID del pacchetto
 
@@ -88,6 +88,8 @@ Durante la revisione di un'applicazione per la prenotazione del prefisso ID, il 
 1. Le proprietà di identificazione dei pacchetti che corrispondono al prefisso ID del pacchetto sono chiare e coerenti (in particolare l'autore del pacchetto)?
 
 1. I pacchetti hanno una licenza (usano l'elemento dei metadati [license](../reference/nuspec.md#license) e NON licenseUrl che sarà deprecato)?
+
+1. Se i pacchetti hanno un'icona (usando l'elemento dei metadati iconUrl), usano anche l'elemento di metadati [Icon](../reference/nuspec.md#icon) (non è necessario rimuovere iconUrl)?
 
 ## <a name="third-party-feed-provider-scenarios"></a>Scenari di provider di feed di terze parti
 
