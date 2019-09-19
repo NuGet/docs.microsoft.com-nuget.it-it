@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: 5309d94fafea9cdfc3699d443393be5d381dd145
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
-ms.translationtype: HT
+ms.openlocfilehash: 89127203df0aa1eb24f36b8ec64c5bb4a4d59319
+ms.sourcegitcommit: 1eda83ab537c86cc27316e7bc67f95a358766e63
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317726"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094071"
 ---
 # <a name="common-nuget-configurations"></a>Configurazioni comuni di NuGet
 
@@ -18,14 +18,14 @@ Il comportamento di NuGet si basa sulle impostazioni accumulate in uno o più fi
 
 ## <a name="config-file-locations-and-uses"></a>Percorsi e usi dei file di configurazione
 
-| Ambito | Percorso del file NuGet.Config | DESCRIZIONE |
+| Ambito | Percorso del file NuGet.Config | Descrizione |
 | --- | --- | --- |
 | Soluzione | Cartella corrente (ovvero la cartella della soluzione) o qualsiasi cartella fino alla radice dell'unità.| Nella cartella di una soluzione le impostazioni si applicano a tutti i progetti presenti nelle sottocartelle. Si noti che se un file di configurazione viene inserito in una cartella di progetto, non ha alcun effetto su tale progetto. |
 | Utente | Windows: `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.config/NuGet/NuGet.Config` o `~/.nuget/NuGet/NuGet.Config` (a seconda della distribuzione del sistema operativo) | Le impostazioni si applicano a tutte le operazioni, ma ne viene eseguito l'override dalle impostazioni a livello di progetto. |
 | Computer | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME`. Se `$XDG_DATA_HOME` è null o vuoto, verrà usato `~/.local/share` o `/usr/local/share` (a seconda della distribuzione del sistema operativo)  | Le impostazioni si applicano a tutte le operazioni sul computer, ma ne viene eseguito l'override dalle impostazioni a livello di utente o di progetto. |
 
 Note per versioni precedenti di NuGet:
-- NuGet 3.3 e versioni precedenti usavano una cartella `.nuget` per le impostazioni a livello di soluzione. Questo file non viene usato in NuGet 3.4+.
+- NuGet 3.3 e versioni precedenti usavano una cartella `.nuget` per le impostazioni a livello di soluzione. Questa cartella non viene usata in NuGet 3.4 +.
 - Per NuGet da 2.6 a 3.x, il file di configurazione a livello di computer in Windows si trovava in %ProgramData%\NuGet\Config[\\{IDE}[\\{Versione}[\\{SKU}]]]\NuGet.Config, dove *{IDE}* può essere *VisualStudio*, *{Versione}* era la versione di Visual Studio, ad esempio *14.0*, e *{SKU}* è *Community*, *Pro* o *Enterprise*. Per eseguire la migrazione delle impostazioni a NuGet 4.0+, è sufficiente copiare il file di configurazione in %Programmi(x86)%\NuGet\Config. In Linux questo percorso precedente era /etc/opt e in Mac /Library/Application Support.
 
 ## <a name="changing-config-settings"></a>Modifica delle impostazioni di configurazione
@@ -209,7 +209,7 @@ La tabella seguente descrive la posizione di archiviazione prevista per il file 
 
 | Piattaforma del sistema operativo  | Percorso di NuGetDefaults.Config |
 | --- | --- |
-| WINDOWS      | **Visual Studio 2017 o NuGet 4.x+:** `%ProgramFiles(x86)%\NuGet\Config` <br />**Visual Studio 2015 e versioni precedenti o NuGet 3.x e versioni precedenti:** `%PROGRAMDATA%\NuGet` |
+| Windows      | **Visual Studio 2017 o NuGet 4.x+:** `%ProgramFiles(x86)%\NuGet\Config` <br />**Visual Studio 2015 e versioni precedenti o NuGet 3.x e versioni precedenti:** `%PROGRAMDATA%\NuGet` |
 | Mac/Linux    | `$XDG_DATA_HOME` (in genere `~/.local/share` o `/usr/local/share`, a seconda della distribuzione del sistema operativo)|
 
 ### <a name="nugetdefaultsconfig-settings"></a>Impostazioni di NuGetDefaults.Config

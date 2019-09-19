@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 5ec6c0e17a3e8b9a3f156a48685bcaafe42c744b
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 7aea28d6224a89149aa33be035c82a45db3058f0
+ms.sourcegitcommit: 1eda83ab537c86cc27316e7bc67f95a358766e63
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488226"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094115"
 ---
 # <a name="package-content"></a>Contenuto del pacchetto
 
@@ -58,11 +58,11 @@ Se l'origine del pacchetto non dispone di versioni dell'ID pacchetto fornito, vi
 
 Se l'origine del pacchetto contiene una o più versioni, viene restituito un codice di stato 200. Il corpo della risposta è un oggetto JSON con la proprietà seguente:
 
-NOME     | Type             | Obbligatoria | Note
+Name     | Type             | Obbligatoria | Note
 -------- | ---------------- | -------- | -----
-versioni | matrice di stringhe | sì      | ID pacchetto disponibili
+versioni | Matrice di stringhe | sì      | Versioni disponibili
 
-Le stringhe nella `versions` matrice sono tutte stringhe di versione di [NuGet normalizzate](../concepts/package-versioning.md#normalized-version-numbers)e normalizzate. Le stringhe di versione non contengono metadati di compilazione SemVer 2.0.0.
+Le stringhe nella `versions` matrice sono tutte stringhe di versione di [NuGet normalizzate e normalizzate](../concepts/package-versioning.md#normalized-version-numbers). Le stringhe di versione non contengono metadati di compilazione SemVer 2.0.0.
 
 Lo scopo è che le stringhe di versione trovate in questa matrice possano essere usate Verbatim per `LOWER_VERSION` i token trovati negli endpoint seguenti.
 
@@ -82,7 +82,7 @@ Se il client conosce un ID e una versione del pacchetto e vuole scaricare il con
 
 ### <a name="request-parameters"></a>Parametri della richiesta
 
-Name          | In     | Type   | Obbligatoria | Note
+NOME          | In     | Type   | Obbligatoria | Note
 ------------- | ------ | ------ | -------- | -----
 LOWER_ID      | URL    | string | sì      | ID del pacchetto, minuscolo
 LOWER_VERSION | URL    | string | sì      | Versione del pacchetto, normalizzata e minuscola
@@ -90,7 +90,7 @@ LOWER_VERSION | URL    | string | sì      | Versione del pacchetto, normalizzat
 Sia `LOWER_ID` che`LOWER_VERSION` sono minuscole usando le regole implementate da. NET[`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant)
 ProcessOnStatus.
 
-È la versione del pacchetto desiderata normalizzata usando [le regole](../concepts/package-versioning.md#normalized-version-numbers)di normalizzazione della versione di NuGet. `LOWER_VERSION` Ciò significa che in questo caso i metadati di compilazione consentiti dalla specifica SemVer 2.0.0 devono essere esclusi.
+È la versione del pacchetto desiderata normalizzata usando [le regole di normalizzazione](../concepts/package-versioning.md#normalized-version-numbers)della versione di NuGet. `LOWER_VERSION` Ciò significa che in questo caso i metadati di compilazione consentiti dalla specifica SemVer 2.0.0 devono essere esclusi.
 
 ### <a name="response-body"></a>Corpo della risposta
 
@@ -114,14 +114,14 @@ Se il client conosce un ID e una versione del pacchetto e vuole scaricare il man
 
 ### <a name="request-parameters"></a>Parametri della richiesta
 
-Name          | In     | Type   | Obbligatoria | Note
+NOME          | In     | Type   | Obbligatoria | Note
 ------------- | ------ | ------ | -------- | -----
 LOWER_ID      | URL    | string | sì      | ID del pacchetto, minuscolo
 LOWER_VERSION | URL    | string | sì      | Versione del pacchetto, normalizzata e minuscola
 
 Sia `LOWER_ID` che`LOWER_VERSION` sono minuscole usando le regole implementate da. [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) Metodo NET.
 
-È la versione del pacchetto desiderata normalizzata usando [le regole](../concepts/package-versioning.md#normalized-version-numbers)di normalizzazione della versione di NuGet. `LOWER_VERSION` Ciò significa che in questo caso i metadati di compilazione consentiti dalla specifica SemVer 2.0.0 devono essere esclusi.
+È la versione del pacchetto desiderata normalizzata usando [le regole di normalizzazione](../concepts/package-versioning.md#normalized-version-numbers)della versione di NuGet. `LOWER_VERSION` Ciò significa che in questo caso i metadati di compilazione consentiti dalla specifica SemVer 2.0.0 devono essere esclusi.
 
 ### <a name="response-body"></a>Corpo della risposta
 
