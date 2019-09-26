@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 85a862852761b68db882abdc1ca0e84d83d95f07
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
-ms.translationtype: HT
+ms.openlocfilehash: 1053a18926f63e02f0b1c100e7cc1cd293654ced
+ms.sourcegitcommit: e4b0ff4460865db6dc7bc9f20e9f644d98493011
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317633"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71307210"
 ---
 # <a name="signing-nuget-packages"></a>Firma di pacchetti NuGet
 
@@ -34,7 +34,7 @@ A scopo di test è possibile usare l'autocertificazione. Tuttavia, i pacchetti f
 ## <a name="sign-the-package"></a>Firmare il pacchetto
 
 > [!note]
-> Richiede nuget.exe 4.6.0 o versione successiva
+> Richiede NuGet. exe 4.6.0 o versione successiva. il supporto di DotNet. exe sarà presto disponibile [#7939](https://github.com/NuGet/Home/issues/7939)
 
 Firmare il pacchetto usando il comando [sign](../reference/cli-reference/cli-ref-sign.md) di NuGet:
 

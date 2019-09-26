@@ -5,14 +5,14 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/24/2018
 ms.topic: quickstart
-ms.openlocfilehash: d9937a2b087fd88c1e6fd9f07a513b5047bdcf2e
-ms.sourcegitcommit: ac9a00ccaf90e539a381e92b650074910b21eb0d
+ms.openlocfilehash: 92fc78a88733d0308dc26e10c5b0bafb86b78045
+ms.sourcegitcommit: e4b0ff4460865db6dc7bc9f20e9f644d98493011
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70235077"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71307220"
 ---
-# <a name="quickstart-install-and-use-a-package-in-visual-studio-windows-only"></a>Avvio rapido: Installare e usare un pacchetto in Visual Studio (solo Windows)
+# <a name="quickstart-install-and-use-a-package-in-visual-studio-windows-only"></a>Guida introduttiva: Installare e usare un pacchetto in Visual Studio (solo Windows)
 
 I pacchetti NuGet contengono codice riutilizzabile che altri sviluppatori rendono disponibile per l'uso nei progetti. Vedere [Che cos'è NuGet?](../What-is-NuGet.md) per le informazioni di base. I pacchetti vengono installati in un progetto di Visual Studio usando Gestione pacchetti NuGet o la console di Gestione pacchetti. Questo articolo illustra il processo usando il famoso pacchetto [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) e un progetto Windows Presentation Foundation (WPF). Lo stesso processo si applica a qualsiasi altro progetto .NET o .NET Core.
 
@@ -33,7 +33,7 @@ Se si usa Visual Studio per Mac, vedere [installare e usare un pacchetto nel Vis
 
 I pacchetti NuGet possono essere installati in qualsiasi progetto .NET, a condizione che il pacchetto supporti lo stesso framework di destinazione del progetto.
 
-Per questa procedura dettagliata, usare una semplice app WPF. Creare un progetto in Visual Studio: usare **File > Nuovo progetto**, digitare **.NET** nella casella di ricerca e quindi selezionare **App WPF (.NET Framework)** . Fare clic su **Avanti**. Quando richiesto, accettare i valori predefiniti per **Framework**.
+Per questa procedura dettagliata, usare una semplice app WPF. Creare un progetto in Visual Studio usando **file** > **nuovo progetto**, digitando **.NET** nella casella di ricerca e quindi selezionando l' **app WPF (.NET Framework)** . Scegliere **Avanti**. Quando richiesto, accettare i valori predefiniti per **Framework**.
 
 Visual Studio crea il progetto, che viene aperto in Esplora soluzioni.
 
@@ -63,7 +63,7 @@ Per installare il pacchetto, è possibile usare Gestione pacchetti NuGet o la co
 
 ### <a name="package-manager-console"></a>Console di Gestione pacchetti
 
-1. Scegliere i comandi di menu **Strumenti > Gestione pacchetti NuGet > Console di Gestione pacchetti**.
+1. Selezionare il comando di menu **strumenti** > gestione pacchetti**NuGet** > console di gestione**pacchetti** .
 
 1. Quando si apre la console, verificare che l'elenco a discesa **Progetto predefinito** mostri il progetto in cui si vuole installare il pacchetto. Se la soluzione include un solo progetto, è già selezionato.
 
@@ -117,7 +117,7 @@ Con il pacchetto Newtonsoft.Json nel progetto, è possibile chiamare il relativo
     using Newtonsoft.Json;
     ```
 
-1. Compilare ed eseguire l'app premendo F5 o selezionando **Debug > Avvia debug**:
+1. Compilare ed eseguire l'app premendo F5 o selezionando **debug** > **Avvia debug**:
 
     ![Output iniziale dell'app WPF](media/QS_Use-06-AppStart.png)
 
