@@ -6,26 +6,26 @@ ms.author: karann
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: ea9f699b202d7f32648f0ccfeac3ceb1ca325b7e
-ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
+ms.openlocfilehash: caa1509fd996c54f7de17e86559ea62ef67f749f
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68342437"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380487"
 ---
 # <a name="target-frameworks"></a>Framework di destinazione
 
 NuGet usa I riferimenti ai framework di destinazione in svariate posizioni per identificare e isolare i componenti dipendenti dai framework di un pacchetto:
 
-- [file di progetto](../create-packages/multiple-target-frameworks-project-file.md): Per i progetti di tipo SDK, il *. csproj* contiene i riferimenti al Framework di destinazione.
-- [manifesto. NuSpec](../reference/nuspec.md): Un pacchetto può indicare pacchetti distinti da includere in un progetto a seconda del Framework di destinazione del progetto.
-- [nome della cartella. nupkg](../create-packages/creating-a-package.md#from-a-convention-based-working-directory): Le cartelle all'interno della cartella `lib` di un pacchetto possono essere denominate in base al Framework di destinazione, ognuna delle quali contiene le dll e altri contenuti appropriati per tale Framework.
-- [packages.config](../reference/packages-config.md): L' `targetframework` attributo di una dipendenza specifica la variante di un pacchetto da installare.
+- [file di progetto](../create-packages/multiple-target-frameworks-project-file.md): per i progetti di tipo SDK, il file con *estensione csproj* contiene i riferimenti al Framework di destinazione.
+- [Manifesto .nuspec](../reference/nuspec.md): un pacchetto può indicare i pacchetti distinti da includere in un progetto a seconda del framework di destinazione del progetto.
+- [Nome delle cartella .nupkg](../create-packages/creating-a-package.md#from-a-convention-based-working-directory): le cartelle all'interno della cartella `lib` di un pacchetto possono essere denominate in base al framework di destinazione e ognuna contiene le DLL e altro contenuto appropriati per tale framework.
+- [packages.config](../reference/packages-config.md): l'attributo `targetframework` di una dipendenza specifica la variante di un pacchetto da installare.
 
 > [!Note]
 > Il codice sorgente del client NuGet che consente di calcolare le tabelle riportate di seguito è disponibile nelle posizioni seguenti:
-> - Nomi di Framework supportati: [FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
-> - Precedenza e mapping del Framework: [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
+> - Nomi dei framework supportati: [FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
+> - Precedenza e mapping dei framework: [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
 
 ## <a name="supported-frameworks"></a>Framework supportati
 
@@ -55,7 +55,7 @@ I client NuGet supportano i framework nella tabella seguente. Gli equivalenti so
 | | | netcore451 [win81] |
 | | | netcore50 |
 |.NET MicroFramework | netmf | netmf |
-|Windows | win | win [win8, netcore45] |
+|WINDOWS | win | win [win8, netcore45] |
 | | | win8 [netcore45, win] |
 | | | win81 [netcore451] |
 | | | win10 (non supportato dalla piattaforma Windows 10) |
@@ -83,6 +83,7 @@ App .NET Core | netcoreapp | netcoreapp1.0 |
 | | | netcoreapp2.0 |
 | | | netcoreapp2.1 |
 | | | netcoreapp2.2 |
+| | | netcoreapp 3.0 |
 Tizen | tizen | tizen3 |
 | | | tizen4 |
 
@@ -166,9 +167,9 @@ I framework aggiuntivi definiti da terze parti garantiscono la compatibilità co
  | | Silverlight 4.0 |
  Profile24 | .NETFramework 4.5 | portable-net45+sl5
  | | Silverlight 5.0 |
- Profile31 | Windows 8.1 | portable-win81+wp81 | netstandard1.0
+ Profile31 | Windows 8,1 | portable-win81+wp81 | netstandard1.0
  | | WindowsPhone 8.1 (SL) |
- Profile32 | Windows 8.1 | portable-win81+wpa81 | netstandard1.2
+ Profile32 | Windows 8,1 | portable-win81+wpa81 | netstandard1.2
  | | WindowsPhone 8.1 (UWP) |
  Profile36 | .NETFramework 4.0 | portable-net40+sl4+win8+wp8
  | | Silverlight 4.0 |
@@ -184,7 +185,7 @@ I framework aggiuntivi definiti da terze parti garantiscono la compatibilità co
  | | Silverlight 5.0 |
  | | Windows 8.0 |
  Profile44 | .NETFramework 4.5.1 | portable-net451+win81 | netstandard1.2
- | | Windows 8.1 |
+ | | Windows 8,1 |
  Profile46 | .NETFramework 4.5 | portable-net45+sl4+win8
  | | Silverlight 4.0 |
  | | Windows 8.0 |
@@ -236,13 +237,13 @@ I framework aggiuntivi definiti da terze parti garantiscono la compatibilità co
  | | Windows 8.0 |
  | | WindowsPhone 8.0 (SL) |
  Profile151 | NETFramework 4.5.1 | portable-net451+win81+wpa81 | netstandard1.2
- | | Windows 8.1 |
+ | | Windows 8,1 |
  | | WindowsPhone 8.1 (UWP) |
  Profile154 | .NETFramework 4.5 | portable-net45+sl4+win8+wp8
  | | Silverlight 4.0 |
  | | Windows 8.0 |
  | | WindowsPhone 8.0 (SL) |
- Profile157 | Windows 8.1 | portable-win81+wp81+wpa81 | netstandard1.0
+ Profile157 | Windows 8,1 | portable-win81+wp81+wpa81 | netstandard1.0
  | | WindowsPhone 8.1 (SL) |
  | | WindowsPhone 8.1 (UWP) |
  Profile158 | .NETFramework 4.5 | portable-net45+sl5+win8+wp8
@@ -283,7 +284,7 @@ I framework aggiuntivi definiti da terze parti garantiscono la compatibilità co
 
 Inoltre, i pacchetti NuGet destinati a Xamarin possono usare framework aggiuntivi definiti da Xamarin. Vedere [Manually Creating NuGet Packages for Xamarin](https://developer.xamarin.com/guides/cross-platform/advanced/nuget/) (Creazione manuale di pacchetti NuGet per Xamarin).
 
-| NOME | Descrizione | .NET Standard |
+| Name | Descrizione | .NET Standard |
 | --- | --- | ---
 | monoandroid | Supporto di Mono per sistema operativo Android | netstandard1.4 |
 | monotouch | Supporto di Mono per iOS | netstandard1.4 |
