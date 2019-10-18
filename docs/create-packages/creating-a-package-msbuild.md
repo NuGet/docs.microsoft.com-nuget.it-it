@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: a965a3049f46af59efcfad2ecf19e0923fda413b
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.openlocfilehash: 9512899a4086d17d2584f16833aba33efb321eae
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488968"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380695"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>Creare un pacchetto NuGet usando MSBuild
 
@@ -25,15 +25,15 @@ Il comando che crea un pacchetto, `msbuild -t:pack`, è una funzionalità equiva
 > [!IMPORTANT]
 > Questo argomento si applica ai progetti di [tipo SDK](../resources/check-project-format.md), in genere progetti .NET Core e .NET Standard, e ai progetti di tipo non SDK che usano PackageReference.
 
-## <a name="set-properties"></a>Impostare le proprietà
+## <a name="set-properties"></a>Imposta proprietà
 
 Per creare un pacchetto, sono necessarie le proprietà seguenti.
 
-- `PackageId`, ovvero l'identificatore del pacchetto, che deve essere univoco nella raccolta che ospita il pacchetto. Se non è specificato, il valore predefinito è `AssemblyName`.
+- `PackageId`, ovvero l'identificatore del pacchetto, che deve essere univoco nella raccolta che ospita il pacchetto. Se non specificato, il valore predefinito è `AssemblyName`.
 - `Version`, ovvero un numero di versione specifico nel formato *Principale.Secondaria.Patch[-Suffisso]* dove *-Suffisso* identifica le [versioni preliminari](prerelease-packages.md). Se non è specificato, il valore predefinito è 1.0.0.
 - Titolo del pacchetto come deve essere visualizzato nell'host (ad esempio, nuget.org)
-- `Authors`, ovvero informazioni sull'autore e sul proprietario. Se non è specificato, il valore predefinito è `AssemblyName`.
-- `Company`, ovvero il nome della società. Se non è specificato, il valore predefinito è `AssemblyName`.
+- `Authors`, ovvero informazioni sull'autore e sul proprietario. Se non specificato, il valore predefinito è `AssemblyName`.
+- `Company`, ovvero il nome della società. Se non specificato, il valore predefinito è `AssemblyName`.
 
 In Visual Studio è possibile impostare questi valori nelle proprietà del progetto (fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni, scegliere **Proprietà** e selezionare la scheda **Pacchetto**). È anche possibile impostare queste proprietà direttamente nei file di progetto (con estensione *csproj*).
 
@@ -181,4 +181,4 @@ Potrebbe anche essere necessario estendere le funzionalità del pacchetto o supp
 Sono infine disponibili altri tipi di pacchetti da tenere presenti:
 
 - [Pacchetti nativi](../guides/native-packages.md)
-- [Pacchetti di simboli](../create-packages/symbol-packages.md)
+- [Pacchetti di simboli](../create-packages/symbol-packages-snupkg.md)

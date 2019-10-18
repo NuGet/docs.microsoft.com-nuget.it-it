@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8c1d8a479747f6f7bce388c1555589543c8824a0
-ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
-ms.translationtype: HT
+ms.openlocfilehash: 1d23759433efb405fa5f0035049befced2c43d6b
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69020066"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380683"
 ---
 # <a name="support-multiple-net-framework-versions-in-your-project-file"></a>Supportare più versioni di .NET Framework nel file di progetto
 
@@ -37,7 +37,7 @@ Per i progetti di tipo SDK, è possibile configurare il supporto per più framew
 
    Assicurarsi di modificare l'elemento XML modificato da singolare a plurale, ovvero aggiungere "s" ai tag di apertura e di chiusura.
 
-3. In presenza di codice che funziona in un solo TFM, è possibile usare `#if NET45` o `#if NETSTANDARD20` per separare il codice dipendente dal TFM. Per altre informazioni, vedere [Come definire più destinazioni](/dotnet/core/tutorials/libraries#how-to-multitarget). Ad esempio, è possibile usare il codice seguente:
+3. In presenza di codice che funziona in un solo TFM, è possibile usare `#if NET45` o `#if NETSTANDARD2_0` per separare il codice dipendente dal TFM. Per ulteriori informazioni, vedere [How to multitarget](/dotnet/core/tutorials/libraries#how-to-multitarget). Ad esempio, è possibile usare il codice seguente:
 
    ```csharp
    public string Platform {

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/21/2017
 ms.topic: tutorial
-ms.openlocfilehash: 1683349faacdf5ad47baafeef3457bbb3bb1baa9
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.openlocfilehash: 77aa186291122a8d05018ecacd1329da459badad
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488985"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380760"
 ---
 # <a name="create-uwp-packages"></a>Creare pacchetti UWP
 
@@ -18,7 +18,7 @@ La [piattaforma UWP (Universal Windows Platform)](https://developer.microsoft.co
 
 Questa procedura dettagliata descrive come creare un pacchetto NuGet con un componente UWP nativo (incluso un controllo XAML) che può essere usato in progetti sia gestiti che nativi.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 1. Visual Studio 2017 o Visual Studio 2015. Installare l'edizione 2017 Community gratuitamente da [visualstudio.com](https://www.visualstudio.com/). È anche possibile usare le edizioni Professional ed Enterprise.
 
@@ -153,7 +153,7 @@ Nel componente la logica principale del tipo ImageEnhancer si trova nel codice n
 
 ### <a name="adding-targets"></a>Aggiunta del file con estensione targets
 
-Per i progetti C++ e JavaScript che potrebbero utilizzare il pacchetto NuGet è poi necessario un file con estensione targets per identificare i file di assembly e winmd necessari. I progetti C# e Visual Basic eseguono questa operazione automaticamente. Creare questo file copiando il testo di seguito in `ImageEnhancer.targets` e salvarlo nella stessa cartella del file `.nuspec`. _Nota_: questo file `.targets` deve avere lo stesso nome dell'ID di pacchetto (ad esempio, l'elemento `<Id>` nel file `.nupspec`):
+Per i progetti C++ e JavaScript che potrebbero utilizzare il pacchetto NuGet è poi necessario un file con estensione targets per identificare i file di assembly e winmd necessari. iC# progetti e Visual Basic eseguono questa operazione automaticamente. Creare questo file copiando il testo seguente in `ImageEnhancer.targets` e salvarlo nella stessa cartella del file di `.nuspec`. _Nota_: questo file `.targets` deve avere lo stesso nome dell'ID di pacchetto (ad esempio, l'elemento `<Id>` nel file `.nupspec`):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -253,7 +253,7 @@ Per rendere disponibile il pacchetto per altri sviluppatori, seguire le istruzio
 ## <a name="related-topics"></a>Argomenti correlati
 
 - [Informazioni di riferimento sul file .nuspec](../reference/nuspec.md)
-- [Pacchetti di simboli](../create-packages/symbol-packages.md)
+- [Pacchetti di simboli](../create-packages/symbol-packages-snupkg.md)
 - [Controllo delle versioni dei pacchetti](../concepts/package-versioning.md)
 - [Supporto di più versioni di .NET Framework](../create-packages/supporting-multiple-target-frameworks.md)
 - [Includere proprietà e destinazioni MSBuild in un pacchetto](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)

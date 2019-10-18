@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 02/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: 11dce27b93c3d09a2d27dc79f8d4fed86df879ba
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.openlocfilehash: b16bf422e2627be3b8516a875d749639734064a9
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488980"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380714"
 ---
 # <a name="create-net-standard-and-net-framework-packages-with-visual-studio-2015"></a>Creare pacchetti .NET Standard e .NET Framework con Visual Studio 2015
 
@@ -20,7 +20,7 @@ La [libreria .NET Standard](/dotnet/articles/standard/library) è una specifica 
 
 Questa guida illustra la creazione di un pacchetto NuGet destinato a .NET Standard Library 1.4 o .NET Framework 4.6. Una libreria .NET Standard 1.4 funziona in .NET Framework 4.6.1, in Universal Windows Platform 10, in .NET Core e in Mono/Xamarin. Per informazioni dettagliate, vedere la [tabella di mapping .NET Standard](/dotnet/standard/net-standard#net-implementation-support) (documentazione di .NET). È possibile scegliere altre versioni della libreria .NET Standard.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 1. Visual Studio 2015 Update 3
 1. (Solo .NET Standard) [.NET Core SDK](https://www.microsoft.com/net/download/)
@@ -169,7 +169,7 @@ Si noti che `pack` richiede Mono 4.4.2 su Mac OS X e non funziona nei sistemi Li
 - [Supporto di più versioni di .NET Framework](../create-packages/supporting-multiple-target-frameworks.md)
 - [Includere proprietà e destinazioni MSBuild in un pacchetto](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
 - [Creazione di pacchetti localizzati](../create-packages/creating-localized-packages.md)
-- [Pacchetti di simboli](../create-packages/symbol-packages.md)
+- [Pacchetti di simboli](../create-packages/symbol-packages-snupkg.md)
 - [Controllo delle versioni dei pacchetti](../concepts/package-versioning.md)
 - [Documentazione della libreria .NET Standard](/dotnet/articles/standard/library)
 - [Portabilità in .NET Core da .NET Framework](/dotnet/articles/core/porting/index)

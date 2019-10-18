@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1b373f245e934f2447acec2f97472d69999ae679
-ms.sourcegitcommit: 7c9f157ba02d9be543de34ab06813ab1ec10192a
-ms.translationtype: HT
+ms.openlocfilehash: 24e35f4b2c047d5f337a1779e63846b11b0c1011
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69999952"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380573"
 ---
 # <a name="nugetorg-frequently-asked-questions"></a>Domande frequenti su NuGet.org
 
@@ -20,7 +20,7 @@ ms.locfileid: "69999952"
 
 Ogni pacchetto è disciplinato dalle condizioni incluse nel pacchetto. È necessario leggere le condizioni applicabili prima di accedere, scaricare o acquisire qualsiasi pacchetto. In NuGet.org, usare il collegamento **License Info** (Informazioni di licenza) nella pagina del pacchetto.
 
-Se per un pacchetto non sono specificate le condizioni di licenza, contattare il proprietario del pacchetto direttamente usando il collegamento **Contact owners** (Contatta proprietari) nella pagina del pacchetto su NuGet.org. Microsoft non concede in licenza all'utente alcuna proprietà intellettuale dei provider di pacchetti di terze parti e non è responsabile per le informazioni fornite da terze parti.
+Se per un pacchetto non sono specificate le condizioni di licenza, contattare il proprietario del pacchetto direttamente usando il collegamento **Contact owners** (Contatta proprietari) nella pagina del pacchetto su NuGet.org. Microsoft non concede in licenza all'utente alcuna proprietà intellettuale dei provider di pacchetti di terze parti e non è responsabile delle informazioni fornite da terze parti.
 
 ## <a name="managing-packages-on-nugetorg"></a>Gestione dei pacchetti in NuGet.org
 
@@ -34,7 +34,7 @@ Il caricamento dei pacchetti in [int.nugettest.org](https://int.nugettest.org) �
 
 **È possibile eliminare un pacchetto pubblicato in NuGet.org?**
 
-L'eliminazione di un pacchetto pubblicato in NuGet.org in genere non è supportata. Vedere i [criteri relativi all'eliminazione di pacchetti](policies/deleting-packages.md).
+In generale, non è supportata l'eliminazione di un pacchetto pubblicato in NuGet.org. Scopri di più sui [criteri per l'eliminazione di pacchetti](policies/deleting-packages.md).
 
 **È possibile riservare nomi per i pacchetti che verranno pubblicati in futuro?**
 
@@ -80,7 +80,7 @@ Verificare innanzitutto di usare le versioni più recenti di NuGet. Se il proble
 
 *Per acquisire una traccia MTR:*
 
-- Scaricare WinMTR da [http://winmtr.net/download/](http://winmtr.net/)
+- Scaricare [WinMTR](https://sourceforge.net/projects/winmtr/files/WinMTR-v092.zip/download).
 - Immettere `api.nuget.org` come nome host e fare clic su **Start** (Avvia).
 - Attendere fino a quando il valore indicato nella colonna **Sent** (Inviati) è > = 100.
 
@@ -108,7 +108,7 @@ Se il problema persiste, provare i [suggerimenti indicati in questo post di Stac
 ### <a name="how-to-recover-nugetorg-password-login"></a>Come si recupera l'accesso tramite password di NuGet.org?
 
 Si noti che l'[accesso tramite password di NuGet.org è stato sospeso](https://blog.nuget.org/20180515/NuGet.org-will-only-support-MSA-AAD-starting-June.html) ed è possibile accedere a NuGet.org unicamente con un account Microsoft personale (MSA) o con un account di Azure Active Directory (AAD). Se tuttavia non si è in grado di accedere agli account AAD o MSA associati, può essere necessario usare l'accesso tramite password per recuperare l'account di NuGet.org. In questa situazione, seguire questa procedura.
-- **Requisito:** è necessario avere accesso al messaggio di posta elettronica associato all'account per il quale è necessario recuperare la password.
+- **Requisito:** Sarà necessario avere accesso al messaggio di posta elettronica associato all'account per il quale è necessario ripristinare la password.
 - Andare alla [pagina Forgot password](https://www.nuget.org/account/ForgotPassword) (Password dimenticata)
 - Immettere l'indirizzo di **posta elettronica** associato all'account di NuGet.org che si vuole recuperare.
 - Fare clic sul pulsante **Invia**.
@@ -127,16 +127,16 @@ Se si vuole cambiare l'account Microsoft per l'utente di NuGet.org, seguire ques
 1. Accedere usando **l'account Microsoft attualmente associato**, vale a dire `account1@outlook.com`, nella [pagina di accesso](https://www.nuget.org/users/account/LogOn) dopo aver fatto clic su **Sign in with Microsoft** (Accedi con Microsoft).
 1. Dopo l'accesso, passare alla pagina [Account settings](https://www.nuget.org/account) (Impostazioni account).
 1. Espandere la sezione **Login Account** (Account di accesso). Fare clic sul pulsante **Change Account** (Cambia account).
-1. Verrà effettuato il reindirizzamento alla pagina di accesso Microsoft. Accedere con il nuovo account di associazione, vale a dire `account2@outlook.com`. **Nota**: per accedere con un altro account Microsoft, può essere necessario fare clic su **Sign out and sign in with different account** (Disconnetti e accedi con un altro account) durante il flusso di accesso.
+1. Verrà effettuato il reindirizzamento alla pagina di accesso Microsoft. Accedere con l'account a cui si vuole modificare l'associazione, ad esempio  `account2@outlook.com`. **Nota**: potrebbe essere necessario fare clic su **disconnettersi e accedere con un account diverso** durante il flusso di accesso per poter accedere con un account Microsoft diverso.
 1. Se viene visualizzato un errore simile a quello riportato di seguito, vedere [L'account Microsoft è collegato a un altro account di NuGet.org](#microsoft-account-is-linked-with-another-nugetorg-account) per altri dettagli.
-    >_Failed to update the Microsoft account with 'account2 <account2@outlook.com>'. This could happen if it is already linked to another NuGet account. Contact support for more information._ (Non è stato possibile aggiornare l'account Microsoft con 'account2 <account2@outlook.com>'. Questo problema può verificarsi se è già collegato a un altro account di NuGet. Per altre informazioni, contattare il supporto)
+    >_Non è stato possibile aggiornare il account Microsoft con ' Account2 <account2@outlook.com>'. Questo problema può verificarsi se è già collegato a un altro account NuGet. Per ulteriori informazioni, contattare il supporto tecnico._
 
 1. Dopo l'accesso con il secondo account, verrà effettuato il reindirizzamento alla pagina Account settings (Impostazioni account) di NuGet.org. Come account di accesso è ora associato il nuovo account Microsoft. D'ora in avanti sarà necessario usare questo account per l'accesso a NuGet.org.
 
 ### <a name="microsoft-account-is-linked-with-another-nugetorg-account"></a>L'account Microsoft è collegato a un altro account di NuGet.org.
 
 Se si è tentato di cambiare l'account di accesso Microsoft ed è stato visualizzato l'errore seguente:
-> _Failed to update the Microsoft account with 'account2 <account2@outlook.com>'. This could happen if it is already linked to another NuGet account. Contact support for more information._ (Non è stato possibile aggiornare l'account Microsoft con 'account2 <account2@outlook.com>'. Questo problema può verificarsi se è già collegato a un altro account di NuGet. Per altre informazioni, contattare il supporto)
+> _Non è stato possibile aggiornare il account Microsoft con ' Account2 <account2@outlook.com>'. Questo problema può verificarsi se è già collegato a un altro account NuGet. Per ulteriori informazioni, contattare il supporto tecnico._
 
 Per l'utente di NuGet.org con nome utente `MyNuGetAccount1`, si supponga di aver tentato di cambiare l'account di accesso Microsoft da `account1@outlook.com` a un altro account Microsoft con indirizzo di posta elettronica `account2@outlook.com` e che sia visualizzato l'errore sopra riportato.
 
@@ -148,9 +148,9 @@ Non è possibile cambiare l'account di accesso associato con un account Microsof
 
 **Se si è dimenticato di avere un altro account di NuGet.org, come è possibile sapere di quale account si tratta?**
 
-Accedere con il secondo account Microsoft tramite la [pagina di accesso](https://www.nuget.org/users/account/LogOn?returnUrl=%2F# "pagina di accesso"). In questo modo si accederà all'account di NuGet.org attualmente associato al secondo account Microsoft. Sarà quindi possibile visualizzare i pacchetti caricati ed eseguire operazioni di gestione di questo account.
+Accedere con la seconda account Microsoft nella [pagina di accesso](https://www.nuget.org/users/account/LogOn?returnUrl=%2F# "pagina di accesso"). In questo modo si accederà all'account di NuGet.org attualmente associato al secondo account Microsoft. Sarà quindi possibile visualizzare i pacchetti caricati ed eseguire operazioni di gestione di questo account.
 
-**Il secondo account di NuGet.org non serve e si vogliono cambiare i dati di accesso del primo account di NuGet.org con il secondo account Microsoft. Quale operazione devo eseguire?**
+**Non sono interessati a questo secondo account NuGet.org, desidero modificare l'accesso per il primo account NuGet.org con la seconda account Microsoft. Cosa devo fare?**
 
 Il secondo account di NuGet.org non serve e si vuole comunque riutilizzare l'account Microsoft associato con indirizzo di posta elettronica `account2@outlook.com`. 
 
@@ -158,10 +158,10 @@ Il secondo account di NuGet.org non serve e si vuole comunque riutilizzare l'acc
 1. Seguire i passaggi necessari per [eliminare un utente](#how-to-delete-my-nugetorg-account) per il secondo account di NuGet.org `MyNuGetAccount2`. 
 1. Dopo l'eliminazione dell'account, è possibile riprovare la procedura per [cambiare l'account di accesso Microsoft](#how-to-change-the-microsoft-account-i-use-for-nugetorg-login).
 
-**Il secondo account serve ancora e non si vuole perderlo, ma si vuole cambiare l'account di accesso associato al primo account.**
+**Si è interessati anche a questo secondo account. Non si desidera perdere questo account, ma modificare gli account di accesso associati per il primo account.**
 
 È necessario creare o usare un terzo account Microsoft, ad esempio con indirizzo di posta elettronica `account3@outlook.com`. 
-1. Prima di tutto è necessario accedere con il secondo account Microsoft, `account2@outlook.com`, a NuGet.org. Seguire i passaggi descritti in precedenza per cambiare gli account di accesso associati e associare il terzo account Microsoft a questo account di NuGet.org.
+1. Per prima cosa è necessario effettuare l'accesso con la seconda account Microsoft `account2@outlook.com` in NuGet.org. Attenersi alla procedura descritta in precedenza per modificare gli account di accesso associati e associare la terza account Microsoft a questo account NuGet.org.
 1. Al termine, il secondo account Microsoft con indirizzo di posta elettronica `account2@outlook.com` è libero e può essere associato al primo account di NuGet.org, `MyNuGetAccount1`. Seguire gli stessi passaggi per cambiare l'account di accesso Microsoft per il secondo account Microsoft.
 
 ### <a name="signing-in-with-microsoft-account-shows-me-my-email-is-linked-to-another-microsoft-account"></a>Se si accede con l'account Microsoft, si può vedere che l'indirizzo di posta elettronica è collegato a un altro account Microsoft
@@ -188,11 +188,11 @@ Seguire i passaggi descritti nella sezione [Non è possibile usare l'account di 
 ### <a name="unable-to-use-microsoft-login-how-do-i-recover-my-nugetorg-account"></a>Non è possibile usare l'account di accesso Microsoft. Come si recupera l'account di NuGet.org?
 
 Se si è provato a usare l'[assistenza all'accesso](#which-microsoft-account-is-linked-to-my-nugetorg-account) e non si ha accesso all'account Microsoft associato all'account di NuGet.org, attenersi alla procedura seguente per collegare un nuovo account Microsoft all'account di NuGet.org.
-1. **Requisito**: è necessario l'accesso a un account Microsoft non associato ad alcun account di NuGet.org esistente. Se non se ne ha alcuno, è possibile [crearne uno](https://signup.live.com).
+1. **Requisito**: è necessario accedere a un account Microsoft che non è associato ad alcun account NuGet.org esistente. Se non se ne ha alcuno, è possibile [crearne uno](https://signup.live.com).
 2. Se si dimenticano il nome utente e la password per l'account di NuGet.org, seguire la [procedura per ripristinare l'account di accesso con password](#how-to-recover-nugetorg-password-login).
 3. [Accedere a NuGet.org](https://www.nuget.org/users/account/LogOnNuGetAccount) usando l'account di accesso tramite nome utente e password.
 4. Dopo l'accesso, verrà visualizzata la finestra di dialogo popup illustrata più avanti. Si tratta di finestra di dialogo che informa della sospensione delle password.
-5. **NOTA**: Ignorare l'istruzione di accedere con l'account Microsoft specificato. È ora possibile collegare l'account di NuGet.org a qualsiasi altro account di accesso Microsoft.
+5. **Nota**: ignorare l'istruzione per eseguire l'accesso con il account Microsoft specificato. È ora possibile collegare l'account di NuGet.org a qualsiasi altro account di accesso Microsoft.
 6. Fare clic sul pulsante **Sign in with Microsoft** (Accedi con Microsoft) e accedere con l'account Microsoft a cui si ha accesso, come indicato nel passaggio 1.
 7. L'account è ora collegato al nuovo account Microsoft, che d'ora in avanti potrà essere usato per accedere a NuGet.org.
 
@@ -203,7 +203,7 @@ Se si è provato a usare l'[assistenza all'accesso](#which-microsoft-account-is-
 Se si vuole trasformare l'account in un'organizzazione e l'account è già associato a un account di accesso Microsoft, seguire i passaggi indicati nella documentazione relativa a [organizzazioni in nuget org](organizations-on-nuget-org.md).
 
 Se tuttavia l'account NuGet.org non è associato o collegato a un account Microsoft, la procedura seguente consente di trasformare l'account in un'organizzazione.
-1. **Requisito**: è necessario un account individuale creato in precedenza in NuGet.org da usare come amministratore dell'account dell'organizzazione. Se non se ne ha alcuno, [creare un nuovo account di NuGet.org](individual-accounts.md).
+1. **Requisito**: è necessario avere un singolo account creato per la prima volta in NuGet.org da usare come amministratore nell'account dell'organizzazione. Se non se ne ha alcuno, [creare un nuovo account di NuGet.org](individual-accounts.md).
 2. Seguire i [passaggi per recuperare l'account di accesso tramite password](#how-to-recover-nugetorg-password-login) per l'account di NuGet.org, se tale account non è disponibile. In caso contrario, ignorare questo passaggio.
 3. [Accedere a NuGet.org](https://www.nuget.org/users/account/LogOnNuGetAccount) usando l'account di accesso tramite nome utente e password.
 4. Dopo l'accesso, verrà visualizzata la finestra di dialogo popup illustrata più avanti. Si tratta di finestra di dialogo che informa della sospensione delle password. 
@@ -224,7 +224,7 @@ Se durante il flusso di accesso con il dominio dell'account di posta elettronica
     <img src="media/unmanaged-aad-tenant.png" />
 </p>
 
-**Che cos'è lo stato non gestito durante l'accesso? Perché si verifica in questa circostanza?** 
+**Che cos'è questa operazione di stato non gestito durante l'accesso? E perché si sta verificando adesso?** 
 
 L'account è stato registrato in precedenza come account Microsoft personale e ha funzionato senza problemi. Ora, tuttavia, sembra che sia stato registrato come tenant "non gestito" in Azure Active Directory (il servizio di gestione delle identità usato per autenticare gli account Microsoft). 
 

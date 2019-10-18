@@ -5,12 +5,12 @@ author: nkolev92
 ms.author: nikolev
 ms.date: 07/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: 74b80b1791dcb403c90bb3032c009717c11ffe57
-ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
+ms.openlocfilehash: 00410214500c7f5256be243dd6fca0907ba9b0c4
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70815312"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380504"
 ---
 # <a name="nuget-cross-platform-plugins"></a>Plug-in NuGet multipiattaforma
 
@@ -27,7 +27,7 @@ Di seguito vengono descritte le combinazioni client/Framework dei plug-in.
 | Strumento client  | Framework |
 | ------------ | --------- |
 | Visual Studio | .NET Framework |
-| dotnet.exe | .NET Core |
+| dotnet. exe | .NET Core |
 | NuGet. exe | .NET Framework |
 | MSBuild. exe | .NET Framework |
 | NuGet. exe in mono | .NET Framework |
@@ -70,12 +70,12 @@ La comunicazione tra gli strumenti client NuGet e il plug-in è bidirezionale. O
 ## <a name="plugin-installation-and-discovery"></a>Installazione e individuazione di plug-in
 
 I plug-in verranno individuati tramite una struttura di directory basata sulla convenzione.
-Gli scenari di integrazione continua/distribuzione continua e gli utenti esperti possono usare variabili di ambiente per eseguire l'override del comportamento. Si noti `NUGET_NETFX_PLUGIN_PATHS` che `NUGET_NETCORE_PLUGIN_PATHS` e sono disponibili solo con la versione 5.3 + degli strumenti NuGet e versioni successive.
+Gli scenari di integrazione continua/distribuzione continua e gli utenti esperti possono usare variabili di ambiente per eseguire l'override del comportamento. Quando si usano le variabili di ambiente, sono consentiti solo i percorsi assoluti. Si noti che `NUGET_NETFX_PLUGIN_PATHS` e `NUGET_NETCORE_PLUGIN_PATHS` sono disponibili solo con la versione 5.3 + degli strumenti NuGet e versioni successive.
 
-- `NUGET_NETFX_PLUGIN_PATHS`: definisce i plug-in che verranno usati dagli strumenti basati su .NET Framework (NuGet. exe/MSBuild. exe/Visual Studio). Ha la precedenza `NUGET_PLUGIN_PATHS`su. (Solo NuGet versione 5.3 +)
-- `NUGET_NETCORE_PLUGIN_PATHS`: definisce i plug-in che verranno usati dagli strumenti basati su .NET Core (dotnet. exe). Ha la precedenza `NUGET_PLUGIN_PATHS`su. (Solo NuGet versione 5.3 +)
-- `NUGET_PLUGIN_PATHS`: definisce i plug-in che verranno usati per il processo NuGet, priorità riservata. Se questa variabile di ambiente è impostata, sostituisce l'individuazione basata sulla convenzione. Viene ignorato se viene specificata una delle variabili specifiche del Framework.
--  Utente-location, il percorso Home di NuGet `%UserProfile%/.nuget/plugins`in. Non è possibile eseguire l'override di questo percorso. Verrà usata una directory radice diversa per i plug-in .NET Core e .NET Framework.
+- `NUGET_NETFX_PLUGIN_PATHS`: definisce i plug-in che verranno usati dagli strumenti basati su .NET Framework (NuGet. exe/MSBuild. exe/Visual Studio). Ha la precedenza rispetto a `NUGET_PLUGIN_PATHS`. (Solo NuGet versione 5.3 +)
+- `NUGET_NETCORE_PLUGIN_PATHS`: definisce i plug-in che verranno usati dagli strumenti basati su .NET Core (dotnet. exe). Ha la precedenza rispetto a `NUGET_PLUGIN_PATHS`. (Solo NuGet versione 5.3 +)
+- `NUGET_PLUGIN_PATHS`: definisce i plug-in che verranno usati per il processo NuGet, priorità mantenuta. Se questa variabile di ambiente è impostata, sostituisce l'individuazione basata sulla convenzione. Viene ignorato se viene specificata una delle variabili specifiche del Framework.
+-  Utente-location, il percorso Home di NuGet in `%UserProfile%/.nuget/plugins`. Non è possibile eseguire l'override di questo percorso. Verrà usata una directory radice diversa per i plug-in .NET Core e .NET Framework.
 
 | Framework | Percorso di individuazione radice  |
 | ------- | ------------------------ |
@@ -123,20 +123,20 @@ Un potenziale problema può verificarsi con i plug-in della posizione utente qua
 La verifica della sicurezza e la creazione di istanze dei plug-in sono costose. L'operazione di download si verifica in modo più frequente rispetto all'operazione di autenticazione, ma è probabile che l'utente NuGet medio disponga solo di un plug-in di autenticazione.
 Per migliorare l'esperienza, NuGet memorizza nella cache le attestazioni dell'operazione per la richiesta specificata. Questa cache è per plug-in con la chiave del plug-in che è il percorso del plug-in e la scadenza della cache delle funzionalità è di 30 giorni. 
 
-La cache si trova in `%LocalAppData%/NuGet/plugins-cache` ed è sottoposta a override con la `NUGET_PLUGINS_CACHE_PATH`variabile di ambiente. Per cancellare la [cache](../../consume-packages/managing-the-global-packages-and-cache-folders.md), è possibile eseguire il comando locals con l' `plugins-cache` opzione.
-L' `all` opzione locals ora eliminerà anche la cache dei plug-in. 
+La cache si trova in `%LocalAppData%/NuGet/plugins-cache` ed è stata sottoposta a override con la variabile di ambiente `NUGET_PLUGINS_CACHE_PATH`. Per cancellare la [cache](../../consume-packages/managing-the-global-packages-and-cache-folders.md), è possibile eseguire il comando locals con l'opzione `plugins-cache`.
+L'opzione variabili locali `all` eliminerà anche la cache dei plug-in. 
 
 ## <a name="protocol-messages-index"></a>Indice dei messaggi di protocollo
 
 Messaggi versione protocollo *1.0.0* :
 
 1.  Chiudi
-    * Direzione della richiesta:  Plug-in NuGet->
+    * Direzione della richiesta: plug-in NuGet->
     * La richiesta non conterrà alcun payload
     * Non è prevista alcuna risposta.  La risposta corretta è che il processo del plug-in viene immediatamente terminato.
 
 2.  Copia i file nel pacchetto
-    * Direzione della richiesta:  Plug-in NuGet->
+    * Direzione della richiesta: plug-in NuGet->
     * La richiesta conterrà:
         * ID e versione del pacchetto
         * percorso del repository di origine del pacchetto
@@ -147,7 +147,7 @@ Messaggi versione protocollo *1.0.0* :
         * oggetto enumerabile di percorsi completi per i file copiati nella directory di destinazione se l'operazione è riuscita
 
 3.  Copiare il file del pacchetto (. nupkg)
-    * Direzione della richiesta:  Plug-in NuGet->
+    * Direzione della richiesta: plug-in NuGet->
     * La richiesta conterrà:
         * ID e versione del pacchetto
         * percorso del repository di origine del pacchetto
@@ -166,7 +166,7 @@ Messaggi versione protocollo *1.0.0* :
         * una password, se disponibile
 
 5.  Ottenere i file nel pacchetto
-    * Direzione della richiesta:  Plug-in NuGet->
+    * Direzione della richiesta: plug-in NuGet->
     * La richiesta conterrà:
         * ID e versione del pacchetto
         * percorso del repository di origine del pacchetto
@@ -175,7 +175,7 @@ Messaggi versione protocollo *1.0.0* :
         * oggetto enumerabile di percorsi di file nel pacchetto se l'operazione è riuscita
 
 6.  Ottenere le attestazioni dell'operazione 
-    * Direzione della richiesta:  Plug-in NuGet->
+    * Direzione della richiesta: plug-in NuGet->
     * La richiesta conterrà:
         * il servizio index. JSON per un'origine del pacchetto
         * percorso del repository di origine del pacchetto
@@ -187,7 +187,7 @@ Messaggi versione protocollo *1.0.0* :
 > Questo messaggio è stato aggiornato nella versione *2.0.0*. Il client mantiene la compatibilità con le versioni precedenti.
 
 7.  Ottieni hash pacchetto
-    * Direzione della richiesta:  Plug-in NuGet->
+    * Direzione della richiesta: plug-in NuGet->
     * La richiesta conterrà:
         * ID e versione del pacchetto
         * percorso del repository di origine del pacchetto
@@ -197,7 +197,7 @@ Messaggi versione protocollo *1.0.0* :
         * hash del file del pacchetto che utilizza l'algoritmo hash richiesto se l'operazione è riuscita
 
 8.  Ottenere le versioni del pacchetto
-    * Direzione della richiesta:  Plug-in NuGet->
+    * Direzione della richiesta: plug-in NuGet->
     * La richiesta conterrà:
         * ID del pacchetto
         * percorso del repository di origine del pacchetto
@@ -214,7 +214,7 @@ Messaggi versione protocollo *1.0.0* :
         * Indice del servizio se l'operazione è stata completata correttamente
 
 10.  Handshake
-     * Direzione della richiesta:  Plug-in NuGet <->
+     * Direzione della richiesta: < NuGet-> plug-in
      * La richiesta conterrà:
          * versione corrente del protocollo plugin
          * versione minima supportata del protocollo plug-in
@@ -223,7 +223,7 @@ Messaggi versione protocollo *1.0.0* :
          * versione del protocollo negoziata se l'operazione ha avuto esito positivo.  Un errore provocherà la terminazione del plug-in.
 
 11.  Initialize
-     * Direzione della richiesta:  Plug-in NuGet->
+     * Direzione della richiesta: plug-in NuGet->
      * La richiesta conterrà:
          * versione dello strumento client NuGet
          * linguaggio efficace dello strumento client NuGet.  Ciò prende in considerazione l'impostazione ForceEnglishOutput, se usata.
@@ -231,7 +231,7 @@ Messaggi versione protocollo *1.0.0* :
      * Una risposta conterrà:
          * codice di risposta che indica il risultato dell'operazione.  Un errore provocherà la terminazione del plug-in.
 
-12.  Log
+12.  Registro
      * Direzione della richiesta: plugin-> NuGet
      * La richiesta conterrà:
          * livello di registrazione per la richiesta
@@ -240,14 +240,14 @@ Messaggi versione protocollo *1.0.0* :
          * codice di risposta che indica il risultato dell'operazione.
 
 13.  Esegui monitoraggio uscita processo NuGet
-     * Direzione della richiesta:  Plug-in NuGet->
+     * Direzione della richiesta: plug-in NuGet->
      * La richiesta conterrà:
          * ID processo NuGet
      * Una risposta conterrà:
          * codice di risposta che indica il risultato dell'operazione.
 
 14.  Prelettura del pacchetto
-     * Direzione della richiesta:  Plug-in NuGet->
+     * Direzione della richiesta: plug-in NuGet->
      * La richiesta conterrà:
          * ID e versione del pacchetto
          * percorso del repository di origine del pacchetto
@@ -255,7 +255,7 @@ Messaggi versione protocollo *1.0.0* :
          * codice di risposta che indica il risultato dell'operazione.
 
 15.  Imposta credenziali
-     * Direzione della richiesta:  Plug-in NuGet->
+     * Direzione della richiesta: plug-in NuGet->
      * La richiesta conterrà:
          * percorso del repository di origine del pacchetto
          * ultimo nome utente di origine del pacchetto noto, se disponibile
@@ -266,7 +266,7 @@ Messaggi versione protocollo *1.0.0* :
          * codice di risposta che indica il risultato dell'operazione.
 
 16.  Impostare il livello di registrazione
-     * Direzione della richiesta:  Plug-in NuGet->
+     * Direzione della richiesta: plug-in NuGet->
      * La richiesta conterrà:
          * livello di registrazione predefinito
      * Una risposta conterrà:
@@ -276,7 +276,7 @@ Messaggi della versione *2.0.0* del protocollo
 
 17. Ottenere le attestazioni dell'operazione
 
-* Direzione della richiesta:  Plug-in NuGet->
+* Direzione della richiesta: plug-in NuGet->
     * La richiesta conterrà:
         * il servizio index. JSON per un'origine del pacchetto
         * percorso del repository di origine del pacchetto
@@ -288,15 +288,15 @@ Messaggi della versione *2.0.0* del protocollo
 
 18. Ottenere le credenziali di autenticazione
 
-* Direzione della richiesta: Plug-in NuGet->
+* Direzione della richiesta: plug-in NuGet->
 * La richiesta conterrà:
     * URI
     * numero di tentativi
-    * NonInteractive
+    * Non interattiva
     * CanShowDialog
 * Una risposta conterrà
     * Nome utente
-    * Password
+    * Windows 10
     * Messaggio
     * Elenco di tipi di autenticazione
     * MessageResponseCode
