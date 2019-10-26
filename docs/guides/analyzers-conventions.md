@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: 0a8db9f6c55b7e79f9b338119e0b3ac6cb7a1e35
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.openlocfilehash: 4d337299f725b38981b0121069d5e6295b05e34e
+ms.sourcegitcommit: f9645fc5f49c18978e12a292a3f832e162e069d5
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69520511"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72924632"
 ---
 # <a name="analyzer-nuget-formats"></a>Formati dell'analizzatore NuGet
 
@@ -45,7 +45,7 @@ L'uso della cartella `analyzers` è analogo a quello per i [framework di destina
 
     $/analyzers/{framework_name}{version}/{supported_architecture}/{supported_language}/{analyzer_name}.dll
 
-- **framework_name**: la superficie di attacco dell'API *opzionale* di .NET Framework che le DLL contenute devono eseguire. `dotnet` è attualmente l'unico valore valido perché Roslyn è l'unico host che può eseguire gli analizzatori. Se non è specificata alcuna destinazione, si presuppone che le DLL si applichino a *tutte* le destinazioni.
+- **framework_name** e **Version**: la superficie di attacco API *facoltativa* del .NET Framework che devono essere eseguite dalle DLL contenute. `dotnet` è attualmente l'unico valore valido perché Roslyn è l'unico host che può eseguire gli analizzatori. Se non è specificata alcuna destinazione, si presuppone che le DLL si applichino a *tutte* le destinazioni.
 - **supported_language**: il linguaggio per cui si applica la DLL, uno tra `cs` (C#), `vb` (Visual Basic) e `fs` (F#). Il linguaggio indica che l'analizzatore deve essere caricato solo per un progetto che usa quel linguaggio. Se non è specificato alcun linguaggio, si presuppone che la DLL sia applicabile a *tutti* i linguaggi che supportano gli analizzatori.
 - **analyzer_name**: specifica le DLL dell'analizzatore. Se sono necessari altri file oltre alle DLL, devono essere inclusi tramite un file di destinazioni o delle proprietà.
 

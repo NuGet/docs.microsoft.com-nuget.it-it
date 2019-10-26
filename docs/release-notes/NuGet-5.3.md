@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 09/06/2019
 ms.topic: conceptual
-ms.openlocfilehash: 683ee7d1bef30d0a7414ec1694a9735d79b2ab45
-ms.sourcegitcommit: c529f5944868a0692ca8550b716a73e05df0ccbf
+ms.openlocfilehash: 3418eb9b60123596eaa361a546e8ea1403396f14
+ms.sourcegitcommit: f9645fc5f49c18978e12a292a3f832e162e069d5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687894"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72924590"
 ---
 # <a name="nuget-53-release-notes"></a>Note sulla versione di NuGet 5,3
 
@@ -18,17 +18,17 @@ Veicoli per la distribuzione di NuGet:
 
 | Versione di NuGet | Disponibile nella versione di Visual Studio| Disponibile in .NET SDK|
 |:---|:---|:---|
-| [**5.3.0**](https://nuget.org/downloads) | [Visual Studio 2019 versione 16,3](https://visualstudio.microsoft.com/downloads/) | [3.0.100](https://dotnet.microsoft.com/download/dotnet-core/3.0) <sup>1</sup> |
-
+| [**5.3.0**](https://nuget.org/downloads) | [Visual Studio 2019 versione 16,3](https://visualstudio.microsoft.com/downloads/) | [3.0.100](https://dotnet.microsoft.com/download/dotnet-core/3.0)<sup>1</sup> |
+| [**5.3.1**](https://nuget.org/downloads) | [Visual Studio 2019 versione 16.3.6](https://visualstudio.microsoft.com/downloads/) | [Versione futura: 3.0.101](https://dotnet.microsoft.com/download/dotnet-core/3.0) |
 <sup>1</sup> Installato con Visual Studio 2019 con carico di lavoro di .NET Core
 
-## <a name="summary-whats-new-in-53"></a>Riepilogo: Novità di 5,3
+## <a name="summary-whats-new-in-53"></a>Riepilogo: novità di 5,3
 
 * [L'icona del pacchetto può essere incorporata nel pacchetto](../reference/msbuild-targets.md#packing-an-icon-image-file), anziché richiedere un URL esterno. - [#352](https://github.com/NuGet/Home/issues/352)
 
 * Sicurezza migliorata con il rilevamento e l'imposizione di SHA per Packages. config- [#7281](https://github.com/NuGet/Home/issues/7281)
 
-* Abilitare la deprecazione dei pacchetti NuGet obsoleti/legacy [#2867](https://github.com/NuGet/Home/issues/2867) | [post di Blog](https://devblogs.microsoft.com/nuget/deprecating-packages-on-nuget-org/) | [docs](https://docs.microsoft.com/en-us/nuget/nuget-org/deprecate-packages)
+* Abilitare la deprecazione di pacchetti NuGet obsoleti o legacy [#2867](https://github.com/NuGet/Home/issues/2867) | [post di Blog](https://devblogs.microsoft.com/nuget/deprecating-packages-on-nuget-org/) | [docs](https://docs.microsoft.com/en-us/nuget/nuget-org/deprecate-packages)
 
 ### <a name="issues-fixed-in-this-release"></a>Problemi corretti in questa versione
 
@@ -36,7 +36,7 @@ Veicoli per la distribuzione di NuGet:
 
 * I pacchetti NuGet prodotti con 3.0.100-preview9 SDK non possono essere usati dagli utenti di 2,2 SDK... a seconda del fuso orario [#8603](https://github.com/NuGet/Home/issues/8603)
 
-* "I caratteri nel percorso hanno causato l'errore `nuget restore` " caratteri non validi nel percorso " [#8168](https://github.com/NuGet/Home/issues/8168)
+* La virgoletta "caratteri nel percorso provoca un errore di caratteri non validi nel percorso" in `nuget restore` [#8168](https://github.com/NuGet/Home/issues/8168)
 
 * Visual Studio: gli assembly sono completamente NGen-ed non parzialmente NGen-ed- [#8513](https://github.com/NuGet/Home/issues/8513)
 
@@ -46,7 +46,7 @@ Veicoli per la distribuzione di NuGet:
 
 * Miglioramenti di NU1403: convalida di tutti i pacchetti, inclusi i valori Sha previsti/effettivi [#8424](https://github.com/NuGet/Home/issues/8424)
 
-* Enumerazione multipla `NuGetPackageManager.PreviewUpdatePackagesAsync`in  -  [#8401](https://github.com/NuGet/Home/issues/8401)
+* Enumerazione multipla in `NuGetPackageManager.PreviewUpdatePackagesAsync` - [#8401](https://github.com/NuGet/Home/issues/8401)
 
 * Annulla la modifica "Public-> Internal" in PluginProcess- [#8390](https://github.com/NuGet/Home/issues/8390)
 
@@ -70,7 +70,7 @@ Veicoli per la distribuzione di NuGet:
 
 * Eseguire la lettura delle impostazioni in VS Lazy- [#8156](https://github.com/NuGet/Home/issues/8156)
 
-* La regressione `Nuget sources add` in fa sì che il carattere ":", valore esadecimale 0x3A, non possa essere incluso in un nome "Errors- [#7948](https://github.com/NuGet/Home/issues/7948)
+* La regressione in `Nuget sources add` causa l'errore "il carattere ':', valore esadecimale 0x3A, non può essere incluso in un nome" Errors- [#7948](https://github.com/NuGet/Home/issues/7948)
 
 * Provider di credenziali del plug-in NuGet: nascondere la finestra del processo [#7511](https://github.com/NuGet/Home/issues/7511)
 
@@ -86,10 +86,16 @@ Veicoli per la distribuzione di NuGet:
 
 * Abilita ripristino nei file con estensione proj- [#8212](https://github.com/NuGet/Home/issues/8212)
 
-* Introdurre `NUGET_NETFX_PLUGIN_PATHS` e`NUGET_NETCORE_PLUGIN_PATHS` per supportare la configurazione di entrambi allo stesso tempo- [#8151](https://github.com/NuGet/Home/issues/8151)
+* Introdurre `NUGET_NETFX_PLUGIN_PATHS` e `NUGET_NETCORE_PLUGIN_PATHS` per supportare la configurazione di entrambi allo stesso tempo: [#8151](https://github.com/NuGet/Home/issues/8151)
 
 * Abilitare più versioni per un PackageDownload tramite l'attributo Version [#8074](https://github.com/NuGet/Home/issues/8074)
 
 * Opzioni Add-SolutionDirectory e-PackageDirectory per NuGet. exe Pack- [#7163](https://github.com/NuGet/Home/issues/7163)
 
 **[Elenco di tutti i problemi risolti in questa versione-5,3](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%225.3")**
+
+## <a name="summary-whats-new-in-531"></a>Riepilogo: novità di 5.3.1
+
+* Plug-in: un'attività è stata annullata. non lasciare che gli annullamenti influiscano sulla creazione di [#8648](https://github.com/NuGet/Home/issues/8648) istanze
+
+* Non è possibile eseguire in modo sicuro l'attività di ripristino due volte in un processo (quando si usano i provider di credenziali)- [#8688](https://github.com/NuGet/Home/issues/8688)
