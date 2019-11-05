@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: a7d07da30daf3f94db99476b88d9abaad1bb8a07
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.openlocfilehash: 1c19f962dc9e42154c0f4374432548e867e9538a
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488859"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610706"
 ---
 # <a name="building-pre-release-packages"></a>Compilazione di versioni non definitive dei pacchetti
 
@@ -44,7 +44,7 @@ Quando si è pronti per rilasciare una versione stabile, è sufficiente rimuover
 
 Per impostazione predefinita, NuGet non include le versioni non definitive quando si lavora con i pacchetti, ma è possibile modificare questo comportamento come segue:
 
-- **Interfaccia utente di Gestione pacchetti (Visual Studio)** : nell'interfaccia utente di **Gestisci pacchetti NuGet** selezionare la casella di controllo **Includi versione preliminare**:
+- **Interfaccia utente di Gestione pacchetti in Visual Studio**: nell'interfaccia utente di **Gestisci pacchetti NuGet** selezionare la casella di controllo **Includi versione preliminare**:
 
     ![Casella di controllo Includi versione preliminare in Visual Studio](media/Prerelease_02-CheckPrerelease.png)
 
@@ -56,11 +56,11 @@ Per impostazione predefinita, NuGet non include le versioni non definitive quand
 
 ## <a name="semantic-versioning"></a>Versionamento semantico
 
-La [convenzione di versionamento semantico o SemVer](http://semver.org/spec/v1.0.0.html) descrive come usare le stringhe nei numeri di versione per indicare il significato del codice sottostante.
+La [convenzione di versionamento semantico o SemVer](https://semver.org/spec/v1.0.0.html) descrive come usare le stringhe nei numeri di versione per indicare il significato del codice sottostante.
 
 In questa convenzione, ogni versione è composta di tre parti, `Major.Minor.Patch`, con il significato seguente:
 
-- `Major`: Modifiche che causano un'interruzione
+- `Major`: modifiche importanti
 - `Minor`: nuove funzionalità, ma compatibili con le versioni precedenti
 - `Patch`: solo correzioni di bug compatibili con le versioni precedenti
 
@@ -73,7 +73,7 @@ Tenendo conto di questo aspetto, è in genere consigliabile seguire convenzioni 
 - `-rc`: versione finale candidata, in genere potenzialmente finale (stabile) se non emergono bug significativi.
 
 > [!Note]
-> NuGet 4.3.0+ supporta il [versionamento semantico v2.0.0](http://semver.org/spec/v2.0.0.html), ovvero numeri di versione non definitiva con la notazione con punto, come in `1.0.1-build.23`. La notazione con punto non è supportata con le versioni di NuGet precedenti alla versione 4.3.0. Nelle versioni precedenti di NuGet è possibile usare un formato come `1.0.1-build23`, ma viene sempre considerato una versione non definitiva.
+> NuGet 4.3.0+ supporta il [versionamento semantico v2.0.0](https://semver.org/spec/v2.0.0.html), ovvero numeri di versione non definitiva con la notazione con punto, come in `1.0.1-build.23`. La notazione con punto non è supportata con le versioni di NuGet precedenti alla versione 4.3.0. Nelle versioni precedenti di NuGet è possibile usare un formato come `1.0.1-build23`, ma viene sempre considerato una versione non definitiva.
 
 Indipendentemente dai suffissi usati, tuttavia, NuGet stabilirà sempre la precedenza in ordine alfabetico inverso:
 

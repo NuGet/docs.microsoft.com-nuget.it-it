@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: 522dbbb2a39eb1cb6f0d23f39a48158b07c9076d
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
-ms.translationtype: HT
+ms.openlocfilehash: da8c5a05311c790bf6b873bc0f1a077d3ef1db87
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426847"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610622"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>Creazione di controlli dell'interfaccia utente come pacchetti NuGet
 
 A partire da Visual Studio 2017, è possibile sfruttare le funzionalità aggiunte per i controlli UWP e WPF inseriti nei pacchetti NuGet. Questa guida illustra tali funzionalità nel contesto dei controlli UWP usando l'[esempio ExtensionSDKasNuGetPackage](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage). Lo stesso vale per i controlli WPF, se non diversamente indicato.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 1. Visual Studio 2017
 1. Familiarità con la [creazione di pacchetti UWP](create-uwp-packages.md)
@@ -93,7 +93,7 @@ I formati supportati sono `.png`, `.jpg`, `.jpeg`, `.gif` e `.bmp`. Il formato c
 
 ![Esempio di icona della casella degli strumenti](https://raw.githubusercontent.com/NuGet/docs.microsoft.com-nuget/live/docs/guides/media/ColorPicker_16x16x24.bmp)
 
-Lo sfondo di colore rosa viene sostituito in fase di esecuzione. Le icone vengono ricolorate quando viene modificato il tema di Visual Studio e questo è il colore di sfondo previsto. Per altre informazioni, vedere [Immagini e icone per Visual Studio](https://docs.microsoft.com/en-us/visualstudio/extensibility/ux-guidelines/images-and-icons-for-visual-studio).
+Lo sfondo di colore rosa viene sostituito in fase di esecuzione. Le icone vengono ricolorate quando viene modificato il tema di Visual Studio e questo è il colore di sfondo previsto. Per altre informazioni, vedere [Immagini e icone per Visual Studio](https://docs.microsoft.com/visualstudio/extensibility/ux-guidelines/images-and-icons-for-visual-studio).
 
 Nell'esempio seguente il progetto contiene un file di immagine denominato "ManagedPackage.MyCustomControl.png".
 
@@ -120,7 +120,7 @@ Nel caso di WPF, si supponga di volere che il pacchetto dei controlli WPF venga 
 
 ## <a name="add-design-time-support"></a>Aggiungere il supporto in fase di progettazione
 
-Per configurare dove visualizzare le proprietà del controllo nel controllo proprietà, aggiungere gli strumenti decorativi personalizzati e così via e inserire il file `design.dll` nella cartella `lib\uap10.0.14393\Design` in modo appropriato alla piattaforma di destinazione. Per assicurarsi inoltre che la funzionalità **[Modifica modello > Modifica copia](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)** operi correttamente, è necessario includere nella cartella `<your_assembly_name>\Themes` `Generic.xaml` e tutti i dizionari risorse uniti, ancora una volta usando il nome di assembly effettivo. Questo file non influisce sul comportamento di runtime di un controllo. La struttura di cartelle avrà quindi l'aspetto seguente:
+Per configurare dove visualizzare le proprietà del controllo nel controllo proprietà, aggiungere gli strumenti decorativi personalizzati e così via e inserire il file `design.dll` nella cartella `lib\uap10.0.14393\Design` in modo appropriato alla piattaforma di destinazione. Per assicurarsi inoltre che la funzionalità **[Modifica modello > Modifica copia](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)** operi correttamente, è necessario includere nella cartella `<your_assembly_name>\Themes` `Generic.xaml` e tutti i dizionari risorse uniti, ancora una volta usando il nome di assembly effettivo. (Questo file non ha alcun effetto sul comportamento di runtime di un controllo). La struttura di cartelle viene quindi visualizzata come segue:
 
     \lib
       \uap10.0.14393

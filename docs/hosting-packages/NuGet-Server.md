@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 734f0a609f243c7bdb218a53ed664de68c707dd7
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
-ms.translationtype: HT
+ms.openlocfilehash: 82b353450ff1da23a17e5b1c6a825ad32782bf75
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317652"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610597"
 ---
 # <a name="nugetserver"></a>NuGet.Server
 
@@ -34,7 +34,7 @@ In caso di ulteriori domande su NuGet.Server, creare un problema in [https://git
 
 1. Fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet**.
 
-1. Nell'interfaccia utente di Gestione pacchetti selezionare la scheda **Sfoglia**, quindi cercare e installare la versione più recente del pacchetto NuGet.Server se si è scelto come destinazione .NET Framework 4.6. È anche possibile installarla dalla console di Gestione pacchetti con `Install-Package NuGet.Server`. Se richiesto, accettare le condizioni di licenza.
+1. Nell'interfaccia utente di Gestione pacchetti selezionare la scheda **Sfoglia**, quindi cercare e installare la versione più recente del pacchetto NuGet.Server se si è scelto come destinazione .NET Framework 4.6. È anche possibile installarlo dalla console di gestione pacchetti con `Install-Package NuGet.Server`. Se richiesto, accettare le condizioni di licenza.
 
     ![Installazione del pacchetto NuGet.Server](media/Hosting_02-NuGet.Server-Package.png)
 
@@ -53,7 +53,7 @@ In caso di ulteriori domande su NuGet.Server, creare un problema in [https://git
 
 1. Fare clic su **qui** nell'area evidenziata nella figura per visualizzare il feed OData dei pacchetti.
 
-1. La prima volta che si esegue l'applicazione, NuGet.Server ristruttura la cartella `Packages` in modo che contenga una cartella per ogni pacchetto. Questo corrisponde al [layout di archiviazione locale](http://blog.nuget.org/20151118/nuget-3.3.html#folder-based-repository-commands) introdotto in NuGet 3.3 per migliorare le prestazioni. Quando si aggiungono altri pacchetti, continuare a seguire questa struttura.
+1. La prima volta che si esegue l'applicazione, NuGet.Server ristruttura la cartella `Packages` in modo che contenga una cartella per ogni pacchetto. Questo corrisponde al [layout di archiviazione locale](https://blog.nuget.org/20151118/nuget-3.3.html#folder-based-repository-commands) introdotto in NuGet 3.3 per migliorare le prestazioni. Quando si aggiungono altri pacchetti, continuare a seguire questa struttura.
 
 1. Dopo aver verificato la distribuzione locale, distribuire l'applicazione in qualsiasi altro sito interno o esterno, in base alle esigenze.
 

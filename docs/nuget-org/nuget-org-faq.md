@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 24e35f4b2c047d5f337a1779e63846b11b0c1011
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: e2b6a64b8010f16d0fc33cca437b348d8f784fd7
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380573"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610485"
 ---
 # <a name="nugetorg-frequently-asked-questions"></a>Domande frequenti su NuGet.org
 
@@ -90,7 +90,7 @@ Verificare innanzitutto di usare le versioni più recenti di NuGet. Se il proble
 
 *Per acquisire una traccia Fiddler:*
 
-- Installare la versione più recente di [Fiddler](http://www.telerik.com/download/fiddler).
+- Installare la versione più recente di [Fiddler](https://www.telerik.com/download/fiddler).
 - Avviare Fiddler e disabilitare l'acquisizione del traffico tramite il menu **File > Capture Traffic** (File > Acquisisci traffico).
 - Rimuovere tutte le sessioni (selezionare tutti gli elementi nell'elenco e premere **CANC**).
 - Configurare Fiddler per acquisire il traffico HTTPS selezionando **Decrypt HTTPS traffic** (Decrittografa traffico HTTPS) nella scheda **HTTPS** nel menu **Tools > Fiddler Options** (Strumenti > Opzioni Fiddler).
@@ -101,7 +101,7 @@ Verificare innanzitutto di usare le versioni più recenti di NuGet. Se il proble
 
 Nota: può essere richiesto di impostare la variabile di ambiente `HTTP_PROXY` su `http://127.0.0.1:8888` per il routing del traffico NuGet attraverso Fiddler.
 
-Se il problema persiste, provare i [suggerimenti indicati in questo post di StackOverflow](http://stackoverflow.com/questions/21049908/using-fiddler-to-sniff-visual-studio-2013-requests-proxy-firewall).
+Se il problema persiste, provare i [suggerimenti indicati in questo post di StackOverflow](https://stackoverflow.com/questions/21049908/using-fiddler-to-sniff-visual-studio-2013-requests-proxy-firewall).
 
 ## <a name="nugetorg-account-management"></a>Gestione degli account di NuGet.org
 
@@ -228,17 +228,17 @@ Se durante il flusso di accesso con il dominio dell'account di posta elettronica
 
 L'account è stato registrato in precedenza come account Microsoft personale e ha funzionato senza problemi. Ora, tuttavia, sembra che sia stato registrato come tenant "non gestito" in Azure Active Directory (il servizio di gestione delle identità usato per autenticare gli account Microsoft). 
 
-Questo può essere accaduto se l'utente corrente o un altro utente dell'organizzazione (con indirizzo di posta elettronica @yourdomain.com) si è registrato con uno dei servizi integrati di AAD o ha effettuato un'[iscrizione self-service per Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-self-service-signup), che crea un tenant "non gestito"per il dominio dell'account Microsoft usato (@yourdomain.com in questo caso). 
+Questo può essere accaduto se l'utente corrente o un altro utente dell'organizzazione (con indirizzo di posta elettronica @yourdomain.com) si è registrato con uno dei servizi integrati di AAD o ha effettuato un'[iscrizione self-service per Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-self-service-signup), che crea un tenant "non gestito"per il dominio dell'account Microsoft usato (@yourdomain.com in questo caso). 
 
 **Cosa si può fare per recuperare l'account?**
 
 In questo momento NuGet.org non è in grado di autenticare gli account con tali account tenant "non gestiti" in Azure Active Directory. È in corso la ricerca di un modo più efficiente di autenticare tali account.
 
-Se vuole accedere a NuGet.org con l'account Microsoft (@yourdomain.com), l'utente (o un amministratore della società) dovrà attestare la proprietà dell'account tenant AAD tramite una convalida DNS per l'autenticazione degli utenti con indirizzo di posta elettronica "@yourdomain.com". Seguire la procedura per l'[acquisizione come amministratore di domini](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/domains-admin-takeover) documentata da Azure Active Directory. Dopo l'esecuzione della procedura, l'accesso normale inizierà a funzionare.
+Se vuole accedere a NuGet.org con l'account Microsoft (@yourdomain.com), l'utente (o un amministratore della società) dovrà attestare la proprietà dell'account tenant AAD tramite una convalida DNS per l'autenticazione degli utenti con indirizzo di posta elettronica "@yourdomain.com". Seguire la procedura per l'[acquisizione come amministratore di domini](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) documentata da Azure Active Directory. Dopo l'esecuzione della procedura, l'accesso normale inizierà a funzionare.
 
 **Se non si vogliono eseguire tutte queste operazioni, qual è l'altro modo per recuperare l'account?**
 
-È possibile [creare](https://www.microsoft.com/en-us/account) un nuovo account Microsoft (con un indirizzo e-mail **non** associato a @yourdomain.com). Seguire i passaggi descritti nella sezione [Recuperare l'account di NuGet.org](#unable-to-use-microsoft-login-how-do-i-recover-my-nugetorg-account).
+È possibile [creare](https://www.microsoft.com/account) un nuovo account Microsoft (con un indirizzo e-mail **non** associato a @yourdomain.com). Seguire i passaggi descritti nella sezione [Recuperare l'account di NuGet.org](#unable-to-use-microsoft-login-how-do-i-recover-my-nugetorg-account).
 
 ### <a name="how-do-i-change-my-nugetorg-account-username"></a>Come si cambia il nome utente dell'account di NuGet.org?
 
@@ -250,7 +250,7 @@ Seguire i passaggi descritti nelle sezioni [Eliminare l'account di NuGet.org](#h
 
 ### <a name="how-to-delete-my-nugetorg-account"></a>Come si elimina l'account di NuGet.org?
 
-Per eliminare l'account, si noti che è consigliabile trasferire la proprietà di tutti i pacchetti di cui l'account da eliminare è l'unico proprietario. Altre informazioni sulla [gestione dei proprietari dei pacchetti](https://docs.microsoft.com/en-us/nuget/create-packages/publish-a-package#managing-package-owners-on-nugetorg) e su come eseguire questa operazione. Ciò risulta utile anche per accelerare la richiesta.
+Per eliminare l'account, si noti che è consigliabile trasferire la proprietà di tutti i pacchetti di cui l'account da eliminare è l'unico proprietario. Altre informazioni sulla [gestione dei proprietari dei pacchetti](https://docs.microsoft.com/nuget/create-packages/publish-a-package#managing-package-owners-on-nugetorg) e su come eseguire questa operazione. Ciò risulta utile anche per accelerare la richiesta.
 
 Se si desidera trasformare l'account in un'organizzazione, seguire la procedura descritta in [Trasformare l'account personale di NuGet.org in un'organizzazione](#how-to-transform-my-nugetorg-account-to-an-organization).
 

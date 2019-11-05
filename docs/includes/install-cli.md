@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 1f65939493cf423a76c024607264acee6c7e9050
-ms.sourcegitcommit: ef08f376688f0191a8d3d873b6a4386afd799373
-ms.translationtype: HT
+ms.openlocfilehash: 5197447531288a8b071354dbeb3a3ae02f7cce09
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66271500"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610519"
 ---
 #### <a name="windows"></a>WINDOWS
 
@@ -19,7 +19,7 @@ ms.locfileid: "66271500"
 
 I comportamenti possono variare leggermente in base alla distribuzione del sistema operativo.
 
-1. Installare [Mono 4.4.2 o versioni successive](http://www.mono-project.com/docs/getting-started/install/).
+1. Installare [Mono 4.4.2 o versioni successive](https://www.mono-project.com/docs/getting-started/install/).
 
 1. Eseguire il comando seguente da un prompt della shell:
 

@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 09/07/2019
 ms.topic: reference
 ms.reviewer: karann
-ms.openlocfilehash: f6c4a18366b4df20fb210f718d3779e85c08d550
-ms.sourcegitcommit: 188ade66b7ac807ba1667c77cfb9325bf89a8a4a
+ms.openlocfilehash: da464cc44d8c874e13c0cdfab871f31e643b577f
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71248131"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610505"
 ---
 # <a name="package-id-prefix-reservation"></a>Prenotazione del prefisso ID del pacchetto
 
@@ -31,7 +31,7 @@ Quando un prefisso viene prenotato in [nuget.org](https://www.nuget.org/), si ve
 
 1. Ogni volta che un pacchetto viene inviato a [nuget.org](https://www.nuget.org/) con un ID che corrisponde al prefisso ID riservato, il pacchetto viene rifiutato a meno che non abbia origine da proprietari che hanno prenotato il prefisso ID.
 
-1. I pacchetti che corrispondono al prefisso ID riservato e hanno origine da proprietari che hanno prenotato il prefisso ID avranno un indicatore visivo in Visual Studio 2017 versione 15.4 o successive e in [nuget.org](https://www.nuget.org/) per indicare che il pacchetto fa riferimento a un prefisso ID riservato. Questo vale sia per gli invii di nuovi pacchetti, sia per i pacchetti già esistenti dei proprietari. **Nota:** L'indicatore in Visual Studio viene visualizzato solo se si seleziona un singolo feed come origine del pacchetto.
+1. I pacchetti che corrispondono al prefisso ID riservato e hanno origine da proprietari che hanno prenotato il prefisso ID avranno un indicatore visivo in Visual Studio 2017 versione 15.4 o successive e in [nuget.org](https://www.nuget.org/) per indicare che il pacchetto fa riferimento a un prefisso ID riservato. Questo vale sia per gli invii di nuovi pacchetti, sia per i pacchetti già esistenti dei proprietari. **Nota:** L'indicatore in Visual Studio viene visualizzato solo se viene selezionato un singolo feed come origine del pacchetto.
 
 1. Tutti i pacchetti già esistenti che corrispondono al prefisso ID riservato, ma *non* appartengono al proprietario del prefisso riservato rimangono invariati ovvero non verranno rimossi dall'elenco, ma non avranno l'indicatore visivo. Inoltre, i proprietari di questi pacchetti saranno comunque in grado di inviare nuove versioni al pacchetto.
 
@@ -93,7 +93,7 @@ Durante la revisione di un'applicazione per la prenotazione del prefisso ID, il 
 
 ## <a name="third-party-feed-provider-scenarios"></a>Scenari di provider di feed di terze parti
 
-Se un provider di feed di terze parti è interessato a implementare il proprio servizio per la prenotazione dei prefissi, è possibile modificare il servizio di ricerca nel provider di feed NuGet V3. La modifica del servizio di ricerca di feed consiste nell'aggiungere la proprietà *verified* con gli esempi per i feed V3 riportati di seguito. Il client di NuGet non supporta la proprietà aggiunta nel feed V2.
+Se un provider di feed di terze parti è interessato all'implementazione del proprio servizio per fornire prenotazioni di prefisso, è possibile modificare il servizio di ricerca nei provider di feed NuGet V3. La modifica nel servizio di ricerca di feed consiste nell'aggiungere la proprietà `verified`. Il client di NuGet non supporta la proprietà aggiunta nel feed V2.
 
 Per altre informazioni, consultare la [documentazione relativa al servizio di ricerca dell'API](../api/search-query-service-resource.md).
 

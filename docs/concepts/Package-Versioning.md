@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 7c6992d6bf3142eb6aca70f1fa3c46f72efd25a0
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.openlocfilehash: e0014a812ea591ef40c961e13864652d75ebdf6c
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69520351"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610983"
 ---
 # <a name="package-versioning"></a>Controllo delle versioni dei pacchetti
 
@@ -29,12 +29,12 @@ In questo argomento
 
 Un numero di versione specifico è nel formato *Principale.Secondaria.Patch[-Suffisso]* , dove i singoli componenti hanno i significati seguenti:
 
-- *Principale*: Modifiche che causano un'interruzione
-- *Secondaria*: nuove funzionalità, ma compatibili con le versioni precedenti
+- *Principale*: modifiche di rilievo
+- *Minor*: nuove funzionalità, ma compatibili con le versioni precedenti
 - *Patch*: solo correzioni di bug compatibili con le versioni precedenti
-- *-Suffisso* (facoltativo): un trattino seguito da una stringa che indica una versione non definitiva (in base alla [convenzione Semantic Versioning o SemVer 1.0](http://semver.org/spec/v1.0.0.html)).
+- *-Suffisso* (facoltativo): un trattino seguito da una stringa che indica una versione non definitiva (in base alla [convenzione Semantic Versioning o SemVer 1.0](https://semver.org/spec/v1.0.0.html)).
 
-**Esempi:**
+**Esempi**
 
     1.0.1
     6.11.1231
@@ -50,12 +50,12 @@ Dal punto di vista tecnico, i creatori di pacchetti possono usare qualsiasi stri
 
 Ciò premesso, gli sviluppatori di pacchetti seguono generalmente convenzioni di denominazione riconosciute:
 
-- `-alpha`: versione alfa, usata in genere per lavori in corso e sperimentazione.
+- `-alpha`: versione Alpha, in genere usata per il lavoro in corso e la sperimentazione.
 - `-beta`: versione beta, in genere completa dal punto di vista funzionale per il successivo rilascio pianificato, ma può contenere bug noti.
 - `-rc`: versione finale candidata, in genere potenzialmente finale (stabile) se non emergono bug significativi.
 
 > [!Note]
-> NuGet 4.3.0+ supporta [SemVer 2.0.0](http://semver.org/spec/v2.0.0.html), ovvero numeri di versione non definitiva con la notazione con punto, come in *1.0.1-build.23*. La notazione con punto non è supportata con le versioni di NuGet precedenti alla versione 4.3.0. È possibile usare un formato come *1.0.1-build23*.
+> NuGet 4.3.0+ supporta [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html), ovvero numeri di versione non definitiva con la notazione con punto, come in *1.0.1-build.23*. La notazione con punto non è supportata con le versioni di NuGet precedenti alla versione 4.3.0. È possibile usare un formato come *1.0.1-build23*.
 
 Se durante la risoluzione dei riferimenti al pacchetto risultano più versioni del pacchetto che differiscono solo per il suffisso, NuGet sceglie prima una versione senza suffisso, quindi applica la precedenza alle versioni non definitive in ordine alfabetico inverso. Le versioni seguenti, ad esempio, verrebbero scelte nell'esatto ordine indicato:
 
@@ -70,7 +70,7 @@ Se durante la risoluzione dei riferimenti al pacchetto risultano più versioni d
 
 ## <a name="semantic-versioning-200"></a>Semantic Versioning 2.0.0
 
-Con NuGet 4.3.0+ e Visual Studio 2017 versione 15.3+, NuGet supporta la convenzione [Semantic Versioning 2.0.0](http://semver.org/spec/v2.0.0.html).
+Con NuGet 4.3.0+ e Visual Studio 2017 versione 15.3+, NuGet supporta la convenzione [Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.html).
 
 Certe regole semantiche di SemVer 2.0.0 non sono supportate nei client meno recenti. NuGet considera la versione di un pacchetto come specifica di SemVer 2.0.0 se una delle affermazioni seguenti è vera:
 
@@ -102,7 +102,7 @@ Client di terze parti:
 
 Quando si fa riferimento alle dipendenze dei pacchetti, NuGet supporta l'uso della notazione con intervallo per specificare gli intervalli di versione, riepilogati come segue:
 
-| Notation | Regola applicata | DESCRIZIONE |
+| Notation | Regola applicata | Descrizione |
 |----------|--------------|-------------|
 | 1.0 | x ≥ 1.0 | Versione minima, inclusiva |
 | (1.0,) | x > 1.0 | Versione minima, esclusiva |

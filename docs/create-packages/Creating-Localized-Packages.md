@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: dbc3781bd17f815c6b32fc70b275469337148f41
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.openlocfilehash: 83414a824676844f9e44eab874e5eac788d50583
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488839"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610944"
 ---
 # <a name="creating-localized-nuget-packages"></a>Creazione di pacchetti localizzati NuGet
 
@@ -71,7 +71,7 @@ Con queste cartelle si può quindi fare riferimento a tutti i file presenti in `
 </package>
 ```
 
-Un pacchetto di esempio che usa questo approccio è [Microsoft.Data.OData 5.4.0](http://nuget.org/packages/Microsoft.Data.OData/5.4.0).
+Un pacchetto di esempio che usa questo approccio è [Microsoft.Data.OData 5.4.0](https://nuget.org/packages/Microsoft.Data.OData/5.4.0).
 
 ### <a name="advantages-and-disadvantages-localized-resource-assemblies"></a>Vantaggi e svantaggi (assembly di risorse localizzati)
 
@@ -84,7 +84,7 @@ La creazione di bundle che includono tutte le lingue in un singolo pacchetto pre
 Esistono tuttavia anche alcuni vantaggi:
 
 1. **Semplicità**: gli utenti del pacchetto ottengono tutte le lingue supportate in una singola installazione, invece di dover installare separatamente ogni lingua. Un pacchetto singolo è anche più facile da trovare su nuget.org.
-1. **Versioni accoppiate**: poiché tutti gli assembly di risorse sono nello stesso pacchetto dell'assembly primario, condividono tutti lo stesso numero di versione e non corrono il rischio di essere erroneamente disaccoppiati.
+1. **Versioni accoppiate**: poiché tutti gli assembly di risorse sono nello stesso pacchetto dell'assembly primario, condividono tutti lo stesso numero di versione e non corrono il rischio di venire erroneamente disaccoppiati.
 
 ## <a name="localized-satellite-packages"></a>Pacchetti satellite localizzati
 
@@ -119,11 +119,11 @@ Quando tutte queste convenzioni sono soddisfatte, NuGet riconoscerà il pacchett
 
 Gli assembly satellite aggiuntivi verranno creati nello stesso modo per ogni lingua supportata. Per un esempio, esaminare il set di pacchetti MVC ASP.NET:
 
-- [Microsoft.AspNet.Mvc](http://nuget.org/packages/Microsoft.AspNet.Mvc) (inglese primario)
-- [Microsoft.AspNet.Mvc.de](http://nuget.org/packages/Microsoft.AspNet.Mvc.de) (tedesco)
-- [Microsoft.AspNet.Mvc.ja](http://nuget.org/packages/Microsoft.AspNet.Mvc.ja) (giapponese)
-- [Microsoft.AspNet.Mvc.zh-Hans](http://nuget.org/packages/Microsoft.AspNet.Mvc.zh-Hans) (cinese semplificato)
-- [Microsoft.AspNet.Mvc.zh-Hany](http://nuget.org/packages/Microsoft.AspNet.Mvc.zh-Hant) (cinese tradizionale)
+- [Microsoft.AspNet.Mvc](https://nuget.org/packages/Microsoft.AspNet.Mvc) (inglese primario)
+- [Microsoft.AspNet.Mvc.de](https://nuget.org/packages/Microsoft.AspNet.Mvc.de) (tedesco)
+- [Microsoft.AspNet.Mvc.ja](https://nuget.org/packages/Microsoft.AspNet.Mvc.ja) (giapponese)
+- [Microsoft.AspNet.Mvc.zh-Hans](https://nuget.org/packages/Microsoft.AspNet.Mvc.zh-Hans) (cinese semplificato)
+- [Microsoft.AspNet.Mvc.zh-Hany](https://nuget.org/packages/Microsoft.AspNet.Mvc.zh-Hant) (cinese tradizionale)
 
 ### <a name="summary-of-required-conventions"></a>Riepilogo delle convenzioni obbligatorie
 

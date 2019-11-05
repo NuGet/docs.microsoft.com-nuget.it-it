@@ -5,20 +5,20 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/20/2019
 ms.topic: quickstart
-ms.openlocfilehash: 417388872a74b29a469d6a5c17c079a0d1a35dc3
-ms.sourcegitcommit: a0807671386782021acb7588741390e6f07e94e1
+ms.openlocfilehash: 09c859c0ab6767ea80b6a64c194aa2623ee5c505
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70384466"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610532"
 ---
 # <a name="install-nuget-client-tools"></a>Installare gli strumenti client di NuGet
 
-> **Se servono istruzioni per installare un pacchetto, Vedere [Modi per installare pacchetti NuGet](consume-packages/overview-and-workflow.md#ways-to-install-a-nuget-package).**
+> **Si desidera installare un pacchetto? Vedere le [modalità di installazione dei pacchetti NuGet](consume-packages/overview-and-workflow.md#ways-to-install-a-nuget-package).**
 
 Per usare NuGet, come consumer o autore di pacchetti, è possibile usare gli strumenti dell'interfaccia della riga di comando nonché le funzionalità NuGet in Visual Studio. Questo articolo descrive brevemente le funzionalità dei diversi strumenti, come installarli e un confronto delle [funzionalità disponibili](#feature-availability). Per iniziare a usare NuGet per utilizzare i pacchetti, vedere [Installare e usare un pacchetto (interfaccia della riga di comando di dotnet)](quickstart/install-and-use-a-package-using-the-dotnet-cli.md) e [Installare e usare un pacchetto (Visual Studio)](quickstart/install-and-use-a-package-in-visual-studio.md). Per iniziare a creare i pacchetti NuGet, vedere [Creare e pubblicare un pacchetto .NET Standard (interfaccia della riga di comando dotnet)](quickstart/create-and-publish-a-package-using-the-dotnet-cli.md) e [Creare e pubblicare un pacchetto .NET Standard (Visual Studio)](quickstart/create-and-publish-a-package-using-visual-studio.md).
 
-| Tool&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | DESCRIZIONE | Download&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+| Tool&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Descrizione | Download&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
 |:------------- |:-------------|:-----|
 | [dotnet.exe](#dotnetexe-cli) | Strumento dell'interfaccia della riga di comando per librerie .NET Core e .NET Standard e per qualsiasi [progetto di tipo SDK](resources/check-project-format.md), ad esempio quelli destinati a .NET Framework. Incluso in .NET Core SDK, offre le principali funzionalità NuGet per tutte le piattaforme. A partire da Visual Studio 2017, l'interfaccia della riga di comando dotnet viene installata automaticamente con qualsiasi carico di lavoro correlato a .NET Core.| [.NET Core SDK](https://www.microsoft.com/net/download/) |
 | [nuget.exe](#nugetexe-cli) | Strumento dell'interfaccia della riga di comando per librerie .NET Framework e per qualsiasi [progetto non di tipo SDK](resources/check-project-format.md), ad esempio quelli destinati a librerie .NET Standard. Fornisce tutte le funzionalità di NuGet in Windows e la maggior parte delle funzionalità in Mac e Linux per l'esecuzione in Mono. | [nuget.exe](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) |
@@ -46,7 +46,7 @@ Per informazioni su come usare i comandi di base con l'interfaccia della riga di
 
 ### <a name="nugetexe-cli"></a>Interfaccia della riga di comando di nuget.exe
 
-L'interfaccia della riga di comando di `nuget.exe`, `nuget.exe`, è l'utilità da riga di comando per Windows che offre tutte le funzionalità di NuGet. Può essere eseguita anche in Mac OSX e Linux tramite [Mono](http://www.mono-project.com/docs/getting-started/install/), con alcune limitazioni.
+L'interfaccia della riga di comando di `nuget.exe`, `nuget.exe`, è l'utilità da riga di comando per Windows che offre tutte le funzionalità di NuGet. Può essere eseguita anche in Mac OSX e Linux tramite [Mono](https://www.mono-project.com/docs/getting-started/install/), con alcune limitazioni.
 
 Per informazioni su come usare i comandi di base con l'interfaccia della riga di comando di `nuget.exe`, vedere [Installare e usare pacchetti tramite l'interfaccia della riga di comando di nuget.exe](consume-packages/install-use-packages-nuget-cli.md).
 
@@ -62,7 +62,7 @@ Installazione:
 
 ## <a name="visual-studio"></a>Visual Studio
 
-- Visual Studio Code: le funzionalità di NuGet sono disponibili tramite estensioni del marketplace oppure usare gli strumenti di interfaccia della riga di comando `dotnet.exe` o `nuget.exe`.
+- Visual Studio Code: le funzionalità di NuGet sono disponibili tramite estensioni del Marketplace oppure usare gli strumenti di interfaccia della riga di comando `dotnet.exe` o `nuget.exe`.
 
 - Visual Studio per Mac: alcune funzionalità di NuGet sono incorporate direttamente. Per una procedura dettagliata, vedere [Inserimento di un pacchetto NuGet nel progetto](/visualstudio/mac/nuget-walkthrough). Per le altre funzionalità, usare gli strumenti di interfaccia della riga di comando `dotnet.exe` o `nuget.exe`.
 

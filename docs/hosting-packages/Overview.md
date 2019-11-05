@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/25/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 10651e2cc26f7df4115e4de5dac8c91c93af7374
-ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
+ms.openlocfilehash: 3ca023c8d39b9b36388f5f517b50ca5cd2347cc0
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70815298"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610450"
 ---
 # <a name="hosting-your-own-nuget-feeds"></a>Hosting dei feed NuGet
 
@@ -31,11 +31,11 @@ Sono disponibili anche diversi altri prodotti di hosting NuGet, ad esempio [Azur
 - [Cloudsmith](https://cloudsmith.io/l/nuget-feed/), una soluzione SaaS di gestione dei pacchetti completamente gestita
 - [Registro dei pacchetti GitHub](https://help.github.com/articles/configuring-nuget-for-use-with-github-package-registry)
 - [LiGet](https://github.com/ai-traders/liget), un'implementazione open source di NuGet Server V2 in esecuzione su Kestrel in Docker
-- [MyGet](http://myget.org)
-- [Nexus](http://www.sonatype.org/nexus/) di Sonatype
-- [NuGet Server (Open Source)](http://nuget-server.net), un'implementazione open source simile a NuGet Server di Inedo
+- [MyGet](https://myget.org)
+- [Nexus](https://www.sonatype.org/nexus/) di Sonatype
+- [NuGet Server (Open Source)](https://github.com/svenkle/nuget-server), un'implementazione open source simile a NuGet Server di Inedo
 - [NuGet Server](http://nugetserver.net/), un progetto di community di Inedo
-- [ProGet](http://inedo.com/proget) di Inedo
+- [ProGet](https://inedo.com/proget) di Inedo
 - [Sleet](https://github.com/emgarten/sleet), un generatore di feed statico di NuGet V3 open source
 - [TeamCity](https://www.jetbrains.com/teamcity/) di JetBrains
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7b92d07d19a2e9073ecc38ed37b4ee2491080443
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
-ms.translationtype: HT
+ms.openlocfilehash: 89b5fcbd76b85b77489ab36caa215c3a2fedf032
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317762"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610971"
 ---
 # <a name="manage-package-trust-boundaries"></a>Gestire i limiti di attendibilità dei pacchetti
 
@@ -95,7 +95,7 @@ In alcune situazioni può essere opportuno abilitare la verifica usando certific
 
 ### <a name="sync-repository-certificates"></a>Sincronizzazione dei certificati del repository
 
-I repository dei pacchetti devono annunciare i certificati usati nel loro [indice dei servizi](../api/service-index.md). Prima o poi, il repository aggiornerà questi certificati, ad esempio, allo scadere del certificato. Quando ciò avviene, i client con criteri specifici richiederanno un aggiornamento della configurazione per includere il certificato appena aggiunto. I firmatari attendibili associati a un repository possono essere aggiornati facilmente usando il `nuget.exe` [comando trusted-signers sync](../reference/cli-reference/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-).
+I repository dei pacchetti devono annunciare i certificati usati nel loro [indice dei servizi](../api/service-index.md). Prima o poi, il repository aggiornerà questi certificati, ad esempio, allo scadere del certificato. Quando ciò avviene, i client con criteri specifici richiederanno un aggiornamento della configurazione per includere il certificato appena aggiunto. È possibile aggiornare facilmente i firmatari attendibili associati a un repository usando il `nuget.exe` [comando di sincronizzazione dei firmatari attendibili] (.. /Reference/CLI-Reference/CLI-Ref-Trusted-signers.MD # NuGet-Trusted-signers-Sync--nome-nome
 
 ### <a name="schema-reference"></a>Riferimento allo schema
 

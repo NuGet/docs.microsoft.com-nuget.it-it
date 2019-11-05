@@ -7,12 +7,12 @@ ms.date: 07/08/2019
 ms.topic: conceptual
 f1_keywords:
 - vs.nuget.packagemanager.console
-ms.openlocfilehash: 1fb12c6cb9f7702c05990f79a6d43b9dd739e8cc
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
-ms.translationtype: HT
+ms.openlocfilehash: 42031f7b5fe4d3c1b4dbe5e1bfbf9197014e0e88
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68328068"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73611104"
 ---
 # <a name="install-and-manage-packages-with-the-package-manager-console-in-visual-studio-powershell"></a>Installare e gestire i pacchetti con la console di Gestione pacchetti in Visual Studio (PowerShell)
 
@@ -172,9 +172,9 @@ Per altri dettagli, vedere [Profili di Windows PowerShell](https://technet.micro
 
 ## <a name="use-the-nugetexe-cli-in-the-console"></a>Usare l'interfaccia della riga di comando di nuget.exe nella console
 
-Per rendere disponibile l'[interfaccia della riga di comando di `nuget.exe`](../reference/nuget-exe-cli-reference.md) nella console di Gestione pacchetti, installare il pacchetto [NuGet.CommandLine](http://www.nuget.org/packages/NuGet.CommandLine/) dalla console:
+Per rendere disponibile l'[interfaccia della riga di comando di `nuget.exe`](../reference/nuget-exe-cli-reference.md) nella console di Gestione pacchetti, installare il pacchetto [NuGet.CommandLine](https://www.nuget.org/packages/NuGet.CommandLine/) dalla console:
 
 ```ps
-# Other versions are available, see http://www.nuget.org/packages/NuGet.CommandLine/
+# Other versions are available, see https://www.nuget.org/packages/NuGet.CommandLine/
 Install-Package NuGet.CommandLine -Version 4.4.1
 ```

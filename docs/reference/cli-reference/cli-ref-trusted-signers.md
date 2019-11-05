@@ -6,16 +6,16 @@ ms.author: patbel
 ms.date: 11/12/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: 197f2eaeed1a4a11f0f3ed426534807a0136271e
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 94c4c6524c1870898893b80be914477af5a14e8b
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327538"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610339"
 ---
 # <a name="trusted-signers-command-nuget-cli"></a>comando Trusted-signers (interfaccia della riga di comando di NuGet)
 
-**Si applica a:** &bullet; **versioni supportate** per l'utilizzo di pacchetti: 4.9.1 +
+**Si applica a:** uso del pacchetto &bullet; **versioni supportate:** 4.9.1 +
 
 Ottiene o imposta i firmatari attendibili per la configurazione NuGet. Per ulteriori informazioni sull'utilizzo, vedere [configurazioni comuni di NuGet](../../consume-packages/configuring-nuget-behavior.md). Per informazioni dettagliate sull'aspetto dello schema NuGet. config, vedere il riferimento al [file di configurazione NuGet](../nuget-config-file.md).
 
@@ -25,11 +25,11 @@ Ottiene o imposta i firmatari attendibili per la configurazione NuGet. Per ulter
 nuget trusted-signers <list|add|remove|sync> [options]
 ```
 
-Se non `list|add|remove|sync` viene specificato alcun parametro, il comando utilizzerà `list`per impostazione predefinita.
+Se non viene specificato alcun `list|add|remove|sync`, per impostazione predefinita il comando verrà `list`.
 
 ## <a name="nuget-trusted-signers-list"></a>elenco di firmatari attendibili NuGet
 
-Elenca tutti i firmatari attendibili nella configurazione. Questa opzione includerà tutti i certificati (con algoritmo di impronta digitale e impronta digitale) di ogni firmatario. Se un certificato ha un precedente `[U]`, significa che la voce del certificato `allowUntrustedRoot` è impostata `true`come.
+Elenca tutti i firmatari attendibili nella configurazione. Questa opzione includerà tutti i certificati (con algoritmo di impronta digitale e impronta digitale) di ogni firmatario. Se un certificato ha un `[U]`precedente, significa che la voce del certificato ha `allowUntrustedRoot` impostato come `true`.
 
 Di seguito è riportato un esempio di output di questo comando:
 
@@ -63,16 +63,16 @@ Aggiunge al file di configurazione un firmatario attendibile con il nome specifi
 nuget trusted-signers add <package(s)> -Name <name> [options]
 ```
 
-dove `<package(s)>` è uno o più `.nupkg` file.
+dove `<package(s)>` è uno o più file di `.nupkg`.
 
-| Opzione | DESCRIZIONE |
+| Opzione | Descrizione |
 | --- | --- |
 | Autore | Specifica che la firma dell'autore dei pacchetti deve essere attendibile. |
 | Repository | Specifica che la firma del repository o il controfirma dei pacchetti deve essere attendibile. |
 | AllowUntrustedRoot | Specifica se il certificato per il firmatario attendibile deve essere concatenato a una radice non attendibile. |
-| Proprietari | Elenco separato da punto e virgola di proprietari attendibili per limitare ulteriormente la relazione di trust di un repository. Valido solo quando si usa `-Repository` l'opzione. |
+| Proprietari | Elenco separato da punto e virgola di proprietari attendibili per limitare ulteriormente la relazione di trust di un repository. Valido solo quando si usa l'opzione `-Repository`. |
 
-Non è supportata `-Repository` la specifica di eallostessotempo.`-Author`
+Non è supportata la fornitura di `-Author` e `-Repository` contemporaneamente.
 
 ## <a name="options-for-add-based-on-a-service-index"></a>Opzioni per l'aggiunta in base a un indice del servizio
 
@@ -80,11 +80,11 @@ Non è supportata `-Repository` la specifica di eallostessotempo.`-Author`
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_Nota_: Questa opzione consente di aggiungere solo repository attendibili. 
+_Nota_: questa opzione consente di aggiungere solo repository attendibili. 
 
 | Opzione | Descrizione |
 | --- | --- |
-| ServiceIndex | Specifica l'indice del servizio V3 del repository da ritenere attendibile. Questo repository deve supportare la risorsa delle firme del repository. Se non viene specificato, il comando cercherà un'origine del pacchetto con lo `-Name` stesso e otterrà l'indice del servizio. |
+| ServiceIndex | Specifica l'indice del servizio V3 del repository da ritenere attendibile. Questo repository deve supportare la risorsa delle firme del repository. Se non viene specificato, il comando cercherà un'origine del pacchetto con lo stesso `-Name` e otterrà l'indice del servizio. |
 | AllowUntrustedRoot | Specifica se il certificato per il firmatario attendibile deve essere concatenato a una radice non attendibile. |
 | Proprietari | Elenco separato da punto e virgola di proprietari attendibili per limitare ulteriormente la relazione di trust di un repository. |
 
@@ -94,32 +94,32 @@ _Nota_: Questa opzione consente di aggiungere solo repository attendibili.
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_Nota_: Se un firmatario attendibile con il nome specificato esiste già, l'elemento del certificato verrà aggiunto al firmatario. In caso contrario, verrà creato un autore attendibile con un elemento certificato fornito dalle informazioni del certificato.
+_Nota_: se un firmatario attendibile con il nome specificato esiste già, l'elemento del certificato verrà aggiunto a tale firmatario. In caso contrario, verrà creato un autore attendibile con un elemento certificato fornito dalle informazioni del certificato.
 
-| Opzione | DESCRIZIONE |
+| Opzione | Descrizione |
 | --- | --- |
-| CertificateFingerprint | Specifica le impronte digitali di un certificato con cui devono essere firmati i pacchetti firmati. Un'impronta digitale del certificato è un hash del certificato. L'algoritmo hash usato per il calcolo di questo hash deve essere specificato `FingerprintAlgorithm` nell'opzione. |
-| FingerprintAlgorithm | Specifica l'algoritmo hash usato per calcolare l'impronta digitale del certificato. Il valore predefinito è `SHA256`. I valori supportati `SHA256`sono `SHA384` e`SHA512` |
+| CertificateFingerprint | Specifica le impronte digitali di un certificato con cui devono essere firmati i pacchetti firmati. Un'impronta digitale del certificato è un hash del certificato. L'algoritmo hash usato per il calcolo di questo hash deve essere specificato nell'opzione `FingerprintAlgorithm`. |
+| FingerprintAlgorithm | Specifica l'algoritmo hash usato per calcolare l'impronta digitale del certificato. Il valore predefinito è `SHA256`. I valori supportati sono `SHA256`, `SHA384` e `SHA512` |
 | AllowUntrustedRoot | Specifica se il certificato per il firmatario attendibile deve essere concatenato a una radice non attendibile. |
 
-## <a name="nuget-trusted-signers-remove--name-name"></a>Nome attendibile-signers di NuGet<name>
+## <a name="nuget-trusted-signers-remove--name-name"></a>nome \<di NuGet Trusted-signers Remove-Name\>
 
 Rimuove eventuali firmatari attendibili che corrispondono al nome specificato.
 
-## <a name="nuget-trusted-signers-sync--name-name"></a>Nome-sincronizzazione di NuGet Trusted-signers<name>
+## <a name="nuget-trusted-signers-sync--name-name"></a>nome \<sincronizzazione di NuGet Trusted-signers\>
 
 Richiede l'elenco più recente di certificati usati in un repository attualmente attendibile per aggiornare l'elenco di certificati esistente nel firmatario attendibile.
 
-_Nota_: Questo movimento eliminerà l'elenco corrente dei certificati e li sostituirà con un elenco aggiornato dal repository.
+_Nota_: questo movimento eliminerà l'elenco corrente dei certificati e li sostituirà con un elenco aggiornato dal repository.
 
 ## <a name="options"></a>Opzioni
 
-| Opzione | DESCRIZIONE |
+| Opzione | Descrizione |
 | --- | --- |
-| ConfigFile | File di configurazione NuGet da applicare. Se non è specificato `%AppData%\NuGet\NuGet.Config` , viene usato ( `~/.nuget/NuGet/NuGet.Config` Windows) o (Mac/Linux).|
+| ConfigFile | File di configurazione NuGet da applicare. Se non specificato, viene usato `%AppData%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Mac/Linux).|
 | ForceEnglishOutput | Impone l'esecuzione di NuGet. exe con impostazioni cultura invarianti basate sull'inglese. |
 | ? | Visualizza le informazioni della Guida per il comando. |
-| Verbosity | Specifica il livello di dettaglio visualizzato nell'output: *normale*, *silenzioso*, *dettagliato*. |
+| Livello di dettaglio | Specifica il livello di dettaglio visualizzato nell'output: *normale*, *silenzioso*, *dettagliato*. |
 
 ## <a name="examples"></a>Esempi
 

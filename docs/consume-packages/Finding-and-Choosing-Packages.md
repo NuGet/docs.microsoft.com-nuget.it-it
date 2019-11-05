@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: cbe6fd964e88b054b9e2c5c8ead71d1f9090d63c
-ms.sourcegitcommit: 5aa49478dc466c67db5c3edda7c6ce8dcd8ae033
-ms.translationtype: HT
+ms.openlocfilehash: 9947a490e4373bb0b8b7fb0814828ff2a60615a8
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817583"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73611082"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Ricerca e valutazione di pacchetti NuGet per un progetto
 
-Quando si avvia un progetto .NET o ogni volta che si identifica una richiesta di funzionalità per un'app o un servizio, è possibile risparmiare tempo ed evitare problemi usando pacchetti NuGet esistenti che consentono di soddisfare tale richiesta. Questi pacchetti possono provenire dalla raccolta pubblica su [nuget.org](http://www.nuget.org/packages/) o da un'origine privata fornita dall'organizzazione o da terze parti.
+Quando si avvia un progetto .NET o ogni volta che si identifica una richiesta di funzionalità per un'app o un servizio, è possibile risparmiare tempo ed evitare problemi usando pacchetti NuGet esistenti che consentono di soddisfare tale richiesta. Questi pacchetti possono provenire dalla raccolta pubblica su [nuget.org](https://www.nuget.org/packages/) o da un'origine privata fornita dall'organizzazione o da terze parti.
 
 ## <a name="finding-packages"></a>Ricerca di pacchetti
 
@@ -54,15 +54,15 @@ Per impostazione predefinita, nuget.org mostra anche i pacchetti in versione non
 
 In Visual Studio e quando si usano le interfacce della riga di comando di NuGet e dotnet, NuGet non include le versioni non definitive per impostazione predefinita. Per modificare questo comportamento, attenersi alla procedura seguente:
 
-- **Interfaccia utente di Gestione pacchetti (Visual Studio)** : nell'interfaccia utente di **Gestisci pacchetti NuGet** impostare la casella di controllo **Includi versione preliminare**. La selezione o la deselezione di questa casella di controllo aggiorna l'interfaccia utente di Gestione pacchetti e l'elenco delle versioni disponibili che è possibile installare.
+- **Interfaccia utente di Gestione pacchetti in Visual Studio**: nell'interfaccia utente di **Gestisci pacchetti NuGet** selezionare la casella di controllo **Includi versione preliminare**. La selezione o la deselezione di questa casella di controllo aggiorna l'interfaccia utente di Gestione pacchetti e l'elenco delle versioni disponibili che è possibile installare.
 
     ![Casella di controllo Includi versione preliminare in Visual Studio](media/Prerelease_02-CheckPrerelease.png)
 
 - **Console di Gestione pacchetti**: usare l'opzione `-IncludePrerelease` con i comandi `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package` e `Update-Package`. Vedere [Informazioni di riferimento su PowerShell](../reference/powershell-reference.md).
 
-- **Interfaccia della riga di comando di nuget.exe**: usare l'opzione `-prerelease` con i comandi `install`, `update`, `delete` e `mirror`. Vedere [NuGet CLI reference](../reference/nuget-exe-cli-reference.md) (Informazioni di riferimento sull'interfaccia della riga di comando di NuGet).
+- **Interfaccia della riga di comando nuget.exe**: usare l'opzione `-prerelease` con i comandi `install`, `update`, `delete` e `mirror`. Vedere [NuGet CLI reference](../reference/nuget-exe-cli-reference.md) (Informazioni di riferimento sull'interfaccia della riga di comando di NuGet).
 
-- **Interfaccia della riga di comando di dotnet.exe**: specificare l'esatta versione preliminare usando l'argomento `-v`. Vedere le [informazioni di riferimento su dotnet add package](/dotnet/core/tools/dotnet-add-package).
+- **Interfaccia della riga di comando dotnet.exe**: specificare l'esatta versione non definitiva tramite l'argomento `-v`. Vedere le [informazioni di riferimento su dotnet add package](/dotnet/core/tools/dotnet-add-package).
 
 <a name="native-cpp-packages"></a>
 
@@ -90,7 +90,7 @@ Allo stesso tempo, usare un pacchetto NuGet implica la creazione di una dipenden
 
     ![Cronologia delle versioni nella pagina di presentazione del pacchetto](media/Finding-04-VersionHistory.png)
 
-- *Installazioni recenti*: nella pagina del pacchetto in **Statistics** (Statistiche) selezionare **View full stats** (Visualizza statistiche complete). La pagina delle statistiche complete mostra le installazioni del pacchetto nelle ultime sei settimane per numero di versione. Un pacchetto che altri sviluppatori usano attivamente in genere è preferibile rispetto a uno non in uso.
+- *Installazioni recenti*: nella pagina del pacchetto in **statistiche**Selezionare **Visualizza statistiche complete**. La pagina statistiche complete Mostra le installazioni dei pacchetti nelle ultime sei settimane per numero di versione. Un pacchetto che altri sviluppatori usano attivamente in genere è preferibile rispetto a uno non in uso.
 
 - *Supporto*: nella pagina del pacchetto in **Info** selezionare **Project Site** (Sito del progetto), se disponibile, per verificare le opzioni di supporto messe a disposizione dall'autore. Un progetto con un sito dedicato in genere è supportato in modo migliore.
 
@@ -103,7 +103,7 @@ Allo stesso tempo, usare un pacchetto NuGet implica la creazione di una dipenden
 - *Prefissi ID pacchetto riservati*: molti proprietari di pacchetti hanno richiesto e ottenuto un [prefisso ID pacchetto riservato](../nuget-org/id-prefix-reservation.md). Un segno di spunta visualizzato accanto all'ID di un pacchetto in [nuget.org](https://www.nuget.org/) o in Visual Studio indica che il proprietario del pacchetto soddisfa i [criteri](../nuget-org/id-prefix-reservation.md#id-prefix-reservation-criteria) stabiliti per la prenotazione del prefisso ID. Ciò significa che il proprietario del pacchetto renderà disponibile il suo identificativo e quello del pacchetto.
 
 > [!Note]
-> Tenere sempre in considerazione le condizioni di licenza di un pacchetto, che è possibile visualizzare selezionando **License Info** (Informazioni di licenza) nella pagina di presentazione di un pacchetto su nuget.org. Se per un pacchetto non sono specificate le condizioni di licenza, contattare il proprietario del pacchetto direttamente usando il collegamento **Contact owners** (Contatta proprietari) nella pagina del pacchetto. Microsoft non concede in licenza all'utente alcuna proprietà intellettuale dei provider di pacchetti di terze parti e non è responsabile per le informazioni fornite da terze parti.
+> Tenere sempre presente le condizioni di licenza di un pacchetto, che è possibile visualizzare selezionando **informazioni sulle licenze** nella pagina di presentazione di un pacchetto in NuGet.org. Se un pacchetto non specifica le condizioni di licenza, contattare il proprietario del pacchetto direttamente usando il collegamento **Contact owners (Contatta proprietari** ) nella pagina del pacchetto. Microsoft non concede in licenza all'utente alcuna proprietà intellettuale dei provider di pacchetti di terze parti e non è responsabile delle informazioni fornite da terze parti.
 
 ## <a name="license-url-deprecation"></a>Deprecazione dell'URL della licenza
 Durante la transizione da [licenseUrl](../reference/nuspec.md#licenseurl) a [license](../reference/nuspec.md#license), alcuni client NuGet e feed NuGet potrebbero non avere ancora la possibilità di esporre le informazioni sulla licenza in alcuni casi. Per mantenere la compatibilità con le versioni precedenti, l'URL della licenza punta a questo documento che illustra come recuperare le informazioni sulla licenza in tali casi.
