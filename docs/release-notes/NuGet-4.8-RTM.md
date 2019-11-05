@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: f85042b8fe1511934d6a3ac7de34da92c575f6e0
-ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
-ms.translationtype: HT
+ms.openlocfilehash: 6e352fef9fc36646f6feedbc390f847119cb00bf
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58432518"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73611362"
 ---
 # <a name="nuget-48-release-notes"></a>Note sulla versione per NuGet 4.8
 
@@ -22,21 +22,21 @@ Sono disponibili anche le versioni da riga di comando della stessa funzionalità
 * DotNet.exe - [.NET Core SDK 2.1.400](https://www.microsoft.com/net/download/visual-studio-sdks)
 
 
-## <a name="summary-whats-new-in-480"></a>Riepilogo: Novità nella versione 4.8.0
+## <a name="summary-whats-new-in-480"></a>Riepilogo: novità di 4.8.0
 * NuGet.exe supporta ora i nomi lunghi dei file in Windows 10 - [#6937](https://github.com/NuGet/Home/issues/6937)
 * I plug-in di autenticazione possono ora essere usati in MSBuild, DotNet.exe, NuGet.exe e Visual Studio, anche tra più piattaforme. La prima generazione di plug-in di autenticazione non era supportata in MSBuild, DotNet.exe. Nota: le build di Visual Studio 2017 15.9 Preview includono il plug-in di autenticazione di Visual Studio Team Services. [#6486](https://github.com/NuGet/Home/issues/6486)
 * Il resolver SDK di MSBuild è ora disponibile come parte di NuGet e viene installato con gli strumenti NuGet per Visual Studio. In questo modo si evitano problemi di sincronizzazione delle versioni. [#6799](https://github.com/NuGet/Home/issues/6799)
 * PackageReference supporta ora i metadati DevelopmentDependency - [#4125](https://github.com/NuGet/Home/issues/4125)
 
-## <a name="summary-whats-new-in-482"></a>Riepilogo: Novità nella versione 4.8.2
+## <a name="summary-whats-new-in-482"></a>Riepilogo: novità di 4.8.2
 
-* Correzione della sicurezza: le autorizzazioni per i file creati all'interno di ~/.nuget sono troppo aperte [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+* Correzione della sicurezza: le autorizzazioni per i file creati all'interno di ~/.NuGet sono troppo aperte [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
 
 ## <a name="known-issues"></a>Problemi noti
 ### <a name="installing-signed-packages-on-a-ci-machine-or-in-an-offline-environment-takes-longer-than-usual"></a>L'installazione di pacchetti firmati in un computer CI o in un ambiente offline richiede più tempo del solito
 
 #### <a name="issue"></a>Problema
-Se il computer ha accesso limitato a Internet (ad esempio un computer di compilazione in uno scenario CI/CD), l'installazione o il ripristino di un pacchetto NuGet firmato genererà un avviso ([NU3028](https://docs.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu3028)) dal momento che i server di revoca non sono raggiungibili. Si tratta di una condizione prevista. In alcuni casi, tuttavia, ciò può avere conseguenze impreviste, ad esempio l'installazione o il ripristino del pacchetto richiede più tempo del solito.
+Se il computer ha accesso limitato a Internet (ad esempio un computer di compilazione in uno scenario CI/CD), l'installazione o il ripristino di un pacchetto NuGet firmato genererà un avviso ([NU3028](https://docs.microsoft.com/nuget/reference/errors-and-warnings/nu3028)) dal momento che i server di revoca non sono raggiungibili. Si tratta di una condizione prevista. In alcuni casi, tuttavia, ciò può avere conseguenze impreviste, ad esempio l'installazione o il ripristino del pacchetto richiede più tempo del solito.
 
 #### <a name="workaround"></a>Soluzione alternativa
 Eseguire l'aggiornamento a Visual Studio 15.8.4 e NuGet.exe 4.8.1, in cui è stata introdotta una variabile di ambiente per attivare la modalità di controllo delle revoche.
@@ -60,7 +60,7 @@ Eseguire una delle azioni NuGet seguenti:
 * Compilare il progetto, ovvero un altro modo per attivare un ripristino NuGet
 
 A questo punto, l'opzione di migrazione dovrebbe essere visibile. Si noti che questa opzione non è supportata e non verrà visualizzata per i tipi di progetto ASP.NET e C++.
-Nota: questo problema è stato risolto in Visual Studio 2017 15.9 Preview 3
+Nota: questo problema è stato risolto in Visual Studio 2017 15.9 Preview 3.
 
 ## <a name="issues-fixed-in-this-release"></a>Problemi corretti in questa versione
 
@@ -76,7 +76,7 @@ Nota: questo problema è stato risolto in Visual Studio 2017 15.9 Preview 3
 * La memoria non è valida durante l'aggiornamento delle informazioni sul firmatario in caso di aggiunta di timestamp alla controfirma - [#6840](https://github.com/NuGet/Home/issues/6840)
 * Firma: rimuovere le eccezioni CTL - [#6794](https://github.com/NuGet/Home/issues/6794)
 * Firma: contentUrl DEVE essere HTTPS - [#6777](https://github.com/NuGet/Home/issues/6777)
-* Firma:  SignedPackageVerifierSettings.VSClientDefaultPolicy è inutilizzato - [#6601](https://github.com/NuGet/Home/issues/6601)
+* Firma: SignedPackageVerifierSettings.VSClientDefaultPolicy è inutilizzato - [#6601](https://github.com/NuGet/Home/issues/6601)
 
 
 #### <a name="pack"></a>Pacchetto

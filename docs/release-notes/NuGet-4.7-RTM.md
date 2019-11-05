@@ -5,30 +5,30 @@ author: karann-msft
 ms.author: karann
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: fe769f95e3eda4bc07db4369544472c00b35363d
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.openlocfilehash: 0c3c0380fe6efb3c58124ca5ba8bc1306a433340
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488647"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73611346"
 ---
 # <a name="nuget-47-release-notes"></a>Note sulla versione per NuGet 4.7
 
 [Visual Studio 2017 15.7 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) include [NuGet 4.7.0](https://dist.nuget.org/win-x86-commandline/v4.7.0/nuget.exe).
 
-## <a name="summary-whats-new-in-470"></a>Riepilogo: Novità nella versione 4.7.0
+## <a name="summary-whats-new-in-470"></a>Riepilogo: novità di 4.7.0
 
 * Le funzionalità di firma dei pacchetti sono state estese per abilitare i [pacchetti firmati da repository](https://github.com/NuGet/Home/wiki/Repository-Signatures)
 
-* Con Visual Studio versione 15.7, è stata introdotta la possibilità di [eseguire la migrazione di progetti esistenti che usano il formato packages.config per usare invece PackageReference](https://docs.microsoft.com/en-us/nuget/consume-packages/migrate-packages-config-to-package-reference).
+* Con Visual Studio versione 15.7, è stata introdotta la possibilità di [eseguire la migrazione di progetti esistenti che usano il formato packages.config per usare invece PackageReference](https://docs.microsoft.com/nuget/consume-packages/migrate-packages-config-to-package-reference).
 
-## <a name="summary-whats-new-in-472"></a>Riepilogo: Novità nella versione 4.7.2
+## <a name="summary-whats-new-in-472"></a>Riepilogo: novità di 4.7.2
 
-* Correzione della sicurezza: le autorizzazioni per i file creati all'interno di ~/.nuget sono troppo aperte [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+* Correzione della sicurezza: le autorizzazioni per i file creati all'interno di ~/.NuGet sono troppo aperte [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
 
-## <a name="summary-whats-new-in-473"></a>Riepilogo: Novità nella versione 4.7.3
+## <a name="summary-whats-new-in-473"></a>Riepilogo: novità di 4.7.3
 
-* Correzione della sicurezza: i file all'interno di pacchetti NuGet possono avere un percorso relativo sopra la directory NUPKG [#7906](https://github.com/NuGet/Home/issues/7906)
+* Correzione della sicurezza: i file all'interno di transitiva possono avere un percorso relativo sopra la directory NUPKG [#7906](https://github.com/NuGet/Home/issues/7906)
 
 ## <a name="known-issues"></a>Problemi noti
 
@@ -66,7 +66,7 @@ A questo punto, l'opzione di migrazione dovrebbe essere visibile. Si noti che qu
 * lockFile.GetLibrary distingue tra maiuscole e minuscole - [#6500](https://github.com/NuGet/Home/issues/6500)
 * I percorsi del codice di installazione/aggiornamento e del codice di ripristino non sono coerenti - [#3471](https://github.com/NuGet/Home/issues/3471)
 * La casella combinata della versione di PackageManager della soluzione consente la selezione del separatore tramite tastiera - [#2606](https://github.com/NuGet/Home/issues/2606)
-* Impossibile caricare l'indice del servizio per l'origine `https://www.myget.org/F/<id>` ---> System.Net.Http.HttpRequestException: Il codice di stato della risposta non indica l'esito positivo: 403 (Non consentito) - [#2530](https://github.com/NuGet/Home/issues/2530)
+* Non è possibile caricare l'indice del servizio per l'origine `https://www.myget.org/F/<id>` ---> System.Net.Http.HttpRequestException: il codice di stato della risposta non indica l'esito positivo: 403 (non consentito) - [#2530](https://github.com/NuGet/Home/issues/2530)
 
 ### <a name="dcrs"></a>DCR
 
@@ -75,7 +75,7 @@ A questo punto, l'opzione di migrazione dovrebbe essere visibile. Si noti che qu
 * NuGet.exe -NoServiceEndpoint eviterà l'aggiunta del suffisso dell'URL del servizio - [#6586](https://github.com/NuGet/Home/issues/6586)
 * Aggiungere l'hash di commit alla versione informativa - [#6492](https://github.com/NuGet/Home/issues/6492)
 * Firma: abilitare la rimozione di firma/controfirma del repository - [#6646](https://github.com/NuGet/Home/issues/6646)
-* Firma:  API per rimuovere firma/controfirma del repository - [#6589](https://github.com/NuGet/Home/issues/6589)
+* Firma: API per rimuovere firma/controfirma del repository - [#6589](https://github.com/NuGet/Home/issues/6589)
 * Registrare le informazioni sull'origine in Visual Studio - [#6527](https://github.com/NuGet/Home/issues/6527)
 * Filtrare /tools solo per TFM e RID, in modo che il file XML di impostazioni possa essere inserito nella cartella /tools - [#6197](https://github.com/NuGet/Home/issues/6197)
 * Avvisare quando il comando Pack esclude un file che inizia con.  - [#3308](https://github.com/NuGet/Home/issues/3308)
