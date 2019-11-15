@@ -6,12 +6,12 @@ ms.author: anangaur
 ms.date: 09/23/2019
 ms.topic: conceptual
 ms.reviewer: karann-msft
-ms.openlocfilehash: 120b463fda856fe9dd407b6eba32d60e0918f763
-ms.sourcegitcommit: 188ade66b7ac807ba1667c77cfb9325bf89a8a4a
+ms.openlocfilehash: 70666ddf9cd7bdc448d29d4235e57bc91e2c003e
+ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71248897"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74096875"
 ---
 # <a name="deprecating-packages"></a>Deprecazione dei pacchetti
 
@@ -45,11 +45,11 @@ Una volta che un pacchetto è stato deprecato, i relativi consumer riceveranno u
 ### <a name="visual-studio"></a>Visual Studio 
 *Disponibile a partire da Visual Studio 2019 versione 16,3*
 
-In Visual Studio viene visualizzato un avviso relativo all'utilizzo di un pacchetto `Installed` deprecato nella scheda. Verrà visualizzato il pacchetto e le relative informazioni di deprecazione (incluso il motivo per cui è stato deprecato e il pacchetto alternativo da usare, se presente).
+In Visual Studio viene visualizzato un avviso relativo all'utilizzo di un pacchetto deprecato nella scheda `Installed`. Verrà visualizzato un avviso per il pacchetto e le relative informazioni di deprecazione (incluso il motivo per cui è stato deprecato e il pacchetto alternativo da usare, se presente).
 
    ![Pacchetti deprecati nella scheda installato di Visual Studio di gestione pacchetti](media/deprecation-vs.png)
 
-### <a name="dotnetexe"></a>dotnet.exe
+### <a name="dotnetexe"></a>dotnet. exe
 *Disponibile a partire da .NET SDK 3,0*
 
 Se si utilizza dotnet. exe, è possibile eseguire il comando `dotnet list package --deprecated` nella cartella della soluzione o del progetto per ottenere un elenco di Pacchetti deprecati insieme alle informazioni di deprecazione:

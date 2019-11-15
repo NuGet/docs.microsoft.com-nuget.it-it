@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 89b5fcbd76b85b77489ab36caa215c3a2fedf032
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 034b9dd9699af529e4d82d6ee5b1c42214673341
+ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610971"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74096860"
 ---
 # <a name="manage-package-trust-boundaries"></a>Gestire i limiti di attendibilità dei pacchetti
 
@@ -95,7 +95,7 @@ In alcune situazioni può essere opportuno abilitare la verifica usando certific
 
 ### <a name="sync-repository-certificates"></a>Sincronizzazione dei certificati del repository
 
-I repository dei pacchetti devono annunciare i certificati usati nel loro [indice dei servizi](../api/service-index.md). Prima o poi, il repository aggiornerà questi certificati, ad esempio, allo scadere del certificato. Quando ciò avviene, i client con criteri specifici richiederanno un aggiornamento della configurazione per includere il certificato appena aggiunto. È possibile aggiornare facilmente i firmatari attendibili associati a un repository usando il `nuget.exe` [comando di sincronizzazione dei firmatari attendibili] (.. /Reference/CLI-Reference/CLI-Ref-Trusted-signers.MD # NuGet-Trusted-signers-Sync--nome-nome
+I repository dei pacchetti devono annunciare i certificati usati nel loro [indice dei servizi](../api/service-index.md). Prima o poi, il repository aggiornerà questi certificati, ad esempio, allo scadere del certificato. Quando ciò avviene, i client con criteri specifici richiederanno un aggiornamento della configurazione per includere il certificato appena aggiunto. I firmatari attendibili associati a un repository possono essere aggiornati facilmente usando il `nuget.exe` [comando trusted-signers sync](../reference/cli-reference/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-name).
 
 ### <a name="schema-reference"></a>Riferimento allo schema
 
