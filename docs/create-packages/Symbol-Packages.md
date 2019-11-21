@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 09/12/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: f7503dd413a976997580aa03da26df0c462ff0e1
-ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
-ms.translationtype: HT
+ms.openlocfilehash: 97a533171d698792d66a78550dacfe8eaf29a440
+ms.sourcegitcommit: fc0f8c950829ee5c96e3f3f32184bc727714cfdb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2019
-ms.locfileid: "69564546"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74253918"
 ---
 # <a name="creating-symbol-packages-legacy"></a>Creazione di pacchetti di simboli (legacy)
 
@@ -54,7 +54,7 @@ Ad esempio, un pacchetto di simboli che ha come destinazione .NET 4.0 e Silverli
             \MyAssembly.dll
             \MyAssembly.pdb
 
-I file di origine vengono quindi inseriti in una speciale cartella separata denominata `src`, che deve seguire la relativa struttura del repository di origine. Ciò è dovuto al fatto che i file PDB contengono i percorsi assoluti dei file di origine usati per compilare la DLL corrispondente e devono essere rilevati durante il processo di pubblicazione. Un percorso di base (prefisso di percorso comune) può essere rimosso. Si consideri ad esempio una libreria compilata da questi file:
+I file di origine vengono quindi inseriti in una speciale cartella separata denominata `src`, che deve seguire la relativa struttura del repository di origine. Ciò è dovuto al fatto che i file PDB contengono i percorsi assoluti dei file di origine usati per compilare la DLL corrispondente e devono essere rilevati durante il processo di pubblicazione. Un percorso di base (prefisso del percorso comune) può essere rimosso. Si consideri, ad esempio, una libreria compilata da questi file:
 
     C:\Projects
         \MyProject
@@ -127,7 +127,7 @@ Un pacchetto di simboli può essere generato in base alle convenzioni, da una st
     ```
 
    > [!Note]
-   > Con nuget.exe 4.5.0 o versioni successive, non viene eseguito automaticamente il push dei pacchetti di simboli in symbolsource.org, ma sarà necessario eseguire il push dei pacchetti di simboli separatamente, come illustrato nei passaggi precedenti.
+   > Con NuGet. exe 4.5.0 o versione successiva, i pacchetti di simboli non vengono automaticamente inseriti in symbolsource.org. È necessario eseguire il push dei pacchetti di simboli separatamente, come illustrato nei passaggi precedenti.
    
 In questo caso, NuGet pubblicherà `MyPackage.symbols.nupkg`, se presente, in https://nuget.smbsrc.net/ (URL di push per symbolsource.org), dopo la pubblicazione del pacchetto principale in nuget.org.
 

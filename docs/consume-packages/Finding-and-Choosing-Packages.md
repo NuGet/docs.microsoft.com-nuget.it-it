@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9947a490e4373bb0b8b7fb0814828ff2a60615a8
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 0691660f20f9b5a1ff0dad110ee87c6e29c0a56e
+ms.sourcegitcommit: fc0f8c950829ee5c96e3f3f32184bc727714cfdb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611082"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74253941"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Ricerca e valutazione di pacchetti NuGet per un progetto
 
@@ -82,9 +82,12 @@ Allo stesso tempo, usare un pacchetto NuGet implica la creazione di una dipenden
 
     ![Statistiche di download nella pagina di presentazione del pacchetto](media/Finding-03-Downloads.png)
 
-- *Utilizzo di GitHub*: la sezione **GitHub Usage** (Utilizzo di GitHub) nella pagina del pacchetto elenca i principali repository GitHub che dipendono da questo pacchetto. Un pacchetto da cui dipendono molti repository GitHub comuni è in genere una scelta migliore.
+- *Uso di GitHub*: nella pagina del pacchetto la sezione relativa all' **utilizzo** di GitHub elenca i repository GitHub pubblici che dipendono da questo pacchetto e che hanno un numero elevato di stelle su GitHub. Il numero di stelle di un repository GitHub indica in genere la popolarità del repository con gli utenti di GitHub. più stelle in genere significano più diffuse. Visitare [la pagina Introduzione di GitHub](https://help.github.com/en/github/getting-started-with-github/saving-repositories-with-stars#about-stars) per altre informazioni sul sistema di classificazione a stella e repository di GitHub.
 
     ![Utilizzo di GitHub](media/GitHub-Usage.png)
+
+    > [!Note]
+    > La sezione relativa all'utilizzo di GitHub di un pacchetto viene generata automaticamente, periodicamente, senza la revisione umana dei singoli repository ed esclusivamente a scopo informativo, in modo da visualizzare i repository GitHub che dipendono dal pacchetto e che sono popolari con GitHub utenti.
 
 - *Cronologia delle versioni*: nella pagina del pacchetto cercare in **Info** la data dell'ultimo aggiornamento ed esaminare la voce **Version History** (Cronologia versioni). Un pacchetto ben gestito ha aggiornamenti recenti e una cronologia versioni dettagliata. I pacchetti trascurati hanno pochi aggiornamenti e spesso non sono stati aggiornati da tempo.
 

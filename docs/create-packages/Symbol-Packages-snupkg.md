@@ -12,24 +12,24 @@ keywords: Pacchetti di simboli NuGet, debug dei pacchetti NuGet, supporto per il
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 0197902e4dbc18893d68833fbcfe4263f185a594
-ms.sourcegitcommit: e4b0ff4460865db6dc7bc9f20e9f644d98493011
+ms.openlocfilehash: 03ab4e1f3501055abedf430395de095d773bc9da
+ms.sourcegitcommit: fc0f8c950829ee5c96e3f3f32184bc727714cfdb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71307192"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74253921"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Creazione di pacchetti di simboli (estensione snupkg)
 
 I pacchetti di simboli consentono di migliorare l'esperienza di debug dei pacchetti NuGet.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [nuget.exe v4.9.0 o versione successiva](https://www.nuget.org/downloads) oppure [dotnet.exe v2.2.0 o versione successiva](https://www.microsoft.com/net/download/dotnet-core/2.2), che implementano i [protocolli NuGet](../api/nuget-protocols.md) necessari.
 
 ## <a name="creating-a-symbol-package"></a>Creazione di un pacchetto di simboli
 
-Se si usa dotnet. exe o MSBuild, è necessario impostare le `IncludeSymbols` proprietà e `SymbolPackageFormat` per creare un file con estensione snupkg oltre al file nupkg.
+Se si usa dotnet. exe o MSBuild, è necessario impostare le proprietà `IncludeSymbols` e `SymbolPackageFormat` per creare un file con estensione snupkg oltre al file nupkg.
 
 * Aggiungere le proprietà seguenti al file con estensione csproj:
 
@@ -98,7 +98,7 @@ NuGet.org supporta il proprio repository del server di simboli e accetta solo il
 
 NuGet.org presenta i vincoli seguenti per i pacchetti di simboli:
 
-- Nei pacchetti di simboli sono consentite solo le estensioni `.pdb`di `.nuspec`file `.xml`seguenti: `.rels`,,, `.psmdcp`,,`.p7s`
+- Nei pacchetti di simboli sono consentite solo le estensioni di file seguenti: `.pdb`, `.nuspec`, `.xml`, `.psmdcp`, `.rels``.p7s`
 - Nel server di simboli di NuGet. org sono supportati solo [PDB portatili](https://github.com/dotnet/corefx/blob/master/src/System.Reflection.Metadata/specs/PortablePdb-Metadata.md) gestiti.
 - I PDB e le dll nupkg associate devono essere compilati con il compilatore in Visual Studio versione 15,9 o successiva (vedere l' [hash Crypto PDB](https://github.com/dotnet/roslyn/issues/24429))
 

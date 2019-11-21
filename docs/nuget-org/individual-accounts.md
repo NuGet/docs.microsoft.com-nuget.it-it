@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 63c6b5eb5ad635e436b4d53a5f833af35f72d76f
-ms.sourcegitcommit: 7c9f157ba02d9be543de34ab06813ab1ec10192a
-ms.translationtype: HT
+ms.openlocfilehash: 7951b3db0cdcaee0a1eb955a5bf6fedce24c79c9
+ms.sourcegitcommit: fc0f8c950829ee5c96e3f3f32184bc727714cfdb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69999972"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74253946"
 ---
 # <a name="individual-accounts-on-nugetorg"></a>Account personali in NuGet.org
 
@@ -18,9 +18,9 @@ ms.locfileid: "69999972"
 
 ## <a name="individual-accounts-vs-organization-accounts"></a>Account personali e account aziendali
 
-L'account personale (utente) è l'identità dell'utente in NuGet.org e può essere membro di un numero qualsiasi di organizzazioni. Un pacchetto può appartenere a un account aziendale come a un account personale. I consumer di pacchetti non vedono alcuna differenza tra un account personale e l'account aziendale: entrambi vengono visualizzati come pacchetto `owners`.
+L'account personale (utente) è l'identità dell'utente in NuGet.org e può essere membro di un numero qualsiasi di organizzazioni. Un pacchetto può appartenere a un account aziendale come a un account personale. I consumer di pacchetti non notano differenze tra un account personale e l'account aziendale: entrambi vengono visualizzati come `owners` del pacchetto.
 
-Un account aziendale ha uno o più account personali come membri. Questi membri possono gestire un set di pacchetti mantenendo un'unica identità per la proprietà.
+Un account aziendale ha uno o più account individuali come membri. Questi membri possono gestire un set di pacchetti mantenendo un'unica identità per la proprietà.
 
 ## <a name="add-a-new-individual-account"></a>Aggiungere un nuovo account personale
 
@@ -48,7 +48,7 @@ Si ha ora un account di NuGet.org. È possibile eseguire la gestione degli accou
 
 ## <a name="enable-two-factor-authentication-2fa"></a>Abilitare l'autenticazione a due fattori (2FA)
 
-Per migliorare la protezione dell'account, abilitare l'autenticazione a due fattori (scelta consigliata).
+L'autenticazione a due fattori, o 2FA, è un livello aggiuntivo di sicurezza usato per l'accesso a siti Web o app. Con 2FA, è necessario eseguire l'accesso con l'account Microsoft (MSA) e fornire un'altra forma di autenticazione che solo si conosce o si ha accesso. Per migliorare la protezione dell'account, abilitare l'autenticazione a due fattori (scelta consigliata).
 
 1. Quando si è connessi all'account, aprire il profilo e scegliere **Abilita** in **Account di accesso**.
 
@@ -69,6 +69,9 @@ Per migliorare la protezione dell'account, abilitare l'autenticazione a due fatt
    ![Abilitare 2FA](media/nuget-org-enter-code-2fa.png)
 
 5. Seguire eventuali istruzioni aggiuntive per completare l'autenticazione a due fattori.
+
+> [!Tip]
+> L'abilitazione di 2FA per l'account NuGet.org non influisca sulle impostazioni di autenticazione per altri account o servizi che possono essere collegati al account Microsoft usato per accedere a NuGet.org.
 
 ## <a name="delete-a-nugetorg-account"></a>Eliminare un account di NuGet.org
 
