@@ -23,7 +23,7 @@ ms.locfileid: "74253921"
 
 I pacchetti di simboli consentono di migliorare l'esperienza di debug dei pacchetti NuGet.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 [nuget.exe v4.9.0 o versione successiva](https://www.nuget.org/downloads) oppure [dotnet.exe v2.2.0 o versione successiva](https://www.microsoft.com/net/download/dotnet-core/2.2), che implementano i [protocolli NuGet](../api/nuget-protocols.md) necessari.
 
