@@ -1,78 +1,78 @@
 ---
-title: Note sulla versione 2.5 di NuGet
-description: Note sulla versione per NuGet 2.5, inclusi i problemi noti, correzioni di bug, funzionalità aggiunte e dcr.
+title: Note sulla versione di NuGet 2,5
+description: Note sulla versione per NuGet 2,5, inclusi problemi noti, correzioni di bug, funzionalità aggiunte e DCR.
 author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 29d0b33714a574281680e110b967269699afbaf1
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 940582d5173f5a53dcd04cf1258fc02a2439af4e
+ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43550483"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74825292"
 ---
-# <a name="nuget-25-release-notes"></a>Note sulla versione 2.5 di NuGet
+# <a name="nuget-25-release-notes"></a>Note sulla versione di NuGet 2,5
 
-[Note sulla versione di NuGet 2.2.1](../release-notes/nuget-2.2.1.md) | [note sulla versione per NuGet 2.6](../release-notes/nuget-2.6.md)
+[Note sulla versione di NuGet 2.2.1](../release-notes/nuget-2.2.1.md) | [Note sulla versione di NuGet 2,6](../release-notes/nuget-2.6.md)
 
-NuGet 2.5 è stato rilasciato il 25 aprile 2013. Questa versione è stata così grande, è stato ritenuto obbligati a ignorare le versioni 2.3 e 2.4. Fino a oggi questa è la versione più grande per NuGet, ho avuto con failover [elementi di lavoro 160](https://nuget.codeplex.com/workitem/list/advanced?release=NuGet%202.5&status=all) nella versione.
+NuGet 2,5 è stato rilasciato il 25 aprile 2013. Questa versione era così grande. ci si era costretti a ignorare le versioni 2,3 e 2,4. Fino a oggi, questa è la versione più grande disponibile per NuGet, con oltre [160 elementi di lavoro](https://nuget.codeplex.com/workitem/list/advanced?release=NuGet%202.5&status=all) nella versione.
 
 ## <a name="acknowledgements"></a>Riconoscimenti
 
-Vorremmo ringraziare i collaboratori esterni seguenti per i contributi significativi a NuGet 2.5:
+Vorremmo ringraziare i collaboratori esterni seguenti per i contributi significativi a NuGet 2,5:
 
 1. [Daniel Plaisted](https://www.codeplex.com/site/users/view/dsplaisted) ([@dsplaisted](https://twitter.com/dsplaisted))
-    - [#2847](https://nuget.codeplex.com/workitem/2847) -aggiungere MonoAndroid MonoTouch e MonoMac per l'elenco degli identificatori di framework di destinazione noti.
-2. [Andres g. Aragoneses](https://www.codeplex.com/site/users/view/knocte) ([@knocte](https://twitter.com/knocte))
-    - [#2865](https://nuget.codeplex.com/workitem/2865) -correggere l'ortografia del `NuGet.targets` per un sistema operativo distinzione maiuscole/minuscole
+    - [#2847](https://nuget.codeplex.com/workitem/2847) : aggiungere monoandroid, MonoTouch e MonoMac all'elenco di identificatori di Framework di destinazione noti.
+2. [Andres G. Aragonesi](https://www.codeplex.com/site/users/view/knocte) ([@knocte](https://twitter.com/knocte))
+    - [#2865](https://nuget.codeplex.com/workitem/2865) correggere l'ortografia delle `NuGet.targets` per un sistema operativo con distinzione tra maiuscole e minuscole
 3. [David Fowler](https://www.codeplex.com/site/users/view/dfowler) ([@davidfowl](https://twitter.com/davidfowl))
-    - Verificare la soluzione di compilazione in Mono.
+    - Creare la soluzione in mono.
 4. [Andrew Theken](https://www.codeplex.com/site/users/view/atheken) ([@atheken](https://twitter.com/atheken))
-    - Correggere gli unit test non superati in Mono.
-5. [Dagenais Olivier](https://www.codeplex.com/site/users/view/OliIsCool) ([@OliIsCool](https://twitter.com/oliiscool))
-    - [#2920](https://nuget.codeplex.com/workitem/2920) -comando pack nuget.exe non propaga le proprietà di MSBuild
+    - Correzione degli unit test con errore in mono.
+5. [Olivier Bellis](https://www.codeplex.com/site/users/view/OliIsCool) ([@OliIsCool](https://twitter.com/oliiscool))
+    - il comando [#2920](https://nuget.codeplex.com/workitem/2920) -NuGet. exe Pack non propaga le proprietà a MSBuild
 6. [Miroslav Bajtos](https://www.codeplex.com/site/users/view/MiroslavBajtos) ([@bajtos](https://twitter.com/bajtos))
-    - [#1511](https://nuget.codeplex.com/workitem/1511) - XML modificato la gestione del codice per mantenere la formattazione.
-7. [ADAM Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
-    - Aggiunte le parole riconosciute al dizionario personalizzato per consentire di build. cmd abbia esito positivo.
+    - [#1511](https://nuget.codeplex.com/workitem/1511) modificare il codice di gestione XML per mantenere la formattazione.
+7. [Adam Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
+    - Sono state aggiunte parole riconosciute al dizionario personalizzato per consentire a Build. cmd di avere esito positivo.
 8. [Bruno Roggeri](https://www.codeplex.com/site/users/view/broggeri)
-    - Correggere gli unit test durante l'esecuzione in Visual Studio localizzato.
-9. [Evans Gareth](https://www.codeplex.com/site/users/view/garethevans)
-    - Interfaccia estratto dal PackageService
+    - Correzione degli unit test durante l'esecuzione in Visual Studio
+9. [Gareth Evans](https://www.codeplex.com/site/users/view/garethevans)
+    - Interfaccia estratta da PackageService
 10. [Maxime Brugidou](https://www.codeplex.com/site/users/view/brugidou) ([@brugidou](https://twitter.com/brugidou))
-     - [#936](https://nuget.codeplex.com/workitem/936) -gestire le dipendenze del progetto durante la creazione di un pacchetto
-11. [A Xavier Decoster](https://www.codeplex.com/site/users/view/XavierDecoster) ([@XavierDecoster](https://twitter.com/xavierdecoster))
+     - [#936](https://nuget.codeplex.com/workitem/936) gestire le dipendenze di progetto durante la compressione
+11. [Decostore Xavier](https://www.codeplex.com/site/users/view/XavierDecoster) ([@XavierDecoster](https://twitter.com/xavierdecoster))
      - [#2991](https://nuget.codeplex.com/workitem/2991), [#3164](https://nuget.codeplex.com/workitem/3164) -supporto Password come testo non crittografato quando si archiviano le credenziali dell'origine del pacchetto nel file nuget.cofig
 12. [James Manning](http://www.codeplex.com/site/users/view/jmanning) ([@manningj](https://twitter.com/manningj))
      - [#3190](http://nuget.codeplex.com/workitem/3190), [#3191](http://nuget.codeplex.com/workitem/3191) -descrizione della Guida correggere Get-Package
 
-Grazie anche per le persone indicate di seguito per individuare i bug con NuGet 2.5 Beta o RC che sono state approvate e risolto prima della versione finale:
+Sono inoltre apprezzate le persone seguenti per individuare i bug con NuGet 2,5 beta/RC che sono stati approvati e corretti prima della versione finale:
 
 1. [Tony Wall](https://www.codeplex.com/site/users/view/CodeChief) ([@CodeChief](https://twitter.com/codechief))
     - [#3200](https://nuget.codeplex.com/workitem/3200) MSTest interrotto con più di recente NuGet 2.4 e 2.5 compilazioni:
 
-## <a name="notable-features-in-the-release"></a>Funzionalità di rilievo nella versione
+## <a name="notable-features-in-the-release"></a>Funzionalità rilevanti della versione
 
-### <a name="allow-users-to-overwrite-content-files-that-already-exist"></a>Consentire agli utenti di sovrascrivere i file di contenuto già esistenti
+### <a name="allow-users-to-overwrite-content-files-that-already-exist"></a>Consenti agli utenti di sovrascrivere i file di contenuto già esistenti
 
-Una delle funzionalità più richieste di tutto il tempo è stata la possibilità di sovrascrivere i file di contenuto che già esistono nel disco quando incluso in un pacchetto NuGet. A partire da NuGet 2.5, tali conflitti vengono identificati e viene richiesto di sovrascrivere i file, mentre in precedenza questi file sono stati sempre ignorati.
+Una delle funzionalità più richieste di tutti i tempi è la possibilità di sovrascrivere i file di contenuto già presenti sul disco quando sono inclusi in un pacchetto NuGet. A partire da NuGet 2,5, questi conflitti vengono identificati e viene richiesto di sovrascrivere i file, mentre in precedenza questi file venivano sempre ignorati.
 
-![Sovrascrivere i file di contenuto](./media/NuGet-2.5/overwrite-file.png)
+![Sovrascrivi file di contenuto](./media/NuGet-2.5/overwrite-file.png)
 
-'nuget.exe update' e 'Install-Package' a questo punto entrambi hanno la possibilità di '-FileConflictAction' per impostare alcuni valori predefiniti per gli scenari della riga di comando.
+' NuGet. exe Update ' è Install-Package ' dispongono ora di una nuova opzione '-FileConflictAction ' per impostare alcune impostazioni predefinite per gli scenari da riga di comando.
 
-Impostare un'azione predefinita quando un file da un pacchetto esiste già nel progetto di destinazione. Impostare su 'Sovrascrivi' per sovrascrivere sempre i file. Impostare su 'Ignore' per ignorare i file. Se non specificato, verrà richiesto per ogni file in conflitto.
+Impostare un'azione predefinita quando un file di un pacchetto esiste già nel progetto di destinazione. Impostare su' Sovrascrivi ' per sovrascrivere sempre i file. Impostare su' ignore ' per ignorare i file. Se non è specificato, verrà richiesto di specificare ogni file in conflitto.
 
-### <a name="automatic-import-of-msbuild-targets-and-props-files"></a>Importazione automatica dei file di destinazioni e proprietà di MSBuild
+### <a name="automatic-import-of-msbuild-targets-and-props-files"></a>Importazione automatica di file di destinazione e Props di MSBuild
 
-Una nuova cartella convenzionale è stata creata il primo livello del pacchetto NuGet.  Allo stesso `\lib`, `\content`, e `\tools`, è ora possibile includere un `\build` cartella nel pacchetto.  In questa cartella, è possibile inserire due file con nomi fissi `{packageid}.targets` o `{packageid}.props`. Questi due file possono essere direttamente sotto `build` o nelle cartelle specifiche del framework, proprio come le altre cartelle. La regola per scegliere la cartella di .NET framework corrispondente con mapping più appropriato è esattamente le stesse di quelle.
+È stata creata una nuova cartella convenzionale al livello principale del pacchetto NuGet.  Come peer per `\lib`, `\content`e `\tools`, è ora possibile includere una cartella `\build` nel pacchetto.  In questa cartella è possibile inserire due file con nomi fissi, `{packageid}.targets` o `{packageid}.props`. Questi due file possono essere direttamente in `build` o in cartelle specifiche del Framework come le altre cartelle. La regola per la selezione della cartella del Framework con la corrispondenza più appropriata è esattamente identica a quella di.
 
-Quando NuGet installa un pacchetto con file di \build, aggiungerà un MSBuild `<Import>` nel file di progetto che punta all'elemento di `.targets` e `.props` file. Il `.props` file viene aggiunto all'inizio, mentre il `.targets` file viene aggiunto alla fine.
+Quando NuGet installa un pacchetto con i file \Build, aggiunge un elemento MSBuild `<Import>` nel file di progetto che punta ai file di `.targets` e `.props`. Il file `.props` viene aggiunto nella parte superiore, mentre il file di `.targets` viene aggiunto alla fine.
 
-### <a name="specify-different-references-per-platform-using-references-element"></a>Specificare i riferimenti diversi per ogni piattaforma usando `<References/>` elemento
+### <a name="specify-different-references-per-platform-using-references-element"></a>Specificare riferimenti diversi per piattaforma usando `<References/>` elemento
 
-Prima di 2.5, in `.nuspec` file utente può specificare solo i file di riferimento, da aggiungere per tutti i framework. A questo punto con questa nuova funzionalità di 2.5, è possibile creare l'utente di `<reference/>` (elemento) per ogni piattaforma supportata, ad esempio:
+Prima del 2,5, in `.nuspec` file, l'utente può specificare solo i file di riferimento da aggiungere per tutti i Framework. Ora, con questa nuova funzionalità di 2,5, l'utente può creare l'elemento `<reference/>` per ciascuna piattaforma supportata, ad esempio:
 
 ```xml
 <references>
@@ -88,108 +88,108 @@ Prima di 2.5, in `.nuspec` file utente può specificare solo i file di riferimen
 </references>
 ```
 
-Di seguito è riportato il flusso per la modalità NuGet aggiunge riferimenti a progetti basati sul `.nuspec` file:
+Ecco il flusso per il modo in cui NuGet aggiunge i riferimenti ai progetti basati sul file `.nuspec`:
 
-1. Trovare il `lib` cartella in cui è appropriato per il framework di destinazione e ottiene l'elenco di assembly da tale cartella
-1. Separatamente, trovare il gruppo di riferimenti che è appropriato per il framework di destinazione e ottenere l'elenco degli assembly da tale gruppo. Gruppo di riferimento senza framework di destinazione specificato è il gruppo di fallback.
-1. Trovare l'intersezione dei due elenchi e utilizzarlo come i riferimenti da aggiungere
+1. Trovare la cartella `lib` appropriata per il Framework di destinazione e ottenere l'elenco degli assembly da tale cartella
+1. Trovare separatamente il gruppo References appropriato per il Framework di destinazione e ottenere l'elenco degli assembly dal gruppo. Gruppo di riferimento senza Framework di destinazione specificato è il gruppo di fallback.
+1. Trovare l'intersezione dei due elenchi e usarla come riferimento da aggiungere.
 
-Questa nuova funzionalità consentirà agli autori di usare la funzionalità di riferimenti applicare subset di assembly per diversi Framework sarebbe altrimenti necessario eseguire gli assembly duplicati in più `lib` cartelle.
+Questa nuova funzionalità consentirà agli autori di pacchetti di utilizzare la funzionalità riferimenti per applicare subset di assembly a Framework diversi quando sarebbe altrimenti necessario eseguire assembly duplicati in più cartelle `lib`.
 
-Nota: è necessario attualmente usare pack nuget.exe per usare questa funzionalità; NuGet Package Explorer non supporta ancora lo.
+Nota: per usare questa funzionalità, è necessario usare attualmente il pacchetto NuGet. exe. Gestione pacchetti NuGet non supporta ancora questa operazione.
 
-### <a name="update-all-button-to-allow-updating-all-packages-at-once"></a>Aggiornare tutti i pulsante per consentire l'aggiornamento di tutti i pacchetti in una sola volta
+### <a name="update-all-button-to-allow-updating-all-packages-at-once"></a>Pulsante Aggiorna tutto per consentire l'aggiornamento di tutti i pacchetti contemporaneamente
 
-Molti di voi conoscono il cmdlet di PowerShell "Update-Package" affinché aggiornare tutti i pacchetti; ora vi è un modo semplice per eseguire questa operazione tramite l'interfaccia utente anche.
+Molti di voi conoscono il cmdlet di PowerShell "Update-Package" per aggiornare tutti i pacchetti; ora esiste un modo semplice per eseguire questa operazione anche tramite l'interfaccia utente.
 
 Per provare questa funzionalità:
 
 1. Creare una nuova applicazione MVC ASP.NET
-1. Avviare la finestra di dialogo 'Gestisci pacchetti NuGet'
-1. Selezionare "Aggiornamenti"
-1. Fare clic sul pulsante "Aggiorna tutto"
+1. Avvia la finestra di dialogo ' Gestisci pacchetti NuGet '
+1. Selezionare ' aggiornamenti '
+1. Fai clic sul pulsante ' Aggiorna tutto '
 
-![Aggiornare tutti i pulsante nella finestra di dialogo](./media/NuGet-2.5/update-all.png)
+![Pulsante Aggiorna tutto nella finestra di dialogo](./media/NuGet-2.5/update-all.png)
 
-### <a name="improved-project-reference-support-for-nugetexe-pack"></a>Supporto di riferimento di progetto migliorato per nuget.exe Pack
+### <a name="improved-project-reference-support-for-nugetexe-pack"></a>Supporto migliorato per il riferimento al progetto per NuGet. exe Pack
 
-Ora i processi di comando pack nuget.exe fanno riferimento i progetti con le regole seguenti:
+Il comando NuGet. exe Pack ora elabora i progetti a cui si fa riferimento con le regole seguenti:
 
-1. Se il progetto con riferimenti corrispondente `.nuspec` file, ad esempio, è presente un file denominato `proj1.nuspec` nella stessa cartella `proj1.csproj`, quindi questo progetto viene aggiunto come dipendenza al pacchetto, utilizzando l'id e versione leggervi il `.nuspec` file.
-1. In caso contrario, i file del progetto di riferimento sono contenuti nel pacchetto. Quindi verranno elaborati progetti farvi riferimento questo progetto utilizzando le regole di medesime in modo ricorsivo.
-1. Tutte le DLL, `.pdb`, e `.exe` vengono aggiunti file.
+1. Se il progetto a cui si fa riferimento ha un file di `.nuspec` corrispondente, ad esempio è presente un file denominato `proj1.nuspec` nella stessa cartella `proj1.csproj`, questo progetto viene aggiunto come dipendenza al pacchetto, usando l'ID e la versione letti dal file `.nuspec`.
+1. In caso contrario, i file del progetto a cui si fa riferimento vengono aggregati nel pacchetto. I progetti a cui fa riferimento questo progetto verranno elaborati con le stesse regole in modo ricorsivo.
+1. Vengono aggiunti tutti i file DLL, `.pdb`e `.exe`.
 1. Tutti gli altri file di contenuto vengono aggiunti.
-1. Tutte le dipendenze vengono unite.
+1. Tutte le dipendenze sono unite.
 
-In questo modo un progetto di riferimento essere considerato come una dipendenza se è presente un `.nuspec` file, in caso contrario, questa diventa parte del pacchetto.
+In questo modo un progetto a cui si fa riferimento può essere considerato come una dipendenza se è presente un file di `.nuspec`; in caso contrario, diventa parte del pacchetto.
 
-Per informazioni dettagliate: [http://nuget.codeplex.com/workitem/936](http://nuget.codeplex.com/workitem/936)
+Per altri dettagli, vedere [http://nuget.codeplex.com/workitem/936](http://nuget.codeplex.com/workitem/936)
 
-### <a name="add-a-minimum-nuget-version-property-to-packages"></a>Aggiungere una proprietà 'Versione di NuGet minima' ai pacchetti
+### <a name="add-a-minimum-nuget-version-property-to-packages"></a>Aggiungere una proprietà' versione minima di NuGet ' ai pacchetti
 
-Un nuovo attributo di metadati denominato 'minClientVersion' a questo punto può indicare la versione client NuGet minima richiesta per utilizzare un pacchetto.
+Un nuovo attributo di metadati denominato ' minClientVersion ' può ora indicare la versione minima del client NuGet necessaria per l'utilizzo di un pacchetto.
 
-Questa funzionalità consente di autore del pacchetto per specificare che un pacchetto funzionerà solo dopo una determinata versione di NuGet. Come nuovi `.nuspec` funzionalità vengono aggiunti dopo NuGet 2.5, i pacchetti saranno in grado di richiedere una versione minima di NuGet.
+Questa funzionalità consente all'autore del pacchetto di specificare che un pacchetto funzionerà solo dopo una particolare versione di NuGet. Quando si aggiungono nuove funzionalità di `.nuspec` dopo NuGet 2,5, i pacchetti saranno in grado di richiedere una versione minima di NuGet.
 
 ```xml
 <metadata minClientVersion="2.6">
 ```
 
-Se l'utente ha installato NuGet 2.5 e un pacchetto è identificato in modo che richiedano 2.6, segnali visivi verranno assegnati all'utente che indica che il pacchetto non verrà installabile. L'utente verrà quindi informazioni dettagliata per l'aggiornamento della versione di NuGet.
+Se l'utente ha installato NuGet 2,5 e un pacchetto viene identificato con la richiesta 2,6, i segnali visivi verranno assegnati all'utente che indica che il pacchetto non sarà installabile. L'utente verrà quindi guidato per aggiornare la versione di NuGet.
 
-Ciò migliorerà al momento l'esperienza esistente in cui iniziano a pacchetti da installare, ma l'esito negativo che indica che una versione dello schema non riconosciuto è stata identificata.
+Ciò consente di migliorare l'esperienza esistente in cui i pacchetti iniziano l'installazione, ma non indica che è stata identificata una versione dello schema non riconosciuta.
 
-### <a name="dependencies-are-no-longer-unnecessarily-updated-during-package-installation"></a>Le dipendenze siano aggiornate non è più inutilmente durante l'installazione del pacchetto
+### <a name="dependencies-are-no-longer-unnecessarily-updated-during-package-installation"></a>Non è più necessario aggiornare le dipendenze durante l'installazione del pacchetto
 
-Prima di NuGet 2.5, durante l'installazione di un pacchetto che dipendono da un pacchetto già installato nel progetto, la dipendenza verrebbe aggiornata come parte della nuova installazione, anche se la versione esistente soddisfa la dipendenza.
+Prima di NuGet 2,5, quando è stato installato un pacchetto che dipende da un pacchetto già installato nel progetto, la dipendenza verrebbe aggiornata come parte della nuova installazione, anche se la versione esistente soddisfa la dipendenza.
 
-A partire da NuGet 2.5, se una versione della dipendenza è già soddisfatta, la dipendenza non verrà aggiornata durante le altre installazioni del pacchetto.
+A partire da NuGet 2,5, se è già stata soddisfatta una versione di dipendenza, la dipendenza non verrà aggiornata durante le altre installazioni del pacchetto.
 
 **Scenario:**
 
-1. Il repository di origine contiene pacchetto B con la versione 1.0.0 e versione 1.0.2. Include inoltre il pacchetto a, che presenta una dipendenza da B (> = 1.0.0).
-1. Si supponga che il progetto corrente ha già la versione del pacchetto B 1.0.0 installato. A questo punto si desidera installare pacchetti r.
+1. Il repository di origine contiene il pacchetto B con versione 1.0.0 e 1.0.2. Contiene anche il pacchetto A che ha una dipendenza da B (> = 1.0.0).
+1. Si supponga che nel progetto corrente sia già installato il pacchetto B versione 1.0.0. A questo punto si vuole installare il pacchetto A.
 
-**In NuGet versione 2.2 e precedenti:**
+**In NuGet 2,2 e versioni precedenti:**
 
-* Quando si installa un pacchetto, NuGet verrà aggiornato automaticamente B alla versione 1.0.2, anche se la versione 1.0.0 esistente già soddisfa il vincolo di versione delle dipendenze, che è > = 1.0.0.
+* Quando si installa il pacchetto A, NuGet aggiorna automaticamente B a 1.0.2, anche se la versione esistente 1.0.0 soddisfa già il vincolo della versione di dipendenza, che è > = 1.0.0.
 
-**In NuGet 2.5 e versioni successive:**
+**In NuGet 2,5 e versioni successive:**
 
-* NuGet non verrà più aggiornato B, perché rileverà che la versione 1.0.0 esistente soddisfa il vincolo di versione delle dipendenze.
+* NuGet non aggiornerà più B, perché rileva che la versione esistente 1.0.0 soddisfa il vincolo della versione di dipendenza.
 
-Per altre informazioni su questa modifica, leggere la pagina dettagliata [elemento di lavoro](http://nuget.codeplex.com/workitem/1681) , nonché i relativi [thread di discussione](http://nuget.codeplex.com/discussions/436712).
+Per ulteriori informazioni su questa modifica, leggere l' [elemento di lavoro](http://nuget.codeplex.com/workitem/1681) dettagliato e il thread di [discussione](http://nuget.codeplex.com/discussions/436712)correlato.
 
-### <a name="nugetexe-outputs-http-requests-with-detailed-verbosity"></a>NuGet.exe restituisce come output le richieste http con livello di dettaglio massimo
+### <a name="nugetexe-outputs-http-requests-with-detailed-verbosity"></a>NuGet. exe genera richieste HTTP con dettaglio dettagliato
 
-Se sta cercando di risolvere nuget.exe o semplicemente curioso di scoprire quali le richieste HTTP vengono effettuate durante le operazioni di '-livello di dettaglio dettagliata ' commutatore ora restituirà tutte le richieste HTTP effettuate.
+Per la risoluzione dei problemi di NuGet. exe o solo per le richieste HTTP eseguite durante le operazioni, l'opzione '-verbose detailed ' ora restituirà tutte le richieste HTTP effettuate.
 
-![Output HTTP dal nuget.exe](./media/NuGet-2.5/verbosity.png)
+![Output HTTP di NuGet. exe](./media/NuGet-2.5/verbosity.png)
 
-### <a name="nugetexe-push-now-supports-unc-and-folder-sources"></a>push NuGet.exe supporta ora origini UNC e cartella
+### <a name="nugetexe-push-now-supports-unc-and-folder-sources"></a>il push NuGet. exe supporta ora le origini UNC e delle cartelle
 
-Prima di NuGet 2.5, se si è provato a eseguire 'nuget.exe push' per un'origine pacchetto basata su un percorso UNC o una cartella locale, avrà esito negativo dei push. Con la funzionalità di configuration gerarchico aggiunto di recente, diventa più comune per nuget.exe necessario utilizzare un'origine o la cartella UNC o una raccolta di NuGet basato su HTTP.
+Prima di NuGet 2,5, se si tentasse di eseguire ' NuGet. exe push ' in un'origine del pacchetto basata su un percorso UNC o una cartella locale, il push avrebbe esito negativo. Con la funzionalità di configurazione gerarchica aggiunta di recente, era diventata comune per NuGet. exe avere come destinazione un'origine UNC/cartella o una raccolta NuGet basata su HTTP.
 
-A partire da NuGet 2.5, se nuget.exe identifica un'origine o la cartella UNC, viene eseguita la copia del file di origine.
+A partire da NuGet 2,5, se NuGet. exe identifica un'origine UNC/cartella, eseguirà la copia del file nell'origine.
 
-Funzionerà ora il comando seguente:
+Il comando seguente funzionerà ora:
 
-```
+```cli
 nuget push -source \\mycompany\repo\ mypackage.1.0.0.nupkg
 ```
 
-### <a name="nugetexe-supports-explicitly-specified-config-files"></a>NuGet.exe supporta i file di configurazione specificato in modo esplicito
+### <a name="nugetexe-supports-explicitly-specified-config-files"></a>NuGet. exe supporta i file di configurazione specificati in modo esplicito
 
-i comandi NuGet.exe che accedono a configurazione (tutti ad eccezione di 'pack' e 'Mod') ora supportano un nuovo '-ConfigFile' opzione che impone un file di configurazione specifico da usare al posto di file di configurazione predefinito nel percorso % AppData%\nuget\Nuget.Config.
+i comandi NuGet. exe che accedono alla configurazione (tutti tranne ' spec ' è Pack ') supportano ora una nuova opzione '-ConfigFile ', che impone l'uso di un file di configurazione specifico al posto del file di configurazione predefinito in%AppData%\nuget\Nuget.Config.
 
 Esempio:
 
-```
+```cli
 nuget sources add -name test -source http://test -ConfigFile C:\test\.nuget\Nuget.Config
 ```
 
-### <a name="support-for-native-projects"></a>Supporto per i progetti nativi
+### <a name="support-for-native-projects"></a>Supporto per progetti nativi
 
-Con NuGet 2.5, gli strumenti di NuGet sono ora disponibili per i progetti nativi in Visual Studio. Si prevede che più pacchetti nativi utilizzerà la funzionalità di importazioni MSBuild in precedenza, usando uno strumento creato dal [CoApp progetto](http://coapp.org). Per altre informazioni, leggere [le informazioni sullo strumento](http://coapp.org/news/2013-03-27-The-Long-Awaited-post.html) sul sito Web coapp.org.
+Con NuGet 2,5, gli strumenti NuGet sono ora disponibili per i progetti nativi in Visual Studio. Si prevede che la maggior parte dei pacchetti nativi utilizzerà la funzionalità di importazione di MSBuild precedente, usando uno strumento creato dal [progetto CoApp](http://coapp.org). Per ulteriori informazioni, leggere [i dettagli sullo strumento](http://coapp.org/news/2013-03-27-The-Long-Awaited-post.html) nel sito Web coapp.org.
 
-Il nome del framework di destinazione di "nativa" è stato introdotto per i pacchetti da includere i file di \build, \content e \tools quando il pacchetto viene installato in un progetto nativo.  Il \`lib' cartella non viene utilizzata per i progetti nativi.
+Il nome del Framework di destinazione "native" è stato introdotto per i pacchetti in modo da includere i file in \Build, \Content e \Tools quando il pacchetto viene installato in un progetto nativo.  La cartella \`lib ' non viene utilizzata per i progetti nativi.

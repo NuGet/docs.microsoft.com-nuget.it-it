@@ -1,16 +1,16 @@
 ---
-ms.openlocfilehash: bb39e1056ea97ecf1ac70d7fd8e79e65dc04655c
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
-ms.translationtype: HT
+ms.openlocfilehash: 1df35c96124584bddbe58b8dd6587e3fff256ef9
+ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842151"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74825305"
 ---
 1. Passare alla cartella contenente il file `.nupkg`.
 
 1. Eseguire il comando seguente, specificando il nome del pacchetto (ID pacchetto univoco) e sostituendo il valore di chiave con la chiave API:
 
-    ```cli
+    ```dotnetcli
     dotnet nuget push AppLogger.1.0.0.nupkg -k qz2jga8pl3dvn2akksyquwcs9ygggg4exypy3bhxy6w6x6 -s https://api.nuget.org/v3/index.json
     ```
 

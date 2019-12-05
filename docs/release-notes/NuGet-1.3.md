@@ -1,90 +1,90 @@
 ---
-title: Note sulla versione 1.3 di NuGet
-description: Note sulla versione per NuGet 1.3 inclusi i problemi noti, correzioni di bug, funzionalità aggiunte e dcr.
+title: Note sulla versione di NuGet 1,3
+description: Note sulla versione per NuGet 1,3, inclusi problemi noti, correzioni di bug, funzionalità aggiunte e DCR.
 author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: fa89af100096356c2ffb4d6c501c4a34296ad0ea
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 45d5caa46d532670e370b81f675663b3c5aaaa95
+ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551351"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74825254"
 ---
-# <a name="nuget-13-release-notes"></a>Note sulla versione 1.3 di NuGet
+# <a name="nuget-13-release-notes"></a>Note sulla versione di NuGet 1,3
 
-[Note sulla versione di NuGet 1.2](../release-notes/nuget-1.2.md) | [note sulla versione di NuGet 1.4](../release-notes/nuget-1.4.md)
+[Note sulla versione di nuget 1,2](../release-notes/nuget-1.2.md) | [Note sulla versione di NuGet 1,4](../release-notes/nuget-1.4.md)
 
-1.3 di NuGet è stato rilasciato il 25 aprile 2011.
+NuGet 1,3 è stato rilasciato il 25 aprile 2011.
 
-## <a name="new-features"></a>Nuove funzionalità
+## <a name="new-features"></a>Nuove funzioni e caratteristiche
 
-### <a name="streamlined-package-creation-with-symbol-server-integration"></a>Creazione di pacchetti semplificata con integrazione del server di simboli
+### <a name="streamlined-package-creation-with-symbol-server-integration"></a>Creazione semplificata di pacchetti con l'integrazione del server dei simboli
 
-Il team di NuGet ha collaborato con i colleghi [SymbolSource.org](http://www.symbolsource.org/) per offrire un modo molto semplice della pubblicazione di origini e il del PDB insieme il pacchetto. In questo modo i consumer del pacchetto eseguire l'istruzione l'origine per il pacchetto nel debugger. Per altre informazioni, leggere [creazione e pubblicazione di un pacchetto di simboli](../create-packages/symbol-packages.md) il modo più semplice per pubblicare i pacchetti NuGet con le origini. È anche possibile guardare una dimostrazione di questa funzionalità in tempo reale come parte di NuGet in modo approfondito parlare a Mix11. Questa funzionalità è illustrata completamente a partire il contrassegno di 20 minuti del video.
+Il team NuGet ha collaborato con gli utenti di [symbolsource.org](http://www.symbolsource.org/) per offrire un modo molto semplice per pubblicare le origini e i file PDB insieme al pacchetto. Questo consente ai consumer del pacchetto di eseguire un'istruzione nell'origine del pacchetto nel debugger. Per altri dettagli, vedere [creazione e pubblicazione di un pacchetto di simboli](../create-packages/symbol-packages.md) il modo più semplice per pubblicare pacchetti NuGet con origini. È anche possibile guardare una dimostrazione diretta di questa funzionalità come parte di NuGet approfondita in Mix11. Questa funzionalità è completamente illustrata a partire dal contrassegno di 20 minuti del video.
 
-### <a name="open-packagepage-command"></a>`Open-PackagePage` Comando
+### <a name="open-packagepage-command"></a>`Open-PackagePage` Command
 
-Questo comando rende più semplice accedere alla pagina del progetto per un pacchetto dall'interno della Console di gestione pacchetti. Fornisce inoltre opzioni per aprire l'URL della licenza e la pagina di uso improprio di report per il pacchetto.
-La sintassi del comando è:
+Questo comando consente di ottenere facilmente la pagina del progetto per un pacchetto all'interno della console di gestione pacchetti. Sono inoltre disponibili opzioni per aprire l'URL della licenza e la pagina relativa all'abuso del report per il pacchetto.
+La sintassi per il comando è:
 
     Open-PackagePage -Id <string> [-Version] [-Source] [-License] [-ReportAbuse] [-PassThru]
 
-Il `-PassThru` opzione viene usata per restituire il valore dell'URL specificato.
+L'opzione `-PassThru` viene utilizzata per restituire il valore dell'URL specificato.
 
 Esempi:
 
     PM> Open-PackagePage Ninject
 
-Apre un browser all'URL di progetto specificato nel pacchetto Ninject.
+Apre un browser per l'URL del progetto specificato nel pacchetto Ninject.
 
     PM> Open-PackagePage Ninject -License
 
-Apre un browser all'URL di licenza specificato nel pacchetto Ninject.
+Apre un browser per l'URL di licenza specificato nel pacchetto Ninject.
 
     PM> Open-PackagePage Ninject -ReportAbuse
 
-Apre un browser all'URL dell'origine pacchetto corrente utilizzato per segnalare abusi per il pacchetto specificato.
+Apre un browser per l'URL nell'origine del pacchetto corrente utilizzata per segnalare gli abusi per il pacchetto specificato.
 
     PM> $url = Open-PackagePage Ninject -License -WhatIf -PassThru
 
-Assegnare l'URL di licenza alla variabile, $url, senza dover aprire l'URL in un browser.
+Assegna l'URL della licenza alla variabile, $url, senza aprire l'URL in un browser.
 
 ### <a name="performance-improvements"></a>Miglioramenti delle prestazioni
 
-1.3 NuGet introduce numerosi miglioramenti delle prestazioni. 1.3 NuGet consente di evitare il download di più volte la stessa versione di un pacchetto tramite l'inclusione di una cache locale per ogni utente. La cache siano accessibili e cancellata tramite la finestra di dialogo Impostazioni di gestione pacchetti:
+NuGet 1,3 introduce un notevole miglioramento delle prestazioni. NuGet 1,3 evita di scaricare la stessa versione di un pacchetto più volte includendo una cache per utente locale. È possibile accedere alla cache e cancellarla tramite la finestra di dialogo Impostazioni di gestione pacchetti:
 
-![Finestra di dialogo Opzioni NuGet con impostazioni della Cache del pacchetto](./media/nuget-options.png)
+![Finestra di dialogo Opzioni NuGet con impostazioni della cache dei pacchetti](./media/nuget-options.png)
 
-Altri miglioramenti delle prestazioni includono l'aggiunta del supporto per la compressione HTTP e migliorando la velocità di installazione del pacchetto all'interno di Visual Studio.
+Altri miglioramenti alle prestazioni includono l'aggiunta del supporto per la compressione HTTP e il miglioramento della velocità di installazione dei pacchetti in Visual Studio.
 
-### <a name="visual-studio-and-nugetexe-uses-the-same-list-of-package-sources"></a>Visual Studio e nuget.exe Usa lo stesso elenco di origini dei pacchetti
+### <a name="visual-studio-and-nugetexe-uses-the-same-list-of-package-sources"></a>Visual Studio e NuGet. exe usano lo stesso elenco di origini di pacchetti
 
-Prima di NuGet 1.3, l'elenco delle origini dei pacchetti utilizzato da nuget.exe e il componente aggiuntivo NuGet Visual Studio non sono stati archiviati nella stessa posizione. 1.3 NuGet ora Usa lo stesso elenco in entrambe le posizioni. L'elenco viene archiviato `NuGet.Config` e archiviato nella cartella AppData.
+Prima di NuGet 1,3, l'elenco delle origini dei pacchetti usate da NuGet. exe e dal componente aggiuntivo NuGet di Visual Studio non veniva archiviato nella stessa posizione. NuGet 1,3 ora usa lo stesso elenco in entrambe le posizioni. L'elenco viene archiviato in `NuGet.Config` e archiviato nella cartella AppData.
 
-### <a name="nugetexe-ignores-files-and-folders-that-start-with--by-default"></a>NuGet.exe ignora file e cartelle che iniziano con '.' per impostazione predefinita
+### <a name="nugetexe-ignores-files-and-folders-that-start-with--by-default"></a>NuGet. exe ignora i file e le cartelle che iniziano con ' .' per impostazione predefinita
 
-Per poter effettuare NuGet funziona bene con sistemi di controllo codice sorgente quali Subversion e Mercurial, nuget.exe ignora file e cartelle che iniziano con il '.' durante la creazione di pacchetti di caratteri. Ciò può essere ignorato usando due nuovi flag:
+Per consentire a NuGet di funzionare correttamente con sistemi di controllo del codice sorgente quali Subversion e Mercurial, NuGet. exe ignora le cartelle e i file che iniziano con il carattere ' .' durante la creazione dei pacchetti. È possibile eseguirne l'override usando due nuovi flag:
 
 * __-NoDefaultExcludes__ viene usato per eseguire l'override di questa impostazione e includere tutti i file.
-* __-Esclusione__ consente di aggiungere altri file e cartelle da escludere usando un modello. Ad esempio, per escludere tutti i file con estensione '. bak'
+* __-Exclude__ viene usato per aggiungere altri file o cartelle da escludere usando un modello. Ad esempio, per escludere tutti i file con l'estensione di file '. bak '
 
-```
+```cli
 nuget Pack MyPackage.nuspec -Exclude **\*.bak
 ```  
 
-_Nota: il modello non è ricorsiva per impostazione predefinita._
+_Nota: il criterio non è ricorsivo per impostazione predefinita._
 
-### <a name="support-for-wix-projects-and-the-net-micro-framework"></a>Supporto per i progetti di WiX e .NET Micro Framework
+### <a name="support-for-wix-projects-and-the-net-micro-framework"></a>Supporto per progetti WiX e .NET Micro Framework
 
-Grazie al contributo della community, NuGet include il supporto per tipi di progetto WiX, nonché .NET Micro Framework.
+Grazie ai contributi della community, NuGet include il supporto per i tipi di progetto WiX e .NET Micro Framework.
 
 ## <a name="bug-fixes"></a>Correzioni di bug
 
-Per un elenco completo delle correzioni di bug, visitare il [NuGet Issue Tracker per questa versione](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%201.3&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0).
+Per un elenco completo delle correzioni di bug, vedere la pagina [relativa al rilevamento dei problemi di NuGet per questa versione](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%201.3&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0).
 
-## <a name="bug-fixes-worth-noting"></a>Correzioni di bug la pena notare
+## <a name="bug-fixes-worth-noting"></a>Correzioni di bug da notare
 
-* I pacchetti con i file di origine funzionano in entrambi i siti Web e nei progetti applicazione Web.
-Per i siti Web, i file di origine vengono copiati le `App_Code` cartella
+* I pacchetti con file di origine funzionano sia nei siti Web che nei progetti di applicazione Web.
+Per i siti Web, i file di origine vengono copiati nella cartella `App_Code`

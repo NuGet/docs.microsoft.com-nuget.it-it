@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: 47593cc65ad707b8880d854dc43824b9234fd44a
-ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
-ms.translationtype: HT
+ms.openlocfilehash: 9b6eb012b4bc8135b1648fa9f5e84d7d1c9d6b16
+ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68833308"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74825356"
 ---
 # <a name="quickstart-install-and-use-a-package-using-the-dotnet-cli"></a>Guida introduttiva: Installare e usare un pacchetto con l'interfaccia della riga di comando di dotnet
 
@@ -21,7 +21,7 @@ Al termine dell'installazione, fare riferimento al pacchetto nel codice con `usi
 > [!Tip]
 > **Iniziare con nuget.org**: le ricerche in nuget.org sono il modo in cui gli sviluppatori di .NET individuano in genere componenti che possono riutilizzare nelle loro applicazioni. È possibile eseguire una ricerca direttamente in nuget.org o trovare e installare pacchetti all'interno di Visual Studio, come illustrato in questo articolo.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - [.NET Core SDK](https://www.microsoft.com/net/download/), che fornisce lo strumento da riga di comando `dotnet`. A partire da Visual Studio 2017, l'interfaccia della riga di comando di dotnet viene installata automaticamente con qualsiasi carico di lavoro .NET Core correlato.
 
@@ -35,7 +35,7 @@ I pacchetti NuGet possono essere installati in un progetto .NET di qualche tipo.
 
 1. Creare il progetto usando il comando seguente:
 
-    ```cli
+    ```dotnetcli
     dotnet new console
     ```
 
@@ -45,7 +45,7 @@ I pacchetti NuGet possono essere installati in un progetto .NET di qualche tipo.
 
 1. Usare il comando seguente per installare il pacchetto `Newtonsoft.json`.
 
-    ```cli
+    ```dotnetcli
     dotnet add package Newtonsoft.Json
     ```
 
