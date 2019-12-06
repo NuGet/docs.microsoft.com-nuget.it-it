@@ -12,18 +12,18 @@ keywords: Pacchetti di simboli NuGet, debug dei pacchetti NuGet, supporto per il
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 03ab4e1f3501055abedf430395de095d773bc9da
-ms.sourcegitcommit: fc0f8c950829ee5c96e3f3f32184bc727714cfdb
+ms.openlocfilehash: 8528261f90e75e2dfac8cb746b396d227c3741f4
+ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74253921"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74825187"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Creazione di pacchetti di simboli (estensione snupkg)
 
 I pacchetti di simboli consentono di migliorare l'esperienza di debug dei pacchetti NuGet.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 [nuget.exe v4.9.0 o versione successiva](https://www.nuget.org/downloads) oppure [dotnet.exe v2.2.0 o versione successiva](https://www.microsoft.com/net/download/dotnet-core/2.2), che implementano i [protocolli NuGet](../api/nuget-protocols.md) necessari.
 
@@ -42,7 +42,7 @@ Se si usa dotnet. exe o MSBuild, è necessario impostare le proprietà `IncludeS
 
 * In alternativa, specificare le proprietà seguenti nella riga di comando:
 
-     ```cli
+     ```dotnetcli
      dotnet pack MyPackage.csproj -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
      ```
 
@@ -54,7 +54,7 @@ Se si usa dotnet. exe o MSBuild, è necessario impostare le proprietà `IncludeS
 
 Se si usa NuGet.exe, è possibile usare i comandi seguenti per creare un file con estensione snupkg oltre al file con estensione nupkg:
 
-```
+```cli
 nuget pack MyPackage.nuspec -Symbols -SymbolPackageFormat snupkg
 
 nuget pack MyPackage.csproj -Symbols -SymbolPackageFormat snupkg

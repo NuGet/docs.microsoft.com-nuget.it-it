@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 231947148295e0c06dcec5aa0e1f479d654a8803
-ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
+ms.openlocfilehash: b6a009832430ee08f51ea1028feb878a39f45222
+ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74096864"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74825147"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Riferimenti a pacchetti (PackageReference) nei file di progetto
 
@@ -53,6 +53,7 @@ Nell'esempio precedente, 3.6.0 significa qualsiasi versione > = 3.6.0 con prefer
 ## <a name="using-packagereference-for-a-project-with-no-packagereferences"></a>Uso di PackageReference per un progetto senza PackageReference
 
 Avanzato: se non si hanno pacchetti installati in un progetto (nessun PackageReference nel file di progetto e nessun file packages.config), ma si vuole ripristinare il progetto con stile PackageReference, è possibile impostare una proprietà del progetto RestoreProjectStyle su PackageReference nel file di progetto.
+
 ```xml
 <PropertyGroup>
     <!--- ... -->
@@ -60,6 +61,7 @@ Avanzato: se non si hanno pacchetti installati in un progetto (nessun PackageRef
     <!--- ... -->
 </PropertyGroup>    
 ```
+
 Questa opzione può essere utile se si fa riferimento a progetti con stile PackageReference (progetti con stile SDK o csproj esistenti). In questo modo, sarà possibile fare riferimento "in modo transitivo" dal progetto ai pacchetti a cui fanno riferimento tali progetti.
 
 ## <a name="packagereference-and-sources"></a>PackageReference e origini
@@ -105,10 +107,10 @@ I tag di metadati seguenti controllano gli asset delle dipendenze:
 
 I valori consentiti per questi tag sono i seguenti, con più valori separati da un punto e virgola, ad eccezione di `all` e `none` che devono essere usati da soli:
 
-| Value | Descrizione |
+| Valore | Descrizione |
 | --- | ---
-| compile | Contenuti della cartella `lib`. Controlla se il progetto può essere compilato in base agli assembly nella cartella |
-| runtime | Contenuti delle cartelle `lib` e `runtimes`. Controlla se questi assembly verranno copiati nella directory di output build |
+| compilare | Contenuti della cartella `lib`. Controlla se il progetto può essere compilato in base agli assembly nella cartella |
+| runtime di | Contenuti delle cartelle `lib` e `runtimes`. Controlla se questi assembly verranno copiati nella directory di output build |
 | contentFiles | Contenuto della cartella `contentfiles` |
 | build | `.props` e `.targets` nella cartella `build` |
 | buildMultitargeting | *(4.0)* `.props` e `.targets` nella cartella `buildMultitargeting` per più framework di destinazione |
@@ -171,10 +173,10 @@ Le condizioni possono essere applicate anche al livello `ItemGroup` e verranno a
 ## <a name="locking-dependencies"></a>Blocco delle dipendenze
 *Questa funzionalità è disponibile con NuGet **4.9** o versione successiva e con Visual Studio 2017 **15.9** o versione successiva.*
 
-L'input per il ripristino NuGet è un set di riferimenti al pacchetto dal file di progetto (dipendenze dirette o di primo livello) e l'output è una chiusura completa di tutte le dipendenze del pacchetto, incluse le dipendenze transitive. NuGet prova a produrre sempre la stessa chiusura completa di dipendenze del pacchetto se l'elenco PackageReference di input non è stato modificato. Esistono tuttavia alcuni scenari in cui non è possibile farlo. Esempio:
+L'input per il ripristino NuGet è un set di riferimenti al pacchetto dal file di progetto (dipendenze dirette o di primo livello) e l'output è una chiusura completa di tutte le dipendenze del pacchetto, incluse le dipendenze transitive. NuGet prova a produrre sempre la stessa chiusura completa di dipendenze del pacchetto se l'elenco PackageReference di input non è stato modificato. Esistono tuttavia alcuni scenari in cui non è possibile farlo. Ad esempio:
 
 * Quando si usano versioni mobili, ad esempio `<PackageReference Include="My.Sample.Lib" Version="4.*"/>`. Anche se in questo caso la finalità è il passaggio alla versione più recente a ogni ripristino dei pacchetti, esistono scenari in cui gli utenti richiedono che il grafo venga bloccato su una determinata versione più recente e passi a una versione successiva, se disponibile, in caso di movimento esplicito.
-* Viene pubblicata una versione più recente del pacchetto che risponde ai requisiti di versione di PackageReference. Ad esempio, 
+* Viene pubblicata una versione più recente del pacchetto che risponde ai requisiti di versione di PackageReference. Ad esempio 
 
   * Giorno 1: si è specificato `<PackageReference Include="My.Sample.Lib" Version="4.0.0"/>`, ma le versioni disponibili nei repository NuGet erano 4.1.0, 4.2.0 e 4.3.0. In questo caso, NuGet restituirebbe 4.1.0 (la versione minima più vicina)
 
@@ -206,16 +208,19 @@ Se NuGet rileva una modifica nelle dipendenze definite indicate nei file di prog
 Per CI/CD e altri scenari in cui non si vogliono modificare le dipendenze del pacchetto immediatamente, è possibile farlo impostando `lockedmode` su `true`:
 
 Per dotnet.exe, eseguire:
+
 ```
 > dotnet.exe restore --locked-mode
 ```
 
 Per msbuild.exe, eseguire:
+
 ```
 > msbuild.exe -t:restore -p:RestoreLockedMode=true
 ```
 
 È anche possibile impostare questa proprietà MSBuild condizionale nel file di progetto:
+
 ```xml
 <PropertyGroup>
     <!--- ... -->
@@ -232,12 +237,14 @@ Se si compila un'applicazione, un file eseguibile e il progetto in questione son
 Se tuttavia il progetto è un progetto libreria che non viene distribuito o un progetto di codice comune da cui dipendono altri progetti, **non è consigliabile** archiviare il file di blocco come parte del codice sorgente. È possibile mantenere il file di blocco, ma le dipendenze del pacchetto bloccato per il progetto di codice comune, elencate nel file di blocco, non possono essere usate durante il ripristino o la compilazione di un progetto che dipende da questo progetto di codice comune.
 
 Ad esempio:
+
 ```
 ProjectA
   |------> PackageX 2.0.0
   |------> ProjectB
              |------>PackageX 1.0.0
 ```
+
 Se `ProjectA` ha una dipendenza da `PackageX` versione `2.0.0` e fa anche riferimento a `ProjectB` che dipende da `PackageX` versione `1.0.0`, il file di blocco per `ProjectB` elencherà una dipendenza da `PackageX` versione `1.0.0`. Quando tuttavia `ProjectA` viene compilato, il file di blocco conterrà una dipendenza da `PackageX` versione **`2.0.0`** e **non** `1.0.0` come elencato nel file di blocco per `ProjectB`. Di conseguenza, il file di blocco di un progetto di codice comune ha poca influenza sui pacchetti risolti per i progetti che dipendono da esso.
 
 ### <a name="lock-file-extensibility"></a>Estendibilità di file di blocco

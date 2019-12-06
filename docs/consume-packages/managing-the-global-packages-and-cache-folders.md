@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: f5d418fd5b6b9bb88958d6b7e9e3034f40485a7d
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
-ms.translationtype: HT
+ms.openlocfilehash: e2672aa0bf57242526364639f0df74f9d1adb934
+ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68419965"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74825203"
 ---
 # <a name="managing-the-global-packages-cache-and-temp-folders"></a>Gestione delle cartelle dei pacchetti globale, della cache e temporanea
 
 Quando si installa, aggiorna o ripristina un pacchetto, NuGet gestisce i pacchetti e le informazioni sui pacchetti in varie cartelle all'esterno della struttura del progetto:
 
-| nome | Descrizione e posizione (per utente)|
+| Name | Descrizione e posizione (per utente)|
 | --- | --- |
 | global&#8209;packages | La cartella *global-packages* è la posizione in cui NuGet installa i pacchetti scaricati. Ogni pacchetto viene espanso completamente in una sottocartella corrispondente all'identificatore del pacchetto e al numero di versione. I progetti che usano il formato [PackageReference](package-references-in-project-files.md) usano sempre i pacchetti direttamente da questa cartella. Quando si usa il file [packages.config](../reference/packages-config.md), i pacchetti vengono installati nella cartella *global-packages* e quindi copiati nella cartella `packages` del progetto.<br/><ul><li>Windows: `%userprofile%\.nuget\packages`</li><li>Mac/Linux: `~/.nuget/packages`</li><li>Eseguire l'override usando la variabile di ambiente NUGET_PACKAGES, [le impostazioni di configurazione](../reference/nuget-config-file.md#config-section) `globalPackagesFolder` o `repositoryPath` (rispettivamente quando si usa PackageReference e `packages.config`) o la proprietà MSBuild `RestorePackagesPath` (solo MSBuild). La variabile di ambiente ha la precedenza rispetto all'impostazione di configurazione.</li></ul> |
 | http&#8209;cache | Gestione pacchetti di Visual Studio (NuGet 3.x+) e lo strumento `dotnet` archiviano copie dei pacchetti scaricati nella cache (salvati come file `.dat`), organizzati in sottocartelle per ogni origine di pacchetti. I pacchetti non vengono espansi e la cache ha una scadenza di 30 minuti.<br/><ul><li>Windows: `%localappdata%\NuGet\v3-cache`</li><li>Mac/Linux: `~/.local/share/NuGet/v3-cache`</li><li>Eseguire l'override usando la variabile di ambiente NUGET_HTTP_CACHE_PATH.</li></ul> |
@@ -54,7 +54,7 @@ plugins-cache: C:\Users\user1\AppData\Local\NuGet\plugins-cache
 
 È anche possibile visualizzare le posizioni delle cartelle con il [comando dotnet nuget locals](/dotnet/core/tools/dotnet-nuget-locals):
 
-```cli
+```dotnetcli
 dotnet nuget locals all --list
 ```
 
@@ -104,11 +104,11 @@ A partire da Visual Studio 2017, usare il comando di menu **Strumenti > Gestione
 
 ![Comando NuGet per la cancellazione delle cache](media/options-clear-caches.png)
 
-## <a name="troubleshooting-errors"></a>Risoluzione degli errori
+## <a name="troubleshooting-errors"></a>Risoluzione di errori
 
 Durante l'uso di `nuget locals` o `dotnet nuget locals` possono verificarsi gli errori seguenti:
 
-- *Errore: Impossibile accedere al file <package> perché usato in un altro processo* o *La cancellazione delle risorse locali non è riuscita: Non è possibile eliminare uno o più file*
+- *Errore: Impossibile accedere al file <package> perché utilizzato da un altro processo* o *La cancellazione delle risorse locali non è riuscita. Non è possibile eliminare uno o più file*
 
     Uno o più file nella cartella sono in uso da un altro processo. Ad esempio, è aperto un progetto di Visual Studio che fa riferimento ai pacchetti nella cartella *global-packages*. Chiudere i processi e riprovare.
 
@@ -116,6 +116,6 @@ Durante l'uso di `nuget locals` o `dotnet nuget locals` possono verificarsi gli 
 
     Non si è autorizzati a eliminare i file nella cache. Modificare le autorizzazioni della cartella, se possibile, e riprovare. In caso contrario, contattare l'amministratore di sistema.
 
-- *Errore: Il percorso specificato, il nome file o entrambi sono troppo lunghi. Il nome di file completo deve contenere meno di 260 caratteri, mentre il nome di directory deve contenere meno di 248 caratteri.*
+- *Errore: il percorso specificato, il nome file o entrambi sono troppo lunghi. Il nome completo del file deve essere inferiore a 260 caratteri e il nome della directory deve essere composto da meno di 248 caratteri.*
 
     Abbreviare i nomi delle cartelle e riprovare.
