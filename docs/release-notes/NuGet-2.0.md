@@ -1,37 +1,37 @@
 ---
-title: Note sulla versione 2.0 per NuGet
-description: Note sulla versione per NuGet 2.0 tra problemi noti, correzioni di bug, funzionalità aggiunte e dcr.
+title: Note sulla versione di NuGet 2,0
+description: Note sulla versione per NuGet 2,0, inclusi problemi noti, correzioni di bug, funzionalità aggiunte e DCR.
 author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: f32eea9260ce7e307ff56b7f3e6b48c6d98e6c90
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 01fdbfafcaea009cf119dfa880b2b16539c9b088
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547575"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383067"
 ---
-# <a name="nuget-20-release-notes"></a>Note sulla versione 2.0 per NuGet
+# <a name="nuget-20-release-notes"></a>Note sulla versione di NuGet 2,0
 
-[Note sulla versione di NuGet 1.8](../release-notes/nuget-1.8.md) | [note sulla versione di NuGet 2.1](../release-notes/nuget-2.1.md)
+[Note sulla versione di nuget 1,8](../release-notes/nuget-1.8.md) | [Note sulla versione di NuGet 2,1](../release-notes/nuget-2.1.md)
 
-NuGet 2.0 è stato rilasciato il 19 giugno 2012.
+NuGet 2,0 è stato rilasciato il 19 giugno 2012.
 
-## <a name="known-installation-issue"></a>Problema di installazione noti
-Se si esegue Visual Studio 2010 SP1, è possibile eseguire in un errore di installazione durante il tentativo di aggiornare NuGet, se è installata una versione precedente.
+## <a name="known-installation-issue"></a>Problema di installazione noto
+Se si esegue VS 2010 SP1, potrebbe essere rilevato un errore di installazione quando si tenta di aggiornare NuGet se è installata una versione precedente.
 
-Per risolvere il problema è sufficiente disinstallare NuGet e quindi installarlo dalla raccolta di estensioni di Visual Studio.  Visualizzare [ http://support.microsoft.com/kb/2581019 ](http://support.microsoft.com/kb/2581019) per altre informazioni, o [passare direttamente all'hotfix di Visual Studio](http://bit.ly/vsixcertfix).
+La soluzione alternativa consiste nel disinstallare semplicemente NuGet e quindi installarlo dalla raccolta di estensioni di Visual Studio.  Per ulteriori informazioni, vedere <https://support.microsoft.com/kb/2581019> o [passare direttamente all'hotfix di Visual](http://bit.ly/vsixcertfix)Studio.
 
-Nota: Se Visual Studio non consentirà di disinstallare l'estensione (il pulsante Disinstalla è disabilitato), quindi probabile che sia necessario riavviare Visual Studio tramite "Esegui come amministratore".
+Nota: se Visual Studio non consente di disinstallare l'estensione (il pulsante Disinstalla è disabilitato), probabilmente è necessario riavviare Visual Studio usando "Esegui come amministratore".
 
-## <a name="package-restore-consent-is-now-active"></a>Il consenso di ripristino del pacchetto è ora attivo
+## <a name="package-restore-consent-is-now-active"></a>Il consenso per il ripristino del pacchetto è ora attivo
 
-Come descritto in questo [inserire un post nel package restore consenso](http://blog.nuget.org/20120518/package-restore-and-consent.html), NuGet 2.0 questo punto verrà richiesto il consenso per abilitare il ripristino dei pacchetti passare alla modalità online e scaricare i pacchetti. Assicurarsi di aver specificato il consenso tramite la finestra di dialogo pacchetto configuration manager o la variabile di ambiente EnableNuGetPackageRestore.
+Come descritto in questo [post relativo al consenso per il ripristino dei pacchetti](http://blog.nuget.org/20120518/package-restore-and-consent.html), NuGet 2,0 richiederà il consenso per consentire il ripristino del pacchetto in modo che possa andare online e scaricare i pacchetti. Assicurarsi che sia stato fornito il consenso tramite la finestra di dialogo di configurazione di gestione pacchetti o la variabile di ambiente EnableNuGetPackageRestore.
 
-## <a name="group-dependencies-by-target-frameworks"></a>Gruppo di dipendenze dal framework di destinazione
+## <a name="group-dependencies-by-target-frameworks"></a>Raggruppare le dipendenze per Framework di destinazione
 
-A partire dalla versione 2.0, pacchetto dipendenze possono variare in base al profilo del framework del progetto di destinazione. Ciò avviene utilizzando una versione aggiornata `.nuspec` dello schema. Il `<dependencies>` elemento può ora contenere un set di `<group>` elementi. Ogni gruppo contiene zero o più `<dependency>` elementi e un `targetFramework` attributo. Tutte le dipendenze all'interno di un gruppo vengono installate insieme se il framework di destinazione è compatibile con il profilo del framework di progetto di destinazione. Ad esempio:
+A partire dalla versione 2,0, le dipendenze dei pacchetti possono variare in base al profilo del Framework del progetto di destinazione. Questa operazione viene eseguita utilizzando uno schema `.nuspec` aggiornato. L'elemento `<dependencies>` ora può contenere un set di `<group>` elementi. Ogni gruppo contiene zero o più elementi `<dependency>` e un attributo `targetFramework`. Tutte le dipendenze all'interno di un gruppo vengono installate insieme se il Framework di destinazione è compatibile con il profilo del Framework del progetto di destinazione. Ad esempio:
 
 ```xml
 <dependencies>
@@ -49,11 +49,11 @@ A partire dalla versione 2.0, pacchetto dipendenze possono variare in base al pr
 </dependencies>
 ```
 
-Si noti che un gruppo può contenere **zero** dipendenze. Nell'esempio precedente, se il pacchetto viene installato in un progetto destinato a Silverlight 3.0 o versione successiva, non verranno installate dipendenze. Se il pacchetto viene installata in un progetto destinato a .NET 4.0 o versioni successive, due dipendenze, jQuery e WebActivator, verranno installate.  Se il pacchetto viene installato in un progetto destinato a una versione precedente di tali 2 Framework, o qualsiasi altro framework, verrà installato RouteMagic 1.1.0. Non c'è Nessuna ereditarietà tra gruppi. Se corrisponde al framework di destinazione di un progetto di `targetFramework` attributo di un gruppo, solo le dipendenze all'interno di tale gruppo verrà installato.
+Si noti che un gruppo può contenere **zero** dipendenze. Nell'esempio precedente, se il pacchetto viene installato in un progetto destinato a Silverlight 3,0 o versione successiva, non verrà installata alcuna dipendenza. Se il pacchetto viene installato in un progetto destinato a .NET 4,0 o versione successiva, verranno installati due dipendenze, jQuery e WebActivator.  Se il pacchetto viene installato in un progetto destinato a una versione iniziale di questi due Framework, o qualsiasi altro Framework, verrà installato RouteMagic 1.1.0. Non esiste alcuna ereditarietà tra i gruppi. Se il Framework di destinazione di un progetto corrisponde all'attributo `targetFramework` di un gruppo, verranno installate solo le dipendenze all'interno di tale gruppo.
 
-Un pacchetto è possibile specificare le dipendenze del pacchetto in uno dei due formati: il formato precedente di un elenco semplice di `<dependency>` elementi o gruppi. Se il `<group>` formato viene usato, il pacchetto non può essere installato nelle versioni di NuGet precedenti alla 2.0.
+Un pacchetto può specificare le dipendenze del pacchetto in uno dei due formati seguenti: il formato precedente di un elenco semplice di elementi `<dependency>` o gruppi. Se viene usato il formato `<group>`, il pacchetto non può essere installato in versioni di NuGet precedenti alla 2,0.
 
-Si noti che i due formati non è consentito combinare. Ad esempio, è il seguente frammento **valido** e vengono rifiutati da NuGet.
+Si noti che non è consentito combinare i due formati. Ad esempio, il frammento di codice seguente **non è valido** e verrà rifiutato da NuGet.
 
 ```xml
 <dependencies>
@@ -66,9 +66,9 @@ Si noti che i due formati non è consentito combinare. Ad esempio, è il seguent
 </dependencies>
 ```
 
-## <a name="grouping-content-files-and-powershell-scripts-by-target-framework"></a>Raggruppamento di file di contenuto e gli script di PowerShell dal framework di destinazione
+## <a name="grouping-content-files-and-powershell-scripts-by-target-framework"></a>Raggruppamento di file di contenuto e script di PowerShell in base a Framework di destinazione
 
-Oltre ai riferimenti di assembly, i file di contenuto e script di PowerShell anche possono essere raggruppati per framework di destinazione. La stessa struttura di cartelle trovato nel `lib` cartella per la specifica di framework di destinazione è ora possibile applicare nello stesso modo per il `content` e `tools` cartelle. Ad esempio:
+Oltre ai riferimenti agli assembly, i file di contenuto e gli script di PowerShell possono essere raggruppati in base al Framework di destinazione. È ora possibile applicare la stessa struttura di cartelle presente nella cartella `lib` per specificare il Framework di destinazione nello stesso modo per le cartelle `content` e `tools`. Ad esempio:
 
     \content
         \net11
@@ -88,13 +88,13 @@ Oltre ai riferimenti di assembly, i file di contenuto e script di PowerShell anc
             \install.ps1
             \uninstall.ps1
 
-**Nota**: poiché `init.ps1` viene eseguita a livello di soluzione e permane non dipendente da qualsiasi singolo progetto, deve essere inserito direttamente sotto il `tools` cartella. Se posizionata all'interno di una cartella specifica del framework, verrà ignorato.
+**Nota**: poiché `init.ps1` viene eseguita a livello di soluzione e non dipende da un singolo progetto, deve essere inserita direttamente nella cartella `tools`. Se inserito in una cartella specifica del Framework, verrà ignorato.
 
-Inoltre, una nuova funzionalità di NuGet 2.0 è che può essere una cartella framework *vuoto*, nel qual caso, NuGet non aggiungere riferimenti ad assembly, aggiungere i file di contenuto o eseguire gli script di PowerShell per la versione del framework specifico. Nell'esempio precedente, la cartella `content\net40` è vuoto.
+Inoltre, una nuova funzionalità di NuGet 2,0 è che una cartella del Framework può essere *vuota*. in questo caso, NuGet non aggiunge i riferimenti ad assembly, aggiunge i file di contenuto o esegue script di PowerShell per la versione specifica del Framework. Nell'esempio precedente la cartella `content\net40` è vuota.
 
-## <a name="improved-tab-completion-performance"></a>Prestazioni di completamento tab migliorato
-La funzionalità di completamento della scheda nella Console di gestione pacchetti NuGet è stata aggiornata per migliorare significativamente le prestazioni. Ci sarà molto meno ritardo dal momento in cui che viene premuto il tasto tab fino a quando non viene visualizzato l'elenco a discesa di suggerimenti.
+## <a name="improved-tab-completion-performance"></a>Miglioramento delle prestazioni di completamento tramite TAB
+La funzionalità di completamento tramite TAB nella console di gestione pacchetti NuGet è stata aggiornata per migliorare significativamente le prestazioni. Si verifica un ritardo molto inferiore dal momento in cui viene premuto il tasto TAB fino a quando non viene visualizzato l'elenco a discesa dei suggerimenti.
 
 ## <a name="bug-fixes"></a>Correzioni di bug
-NuGet 2.0 include varie correzioni di bug con particolare attenzione alle prestazioni e il consenso di ripristino del pacchetto.
-Per un elenco completo di lavoro gli elementi corretti in NuGet 2.0, vista la [NuGet Issue Tracker per questa versione](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%202.0&assignedTo=All&component=All&sortField=Votes&sortDirection=Descending&page=0).
+NuGet 2,0 include molte correzioni di bug con particolare attenzione al consenso e alle prestazioni per il ripristino dei pacchetti.
+Per un elenco completo degli elementi di lavoro corretti in NuGet 2,0, vedere la pagina [relativa al rilevamento dei problemi di NuGet per questa versione](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%202.0&assignedTo=All&component=All&sortField=Votes&sortDirection=Descending&page=0).
