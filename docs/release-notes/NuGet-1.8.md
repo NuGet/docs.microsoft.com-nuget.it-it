@@ -1,77 +1,77 @@
 ---
-title: Note sulla versione 1.8 di NuGet
-description: Note sulla versione per NuGet 1.8 inclusi i problemi noti, correzioni di bug, funzionalità aggiunte e dcr.
+title: Note sulla versione di NuGet 1,8
+description: Note sulla versione per NuGet 1,8, inclusi problemi noti, correzioni di bug, funzionalità aggiunte e DCR.
 author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: ff6d12606b1bed479e63eebccd978ff9cd4a7faf
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 973a2d010cb75eeeb383be94baf2fb17a999dd7c
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546621"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383461"
 ---
-# <a name="nuget-18-release-notes"></a>Note sulla versione 1.8 di NuGet
+# <a name="nuget-18-release-notes"></a>Note sulla versione di NuGet 1,8
 
-[Note sulla versione di NuGet 1.7](../release-notes/nuget-1.7.md) | [note sulla versione di NuGet 2.0](../release-notes/nuget-2.0.md)
+[Note sulla versione di nuget 1,7](../release-notes/nuget-1.7.md) | [Note sulla versione di NuGet 2,0](../release-notes/nuget-2.0.md)
 
-NuGet 1.8 è stato rilasciato il 23 maggio 2012.
+NuGet 1,8 è stato rilasciato il 23 maggio 2012.
 
-## <a name="known-installation-issue"></a>Problema di installazione noti
-Se si esegue Visual Studio 2010 SP1, è possibile eseguire in un errore di installazione durante il tentativo di aggiornare NuGet, se è installata una versione precedente.
+## <a name="known-installation-issue"></a>Problema di installazione noto
+Se si esegue VS 2010 SP1, potrebbe essere rilevato un errore di installazione quando si tenta di aggiornare NuGet se è installata una versione precedente.
 
-Per risolvere il problema è sufficiente disinstallare NuGet e quindi installarlo dalla raccolta di estensioni di Visual Studio.  Visualizzare [ http://support.microsoft.com/kb/2581019 ](http://support.microsoft.com/kb/2581019) per altre informazioni, o [passare direttamente all'hotfix di Visual Studio](http://bit.ly/vsixcertfix).
+La soluzione alternativa consiste nel disinstallare semplicemente NuGet e quindi installarlo dalla raccolta di estensioni di Visual Studio.  Per ulteriori informazioni, vedere <https://support.microsoft.com/kb/2581019> o [passare direttamente all'hotfix di Visual](http://bit.ly/vsixcertfix)Studio.
 
-Nota: Se Visual Studio non consentirà di disinstallare l'estensione (il pulsante Disinstalla è disabilitato), quindi probabile che sia necessario riavviare Visual Studio tramite "Esegui come amministratore".
+Nota: se Visual Studio non consente di disinstallare l'estensione (il pulsante Disinstalla è disabilitato), probabilmente è necessario riavviare Visual Studio usando "Esegui come amministratore".
 
-## <a name="nuget-18-incompatible-with-windows-xp-hotfix-published"></a>NuGet 1.8 non compatibile con Windows XP, hotfix pubblicato
+## <a name="nuget-18-incompatible-with-windows-xp-hotfix-published"></a>NuGet 1,8 incompatibile con Windows XP, hotfix pubblicato
 
-Poco dopo il rilascio di NuGet 1.8, abbiamo imparato che una modifica di crittografia in 1.8 annullino gli utenti in Windows XP.
+Poco dopo il rilascio di NuGet 1,8, si è appreso che un cambiamento di crittografia in 1,8 ha interrotto gli utenti in Windows XP.
 
-Poiché Microsoft ha rilasciato un hotfix in grado di risolvere il problema.  Per l'aggiornamento di NuGet tramite la raccolta di estensioni di Visual Studio, si riceve questo hotfix.
+Poiché è stato rilasciato un hotfix che risolve questo problema.  Con l'aggiornamento di NuGet tramite la raccolta di estensioni di Visual Studio, viene visualizzato questo hotfix.
 
 ## <a name="features"></a>Funzionalità
 
 ### <a name="satellite-packages-for-localized-resources"></a>Pacchetti satellite per le risorse localizzate
-1.8 NuGet supporta ora la possibilità di creare pacchetti separati per le risorse localizzate, simili a quelle di assembly satellite di .NET Framework.  Viene creato un pacchetto satellite esattamente come qualsiasi altro pacchetto NuGet con l'aggiunta di alcune convenzioni:
+NuGet 1,8 supporta ora la possibilità di creare pacchetti distinti per le risorse localizzate, in modo analogo alle funzionalità di assembly satellite del .NET Framework.  Un pacchetto satellite viene creato allo stesso modo di qualsiasi altro pacchetto NuGet con l'aggiunta di alcune convenzioni:
 
-* Il nome e ID del pacchetto satellite deve includere un suffisso che corrisponde a uno standard [sulle impostazioni cultura le stringhe utilizzate da .NET Framework](http://msdn.microsoft.com/goglobal/bb896001.aspx).
-* Nel relativo `.nuspec` file, il pacchetto satellite deve definire un elemento di linguaggio con la stessa stringa di impostazioni cultura utilizzata nell'ID
-* Il pacchetto satellite deve definire una dipendenza nel relativo `.nuspec` file per il pacchetto principale, ovvero semplicemente il pacchetto con lo stesso ID meno il suffisso del linguaggio.  Pacchetto di base deve essere disponibile nel repository per l'installazione ha esito positivo.
+* L'ID e il nome file del pacchetto satellite devono includere un suffisso che corrisponde a una delle [stringhe di impostazioni cultura standard utilizzate dal .NET Framework](https://docs.microsoft.com/openspecs/windows_protocols/ms-lcid/a9eac961-e77d-41a6-90a5-ce1a8b0cdb9c).
+* Nel file di `.nuspec`, il pacchetto satellite deve definire un elemento del linguaggio con la stessa stringa di impostazioni cultura usata nell'ID
+* Il pacchetto satellite deve definire una dipendenza nel relativo file di `.nuspec` al relativo pacchetto principale, che è semplicemente il pacchetto con lo stesso ID meno il suffisso della lingua.  Per eseguire correttamente l'installazione, il pacchetto di base deve essere disponibile nel repository.
 
-Per installare un pacchetto con le risorse localizzate, lo sviluppatore seleziona in modo esplicito il pacchetto di aggiornamento dal repository. Al momento, raccolta NuGet non fornisce alcun tipo di trattamento speciale per i pacchetti satellite.
+Per installare un pacchetto con risorse localizzate, uno sviluppatore seleziona in modo esplicito il pacchetto localizzato dal repository. Attualmente, la raccolta NuGet non fornisce alcun tipo di trattamento speciale per i pacchetti satellite.
 
 ![Finestra di dialogo Gestione pacchetti con pacakges localizzato](./media/dlg-w-loc-packs.png)
 
-Perché il pacchetto satellite elenca una dipendenza per il pacchetto di base, i pacchetti satellite sia il core sono estratti nella cartella dei pacchetti NuGet e installati.
+Poiché il pacchetto satellite elenca una dipendenza per il pacchetto principale, i pacchetti satellite e core vengono estratti nella cartella pacchetti NuGet e installati.
 
-![Cartella dei pacchetti con pacchetti localizzati](./media/fldr-loc-packs.png)
+![Cartella pacchetti con pacchetti localizzati](./media/fldr-loc-packs.png)
 
-Inoltre, durante l'installazione del pacchetto satellite, NuGet riconosce inoltre la convenzione di denominazione stringa delle impostazioni cultura e quindi copia l'assembly di risorse localizzato nella sottocartella corretta all'interno del pacchetto di base in modo che possono essere selezionato da .NET Framework.
+Inoltre, durante l'installazione del pacchetto satellite, NuGet riconosce anche la convenzione di denominazione delle stringhe di impostazioni cultura e quindi copia l'assembly di risorse localizzato nella sottocartella corretta all'interno del pacchetto principale, in modo che possa essere selezionato dal .NET Framework.
 
-![Cartella del pacchetto principale con la cartella risorsa copiata](./media/fldr-copied-loc.png)
+![Cartella del pacchetto principale con cartella delle risorse copiata](./media/fldr-copied-loc.png)
 
-Un bug esistente con i pacchetti satellite notare è che NuGet non copia le risorse localizzate per le `bin` cartella per i progetti di sito Web.  Questo problema verrà risolto nella prossima versione di NuGet.
+Un bug esistente da notare con i pacchetti satellite è che NuGet non copia le risorse localizzate nella cartella `bin` per i progetti di siti Web.  Questo problema verrà risolto nella prossima versione di NuGet.
 
-Per un esempio completo che illustra come creare e usare pacchetti satellite, vedere [ https://github.com/NuGet/SatellitePackageSample ](https://github.com/NuGet/SatellitePackageSample).
+Per un esempio completo che illustra come creare e usare pacchetti satellite, vedere [https://github.com/NuGet/SatellitePackageSample](https://github.com/NuGet/SatellitePackageSample).
 
-### <a name="package-restore-consent"></a>Consenso di ripristino del pacchetto
-In NuGet 1.8, abbiamo gettato le basi per il supporto di un vincolo importante sul ripristino dei pacchetti per proteggere la riservatezza degli utenti. Questo vincolo richiede gli sviluppatori che compilano i progetti e soluzioni che usano il ripristino dei pacchetti in modo esplicito il consenso al ripristino del pacchetto sarà online per scaricare i pacchetti da origini pacchetto configurato.
+### <a name="package-restore-consent"></a>Consenso per il ripristino del pacchetto
+In NuGet 1,8 abbiamo gettato le basi per supportare un vincolo importante nel ripristino dei pacchetti per proteggere la privacy degli utenti. Questo vincolo richiede agli sviluppatori di creare progetti e soluzioni che usano il ripristino dei pacchetti per acconsentire esplicitamente al ripristino del pacchetto in linea per scaricare i pacchetti dalle origini dei pacchetti configurate.
 
-Esistono 2 modi per fornire il consenso. Il primo è reperibile nella finestra di configurazione di manager pacchetto come illustrato di seguito.  Questo metodo è destinato principalmente in computer di sviluppo.
+Sono disponibili 2 modi per fornire questo consenso. Il primo si trova nella finestra di dialogo di configurazione di gestione pacchetti, come illustrato di seguito.  Questo metodo è destinato principalmente ai computer di sviluppo.
 
-![Finestra di dialogo Configurazione di package manager](./media/pr-consent-configdlg.png)
+![Finestra di dialogo di configurazione di gestione pacchetti](./media/pr-consent-configdlg.png)
 
-Il secondo metodo consiste nell'impostare l'ambiente di variabili "EnableNuGetPackageRestore" per il valore "true".  Questo metodo è destinato a automatica delle macchine, ad esempio server CI o compilazione.
+Il secondo metodo consiste nell'impostare la variabile di ambiente "EnableNuGetPackageRestore" sul valore "true".  Questo metodo è destinato alle macchine automatiche, ad esempio CI o server di compilazione.
 
-A questo punto, come indicato in precedenza, abbiamo solo Stati gettato le basi per questa funzionalità in NuGet 1.8.  In pratica, ciò significa che anche se sono state aggiunte tutta la logica per abilitare la funzionalità, questa viene attualmente non imposta in questa versione. Verrà abilitata, tuttavia, entro i prossimi versione di NuGet, pertanto abbiamo deciso di rendere è consapevole appena possibile, in modo che è possibile configurare gli ambienti in modo appropriato e pertanto non essere interessate quando iniziamo a applicare il vincolo di consenso.
+Ora, come indicato in precedenza, abbiamo solo gettato le basi per questa funzionalità in NuGet 1,8.  In pratica, ciò significa che, anche se è stata aggiunta tutta la logica per abilitare la funzionalità, attualmente non viene applicata in questa versione. Questa funzionalità verrà abilitata, tuttavia, nella prossima versione di NuGet, quindi è necessario renderla consapevole il prima possibile, in modo da poter configurare gli ambienti in modo appropriato e quindi non essere interessati quando si inizia a applicare il vincolo di consenso.
 
-Per altre informazioni, vedere la [post di blog del team](http://blog.nuget.org/20120518/package-restore-and-consent.html) su questa funzionalità.
+Per altri dettagli, vedere il [post di Blog del team](http://blog.nuget.org/20120518/package-restore-and-consent.html) su questa funzionalità.
 
-### <a name="nugetexe-performance-improvements"></a>Miglioramenti delle prestazioni NuGet.exe
-Modificando il comando di installazione per scaricare e installare i pacchetti in parallelo, NuGet 1.8 sono stati introdotti miglioramenti notevolmente le prestazioni per nuget.exe – e per il ripristino di pacchetti di estensione.  Elevata a livello test Mostra un miglioramento delle prestazioni per l'installazione di 6 pacchetti in un progetto di circa il 35% in NuGet 1.8.  L'aumento del numero di pacchetti da 25 Mostra un miglioramento delle prestazioni di circa il 60%.
+### <a name="nugetexe-performance-improvements"></a>Miglioramenti delle prestazioni di NuGet. exe
+Modificando il comando install per scaricare e installare i pacchetti in parallelo, NuGet 1,8 offre miglioramenti significativi delle prestazioni a NuGet. exe e al ripristino del pacchetto di estensione.  Il testing di alto livello Mostra che le prestazioni per l'installazione di 6 pacchetti in un progetto migliorano di circa il 35% in NuGet 1,8.  L'aumento del numero di pacchetti a 25 Mostra un miglioramento delle prestazioni del 60%.
 
 ## <a name="bug-fixes"></a>Correzioni di bug
-NuGet 1.8 include alcune correzioni di bug con un'enfasi sulla console di gestione pacchetti e del flusso di lavoro di ripristino del pacchetto, soprattutto in relazione al consenso di ripristino di pacchetti e l'integrazione di Express per Windows 8.
-Per un elenco completo di lavoro gli elementi corretti in NuGet 1.8, vista la [NuGet Issue Tracker per questa versione](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%201.8&assignedTo=All&component=All&sortField=Votes&sortDirection=Descending&page=0).
+NuGet 1,8 include alcune correzioni di bug con particolare attenzione alla console di gestione pacchetti e al flusso di lavoro di ripristino dei pacchetti, in particolare per quanto riguarda il consenso per il ripristino dei pacchetti e l'integrazione con Windows 8 Express.
+Per un elenco completo degli elementi di lavoro corretti in NuGet 1,8, vedere la pagina [relativa al rilevamento dei problemi di NuGet per questa versione](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%201.8&assignedTo=All&component=All&sortField=Votes&sortDirection=Descending&page=0).

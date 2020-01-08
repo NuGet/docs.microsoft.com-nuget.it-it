@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 6/1/2017
 ms.topic: reference
-ms.openlocfilehash: 4bb6d090b97dd55fc1be0625855aab27a0d181c4
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 4118b5a38f80a2300b3945738315d56bda096f9a
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327388"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384633"
 ---
 # <a name="find-package-package-manager-console-in-visual-studio"></a>Find-Package (console di Gestione pacchetti in Visual Studio)
 
@@ -29,20 +29,20 @@ Find-Package [-Id] <keywords> -Source <string> [-AllVersions] [-First [<int>]]
 
 | Parametro | Descrizione |
 | --- | --- |
-| Parole &lt;chiave ID&gt; | Necessaria Parole chiave da usare durante la ricerca nell'origine del pacchetto. Usare-ExactMatch per restituire solo i pacchetti il cui ID pacchetto corrisponde alle parole chiave. Se non viene specificata alcuna parola `Find-Package` chiave, restituisce un elenco dei primi 20 pacchetti per download o il numero specificato da-First. Si noti che-ID è facoltativo e un no-op. |
+| ID &lt;parole chiave&gt; | Necessaria Parole chiave da usare durante la ricerca nell'origine del pacchetto. Usare-ExactMatch per restituire solo i pacchetti il cui ID pacchetto corrisponde alle parole chiave. Se non viene specificata alcuna parola chiave, `Find-Package` restituisce un elenco dei primi 20 pacchetti per download o il numero specificato da-First. Si noti che-ID è facoltativo e un no-op. |
 | Source | URL o percorso della cartella per l'origine del pacchetto da cercare. I percorsi delle cartelle locali possono essere assoluti o relativi alla cartella corrente. Se omesso, `Find-Package` Cerca nell'origine del pacchetto attualmente selezionata. |
 | AllVersions | Visualizza tutte le versioni disponibili di ogni pacchetto anziché solo la versione più recente. |
-| Primo | Numero di pacchetti da restituire dall'inizio dell'elenco; il valore predefinito è 20. |
-| Skip | Omette i primi &lt;pacchetti int&gt; dall'elenco visualizzato.  |
+| First | Numero di pacchetti da restituire dall'inizio dell'elenco; il valore predefinito è 20. |
+| Skip | Omette la prima &lt;i pacchetti int&gt; dall'elenco visualizzato.  |
 | IncludePrerelease | Include i pacchetti di versioni non definitive nei risultati. |
-| ExactMatch | Specificato per usare &lt;parole&gt; chiave come ID pacchetto con distinzione tra maiuscole e minuscole. |
-| Cominciamo | Restituisce i pacchetti il cui ID di &lt;pacchetto&gt;inizia con parole chiave. |
+| ExactMatch | Specificato per utilizzare &lt;parole chiave&gt; come ID pacchetto con distinzione tra maiuscole e minuscole. |
+| StartWith | Restituisce i pacchetti il cui ID di pacchetto inizia con &lt;parole chiave&gt;. |
 
 Nessuno di questi parametri accetta caratteri jolly o di input della pipeline.
 
 ## <a name="common-parameters"></a>Parametri comuni
 
-`Find-Package`supporta i seguenti [parametri comuni di PowerShell](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, azione di errore, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction e WarningVariable.
+`Find-Package` supporta i [parametri di PowerShell comuni](https://go.microsoft.com/fwlink/?LinkID=113216)seguenti: debug, azione di errore, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction e WarningVariable.
 
 ## <a name="examples"></a>Esempi
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: ed3545454a811c311190a191c566d9e9192f3fcc
-ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
+ms.openlocfilehash: 2c2b5b21569e2644154670d502146f1e0f9c4c81
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74825063"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385014"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Pack e restore di NuGet come destinazioni MSBuild
 
@@ -46,7 +46,7 @@ La tabella seguente descrive le proprietà di MSBuild che possono essere aggiunt
 
 Si noti che le proprietà `Owners` e `Summary` da `.nuspec` non sono supportate con MSBuild.
 
-| Valore di attributo/NuSpec | Proprietà MSBuild | Impostazione predefinita | Note |
+| Valore di attributo/NuSpec | Proprietà MSBuild | Default | Note |
 |--------|--------|--------|--------|
 | Id | PackageId | AssemblyName | $(AssemblyName) da MSBuild |
 | Versione | PackageVersion | Versione | Compatibile con SemVer, ad esempio "1.0.0", "1.0.0-beta" o "1.0.0-beta-00345" |
@@ -120,7 +120,7 @@ Per non visualizzare le dipendenze del pacchetto dal pacchetto NuGet generato, i
 
 `PackageIconUrl` sarà deprecato a favore della nuova proprietà [`PackageIcon`](#packageicon) .
 
-A partire da NuGet 5,3 & Visual Studio 2019 versione 16,3, `pack` genererà un avviso [NU5048](errors-and-warnings/nu5048) se i metadati del pacchetto specificano solo `PackageIconUrl`.
+A partire da NuGet 5,3 & Visual Studio 2019 versione 16,3, `pack` genererà un avviso [NU5048](./errors-and-warnings/nu5048.md) se i metadati del pacchetto specificano solo `PackageIconUrl`.
 
 ### <a name="packageicon"></a>PackageIcon
 
@@ -371,7 +371,7 @@ La destinazione `restore` funziona **solo** per i progetti che usano il formato 
 
 Possono esistere ulteriori impostazioni di ripristino derivate da proprietà di MSBuild nel file di progetto. I valori possono essere impostati anche dalla riga di comando tramite l'opzione `-p:` (vedere gli esempi riportati di seguito).
 
-| proprietà | Descrizione |
+| Gli | Descrizione |
 |--------|--------|
 | RestoreSources | Elenco delimitato da punto e virgola delle origini di pacchetti. |
 | RestorePackagesPath | Percorso della cartella dei pacchetti dell'utente. |

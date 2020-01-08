@@ -1,107 +1,107 @@
 ---
-title: Note sulla versione 2.6 di NuGet
-description: Note sulla versione per NuGet 2.6.1 per WebMatrix, inclusi i problemi noti, correzioni di bug, funzionalità aggiunte e dcr.
+title: Note sulla versione di NuGet 2,6
+description: Note sulla versione per NuGet 2.6.1 per WebMatrix, inclusi problemi noti, correzioni di bug, funzionalità aggiunte e DCR.
 author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: f011a8db7ac2067a2ed7db67849d63f7dd40d1ce
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 5e80965aad4caa69130be31a37b7f5f5ffb12ea6
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551943"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384124"
 ---
-# <a name="nuget-26-release-notes"></a>Note sulla versione 2.6 di NuGet
+# <a name="nuget-26-release-notes"></a>Note sulla versione di NuGet 2,6
 
-[Note sulla versione di NuGet 2.5](../release-notes/nuget-2.5.md) | [NuGet 2.6.1 per WebMatrix note](../release-notes/nuget-2.6.1-for-webmatrix.md)
+[Note sulla versione di nuget 2,5](../release-notes/nuget-2.5.md) | le [Note sulla versione di NuGet 2.6.1 per WebMatrix](../release-notes/nuget-2.6.1-for-webmatrix.md)
 
-NuGet 2.6 è stato rilasciato il 26 giugno 2013.
+NuGet 2,6 è stato rilasciato il 26 giugno 2013.
 
-## <a name="notable-features-in-the-release"></a>Funzionalità di rilievo nella versione
+## <a name="notable-features-in-the-release"></a>Funzionalità rilevanti della versione
 
 ### <a name="support-for-visual-studio-2013"></a>Supporto per Visual Studio 2013
 
-NuGet 2.6 è la prima versione che fornisce il supporto per Visual Studio 2013. E, ad esempio Visual Studio 2012, l'estensione Gestione pacchetti NuGet è incluso in tutte le edizioni di Visual Studio.
+NuGet 2,6 è la prima versione che fornisce supporto per Visual Studio 2013. Analogamente a Visual Studio 2012, l'estensione Gestione pacchetti NuGet è inclusa in tutte le edizioni di Visual Studio.
 
-Per offrire il miglior supporto possibile per Visual Studio 2013, mentre il supporto sia Visual Studio 2010 e Visual Studio 2012 e mantenendo le dimensioni di estensione più piccole possibile, si sta producendo un'estensione separata per Visual Studio 2013, mentre il estensione originale continua a fare riferimento sia Visual Studio 2010 e 2012.
+Per offrire il miglior supporto possibile per Visual Studio 2013 pur continuando a supportare sia Visual Studio 2010 che Visual Studio 2012, mantenendo le dimensioni minime possibili per le estensioni, viene produttrice un'estensione separata per Visual Studio 2013 mentre l'estensione originale continua a essere destinata a Visual Studio 2010 e 2012.
 
-A partire da NuGet 2.6, verranno pubblicate due estensioni come indicato di seguito:
+A partire da NuGet 2,6, vengono pubblicate due estensioni come indicato di seguito:
 
 1. [Gestione pacchetti NuGet](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManager) (si applica a Visual Studio 2010 e 2012)
 1. [Gestione pacchetti NuGet per Visual Studio 2013](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManagerforVisualStudio2013)
 
-Con questa suddivisione, la [nuget.org](https://nuget.org) visualizzata sul pulsante "Installa NuGet" della home page di [installazione di NuGet](../install-nuget-client-tools.md) pagina, in cui è possibile trovare ulteriori informazioni sull'installazione di diversi client di NuGet.
+Con questa suddivisione, il pulsante "Install NuGet" del home page [NuGet.org](https://nuget.org) consente di accedere alla pagina di [installazione di NuGet](../install-nuget-client-tools.md) , in cui è possibile trovare altre informazioni sull'installazione dei diversi client NuGet.
 
 <a name="xdt"></a>
 
-### <a name="xdt-webconfig-transformation-support"></a>Supporto per le trasformazioni XDT Web. config
+### <a name="xdt-webconfig-transformation-support"></a>Supporto della trasformazione Web. config XDT
 
-Una delle funzionalità altamente richieste per il client di NuGet è stata per supportare più potente trasformazioni XML utilizzando il motore di trasformazione XDT che viene utilizzato per le trasformazioni di configurazione di compilazione di Visual Studio.
+Una delle funzionalità più richieste per il client NuGet è stata supportare le trasformazioni XML più potenti usando il motore di trasformazione XDT usato nelle trasformazioni di configurazione della compilazione di Visual Studio.
 
-Ad aprile 2013 sono stati apportati due big annunci relativi al supporto di NuGet per XDT. Il primo era che la stessa libreria di XDT è stato in corso se stesso [rilasciata come pacchetto NuGet](https://nuget.org/packages/Microsoft.Web.Xdt) e [reso open source su CodePlex](http://xdt.codeplex.com/). Questo passaggio è abilitato il motore di XDT liberamente utilizzabile da altri software open source, tra cui il client di NuGet. L'annuncio del secondo è il piano per supportare l'uso del motore di XDT per le trasformazioni del client NuGet. NuGet 2.6 include questa integrazione.
+Nel 2013 aprile sono stati apportati due grandi annunci sul supporto NuGet per XDT. Il primo è che la libreria XDT è stata [rilasciata come pacchetto NuGet](https://nuget.org/packages/Microsoft.Web.Xdt) e [Open Source su CodePlex](http://xdt.codeplex.com/). Questo passaggio ha consentito l'uso gratuito del motore XDT da parte di altri software open source, incluso il client NuGet. Il secondo annuncio era il piano per supportare l'uso del motore XDT per le trasformazioni nel client NuGet. NuGet 2,6 include questa integrazione.
 
-#### <a name="how-it-works"></a>Come funziona
+#### <a name="how-it-works"></a>Funzionamento
 
-Per sfruttare i vantaggi del supporto XDT di NuGet, i meccanismi simili a quelle del [funzionalità di trasformazione configurazione corrente](../create-packages/source-and-config-file-transformations.md).
-File di trasformazione vengono aggiunti alla cartella del contenuto del pacchetto. Tuttavia, durante le trasformazioni di configurazione usano un singolo file per installazione e alla disinstallazione, trasformazioni XDT abilitare il controllo con granularità fine su entrambi i processi tramite i file seguenti:
+Per sfruttare i vantaggi del supporto XDT di NuGet, i meccanismi hanno un aspetto simile a quello della [funzionalità di trasformazione della configurazione corrente](../create-packages/source-and-config-file-transformations.md).
+I file di trasformazione vengono aggiunti alla cartella del contenuto del pacchetto. Tuttavia, mentre le trasformazioni di configurazione utilizzano un singolo file per l'installazione e la disinstallazione, le trasformazioni XDT consentono un controllo con granularità fine su entrambi i processi utilizzando i file seguenti:
 
 - Web.config.install.xdt
 - Web.config.uninstall.xdt
 
-Inoltre, NuGet Usa il suffisso del file per determinare quali motore di esecuzione per le trasformazioni, in modo che i pacchetti usando il web.config.transforms esistenti continueranno a funzionare. Trasformazioni XDT possono anche essere applicate a qualsiasi file XML (non solo Web. config), è possibile pertanto sfruttare questo per le altre applicazioni nel progetto.
+Inoltre, NuGet usa il suffisso file per determinare il motore da eseguire per le trasformazioni, quindi i pacchetti che usano il file Web. config. Transformations esistente continueranno a funzionare. Le trasformazioni XDT possono anche essere applicate a qualsiasi file XML, non solo a Web. config, in modo da poterlo utilizzare per altre applicazioni nel progetto.
 
-#### <a name="what-you-can-do-with-xdt"></a>Operazioni eseguibili con XDT
+#### <a name="what-you-can-do-with-xdt"></a>Cosa è possibile fare con XDT
 
-Uno dei maggiori punti di forza di XDT è relativi [semplice ma potente sintassi](http://msdn.microsoft.com/library/dd465326.aspx) per la modifica della struttura di un DOM. XML Invece di sovrapporre semplicemente una struttura del documento fisso in un'altra struttura, XDT fornisce controlli per la corrispondenza di elementi in diversi modi: dall'attributo semplice corrispondenza dei nomi per il supporto XPath completo. Dopo aver trovato un elemento corrispondente o un set di elementi, XDT fornisce un'ampia gamma di funzioni per la modifica degli elementi, indipendentemente dal fatto che questa aggiunta, l'aggiornamento, o la rimozione di attributi, l'inserimento di un nuovo elemento in una posizione specifica, o la sostituzione o rimozione dell'intero elemento e i relativi elementi figlio.
+Uno dei principali punti di forza di XDT è la [sintassi semplice ma potente](https://docs.microsoft.com/previous-versions/aspnet/dd465326(v=vs.110)) per la modifica della struttura di un DOM XML. Anziché semplicemente sovrapporre una struttura di documenti fissa su un'altra struttura, XDT fornisce controlli per la corrispondenza di elementi in diversi modi, dal nome di attributo semplice corrispondente al supporto completo di XPath. Quando viene trovato un elemento o un set di elementi corrispondente, XDT offre un set completo di funzioni per la modifica degli elementi, ovvero l'aggiunta, l'aggiornamento o la rimozione di attributi, l'inserimento di un nuovo elemento in una posizione specifica o la sostituzione o la rimozione dell'intera elemento e relativi elementi figlio.
 
 ### <a name="machine-wide-configuration"></a>Configurazione a livello di computer
 
-Uno dei punti di forza di NuGet ideale è che viene suddivisa in un file eseguibile di grandi dimensioni in caso contrario, o una raccolta in un set di componenti modulari che può essere integrata e cosa ancora più importante gestita e con controllo delle versioni in modo indipendente. Uno degli effetti collaterali, tuttavia, è che il concetto tradizionale di un prodotto o famiglia di prodotti potenzialmente diventa più frammentato.
-Funzionalità dell'origine pacchetto personalizzato di NuGet fornisce un modo per organizzare i pacchetti; Tuttavia, origini dei pacchetti personalizzati non possono essere individuate in modo indipendente.
+Uno dei principali punti di forza di NuGet è che suddivide un eseguibile o una libreria di grandi dimensioni in un set di componenti modulari che possono essere integrati e gestiti e con versioni più importanti in modo indipendente. Un effetto collaterale di questo, tuttavia, è che l'idea convenzionale di un prodotto o di una famiglia di prodotti diventa potenzialmente più frammentata.
+La funzionalità di origine del pacchetto personalizzata di NuGet fornisce un modo per organizzare i pacchetti; Tuttavia, le origini dei pacchetti personalizzate non sono individuabili autonomamente.
 
-NuGet 2.6 estende la logica per la configurazione di NuGet da una ricerca nella gerarchia di cartelle nel percorso % ProgramData%/NuGet/Config. Programmi di installazione del prodotto possono aggiungere file di configurazione NuGet personalizzati in questa cartella per registrare un'origine di pacchetto personalizzato per i loro prodotti. Inoltre, la struttura di cartelle supporta la semantica per prodotto, versione e anche lo SKU dell'IDE. Da queste directory vengono applicate nell'ordine seguente con una strategia di precedenza "last in wins".
+NuGet 2,6 estende la logica per la configurazione di NuGet eseguendo una ricerca nella gerarchia di cartelle nel percorso% ProgramData%/NuGet/Config. I programmi di installazione dei prodotti possono aggiungere file di configurazione NuGet personalizzati in questa cartella per registrare un'origine pacchetto personalizzata per i propri prodotti. Inoltre, la struttura di cartelle supporta la semantica per il prodotto, la versione e persino lo SKU dell'IDE. Le impostazioni di queste directory vengono applicate nell'ordine seguente con una strategia di precedenza "Last in WINS".
 
 1. %ProgramData%\NuGet\Config\*.config
 2. %ProgramData%\NuGet\Config\{IDE}\*.config
 3. %ProgramData%\NuGet\Config\{IDE}\{Version}\*.config
 4. %ProgramData%\NuGet\Config\{IDE}\{Version}\{SKU}\*.config
 
-In questo elenco, il segnaposto {IDE} è specifico per l'IDE in cui è in esecuzione NuGet, pertanto nel caso di Visual Studio, sarà "Visual Studio". {Versione} e il segnaposto {SKU} viene fornito dall'IDE (ad esempio, "11.0" e "WDExpress", "VWDExpress" e "Plus", rispettivamente). La cartella può quindi contenere molti file *.config diversi.
-Pertanto, la società componente ACME possibile, come parte del programma di installazione prodotti, aggiungere un'origine pacchetto personalizzato che sarà visibile solo nelle versioni di Visual Studio 2012 Professional e Ultimate creando il percorso del file seguente:
+In questo elenco, il segnaposto {IDE} è specifico dell'IDE in cui è in esecuzione NuGet, quindi, nel caso di Visual Studio, sarà "VisualStudio". I segnaposto {Version} e {SKU} sono forniti dall'IDE, ad esempio "11,0" e "WDExpress", "VWDExpress" e "Pro", rispettivamente. La cartella può quindi contenere molti file *.config diversi.
+Pertanto, l'azienda del componente ACME può, come parte del programma di installazione del prodotto, aggiungere un'origine pacchetto personalizzata che sarà visibile solo nelle versioni Professional e Ultimate di Visual Studio 2012 creando il seguente percorso di file:
 
 %ProgramData%\NuGet\Config\VisualStudio\11.0\Pro\acme.config
 
-Mentre la struttura di cartelle rende più semplice per i programmi, ad esempio programmi di installazione del software necessario aggiungere origini dei pacchetti a livello di computer alla configurazione di NuGet, la finestra di dialogo di configurazione di NuGet è stata aggiornata anche per consentire la registrazione delle origini dei pacchetti come entrambi specifiche dell'utente (ad esempio, registrato nel % AppData%/NuGet/NuGet.Config) o a livello di computer.
+Sebbene la struttura di cartelle renda più semplice per i programmi come i programmi di installazione software l'aggiunta di origini di pacchetti a livello di computer alla configurazione di NuGet, è stata aggiornata anche la finestra di dialogo di configurazione di NuGet per consentire la registrazione delle origini dei pacchetti come specifica dell'utente (ad esempio, registrata in% AppData%/NuGet/NuGet.Config) o a livello di computer.
 
-Questa funzionalità viene usata da Visual Studio 2013, in cui un file viene installato in:
+Questa funzionalità viene utilizzata da Visual Studio 2013, in cui un file viene installato in:
 
 %ProgramData%\NuGet\Config\VisualStudio\12.0\Microsoft.VisualStudio.config
 
-All'interno di questo file, viene configurata una nuova origine pacchetto denominata "Pacchetti di .NET Framework".
+All'interno di questo file è configurata una nuova origine del pacchetto denominata "pacchetti .NET Framework".
 
-![Impostazioni a livello di computer il File di configurazione NuGet](./media/NuGet-Config-File-Machine-Wide.png)
+![Impostazioni a livello di computer del file di configurazione NuGet](./media/NuGet-Config-File-Machine-Wide.png)
 
-### <a name="contextualizing-search"></a>Contestualizzazione delle ricerca
+### <a name="contextualizing-search"></a>Ricerca contestualizzazione
 
-Il numero di pacchetti servite da NuGet gallery continua a crescere a un ritmo esponenziale e miglioramento della ricerca rimane sempre nella parte superiore dell'elenco di priorità di NuGet. Una delle funzionalità pianificate per NuGet è ricerche contestuali, vale a dire che NuGet utilizzerà informazioni sulla versione e lo SKU di Visual Studio che si sta utilizzando e il tipo di progetto che si sta compilando come criterio per determinare la rilevanza della ricerca di potenziali risultati.
+Poiché il numero di pacchetti serviti dalla raccolta NuGet continua ad aumentare a ritmo esponenziale, il miglioramento della ricerca rimane sempre nella parte superiore dell'elenco delle priorità di NuGet. Una delle funzionalità pianificate per NuGet è la ricerca contestuale, ovvero NuGet utilizzerà le informazioni sulla versione e lo SKU di Visual Studio in uso e il tipo di progetto che si sta creando come criterio per determinare la pertinenza della ricerca potenziale Risultati.
 
-A partire da NuGet 2.6, ogni volta che viene installato un pacchetto, il contesto per l'installazione viene registrato come parte dei dati dell'operazione di installazione.  Le ricerche inviare anche le stesse informazioni di contesto, in modo da permettere la raccolta NuGet migliorare i risultati della ricerca delle tendenze di installazione rapida.  Un aggiornamento futuro a NuGet Gallery abiliterà questo boosting pertinenza sensibile al contesto.
+A partire da NuGet 2,6, ogni volta che viene installato un pacchetto, il contesto per l'installazione viene registrato come parte dei dati dell'operazione di installazione.  Le ricerche inviano anche le stesse informazioni di contesto, che consentiranno alla raccolta NuGet di migliorare i risultati della ricerca in base alle tendenze di installazione contestuale.  Un aggiornamento futuro della raccolta NuGet consentirà di incrementare questa rilevanza sensibile al contesto.
 
-### <a name="tracking-direct-installs-vs-dependency-installs"></a>Registrazione diretta consente di installare Visual Studio. Installazione delle dipendenze
+### <a name="tracking-direct-installs-vs-dependency-installs"></a>Rilevamento delle installazioni dirette e delle dipendenze
 
-Gli autori di pacchetti dipende più il [statistiche pacchetto](http://blog.nuget.org/20130226/Introducing-Package-Statistics.html) fornito nella raccolta NuGet.  Uno dei punti dati mancanti significativi che gli autori hanno richiesto è un fattore di differenziazione tra le installazioni delle dipendenze e dell'installazione pacchetto diretto.  Fino ad ora, il client di NuGet non ha inviato alcun contesto per l'operazione di installazione per lo sviluppatore se installato direttamente il pacchetto o se è stato installato per soddisfare una dipendenza.
-A partire da NuGet 2.6, che ora i dati verranno inviati per l'operazione di installazione.  Le statistiche di pacchetto nella raccolta NuGet esporrà i dati come operazioni di installazione separata, con un "-dipendenza" suffisso.
+Gli autori di pacchetti si basano sempre più sulle [statistiche dei pacchetti](http://blog.nuget.org/20130226/Introducing-Package-Statistics.html) disponibili nella raccolta NuGet.  Un punto dati mancante significativo che gli autori hanno richiesto è una differenziazione tra l'installazione diretta dei pacchetti e l'installazione delle dipendenze.  Fino ad ora, il client NuGet non ha inviato alcun contesto per l'operazione di installazione per determinare se lo sviluppatore ha installato direttamente il pacchetto o se è stato installato per soddisfare una dipendenza.
+A partire da NuGet 2,6, i dati verranno ora inviati per l'operazione di installazione.  Le statistiche dei pacchetti nella raccolta NuGet esporrà i dati come operazioni di installazione separate, con suffisso "-Dependency".
 
 * Installazione di
-* Installazione delle dipendenze
-* Aggiorna
-* Aggiornamento delle dipendenze
+* Installazione-dipendenza
+* Aggiornamento
+* Aggiornamento-dipendenza
 * Reinstallazione
-* Dipendenza reinstallare
+* Reinstallare-dipendenza
 
-Oltre al nome di operazione diversa, l'id pacchetto dipendente viene anche registrato per l'installazione.  Un aggiornamento futuro a NuGet Gallery esporrà i dati all'interno dei report, che consente agli autori di aiutino a comprendere appieno come gli sviluppatori installa i propri pacchetti.
+Oltre al nome diverso dell'operazione, viene registrato anche l'ID del pacchetto dipendente per l'installazione.  Un aggiornamento futuro della raccolta NuGet esporrà i dati all'interno dei report, consentendo agli autori di pacchetti di comprendere completamente come gli sviluppatori installano i pacchetti.
 
 ## <a name="bug-fixes"></a>Correzioni di bug
 
-NuGet 2.6 include anche diverse correzioni di bug. Per un elenco completo di lavoro elementi di risolti in NuGet 2.6, vista la [NuGet Issue Tracker per questa versione](https://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%202.6&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0&reasonClosed=All).
+NuGet 2,6 include anche diverse correzioni di bug. Per un elenco completo degli elementi di lavoro corretti in NuGet 2,6, vedere la pagina [relativa al rilevamento dei problemi di NuGet per questa versione](https://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%202.6&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0&reasonClosed=All).

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: a48a09a27b6db9b774e59b9a10652067179e2c27
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 12a3d5f32056539a75da9e17b15d67e72a8a42c2
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327308"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384903"
 ---
 # <a name="sync-package-package-manager-console-in-visual-studio"></a>Sync-Package (console di Gestione pacchetti in Visual Studio)
 
@@ -30,21 +30,21 @@ Sync-Package [-Id] <string> [-IgnoreDependencies] [-ProjectName <string>] [[-Ver
 
 | Parametro | Descrizione |
 | --- | --- |
-| ID | Necessaria Identificatore del pacchetto da sincronizzare. L'opzione-ID è facoltativa. |
+| Id | Necessaria Identificatore del pacchetto da sincronizzare. L'opzione-ID è facoltativa. |
 | IgnoreDependencies | Installare solo questo pacchetto e non le relative dipendenze. |
-| ProjectName | Progetto da cui sincronizzare il pacchetto, per impostazione predefinita il progetto predefinito. |
-| Version | Versione del pacchetto da sincronizzare, per impostazione predefinita la versione attualmente installata. |
+| NomeProgetto | Progetto da cui sincronizzare il pacchetto, per impostazione predefinita il progetto predefinito. |
+| Versione | Versione del pacchetto da sincronizzare, per impostazione predefinita la versione attualmente installata. |
 | Source | URL o percorso della cartella per l'origine del pacchetto da cercare. I percorsi delle cartelle locali possono essere assoluti o relativi alla cartella corrente. Se omesso, `Sync-Package` Cerca nell'origine del pacchetto attualmente selezionata. |
 | IncludePrerelease | Include i pacchetti di versioni non definitive nella sincronizzazione. |
 | FileConflictAction | Azione da intraprendere quando viene richiesto di sovrascrivere o ignorare i file esistenti a cui fa riferimento il progetto. I valori possibili sono *overwrite, ignore, None, OverwriteAll*e *(3.0 +)* *IgnoreAll*. |
-| DependencyVersion | Versione dei pacchetti di dipendenze da usare. i possibili tipi sono i seguenti:<br/><ul><li>*Più bassa* (impostazione predefinita): versione più bassa</li><li>*HighestPatch*: versione con la patch principale più bassa, minore minore, più alta</li><li>*HighestMinor*: versione con la patch principale più bassa, minore più elevata</li><li>*Più alta* (impostazione predefinita per Update-Package senza parametri): la versione più recente</li></ul>È possibile impostare il valore predefinito usando l' [`dependencyVersion`](../nuget-config-file.md#config-section) impostazione `Nuget.Config` nel file. |
+| DependencyVersion | Versione dei pacchetti di dipendenze da usare. i possibili tipi sono i seguenti:<br/><ul><li>*Minimo* (impostazione predefinita): versione più bassa</li><li>*HighestPatch*: versione con la patch principale più bassa, minore minore, più alta</li><li>*HighestMinor*: versione con la patch principale più bassa, minore più elevata</li><li>*Massimo* (impostazione predefinita per Update-Package senza parametri): la versione più recente</li></ul>È possibile impostare il valore predefinito usando l'impostazione [`dependencyVersion`](../nuget-config-file.md#config-section) nel file di `Nuget.Config`. |
 | Whatif | Mostra cosa accade quando si esegue il comando senza eseguire effettivamente la sincronizzazione. |
 
 Nessuno di questi parametri accetta caratteri jolly o di input della pipeline.
 
 ## <a name="common-parameters"></a>Parametri comuni
 
-`Sync-Package`supporta i seguenti [parametri comuni di PowerShell](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, azione di errore, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction e WarningVariable.
+`Sync-Package` supporta i [parametri di PowerShell comuni](https://go.microsoft.com/fwlink/?LinkID=113216)seguenti: debug, azione di errore, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction e WarningVariable.
 
 ## <a name="examples"></a>Esempi
 

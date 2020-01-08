@@ -1,22 +1,22 @@
 ---
-title: Creare pacchetti NuGet per Xamarin (per iOS, Android e Windows) con Visual Studio 2015
+title: Creare pacchetti NuGet per Novell (per iOS, Android e Windows) con Visual Studio 2017 o 2019
 description: Procedura dettagliata end-to-end sulla creazione di pacchetti NuGet per Xamarin che usano API native in iOS, Android e Windows.
 author: karann-msft
 ms.author: karann
-ms.date: 01/09/2017
+ms.date: 11/05/2019
 ms.topic: tutorial
-ms.openlocfilehash: 927991429d8d4ce54aa35be3e450475a38141b11
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.openlocfilehash: fce3c9a92dfee325f9e914bf3d6444601fb38b6c
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488918"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385682"
 ---
-# <a name="create-packages-for-xamarin-with-visual-studio-2015"></a>Creare pacchetti per Xamarin con Visual Studio 2015
+# <a name="create-packages-for-xamarin-with-visual-studio-2017-or-2019"></a>Creare pacchetti per Novell con Visual Studio 2017 o 2019
 
 Un pacchetto per Xamarin contiene codice che usa le API native in iOS, Android e Windows, a seconda del sistema operativo in fase di esecuzione. Anche se si tratta di un'operazione semplice, è preferibile consentire agli sviluppatori di utilizzare il pacchetto da una libreria .NET Standard o PCL tramite una superficie di attacco delle API comune.
 
-Questa procedura dettagliata descrive come usare Visual Studio 2015 per creare un pacchetto NuGet multipiattaforma che può essere usato in progetti per dispositivi mobili su iOS, Android e Windows.
+In questa procedura dettagliata viene usato Visual Studio 2017 o 2019 per creare un pacchetto NuGet multipiattaforma che può essere usato in progetti per dispositivi mobili in iOS, Android e Windows.
 
 1. [Prerequisiti](#prerequisites)
 1. [Creare la struttura del progetto e il codice di astrazione](#create-the-project-structure-and-abstraction-code)
@@ -27,7 +27,7 @@ Questa procedura dettagliata descrive come usare Visual Studio 2015 per creare u
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-1. Visual Studio 2015 con la piattaforma UWP (Universal Windows Platform) e Xamarin. Installare l'edizione Community gratuitamente da [visualstudio.com](https://www.visualstudio.com/). È anche possibile usare le edizioni Professional ed Enterprise. Per includere gli strumenti UWP e Xamarin, selezionare un'installazione personalizzata e selezionare le opzioni appropriate.
+1. Visual Studio 2017 o 2019 con piattaforma UWP (Universal Windows Platform) (UWP) e Novell. Installare l'edizione Community gratuitamente da [visualstudio.com](https://www.visualstudio.com/). È anche possibile usare le edizioni Professional ed Enterprise. Per includere gli strumenti UWP e Xamarin, selezionare un'installazione personalizzata e selezionare le opzioni appropriate.
 1. Interfaccia della riga di comando di NuGet. Scaricare la versione più recente di nuget.exe da [nuget.org/downloads](https://nuget.org/downloads), salvandola in una posizione di propria scelta. Aggiungere quindi tale posizione alla variabile di ambiente PATH, se necessario.
 
 > [!Note]
@@ -35,23 +35,33 @@ Questa procedura dettagliata descrive come usare Visual Studio 2015 per creare u
 
 ## <a name="create-the-project-structure-and-abstraction-code"></a>Creare la struttura del progetto e il codice di astrazione
 
-1. Scaricare ed eseguire l'[estensione Plugin for Xamarin Templates](https://marketplace.visualstudio.com/items?itemName=vs-publisher-473885.PluginForXamarinTemplates) per Visual Studio. Questi modelli consentiranno di creare facilmente la struttura del progetto necessaria per questa procedura dettagliata.
-1. In Visual Studio fare clic su **File > Nuovo > Progetto**, cercare `Plugin`, selezionare il modello **Plugin for Xamarin**, modificare il nome in LoggingLibrary e fare clic su OK.
+1. Scaricare ed eseguire l' [estensione per i modelli di plug-in .NET standard multipiattaforma](https://marketplace.visualstudio.com/items?itemName=vs-publisher-473885.PluginForXamarinTemplates) per Visual Studio. Questi modelli consentiranno di creare facilmente la struttura del progetto necessaria per questa procedura dettagliata.
+1. In Visual Studio 2017, **File > nuovo progetto >** , cercare `Plugin`, selezionare il modello di **plug-in della libreria .NET standard multipiattaforma** , modificare il nome in LoggingLibrary e fare clic su OK.
 
-    ![Nuovo progetto di app vuota (Xamarin.Forms portabile) in Visual Studio](media/CrossPlatform-NewProject.png)
+    ![Nuovo progetto app vuota (Novell. Forms Portable) in Visual Studio 2017](media/CrossPlatform-NewProject.png)
 
-La soluzione risultante contiene due progetti PCL, oltre a diversi progetti specifici della piattaforma:
+    In Visual Studio 2019, **File > nuovo progetto >** , cercare `Plugin`, selezionare il modello di **Plug-In della libreria .NET standard multipiattaforma** e fare clic su Avanti.
 
-- La libreria PCL denominata `Plugin.LoggingLibrary.Abstractions (Portable)` definisce l'interfaccia pubblica (la superficie di attacco delle API) del componente, in questo caso l'interfaccia `ILoggingLibrary` contenuta nel file ILoggingLibrary.cs, dove viene definita l'interfaccia per la libreria.
-- L'altra libreria PCL, `Plugin.LoggingLibrary (Portable)`, contiene il codice in CrossLoggingLibrary.cs che individuerà un'implementazione specifica della piattaforma dell'interfaccia astratta in fase di esecuzione. In genere non è necessario modificare questo file.
-- Ogni progetto specifico della piattaforma, ad esempio `Plugin.LoggingLibrary.Android`, contiene un'implementazione nativa dell'interfaccia nei rispettivi file LoggingLibraryImplementation.cs, dove si compila il codice della libreria.
+    ![Nuovo progetto app vuota (Novell. Forms Portable) in Visual Studio 2019](media/CrossPlatform-NewProject19-Part1.png)
 
-Per impostazione predefinita, il file ILoggingLibrary.cs del progetto Abstractions contiene una definizione dell'interfaccia, ma nessun metodo. Ai fini di questa procedura dettagliata, aggiungere un metodo `Log` come indicato di seguito:
+    Modificare il nome in LoggingLibrary e fare clic su Crea.
+
+    ![Nuova configurazione di app vuota (Novell. Forms Portable) in Visual Studio 2019](media/CrossPlatform-NewProject19-Part2.png)
+
+La soluzione risultante contiene due progetti condivisi, insieme a un'ampia gamma di progetti specifici della piattaforma:
+
+- Il progetto `ILoggingLibrary`, contenuto nel file di `ILoggingLibrary.shared.cs`, definisce l'interfaccia pubblica (superficie di attacco API) del componente. dove viene definita l'interfaccia per la libreria.
+- L'altro progetto condiviso contiene codice in `CrossLoggingLibrary.shared.cs` che individua un'implementazione specifica della piattaforma dell'interfaccia astratta in fase di esecuzione. In genere non è necessario modificare questo file.
+- I progetti specifici della piattaforma, ad esempio `LoggingLibrary.android.cs`, ognuno contengono un'implementazione nativa dell'interfaccia nei rispettivi file di `LoggingLibraryImplementation.cs` (VS 2017) o `LoggingLibrary.<PLATFORM>.cs` (VS 2019). dove si compila il codice della libreria.
+
+Per impostazione predefinita, il file ILoggingLibrary.shared.cs del progetto `ILoggingLibrary` contiene una definizione di interfaccia, ma nessun metodo. Ai fini di questa procedura dettagliata, aggiungere un metodo `Log` come indicato di seguito:
 
 ```cs
 using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace Plugin.LoggingLibrary.Abstractions
+namespace Plugin.LoggingLibrary
 {
     /// <summary>
     /// Interface for LoggingLibrary
@@ -70,11 +80,12 @@ namespace Plugin.LoggingLibrary.Abstractions
 
 Per eseguire un'implementazione specifica della piattaforma dell'interfaccia `ILoggingLibrary` e dei relativi metodi, seguire questa procedura:
 
-1. Aprire il file `LoggingLibraryImplementation.cs` di ogni progetto della piattaforma e aggiungere il codice necessario, ad esempio (usando il progetto `Plugin.LoggingLibrary.Android`):
+1. Aprire il file `LoggingLibraryImplementation.cs` (VS 2017) o `LoggingLibrary.<PLATFORM>.cs` (VS 2019) di ogni progetto di piattaforma e aggiungere il codice necessario. Ad esempio (usando il progetto piattaforma `Android`):
 
     ```cs
-    using Plugin.LoggingLibrary.Abstractions;
     using System;
+    using System.Collections.Generic;
+    using System.Text;
 
     namespace Plugin.LoggingLibrary
     {
@@ -95,9 +106,10 @@ Per eseguire un'implementazione specifica della piattaforma dell'interfaccia `IL
     ```
 
 1. Ripetere questa implementazione nei progetti per ogni piattaforma che si vuole supportare.
-1. Fare clic con il pulsante destro del mouse sul progetto iOS, scegliere **Proprietà**, fare clic sulla scheda **Compilazione** e rimuovere "\iPhone" dalle impostazioni **Percorso di output** e **File di documentazione XML**. Questa operazione viene eseguita solo per facilitare il resto della procedura dettagliata. Salvare il file al termine.
-1. Fare clic con il pulsante destro del mouse sulla soluzione, scegliere **Gestione configurazione** e selezionare le caselle **Compilazione** per le librerie PCL e ogni piattaforma supportata.
 1. Fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Compila soluzione** per controllare il lavoro e generare gli elementi per cui in seguito verrà creato il pacchetto. Se vengono visualizzati errori su riferimenti mancanti, fare clic con il pulsante destro del mouse sulla soluzione, scegliere **Ripristina pacchetti NuGet** per installare le dipendenze ed eseguire di nuovo la compilazione.
+
+> [!Note]
+> Se si usa Visual Studio 2019, prima di selezionare **Ripristina pacchetti NuGet** e si tenta di ricompilare, è necessario modificare la versione di `MSBuild.Sdk.Extras` in `2.0.54` `LoggingLibrary.csproj`. È possibile accedere a questo file solo facendo clic con il pulsante destro del mouse sul progetto (sotto la soluzione) e selezionando `Unload Project`, quindi fare clic con il pulsante destro del mouse sul progetto scaricato e selezionare `Edit LoggingLibrary.csproj`.
 
 > [!Note]
 > Per eseguire la compilazione per iOS, è necessario un Mac in rete connesso a Visual Studio, come descritto in [Introduction to Xamarin.iOS for Visual Studio](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/introduction_to_xamarin_ios_for_visual_studio/) (Introduzione a Xamarin.iOS per Visual Studio). Se non è disponibile un Mac, cancellare il progetto iOS in Gestione configurazione (passaggio 3).
@@ -125,7 +137,7 @@ Per eseguire un'implementazione specifica della piattaforma dell'interfaccia `IL
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Awesome application logging utility</description>
         <releaseNotes>First release</releaseNotes>
-        <copyright>Copyright 2016</copyright>
+        <copyright>Copyright 2018</copyright>
         <tags>logger logging logs</tags>
         </metadata>
     </package>
@@ -209,7 +221,7 @@ Il file `.nuspec` finale sarà simile al seguente, dove YOUR_NAME deve essere so
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Awesome application logging utility</description>
     <releaseNotes>First release</releaseNotes>
-    <copyright>Copyright 2016</copyright>
+    <copyright>Copyright 2018</copyright>
     <tags>logger logging logs</tags>
         <dependencies>
         <group targetFramework="MonoAndroid">

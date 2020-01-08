@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: b104eb39ddeacd9ca1ea45937cf98ad57531112a
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
-ms.translationtype: HT
+ms.openlocfilehash: 8f2b33a7290301bd16db3b1979ae496eee602f55
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317134"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383658"
 ---
 # <a name="known-issues-with-nuget"></a>Problemi noti con NuGet
 
@@ -71,11 +71,11 @@ Eseguire questo comando da un **prompt dei comandi con privilegi elevati** per r
 
 Se il comando non riesce, verificare l'esistenza del file in tale percorso.
 
-Per altre informazioni su questo errore, vedere questo [elemento di lavoro](https://nuget.codeplex.com/workitem/3609 "Elemento di lavoro 3609").
+Per ulteriori informazioni su questo errore, vedere questo [elemento di lavoro](https://nuget.codeplex.com/workitem/3609 "Elemento di lavoro 3609").
 
 ## <a name="build-failure-after-package-update-in-vs-2012"></a>Errore di compilazione dopo l'aggiornamento del pacchetto in Visual Studio 2012
 
-Problema: Si usa Visual Studio 2012 RTM. Quando si aggiornano i pacchetti NuGet viene visualizzato questo messaggio: "Non è stato possibile disinstallare completamente uno o più pacchetti." e viene richiesto di riavviare Visual Studio. Dopo il riavvio di Visual Studio, si verificano strani errori di compilazione.
+Il problema: si usa Visual Studio 2012 RTM. Quando si aggiornano i pacchetti NuGet, viene visualizzato il messaggio: "Non è stato possibile disinstallare completamente uno o più pacchetti." e viene richiesto di riavviare Visual Studio. Dopo il riavvio di Visual Studio, si verificano strani errori di compilazione.
 
 La causa è che alcuni file nei pacchetti precedenti sono bloccati da un processo di MSBuild in background. Anche dopo il riavvio di Visual Studio, il processo di MSBuild in background usa ancora i file nei pacchetti precedenti, causando gli errori di compilazione.
 
@@ -90,7 +90,7 @@ Se si esegue Visual Studio 2010 SP1, potrebbe essere visualizzato il messaggio d
 Quando si visualizzano i log, potrebbe essere menzionata una `SignatureMismatchException`.
 
 Per evitare che ciò accada, è disponibile un [hotfix di Visual Studio 2010 SP1](http://bit.ly/vsixcertfix) che è possibile installare.
-In alternativa, per risolvere il problema è sufficiente disinstallare NuGet (eseguendo Visual Studio come amministratore) e quindi installarlo dalla raccolta di estensioni di Visual Studio.  Per altre informazioni, vedere [http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019).
+In alternativa, per risolvere il problema è sufficiente disinstallare NuGet (eseguendo Visual Studio come amministratore) e quindi installarlo dalla raccolta di estensioni di Visual Studio. Per altre informazioni, vedere <https://support.microsoft.com/kb/2581019>.
 
 ## <a name="package-manager-console-throws-an-exception-when-the-reflector-visual-studio-add-in-is-also-installed"></a>La console di Gestione pacchetti genera un'eccezione quando viene installato anche il componente aggiuntivo Reflector di Visual Studio.
 
@@ -134,7 +134,7 @@ oppure
 
 È stato contattato l'autore del componente aggiuntivo nella speranza di trovare una soluzione.
 
-<p class="info">Aggiornamento: è stato verificato che la versione più recente di Reflector, 6.5, non causa più questa eccezione nella console.</p>
+<p class="info">Aggiornamento: è stato verificato che la versione più recente di Reflector, 6.5, non causa questa eccezione nella console.</p>
 
 ## <a name="opening-package-manager-console-fails-with-objectsecurity-exception"></a>Errore di apertura della console di Gestione pacchetti con eccezione ObjectSecurity
 
@@ -159,7 +159,7 @@ Se si tenta di disinstallare NuGet tramite Gestione estensioni di Visual Studio,
 
 ## <a name="the-package-manager-console-crashes-when-i-open-it-in-windows-xp-whats-wrong"></a>Arresto anomalo della console di gestione pacchetti quando viene aperta in Windows XP. Qual è il problema?
 
-NuGet richiede il runtime di PowerShell 2.0. Windows XP, per impostazione predefinita, non include PowerShell 2.0. È possibile scaricare il runtime di PowerShell 2.0 da [http://support.microsoft.com/kb/968929](http://support.microsoft.com/kb/968929). Dopo l'installazione, riavviare Visual Studio. Dovrebbe essere possibile aprire la console di Gestione pacchetti.
+NuGet richiede il runtime di PowerShell 2.0. Windows XP, per impostazione predefinita, non include PowerShell 2.0. È possibile scaricare il runtime di PowerShell 2,0 da <https://support.microsoft.com/kb/968929>. Dopo l'installazione, riavviare Visual Studio. Dovrebbe essere possibile aprire la console di Gestione pacchetti.
 
 ## <a name="visual-studio-2010-sp1-beta-crashes-on-exit-if-the-package-manager-console-is-open"></a>Arresto anomalo di Visual Studio 2010 SP1 Beta in uscita se la console di Gestione pacchetti è aperta.
 

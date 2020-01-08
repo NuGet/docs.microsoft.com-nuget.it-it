@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 09/06/2019
 ms.topic: conceptual
-ms.openlocfilehash: 69f78ba5483fcc92887624584663e8c496cfc497
-ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
+ms.openlocfilehash: c7fb9c1e587b6603abe63581c662571abfd4506b
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74828408"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384111"
 ---
 # <a name="nuget-54-release-notes"></a>Note sulla versione di NuGet 5,4
 
@@ -27,6 +27,8 @@ Veicoli per la distribuzione di NuGet:
 * Tempo di caricamento della soluzione più veloce: il sovraccarico del codice NuGet durante il primo caricamento della soluzione è stato ridotto tramite un NGen parziale per ridurre i costi JIT [#6007](https://github.com/NuGet/Home/issues/6007)
 
 * Nuova funzione helper: dato un elenco di ID e versioni del pacchetto, ottenere i pacchetti di livello superiore probabili. - [#8316](https://github.com/NuGet/Home/issues/8316)
+
+* Nuova azione [`nuget/setup-nuget`](https://github.com/marketplace/actions/setup-nuget-exe-for-use-with-actions) per l'installazione e la configurazione di NuGet. exe nelle [azioni di GitHub](https://github.com/features/actions). - [#8818](https://github.com/NuGet/Home/issues/8818)
 
 ### <a name="issues-fixed-in-this-release"></a>Problemi corretti in questa versione
 
