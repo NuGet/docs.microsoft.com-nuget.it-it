@@ -49,7 +49,7 @@
 ### [Creare un pacchetto nativo](guides/native-packages.md)
 ### [Creare controlli dell'interfaccia utente come pacchetti NuGet](guides/create-UI-controls.md)
 ### [Creare un analizzatore diagnostico come pacchetto NuGet](guides/analyzers-conventions.md)
-### [Creare un pacchetto per Xamarin con Visual Studio 2015](guides/create-packages-for-xamarin.md)
+### [Creare un pacchetto per Xamarin con Visual Studio 2017 o 2019](guides/create-packages-for-xamarin.md)
 ### [Creare un pacchetto con assembly di interoperabilità COM](create-packages/author-packages-with-COM-interop-assemblies.md)
 ## Firmare pacchetti
 ### [Firmare un pacchetto](create-packages/sign-a-package.md)
@@ -67,7 +67,7 @@
 ## [Processo di installazione pacchetti](concepts/package-installation-process.md)
 ## [Controllo delle versioni dei pacchetti](concepts/package-versioning.md)
 ## [Risoluzione delle dipendenze](concepts/dependency-resolution.md)
-# Riferimenti
+# Riferimento
 ## [.nuspec](reference/nuspec.md)
 ## [File nuget.config](reference/nuget-config-file.md)
 ## [Framework di destinazione](reference/target-frameworks.md)
