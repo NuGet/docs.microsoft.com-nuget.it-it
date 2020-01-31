@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 3/1/2019
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 3102cb9a20f354e92a0da8bba6457dc2ad0f0f2d
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 1b84c6e88a56216e5747d5bc602219af6695c305
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610950"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76812935"
 ---
 # <a name="package-details-url-template"></a>Modello URL Dettagli pacchetto
 
@@ -23,7 +23,7 @@ La risorsa usata per la compilazione di questo URL è la risorsa `PackageDetails
 
 Vengono utilizzati i valori `@type` seguenti:
 
-Valore di@type                     | Note
+Valore di @type                     | Note
 ------------------------------- | -----
 PackageDetailsUriTemplate/5.1.0 | Versione iniziale
 
@@ -45,12 +45,12 @@ Il valore della `@id` nell'indice del servizio è una stringa URL contenente uno
 
 ### <a name="url-placeholders"></a>Segnaposto URL
 
-Name        | Digitare    | Richiesto | Note
+Name        | Tipo di    | Richiesto | Note
 ----------- | ------- | -------- | -----
 `{id}`      | string  | No       | ID del pacchetto per cui ottenere i dettagli
 `{version}` | string  | No       | Versione del pacchetto per cui ottenere i dettagli
 
-Il server deve accettare `{id}` e `{version}` valori con qualsiasi combinazione di maiuscole e minuscole. Inoltre, il server non deve essere sensibile alla [normalizzazione](https://docs.microsoft.com/nuget/concepts/package-versioning#normalized-version-numbers)della versione. In altre parole, il server deve accettare anche versioni non normalizzate.
+Il server deve accettare `{id}` e `{version}` valori con qualsiasi combinazione di maiuscole e minuscole. Inoltre, il server non deve essere sensibile alla [normalizzazione](../concepts/package-versioning.md#normalized-version-numbers)della versione. In altre parole, il server deve accettare anche versioni non normalizzate.
 
 Ad esempio, il modello di dettagli del pacchetto NuGet. org è simile al seguente:
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6e352fef9fc36646f6feedbc390f847119cb00bf
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: e6f6d9f703dd4761236d166f3772618c100aca09
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611362"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813767"
 ---
 # <a name="nuget-48-release-notes"></a>Note sulla versione per NuGet 4.8
 
@@ -36,7 +36,7 @@ Sono disponibili anche le versioni da riga di comando della stessa funzionalità
 ### <a name="installing-signed-packages-on-a-ci-machine-or-in-an-offline-environment-takes-longer-than-usual"></a>L'installazione di pacchetti firmati in un computer CI o in un ambiente offline richiede più tempo del solito
 
 #### <a name="issue"></a>Problema
-Se il computer ha accesso limitato a Internet (ad esempio un computer di compilazione in uno scenario CI/CD), l'installazione o il ripristino di un pacchetto NuGet firmato genererà un avviso ([NU3028](https://docs.microsoft.com/nuget/reference/errors-and-warnings/nu3028)) dal momento che i server di revoca non sono raggiungibili. Si tratta di una condizione prevista. In alcuni casi, tuttavia, ciò può avere conseguenze impreviste, ad esempio l'installazione o il ripristino del pacchetto richiede più tempo del solito.
+Se il computer ha accesso limitato a Internet (ad esempio un computer di compilazione in uno scenario CI/CD), l'installazione o il ripristino di un pacchetto NuGet firmato genererà un avviso ([NU3028](../reference/errors-and-warnings/nu3028.md)) dal momento che i server di revoca non sono raggiungibili. Si tratta di una condizione prevista. In alcuni casi, tuttavia, ciò può avere conseguenze impreviste, ad esempio l'installazione o il ripristino del pacchetto richiede più tempo del solito.
 
 #### <a name="workaround"></a>Soluzione alternativa
 Eseguire l'aggiornamento a Visual Studio 15.8.4 e NuGet.exe 4.8.1, in cui è stata introdotta una variabile di ambiente per attivare la modalità di controllo delle revoche.
@@ -94,7 +94,7 @@ Nota: questo problema è stato risolto in Visual Studio 2017 15.9 Preview 3.
 * `Update-Package [packagename] -reinstall` reinstalla tutti i pacchetti anziché solo quello denominato - [#737](https://github.com/NuGet/Home/issues/737)
 * Possibilità di eseguire l'aggiornamento a un pacchetto NuGet non in elenco dalla console di Gestione pacchetti - [#4553](https://github.com/NuGet/Home/issues/4553)
 
-#### <a name="misc"></a>Varie
+#### <a name="misc"></a>Vari
 * Per correggere `NuGet update self` NuGet.Commandline nupkg non deve essere semver2.0 - [#7116](https://github.com/NuGet/Home/issues/7116)
 * Migliorare le esperienze con gli errori di installazione di NU1107 - [#7107](https://github.com/NuGet/Home/issues/7107)
 * La serializzazione di GetAuthenticationCredentialRequest è errata - [#6983](https://github.com/NuGet/Home/issues/6983)

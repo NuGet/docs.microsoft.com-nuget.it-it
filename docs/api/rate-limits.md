@@ -1,6 +1,6 @@
 ---
-title: Limiti, API NuGet di velocità
-description: I limiti di velocità per impedirne l'uso improprio verrà applicata APIs di NuGet.
+title: Limiti di velocità, API NuGet
+description: Le API NuGet avranno limiti di velocità applicati per impedire abusi.
 author: cmanu
 ms.author: cmanu
 ms.date: 03/20/2018
@@ -9,16 +9,16 @@ ms.reviewer:
 - skofman
 - anangaur
 - kraigb
-ms.openlocfilehash: 70b478ae17cd10b17f9d6ecb0f5776c1effcea58
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 9e60c0236bd4e6f1374b50a236447faf80dddb38
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548677"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813195"
 ---
 # <a name="rate-limits"></a>Limiti di velocità
 
-L'API di NuGet.org consente di applicare la limitazione della frequenza per impedirne l'uso improprio. Le richieste che superano il limite di frequenza restituiranno l'errore seguente: 
+L'API NuGet.org impone la limitazione della frequenza per impedire abusi. Le richieste che superano il limite di frequenza restituiscono l'errore seguente: 
 
   ~~~
     {
@@ -27,7 +27,7 @@ L'API di NuGet.org consente di applicare la limitazione della frequenza per impe
     }
   ~~~
 
-Oltre a utilizzando i limiti di velocità di limitazione delle richieste, alcune API applicano anche quota. Le richieste che superano la quota di restituiranno l'errore seguente:
+Oltre alla limitazione delle richieste con limiti di velocità, alcune API applicano anche la quota. Le richieste che superano la quota restituiscono l'errore seguente:
 
   ~~~
     {
@@ -36,24 +36,23 @@ Oltre a utilizzando i limiti di velocità di limitazione delle richieste, alcune
     }
   ~~~
 
-Le tabelle seguenti elencano i limiti di velocità per l'API di NuGet.org.
+Le tabelle seguenti elencano i limiti di velocità per l'API NuGet.org.
 
-## <a name="package-search"></a>Ricerca di un pacchetto
+## <a name="package-search"></a>Ricerca di pacchetti
 
 > [!Note]
-> È consigliabile usare di NuGet.org [V3 API](https://docs.microsoft.com/nuget/api/search-query-service-resource) per la ricerca ad alte prestazioni e non siano presenti limitare attualmente. Per versioni V1 e V2 API di ricerca, si applicano i limiti followins:
+> Si consiglia di usare le API di [ricerca V3](search-query-service-resource.md) di NuGet. org, perché attualmente non è limitato. Per le API di ricerca V1 e V2, si applicano i limiti seguenti:
 
-
-| API | Tipo di limite | Valore del limite | API usecase |
+| API | Tipo limite | Valore limite | API useCase |
 |:---|:---|:---|:---|
-**OTTIENI** `/api/v1/Packages` | IP | 1000 al minuto | Eseguire query sui metadati del pacchetto NuGet tramite OData v1 `Packages` raccolta |
-**OTTIENI** `/api/v1/Search()` | IP | 3000 / minuto | Cercare i pacchetti NuGet tramite l'endpoint ricerca v1 | 
-**OTTIENI** `/api/v2/Packages` | IP | 20000 al minuto | Eseguire query sui metadati del pacchetto NuGet tramite OData v2 `Packages` raccolta | 
-**OTTIENI** `/api/v2/Packages/$count` | IP | 100 al minuto | Numero di pacchetti NuGet tramite OData v2 di query `Packages` raccolta | 
+**Ottenere** `/api/v1/Packages` | IP | 1000 al minuto | Eseguire query sui metadati del pacchetto NuGet tramite la raccolta di `Packages` OData V1 |
+**Ottenere** `/api/v1/Search()` | IP | 3000 al minuto | Cerca i pacchetti NuGet tramite l'endpoint di ricerca V1 | 
+**Ottenere** `/api/v2/Packages` | IP | 20000 al minuto | Eseguire query sui metadati del pacchetto NuGet tramite la raccolta `Packages` OData V2 | 
+**Ottenere** `/api/v2/Packages/$count` | IP | 100 al minuto | Eseguire query sul numero di pacchetti NuGet tramite la raccolta `Packages` OData V2 | 
 
-## <a name="package-push-and-unlist"></a>Pacchetto di effettuare il Push e rimuovere dall'elenco
+## <a name="package-push-and-unlist"></a>Push e Unlist di pacchetti
 
-| API | Tipo di limite | Valore del limite | API usecase | 
+| API | Tipo limite | Valore limite | API useCase | 
 |:---|:---|:---|:--- |
-**PUT** `/api/v2/package` | Chiave API | 250 / ora | Caricare un nuovo pacchetto NuGet (versione) tramite l'endpoint v2 push 
-**DELETE** `/api/v2/package/{id}/{version}` | Chiave API | 250 / ora | Rimuovere un pacchetto NuGet (versione) tramite l'endpoint v2 
+**Inserisci** `/api/v2/package` | Chiave API | 350/ora | Caricare un nuovo pacchetto NuGet (versione) tramite l'endpoint di push V2 
+**Elimina** `/api/v2/package/{id}/{version}` | Chiave API | 250/ora | Non elencare un pacchetto NuGet (versione) tramite l'endpoint V2 

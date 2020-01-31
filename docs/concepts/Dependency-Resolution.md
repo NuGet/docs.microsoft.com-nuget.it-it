@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: d2294ef0acb9053e74543204ae6f68b9fbc6fb0a
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: c6f50e6eb21826afebcdcd4045c7ab8b6e6489e3
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611064"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813325"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Risoluzione delle dipendenze dei pacchetti in NuGet
 
@@ -24,7 +24,7 @@ Quando più pacchetti hanno la stessa dipendenza, lo stesso ID di pacchetto può
 
 Quando si installano pacchetti in progetti usando il formato PackageReference, NuGet aggiunge riferimenti a un grafico di pacchetto semplice nel file appropriato e risolve i conflitti in anticipo. Questo processo è noto come *ripristino transitivo*. La reinstallazione o il ripristino dei pacchetti è quindi un processo di download dei pacchetti elencati nel grafico, che genera compilazioni più veloci e più prevedibili. È anche possibile usufruire di versioni con caratteri jolly (mobili), ad esempio 2.8.\*, evitando chiamate costose e soggette a errori a `nuget update` nei computer client e nei server di compilazione.
 
-Quando il processo di ripristino di NuGet viene eseguito prima di una compilazione, risolve prima le dipendenze in memoria, quindi scrive il grafico risultante in un file denominato `project.assets.json`. Scrive anche le dipendenze risolte in un file di blocco denominato `packages.lock.json`, se la [funzionalità di file di blocco è abilitata](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files#locking-dependencies).
+Quando il processo di ripristino di NuGet viene eseguito prima di una compilazione, risolve prima le dipendenze in memoria, quindi scrive il grafico risultante in un file denominato `project.assets.json`. Scrive anche le dipendenze risolte in un file di blocco denominato `packages.lock.json`, se la [funzionalità di file di blocco è abilitata](../consume-packages/package-references-in-project-files.md#locking-dependencies).
 Il file di asset si trova in `MSBuildProjectExtensionsPath`, che per impostazione predefinita corrisponde alla cartella "obj" del progetto. MSBuild legge quindi questo file e lo converte in un set di cartelle in cui sono disponibili riferimenti potenziali, aggiungendoli quindi all'albero del progetto in memoria.
 
 Il file `project.assets.json` è temporaneo e non deve essere aggiunto al controllo del codice sorgente. Viene elencato per impostazione predefinita in `.gitignore` e `.tfignore`. Vedere [Pacchetti e controllo del codice sorgente](../consume-packages/packages-and-source-control.md).
@@ -156,4 +156,3 @@ Per risolvere le incompatibilità, eseguire una delle operazioni seguenti:
 
 - Ridestinare il progetto per un framework supportato dai pacchetti da usare.
 - Contattare l'autore dei pacchetti e collaborare per aggiungere il supporto per il framework scelto. Nella pagina di presentazione di tutti i pacchetti su [nuget.org](https://www.nuget.org/) è incluso un collegamento **Contact Owners** (Contatta proprietari) a questo scopo.
-

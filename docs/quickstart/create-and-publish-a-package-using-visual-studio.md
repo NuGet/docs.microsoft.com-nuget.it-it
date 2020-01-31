@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/16/2019
 ms.topic: quickstart
-ms.openlocfilehash: ef1bda19c5ca3c6b5a4bd9b9d4e3ef41d7dadb53
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: fe551dfa7f2322e6677c9c0b972c79c9df2e7695
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610629"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813559"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Guida introduttiva: Creare e pubblicare un pacchetto NuGet con Visual Studio (.NET Standard, solo Windows)
 
@@ -19,7 +19,7 @@ La creazione di un pacchetto NuGet da una libreria di classi .NET Standard in Vi
 > [!Note]
 > Se si usa Visual Studio per Mac, fare riferimento a [queste informazioni](/xamarin/cross-platform/app-fundamentals/nuget-multiplatform-libraries/existing-library) per la creazione di un pacchetto NuGet o usare gli [strumenti dell'interfaccia della riga di comando dotnet](create-and-publish-a-package-using-the-dotnet-cli.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 1. Installare qualsiasi edizione di Visual Studio 2019 da [visualstudio.com](https://www.visualstudio.com/) con qualsiasi carico di lavoro correlato a .NET Core.
 
@@ -30,7 +30,7 @@ La creazione di un pacchetto NuGet da una libreria di classi .NET Standard in Vi
    > [!Important]
    > Se si utilizza un progetto non di tipo SDK, seguire invece le procedure in [Creare e pubblicare un pacchetto .NET Framework (Visual Studio)](create-and-publish-a-package-using-visual-studio-net-framework.md) per creare e pubblicare il pacchetto. Per questo articolo, è consigliabile usare l'interfaccia della riga di comando `dotnet`. Sebbene sia possibile pubblicare un pacchetto NuGet usando l'interfaccia della riga di comando `nuget.exe`, alcuni dei passaggi descritti in questo articolo sono specifici per i progetti di tipo SDK e l'interfaccia della riga di comando dotnet. L'interfaccia della riga di comando nuget.exe per i [progetti non di tipo SDK](../resources/check-project-format.md) (in genere .NET Framework).
 
-1. [Registrarsi per ottenere un account gratuito in nuget.org](https://docs.microsoft.com/nuget/nuget-org/individual-accounts#add-a-new-individual-account) se non è già disponibile. Quando si crea un nuovo account, viene inviato un messaggio di posta elettronica di conferma. È necessario confermare l'account prima di poter caricare un pacchetto.
+1. [Registrarsi per ottenere un account gratuito in nuget.org](../nuget-org/individual-accounts.md#add-a-new-individual-account) se non è già disponibile. Quando si crea un nuovo account, viene inviato un messaggio di posta elettronica di conferma. È necessario confermare l'account prima di poter caricare un pacchetto.
 
 ## <a name="create-a-class-library-project"></a>Creare un progetto di libreria di classi
 

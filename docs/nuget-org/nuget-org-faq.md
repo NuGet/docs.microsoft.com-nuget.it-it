@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: e2b6a64b8010f16d0fc33cca437b348d8f784fd7
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 915f6e4cfc0b21d2b10006c62e8230720d07ce74
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610485"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813741"
 ---
 # <a name="nugetorg-frequently-asked-questions"></a>Domande frequenti su NuGet.org
 
@@ -20,7 +20,7 @@ ms.locfileid: "73610485"
 
 Ogni pacchetto è disciplinato dalle condizioni incluse nel pacchetto. È necessario leggere le condizioni applicabili prima di accedere, scaricare o acquisire qualsiasi pacchetto. In NuGet.org, usare il collegamento **License Info** (Informazioni di licenza) nella pagina del pacchetto.
 
-Se per un pacchetto non sono specificate le condizioni di licenza, contattare il proprietario del pacchetto direttamente usando il collegamento **Contact owners** (Contatta proprietari) nella pagina del pacchetto su NuGet.org. Microsoft non concede in licenza all'utente alcuna proprietà intellettuale dei provider di pacchetti di terze parti e non è responsabile delle informazioni fornite da terze parti.
+Se per un pacchetto non sono specificate le condizioni di licenza, contattare il proprietario del pacchetto direttamente usando il collegamento **Contact owners** (Contatta proprietari) nella pagina del pacchetto su NuGet.org. Microsoft non concede in licenza all'utente alcuna proprietà intellettuale dei provider di pacchetti di terze parti e non è responsabile per le informazioni fornite da terze parti.
 
 ## <a name="managing-packages-on-nugetorg"></a>Gestione dei pacchetti in NuGet.org
 
@@ -127,7 +127,7 @@ Se si vuole cambiare l'account Microsoft per l'utente di NuGet.org, seguire ques
 1. Accedere usando **l'account Microsoft attualmente associato**, vale a dire `account1@outlook.com`, nella [pagina di accesso](https://www.nuget.org/users/account/LogOn) dopo aver fatto clic su **Sign in with Microsoft** (Accedi con Microsoft).
 1. Dopo l'accesso, passare alla pagina [Account settings](https://www.nuget.org/account) (Impostazioni account).
 1. Espandere la sezione **Login Account** (Account di accesso). Fare clic sul pulsante **Change Account** (Cambia account).
-1. Verrà effettuato il reindirizzamento alla pagina di accesso Microsoft. Accedere con l'account a cui si vuole modificare l'associazione, ad esempio  `account2@outlook.com`. **Nota**: potrebbe essere necessario fare clic su **disconnettersi e accedere con un account diverso** durante il flusso di accesso per poter accedere con un account Microsoft diverso.
+1. Verrà effettuato il reindirizzamento alla pagina di accesso Microsoft. Accedere con l'account a cui si vuole modificare l'associazione, ad esempio `account2@outlook.com`. **Nota**: potrebbe essere necessario fare clic su **disconnettersi e accedere con un account diverso** durante il flusso di accesso per poter accedere con un account Microsoft diverso.
 1. Se viene visualizzato un errore simile a quello riportato di seguito, vedere [L'account Microsoft è collegato a un altro account di NuGet.org](#microsoft-account-is-linked-with-another-nugetorg-account) per altri dettagli.
     >_Non è stato possibile aggiornare il account Microsoft con ' Account2 <account2@outlook.com>'. Questo problema può verificarsi se è già collegato a un altro account NuGet. Per ulteriori informazioni, contattare il supporto tecnico._
 
@@ -175,7 +175,7 @@ Se si è tentato di accedere con l'account Microsoft, ad esempio con quello con 
 
 Quando viene creato un account in NuGet.org, a tale account è associato un indirizzo di posta elettronica di comunicazione. Si tratta in genere dello stesso indirizzo di posta elettronica usato per l'account Microsoft associato. È tuttavia possibile scegliere per la comunicazione un altro indirizzo di posta elettronica. Tecnicamente, quindi, è possibile avere un account Microsoft diverso, ad esempio con `account2@outlook.com`, collegato all'account di NuGet.org con indirizzo di posta elettronica di comunicazione `account1@outlook.com`.
 
-L'errore riportato sopra, quindi, significa che esiste già un account di NuGet.org con indirizzo di posta elettronica di comunicazione `account1@outlook.com`, ma che tale account è associato a un altro account Microsoft con indirizzo di posta elettronica **che non è** `account1@outlook.com`.
+Quindi, l'errore precedente indica che esiste già un account NuGet.org con indirizzo di posta elettronica di comunicazione `account1@outlook.com` ma è associato a un altro account Microsoft con posta elettronica **che non è** `account1@outlook.com`.
 
 **Come è possibile scoprire quale account Microsoft è collegato a un account di NuGet.org?**
 
@@ -242,15 +242,15 @@ Se vuole accedere a NuGet.org con l'account Microsoft (@yourdomain.com), l'utent
 
 ### <a name="how-do-i-change-my-nugetorg-account-username"></a>Come si cambia il nome utente dell'account di NuGet.org?
 
-Non è possibile farlo. I criteri non consentono attualmente di cambiare i nomi utente. L'unico modo per cambiare il nome utente consiste nel creare un nuovo account con il nome utente desiderato. È consigliabile eliminare l'account esistente prima di crearne uno nuovo. In caso contrario non sarà possibile riutilizzare l'account Microsoft registrato.
+Non è possibile farlo. Per quanto riguarda i criteri, non è possibile modificare i nomi utente. Questa operazione è inoltre una modifica sostanziale per gli utenti che possono avere definito [criteri di attendibilità del pacchetto in base al proprietario del pacchetto](../consume-packages/installing-signed-packages.md#trust-package-owners). L'unico modo per cambiare il nome utente consiste nel creare un nuovo account con il nome utente desiderato. È consigliabile eliminare l'account esistente prima di crearne uno nuovo. In caso contrario non sarà possibile riutilizzare l'account Microsoft registrato.
 > [!Important]
-> L'eliminazione dell'utente **mantiene riservato** `username`. Non sarà possibile riutilizzare lo stesso nome utente, **neanche cambiando alcune lettere in maiuscole o minuscole**. Se, ad esempio, è stato creato un utente con nome utente `mycoolname` e si vuole cambiare quest'ultimo in `MyCoolName` (modifica di maiuscole e minuscole), questa operazione non sarà possibile dopo l'eliminazione dell'utente.
+> L'eliminazione dell'utente **mantiene riservato**`username`. Non sarà possibile riutilizzare lo stesso nome utente, **neanche cambiando alcune lettere in maiuscole o minuscole**. Se, ad esempio, è stato creato un utente con nome utente `mycoolname` e si vuole cambiare quest'ultimo in `MyCoolName` (modifica di maiuscole e minuscole), questa operazione non sarà possibile dopo l'eliminazione dell'utente.
 
 Seguire i passaggi descritti nelle sezioni [Eliminare l'account di NuGet.org](#how-to-delete-my-nugetorg-account) e quindi [registrare un nuovo account](individual-accounts.md) con il nome utente corretto.
 
 ### <a name="how-to-delete-my-nugetorg-account"></a>Come si elimina l'account di NuGet.org?
 
-Per eliminare l'account, si noti che è consigliabile trasferire la proprietà di tutti i pacchetti di cui l'account da eliminare è l'unico proprietario. Altre informazioni sulla [gestione dei proprietari dei pacchetti](https://docs.microsoft.com/nuget/create-packages/publish-a-package#managing-package-owners-on-nugetorg) e su come eseguire questa operazione. Ciò risulta utile anche per accelerare la richiesta.
+Per eliminare l'account, si noti che è consigliabile trasferire la proprietà di tutti i pacchetti di cui l'account da eliminare è l'unico proprietario. Altre informazioni sulla [gestione dei proprietari dei pacchetti](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg) e su come eseguire questa operazione. Ciò risulta utile anche per accelerare la richiesta.
 
 Se si desidera trasformare l'account in un'organizzazione, seguire la procedura descritta in [Trasformare l'account personale di NuGet.org in un'organizzazione](#how-to-transform-my-nugetorg-account-to-an-organization).
 

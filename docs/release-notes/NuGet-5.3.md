@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 09/06/2019
 ms.topic: conceptual
-ms.openlocfilehash: e77219d355f73f3bf01f68283ffb2759813af563
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: ca71c5b9ef546f3ea92e55763d5059466ac3a930
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611317"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813754"
 ---
 # <a name="nuget-53-release-notes"></a>Note sulla versione di NuGet 5,3
 
@@ -29,7 +29,7 @@ Veicoli per la distribuzione di NuGet:
 
 * Sicurezza migliorata con il rilevamento e l'imposizione di SHA per Packages. config- [#7281](https://github.com/NuGet/Home/issues/7281)
 
-* Abilitare la deprecazione di pacchetti NuGet obsoleti o legacy [#2867](https://github.com/NuGet/Home/issues/2867) | [post di Blog](https://devblogs.microsoft.com/nuget/deprecating-packages-on-nuget-org/) | [docs](https://docs.microsoft.com/nuget/nuget-org/deprecate-packages)
+* Abilitare la deprecazione di pacchetti NuGet obsoleti o legacy [#2867](https://github.com/NuGet/Home/issues/2867) | [post di Blog](https://devblogs.microsoft.com/nuget/deprecating-packages-on-nuget-org/) | [docs](../nuget-org/deprecate-packages.md)
 
 ### <a name="issues-fixed-in-this-release"></a>Problemi corretti in questa versione
 
@@ -43,7 +43,7 @@ Veicoli per la distribuzione di NuGet:
 
 * Ridurre l'utilizzo della memoria (annullare la sottoscrizione agli eventi)- [#8471](https://github.com/NuGet/Home/issues/8471)
 
-* Il messaggio "Error_UnableToFindProjectInfo" non è grammaticalmente corretto- [#8441](https://github.com/NuGet/Home/issues/8441)
+* Il messaggio "Error_UnableToFindProjectInfo" non è corretto in modo grammaticale- [#8441](https://github.com/NuGet/Home/issues/8441)
 
 * Miglioramenti di NU1403: convalida di tutti i pacchetti, inclusi i valori Sha previsti/effettivi [#8424](https://github.com/NuGet/Home/issues/8424)
 

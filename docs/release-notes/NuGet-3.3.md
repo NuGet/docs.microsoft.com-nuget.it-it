@@ -5,22 +5,22 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 482c03a4f6ca39edf317b6ef8d535e79b53d5d16
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: aa8290c80cc500b59d1779bf76662c07382fd277
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317036"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813780"
 ---
 # <a name="nuget-33-release-notes"></a>Note sulla versione di NuGet 3,3
 
-[Note sulla versione di NuGet 3.2.1](../release-notes/nuget-3.2.1.md)[(note sulla versione di NuGet 3,4-RC)](../release-notes/nuget-3.4-RC.md)  | 
+[Note sulla versione di NuGet 3.2.1](../release-notes/nuget-3.2.1.md) | [Note sulla versione di NUGET 3,4-RC](../release-notes/nuget-3.4-RC.md)
 
 NuGet 3,3 è stato rilasciato il 30 novembre 2015 con un numero significativo di aggiornamenti dell'interfaccia utente e funzionalità della riga di comando, oltre a una raccolta di utili correzioni per i client NuGet.
 
-## <a name="new-features"></a>Nuove funzionalità
+## <a name="new-features"></a>Nuove funzioni e caratteristiche
 
-* Sono stati introdotti i provider di credenziali che consentono ai client della riga di comando NuGet di funzionare senza interruzioni con un feed autenticato. Le [istruzioni su come installare il provider di credenziali Visual Studio Team Services](../api/nuget-exe-credential-providers.md) e configurare i client NuGet per usarlo sono disponibili nella documentazione di NuGet.
+* Sono stati introdotti i provider di credenziali che consentono ai client della riga di comando NuGet di funzionare senza interruzioni con un feed autenticato. Le [istruzioni su come installare il provider di credenziali Visual Studio Team Services](../reference/extensibility/nuget-exe-credential-providers.md) e configurare i client NuGet per usarlo sono disponibili nella documentazione di NuGet.
 
 ## <a name="new-user-interface-features"></a>Nuove funzionalità dell'interfaccia utente
 
@@ -37,11 +37,11 @@ NuGet 3,3 è stato rilasciato il 30 novembre 2015 con un numero significativo di
 
 ## <a name="new-command-line-features"></a>Nuove funzionalità della riga di comando
 
-In questa versione sono stati introdotti `init` i comandi e per inizializzare i `add` repository basati su cartelle come descritto nel riferimento a [NuGet. exe](../reference/nuget-exe-cli-reference.md). I repository costruiti e gestiti con questa struttura di cartelle offriranno [vantaggi significativi](http://blog.nuget.org/20150922/Accelerate-Package-Source.html) in materia di prestazioni, come descritto nel Blog.
+In questa versione sono stati introdotti i comandi `add` e `init` per inizializzare i repository basati su cartelle, come descritto nel [riferimento a NuGet. exe](../reference/nuget-exe-cli-reference.md). I repository costruiti e gestiti con questa struttura di cartelle offriranno [vantaggi significativi](http://blog.nuget.org/20150922/Accelerate-Package-Source.html) in materia di prestazioni, come descritto nel Blog.
 
 ## <a name="contentfiles"></a>ContentFiles
 
-Il contenuto è ora supportato `project.json` nei progetti gestiti tramite la `contentFiles` nuova notazione `.nuspec` di elementi e `contentFiles` cartelle.  Questo contenuto può essere specificato più direttamente dall'autore del pacchetto per le interazioni con i sistemi di progetto.  Altre informazioni su come configurare contentFiles in un `.nuspec` documento sono disponibili nel [riferimento. NuSpec](../reference/nuspec.md).
+Il contenuto è ora supportato in `project.json` progetti gestiti tramite la nuova cartella `contentFiles` e `.nuspec` la notazione dell'elemento `contentFiles`.  Questo contenuto può essere specificato più direttamente dall'autore del pacchetto per le interazioni con i sistemi di progetto.  Altre informazioni su come configurare contentFiles in un documento `.nuspec` sono disponibili nel [riferimento. NuSpec](../reference/nuspec.md).
 
 ## <a name="nuget-locals-cache-management"></a>Gestione cache NuGet locale
 
@@ -59,4 +59,4 @@ L'elenco dei problemi risolti nella versione della riga di comando 3,3 viene reg
 
 ## <a name="known-issues"></a>Problemi noti
 
-Continuiamo a tenere traccia dei problemi nell'elenco dei problemi di GitHub disponibili all'indirizzo:[http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)
+Continuiamo a tenere traccia dei problemi nell'elenco dei problemi di GitHub disponibili all'indirizzo: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)

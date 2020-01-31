@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0691660f20f9b5a1ff0dad110ee87c6e29c0a56e
-ms.sourcegitcommit: fc0f8c950829ee5c96e3f3f32184bc727714cfdb
+ms.openlocfilehash: 9f427005251bc2bf7a8a79285e39b4bd49062dbf
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74253941"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813351"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Ricerca e valutazione di pacchetti NuGet per un progetto
 
@@ -106,7 +106,7 @@ Allo stesso tempo, usare un pacchetto NuGet implica la creazione di una dipenden
 - *Prefissi ID pacchetto riservati*: molti proprietari di pacchetti hanno richiesto e ottenuto un [prefisso ID pacchetto riservato](../nuget-org/id-prefix-reservation.md). Un segno di spunta visualizzato accanto all'ID di un pacchetto in [nuget.org](https://www.nuget.org/) o in Visual Studio indica che il proprietario del pacchetto soddisfa i [criteri](../nuget-org/id-prefix-reservation.md#id-prefix-reservation-criteria) stabiliti per la prenotazione del prefisso ID. Ciò significa che il proprietario del pacchetto renderà disponibile il suo identificativo e quello del pacchetto.
 
 > [!Note]
-> Tenere sempre presente le condizioni di licenza di un pacchetto, che è possibile visualizzare selezionando **informazioni sulle licenze** nella pagina di presentazione di un pacchetto in NuGet.org. Se un pacchetto non specifica le condizioni di licenza, contattare il proprietario del pacchetto direttamente usando il collegamento **Contact owners (Contatta proprietari** ) nella pagina del pacchetto. Microsoft non concede in licenza all'utente alcuna proprietà intellettuale dei provider di pacchetti di terze parti e non è responsabile delle informazioni fornite da terze parti.
+> Tenere sempre presente le condizioni di licenza di un pacchetto, che è possibile visualizzare selezionando **informazioni sulle licenze** nella pagina di presentazione di un pacchetto in NuGet.org. Se un pacchetto non specifica le condizioni di licenza, contattare il proprietario del pacchetto direttamente usando il collegamento **Contact owners (Contatta proprietari** ) nella pagina del pacchetto. Microsoft non concede in licenza all'utente alcuna proprietà intellettuale dei provider di pacchetti di terze parti e non è responsabile per le informazioni fornite da terze parti.
 
 ## <a name="license-url-deprecation"></a>Deprecazione dell'URL della licenza
 Durante la transizione da [licenseUrl](../reference/nuspec.md#licenseurl) a [license](../reference/nuspec.md#license), alcuni client NuGet e feed NuGet potrebbero non avere ancora la possibilità di esporre le informazioni sulla licenza in alcuni casi. Per mantenere la compatibilità con le versioni precedenti, l'URL della licenza punta a questo documento che illustra come recuperare le informazioni sulla licenza in tali casi.
@@ -122,25 +122,25 @@ Ecco come è possibile leggere le informazioni contenute nel file di licenza all
 1. Deve avere un tag simile a `<license type="file">license\license.txt</license>`. Ciò implica che il file di licenza è denominato `license.txt` e si trova all'interno di una cartella denominata `license` che sarà anche alla radice della cartella.
 1. Passare alla cartella `license` e aprire il file `license.txt`.
 
-Per l'equivalente in MSBuild dell'impostazione della licenza in `.nuspec`, vedere [Compressione di un'espressione di licenza o di un file di licenza](/nuget/reference/msbuild-targets#packing-a-license-expression-or-a-license-file).
+Per l'equivalente in MSBuild dell'impostazione della licenza in `.nuspec`, vedere [Compressione di un'espressione di licenza o di un file di licenza](../reference/msbuild-targets.md#packing-a-license-expression-or-a-license-file).
 
 ## <a name="search-syntax"></a>Sintassi di ricerca
 
 La modalità di ricerca di un pacchetto in NuGet è la stessa su nuget.org, dall'interfaccia della riga di comando di NuGet e all'interno dell'estensione Gestione pacchetti NuGet in Visual Studio. In generale, la ricerca viene applicata alle parole chiave e alle descrizioni dei pacchetti.
 
-- **Parole chiave**: la ricerca mira a individuare i pacchetti pertinenti che contengono una qualsiasi delle parole chiave specificate. Esempio: `modern UI`. Per eseguire la ricerca per i pacchetti che contengono tutte le parole chiave fornite, usare "+" tra le condizioni, ad esempio `modern+UI`.
-- **Frasi**: se si immettono i termini di ricerca tra virgolette, vengono rilevate le esatte corrispondenze senza distinzione tra maiuscole e minuscole con tali termini. Esempio: `"modern UI" package`
-- **Filtro**: è possibile applicare un termine di ricerca a una proprietà specifica usando la sintassi `<property>:<term>`, dove `<property>` (senza distinzione tra maiuscole e minuscole) può essere `id`, `packageid`, `version`, `title`, `tags`, `author`, `description`, `summary` e `owner`. I termini di ricerca possono essere contenuti tra virgolette, se necessario, ed è possibile cercare più proprietà contemporaneamente. Inoltre, le ricerche nella proprietà `id` sono corrispondenze di sottostringhe, mentre `packageid` usa una corrispondenza esatta. Esempi:
+- **Filtro**: è possibile applicare un termine di ricerca a una proprietà specifica usando la sintassi `<property>:<term>`, dove `<property>` (senza distinzione tra maiuscole e minuscole) può essere `id`, `packageid`, `version`, `title`, `tags`, `author`, `description`, `summary` e `owner`. È possibile cercare più proprietà contemporaneamente. Le ricerche nella proprietà `id` sono corrispondenze di sottostringhe, mentre `packageid` e `owner` usano una corrispondenza esatta senza distinzione tra maiuscole e minuscole. Esempi:
 
-    ```
-    id:NuGet.Core                # Match any part of the id property
-    Id:"Nuget.Core"
-    ID:jQuery
-    title:jquery                 # Searches title as shown on the package listing
-    PackageId:jquery             # Match the package id exactly
-    id:jquery id:ui              # Search for multiple terms in the id
-    id:jquery tags:validation    # Search multiple properties
-    id:"jquery.ui"               # Phrase search
-    invalid:jquery ui            # Unsupported properties are ignored, so this
-                                 # is the same as searching on jquery ui
-    ```
+```
+PackageId:jquery             # Match the package ID in an exact, case-insensitive manner
+
+owner:microsoft              # Match the owner in an exact, case-insensitive manner
+
+id:NuGet.Core                # Match any part of the ID property
+Id:"Nuget.Core"
+ID:jQuery
+id:jquery id:ui              # Search for multiple terms in the ID
+id:jquery tags:validation    # Search multiple properties
+
+invalid:jquery ui            # Unsupported properties are ignored, so this
+                             # is the same as searching on ui
+```
