@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 69ef02e3c935287759b4012aadcfb1cb9811367c
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.openlocfilehash: 1ae030c308b14b8884fb608c1683c8c46000b0bd
+ms.sourcegitcommit: 415c70d7014545c1f65271a2debf8c3c1c5eb688
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488438"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77036903"
 ---
 # <a name="what-happens-when-a-nuget-package-is-installed"></a>Cosa accade quando viene installato un pacchetto NuGet
 
@@ -25,7 +25,7 @@ Il processo generale è il seguente:
 2. Acquisire il pacchetto:
    - Controllare se il pacchetto (in base all'identificatore esatto e al numero versione) è già installato nella cartella *global-packages* come descritto in [Gestione delle cartelle dei pacchetti globali e della cache](../consume-packages/managing-the-global-packages-and-cache-folders.md).
 
-   - Se il pacchetto non è presente nella cartella *global-packages*, tentare di recuperarlo dalle origini elencate nei [file di configurazione](../consume-packages/Configuring-NuGet-Behavior.md). Per le origini online, tentare prima di tutto di recuperare il pacchetto dalla cache HTTP, a meno che non si specifichi `-NoCache` con i comandi `nuget.exe` o non si specifichi `--no-cache` con `dotnet restore`. (Visual Studio e `dotnet add package` usano sempre la cache.) Se un pacchetto viene usato dalla cache, nell'output compare "CACHE". La cache ha una scadenza di 30 minuti.
+   - Se il pacchetto non si trova nella cartella *Global-Packages* , provare a recuperarlo dalle origini elencate nei [file di configurazione](../consume-packages/Configuring-NuGet-Behavior.md). Per le origini online, tentare prima di tutto di recuperare il pacchetto dalla cache HTTP, a meno che non si specifichi `-NoCache` con i comandi `nuget.exe` o non si specifichi `--no-cache` con `dotnet restore`. (Visual Studio e `dotnet add package` utilizzano sempre la cache). Se un pacchetto viene usato dalla cache, nell'output viene visualizzato "CACHE". La cache ha una scadenza di 30 minuti.
 
    - Se il pacchetto non è presente nella cache HTTP, tentare di scaricarlo dalle origini elencate nella configurazione. Se un pacchetto viene scaricato, nell'output compaiono "GET" e "OK". NuGet registra il traffico HTTP con un livello di dettaglio normale.
 
