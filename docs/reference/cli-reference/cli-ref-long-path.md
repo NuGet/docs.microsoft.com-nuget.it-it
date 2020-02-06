@@ -5,16 +5,16 @@ author: zhili1208
 ms.author: lzhi
 ms.date: 07/12/2018
 ms.topic: reference
-ms.openlocfilehash: 42b5b7d863d22d7aad99a65700ca11bcc2861db1
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 9b5a97d963eab7fbbde4aefae1c9b1a8bfcdeb11
+ms.sourcegitcommit: 415c70d7014545c1f65271a2debf8c3c1c5eb688
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327678"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77036955"
 ---
 # <a name="long-path-support-nuget-cli"></a>Supporto per percorsi lunghi (interfaccia della riga di comando NuGet)
 
-**Si applica a:** tutte le &bullet; **versioni supportate:** 4.8 +
+**Si applica a:** tutte le versioni di &bullet; **supportate:** 4.8 +
 
 NuGet. exe 4,8 e versioni successive supportano percorsi lunghi per file e directory per scenari come Pack, Restore, install e la maggior parte degli altri scenari che richiedono percorsi di file.
 
@@ -28,7 +28,7 @@ NuGet. exe 4,8 e versioni successive supportano percorsi lunghi per file e direc
 
 È necessario abilitare il supporto per percorsi lunghi su tali sistemi impostando criteri di gruppo.
 
-Passaggi
+Passaggi:
 1. Avviare **criteri di gruppo editor** : digitare "modifica criteri di gruppo" nella barra di ricerca iniziale o eseguire "gpedit. msc" dal comando Esegui (Windows-R).
 2. Nella **Editor criteri di gruppo locali**abilitare "criteri computer locale/Configurazione computer/modelli amministrativi/tutte le impostazioni/Abilita percorsi lunghi Win32".
 
@@ -39,6 +39,6 @@ Passaggi
 > Abilitazione di altri strumenti NuGet per supportare percorsi lunghi
 >
 > -   L'interfaccia della riga di comando DotNet supporta percorsi lunghi indipendentemente dal sistema operativo o dalla versione.
-> -   Visual Studio o MSBuild-t:Restore non supporta ancora percorsi lunghi.
-> -   Il software che usa le librerie NuGet per eseguire Restore e altri comandi supporterà percorsi lunghi sugli stessi sistemi su cui si basa NuGet. exe, se hanno anche impostato longPathAware nel manifesto di Windows e configurano UseLegacyPathHandling su false tramite app. config [ Vedi altre informazioni](https://blogs.msdn.microsoft.com/jeremykuhne/2016/07/30/net-4-6-2-and-long-paths-on-windows-10/)
+> -   Visual Studio o `msbuild -t:restore` non supporta ancora percorsi lunghi.
+> -   Il software che usa le librerie NuGet per eseguire Restore e altri comandi supporterà percorsi lunghi sugli stessi sistemi su cui è in esecuzione NuGet. exe, se hanno anche impostato `longPathAware` nel manifesto di Windows e configurano `UseLegacyPathHandling` per `false` tramite app. config. [vedere altre informazioni](https://blogs.msdn.microsoft.com/jeremykuhne/2016/07/30/net-4-6-2-and-long-paths-on-windows-10/)
 

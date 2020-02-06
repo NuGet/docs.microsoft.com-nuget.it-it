@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 2c2b5b21569e2644154670d502146f1e0f9c4c81
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: 922fc0b25664dede59e33c6cd012dfeedcad0397
+ms.sourcegitcommit: 415c70d7014545c1f65271a2debf8c3c1c5eb688
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75385014"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77036929"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Pack e restore di NuGet come destinazioni MSBuild
 
@@ -50,28 +50,28 @@ Si noti che le proprietà `Owners` e `Summary` da `.nuspec` non sono supportate 
 |--------|--------|--------|--------|
 | Id | PackageId | AssemblyName | $(AssemblyName) da MSBuild |
 | Versione | PackageVersion | Versione | Compatibile con SemVer, ad esempio "1.0.0", "1.0.0-beta" o "1.0.0-beta-00345" |
-| VersionPrefix | PackageVersionPrefix | vuoto | L'impostazione di PackageVersion sovrascrive PackageVersionPrefix |
-| VersionSuffix | PackageVersionSuffix | vuoto | $(VersionSuffix) da MSBuild. L'impostazione di PackageVersion sovrascrive PackageVersionSuffix |
+| VersionPrefix | PackageVersionPrefix | empty | L'impostazione di PackageVersion sovrascrive PackageVersionPrefix |
+| VersionSuffix | PackageVersionSuffix | empty | $(VersionSuffix) da MSBuild. L'impostazione di PackageVersion sovrascrive PackageVersionSuffix |
 | Autori | Autori | Nome utente dell'utente corrente | |
 | Proprietari | N/D | Non presente in NuSpec | |
 | Titolo | Titolo | PackageId| |
 | Descrizione | Descrizione | "Descrizione del pacchetto" | |
-| Copyright | Copyright | vuoto | |
+| Copyright | Copyright | empty | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
-| Licenza | PackageLicenseExpression | vuoto | Corrisponde a `<license type="expression">` |
-| Licenza | PackageLicenseFile | vuoto | Corrisponde a `<license type="file">`. È necessario comprimere in modo esplicito il file di licenza a cui si fa riferimento. |
-| LicenseUrl | PackageLicenseUrl | vuoto | `PackageLicenseUrl` è deprecato, utilizzare la proprietà PackageLicenseExpression o PackageLicenseFile |
-| ProjectUrl | PackageProjectUrl | vuoto | |
-| Icona | PackageIcon | vuoto | È necessario comprimere in modo esplicito il file di immagine icona a cui si fa riferimento.|
-| IconUrl | PackageIconUrl | vuoto | Per la migliore esperienza di livello inferiore, è necessario specificare `PackageIconUrl` oltre al `PackageIcon`. A lungo termine, `PackageIconUrl` verrà deprecato. |
-| Tag | PackageTags | vuoto | I tag sono delimitati da punto e virgola. |
-| ReleaseNotes | PackageReleaseNotes | vuoto | |
-| Repository/URL | RepositoryUrl | vuoto | URL del repository usato per clonare o recuperare il codice sorgente. Esempio: *https://github.com/NuGet/NuGet.Client.git* |
-| Repository/tipo | RepositoryType | vuoto | Tipo di repository. Esempi: *git*, *TFS*. |
-| Repository/ramo | RepositoryBranch | vuoto | Informazioni facoltative sul ramo del repository. Per includere questa proprietà, è necessario specificare anche *RepositoryUrl* . Esempio: *Master* (NuGet 4.7.0 +) |
-| Repository/commit | RepositoryCommit | vuoto | Commit o insieme di modifiche facoltativo del repository per indicare l'origine su cui è stato compilato il pacchetto. Per includere questa proprietà, è necessario specificare anche *RepositoryUrl* . Esempio: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) |
+| license | PackageLicenseExpression | empty | Corrisponde a `<license type="expression">` |
+| license | PackageLicenseFile | empty | Corrisponde a `<license type="file">`. È necessario comprimere in modo esplicito il file di licenza a cui si fa riferimento. |
+| LicenseUrl | PackageLicenseUrl | empty | `PackageLicenseUrl` è deprecato, utilizzare la proprietà PackageLicenseExpression o PackageLicenseFile |
+| ProjectUrl | PackageProjectUrl | empty | |
+| Icona | PackageIcon | empty | È necessario comprimere in modo esplicito il file di immagine icona a cui si fa riferimento.|
+| IconUrl | PackageIconUrl | empty | Per la migliore esperienza di livello inferiore, è necessario specificare `PackageIconUrl` oltre al `PackageIcon`. A lungo termine, `PackageIconUrl` verrà deprecato. |
+| Tag | PackageTags | empty | I tag sono delimitati da punto e virgola. |
+| ReleaseNotes | PackageReleaseNotes | empty | |
+| Repository/URL | RepositoryUrl | empty | URL del repository usato per clonare o recuperare il codice sorgente. Esempio: *https://github.com/NuGet/NuGet.Client.git* |
+| Repository/tipo | RepositoryType | empty | Tipo di repository. Esempi: *git*, *TFS*. |
+| Repository/ramo | RepositoryBranch | empty | Informazioni facoltative sul ramo del repository. Per includere questa proprietà, è necessario specificare anche *RepositoryUrl* . Esempio: *Master* (NuGet 4.7.0 +) |
+| Repository/commit | RepositoryCommit | empty | Commit o insieme di modifiche facoltativo del repository per indicare l'origine su cui è stato compilato il pacchetto. Per includere questa proprietà, è necessario specificare anche *RepositoryUrl* . Esempio: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
-| Riepilogo | Non supportato | | |
+| Riepilogo | Non supportate | | |
 
 ### <a name="pack-target-inputs"></a>Input destinazione pack
 
@@ -129,9 +129,9 @@ A partire da NuGet 5,3 & Visual Studio 2019 versione 16,3, `pack` genererà un a
 
 #### <a name="packing-an-icon-image-file"></a>Compressione di un file di immagine icona
 
-Quando si imballa un file di immagine icona, è necessario utilizzare `PackageIcon` proprietà per specificare il percorso del pacchetto, relativo alla radice del pacchetto. Inoltre, è necessario assicurarsi che il file sia incluso nel pacchetto. Le dimensioni del file di immagine sono limitate a 1 MB. I formati di file supportati sono JPEG e PNG. Si consiglia la risoluzione di un'immagine di 64x64.
+Quando si imballa un file di immagine icona, è necessario utilizzare `PackageIcon` proprietà per specificare il percorso del pacchetto, relativo alla radice del pacchetto. Inoltre, è necessario assicurarsi che il file sia incluso nel pacchetto. Le dimensioni del file di immagine sono limitate a 1 MB. I formati di file supportati sono JPEG e PNG. Si consiglia la risoluzione di un'immagine di 128x128.
 
-Ad esempio:
+Ad esempio,
 
 ```xml
 <PropertyGroup>
@@ -242,7 +242,7 @@ Quando si usa un'espressione di licenza, è necessario usare la proprietà Packa
 
 [Altre informazioni sulle espressioni di licenza e le licenze accettate da NuGet.org](nuspec.md#license).
 
-Quando si imballa un file di licenza, è necessario utilizzare la proprietà PackageLicenseFile per specificare il percorso del pacchetto, relativo alla radice del pacchetto. Inoltre, è necessario assicurarsi che il file sia incluso nel pacchetto. Ad esempio:
+Quando si imballa un file di licenza, è necessario utilizzare la proprietà PackageLicenseFile per specificare il percorso del pacchetto, relativo alla radice del pacchetto. Inoltre, è necessario assicurarsi che il file sia incluso nel pacchetto. Ad esempio,
 
 ```xml
 <PropertyGroup>
@@ -371,7 +371,7 @@ La destinazione `restore` funziona **solo** per i progetti che usano il formato 
 
 Possono esistere ulteriori impostazioni di ripristino derivate da proprietà di MSBuild nel file di progetto. I valori possono essere impostati anche dalla riga di comando tramite l'opzione `-p:` (vedere gli esempi riportati di seguito).
 
-| Gli | Descrizione |
+| Proprietà | Descrizione |
 |--------|--------|
 | RestoreSources | Elenco delimitato da punto e virgola delle origini di pacchetti. |
 | RestorePackagesPath | Percorso della cartella dei pacchetti dell'utente. |
@@ -395,7 +395,7 @@ Possono esistere ulteriori impostazioni di ripristino derivate da proprietà di 
 
 #### <a name="examples"></a>Esempi
 
-Riga di comando:
+Command line:
 
 ```cli
 msbuild -t:restore -p:RestoreConfigFile=<path>

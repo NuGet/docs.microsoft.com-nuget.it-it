@@ -12,24 +12,24 @@ keywords: Pacchetti di simboli NuGet, debug dei pacchetti NuGet, supporto per il
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 0109aea95ec255b3e0abcdff4cf51b4bfeafbb8c
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.openlocfilehash: 839c38ec165372bab9b93dec25e5c8e8e9439bfa
+ms.sourcegitcommit: 415c70d7014545c1f65271a2debf8c3c1c5eb688
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76813481"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77036890"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Creazione di pacchetti di simboli (estensione snupkg)
 
-I pacchetti di simboli consentono di migliorare l'esperienza di debug dei pacchetti NuGet.
+Un'esperienza di debug ottimale si basa sulla presenza di simboli di debug poiché forniscono informazioni critiche, come l'associazione tra il codice compilato e il codice sorgente, i nomi delle variabili locali, le analisi dello stack e altro ancora. È possibile usare i pacchetti di simboli (con estensione snupkg) per distribuire questi simboli e migliorare l'esperienza di debug dei pacchetti NuGet.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-[nuget.exe v4.9.0 o versione successiva](https://www.nuget.org/downloads) oppure [dotnet.exe v2.2.0 o versione successiva](https://www.microsoft.com/net/download/dotnet-core/2.2), che implementano i [protocolli NuGet](../api/nuget-protocols.md) necessari.
+[NuGet. exe v 4.9.0 o versione successiva](https://www.nuget.org/downloads) o [DotNet CLI v 2.2.0 o versioni successive](https://www.microsoft.com/net/download/dotnet-core/2.2), che implementano i [protocolli NuGet](../api/nuget-protocols.md)necessari.
 
 ## <a name="creating-a-symbol-package"></a>Creazione di un pacchetto di simboli
 
-Se si usa dotnet. exe o MSBuild, è necessario impostare le proprietà `IncludeSymbols` e `SymbolPackageFormat` per creare un file con estensione snupkg oltre al file nupkg.
+Se si usa l'interfaccia della riga di comando DotNet o MSBuild, è necessario impostare le proprietà `IncludeSymbols` e `SymbolPackageFormat` per creare un file con estensione snupkg oltre al file nupkg.
 
 * Aggiungere le proprietà seguenti al file con estensione csproj:
 
@@ -46,7 +46,7 @@ Se si usa dotnet. exe o MSBuild, è necessario impostare le proprietà `IncludeS
      dotnet pack MyPackage.csproj -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
      ```
 
-  oppure
+  o
 
   ```cli
   msbuild MyPackage.csproj /t:pack /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg
@@ -108,17 +108,17 @@ Se questi vincoli non vengono soddisfatti, i pacchetti di simboli pubblicati in 
 
 I pacchetti di simboli pubblicati in [NuGet.org](https://www.nuget.org/) vengono sottoposti a diverse convalide, inclusa l'analisi di malware. Se un pacchetto non supera un controllo di convalida, nella pagina dei dettagli del pacchetto verrà visualizzato un messaggio di errore. Inoltre, i proprietari del pacchetto riceveranno un messaggio di posta elettronica con le istruzioni su come risolvere i problemi identificati.
 
-Quando il pacchetto di simboli ha superato tutte le convalide, i simboli verranno indicizzati dai server dei simboli di NuGet. org. Una volta indicizzate, il simbolo sarà disponibile per l'utilizzo da parte dei server di simboli NuGet.org.
+Quando il pacchetto di simboli ha superato tutte le convalide, i simboli verranno indicizzati dai server dei simboli di NuGet. org e saranno disponibili per l'utilizzo.
 
-La convalida e l'indicizzazione del pacchetto richiedono in genere meno di 15 minuti. Se la pubblicazione del pacchetto richiede più tempo del previsto, visitare [status.nuget.org](https://status.nuget.org/) per controllare se si stanno verificando interruzioni in NuGet.org. Se tutti i sistemi sono operativi e il pacchetto non viene pubblicato entro un'ora, accedere a nuget.org e usare il collegamento per contattare il supporto tecnico nella pagina dei dettagli del pacchetto.
+La convalida e l'indicizzazione del pacchetto richiedono in genere meno di 15 minuti. Se la pubblicazione del pacchetto richiede più tempo del previsto, visitare [status.NuGet.org](https://status.nuget.org/) per verificare se NuGet.org sta riscontrando interruzioni. Se tutti i sistemi sono operativi e il pacchetto non viene pubblicato entro un'ora, accedere a nuget.org e usare il collegamento per contattare il supporto tecnico nella pagina dei dettagli del pacchetto.
 
 ## <a name="symbol-package-structure"></a>Struttura di un pacchetto di simboli
 
-Il file con estensione nupkg è esattamente lo stesso di oggi, ma il file con estensione snupkg presenta le caratteristiche seguenti:
+Il pacchetto di simboli (con estensione snupkg) presenta le caratteristiche seguenti:
 
-1) Il file con estensione snupkg avrà lo stesso ID e versione del file con estensione nupkg corrispondente.
-2) Il file con estensione snupkg avrà la struttura di cartelle del pacchetto nupkg per tutti i file DLL o EXE con la differenza che, invece di DLL/exe, i file PDB corrispondenti verranno inclusi nella stessa gerarchia di cartelle. I file e le cartelle con estensioni diverse da PDB verranno lasciati fuori dal file con estensione snupkg.
-3) Il file con estensione nuspec nel pacchetto con estensione snupkg specificherà anche un nuovo PackageType come indicato di seguito. Deve essere l'unico PackageType specificato.
+1) Il. snupkg ha lo stesso ID e la stessa versione del pacchetto NuGet corrispondente (. nupkg).
+2) Il file con estensione snupkg ha la stessa struttura di cartelle della corrispondente. nupkg per tutti i file DLL o EXE, con la differenza che anziché dll/exe, il corrispondente PDB verrà incluso nella stessa gerarchia di cartelle. I file e le cartelle con estensioni diverse da PDB verranno lasciati fuori dal file con estensione snupkg.
+3) Il file con estensione NuSpec del pacchetto di simboli presenta il tipo di pacchetto `SymbolsPackage`:
 
    ```xml
    <packageTypes>
