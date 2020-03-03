@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: c62e5b7b53d30a1b362e87dbbea26355a36b1274
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.openlocfilehash: 852dca8c70b09d941e844b1f7cd03b38e2192481
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76813273"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230883"
 ---
 # <a name="package-metadata"></a>Metadati del pacchetto
 
@@ -19,11 +19,11 @@ ms.locfileid: "76813273"
 
 La raccolta dei documenti disponibili in `RegistrationsBaseUrl` sono spesso denominate "registrazioni" o "BLOB di registrazione". Il set di documenti in un singolo `RegistrationsBaseUrl` viene definito "hive di registrazione". Un hive di registrazione contiene tutti i metadati relativi a ogni pacchetto disponibile in un'origine del pacchetto.
 
-## <a name="versioning"></a>Versionamento
+## <a name="versioning"></a>Controllo delle versioni
 
 Vengono utilizzati i valori `@type` seguenti:
 
-Valore di @type                     | Note
+Valore della proprietà @type                     | Note
 ------------------------------- | -----
 RegistrationsBaseUrl            | Versione iniziale
 RegistrationsBaseUrl/3.0.0-beta | Alias di `RegistrationsBaseUrl`
@@ -76,7 +76,7 @@ L'euristica utilizzata da nuget.org è la seguente: se sono presenti 128 o più 
 
 ### <a name="request-parameters"></a>Parametri della richiesta
 
-Name     | In     | Tipo di    | Richiesto | Note
+Nome     | In ingresso     | Type    | Obbligatoria | Note
 -------- | ------ | ------- | -------- | -----
 LOWER_ID | URL    | string  | sì      | ID del pacchetto, minuscolo
 
@@ -86,10 +86,10 @@ Il valore `LOWER_ID` è l'ID pacchetto desiderato in minuscolo usando le regole 
 
 La risposta è un documento JSON con un oggetto radice con le proprietà seguenti:
 
-Name  | Tipo di             | Richiesto | Note
+Nome  | Type             | Obbligatoria | Note
 ----- | ---------------- | -------- | -----
-count | numero intero          | sì      | Numero di pagine di registrazione nell'indice
-elementi | matrice di oggetti | sì      | Matrice di pagine di registrazione
+count | integer          | sì      | Numero di pagine di registrazione nell'indice
+items | matrice di oggetti | sì      | Matrice di pagine di registrazione
 
 Ogni elemento nella matrice di `items` dell'oggetto index è un oggetto JSON che rappresenta una pagina di registrazione.
 
@@ -97,14 +97,14 @@ Ogni elemento nella matrice di `items` dell'oggetto index è un oggetto JSON che
 
 L'oggetto pagina di registrazione trovato nell'indice di registrazione presenta le proprietà seguenti:
 
-Name   | Tipo di             | Richiesto | Note
+Nome   | Type             | Obbligatoria | Note
 ------ | ---------------- | -------- | -----
 @id    | string           | sì      | URL della pagina di registrazione
-count  | numero intero          | sì      | Il numero di fogli di registrazione nella pagina
-elementi  | matrice di oggetti | No       | Matrice di foglie di registrazione e relativi metadati associati
-inferiore  | string           | sì      | Versione SemVer 2.0.0 più bassa nella pagina (inclusivo)
-padre | string           | No       | URL dell'indice di registrazione
-superiore  | string           | sì      | La versione più recente di SemVer 2.0.0 nella pagina (inclusi)
+count  | integer          | sì      | Il numero di fogli di registrazione nella pagina
+items  | matrice di oggetti | no       | Matrice di foglie di registrazione e relativi metadati associati
+lower  | string           | sì      | Versione SemVer 2.0.0 più bassa nella pagina (inclusivo)
+padre | string           | no       | URL dell'indice di registrazione
+upper  | string           | sì      | La versione più recente di SemVer 2.0.0 nella pagina (inclusi)
 
 I limiti `lower` e `upper` dell'oggetto pagina sono utili quando sono necessari i metadati per una specifica versione di pagina.
 Questi limiti possono essere utilizzati per recuperare l'unica pagina di registrazione necessaria. Le stringhe di versione rispettano le [regole di versione di NuGet](../concepts/package-versioning.md). Le stringhe di versione vengono normalizzate e non includono i metadati di compilazione. Come per tutte le versioni nell'ecosistema NuGet, il confronto delle stringhe di versione viene implementato usando [le regole di precedenza della versione di SemVer 2.0.0](https://semver.org/spec/v2.0.0.html#spec-item-11).
@@ -121,10 +121,10 @@ Ogni elemento nella matrice di `items` dell'oggetto pagina è un oggetto JSON ch
 
 L'oggetto foglia di registrazione trovato in una pagina di registrazione presenta le proprietà seguenti:
 
-Name           | Tipo di   | Richiesto | Note
+Nome           | Type   | Obbligatoria | Note
 -------------- | ------ | -------- | -----
 @id            | string | sì      | URL della foglia di registrazione
-catalogEntry   | Oggetto di | sì      | Voce di catalogo contenente i metadati del pacchetto
+catalogEntry   | object | sì      | Voce di catalogo contenente i metadati del pacchetto
 packageContent | string | sì      | URL del contenuto del pacchetto (. nupkg)
 
 Ogni oggetto foglia di registrazione rappresenta i dati associati a una singola versione del pacchetto.
@@ -133,26 +133,26 @@ Ogni oggetto foglia di registrazione rappresenta i dati associati a una singola 
 
 La proprietà `catalogEntry` nell'oggetto foglia di registrazione presenta le proprietà seguenti:
 
-Name                     | Tipo di                       | Richiesto | Note
+Nome                     | Type                       | Obbligatoria | Note
 ------------------------ | -------------------------- | -------- | -----
 @id                      | string                     | sì      | URL del documento utilizzato per produrre questo oggetto
-authors                  | stringa o matrice di stringhe | No       | 
-dependencyGroups         | matrice di oggetti           | No       | Dipendenze del pacchetto, raggruppate in base al Framework di destinazione
-deprecazione              | Oggetto di                     | No       | La deprecazione associata al pacchetto
-Descrizione              | string                     | No       | 
-iconUrl                  | string                     | No       | 
-ID                       | string                     | sì      | ID del pacchetto
-licenseUrl               | string                     | No       |
-licenseExpression        | string                     | No       | 
-elenco                   | boolean                    | No       | Deve essere considerato come elencato se assente
-minClientVersion         | string                     | No       | 
-projectUrl               | string                     | No       | 
-published                | string                     | No       | Stringa contenente un timestamp ISO 8601 di quando è stato pubblicato il pacchetto
-requireLicenseAcceptance | boolean                    | No       | 
-summary                  | string                     | No       | 
-tag                     | stringa o matrice di stringhe  | No       | 
-title                    | string                     | No       | 
-Versione di                  | string                     | sì      | Stringa di versione completa dopo la normalizzazione
+authors                  | Stringa o matrice di stringhe | no       | 
+dependencyGroups         | matrice di oggetti           | no       | Dipendenze del pacchetto, raggruppate in base al Framework di destinazione
+deprecazione              | object                     | no       | La deprecazione associata al pacchetto
+description              | string                     | no       | 
+iconUrl                  | string                     | no       | 
+id                       | string                     | sì      | ID del pacchetto
+licenseUrl               | string                     | no       |
+licenseExpression        | string                     | no       | 
+elenco                   | boolean                    | no       | Deve essere considerato come elencato se assente
+minClientVersion         | string                     | no       | 
+projectUrl               | string                     | no       | 
+published                | string                     | no       | Stringa contenente un timestamp ISO 8601 di quando è stato pubblicato il pacchetto
+requireLicenseAcceptance | boolean                    | no       | 
+summary                  | string                     | no       | 
+tags                     | stringa o matrice di stringhe  | no       | 
+title                    | string                     | no       | 
+version                  | string                     | sì      | Stringa di versione completa dopo la normalizzazione
 
 Il pacchetto `version` proprietà è la stringa di versione completa dopo la normalizzazione. Ciò significa che i dati di compilazione di SemVer 2.0.0 possono essere inclusi qui.
 
@@ -167,10 +167,10 @@ Il valore della proprietà `licenseExpression` è conforme alla [sintassi delle 
 
 Ogni oggetto gruppo di dipendenze presenta le proprietà seguenti:
 
-Name            | Tipo di             | Richiesto | Note
+Nome            | Type             | Obbligatoria | Note
 --------------- | ---------------- | -------- | -----
-targetFramework | string           | No       | Framework di destinazione a cui sono applicabili tali dipendenze.
-dipendenze    | matrice di oggetti | No       |
+targetFramework | string           | no       | Framework di destinazione a cui sono applicabili tali dipendenze.
+dipendenze    | matrice di oggetti | no       |
 
 La stringa `targetFramework` usa il formato implementato dalla libreria .NET di NuGet [. Frameworks](https://www.nuget.org/packages/NuGet.Frameworks/)di NuGet. Se non viene specificato alcun `targetFramework`, il gruppo di dipendenze si applica a tutti i Framework di destinazione.
 
@@ -180,11 +180,11 @@ La proprietà `dependencies` è una matrice di oggetti, ognuno dei quali rappres
 
 Ogni dipendenza del pacchetto presenta le proprietà seguenti:
 
-Name         | Tipo di   | Richiesto | Note
+Nome         | Type   | Obbligatoria | Note
 ------------ | ------ | -------- | -----
-ID           | string | sì      | ID della dipendenza del pacchetto
-range        | Oggetto di | No       | Intervallo di [versioni](../concepts/package-versioning.md#version-ranges-and-wildcards) consentite della dipendenza
-registrazione | string | No       | URL dell'indice di registrazione per questa dipendenza
+id           | string | sì      | ID della dipendenza del pacchetto
+range        | object | no       | Intervallo di [versioni](../concepts/package-versioning.md#version-ranges) consentite della dipendenza
+registrazione | string | no       | URL dell'indice di registrazione per questa dipendenza
 
 Se la proprietà `range` è esclusa o una stringa vuota, per impostazione predefinita il client deve avere l'intervallo di versione `(, )`. Ovvero è consentita qualsiasi versione della dipendenza. Il valore di `*` non è consentito per la proprietà `range`.
 
@@ -192,11 +192,11 @@ Se la proprietà `range` è esclusa o una stringa vuota, per impostazione predef
 
 Ogni deprecazione del pacchetto presenta le proprietà seguenti:
 
-Name             | Tipo di             | Richiesto | Note
+Nome             | Type             | Obbligatoria | Note
 ---------------- | ---------------- | -------- | -----
 motivi          | matrice di stringhe | sì      | Motivi per cui il pacchetto è stato deprecato
-messaggio          | string           | No       | Ulteriori dettagli su questa deprecazione
-alternatePackage | Oggetto di           | No       | Il pacchetto alternativo da usare
+message          | string           | no       | Ulteriori dettagli su questa deprecazione
+alternatePackage | object           | no       | Il pacchetto alternativo da usare
 
 La proprietà `reasons` deve contenere almeno una stringa e contenere solo le stringhe della tabella seguente:
 
@@ -204,7 +204,7 @@ Motivo       | Descrizione
 ------------ | -----------
 Legacy       | Il pacchetto non è più gestito
 CriticalBugs | Nel pacchetto sono presenti bug che lo rendono non idoneo per l'utilizzo
-Altro        | Il pacchetto è deprecato a causa di un motivo non presente nell'elenco
+Altri        | Il pacchetto è deprecato a causa di un motivo non presente nell'elenco
 
 Se la proprietà `reasons` contiene stringhe che non sono del set noto, è necessario ignorarle. Le stringhe non fanno distinzione tra maiuscole e minuscole, pertanto `legacy` devono essere gestite come `Legacy`. Non esiste alcuna restrizione di ordinamento per la matrice, pertanto le stringhe possono essere disposte in qualsiasi ordine arbitrario. Inoltre, se la proprietà contiene solo stringhe che non appartengono al set noto, deve essere considerata come se contenesse solo la stringa "other".
 
@@ -212,11 +212,10 @@ Se la proprietà `reasons` contiene stringhe che non sono del set noto, è neces
 
 L'oggetto pacchetto alternativo presenta le proprietà seguenti:
 
-Name         | Tipo di   | Richiesto | Note
+Nome         | Type   | Obbligatoria | Note
 ------------ | ------ | -------- | -----
-ID           | string | sì      | ID del pacchetto alternativo
-range        | Oggetto di | No       | Intervallo di [versioni](../concepts/package-versioning.md#version-ranges-and-wildcards)consentito o `*` se è consentita una versione
-registrazione | string | No       | URL dell'indice di registrazione per il pacchetto alternativo
+id           | string | sì      | ID del pacchetto alternativo
+range        | object | no       | Intervallo di [versioni](../concepts/package-versioning.md#version-ranges)consentito o `*` se è consentita una versione
 
 ### <a name="sample-request"></a>Richiesta di esempio
 
@@ -237,14 +236,14 @@ La pagina di registrazione contiene le foglie di registrazione. L'URL per recupe
 
 Quando la matrice di `items` non viene specificata nell'indice di registrazione, una richiesta HTTP GET del valore `@id` restituirà un documento JSON con un oggetto come radice. L'oggetto ha le proprietà seguenti:
 
-Name   | Tipo di             | Richiesto | Note
+Nome   | Type             | Obbligatoria | Note
 ------ | ---------------- | -------- | -----
 @id    | string           | sì      | URL della pagina di registrazione
-count  | numero intero          | sì      | Il numero di fogli di registrazione nella pagina
-elementi  | matrice di oggetti | sì      | Matrice di foglie di registrazione e relativi metadati associati
-inferiore  | string           | sì      | Versione SemVer 2.0.0 più bassa nella pagina (inclusivo)
+count  | integer          | sì      | Il numero di fogli di registrazione nella pagina
+items  | matrice di oggetti | sì      | Matrice di foglie di registrazione e relativi metadati associati
+lower  | string           | sì      | Versione SemVer 2.0.0 più bassa nella pagina (inclusivo)
 padre | string           | sì      | URL dell'indice di registrazione
-superiore  | string           | sì      | La versione più recente di SemVer 2.0.0 nella pagina (inclusi)
+upper  | string           | sì      | La versione più recente di SemVer 2.0.0 nella pagina (inclusi)
 
 La forma degli oggetti foglia di registrazione è identica a quella dell'indice di registrazione [precedente](#registration-leaf-object-in-a-page).
 
@@ -267,14 +266,14 @@ L'URL per recuperare un'foglia di registrazione viene ottenuto dalla proprietà 
 
 Il foglio di registrazione è un documento JSON con un oggetto radice con le proprietà seguenti:
 
-Name           | Tipo di    | Richiesto | Note
+Nome           | Type    | Obbligatoria | Note
 -------------- | ------- | -------- | -----
 @id            | string  | sì      | URL della foglia di registrazione
-catalogEntry   | string  | No       | URL della voce di catalogo che ha prodotto l'elemento foglia
-elenco         | boolean | No       | Deve essere considerato come elencato se assente
-packageContent | string  | No       | URL del contenuto del pacchetto (. nupkg)
-published      | string  | No       | Stringa contenente un timestamp ISO 8601 di quando è stato pubblicato il pacchetto
-registrazione   | string  | No       | URL dell'indice di registrazione
+catalogEntry   | string  | no       | URL della voce di catalogo che ha prodotto l'elemento foglia
+elenco         | boolean | no       | Deve essere considerato come elencato se assente
+packageContent | string  | no       | URL del contenuto del pacchetto (. nupkg)
+published      | string  | no       | Stringa contenente un timestamp ISO 8601 di quando è stato pubblicato il pacchetto
+registrazione   | string  | no       | URL dell'indice di registrazione
 
 > [!Note]
 > In nuget.org, il valore `published` è impostato sull'anno 1900 quando il pacchetto viene riincluso nell'elenco.

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/16/2019
 ms.topic: quickstart
-ms.openlocfilehash: fe551dfa7f2322e6677c9c0b972c79c9df2e7695
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.openlocfilehash: 32dcc1d233154463e2950b1ce46554b1cb89956e
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76813559"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231292"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Guida introduttiva: Creare e pubblicare un pacchetto NuGet con Visual Studio (.NET Standard, solo Windows)
 
@@ -19,7 +19,7 @@ La creazione di un pacchetto NuGet da una libreria di classi .NET Standard in Vi
 > [!Note]
 > Se si usa Visual Studio per Mac, fare riferimento a [queste informazioni](/xamarin/cross-platform/app-fundamentals/nuget-multiplatform-libraries/existing-library) per la creazione di un pacchetto NuGet o usare gli [strumenti dell'interfaccia della riga di comando dotnet](create-and-publish-a-package-using-the-dotnet-cli.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 1. Installare qualsiasi edizione di Visual Studio 2019 da [visualstudio.com](https://www.visualstudio.com/) con qualsiasi carico di lavoro correlato a .NET Core.
 
@@ -132,7 +132,7 @@ Dopo aver creato un file `.nupkg`, pubblicarlo in nuget.org usando l'interfaccia
 
 Selezionare la scheda per lo strumento dell'interfaccia della riga di comando, ovvero **Interfaccia della riga di comando di .NET Core** (interfaccia della riga di comando di dotnet) o **NuGet** (Interfaccia della riga di comando di nuget.exe).
 
-# <a name="net-core-clitabnetcore-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[Interfaccia della riga di comando di .NET Core](#tab/netcore-cli)
 
 Questo passaggio è l'alternativa consigliata all'uso di `nuget.exe`.
 
@@ -140,7 +140,7 @@ Prima di poter pubblicare il pacchetto, è necessario aprire una riga di comando
 
 [!INCLUDE [publish-dotnet](includes/publish-dotnet.md)]
 
-# <a name="nugettabnuget"></a>[NuGet](#tab/nuget)
+# <a name="nuget"></a>[NuGet](#tab/nuget)
 
 Questo passaggio è un'alternativa all'uso di `dotnet.exe`.
 
@@ -192,6 +192,12 @@ Verrà incluso un file denominato `readme.txt` nella radice del pacchetto. Visua
 
 > [!Note]
 > La semplice aggiunta del file readme.txt nella radice del progetto non consente di includerlo nel pacchetto risultante.
+
+## <a name="related-video"></a>Video correlato
+
+> [!Video https://channel9.msdn.com/Series/NuGet-101/Create-and-Publish-a-NuGet-Package-with-Visual-Studio-4-of-5/player]
+
+Trova altri video su NuGet su [Channel 9](https://channel9.msdn.com/Series/NuGet-101) e [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_).
 
 ## <a name="related-topics"></a>Argomenti correlati
 

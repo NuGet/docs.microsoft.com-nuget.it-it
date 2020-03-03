@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: e0014a812ea591ef40c961e13864652d75ebdf6c
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 912c0d015e2f499bc7386483bc6c35ecd765d3d4
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610983"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230863"
 ---
 # <a name="package-versioning"></a>Controllo delle versioni dei pacchetti
 
@@ -22,19 +22,19 @@ Quando si crea un pacchetto, si assegna un numero di versione specifico con un s
 In questo argomento
 
 - [Nozioni di base sulle versioni](#version-basics), inclusi i suffissi di versione non definitiva.
-- [Intervalli di versione e caratteri jolly](#version-ranges-and-wildcards)
+- [Intervalli di versione](#version-ranges)
 - [Numeri di versione normalizzati](#normalized-version-numbers)
 
 ## <a name="version-basics"></a>Nozioni di base sulle versioni
 
-Un numero di versione specifico è nel formato *Principale.Secondaria.Patch[-Suffisso]* , dove i singoli componenti hanno i significati seguenti:
+Un numero di versione specifico è nel formato *Principale.Secondaria.Patch[-Suffisso]*, dove i singoli componenti hanno i significati seguenti:
 
 - *Principale*: modifiche di rilievo
 - *Minor*: nuove funzionalità, ma compatibili con le versioni precedenti
 - *Patch*: solo correzioni di bug compatibili con le versioni precedenti
 - *-Suffisso* (facoltativo): un trattino seguito da una stringa che indica una versione non definitiva (in base alla [convenzione Semantic Versioning o SemVer 1.0](https://semver.org/spec/v1.0.0.html)).
 
-**Esempi**
+**Esempi:**
 
     1.0.1
     6.11.1231
@@ -80,7 +80,7 @@ Certe regole semantiche di SemVer 2.0.0 non sono supportate nei client meno rece
 Per nuget.org, un pacchetto viene definito come pacchetto SemVer 2.0.0 se una delle affermazioni seguenti è vera:
 
 - La versione del pacchetto è conforme a SemVer 2.0.0 ma non è conforme a SemVer 1.0.0, come definito sopra.
-- Uno degli intervalli di versioni delle dipendenze del pacchetto ha una versione minima o massima conforme a SemVer 2.0.0 ma non conforme a SemVer 1.0.0, definita in precedenza. Ad esempio, *[1.0.0-alpha.1, )* .
+- Uno degli intervalli di versioni delle dipendenze del pacchetto ha una versione minima o massima conforme a SemVer 2.0.0 ma non conforme a SemVer 1.0.0, definita in precedenza. Ad esempio, *[1.0.0-alpha.1, )*.
 
 Se si carica un pacchetto specifico di SemVer 2.0.0 in nuget.org, il pacchetto è invisibile ai client meno recenti e disponibile solo per i client NuGet seguenti:
 
@@ -98,7 +98,7 @@ Client di terze parti:
 <!-- For compatibility with previous dependency-versions page -->
 <a name="version-ranges"></a>
 
-## <a name="version-ranges-and-wildcards"></a>Intervalli di versione e caratteri jolly
+## <a name="version-ranges"></a>Intervalli di versione
 
 Quando si fa riferimento alle dipendenze dei pacchetti, NuGet supporta l'uso della notazione con intervallo per specificare gli intervalli di versione, riepilogati come segue:
 
@@ -114,7 +114,7 @@ Quando si fa riferimento alle dipendenze dei pacchetti, NuGet supporta l'uso del
 | [1.0,2.0) | 1.0 ≤ x < 2.0 | Versione minima inclusiva e massima esclusiva mista |
 | (1.0)    | non valido | non valido |
 
-Quando si usa il formato PackageReference, NuGet supporta anche l'uso di una notazione con caratteri jolly, \*, per le parti del numero per versione principale, secondaria, patch e suffisso di versione non definitiva. I caratteri jolly non sono supportati con il formato `packages.config`.
+Quando si usa il formato PackageReference, NuGet supporta anche l'uso di una notazione mobile, \*, per le parti principali, secondarie, patch e del suffisso di versione non definitiva del numero. Le versioni a virgola mobile non sono supportate con il formato `packages.config`.
 
 > [!Note]
 > Gli intervalli di versione in PackageReference includono le versioni non definitive. Per impostazione predefinita, le versioni mobili non risolvono le versioni non definitive se non con consenso esplicito. Per lo stato della richiesta di funzionalità correlata, vedere il [problema 6434](https://github.com/NuGet/Home/issues/6434#issuecomment-358782297).

@@ -5,23 +5,23 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/24/2018
 ms.topic: quickstart
-ms.openlocfilehash: 92fc78a88733d0308dc26e10c5b0bafb86b78045
-ms.sourcegitcommit: e4b0ff4460865db6dc7bc9f20e9f644d98493011
+ms.openlocfilehash: 96e138561390984d9def495ba5e091c43023cc92
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71307220"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231331"
 ---
-# <a name="quickstart-install-and-use-a-package-in-visual-studio-windows-only"></a>Guida introduttiva: Installare e usare un pacchetto in Visual Studio (solo Windows)
+# <a name="quickstart-install-and-use-a-package-in-visual-studio-windows-only"></a>Guida introduttiva: installare e usare un pacchetto in Visual Studio (solo Windows)
 
 I pacchetti NuGet contengono codice riutilizzabile che altri sviluppatori rendono disponibile per l'uso nei progetti. Vedere [Che cos'è NuGet?](../What-is-NuGet.md) per le informazioni di base. I pacchetti vengono installati in un progetto di Visual Studio usando Gestione pacchetti NuGet o la console di Gestione pacchetti. Questo articolo illustra il processo usando il famoso pacchetto [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) e un progetto Windows Presentation Foundation (WPF). Lo stesso processo si applica a qualsiasi altro progetto .NET o .NET Core.
 
 Al termine dell'installazione, fare riferimento al pacchetto nel codice con `using <namespace>`, dove \<spazio dei nomi\> è specifico per il pacchetto in uso. Dopo avere creato il riferimento, è possibile chiamare il pacchetto tramite la relativa API.
 
 > [!Tip]
-> **Iniziare con nuget.org**: le ricerche in *nuget.org* sono il modo in cui gli sviluppatori di .NET individuano in genere componenti che possono riutilizzare nelle loro applicazioni. È possibile eseguire una ricerca direttamente in *nuget.org* o trovare e installare pacchetti all'interno di Visual Studio, come illustrato in questo articolo. Per informazioni generali, vedere [Trovare e valutare i pacchetti NuGet](../consume-packages/finding-and-choosing-packages.md).
+> **Iniziare con NuGet.org**: l'esplorazione di *NuGet.org* è il modo in cui gli sviluppatori .NET trovano in genere i componenti che possono riutilizzare nelle proprie applicazioni. È possibile eseguire una ricerca direttamente in *nuget.org* o trovare e installare pacchetti all'interno di Visual Studio, come illustrato in questo articolo. Per informazioni generali, vedere [Trovare e valutare i pacchetti NuGet](../consume-packages/finding-and-choosing-packages.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 - Visual Studio 2019 con il carico di lavoro Sviluppo per desktop .NET.
 
@@ -33,7 +33,7 @@ Se si usa Visual Studio per Mac, vedere [installare e usare un pacchetto nel Vis
 
 I pacchetti NuGet possono essere installati in qualsiasi progetto .NET, a condizione che il pacchetto supporti lo stesso framework di destinazione del progetto.
 
-Per questa procedura dettagliata, usare una semplice app WPF. Creare un progetto in Visual Studio usando **file** > **nuovo progetto**, digitando **.NET** nella casella di ricerca e quindi selezionando l' **app WPF (.NET Framework)** . Scegliere **Avanti**. Quando richiesto, accettare i valori predefiniti per **Framework**.
+Per questa procedura dettagliata, usare una semplice app WPF. Creare un progetto in Visual Studio usando **File** > **nuovo progetto**, digitando **.NET** nella casella di ricerca e quindi selezionando l' **app WPF (.NET Framework)**. Fare clic su **Avanti**. Quando richiesto, accettare i valori predefiniti per **Framework**.
 
 Visual Studio crea il progetto, che viene aperto in Esplora soluzioni.
 
@@ -63,7 +63,7 @@ Per installare il pacchetto, è possibile usare Gestione pacchetti NuGet o la co
 
 ### <a name="package-manager-console"></a>Console di Gestione pacchetti
 
-1. Selezionare il comando di menu **strumenti** > gestione pacchetti**NuGet** > console di gestione**pacchetti** .
+1. Selezionare il comando di menu **strumenti** > **gestione pacchetti NuGet** > **console di gestione pacchetti** .
 
 1. Quando si apre la console, verificare che l'elenco a discesa **Progetto predefinito** mostri il progetto in cui si vuole installare il pacchetto. Se la soluzione include un solo progetto, è già selezionato.
 
@@ -117,7 +117,7 @@ Con il pacchetto Newtonsoft.Json nel progetto, è possibile chiamare il relativo
     using Newtonsoft.Json;
     ```
 
-1. Compilare ed eseguire l'app premendo F5 o selezionando **debug** > **Avvia debug**:
+1. Compilare ed eseguire l'app premendo F5 o selezionando **debug** > **avviare il debug**:
 
     ![Output iniziale dell'app WPF](media/QS_Use-06-AppStart.png)
 
@@ -125,12 +125,18 @@ Con il pacchetto Newtonsoft.Json nel progetto, è possibile chiamare il relativo
 
     ![Output dell'app WPF dopo la selezione del pulsante](media/QS_Use-07-AppEnd.png)
 
+## <a name="related-video"></a>Video correlato
+
+> [!Video https://channel9.msdn.com/Series/NuGet-101/Install-and-Use-a-NuGet-Package-with-Visual-Studio-2-of-5/player]
+
+Trova altri video su NuGet su [Channel 9](https://channel9.msdn.com/Series/NuGet-101) e [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_).
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 È stato installato e usato il primo pacchetto NuGet.
 
 > [!div class="nextstepaction"]
-> [Installare e gestire pacchetti con Visual Studio](../consume-packages/install-use-packages-visual-studio.md)
+> [Installare e gestire i pacchetti con Visual Studio](../consume-packages/install-use-packages-visual-studio.md)
 
 > [!div class="nextstepaction"]
 > [Installare e gestire pacchetti con la console di Gestione pacchetti](../consume-packages/install-use-packages-powershell.md)

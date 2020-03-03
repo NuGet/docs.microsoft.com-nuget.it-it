@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: d6cad228eb052563fe57ea635bff0ea548cedc1f
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: cd321084c46709e3d1d22872c37485edacd33afa
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75383564"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230526"
 ---
 # <a name="nugetconfig-reference"></a>informazioni di riferimento su NuGet. config
 
@@ -29,14 +29,14 @@ Contiene varie impostazioni di configurazione, che possono essere impostate con 
 
 `dependencyVersion` e `repositoryPath` si applicano solo ai progetti che usano `packages.config`. `globalPackagesFolder` si applica solo ai progetti che usano il formato PackageReference.
 
-| Key | Valore |
+| Chiave | valore |
 | --- | --- |
 | dependencyVersion (solo `packages.config`) | Valore `DependencyVersion` predefinito per l'installazione, il ripristino e l'aggiornamento del pacchetto, quando non viene specificata direttamente l'opzione `-DependencyVersion`. Questo valore viene usato anche dall'interfaccia utente di Gestione pacchetti NuGet. I valori sono `Lowest`, `HighestPatch`, `HighestMinor`, `Highest`. |
 | globalPackagesFolder (progetti che usano solo PackageReference) | Percorso della cartella dei pacchetti globale predefinita. L'impostazione predefinita è `%userprofile%\.nuget\packages` (Windows) o `~/.nuget/packages` (Mac/Linux). È possibile usare un percorso relativo nei file `nuget.config` specifici del progetto. Questa impostazione viene sottoposta a override dalla variabile di ambiente NUGET_PACKAGES, che ha la precedenza. |
 | repositoryPath (solo `packages.config`) | Percorso in cui installare i pacchetti NuGet invece della cartella `$(Solutiondir)/packages` predefinita. È possibile usare un percorso relativo nei file `nuget.config` specifici del progetto. Questa impostazione viene sottoposta a override dalla variabile di ambiente NUGET_PACKAGES, che ha la precedenza. |
 | defaultPushSource | Identifica l'URL o il percorso dell'origine del pacchetto che deve essere usato come impostazione predefinita se non vengono trovate altre origini di pacchetti per un'operazione. |
 | http_proxy http_proxy.user http_proxy.password no_proxy | Impostazioni del proxy da usare per la connessione a origini di pacchetti. `http_proxy` deve essere nel formato `http://<username>:<password>@<domain>`. Le password vengono crittografate e non possono essere aggiunte manualmente. Per `no_proxy`, il valore è un elenco delimitato da virgole di domini per il bypass del server proxy. In alternativa, è possibile usare le variabili di ambiente http_proxy e no_proxy per questi valori. Per altri dettagli, vedere [NuGet proxy settings](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (Impostazioni del proxy NuGet) (skolima.blogspot.com). |
-| signatureValidationMode | Specifica la modalità di convalida utilizzata per verificare le firme dei pacchetti per l'installazione e il ripristino del pacchetto. I valori sono `accept`, `require`. Il valore predefinito è `accept`.
+| signatureValidationMode | Specifica la modalità di convalida utilizzata per verificare le firme dei pacchetti per l'installazione e il ripristino del pacchetto. I valori sono `accept`, `require`. L'impostazione predefinita è `accept`.
 
 **Esempio**:
 
@@ -54,7 +54,7 @@ Contiene varie impostazioni di configurazione, che possono essere impostate con 
 
 Specifica se NuGet esegue o meno i reindirizzamenti di binding automatici quando viene installato un pacchetto.
 
-| Key | Valore |
+| Chiave | valore |
 | --- | --- |
 | skip | Valore booleano che indica se ignorare i reindirizzamenti di binding automatici. Il valore predefinito è false. |
 
@@ -70,10 +70,10 @@ Specifica se NuGet esegue o meno i reindirizzamenti di binding automatici quando
 
 Controlla il ripristino dei pacchetti durante le compilazioni.
 
-| Key | Valore |
+| Chiave | valore |
 | --- | --- |
-| abilitato | Valore booleano che indica se NuGet può eseguire il ripristino automatico. È anche possibile impostare la variabile di ambiente `EnableNuGetPackageRestore` con il valore `True` invece di impostare questa chiave nel file di configurazione. |
-| automatico | Valore booleano che indica se NuGet deve controllare se mancano pacchetti durante la compilazione. |
+| Enabled | Valore booleano che indica se NuGet può eseguire il ripristino automatico. È anche possibile impostare la variabile di ambiente `EnableNuGetPackageRestore` con il valore `True` invece di impostare questa chiave nel file di configurazione. |
+| automatic | Valore booleano che indica se NuGet deve controllare se mancano pacchetti durante la compilazione. |
 
 **Esempio**:
 
@@ -88,7 +88,7 @@ Controlla il ripristino dei pacchetti durante le compilazioni.
 
 Controlla se la cartella `packages` di una soluzione è inclusa nel controllo del codice sorgente. Questa sezione funziona solo nei file `nuget.config` in una cartella della soluzione.
 
-| Key | Valore |
+| Chiave | valore |
 | --- | --- |
 | disableSourceControlIntegration | Valore booleano che indica se ignorare la cartella dei pacchetti quando si utilizza il controllo del codice sorgente. Il valore predefinito è false. |
 
@@ -112,7 +112,7 @@ Si noti che l'URL di origine di nuget.org è `https://api.nuget.org/v3/index.jso
 
 Elenca tutte le origini di pacchetti note. L'ordine viene ignorato durante le operazioni di ripristino e con qualsiasi progetto che usa il formato PackageReference. NuGet rispetta l'ordine delle origini per le operazioni di installazione e aggiornamento con i progetti che usano `packages.config`.
 
-| Key | Valore |
+| Chiave | valore |
 | --- | --- |
 | (nome da assegnare all'origine di pacchetti) | Percorso o URL dell'origine di pacchetti. |
 
@@ -126,14 +126,17 @@ Elenca tutte le origini di pacchetti note. L'ordine viene ignorato durante le op
 </packageSources>
 ```
 
+> [!Tip]
+> Quando `<clear />` è presente per un determinato nodo, NuGet ignora i valori di configurazione definiti in precedenza per tale nodo. [Altre informazioni sulla modalità di applicazione delle impostazioni](../consume-packages/configuring-nuget-behavior.md#how-settings-are-applied).
+
 ### <a name="packagesourcecredentials"></a>packageSourceCredentials
 
 Archivia i nomi utente e le password per le origini, in genere specificati con le opzioni `-username` e `-password` con `nuget sources`. Le password vengono crittografate per impostazione predefinita, a meno che non venga usata anche l'opzione `-storepasswordincleartext`.
 
-| Key | Valore |
+| Chiave | valore |
 | --- | --- |
-| nomeutente | Nome utente per l'origine in testo normale. |
-| Password di | Password crittografata per l'origine. |
+| username | Nome utente per l'origine in testo normale. |
+| password | Password crittografata per l'origine. |
 | cleartextpassword | Password non crittografata per l'origine. |
 
 **Esempio:**
@@ -172,7 +175,7 @@ Quando si usano password non crittografate:
 
 Archivia le chiavi per le origini che usano l'autenticazione con chiave API, in base alle impostazioni specificate con il [comando `nuget setapikey`](../reference/cli-reference/cli-ref-setapikey.md).
 
-| Key | Valore |
+| Chiave | valore |
 | --- | --- |
 | (URL di origine) | Chiave API crittografata. |
 
@@ -188,7 +191,7 @@ Archivia le chiavi per le origini che usano l'autenticazione con chiave API, in 
 
 Identifica le origini attualmente disabilitate. Può essere vuoto.
 
-| Key | Valore |
+| Chiave | valore |
 | --- | --- |
 | (nome dell'origine) | Valore booleano che indica se l'origine è disabilitata. |
 
@@ -209,7 +212,7 @@ Identifica le origini attualmente disabilitate. Può essere vuoto.
 
 Identifica l'origine attualmente attiva o indica l'aggregazione di tutte le origini.
 
-| Key | Valore |
+| Chiave | valore |
 | --- | --- |
 | (nome dell'origine) o `All` | Se la chiave è il nome di un'origine, il valore è il percorso o l'URL dell'origine. Se `All`, il valore deve essere `(Aggregate source)` per combinare tutte le origini di pacchetti non disabilitate in altro modo. |
 
@@ -269,7 +272,7 @@ Se una delle due ricerche ha esito positivo, non è necessario eseguire il downl
 
 Se non viene trovata alcuna corrispondenza, NuGet controlla le origini file e quindi le origini http, quindi Scarica i pacchetti.
 
-| Key | Valore |
+| Chiave | valore |
 | --- | --- |
 | (nome della cartella di fallback) | Percorso della cartella di fallback. |
 
@@ -285,10 +288,10 @@ Se non viene trovata alcuna corrispondenza, NuGet controlla le origini file e qu
 
 Imposta il formato di gestione dei pacchetti predefinito, ovvero *packages. config* o PackageReference. I progetti in stile SDK utilizzano sempre PackageReference.
 
-| Key | Valore |
+| Chiave | valore |
 | --- | --- |
-| formato | Valore booleano che indica il formato di gestione dei pacchetti predefinito. Se `1`, format è PackageReference. Se `0`, format è *packages. config*. |
-| disabilitati | Valore booleano che indica se visualizzare la richiesta di selezione di un formato di pacchetto predefinito durante la prima installazione del pacchetto. `False` nasconde la richiesta. |
+| format | Valore booleano che indica il formato di gestione dei pacchetti predefinito. Se `1`, format è PackageReference. Se `0`, format è *packages. config*. |
+| disabled | Valore booleano che indica se visualizzare la richiesta di selezione di un formato di pacchetto predefinito durante la prima installazione del pacchetto. `False` nasconde la richiesta. |
 
 **Esempio**:
 
@@ -305,13 +308,13 @@ Imposta il formato di gestione dei pacchetti predefinito, ovvero *packages. conf
 
 Ad esempio, se la variabile di ambiente `HOME` in Windows è impostata su `c:\users\username`, il valore di `%HOME%\NuGetRepository` nel file di configurazione viene risolto in `c:\users\username\NuGetRepository`.
 
-In modo analogo, se la variabile `HOME` in Mac/Linux è impostata su `/home/myStuff`, `$HOME/NuGetRepository` nel file di configurazione viene risolto in `/home/myStuff/NuGetRepository`.
+Si noti che è necessario usare le variabili di ambiente di tipo Windows (inizia e termina con%) anche in Mac/Linux. La presenza di `$HOME/NuGetRepository` in un file di configurazione non viene risolta. In Mac/Linux il valore di `%HOME%\NuGetRepository` si risolverà in `/home/myStuff/NuGetRepository`.
 
 Se non viene trovata una variabile di ambiente, NuGet usa il valore letterale dal file di configurazione.
 
 ## <a name="example-config-file"></a>File di configurazione di esempio
 
-Di seguito è riportato un file `nuget.config` di esempio che illustra una serie di impostazioni:
+Di seguito è riportato un esempio di `nuget.config` file che illustra una serie di impostazioni, tra cui quelle facoltative:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

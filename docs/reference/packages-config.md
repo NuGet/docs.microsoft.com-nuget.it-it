@@ -5,31 +5,31 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/21/2018
 ms.topic: reference
-ms.openlocfilehash: 2fd1640295ca35304358565808a89d752cfd8abf
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 3665989d35d7362b30a106cf6b4ed0210619efee
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488635"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230570"
 ---
 # <a name="packagesconfig-reference"></a>Informazioni di riferimento su packages.config
 
 Il file `packages.config` viene usato in alcuni tipi di progetto per gestire l'elenco dei pacchetti a cui fa riferimento il progetto. In questo modo NuGet può ripristinare facilmente le dipendenze del progetto quando il progetto devono essere trasportato in un computer diverso, ad esempio un server di compilazione, senza tutti i pacchetti.
 
-Se usato, `packages.config` in genere si trova in una radice del progetto. Viene creata automaticamente quando viene eseguita la prima operazione NuGet, ma è possibile crearla anche manualmente prima di `nuget restore`eseguire qualsiasi comando, ad esempio.
+Se usato, `packages.config` si trova in genere in una radice del progetto. Viene creata automaticamente quando viene eseguita la prima operazione NuGet, ma è possibile crearla anche manualmente prima di eseguire qualsiasi comando, ad esempio `nuget restore`.
 
 I progetti che usano [PackageReference](../consume-packages/Package-References-in-Project-Files.md) non usano `packages.config`.
 
-## <a name="schema"></a>Schema
+## <a name="schema"></a>SCHEMA
 
 Lo schema è semplice. Dopo l'intestazione XML standard è presente un singolo nodo `<packages>` che contiene uno o più elementi `<package>`, uno per ogni riferimento. Ogni elemento `<package>` può avere gli attributi seguenti:
 
-| Attributo | Obbligatorio | DESCRIZIONE |
+| Attributo | Obbligatoria | Descrizione |
 | --- | --- | --- |
 | id | Sì | Identificatore del pacchetto, ad esempio Newtonsoft.json o Microsoft.AspNet.Mvc. | 
-| version | Yes | Versione esatta del pacchetto da installare, ad esempio 3.1.1 o 4.2.5.11-beta. La stringa di versione deve includere almeno tre numeri. Il quarto numero è facoltativo, così come un suffisso di versione non definitiva. Non sono consentiti intervalli. | 
+| version | Sì | Versione esatta del pacchetto da installare, ad esempio 3.1.1 o 4.2.5.11-beta. La stringa di versione deve includere almeno tre numeri. Il quarto numero è facoltativo, così come un suffisso di versione non definitiva. Non sono consentiti intervalli. | 
 | targetFramework | No | [Moniker del framework di destinazione (TFM)](target-frameworks.md) da applicare durante l'installazione del pacchetto. Viene inizialmente impostato sulla destinazione del progetto quando viene installato un pacchetto. Ne consegue che elementi `<package>` diversi possono avere moniker del framework di destinazione differenti. Ad esempio, se si crea un progetto destinato a .NET 4.5.2, i pacchetti installati in quel punto useranno il moniker del framework di destinazione net452. Se in un secondo momento si imposta .NET 4.6 come destinazione del progetto e si aggiungono altri pacchetti, questi useranno il moniker del framework di destinazione net46. In caso di mancata corrispondenza tra la destinazione del progetto e gli attributi `targetFramework`, verranno generati avvisi e in tal caso è possibile reinstallare i pacchetti interessati. | 
-| allowedVersions | No | Intervallo di versioni consentite per questo pacchetto applicate durante l'aggiornamento del pacchetto (vedere [Limitazione delle versioni per l'aggiornamento](../consume-packages/reinstalling-and-updating-packages.md#constraining-upgrade-versions). Questo attributo *non* influisce sul pacchetto installato durante un'operazione di installazione o di ripristino. Per la sintassi, vedere [Controllo delle versioni dei pacchetti](../concepts/package-versioning.md#version-ranges-and-wildcards). Anche l'interfaccia utente di Gestione pacchetti disabilita tutte le versioni non comprese nell'intervallo consentito. | 
+| allowedVersions | No | Intervallo di versioni consentite per questo pacchetto applicate durante l'aggiornamento del pacchetto (vedere [Limitazione delle versioni per l'aggiornamento](../consume-packages/reinstalling-and-updating-packages.md#constraining-upgrade-versions). Questo attributo *non* influisce sul pacchetto installato durante un'operazione di installazione o di ripristino. Per la sintassi, vedere [Controllo delle versioni dei pacchetti](../concepts/package-versioning.md#version-ranges). Anche l'interfaccia utente di Gestione pacchetti disabilita tutte le versioni non comprese nell'intervallo consentito. | 
 | developmentDependency | No | Se il progetto stesso che utilizza il pacchetto crea un pacchetto NuGet, l'impostazione di questo attributo su `true` per una dipendenza impedisce l'inclusione di tale pacchetto quando viene creato il pacchetto utilizzato. Il valore predefinito è `false`. | 
 
 ## <a name="examples"></a>Esempi

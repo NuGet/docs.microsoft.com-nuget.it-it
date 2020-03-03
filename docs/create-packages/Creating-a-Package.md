@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 12ecfb8374c43a04d57d32575556adebc991d053
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: b3e6f0efc9e2e12de186ffd4ce29d496d07d5fc4
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610699"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230954"
 ---
 # <a name="create-a-package-using-the-nugetexe-cli"></a>Creare un pacchetto usando l'interfaccia della riga di comando di nuget.exe
 
@@ -77,7 +77,7 @@ Di seguito è riportato un file `.nuspec` tipico (ma fittizio), con commenti che
 
 ```xml
 <?xml version="1.0"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <!-- The identifier that must be unique within the hosting gallery -->
         <id>Contoso.Utility.UsefulStuff</id>
@@ -172,7 +172,7 @@ Dato che un pacchetto NuGet è solo un file ZIP rinominato con l'estensione `.nu
 Il vantaggio di questo approccio è che non è necessario specificare nel manifesto i file che si vuole includere nel pacchetto, come illustrato più avanti in questo argomento. È sufficiente fare in modo che il processo di compilazione generi l'esatta struttura di cartelle da inserire nel pacchetto, per poter facilmente includere altri file che altrimenti potrebbero non fare parte di un progetto:
 
 - Contenuto e codice sorgente da inserire nel progetto di destinazione.
-- Script PowerShell
+- Script di PowerShell
 - Trasformazioni della configurazione esistente e dei file del codice sorgente di un progetto.
 
 Le convenzioni delle cartelle sono le seguenti:
@@ -183,11 +183,11 @@ Le convenzioni delle cartelle sono le seguenti:
 | lib/{tfm} | File di assembly (`.dll`), di documentazione (`.xml`) e di simboli (`.pdb`) per il moniker del framework di destinazione (TFM, Target Framework Moniker) specificato | Gli assembly vengono aggiunti come riferimenti per la compilazione, oltre che per il runtime. `.xml` e `.pdb` vengono copiati nelle cartelle di progetto. Per la creazione di sottocartelle specifiche del framework di destinazione, vedere [Supporto di più framework di destinazione](supporting-multiple-target-frameworks.md). |
 | ref/{tfm} | File di assembly (`.dll`) e di simboli (`.pdb`) per il moniker del framework di destinazione (TFM, Target Framework Moniker) specificato | Gli assembly vengono aggiunti come riferimenti solo per la fase di compilazione. Non verrà quindi copiato nulla nella cartella bin del progetto. |
 | runtimes | File di assembly (`.dll`), di simboli (`.pdb`) e di risorse native (`.pri`) specifici dell'architettura | Gli assembly vengono aggiunti come riferimenti solo per il runtime. Gli altri file vengono copiati nelle cartelle di progetto. Deve esistere sempre un assembly specifico `AnyCPU` corrispondente (TFM) sotto la cartella `/ref/{tfm}` per fornire l'assembly della fase di compilazione corrispondente. Vedere [Supporto di più framework di destinazione](supporting-multiple-target-frameworks.md). |
-| contenuto | File arbitrari | I contenuti vengono copiati nella radice del progetto. La cartella **content** può essere considerata come la radice dell'applicazione di destinazione che in definitiva utilizza il pacchetto. Per fare in modo che il pacchetto aggiunga un'immagine nella cartella */images* dell'applicazione, inserirla nella cartella *content/images* del pacchetto. |
+| content | File arbitrari | I contenuti vengono copiati nella radice del progetto. La cartella **content** può essere considerata come la radice dell'applicazione di destinazione che in definitiva utilizza il pacchetto. Per fare in modo che il pacchetto aggiunga un'immagine nella cartella */images* dell'applicazione, inserirla nella cartella *content/images* del pacchetto. |
 | build | *(3.x+)* File `.targets` e `.props` di MSBuild | Vengono automaticamente inseriti nel progetto. |
 | buildMultiTargeting | *(4.0+)* File `.targets` e `.props` di MSBuild per l'assegnazione di più framework di destinazione | Vengono automaticamente inseriti nel progetto. |
 | buildTransitive | *(5.0 +)* File `.targets` e `.props` di MSBuild che si propagano in modo transitivo a qualsiasi progetto che gli utilizza. Vedere la pagina delle [funzionalità](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior). | Vengono automaticamente inseriti nel progetto. |
-| tools | Script di PowerShell e programmi accessibili dalla console di Gestione pacchetti | La cartella `tools` viene aggiunta alla variabile di ambiente `PATH` solo per la console di Gestione pacchetti, in particolare *non* alla variabile `PATH` impostata per MSBuild durante la compilazione del progetto. |
+| strumenti | Script di PowerShell e programmi accessibili dalla console di Gestione pacchetti | La cartella `tools` viene aggiunta alla variabile di ambiente `PATH` solo per la console di Gestione pacchetti, in particolare *non* alla variabile `PATH` impostata per MSBuild durante la compilazione del progetto. |
 
 Poiché la struttura di cartelle può contenere un numero indeterminato di assembly per un numero indeterminato di framework di destinazione, questo metodo è necessario quando si creano pacchetti che supportano più framework.
 
@@ -286,7 +286,7 @@ Per specificare direttamente i file da includere nel pacchetto, usare il nodo `<
 
 ```xml
 <?xml version="1.0"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
     <!-- ... -->
     </metadata>
@@ -344,7 +344,7 @@ Nel file `.nuspec` assicurarsi quindi di fare riferimento a questi file nel nodo
 
 La possibilità di includere file props e targets di MSBuild in un pacchetto è stata [introdotta con NuGet 2.5](../release-notes/NuGet-2.5.md#automatic-import-of-msbuild-targets-and-props-files), pertanto è consigliabile aggiungere l'attributo `minClientVersion="2.5"` all'elemento `metadata` per indicare la versione client NuGet minima richiesta per utilizzare il pacchetto.
 
-Quando installa un pacchetto con i file `\build`, NuGet aggiunge elementi `<Import>` di MSBuild nel file di progetto che puntano ai file `.targets` e `.props`. (`.props` viene aggiunto all'inizio del file di progetto;  `.targets` viene aggiunto in basso. Viene aggiunto un elemento `<Import>` MSBuild condizionale separato per ogni Framework di destinazione.
+Quando installa un pacchetto con i file `\build`, NuGet aggiunge elementi `<Import>` di MSBuild nel file di progetto che puntano ai file `.targets` e `.props`. (`.props` viene aggiunto all'inizio del file di progetto; `.targets` viene aggiunto nella parte inferiore). Viene aggiunto un elemento `<Import>` MSBuild condizionale separato per ogni Framework di destinazione.
 
 I file `.props` e `.targets` di MSBuild per l'assegnazione di più framework di destinazione possono essere posizionati nella cartella `\buildMultiTargeting`. Durante l'installazione del pacchetto, NuGet aggiunge elementi `<Import>` corrispondenti al file di progetto, a condizione che il framework di destinazione non sia impostato (la proprietà MSBuild `$(TargetFramework)` deve essere vuota).
 

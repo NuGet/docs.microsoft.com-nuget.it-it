@@ -1,78 +1,74 @@
 ---
-title: Provider di credenziali NuGet.exe
-description: i provider di credenziali NuGet.exe autenticarsi con un feed e vengono implementati come file eseguibili della riga di comando che seguono le convenzioni specifiche.
+title: Provider di credenziali NuGet. exe
+description: i provider di credenziali NuGet. exe eseguono l'autenticazione con un feed e vengono implementati come eseguibili da riga di comando che seguono convenzioni specifiche.
 author: karann-msft
 ms.author: karann
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: 97a44c6d561f426fa50fa068a9bbf793f77a3111
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 41e3e63138351bafd5e3a56080268faef10d85a3
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43550189"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230785"
 ---
-# <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>L'autenticazione di feed con i provider di credenziali nuget.exe
+# <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>Autenticazione dei feed con i provider di credenziali NuGet. exe
 
-*NuGet 3.3 +*
+In versione `3.3` è stato aggiunto il supporto per `nuget.exe` provider di credenziali specifici. A partire da questo punto, nella versione `4.8` è stato aggiunto il [supporto per i provider di credenziali](NuGet-Cross-Platform-Authentication-Plugin.md) che funzionano in tutti gli scenari da riga di comando (`nuget.exe`, `dotnet.exe``msbuild.exe`).
 
-Quando `nuget.exe` necessita di credenziali per l'autenticazione con un feed, Cerca li nel modo seguente:
+Per altri dettagli su tutti gli [approcci di autenticazione](../../consume-packages/consuming-packages-authenticated-feeds.md#nugetexe) per `nuget.exe`
 
-1. NuGet cerca innanzitutto le credenziali in `Nuget.Config` file.
-1. NuGet Usa quindi i provider di credenziali plug-in, soggette a ordine indicato di seguito. (E l'esempio è il [Visual Studio Team Services Credential Provider](https://www.visualstudio.com/docs/package/get-started/nuget/auth#vsts-credential-provider).)
-1. NuGet quindi chiede all'utente le credenziali nella riga di comando.
+## <a name="nugetexe-credential-provider-discovery"></a>individuazione del provider di credenziali NuGet. exe
 
-Si noti che i provider di credenziali descritti di seguito funzionano solo in `nuget.exe` e non in 'dotnet restore' o Visual Studio. Per i provider di credenziali con Visual Studio, vedere [nuget.exe i provider di credenziali per Visual Studio](nuget-credential-providers-for-visual-studio.md)
+i provider di credenziali NuGet. exe possono essere usati in tre modi:
 
-i provider di credenziali NuGet.exe sono utilizzabili in 3 modi:
+- A **livello globale**: per rendere disponibile un provider di credenziali per tutte le istanze di `nuget.exe` eseguire nel profilo dell'utente corrente, aggiungerlo al `%LocalAppData%\NuGet\CredentialProviders`. Potrebbe essere necessario creare la cartella `CredentialProviders`. I provider di credenziali possono essere installati alla radice della cartella `CredentialProviders` o all'interno di una sottocartella. Se un provider di credenziali dispone di più file/assembly, è possibile utilizzare le sottocartelle per organizzare i provider.
 
-- **A livello globale**: per rendere disponibili per tutte le istanze di un provider di credenziali `nuget.exe` eseguito al profilo dell'utente corrente, aggiungerlo alla `%LocalAppData%\NuGet\CredentialProviders`. Potrebbe essere necessario creare il `CredentialProviders` cartella. I provider di credenziali possono essere installati nella radice di `CredentialProviders` cartella o all'interno di una sottocartella. Se un provider di credenziali dispone di più file o assembly, è possibile utilizzare le sottocartelle per mantenere i provider organizzati.
+- **Da una variabile di ambiente**: i provider di credenziali possono essere archiviati ovunque e resi accessibili a `nuget.exe` impostando la variabile di ambiente `%NUGET_CREDENTIALPROVIDERS_PATH%` sul percorso del provider. Questa variabile può essere un elenco delimitato da punti e virgola (ad esempio `path1;path2`) se sono presenti più percorsi.
 
-- **Da una variabile di ambiente**: i provider di credenziali possono essere archiviati in qualsiasi posizione e rese accessibili agli `nuget.exe` impostando il `%NUGET_CREDENTIALPROVIDERS_PATH%` variabile di ambiente per il percorso del provider. Questa variabile può essere un elenco delimitato da punto e virgola (, ad esempio, `path1;path2`) se si dispone di più sedi.
+- **Insieme a NuGet. exe**: i provider di credenziali NuGet. exe possono essere inseriti nella stessa cartella `nuget.exe`.
 
-- **Insieme a nuget.exe**: i provider di credenziali nuget.exe possono essere inseriti nella stessa cartella `nuget.exe`.
+Quando si caricano i provider di credenziali, `nuget.exe` esegue una ricerca nei percorsi precedenti, in ordine, per qualsiasi file denominato `credentialprovider*.exe`, quindi carica i file nell'ordine in cui sono stati trovati. Se nella stessa cartella sono presenti più provider di credenziali, questi vengono caricati in ordine alfabetico.
 
-Quando si caricano i provider di credenziali `nuget.exe` cerca i percorsi precedenti, in ordine, per qualsiasi file denominato `credentialprovider*.exe`, quindi carica tali file nell'ordine in cui si trovano. In presenza di più provider di credenziali nella stessa cartella, caricati in ordine alfabetico.
+## <a name="creating-a-nugetexe-credential-provider"></a>Creazione di un provider di credenziali NuGet. exe
 
-## <a name="creating-a-nugetexe-credential-provider"></a>Creazione di un provider di credenziali nuget.exe
-
-Un provider di credenziali è un file eseguibile da riga di comando, il formato `CredentialProvider*.exe`, che raccoglie gli input, acquisisce le credenziali come appropriato e quindi restituisce il codice di stato di uscita appropriato e l'output standard.
+Un provider di credenziali è un eseguibile da riga di comando, denominato nel formato `CredentialProvider*.exe`, che raccoglie gli input, acquisisce le credenziali nel modo appropriato e quindi restituisce il codice di stato di uscita appropriato e l'output standard.
 
 Un provider deve eseguire le operazioni seguenti:
 
-- Determinare se è possibile fornire le credenziali per l'URI di destinazione prima di iniziare l'acquisizione delle credenziali. In caso contrario deve restituire il codice di stato 1 senza credenziali.
-- Non modificare `Nuget.Config` (ad esempio, l'impostazione delle credenziali esiste).
-- Configurazione del proxy HTTP di handle in modo autonomo, come NuGet non fornisce informazioni sul proxy per il plug-in.
-- Restituisce le credenziali o i dettagli dell'errore per `nuget.exe` mediante la scrittura di un oggetto di risposta JSON (vedere sotto) a stdout, usando la codifica UTF-8.
-- Creare facoltativamente la registrazione di traccia aggiuntivi in stderr. Alcun segreto non deve mai essere scritte in stderr, poiché i livelli di dettaglio "normale" o "dettagliato" tali tracce vengono restituite da NuGet alla console.
-- Parametri imprevisti devono essere ignorati, fornendo la compatibilità con le versioni future di NuGet.
+- Determinare se può fornire le credenziali per l'URI di destinazione prima di avviare l'acquisizione delle credenziali. In caso contrario, deve restituire il codice di stato 1 senza credenziali.
+- Non modificare `Nuget.Config` (ad esempio l'impostazione delle credenziali).
+- Gestire autonomamente la configurazione del proxy HTTP, poiché NuGet non fornisce informazioni sul proxy al plug-in.
+- Restituire le credenziali o i dettagli dell'errore per `nuget.exe` scrivendo un oggetto risposta JSON (vedere di seguito) in stdout, usando la codifica UTF-8.
+- Facoltativamente, è possibile creare la registrazione traccia aggiuntiva in stderr. Nessun segreto deve essere mai scritto in stderr, perché a livello di dettaglio "normale" o "dettagliato" tali tracce vengono riportate da NuGet alla console.
+- I parametri imprevisti devono essere ignorati, garantendo la compatibilità con le versioni future di NuGet.
 
 ### <a name="input-parameters"></a>Parametri di input
 
-| Parametro/Switch |Descrizione|
+| Parametro/opzione |Descrizione|
 |----------------|-----------|
-| URI {value} | URI che richiede credenziali per l'origine pacchetto.|
-| Non interattive | Se presente, provider non viene visualizzato un prompt interattivo. |
-| isRetry | Se presente, indica che questo tentativo è un nuovo tentativo di un tentativo non riuscito in precedenza. I provider usano in genere questo flag per assicurarsi di ignorare tutte le cache esistenti e richiedere le nuove credenziali se possibile.|
-| Livello di dettaglio {value} | Se presente, uno dei seguenti valori: "normale", "quiet" o "dettagliato". Se viene specificato alcun valore, valore predefinito è "normale". Provider devono utilizzare ciò come un'indicazione del livello di registrazione facoltative per generare il flusso di errore standard. |
+| URI {valore} | URI di origine del pacchetto che richiede le credenziali.|
+| NonInteractive | Se presente, il provider non rilascia richieste interattive. |
+| Numero di tentativi | Se presente, indica che il tentativo di un tentativo non riuscito in precedenza è stato ritentato. I provider usano in genere questo flag per assicurarsi che ignorino eventuali cache esistenti e chiedano nuove credenziali, se possibile.|
+| Livello di dettaglio {value} | Se presente, uno dei valori seguenti: "Normal", "quiet" o "detailed". Se non viene specificato alcun valore, il valore predefinito è "Normal". I provider devono utilizzarlo come indicazione del livello di registrazione facoltativa da emettere nel flusso di errore standard. |
 
 ### <a name="exit-codes"></a>Codici di uscita
 
 | Codice |Risultato | Descrizione |
 |----------------|-----------|-----------|
-| 0 | Riuscito | Le credenziali sono state acquisite correttamente e sono stati scritti in stdout.|
+| 0 | Operazione completata | Le credenziali sono state acquisite e sono state scritte in stdout.|
 | 1 | ProviderNotApplicable | Il provider corrente non fornisce le credenziali per l'URI specificato.|
-| 2 | Errore | Il provider è il provider corretto per l'URI specificato, ma non è possibile fornire le credenziali. In questo caso, nuget.exe non tenterà di eseguire l'autenticazione e avrà esito negativo. Un esempio tipico è quando un utente annulla un accesso interattivo. |
+| 2 | Operazioni non riuscite | Il provider è il provider corretto per l'URI specificato, ma non è in grado di fornire le credenziali. In questo caso, NuGet. exe non tenterà di ripetere l'autenticazione e avrà esito negativo. Un esempio tipico è quando un utente annulla un accesso interattivo. |
 
 ### <a name="standard-output"></a>Output standard
 
 | Proprietà |Note|
 |----------------|-----------|
-| Nome utente | Nome utente per le richieste autenticate.|
+| Username | Nome utente per le richieste autenticate.|
 | Password | Password per le richieste autenticate.|
-| Messaggio | Dettagli facoltativi relative alla risposta, usato solo per visualizzare altri dettagli in caso di errore. |
+| Message | Dettagli facoltativi sulla risposta, usati solo per visualizzare dettagli aggiuntivi nei casi di errore. |
 
-Esempio stdout:
+Esempio di stdout:
 
     { "Username" : "freddy@example.com",
       "Password" : "bwm3bcx6txhprzmxhl2x63mdsul6grctazoomtdb6kfbof7m3a3z",
@@ -80,14 +76,14 @@ Esempio stdout:
 
 ## <a name="troubleshooting-a-credential-provider"></a>Risoluzione dei problemi relativi a un provider di credenziali
 
-Al momento, NuGet non fornisce molto supporto diretto per il debug di provider di credenziali personalizzate. [emettere 4598](https://github.com/NuGet/Home/issues/4598) tiene traccia di questo lavoro.
+Attualmente, NuGet non fornisce un supporto molto diretto per il debug di provider di credenziali personalizzati; il [problema 4598](https://github.com/NuGet/Home/issues/4598) sta tenendo traccia del lavoro.
 
 È inoltre possibile eseguire le operazioni seguenti:
 
-- Eseguire nuget.exe con il `-verbosity` passa a esaminare l'output dettagliato.
-- Aggiungere i messaggi di debug `stdout` nelle posizioni appropriate.
-- Assicurarsi che si usi nuget.exe 3.3 o versioni successive.
-- Collega debugger all'avvio con questo frammento di codice:
+- Eseguire NuGet. exe con l'opzione `-verbosity` per controllare l'output dettagliato.
+- Aggiungere i messaggi di debug a `stdout` in posizioni appropriate.
+- Assicurarsi di usare NuGet. exe 3,3 o versione successiva.
+- Connetti debugger all'avvio con il frammento di codice seguente:
 
     ```cs
     while (!Debugger.IsAttached)
@@ -96,5 +92,3 @@ Al momento, NuGet non fornisce molto supporto diretto per il debug di provider d
     }
     Debugger.Break();
     ```
-
-Per ulteriore assistenza, [inviare una richiesta di supporto un nuget.org](https://www.nuget.org/policies/Contact).

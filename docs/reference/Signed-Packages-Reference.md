@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 05/18/2018
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: e02b2a241008b1b7096f20b351173fd3df7ed172
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 7384e8b30cb2ec5fe53ea0fe485858bc1f7b3c43
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317507"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231253"
 ---
 # <a name="signed-packages"></a>Pacchetti firmati
 
@@ -26,15 +26,15 @@ I pacchetti firmati forniscono la convalida end-to-end più avanzata. Esistono d
 Per informazioni dettagliate sulla creazione di un pacchetto firmato autore, vedere [signing Packages](../create-packages/Sign-a-package.md) e il [comando NuGet Sign](../reference/cli-reference/cli-ref-sign.md).
 
 > [!Important]
-> La firma del pacchetto è attualmente supportata solo quando si usa NuGet. exe in Windows. La verifica dei pacchetti firmati è attualmente supportata solo quando si usa NuGet. exe o Visual Studio in Windows.
+> La firma del pacchetto è attualmente supportata solo quando si usa NuGet. exe in Windows. [La verifica dei pacchetti firmati è attualmente supportata solo quando si usa NuGet. exe](../reference/cli-reference/cli-ref-verify.md) o Visual Studio in Windows.
 
-## <a name="certificate-requirements"></a>Requisiti del certificato
+## <a name="certificate-requirements"></a>Requisiti per i certificati
 
-Per la firma del pacchetto è necessario un certificato di firma del codice, che è un tipo speciale di `id-kp-codeSigning` certificato valido per lo scopo [[RFC 5280 Section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]. Inoltre, il certificato deve avere una lunghezza di chiave pubblica RSA di 2048 bit o superiore.
+Per la firma del pacchetto è necessario un certificato di firma del codice, che è un tipo speciale di certificato valido per lo scopo `id-kp-codeSigning` [[RFC 5280 Section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]. Inoltre, il certificato deve avere una lunghezza di chiave pubblica RSA di 2048 bit o superiore.
 
 ## <a name="timestamp-requirements"></a>Requisiti timestamp
 
-I pacchetti firmati devono includere un timestamp RFC 3161 per garantire la validità della firma oltre il periodo di validità del certificato di firma del pacchetto. Il certificato utilizzato per firmare il timestamp deve essere valido per lo `id-kp-timeStamping` scopo [[RFC 5280 Section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]. Inoltre, il certificato deve avere una lunghezza di chiave pubblica RSA di 2048 bit o superiore.
+I pacchetti firmati devono includere un timestamp RFC 3161 per garantire la validità della firma oltre il periodo di validità del certificato di firma del pacchetto. Il certificato utilizzato per firmare il timestamp deve essere valido per lo scopo `id-kp-timeStamping` [[RFC 5280 Section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]. Inoltre, il certificato deve avere una lunghezza di chiave pubblica RSA di 2048 bit o superiore.
 
 Ulteriori dettagli tecnici sono disponibili nelle [specifiche tecniche di firma del pacchetto](https://github.com/NuGet/Home/wiki/Package-Signatures-Technical-Details) (GitHub).
 

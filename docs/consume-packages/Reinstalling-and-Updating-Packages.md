@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: conceptual
-ms.openlocfilehash: c48980bc3f955a62962ca6e9619ce09f4a94a835
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.openlocfilehash: 101c6d6b9d93da912f60c40b27559e80327154b8
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488083"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231188"
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Come reinstallare e aggiornare pacchetti
 
@@ -20,7 +20,7 @@ In Visual Studio la console di gestione pacchetti offre molte opzioni flessibili
 
 Le operazioni di aggiornamento e reinstallazione dei pacchetti vengono eseguite come indicato di seguito:
 
-| Metodo | Aggiorna | Reinstallazione |
+| Metodo | Aggiornamento | Reinstallazione |
 | --- | --- | --- |
 | Console di Gestione pacchetti (descritta in [Uso di Update-Package](#using-update-package)) | Comando `Update-Package` | Comando `Update-Package -reinstall` |
 | Interfaccia utente di Gestione pacchetti | Nella scheda **Aggiornamenti** selezionare uno o più pacchetti e selezionare **Aggiorna**. | Nella scheda **Installati** selezionare un pacchetto, registrarne il nome e quindi selezionare **Disinstalla**. Passare alla scheda **Sfoglia**, cercare il nome del pacchetto, selezionarlo e quindi selezionare **Installa**. |
@@ -36,11 +36,11 @@ Contenuto dell'articolo:
 
 ## <a name="when-to-reinstall-a-package"></a>Quando reinstallare un pacchetto
 
-1. **Riferimenti interrotti dopo il ripristino dei pacchetti**: se è stato aperto un progetto e i pacchetti NuGet sono stati ripristinati, ma sono ancora presenti riferimenti interrotti, provare a reinstallare ogni pacchetto.
+1. **Riferimenti interrotti dopo il ripristino del pacchetto**: se è stato aperto un progetto e i pacchetti NuGet sono stati ripristinati, ma sono ancora presenti riferimenti interrotti, provare a reinstallare ognuno dei pacchetti.
 1. **Progetto interrotto in seguito all'eliminazione di file**: NuGet non impedisce di rimuovere elementi aggiunti dai pacchetti, pertanto è facile modificare inavvertitamente il contenuto installato da un pacchetto e interrompere il progetto. Per ripristinare il progetto, reinstallare i pacchetti interessati.
-1. **Progetto interrotto in seguito a un aggiornamento pacchetto**: se un aggiornamento a un pacchetto comporta l'interruzione di un progetto, l'errore è causato in genere da un pacchetto di dipendenza che potrebbe essere stato a sua volta aggiornato. Per ripristinare lo stato della dipendenza, reinstallare il pacchetto specifico.
+1. **Progetto interrotto in seguito a un aggiornamento pacchetto**: se un aggiornamento a un pacchetto comporta l'interruzione di un progetto, l'errore è causato in genere da un pacchetto di dipendenze che potrebbe essere stato a sua volta aggiornato. Per ripristinare lo stato della dipendenza, reinstallare il pacchetto specifico.
 1. **Ridestinazione o aggiornamento del progetto**: può essere utile quando un progetto è stato ridestinato o aggiornato e se il pacchetto richiede la reinstallazione a causa di una modifica al framework di destinazione. In questi casi NuGet mostra un errore di compilazione immediatamente dopo la ridestinazione del progetto e avvisi di compilazione successivi informano che il pacchetto potrebbe dover essere reinstallato. Per l'aggiornamento del progetto, NuGet mostra un errore nel log di aggiornamento del progetto.
-1. **Reinstallazione di un pacchetto durante lo sviluppo**: gli autori di pacchetti devono spesso reinstallare la stessa versione del pacchetto che stanno sviluppando per testarne il comportamento. Il comando `Install-Package` non fornisce un'opzione per forzare la reinstallazione, pertanto usare `Update-Package -reinstall` in alternativa.
+1. **Reinstallazione di un pacchetto durante lo sviluppo**: gli autori di pacchetti hanno spesso bisogno di reinstallare la stessa versione del pacchetto che stanno sviluppando per testarne il comportamento. Il comando `Install-Package` non fornisce un'opzione per forzare la reinstallazione, pertanto usare `Update-Package -reinstall` in alternativa.
 
 ## <a name="constraining-upgrade-versions"></a>Limitazione delle versioni per l'aggiornamento
 
@@ -59,7 +59,7 @@ Per impostare una limitazione, aprire `packages.config` in un editor di testo, i
 </packages>
 ```
 
-In tutti i casi, usare la notazione descritta in [Controllo delle versioni dei pacchetti](../concepts/package-versioning.md#version-ranges-and-wildcards).
+In tutti i casi, usare la notazione descritta in [Controllo delle versioni dei pacchetti](../concepts/package-versioning.md#version-ranges).
 
 ## <a name="using-update-package"></a>Uso di Update-Package
 

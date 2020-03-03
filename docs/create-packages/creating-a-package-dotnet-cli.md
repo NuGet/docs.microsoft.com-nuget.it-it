@@ -3,14 +3,14 @@ title: Creare un pacchetto NuGet con l'interfaccia della riga di comando di dotn
 description: Guida dettagliata al processo di progettazione e creazione di un pacchetto NuGet, incluse le principali decisioni critiche, ad esempio quelle relative ai file e al controllo delle versioni.
 author: karann-msft
 ms.author: karann
-ms.date: 07/09/2019
+ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: c198bb73f0e4f5a59826db905eaf4622fe8543bc
-ms.sourcegitcommit: 1799d4ac23c8aacee7498fdc72c40dd1646d267b
+ms.openlocfilehash: 712e4c7159aa9719052330d8e45f63e18e390325
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77476256"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230580"
 ---
 # <a name="create-a-nuget-package-using-the-dotnet-cli"></a>Creare un pacchetto NuGet con l'interfaccia della riga di comando di dotnet
 
@@ -67,6 +67,10 @@ L'esempio seguente illustra un file di progetto semplice e completo con queste p
 > Per i pacchetti compilati per uso pubblico, prestare particolare attenzione alla proprietà **PackageTags**, perché questi tag consentono ad altri utenti di trovare il pacchetto e di comprenderne le funzioni.
 
 Per informazioni dettagliate sulla dichiarazione delle dipendenze e sulla specifica dei numeri di versione, vedere [Riferimenti ai pacchetti nei file di progetto](../consume-packages/package-references-in-project-files.md) e [Controllo delle versioni dei pacchetti](../concepts/package-versioning.md). È anche possibile esporre gli asset dalle dipendenze direttamente nel pacchetto usando gli attributi `<IncludeAssets>` e `<ExcludeAssets>`. Per altre informazioni, vedere [Controllo degli asset delle dipendenze](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets).
+
+## <a name="add-an-optional-description-field"></a>Aggiungere un campo di descrizione facoltativo
+
+[!INCLUDE [add description to package](includes/add-description.md)]
 
 ## <a name="choose-a-unique-package-identifier-and-set-the-version-number"></a>Scegliere un identificatore univoco del pacchetto e impostare il numero di versione
 

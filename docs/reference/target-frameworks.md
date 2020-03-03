@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: caa1509fd996c54f7de17e86559ea62ef67f749f
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: 995f15ae2ad823d9c814cb7e78facddee713cc8f
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380487"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230512"
 ---
 # <a name="target-frameworks"></a>Framework di destinazione
 
@@ -33,7 +33,7 @@ In genere si fa riferimento a un framework tramite un breve moniker del framewor
 
 I client NuGet supportano i framework nella tabella seguente. Gli equivalenti sono visualizzati tra parentesi quadre []. Si noti che alcuni strumenti, ad esempio `dotnet`, potrebbero usare varianti dei moniker TFM canonici in alcuni file. Ad esempio, `dotnet pack` usa `.NETCoreApp2.0` in un file `.nuspec` invece di `netcoreapp2.0`. I vari strumenti client NuGet gestiscono queste variazioni correttamente, ma è consigliabile usare sempre i TFM canonici quando si modificano direttamente i file.
 
-| Name | Abbreviazione | TFM/TxM |
+| Nome | Abbreviazione | TFM/TxM |
 | ------------- | ------------ | --------- |
 |.NET Framework | net | net11 |
 | | | net20 |
@@ -55,7 +55,7 @@ I client NuGet supportano i framework nella tabella seguente. Gli equivalenti so
 | | | netcore451 [win81] |
 | | | netcore50 |
 |.NET MicroFramework | netmf | netmf |
-|WINDOWS | win | win [win8, netcore45] |
+|Windows | win | win [win8, netcore45] |
 | | | win8 [netcore45, win] |
 | | | win81 [netcore451] |
 | | | win10 (non supportato dalla piattaforma Windows 10) |
@@ -78,12 +78,14 @@ Piattaforma UWP (Universal Windows Platform) | uap | uap [uap10.0] |
 | | | netstandard1.5 |
 | | | netstandard1.6 |
 | | | netstandard2.0 |
+| | | netstandard 2.1 |
 App .NET Core | netcoreapp | netcoreapp1.0 |
 | | | netcoreapp1.1 |
 | | | netcoreapp2.0 |
 | | | netcoreapp2.1 |
 | | | netcoreapp2.2 |
 | | | netcoreapp 3.0 |
+| | | netcoreapp 3.1 |
 Tizen | tizen | tizen3 |
 | | | tizen4 |
 
@@ -167,9 +169,9 @@ I framework aggiuntivi definiti da terze parti garantiscono la compatibilità co
  | | Silverlight 4.0 |
  Profile24 | .NETFramework 4.5 | portable-net45+sl5
  | | Silverlight 5.0 |
- Profile31 | Windows 8,1 | portable-win81+wp81 | netstandard1.0
+ Profile31 | Windows 8.1 | portable-win81+wp81 | netstandard1.0
  | | WindowsPhone 8.1 (SL) |
- Profile32 | Windows 8,1 | portable-win81+wpa81 | netstandard1.2
+ Profile32 | Windows 8.1 | portable-win81+wpa81 | netstandard1.2
  | | WindowsPhone 8.1 (UWP) |
  Profile36 | .NETFramework 4.0 | portable-net40+sl4+win8+wp8
  | | Silverlight 4.0 |
@@ -185,7 +187,7 @@ I framework aggiuntivi definiti da terze parti garantiscono la compatibilità co
  | | Silverlight 5.0 |
  | | Windows 8.0 |
  Profile44 | .NETFramework 4.5.1 | portable-net451+win81 | netstandard1.2
- | | Windows 8,1 |
+ | | Windows 8.1 |
  Profile46 | .NETFramework 4.5 | portable-net45+sl4+win8
  | | Silverlight 4.0 |
  | | Windows 8.0 |
@@ -237,13 +239,13 @@ I framework aggiuntivi definiti da terze parti garantiscono la compatibilità co
  | | Windows 8.0 |
  | | WindowsPhone 8.0 (SL) |
  Profile151 | NETFramework 4.5.1 | portable-net451+win81+wpa81 | netstandard1.2
- | | Windows 8,1 |
+ | | Windows 8.1 |
  | | WindowsPhone 8.1 (UWP) |
  Profile154 | .NETFramework 4.5 | portable-net45+sl4+win8+wp8
  | | Silverlight 4.0 |
  | | Windows 8.0 |
  | | WindowsPhone 8.0 (SL) |
- Profile157 | Windows 8,1 | portable-win81+wp81+wpa81 | netstandard1.0
+ Profile157 | Windows 8.1 | portable-win81+wp81+wpa81 | netstandard1.0
  | | WindowsPhone 8.1 (SL) |
  | | WindowsPhone 8.1 (UWP) |
  Profile158 | .NETFramework 4.5 | portable-net45+sl5+win8+wp8
@@ -284,7 +286,7 @@ I framework aggiuntivi definiti da terze parti garantiscono la compatibilità co
 
 Inoltre, i pacchetti NuGet destinati a Xamarin possono usare framework aggiuntivi definiti da Xamarin. Vedere [Manually Creating NuGet Packages for Xamarin](https://developer.xamarin.com/guides/cross-platform/advanced/nuget/) (Creazione manuale di pacchetti NuGet per Xamarin).
 
-| Name | Descrizione | .NET Standard |
+| Nome | Descrizione | .NET Standard |
 | --- | --- | ---
 | monoandroid | Supporto di Mono per sistema operativo Android | netstandard1.4 |
 | monotouch | Supporto di Mono per iOS | netstandard1.4 |

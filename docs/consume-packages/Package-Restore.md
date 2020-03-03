@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 93a94a5468b48179d27b89825cebf2447657c8f2
-ms.sourcegitcommit: 7c9f157ba02d9be543de34ab06813ab1ec10192a
-ms.translationtype: HT
+ms.openlocfilehash: c1f1957c58839ac763238938b476eb0882c56a59
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69999988"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231208"
 ---
 # <a name="restore-packages-using-package-restore"></a>Ripristinare i pacchetti con Ripristino pacchetto
 
@@ -120,6 +120,17 @@ Per abilitare o disabilitare l'opzione Ripristino pacchetto per tutti gli utenti
 > [!Important]
 > Se si modificano le impostazioni `packageRestore` direttamente in `nuget.config`, riavviare Visual Studio per visualizzare i valori correnti nella finestra di dialogo **Opzioni**.
 
+### <a name="choose-default-package-management-format"></a>Scegliere il formato di gestione pacchetti predefinito
+
+![Controllare il formato di gestione pacchetti predefinito anche se le opzioni di gestione pacchetti NuGet](media/Restore-02-PackageFormatOptions.png)
+
+NuGet presenta due formati in cui un progetto può usare i pacchetti: [`PackageReference`](package-references-in-project-files.md) e [`packages.config`](../reference/packages-config.md). Il formato predefinito può essere selezionato nell'elenco a discesa sotto l'intestazione **Gestione pacchetti** . È disponibile anche un'opzione che indica quando è installato il primo pacchetto in un progetto.
+
+> [!Note]
+> Se un progetto non supporta entrambi i formati di gestione dei pacchetti, il formato di gestione dei pacchetti utilizzato sarà quello compatibile con il progetto e pertanto potrebbe non essere il set predefinito nelle opzioni. NuGet, inoltre, non richiede la selezione nella prima installazione del pacchetto, anche se l'opzione è selezionata nella finestra Opzioni.
+>
+> Se si usa la console di gestione pacchetti per installare il primo pacchetto in un progetto, NuGet non richiede la selezione del formato, anche se l'opzione è selezionata nella finestra Opzioni.
+
 ## <a name="restore-using-the-dotnet-cli"></a>Eseguire il ripristino usando l'interfaccia della riga di comando dotnet
 
 [!INCLUDE [restore-dotnet-cli](includes/restore-dotnet-cli.md)]
@@ -132,7 +143,7 @@ Per abilitare o disabilitare l'opzione Ripristino pacchetto per tutti gli utenti
 [!INCLUDE [restore-nuget-exe-cli](includes/restore-nuget-exe-cli.md)]
 
 > [!IMPORTANT]
-> Il comando `restore` non modifica un file di progetto o *packages.config*. Per aggiungere una dipendenza, aggiungere un pacchetto tramite l'interfaccia utente di Gestione pacchetti o la console in Visual Studio oppure modificare il file *packages.config*, quindi eseguire `install` o `restore`.
+> Il comando `restore`non modifica un file di progetto o *packages. config*. Per aggiungere una dipendenza, aggiungere un pacchetto tramite l'interfaccia utente o la console di gestione pacchetti in Visual Studio oppure modificare *packages. config* , quindi eseguire `install` o `restore`.
 
 ## <a name="restore-using-msbuild"></a>Eseguire il ripristino con MSBuild
 
@@ -205,7 +216,7 @@ Per evitare di usare la cache per le origini HTTP, eseguire una delle operazioni
 
 Per NuGet 2.6 e versioni precedenti era precedentemente supportato il ripristino dei pacchetti integrato in MSBuild, ma non è più così. In genere veniva abilitato facendo clic con il pulsante destro del mouse su una soluzione in Visual Studio e scegliendo **Enable NuGet Package Restore** (Abilita il ripristino dei pacchetti NuGet). Se il progetto usa il ripristino dei pacchetti integrato in MSBuild deprecato, eseguire la migrazione al ripristino dei pacchetti automatico.
 
-I progetti che usano il ripristino dei pacchetti integrato in MSBuild contengono in genere una cartella *.nuget* con tre file: *NuGet.config*, *nuget.exe* e *NuGet.targets*. La presenza di un file *NuGet.targets* determina se NuGet continuerà a usare l'approccio integrato in MSBuild, con conseguente necessità di rimuovere questo file durante la migrazione.
+I progetti che usano il ripristino del pacchetto integrato con MSBuild contengono in genere una cartella *. NuGet* con tre file: *NuGet. config*, *NuGet. exe*e *NuGet. targets*. La presenza di un file *NuGet.targets* determina se NuGet continuerà a usare l'approccio integrato in MSBuild, con conseguente necessità di rimuovere questo file durante la migrazione.
 
 Per eseguire la migrazione al ripristino dei pacchetti automatico:
 
@@ -220,6 +231,6 @@ Per testare il ripristino dei pacchetti automatico:
 
    Il ripristino dei pacchetti automatico dovrebbe scaricare e installare ogni pacchetto di dipendenze, senza aggiungerli al controllo del codice sorgente.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Vedere [Risolvere gli errori relativi al ripristino dei pacchetti](package-restore-troubleshooting.md).

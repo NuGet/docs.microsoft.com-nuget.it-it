@@ -3,14 +3,14 @@ title: Creare un pacchetto NuGet usando MSBuild
 description: Guida dettagliata al processo di progettazione e creazione di un pacchetto NuGet, incluse le principali decisioni critiche, ad esempio quelle relative ai file e al controllo delle versioni.
 author: karann-msft
 ms.author: karann
-ms.date: 08/05/2019
+ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: b45c25a92c0134228fb507ab321cb00ce156527f
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 7166d622ef9d3975fc1c931d30caf570a765a6da
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610541"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231318"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>Creare un pacchetto NuGet usando MSBuild
 
@@ -25,15 +25,19 @@ Il comando che crea un pacchetto, `msbuild -t:pack`, è una funzionalità equiva
 > [!IMPORTANT]
 > Questo argomento si applica ai progetti di [tipo SDK](../resources/check-project-format.md), in genere progetti .NET Core e .NET Standard, e ai progetti di tipo non SDK che usano PackageReference.
 
-## <a name="set-properties"></a>Imposta proprietà
+## <a name="set-properties"></a>Impostare le proprietà
 
 Per creare un pacchetto, sono necessarie le proprietà seguenti.
 
-- `PackageId`, ovvero l'identificatore del pacchetto, che deve essere univoco nella raccolta che ospita il pacchetto. Se non specificato, il valore predefinito è `AssemblyName`.
+- `PackageId`, ovvero l'identificatore del pacchetto, che deve essere univoco nella raccolta che ospita il pacchetto. Se non è specificato, il valore predefinito è `AssemblyName`.
 - `Version`, ovvero un numero di versione specifico nel formato *Principale.Secondaria.Patch[-Suffisso]* dove *-Suffisso* identifica le [versioni preliminari](prerelease-packages.md). Se non è specificato, il valore predefinito è 1.0.0.
 - Titolo del pacchetto come deve essere visualizzato nell'host (ad esempio, nuget.org)
-- `Authors`, ovvero informazioni sull'autore e sul proprietario. Se non specificato, il valore predefinito è `AssemblyName`.
-- `Company`, ovvero il nome della società. Se non specificato, il valore predefinito è `AssemblyName`.
+- `Authors`, ovvero informazioni sull'autore e sul proprietario. Se non è specificato, il valore predefinito è `AssemblyName`.
+- `Company`, ovvero il nome della società. Se non è specificato, il valore predefinito è `AssemblyName`.
+
+Inoltre, se si stanno comprimendo progetti di tipo non SDK che usano PackageReference, è necessario quanto segue:
+
+- `PackageOutputPath`, la cartella di output per il pacchetto generato quando si chiama Pack.
 
 In Visual Studio è possibile impostare questi valori nelle proprietà del progetto (fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni, scegliere **Proprietà** e selezionare la scheda **Pacchetto**). È anche possibile impostare queste proprietà direttamente nei file di progetto (con estensione *csproj*).
 
@@ -69,6 +73,10 @@ L'esempio seguente illustra un file di progetto semplice e completo con queste p
 > Per i pacchetti compilati per uso pubblico, prestare particolare attenzione alla proprietà **PackageTags**, perché questi tag consentono ad altri utenti di trovare il pacchetto e di comprenderne le funzioni.
 
 Per informazioni dettagliate sulla dichiarazione delle dipendenze e sulla specifica dei numeri di versione, vedere [Riferimenti ai pacchetti nei file di progetto](../consume-packages/package-references-in-project-files.md) e [Controllo delle versioni dei pacchetti](../concepts/package-versioning.md). È anche possibile esporre gli asset dalle dipendenze direttamente nel pacchetto usando gli attributi `<IncludeAssets>` e `<ExcludeAssets>`. Per altre informazioni, vedere [Controllo degli asset delle dipendenze](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets).
+
+## <a name="add-an-optional-description-field"></a>Aggiungere un campo di descrizione facoltativo
+
+[!INCLUDE [add description to package](includes/add-description.md)]
 
 ## <a name="choose-a-unique-package-identifier-and-set-the-version-number"></a>Scegliere un identificatore univoco del pacchetto e impostare il numero di versione
 

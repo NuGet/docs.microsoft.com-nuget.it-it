@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 937d051ff6dc49e3204f7d0cb22c4f29b99a2a7d
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 02c6c8f3018bfd063c2d16a10381f88b54cac840
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610607"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231344"
 ---
 # <a name="publishing-packages"></a>Pubblicazione di pacchetti
 
@@ -65,6 +65,10 @@ Per eseguire il push dei pacchetti in nuget.org, è necessario usare [nuget.exe 
     ```
 
     Questo comando Archivia la chiave API nella configurazione di NuGet, in modo che non sia necessario ripetere questo passaggio nello stesso computer.
+
+    > [!NOTE]
+    > La chiave API non viene usata per l'autenticazione con il feed privato. Fare riferimento a [`nuget sources` comando](../reference/cli-reference/cli-ref-sources.md) per gestire le credenziali per l'autenticazione con l'origine.
+    > Le chiavi API possono essere ottenute dai singoli server NuGet. Per creare e gestire APIKeys per nuget.org, fare riferimento a [Publish-API-Key](../quickstart/includes/publish-api-key.md)
 
 1. Eseguire il push del pacchetto nella raccolta NuGet usando il comando seguente:
 

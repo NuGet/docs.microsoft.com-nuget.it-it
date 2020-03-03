@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/05/2019
 ms.topic: tutorial
-ms.openlocfilehash: fce3c9a92dfee325f9e914bf3d6444601fb38b6c
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: 0cb653bad9e853d908039b3f7a94e1dd7eefdde5
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75385682"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230902"
 ---
 # <a name="create-packages-for-xamarin-with-visual-studio-2017-or-2019"></a>Creare pacchetti per Novell con Visual Studio 2017 o 2019
 
@@ -25,7 +25,7 @@ In questa procedura dettagliata viene usato Visual Studio 2017 o 2019 per creare
 1. [Creare un pacchetto per il componente](#package-the-component)
 1. [Argomenti correlati](#related-topics)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisites
 
 1. Visual Studio 2017 o 2019 con piattaforma UWP (Universal Windows Platform) (UWP) e Novell. Installare l'edizione Community gratuitamente da [visualstudio.com](https://www.visualstudio.com/). È anche possibile usare le edizioni Professional ed Enterprise. Per includere gli strumenti UWP e Xamarin, selezionare un'installazione personalizzata e selezionare le opzioni appropriate.
 1. Interfaccia della riga di comando di NuGet. Scaricare la versione più recente di nuget.exe da [nuget.org/downloads](https://nuget.org/downloads), salvandola in una posizione di propria scelta. Aggiungere quindi tale posizione alla variabile di ambiente PATH, se necessario.
@@ -36,11 +36,11 @@ In questa procedura dettagliata viene usato Visual Studio 2017 o 2019 per creare
 ## <a name="create-the-project-structure-and-abstraction-code"></a>Creare la struttura del progetto e il codice di astrazione
 
 1. Scaricare ed eseguire l' [estensione per i modelli di plug-in .NET standard multipiattaforma](https://marketplace.visualstudio.com/items?itemName=vs-publisher-473885.PluginForXamarinTemplates) per Visual Studio. Questi modelli consentiranno di creare facilmente la struttura del progetto necessaria per questa procedura dettagliata.
-1. In Visual Studio 2017, **File > nuovo progetto >** , cercare `Plugin`, selezionare il modello di **plug-in della libreria .NET standard multipiattaforma** , modificare il nome in LoggingLibrary e fare clic su OK.
+1. In Visual Studio 2017, **File > nuovo progetto >**, cercare `Plugin`, selezionare il modello di **plug-in della libreria .NET standard multipiattaforma** , modificare il nome in LoggingLibrary e fare clic su OK.
 
     ![Nuovo progetto app vuota (Novell. Forms Portable) in Visual Studio 2017](media/CrossPlatform-NewProject.png)
 
-    In Visual Studio 2019, **File > nuovo progetto >** , cercare `Plugin`, selezionare il modello di **Plug-In della libreria .NET standard multipiattaforma** e fare clic su Avanti.
+    In Visual Studio 2019, **File > nuovo progetto >**, cercare `Plugin`, selezionare il modello di **Plug-In della libreria .NET standard multipiattaforma** e fare clic su Avanti.
 
     ![Nuovo progetto app vuota (Novell. Forms Portable) in Visual Studio 2019](media/CrossPlatform-NewProject19-Part1.png)
 
@@ -52,7 +52,7 @@ La soluzione risultante contiene due progetti condivisi, insieme a un'ampia gamm
 
 - Il progetto `ILoggingLibrary`, contenuto nel file di `ILoggingLibrary.shared.cs`, definisce l'interfaccia pubblica (superficie di attacco API) del componente. dove viene definita l'interfaccia per la libreria.
 - L'altro progetto condiviso contiene codice in `CrossLoggingLibrary.shared.cs` che individua un'implementazione specifica della piattaforma dell'interfaccia astratta in fase di esecuzione. In genere non è necessario modificare questo file.
-- I progetti specifici della piattaforma, ad esempio `LoggingLibrary.android.cs`, ognuno contengono un'implementazione nativa dell'interfaccia nei rispettivi file di `LoggingLibraryImplementation.cs` (VS 2017) o `LoggingLibrary.<PLATFORM>.cs` (VS 2019). dove si compila il codice della libreria.
+- I progetti specifici della piattaforma, ad esempio `LoggingLibrary.android.cs`, contengono ognuno un'implementazione nativa dell'interfaccia nei rispettivi file di `LoggingLibraryImplementation.cs` (VS 2017) o `LoggingLibrary.<PLATFORM>.cs` (VS 2019). dove si compila il codice della libreria.
 
 Per impostazione predefinita, il file ILoggingLibrary.shared.cs del progetto `ILoggingLibrary` contiene una definizione di interfaccia, ma nessun metodo. Ai fini di questa procedura dettagliata, aggiungere un metodo `Log` come indicato di seguito:
 
@@ -176,7 +176,7 @@ Per includere gli assembly di riferimento specifici della piattaforma, aggiunger
 > [!Note]
 > Per abbreviare i nomi dei file DLL e XML, fare clic con il pulsante destro del mouse su un determinato progetto, scegliere la scheda **Libreria** e modificare i nomi degli assembly.
 
-### <a name="add-dependencies"></a>Aggiungere dipendenze
+### <a name="add-dependencies"></a>Aggiungere le dipendenze
 
 Se sono presenti dipendenze specifiche per le implementazioni native, usare l'elemento `<dependencies>` con gli elementi `<group>` per specificarle, ad esempio:
 

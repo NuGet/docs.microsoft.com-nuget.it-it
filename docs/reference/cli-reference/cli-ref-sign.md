@@ -6,12 +6,12 @@ ms.author: dtivel
 ms.date: 03/06/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: 746f7a421bd855b77716388b4af2fecbd5cf5a68
-ms.sourcegitcommit: 96aab8a1ad35eca0c029679d0158d9cc93d66009
+ms.openlocfilehash: e596fd5eb3de8ca4802d9b7b8e7cb623568e3dcb
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75676406"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231123"
 ---
 # <a name="sign-command-nuget-cli"></a>Comando sign (interfaccia della riga di comando di NuGet)
 
@@ -22,7 +22,7 @@ Firma tutti i pacchetti che corrispondono al primo argomento con un certificato.
 > [!Note]
 > La firma del pacchetto non è ancora supportata in .NET Core, in mono o in piattaforme non Windows.
 
-## <a name="usage"></a>Usage
+## <a name="usage"></a>Uso
 
 ```cli
 nuget sign <package(s)> [options]
@@ -30,7 +30,7 @@ nuget sign <package(s)> [options]
 
 dove `<package(s)>` è uno o più file di `.nupkg`.
 
-## <a name="options"></a>Options
+## <a name="options"></a>Opzioni
 
 | Opzione | Descrizione |
 | --- | --- |
@@ -42,8 +42,8 @@ dove `<package(s)>` è uno o più file di `.nupkg`.
 | CertificateSubjectName | Specifica il nome del soggetto del certificato utilizzato per eseguire la ricerca in un archivio certificati locale per il certificato.  La ricerca è un confronto tra stringhe senza distinzione tra maiuscole e minuscole usando il valore fornito, che troverà tutti i certificati con il nome del soggetto che contiene tale stringa, indipendentemente dagli altri valori dell'oggetto.  L'archivio certificati può essere specificato tramite le opzioni-NomeArchivioCertificati e-CertificateStoreLocation. |
 | ConfigFile | File di configurazione NuGet da applicare. Se non specificato, viene usato `%AppData%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Mac/Linux).|
 | ForceEnglishOutput | Impone l'esecuzione di NuGet. exe con impostazioni cultura invarianti basate sull'inglese. |
-| HashAlgorithm | Algoritmo hash da utilizzare per firmare il pacchetto. Il valore predefinito è SHA256. |
-| Guida di | Visualizza le informazioni della Guida per il comando. |
+| HashAlgorithm | Algoritmo hash da utilizzare per firmare il pacchetto. Il valore predefinito è SHA256. I valori possibili sono SHA256, SHA384 e SHA512. |
+| Guida | Visualizza le informazioni della Guida per il comando. |
 | NonInteractive | Evita la richiesta di input o conferme dell'utente. |
 | OutputDirectory | Specifica la directory in cui deve essere salvato il pacchetto firmato. Per impostazione predefinita, il pacchetto originale viene sovrascritto dal pacchetto firmato. |
 | Overwrite | Opzione per indicare se la firma corrente deve essere sovrascritta. Per impostazione predefinita, il comando avrà esito negativo se il pacchetto dispone già di una firma. |

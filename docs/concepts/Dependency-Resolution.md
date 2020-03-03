@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: c6f50e6eb21826afebcdcd4045c7ab8b6e6489e3
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.openlocfilehash: 4b95251e4b055523a9533b4125589b2650be932d
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76813325"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231084"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Risoluzione delle dipendenze dei pacchetti in NuGet
 
@@ -22,7 +22,7 @@ Quando più pacchetti hanno la stessa dipendenza, lo stesso ID di pacchetto può
 
 ## <a name="dependency-resolution-with-packagereference"></a>Risoluzione delle dipendenze con PackageReference
 
-Quando si installano pacchetti in progetti usando il formato PackageReference, NuGet aggiunge riferimenti a un grafico di pacchetto semplice nel file appropriato e risolve i conflitti in anticipo. Questo processo è noto come *ripristino transitivo*. La reinstallazione o il ripristino dei pacchetti è quindi un processo di download dei pacchetti elencati nel grafico, che genera compilazioni più veloci e più prevedibili. È anche possibile usufruire di versioni con caratteri jolly (mobili), ad esempio 2.8.\*, evitando chiamate costose e soggette a errori a `nuget update` nei computer client e nei server di compilazione.
+Quando si installano pacchetti in progetti usando il formato PackageReference, NuGet aggiunge riferimenti a un grafico di pacchetto semplice nel file appropriato e risolve i conflitti in anticipo. Questo processo è noto come *ripristino transitivo*. La reinstallazione o il ripristino dei pacchetti è quindi un processo di download dei pacchetti elencati nel grafico, che genera compilazioni più veloci e più prevedibili. È anche possibile sfruttare le versioni a virgola mobile, ad esempio 2,8.\*, per evitare di modificare il progetto in modo da utilizzare la versione più recente di un pacchetto.
 
 Quando il processo di ripristino di NuGet viene eseguito prima di una compilazione, risolve prima le dipendenze in memoria, quindi scrive il grafico risultante in un file denominato `project.assets.json`. Scrive anche le dipendenze risolte in un file di blocco denominato `packages.lock.json`, se la [funzionalità di file di blocco è abilitata](../consume-packages/package-references-in-project-files.md#locking-dependencies).
 Il file di asset si trova in `MSBuildProjectExtensionsPath`, che per impostazione predefinita corrisponde alla cartella "obj" del progetto. MSBuild legge quindi questo file e lo converte in un set di cartelle in cui sono disponibili riferimenti potenziali, aggiungendoli quindi all'albero del progetto in memoria.
@@ -53,16 +53,16 @@ Quando un'applicazione specifica un numero di versione esatto, ad esempio 1.2, c
 
 <a name="floating-versions"></a>
 
-#### <a name="floating-wildcard-versions"></a>Versioni con caratteri jolly (mobili)
+#### <a name="floating-versions"></a>Versioni a virgola mobile
 
-Una versione della dipendenza con caratteri jolly o mobile viene specificata con il carattere jolly \*, ad esempio 6.0.\*. La specifica di questa versione indica di "usare la versione 6.0.x più recente"; 4.\* vuol dire "usare la versione 4.x più recente". L'uso di caratteri jolly consente a un pacchetto della dipendenza di continuare a evolversi senza richiedere una modifica all'applicazione (o al pacchetto) che lo utilizza.
+Con il carattere \* viene specificata una versione di dipendenza mobile. Ad esempio: `6.0.*`. Questa specifica della versione indica "usa la versione 6.0. x più recente"; `4.*` significa "utilizza la versione 4. x più recente". L'uso di una versione a virgola mobile riduce le modifiche apportate al file di progetto, mantenendo al contempo la versione più recente di una dipendenza.
 
-Quando si usa un carattere jolly, NuGet risolve la versione più alta di un pacchetto che corrisponde al modello della versione, ad esempio 6.0.\* ottiene la versione più alta di un pacchetto che inizia con 6.0:
+Quando si usa una versione a virgola mobile, NuGet risolve la versione più recente di un pacchetto che corrisponde al modello di versione, ad esempio `6.0.*` ottiene la versione più recente di un pacchetto che inizia con 6,0:
 
 ![Scelta della versione 6.0.1 quando è richiesta una versione mobile 6.0.*](media/projectJson-dependency-4.png)
 
 > [!Note]
-> Per informazioni sul comportamento dei caratteri jolly e delle versioni non definitive, vedere [Controllo delle versioni dei pacchetti](package-versioning.md#version-ranges-and-wildcards).
+> Per informazioni sul comportamento delle versioni a virgola mobile e delle versioni non definitive, vedere controllo delle versioni dei [pacchetti](package-versioning.md#version-ranges).
 
 
 <a name="nearest-wins"></a>
