@@ -24,6 +24,7 @@
 ### [Reinstallare e aggiornare pacchetti](consume-packages/reinstalling-and-updating-packages.md)
 ### [Gestire pacchetti globali e cartelle cache](consume-packages/managing-the-global-packages-and-cache-folders.md)
 ### [Gestire i limiti di attendibilità dei pacchetti](consume-packages/installing-signed-packages.md)
+### [Usare i feed autenticati](consume-packages/consuming-packages-authenticated-feeds.md)
 ### [Usare i sistemi di controllo del codice sorgente](consume-packages/packages-and-source-control.md)
 ### [Configurazioni comuni di NuGet](consume-packages/configuring-nuget-behavior.md)
 ## Fare riferimento ai pacchetti nel progetto
@@ -45,7 +46,8 @@
 ### [Impostare il tipo di pacchetto](create-packages/set-package-type.md)
 ### [Creare un pacchetto localizzato](create-packages/creating-localized-packages.md)
 ## Guide per contenuto specifico
-### [Creare un pacchetto per un'app UWP](guides/create-uwp-packages.md)
+### [Creare un pacchetto UWP (C++)](guides/create-uwp-packages.md)
+### [Creare un pacchetto UWP (C#)](guides/create-uwp-packages-CS.md)
 ### [Creare un pacchetto nativo](guides/native-packages.md)
 ### [Creare controlli dell'interfaccia utente come pacchetti NuGet](guides/create-UI-controls.md)
 ### [Creare un analizzatore diagnostico come pacchetto NuGet](guides/analyzers-conventions.md)
