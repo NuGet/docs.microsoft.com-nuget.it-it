@@ -6,118 +6,118 @@ ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
 ms.openlocfilehash: 7039dd27f2dddebc3c84e5ad35d5efec59547792
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488824"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428688"
 ---
-# <a name="manage-packages-using-the-nugetexe-cli"></a><span data-ttu-id="0cb19-103">Gestire pacchetti tramite l'interfaccia della riga di comando nuget.exe</span><span class="sxs-lookup"><span data-stu-id="0cb19-103">Manage packages using the nuget.exe CLI</span></span>
+# <a name="manage-packages-using-the-nugetexe-cli"></a><span data-ttu-id="535f6-103">Gestire pacchetti tramite l'interfaccia della riga di comando nuget.exe</span><span class="sxs-lookup"><span data-stu-id="535f6-103">Manage packages using the nuget.exe CLI</span></span>
 
-<span data-ttu-id="0cb19-104">Lo strumento della riga di comando consente di aggiornare e ripristinare facilmente pacchetti NuGet in progetti e soluzioni.</span><span class="sxs-lookup"><span data-stu-id="0cb19-104">The CLI tool allows you to easily update and restore NuGet packages in projects and solutions.</span></span> <span data-ttu-id="0cb19-105">Questo strumento offre tutte le funzionalità di NuGet in Windows e anche la maggior parte delle funzionalità in Mac e Linux per l'esecuzione in Mono.</span><span class="sxs-lookup"><span data-stu-id="0cb19-105">This tool provides all NuGet capabilities on Windows, and also provides most features on Mac and Linux when running under Mono.</span></span>
+<span data-ttu-id="535f6-104">Lo strumento della riga di comando consente di aggiornare e ripristinare facilmente pacchetti NuGet in progetti e soluzioni.</span><span class="sxs-lookup"><span data-stu-id="535f6-104">The CLI tool allows you to easily update and restore NuGet packages in projects and solutions.</span></span> <span data-ttu-id="535f6-105">Questo strumento offre tutte le funzionalità di NuGet in Windows e anche la maggior parte delle funzionalità in Mac e Linux per l'esecuzione in Mono.</span><span class="sxs-lookup"><span data-stu-id="535f6-105">This tool provides all NuGet capabilities on Windows, and also provides most features on Mac and Linux when running under Mono.</span></span>
 
-<span data-ttu-id="0cb19-106">L'interfaccia della riga di comando di `nuget.exe` viene usata per il progetto .NET Framework e per i progetti non di tipo SDK, ad esempio un progetto non di tipo SDK destinato alle librerie .NET Standard.</span><span class="sxs-lookup"><span data-stu-id="0cb19-106">The `nuget.exe` CLI is for your .NET Framework project and non-SDK-style projects (for example, a non-SDK style project that targets .NET Standard libraries).</span></span> <span data-ttu-id="0cb19-107">Se si usa un progetto non di tipo SDK, di cui è stata eseguita la migrazione a `PackageReference`, usare invece l'interfaccia della riga di comando di `dotnet`.</span><span class="sxs-lookup"><span data-stu-id="0cb19-107">If you are using a non-SDK-style project that has been migrated to `PackageReference`, use the `dotnet` CLI instead.</span></span> <span data-ttu-id="0cb19-108">L'interfaccia della riga di comando di `nuget.exe` richiede un file [packages.config](../reference/packages-config.md) per i riferimenti ai pacchetti.</span><span class="sxs-lookup"><span data-stu-id="0cb19-108">The `nuget.exe` CLI requires a [packages.config](../reference/packages-config.md) file for package references.</span></span>
+<span data-ttu-id="535f6-106">L'interfaccia della riga di comando di `nuget.exe` viene usata per il progetto .NET Framework e per i progetti non di tipo SDK, ad esempio un progetto non di tipo SDK destinato alle librerie .NET Standard.</span><span class="sxs-lookup"><span data-stu-id="535f6-106">The `nuget.exe` CLI is for your .NET Framework project and non-SDK-style projects (for example, a non-SDK style project that targets .NET Standard libraries).</span></span> <span data-ttu-id="535f6-107">Se si usa un progetto non di tipo SDK, di cui è stata eseguita la migrazione a `PackageReference`, usare invece l'interfaccia della riga di comando di `dotnet`.</span><span class="sxs-lookup"><span data-stu-id="535f6-107">If you are using a non-SDK-style project that has been migrated to `PackageReference`, use the `dotnet` CLI instead.</span></span> <span data-ttu-id="535f6-108">L'interfaccia della riga di comando di `nuget.exe` richiede un file [packages.config](../reference/packages-config.md) per i riferimenti ai pacchetti.</span><span class="sxs-lookup"><span data-stu-id="535f6-108">The `nuget.exe` CLI requires a [packages.config](../reference/packages-config.md) file for package references.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="0cb19-109">Nella maggior parte degli scenari è consigliabile [eseguire la migrazione dei progetti non di tipo SDK](../consume-packages/migrate-packages-config-to-package-reference.md) che usano `packages.config` a PackageReference, per poter poi usare l'interfaccia della riga di comando di `dotnet` anziché l'interfaccia della riga di comando di `nuget.exe`.</span><span class="sxs-lookup"><span data-stu-id="0cb19-109">In most scenarios, we recommend [migrating non-SDK-style projects](../consume-packages/migrate-packages-config-to-package-reference.md) that use `packages.config` to PackageReference, and then you can use the `dotnet` CLI instead of the `nuget.exe` CLI.</span></span> <span data-ttu-id="0cb19-110">La migrazione non è attualmente disponibile per i progetti C++ e ASP.NET.</span><span class="sxs-lookup"><span data-stu-id="0cb19-110">Migration is not currently available for C++ and ASP.NET projects.</span></span>
+> <span data-ttu-id="535f6-109">Nella maggior parte degli scenari è consigliabile [eseguire la migrazione dei progetti non di tipo SDK](../consume-packages/migrate-packages-config-to-package-reference.md) che usano `packages.config` a PackageReference, per poter poi usare l'interfaccia della riga di comando di `dotnet` anziché l'interfaccia della riga di comando di `nuget.exe`.</span><span class="sxs-lookup"><span data-stu-id="535f6-109">In most scenarios, we recommend [migrating non-SDK-style projects](../consume-packages/migrate-packages-config-to-package-reference.md) that use `packages.config` to PackageReference, and then you can use the `dotnet` CLI instead of the `nuget.exe` CLI.</span></span> <span data-ttu-id="535f6-110">La migrazione non è attualmente disponibile per i progetti C++ e ASP.NET.</span><span class="sxs-lookup"><span data-stu-id="535f6-110">Migration is not currently available for C++ and ASP.NET projects.</span></span>
 
-<span data-ttu-id="0cb19-111">Questo articolo illustra l'utilizzo di base di alcuni dei comandi più comuni dell'interfaccia della riga di comando di `nuget.exe`.</span><span class="sxs-lookup"><span data-stu-id="0cb19-111">This article shows you basic usage for a few of the most common `nuget.exe` CLI commands.</span></span> <span data-ttu-id="0cb19-112">Per la maggior parte di questi comandi, lo strumento della riga di comando cerca un file di progetto nella directory corrente, a meno che non venga specificato un file di progetto nel comando.</span><span class="sxs-lookup"><span data-stu-id="0cb19-112">For most of these commands, the CLI tool looks for a project file in the current directory, unless a project file is specified in the command.</span></span> <span data-ttu-id="0cb19-113">Per un elenco completo dei comandi e degli argomenti che è possibile usare, vedere [Informazioni di riferimento sull'interfaccia della riga di comando di nuget.exe](../reference/nuget-exe-cli-reference.md).</span><span class="sxs-lookup"><span data-stu-id="0cb19-113">For a complete list of commands and the arguments you may use, see the [nuget.exe CLI reference](../reference/nuget-exe-cli-reference.md).</span></span>
+<span data-ttu-id="535f6-111">Questo articolo illustra l'utilizzo di base di alcuni dei comandi più comuni dell'interfaccia della riga di comando di `nuget.exe`.</span><span class="sxs-lookup"><span data-stu-id="535f6-111">This article shows you basic usage for a few of the most common `nuget.exe` CLI commands.</span></span> <span data-ttu-id="535f6-112">Per la maggior parte di questi comandi, lo strumento della riga di comando cerca un file di progetto nella directory corrente, a meno che non venga specificato un file di progetto nel comando.</span><span class="sxs-lookup"><span data-stu-id="535f6-112">For most of these commands, the CLI tool looks for a project file in the current directory, unless a project file is specified in the command.</span></span> <span data-ttu-id="535f6-113">Per un elenco completo dei comandi e degli argomenti che è possibile usare, vedere [Informazioni di riferimento sull'interfaccia della riga di comando di nuget.exe](../reference/nuget-exe-cli-reference.md).</span><span class="sxs-lookup"><span data-stu-id="535f6-113">For a complete list of commands and the arguments you may use, see the [nuget.exe CLI reference](../reference/nuget-exe-cli-reference.md).</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="0cb19-114">Prerequisiti</span><span class="sxs-lookup"><span data-stu-id="0cb19-114">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="535f6-114">Prerequisites</span><span class="sxs-lookup"><span data-stu-id="535f6-114">Prerequisites</span></span>
 
-- <span data-ttu-id="0cb19-115">Installare l'interfaccia della riga di comando `nuget.exe` scaricandola da [nuget.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe), salvare il file `.exe` in una cartella appropriata e aggiungere tale cartella alla variabile di ambiente PATH.</span><span class="sxs-lookup"><span data-stu-id="0cb19-115">Install the `nuget.exe` CLI by downloading it from [nuget.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe), saving that `.exe` file to a suitable folder, and adding that folder to your PATH environment variable.</span></span>
+- <span data-ttu-id="535f6-115">Installare l'interfaccia della riga di comando `nuget.exe` scaricandola da [nuget.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe), salvare il file `.exe` in una cartella appropriata e aggiungere tale cartella alla variabile di ambiente PATH.</span><span class="sxs-lookup"><span data-stu-id="535f6-115">Install the `nuget.exe` CLI by downloading it from [nuget.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe), saving that `.exe` file to a suitable folder, and adding that folder to your PATH environment variable.</span></span>
 
-## <a name="install-a-package"></a><span data-ttu-id="0cb19-116">Installa un pacchetto</span><span class="sxs-lookup"><span data-stu-id="0cb19-116">Install a package</span></span>
+## <a name="install-a-package"></a><span data-ttu-id="535f6-116">Installa un pacchetto</span><span class="sxs-lookup"><span data-stu-id="535f6-116">Install a package</span></span>
 
-<span data-ttu-id="0cb19-117">Il comando [install](../reference/cli-reference/cli-ref-install.md) scarica e installa un pacchetto in un progetto (per impostazione predefinita nella cartella corrente) usando le origini pacchetto specificate.</span><span class="sxs-lookup"><span data-stu-id="0cb19-117">The [install](../reference/cli-reference/cli-ref-install.md) command downloads and installs a package into a project, defaulting to the current folder, using specified package sources.</span></span> <span data-ttu-id="0cb19-118">Installare i nuovi pacchetti nella cartella *packages* nella directory radice del progetto.</span><span class="sxs-lookup"><span data-stu-id="0cb19-118">Install new packages into the *packages* folder in your project root directory.</span></span>
+<span data-ttu-id="535f6-117">Il comando [install](../reference/cli-reference/cli-ref-install.md) scarica e installa un pacchetto in un progetto (per impostazione predefinita nella cartella corrente) usando le origini pacchetto specificate.</span><span class="sxs-lookup"><span data-stu-id="535f6-117">The [install](../reference/cli-reference/cli-ref-install.md) command downloads and installs a package into a project, defaulting to the current folder, using specified package sources.</span></span> <span data-ttu-id="535f6-118">Installare i nuovi pacchetti nella cartella *packages* nella directory radice del progetto.</span><span class="sxs-lookup"><span data-stu-id="535f6-118">Install new packages into the *packages* folder in your project root directory.</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="0cb19-119">Il comando `install` non modifica un file di progetto o *il file packages.config*. È pertanto simile a `restore` perché aggiunge soltanto pacchetti su disco, ma non modifica le dipendenze di un progetto.</span><span class="sxs-lookup"><span data-stu-id="0cb19-119">The `install`command does not modify a project file or *packages.config*; in this way it's similar to `restore` in that it only adds packages to disk but does not change a project's dependencies.</span></span> <span data-ttu-id="0cb19-120">Per aggiungere una dipendenza, aggiungere un pacchetto tramite l'interfaccia utente di Gestione pacchetti o la console in Visual Studio oppure modificare il file *packages.config*, quindi eseguire `install` o `restore`.</span><span class="sxs-lookup"><span data-stu-id="0cb19-120">To add a dependency, either add a package through the Package Manager UI or Console in Visual Studio, or modify *packages.config* and then run either `install` or `restore`.</span></span>
+> <span data-ttu-id="535f6-119">Il comando `install` non modifica un file di progetto o *il file packages.config*. È pertanto simile a `restore` perché aggiunge soltanto pacchetti su disco, ma non modifica le dipendenze di un progetto.</span><span class="sxs-lookup"><span data-stu-id="535f6-119">The `install`command does not modify a project file or *packages.config*; in this way it's similar to `restore` in that it only adds packages to disk but does not change a project's dependencies.</span></span> <span data-ttu-id="535f6-120">Per aggiungere una dipendenza, aggiungere un pacchetto tramite l'interfaccia utente di Gestione pacchetti o la console in Visual Studio oppure modificare il file *packages.config*, quindi eseguire `install` o `restore`.</span><span class="sxs-lookup"><span data-stu-id="535f6-120">To add a dependency, either add a package through the Package Manager UI or Console in Visual Studio, or modify *packages.config* and then run either `install` or `restore`.</span></span>
 
-1. <span data-ttu-id="0cb19-121">Aprire una riga di comando e passare alla directory che contiene il file di progetto.</span><span class="sxs-lookup"><span data-stu-id="0cb19-121">Open a command line and switch to the directory that contains your project file.</span></span>
+1. <span data-ttu-id="535f6-121">Aprire una riga di comando e passare alla directory che contiene il file di progetto.</span><span class="sxs-lookup"><span data-stu-id="535f6-121">Open a command line and switch to the directory that contains your project file.</span></span>
 
-2. <span data-ttu-id="0cb19-122">Usare il comando seguente per installare un pacchetto NuGet nella cartella *packages*.</span><span class="sxs-lookup"><span data-stu-id="0cb19-122">Use the following command to install a NuGet package to the *packages* folder.</span></span>
+2. <span data-ttu-id="535f6-122">Usare il comando seguente per installare un pacchetto NuGet nella cartella *packages*.</span><span class="sxs-lookup"><span data-stu-id="535f6-122">Use the following command to install a NuGet package to the *packages* folder.</span></span>
 
     ```cli
     nuget install <packageID> -OutputDirectory packages
     ```
 
-    <span data-ttu-id="0cb19-123">Per installare il pacchetto `Newtonsoft.json` nella cartella *packages*, usare il comando seguente:</span><span class="sxs-lookup"><span data-stu-id="0cb19-123">To install the `Newtonsoft.json` package to the *packages* folder, use the following command:</span></span>
+    <span data-ttu-id="535f6-123">Per installare il pacchetto `Newtonsoft.json` nella cartella *packages*, usare il comando seguente:</span><span class="sxs-lookup"><span data-stu-id="535f6-123">To install the `Newtonsoft.json` package to the *packages* folder, use the following command:</span></span>
 
     ```cli
     nuget install Newtonsoft.Json -OutputDirectory packages
     ```
 
-<span data-ttu-id="0cb19-124">In alternativa, è possibile usare il comando seguente per installare un pacchetto NuGet tramite un file `packages.config` esistente nella cartella *packages*.</span><span class="sxs-lookup"><span data-stu-id="0cb19-124">Alternatively, you can use the following command to install a NuGet package using an existing `packages.config` file to the *packages* folder.</span></span> <span data-ttu-id="0cb19-125">In questo modo non si aggiunge il pacchetto alle dipendenze del progetto, ma si installa il pacchetto localmente.</span><span class="sxs-lookup"><span data-stu-id="0cb19-125">This does not add the package to your project dependencies, but installs it locally.</span></span>
+<span data-ttu-id="535f6-124">In alternativa, è possibile usare il comando seguente per installare un pacchetto NuGet tramite un file `packages.config` esistente nella cartella *packages*.</span><span class="sxs-lookup"><span data-stu-id="535f6-124">Alternatively, you can use the following command to install a NuGet package using an existing `packages.config` file to the *packages* folder.</span></span> <span data-ttu-id="535f6-125">In questo modo non si aggiunge il pacchetto alle dipendenze del progetto, ma si installa il pacchetto localmente.</span><span class="sxs-lookup"><span data-stu-id="535f6-125">This does not add the package to your project dependencies, but installs it locally.</span></span>
 
 ```cli
 nuget install packages.config -OutputDirectory packages
 ```
 
-## <a name="install-a-specific-version-of-a-package"></a><span data-ttu-id="0cb19-126">Installare una versione specifica di un pacchetto</span><span class="sxs-lookup"><span data-stu-id="0cb19-126">Install a specific version of a package</span></span>
+## <a name="install-a-specific-version-of-a-package"></a><span data-ttu-id="535f6-126">Installare una versione specifica di un pacchetto</span><span class="sxs-lookup"><span data-stu-id="535f6-126">Install a specific version of a package</span></span>
 
-<span data-ttu-id="0cb19-127">Se la versione non viene specificata quando si usa il comando [install](../reference/cli-reference/cli-ref-install.md), NuGet installa la versione più recente del pacchetto.</span><span class="sxs-lookup"><span data-stu-id="0cb19-127">If the version is not specified when you use the [install](../reference/cli-reference/cli-ref-install.md) command, NuGet installs the latest version of the package.</span></span> <span data-ttu-id="0cb19-128">È anche possibile installare una versione specifica di un pacchetto Nuget:</span><span class="sxs-lookup"><span data-stu-id="0cb19-128">You can also install a specific version of a Nuget package:</span></span>
+<span data-ttu-id="535f6-127">Se la versione non viene specificata quando si usa il comando [install](../reference/cli-reference/cli-ref-install.md), NuGet installa la versione più recente del pacchetto.</span><span class="sxs-lookup"><span data-stu-id="535f6-127">If the version is not specified when you use the [install](../reference/cli-reference/cli-ref-install.md) command, NuGet installs the latest version of the package.</span></span> <span data-ttu-id="535f6-128">È anche possibile installare una versione specifica di un pacchetto Nuget:</span><span class="sxs-lookup"><span data-stu-id="535f6-128">You can also install a specific version of a Nuget package:</span></span>
 
 ```cli
 nuget install <packageID | configFilePath> -Version <version>
 ```
 
-<span data-ttu-id="0cb19-129">Per aggiungere ad esempio la versione 12.0.1 del pacchetto `Newtonsoft.json`, usare questo comando:</span><span class="sxs-lookup"><span data-stu-id="0cb19-129">For example, to add version 12.0.1 of the `Newtonsoft.json` package, use this command:</span></span>
+<span data-ttu-id="535f6-129">Per aggiungere ad esempio la versione 12.0.1 del pacchetto `Newtonsoft.json`, usare questo comando:</span><span class="sxs-lookup"><span data-stu-id="535f6-129">For example, to add version 12.0.1 of the `Newtonsoft.json` package, use this command:</span></span>
 
 ```cli
 nuget install Newtonsoft.Json -Version 12.0.1
 ```
 
-<span data-ttu-id="0cb19-130">Per altre informazioni sulle limitazioni e sul comportamento del comando `install`, vedere [Installare un pacchetto](#install-a-package).</span><span class="sxs-lookup"><span data-stu-id="0cb19-130">For more information on the limitations and behavior of `install`, see [Install a package](#install-a-package).</span></span>
+<span data-ttu-id="535f6-130">Per altre informazioni sulle limitazioni e sul comportamento del comando `install`, vedere [Installare un pacchetto](#install-a-package).</span><span class="sxs-lookup"><span data-stu-id="535f6-130">For more information on the limitations and behavior of `install`, see [Install a package](#install-a-package).</span></span>
 
-## <a name="remove-a-package"></a><span data-ttu-id="0cb19-131">Rimuovere un pacchetto</span><span class="sxs-lookup"><span data-stu-id="0cb19-131">Remove a package</span></span>
+## <a name="remove-a-package"></a><span data-ttu-id="535f6-131">Rimuovere un pacchetto</span><span class="sxs-lookup"><span data-stu-id="535f6-131">Remove a package</span></span>
 
-<span data-ttu-id="0cb19-132">Per eliminare uno o più pacchetti, eliminare i pacchetti che si vogliono rimuovere dalla cartella *packages*.</span><span class="sxs-lookup"><span data-stu-id="0cb19-132">To delete one or more packages, delete the packages you want to remove from the *packages* folder.</span></span>
+<span data-ttu-id="535f6-132">Per eliminare uno o più pacchetti, eliminare i pacchetti che si vogliono rimuovere dalla cartella *packages*.</span><span class="sxs-lookup"><span data-stu-id="535f6-132">To delete one or more packages, delete the packages you want to remove from the *packages* folder.</span></span>
 
-<span data-ttu-id="0cb19-133">Se si vuole reinstallare i pacchetti, usare il comando `restore` o `install`.</span><span class="sxs-lookup"><span data-stu-id="0cb19-133">If you want to reinstall packages, use the `restore` or `install` command.</span></span>
+<span data-ttu-id="535f6-133">Se si vuole reinstallare i pacchetti, usare il comando `restore` o `install`.</span><span class="sxs-lookup"><span data-stu-id="535f6-133">If you want to reinstall packages, use the `restore` or `install` command.</span></span>
 
-## <a name="list-packages"></a><span data-ttu-id="0cb19-134">Elencare i pacchetti</span><span class="sxs-lookup"><span data-stu-id="0cb19-134">List packages</span></span>
+## <a name="list-packages"></a><span data-ttu-id="535f6-134">Elencare i pacchetti</span><span class="sxs-lookup"><span data-stu-id="535f6-134">List packages</span></span>
 
-<span data-ttu-id="0cb19-135">È possibile visualizzare un elenco dei pacchetti da un'origine specificata usando il comando [list](../reference/cli-reference/cli-ref-list.md).</span><span class="sxs-lookup"><span data-stu-id="0cb19-135">You can display a list of packages from a given source using the [list](../reference/cli-reference/cli-ref-list.md) command.</span></span> <span data-ttu-id="0cb19-136">Usare l'opzione `-Source` per limitare la ricerca.</span><span class="sxs-lookup"><span data-stu-id="0cb19-136">Use the `-Source` option to restrict the search.</span></span>
+<span data-ttu-id="535f6-135">È possibile visualizzare un elenco dei pacchetti da un'origine specificata usando il comando [list](../reference/cli-reference/cli-ref-list.md).</span><span class="sxs-lookup"><span data-stu-id="535f6-135">You can display a list of packages from a given source using the [list](../reference/cli-reference/cli-ref-list.md) command.</span></span> <span data-ttu-id="535f6-136">Usare l'opzione `-Source` per limitare la ricerca.</span><span class="sxs-lookup"><span data-stu-id="535f6-136">Use the `-Source` option to restrict the search.</span></span>
 
 ```cli
 nuget list -Source <source>
 ```
 
-<span data-ttu-id="0cb19-137">Elencare ad esempio i pacchetti nella cartella *packages*.</span><span class="sxs-lookup"><span data-stu-id="0cb19-137">For example, list packages in the *packages* folder.</span></span>
+<span data-ttu-id="535f6-137">Elencare ad esempio i pacchetti nella cartella *packages*.</span><span class="sxs-lookup"><span data-stu-id="535f6-137">For example, list packages in the *packages* folder.</span></span>
 
 ```cli
 nuget list -Source C:\Users\username\source\repos\MyProject\packages
 ```
 
-<span data-ttu-id="0cb19-138">Se si usa un termine di ricerca, la ricerca includerà i nomi, i tag e le descrizioni dei pacchetti.</span><span class="sxs-lookup"><span data-stu-id="0cb19-138">If you use a search term, the search includes names of packages, tags, and package descriptions.</span></span>
+<span data-ttu-id="535f6-138">Se si usa un termine di ricerca, la ricerca includerà i nomi, i tag e le descrizioni dei pacchetti.</span><span class="sxs-lookup"><span data-stu-id="535f6-138">If you use a search term, the search includes names of packages, tags, and package descriptions.</span></span>
 
 ```cli
 nuget list <search term>
 ```
 
-## <a name="update-an-individual-package"></a><span data-ttu-id="0cb19-139">Aggiornare un singolo pacchetto</span><span class="sxs-lookup"><span data-stu-id="0cb19-139">Update an individual package</span></span>
+## <a name="update-an-individual-package"></a><span data-ttu-id="535f6-139">Aggiornare un singolo pacchetto</span><span class="sxs-lookup"><span data-stu-id="535f6-139">Update an individual package</span></span>
 
-<span data-ttu-id="0cb19-140">Se la versione del pacchetto non viene specificata, NuGet installa la versione del pacchetto più recente quando si usa il comando `install`.</span><span class="sxs-lookup"><span data-stu-id="0cb19-140">NuGet installs the latest version of the package when you use the `install` command unless you specify the package version.</span></span>
+<span data-ttu-id="535f6-140">Se la versione del pacchetto non viene specificata, NuGet installa la versione del pacchetto più recente quando si usa il comando `install`.</span><span class="sxs-lookup"><span data-stu-id="535f6-140">NuGet installs the latest version of the package when you use the `install` command unless you specify the package version.</span></span>
 
-## <a name="update-all-packages"></a><span data-ttu-id="0cb19-141">Aggiornare tutti i pacchetti</span><span class="sxs-lookup"><span data-stu-id="0cb19-141">Update all packages</span></span>
+## <a name="update-all-packages"></a><span data-ttu-id="535f6-141">Aggiornare tutti i pacchetti</span><span class="sxs-lookup"><span data-stu-id="535f6-141">Update all packages</span></span>
 
-<span data-ttu-id="0cb19-142">Usare il comando [update](../reference/cli-reference/cli-ref-update.md) per aggiornare tutti i pacchetti.</span><span class="sxs-lookup"><span data-stu-id="0cb19-142">Use the [update](../reference/cli-reference/cli-ref-update.md) command to update all packages.</span></span> <span data-ttu-id="0cb19-143">Esegue l'aggiornamento di tutti i pacchetti in un progetto (usando `packages.config`) alle versioni disponibili più recenti.</span><span class="sxs-lookup"><span data-stu-id="0cb19-143">Updates all packages in a project (using `packages.config`) to their latest available versions.</span></span> <span data-ttu-id="0cb19-144">È consigliabile eseguire il comando `restore` prima di eseguire il comando `update`.</span><span class="sxs-lookup"><span data-stu-id="0cb19-144">It is recommended to run `restore` before running `update`.</span></span>
+<span data-ttu-id="535f6-142">Usare il comando [update](../reference/cli-reference/cli-ref-update.md) per aggiornare tutti i pacchetti.</span><span class="sxs-lookup"><span data-stu-id="535f6-142">Use the [update](../reference/cli-reference/cli-ref-update.md) command to update all packages.</span></span> <span data-ttu-id="535f6-143">Esegue l'aggiornamento di tutti i pacchetti in un progetto (usando `packages.config`) alle versioni disponibili più recenti.</span><span class="sxs-lookup"><span data-stu-id="535f6-143">Updates all packages in a project (using `packages.config`) to their latest available versions.</span></span> <span data-ttu-id="535f6-144">È consigliabile eseguire il comando `restore` prima di eseguire il comando `update`.</span><span class="sxs-lookup"><span data-stu-id="535f6-144">It is recommended to run `restore` before running `update`.</span></span>
 
 ```cli
 nuget update
 ```
 
-## <a name="restore-packages"></a><span data-ttu-id="0cb19-145">Ripristinare pacchetti</span><span class="sxs-lookup"><span data-stu-id="0cb19-145">Restore packages</span></span>
+## <a name="restore-packages"></a><span data-ttu-id="535f6-145">Ripristinare pacchetti</span><span class="sxs-lookup"><span data-stu-id="535f6-145">Restore packages</span></span>
 
 [!INCLUDE [restore-nuget-exe-cli](includes/restore-nuget-exe-cli.md)]
 
-## <a name="get-the-cli-version"></a><span data-ttu-id="0cb19-146">Ottenere la versione dell'interfaccia della riga di comando</span><span class="sxs-lookup"><span data-stu-id="0cb19-146">Get the CLI version</span></span>
+## <a name="get-the-cli-version"></a><span data-ttu-id="535f6-146">Ottenere la versione dell'interfaccia della riga di comando</span><span class="sxs-lookup"><span data-stu-id="535f6-146">Get the CLI version</span></span>
 
-<span data-ttu-id="0cb19-147">Usare questo comando:</span><span class="sxs-lookup"><span data-stu-id="0cb19-147">Use this command:</span></span>
+<span data-ttu-id="535f6-147">Usare questo comando:</span><span class="sxs-lookup"><span data-stu-id="535f6-147">Use this command:</span></span>
 
 ```cli
 nuget help
 ```
 
-<span data-ttu-id="0cb19-148">La prima riga nell'output del comando help mostra la versione.</span><span class="sxs-lookup"><span data-stu-id="0cb19-148">The first line in the help output shows the version.</span></span> <span data-ttu-id="0cb19-149">Per evitare lo scorrimento, usare invece `nuget help | more`.</span><span class="sxs-lookup"><span data-stu-id="0cb19-149">To avoid scrolling up, use `nuget help | more` instead.</span></span>
+<span data-ttu-id="535f6-148">La prima riga nell'output del comando help mostra la versione.</span><span class="sxs-lookup"><span data-stu-id="535f6-148">The first line in the help output shows the version.</span></span> <span data-ttu-id="535f6-149">Per evitare lo scorrimento, usare invece `nuget help | more`.</span><span class="sxs-lookup"><span data-stu-id="535f6-149">To avoid scrolling up, use `nuget help | more` instead.</span></span>
