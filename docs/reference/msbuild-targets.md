@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
 ms.openlocfilehash: 922fc0b25664dede59e33c6cd012dfeedcad0397
-ms.sourcegitcommit: 415c70d7014545c1f65271a2debf8c3c1c5eb688
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77036929"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428800"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Pack e restore di NuGet come destinazioni MSBuild
 
@@ -46,9 +46,9 @@ La tabella seguente descrive le proprietà di MSBuild che possono essere aggiunt
 
 Si noti che le proprietà `Owners` e `Summary` da `.nuspec` non sono supportate con MSBuild.
 
-| Valore di attributo/NuSpec | Proprietà MSBuild | Default | Note |
+| Valore di attributo/NuSpec | Proprietà MSBuild | Predefinito | Note |
 |--------|--------|--------|--------|
-| Id | PackageId | AssemblyName | $(AssemblyName) da MSBuild |
+| ID | PackageId | AssemblyName | $(AssemblyName) da MSBuild |
 | Versione | PackageVersion | Versione | Compatibile con SemVer, ad esempio "1.0.0", "1.0.0-beta" o "1.0.0-beta-00345" |
 | VersionPrefix | PackageVersionPrefix | empty | L'impostazione di PackageVersion sovrascrive PackageVersionPrefix |
 | VersionSuffix | PackageVersionSuffix | empty | $(VersionSuffix) da MSBuild. L'impostazione di PackageVersion sovrascrive PackageVersionSuffix |
@@ -71,7 +71,7 @@ Si noti che le proprietà `Owners` e `Summary` da `.nuspec` non sono supportate 
 | Repository/ramo | RepositoryBranch | empty | Informazioni facoltative sul ramo del repository. Per includere questa proprietà, è necessario specificare anche *RepositoryUrl* . Esempio: *Master* (NuGet 4.7.0 +) |
 | Repository/commit | RepositoryCommit | empty | Commit o insieme di modifiche facoltativo del repository per indicare l'origine su cui è stato compilato il pacchetto. Per includere questa proprietà, è necessario specificare anche *RepositoryUrl* . Esempio: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
-| Riepilogo | Non supportate | | |
+| Summary | Non supportate | | |
 
 ### <a name="pack-target-inputs"></a>Input destinazione pack
 
@@ -131,7 +131,7 @@ A partire da NuGet 5,3 & Visual Studio 2019 versione 16,3, `pack` genererà un a
 
 Quando si imballa un file di immagine icona, è necessario utilizzare `PackageIcon` proprietà per specificare il percorso del pacchetto, relativo alla radice del pacchetto. Inoltre, è necessario assicurarsi che il file sia incluso nel pacchetto. Le dimensioni del file di immagine sono limitate a 1 MB. I formati di file supportati sono JPEG e PNG. Si consiglia la risoluzione di un'immagine di 128x128.
 
-Ad esempio,
+Ad esempio:
 
 ```xml
 <PropertyGroup>
@@ -242,7 +242,7 @@ Quando si usa un'espressione di licenza, è necessario usare la proprietà Packa
 
 [Altre informazioni sulle espressioni di licenza e le licenze accettate da NuGet.org](nuspec.md#license).
 
-Quando si imballa un file di licenza, è necessario utilizzare la proprietà PackageLicenseFile per specificare il percorso del pacchetto, relativo alla radice del pacchetto. Inoltre, è necessario assicurarsi che il file sia incluso nel pacchetto. Ad esempio,
+Quando si imballa un file di licenza, è necessario utilizzare la proprietà PackageLicenseFile per specificare il percorso del pacchetto, relativo alla radice del pacchetto. Inoltre, è necessario assicurarsi che il file sia incluso nel pacchetto. Ad esempio:
 
 ```xml
 <PropertyGroup>
@@ -336,7 +336,7 @@ Scrivere una destinazione personalizzata e specificarla come valore della propri
 - `PackagePath`: percorso in cui il file deve essere restituito nel pacchetto. NuGet genera un avviso se viene aggiunto più di un file allo stesso percorso del pacchetto.
 - `BuildAction`: l'azione di compilazione da assegnare al file, necessaria solo se il percorso del pacchetto si trova nella cartella `contentFiles`. Il valore predefinito è "None".
 
-Ad esempio,
+Esempio:
 ```xml
 <PropertyGroup>
   <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);CustomContentTarget</TargetsForTfmSpecificContentInPackage>
@@ -395,7 +395,7 @@ Possono esistere ulteriori impostazioni di ripristino derivate da proprietà di 
 
 #### <a name="examples"></a>Esempi
 
-Command line:
+Riga di comando:
 
 ```cli
 msbuild -t:restore -p:RestoreConfigFile=<path>

@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
 ms.openlocfilehash: 940582d5173f5a53dcd04cf1258fc02a2439af4e
-ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74825292"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428716"
 ---
 # <a name="nuget-25-release-notes"></a>Note sulla versione di NuGet 2,5
 
@@ -43,14 +43,14 @@ Vorremmo ringraziare i collaboratori esterni seguenti per i contributi significa
 10. [Maxime Brugidou](https://www.codeplex.com/site/users/view/brugidou) ([@brugidou](https://twitter.com/brugidou))
      - [#936](https://nuget.codeplex.com/workitem/936) gestire le dipendenze di progetto durante la compressione
 11. [Decostore Xavier](https://www.codeplex.com/site/users/view/XavierDecoster) ([@XavierDecoster](https://twitter.com/xavierdecoster))
-     - [#2991](https://nuget.codeplex.com/workitem/2991), [#3164](https://nuget.codeplex.com/workitem/3164) -supporto Password come testo non crittografato quando si archiviano le credenziali dell'origine del pacchetto nel file nuget.cofig
+     - [#2991](https://nuget.codeplex.com/workitem/2991), [#3164](https://nuget.codeplex.com/workitem/3164) supporta la password non crittografata durante l'archiviazione delle credenziali di origine del pacchetto nei file NuGet. cofig
 12. [James Manning](http://www.codeplex.com/site/users/view/jmanning) ([@manningj](https://twitter.com/manningj))
-     - [#3190](http://nuget.codeplex.com/workitem/3190), [#3191](http://nuget.codeplex.com/workitem/3191) -descrizione della Guida correggere Get-Package
+     - [#3190](http://nuget.codeplex.com/workitem/3190), correzione [#3191](http://nuget.codeplex.com/workitem/3191) -Descrizione della Guida di Get-Package
 
 Sono inoltre apprezzate le persone seguenti per individuare i bug con NuGet 2,5 beta/RC che sono stati approvati e corretti prima della versione finale:
 
 1. [Tony Wall](https://www.codeplex.com/site/users/view/CodeChief) ([@CodeChief](https://twitter.com/codechief))
-    - [#3200](https://nuget.codeplex.com/workitem/3200) MSTest interrotto con più di recente NuGet 2.4 e 2.5 compilazioni:
+    - [#3200](https://nuget.codeplex.com/workitem/3200) -MSTest interruppe con le compilazioni NuGet 2,4 e 2,5 più recenti
 
 ## <a name="notable-features-in-the-release"></a>Funzionalità rilevanti della versione
 

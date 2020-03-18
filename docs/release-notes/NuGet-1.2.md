@@ -1,49 +1,49 @@
 ---
-title: Note sulla versione 1.2 di NuGet
-description: Note sulla versione per NuGet 1.2, inclusi i problemi noti, correzioni di bug, funzionalità aggiunte e dcr.
+title: Note sulla versione di NuGet 1,2
+description: Note sulla versione per NuGet 1,2, inclusi problemi noti, correzioni di bug, funzionalità aggiunte e DCR.
 author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
 ms.openlocfilehash: 5d10d6bf27614980a144c30c3af6f9892a109061
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426194"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79429087"
 ---
-# <a name="nuget-12-release-notes"></a>Note sulla versione 1.2 di NuGet
+# <a name="nuget-12-release-notes"></a>Note sulla versione di NuGet 1,2
 
-[Note sulla versione 1.0 e 1.1 di NuGet](../release-notes/nuget-1.1.md) | [note sulla versione di NuGet 1.3](../release-notes/nuget-1.3.md)
+[Note sulla versione di nuget 1,0 e 1,1](../release-notes/nuget-1.1.md) | [Note sulla versione di NuGet 1,3](../release-notes/nuget-1.3.md)
 
-1\.2 di NuGet è stato rilasciato il 30 marzo 2011.
+NuGet 1,2 è stato rilasciato il 30 marzo 2011.
 
 ## <a name="new-features"></a>Nuove funzionalità
 
 ### <a name="framework-profile-support"></a>Supporto del profilo di Framework
 
-Dall'inizio, NuGet supportati con le librerie di diversi framework di destinazione. Ma ora i pacchetti possono contenere assembly destinati a profili specifici, ad esempio il profilo di Windows Phone. Per un profilo specifico di un framework di destinazione, aggiungere un trattino seguito usando l'abbreviazione del profilo. Ad esempio, per impostare come destinazione SilverLight in esecuzione in un Windows Phone (noto anche come Windows Phone 7), è possibile inserire un assembly nella cartella 3 wp come illustrato nello screenshot seguente.
+Dall'inizio, NuGet supportava le librerie che hanno come destinazione Framework diversi. Ma ora i pacchetti possono contenere assembly destinati a profili specifici, ad esempio il profilo Windows Phone. Per fare riferimento a un profilo specifico di un Framework, aggiungere un trattino seguito dall'abbreviazione del profilo. Ad esempio, per specificare come destinazione SilverLight in esecuzione su un Windows Phone (noto anche come Windows Phone 7), è possibile inserire un assembly nella cartella SL3-WP come illustrato nello screenshot seguente.
 
-![Layout cartella del profilo di Framework](./media/framework-profile-support.png)
+![Layout delle cartelle del profilo del Framework](./media/framework-profile-support.png)
 
-Si potrebbe chiedere perché abbiamo semplicemente non sceglie di usare "wp7" il moniker. È in parte, stiamo prevedendo che Windows Phone 7 è possibile eseguire una versione più recente di Silverlight in futuro, nel qual caso si potrebbe essere necessario essere più specifici sulla quale framework profilo che si sta destinata ad.
+È possibile chiedersi perché non è stato semplicemente scelto di usare "WP7" come moniker. In parte, si prevede che Windows Phone 7 potrebbe eseguire una versione più recente di Silverlight in futuro. in questo caso potrebbe essere necessario essere più specifici del profilo del Framework destinazione.
 
-### <a name="automatically-add-binding-redirects"></a>Aggiungere automaticamente i reindirizzamenti di associazione
+### <a name="automatically-add-binding-redirects"></a>Aggiungere automaticamente i reindirizzamenti di binding
 
-Quando si installa un pacchetto con assembly con nome sicuro, NuGet può ora rilevare i casi in cui il progetto richiede da aggiungere al file di configurazione affinché il progetto per la compilazione e le aggiunge automaticamente i reindirizzamenti di associazione. Parte 3 di serie di post di blog di David Ebbo sul controllo delle versioni NuGet intitolata "[unificazione tramite associazione reindirizza](http://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)" descrive lo scopo di questa funzionalità in modo più dettagliato.
+Quando si installa un pacchetto con assembly con nome sicuro, NuGet può ora rilevare i casi in cui il progetto richiede l'aggiunta di reindirizzamenti di binding al file di configurazione affinché il progetto venga compilato e aggiunto automaticamente. La parte 3 della serie di post di Blog di David Ebbo sul controllo delle versioni di NuGet, denominata "[unificazione tramite reindirizzamenti di binding](http://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)", illustra lo scopo di questa funzionalità in altri dettagli.
 
 <a name="framework-assembly-refs"></a>
 
-### <a name="specifying-framework-assembly-references-gac"></a>Specifica i riferimenti ad Assembly di Framework (GAC)
+### <a name="specifying-framework-assembly-references-gac"></a>Specifica di riferimenti ad assembly Framework (GAC)
 
-In alcuni casi, un pacchetto può dipendere da un assembly incluso in .NET Framework. In teoria, non è sempre necessario che il consumer del pacchetto di fare riferimento all'assembly di framework. Ma in alcuni casi, è importante, ad esempio quando lo sviluppatore deve rispetto ai tipi nell'assembly di codice per usare il pacchetto. Il nuovo `frameworkAssemblies` elemento, un elemento figlio dell'elemento dei metadati, consente di specificare un set di `frameworkAssembly` gli elementi che punta a un assembly di Framework nella GAC. Si noti l'accento su assembly del Framework.
-Questi assembly non vengono inclusi nel pacchetto come questi sono considerati in ogni computer come parte di .NET Framework. La tabella seguente elenca gli attributi del `frameworkAssembly` elemento.
+In alcuni casi, un pacchetto può dipendere da un assembly presente nell'.NET Framework. In modo rigoroso, non è sempre necessario che l'utente del pacchetto faccia riferimento all'assembly del Framework. In alcuni casi, tuttavia, è importante, ad esempio quando lo sviluppatore deve codificare i tipi in tale assembly per poter utilizzare il pacchetto. Il nuovo elemento `frameworkAssemblies`, un elemento figlio dell'elemento metadata, consente di specificare un set di `frameworkAssembly` elementi che puntano a un assembly del Framework nella GAC. Si noti l'enfasi sull'assembly del Framework.
+Questi assembly non sono inclusi nel pacchetto perché si presuppone che si trovino in ogni computer come parte del .NET Framework. Nella tabella seguente sono elencati gli attributi dell'elemento `frameworkAssembly`.
 
 
 |Attributo |Descrizione|
 |----------------|-----------|
-|**assemblyName**|*Obbligatorio*. Nome dell'assembly, ad esempio `System.Net`.|
-|**targetFramework**|*Facoltativo*. Consente di specificare un nome di profilo e framework (o alias) che l'assembly di framework si applica a, ad esempio "net40" o "sl4". Usa lo stesso formato descritto nella [che supportano più Framework di destinazione](../create-packages/supporting-multiple-target-frameworks.md).|
+|**assemblyName**|*Obbligatoria*. Nome dell'assembly, ad esempio `System.Net`.|
+|**targetFramework**|*Facoltativo*. Consente di specificare un Framework e un nome di profilo (o alias) a cui si applica questo assembly del Framework, ad esempio "net40" o "SL4". USA lo stesso formato descritto in [supporto di più framework di destinazione](../create-packages/supporting-multiple-target-frameworks.md).|
 
 ```xml
   <frameworkAssemblies>
@@ -52,19 +52,19 @@ Questi assembly non vengono inclusi nel pacchetto come questi sono considerati i
   </frameworkAssemblies>
 ```
 
-### <a name="nugetexe-now-is-able-to-store-api-key-credentials"></a>NuGet.exe ora è in grado di archiviare le credenziali di chiave API
+### <a name="nugetexe-now-is-able-to-store-api-key-credentials"></a>NuGet. exe ora è in grado di archiviare le credenziali della chiave API
 
-Quando si usa lo strumento da riga di comando nuget.exe, è ora possibile usare il comando SetApiKey per archiviare la chiave API. In questo modo, non sarà necessario specificarla ogni volta che si attiva un pacchetto. Per altre informazioni su come salvare la chiave API con nuget.exe, [leggere la documentazione sulla pubblicazione di un pacchetto](../nuget-org/publish-a-package.md).
+Quando si usa lo strumento da riga di comando NuGet. exe, è ora possibile usare il comando SetApiKey per archiviare la chiave API. In questo modo, non sarà necessario specificarlo ogni volta che si esegue il push di un pacchetto. Per altre informazioni sul salvataggio della chiave API con NuGet. exe, [vedere la documentazione relativa alla pubblicazione di un pacchetto](../nuget-org/publish-a-package.md).
 
 ### <a name="package-explorer"></a>Esplora pacchetti
-Esplora pacchetti è stata aggiornata per il supporto di NuGet 1.2. Per altre informazioni, consultare il [note sulla versione di Package Explorer](http://nuget.codeplex.com/wikipage?title=New%20features%20in%20NuGet%20Package%20Explorer%201.0).
+Esplora pacchetti è stato aggiornato per supportare NuGet 1,2. Per ulteriori informazioni, vedere le [Note sulla versione di Esplora pacchetti](http://nuget.codeplex.com/wikipage?title=New%20features%20in%20NuGet%20Package%20Explorer%201.0).
 
-## <a name="other-featuresfixes"></a>Altre funzionalità e correzioni
+## <a name="other-featuresfixes"></a>Altre funzionalità/correzioni
 
-Nell'elenco precedente sono stati i più evidenti delle molte nuove funzionalità sono stati implementati i bug sono stati corretti. Tutto sommato, abbiamo implementato/risolto [elementi di lavoro 59](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%201.2&assignedTo=All&component=All&sortField=Votes&sortDirection=Descending&page=0) in questa versione.
+L'elenco precedente è stato il più evidente tra le numerose funzionalità implementate e i bug corretti. In tutti gli elementi di lavoro sono stati implementati/corretti [59 elementi di lavoro](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=All&type=All&priority=All&release=NuGet%201.2&assignedTo=All&component=All&sortField=Votes&sortDirection=Descending&page=0) in questa versione.
 
 ## <a name="known-issues"></a>Problemi noti
 
-* **1.2 creare il pacchetto incompatibilità**: I pacchetti compilati con la versione più recente dello strumento della riga di comando, nuget.exe (1.2 >) non funzionerà con le versioni precedenti di Visual Studio NuGet aggiuntivo (ad esempio 1.1). Se si verifica un messaggio di errore che indica che qualcosa sullo schema incompatibile, si eseguono in alcuni casi questo errore. Eseguire l'aggiornamento di NuGet alla versione più recente.
-* **Incompatibilità di NuGet. server**: Se si ospita un feed utilizzando il progetto NuGet. server interno in NuGet, è necessario aggiornare il progetto con la versione più recente di NuGet. Server.
-* **Errore di mancata corrispondenza della firma**: Se si verifica un errore durante l'aggiornamento con un messaggio su una firma di mancata corrispondenza, è necessario innanzitutto disinstallare NuGet e quindi installarlo. Questa opzione è presente nel nostro [pagina dei problemi noti](../release-notes/known-issues.md) fornisce ulteriori dettagli. Il problema interessa quelli che eseguono Visual Studio 2010 SP1 solo e dispone di una versione di NuGet 1.0 installato che è stato firmato in modo non corretto. Questa versione è stata resi disponibile solo dal sito Web CodePlex per un breve periodo di tempo in modo che questo problema non hanno impatto su troppi utenti.
+* **1,2 incompatibilità dei pacchetti**: i pacchetti compilati con la versione più recente dello strumento da riga di comando NuGet. exe (> 1,2) non funzioneranno con le versioni precedenti del componente aggiuntivo NuGet vs (ad esempio 1,1). Se si esegue un messaggio di errore che informa sullo schema incompatibile, si è verificato questo errore. Aggiornare NuGet alla versione più recente.
+* **Incompatibilità di NuGet. Server**: se si ospita un feed NuGet interno usando il progetto NuGet. Server, sarà necessario aggiornare il progetto con la versione più recente di NuGet. Server.
+* **Errore di mancata corrispondenza della firma**: se si è rilevato un errore durante un aggiornamento con un messaggio relativo a una mancata corrispondenza di firma, è necessario disinstallare prima NuGet e quindi installarlo. Questa pagina è elencata nella [pagina problemi noti](../release-notes/known-issues.md) che fornisce ulteriori dettagli. Il problema riguarda solo quelli che eseguono Visual Studio 2010 SP1 ed è installata una versione di NuGet 1,0 che è stata firmata in modo non corretto. Questa versione è stata resa disponibile dal sito Web CodePlex solo per un breve periodo di tempo, quindi questo problema non dovrebbe influire su troppe persone.

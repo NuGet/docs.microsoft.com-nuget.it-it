@@ -6,11 +6,11 @@ ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
 ms.openlocfilehash: 915f6e4cfc0b21d2b10006c62e8230720d07ce74
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76813741"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428905"
 ---
 # <a name="nugetorg-frequently-asked-questions"></a>Domande frequenti su NuGet.org
 
@@ -138,7 +138,7 @@ Se si vuole cambiare l'account Microsoft per l'utente di NuGet.org, seguire ques
 Se si è tentato di cambiare l'account di accesso Microsoft ed è stato visualizzato l'errore seguente:
 > _Non è stato possibile aggiornare il account Microsoft con ' Account2 <account2@outlook.com>'. Questo problema può verificarsi se è già collegato a un altro account NuGet. Per ulteriori informazioni, contattare il supporto tecnico._
 
-Per l'utente di NuGet.org con nome utente `MyNuGetAccount1`, si supponga di aver tentato di cambiare l'account di accesso Microsoft da `account1@outlook.com` a un altro account Microsoft con indirizzo di posta elettronica `account2@outlook.com` e che sia visualizzato l'errore sopra riportato.
+Per l'utente di NuGet.org con nome utente `account1@outlook.com`, si supponga di aver tentato di cambiare l'account di accesso Microsoft da `MyNuGetAccount1` a un altro account Microsoft con indirizzo di posta elettronica `account2@outlook.com` e che sia visualizzato l'errore sopra riportato.
 
 **Che cosa significa l'errore sopra riportato?**
 
@@ -242,7 +242,7 @@ Se vuole accedere a NuGet.org con l'account Microsoft (@yourdomain.com), l'utent
 
 ### <a name="how-do-i-change-my-nugetorg-account-username"></a>Come si cambia il nome utente dell'account di NuGet.org?
 
-Non è possibile farlo. Per quanto riguarda i criteri, non è possibile modificare i nomi utente. Questa operazione è inoltre una modifica sostanziale per gli utenti che possono avere definito [criteri di attendibilità del pacchetto in base al proprietario del pacchetto](../consume-packages/installing-signed-packages.md#trust-package-owners). L'unico modo per cambiare il nome utente consiste nel creare un nuovo account con il nome utente desiderato. È consigliabile eliminare l'account esistente prima di crearne uno nuovo. In caso contrario non sarà possibile riutilizzare l'account Microsoft registrato.
+Non è possibile. Per quanto riguarda i criteri, non è possibile modificare i nomi utente. Questa operazione è inoltre una modifica sostanziale per gli utenti che possono avere definito [criteri di attendibilità del pacchetto in base al proprietario del pacchetto](../consume-packages/installing-signed-packages.md#trust-package-owners). L'unico modo per cambiare il nome utente consiste nel creare un nuovo account con il nome utente desiderato. È consigliabile eliminare l'account esistente prima di crearne uno nuovo. In caso contrario non sarà possibile riutilizzare l'account Microsoft registrato.
 > [!Important]
 > L'eliminazione dell'utente **mantiene riservato**`username`. Non sarà possibile riutilizzare lo stesso nome utente, **neanche cambiando alcune lettere in maiuscole o minuscole**. Se, ad esempio, è stato creato un utente con nome utente `mycoolname` e si vuole cambiare quest'ultimo in `MyCoolName` (modifica di maiuscole e minuscole), questa operazione non sarà possibile dopo l'eliminazione dell'utente.
 

@@ -6,11 +6,11 @@ ms.author: mikejo
 ms.date: 06/05/2019
 ms.topic: conceptual
 ms.openlocfilehash: 7951b3db0cdcaee0a1eb955a5bf6fedce24c79c9
-ms.sourcegitcommit: fc0f8c950829ee5c96e3f3f32184bc727714cfdb
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74253946"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79429017"
 ---
 # <a name="individual-accounts-on-nugetorg"></a>Account personali in NuGet.org
 
@@ -18,7 +18,7 @@ ms.locfileid: "74253946"
 
 ## <a name="individual-accounts-vs-organization-accounts"></a>Account personali e account aziendali
 
-L'account personale (utente) è l'identità dell'utente in NuGet.org e può essere membro di un numero qualsiasi di organizzazioni. Un pacchetto può appartenere a un account aziendale come a un account personale. I consumer di pacchetti non notano differenze tra un account personale e l'account aziendale: entrambi vengono visualizzati come `owners` del pacchetto.
+L'account personale (utente) è l'identità dell'utente in NuGet.org e può essere membro di un numero qualsiasi di organizzazioni. Un pacchetto può appartenere a un account aziendale come a un account personale. I consumer di pacchetti non vedono alcuna differenza tra un account individuale e l'account aziendale: entrambi vengono visualizzati come `owners` (proprietari) del pacchetto.
 
 Un account aziendale ha uno o più account individuali come membri. Questi membri possono gestire un set di pacchetti mantenendo un'unica identità per la proprietà.
 

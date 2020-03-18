@@ -7,17 +7,17 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
 ms.openlocfilehash: aacf56a5dc5af9abf6f60d42bc7fd530a128d0d8
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68419826"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428709"
 ---
-# <a name="nuget-server-api"></a>API server NuGet
+# <a name="nuget-server-api"></a>API Server NuGet
 
 L'API del server NuGet è un set di endpoint HTTP che possono essere usati per scaricare i pacchetti, recuperare i metadati, pubblicare nuovi pacchetti ed eseguire la maggior parte delle altre operazioni disponibili nei client NuGet ufficiali.
 
-Questa API viene usata dal client NuGet in Visual Studio, NuGet. exe e dall'interfaccia della riga di comando di .NET per eseguire operazioni [`dotnet restore`](/dotnet/core/tools/dotnet-restore?tabs=netcore2x)NuGet come, cercare nell'interfaccia utente di Visual [`nuget.exe push`](../reference/cli-reference/cli-ref-push.md)studio e.
+Questa API viene usata dal client NuGet in Visual Studio, NuGet. exe e dall'interfaccia della riga di comando di .NET per eseguire operazioni NuGet come [`dotnet restore`](/dotnet/core/tools/dotnet-restore?tabs=netcore2x), eseguire ricerche nell'interfaccia utente di Visual studio e [`nuget.exe push`](../reference/cli-reference/cli-ref-push.md).
 
 Si noti che in alcuni casi nuget.org presenta requisiti aggiuntivi che non vengono applicati da altre origini di pacchetti. Queste differenze sono documentate dai [protocolli NuGet.org](nuget-protocols.md).
 
@@ -37,7 +37,7 @@ Per ulteriori informazioni sull'indice del servizio, vedere [le](service-index.m
 
 L'API è la versione 3 del protocollo HTTP di NuGet. Questo protocollo viene talvolta definito "API V3". Questi documenti di riferimento faranno riferimento a questa versione del protocollo semplicemente come "API".
 
-La versione dello schema dell'indice del servizio è `version` indicata dalla proprietà nell'indice del servizio. L'API impone che la stringa di versione abbia un numero di versione principale `3`di. Quando vengono apportate modifiche non di rilievo allo schema dell'indice del servizio, viene aumentata la versione secondaria della stringa di versione.
+La versione dello schema dell'indice del servizio è indicata dalla proprietà `version` nell'indice del servizio. L'API impone che la stringa di versione disponga di un numero di versione principale di `3`. Quando vengono apportate modifiche non di rilievo allo schema dell'indice del servizio, viene aumentata la versione secondaria della stringa di versione.
 
 I client meno recenti, ad esempio NuGet. exe 2. x, non supportano l'API V3 e supportano solo la versione precedente dell'API v2, che non è documentata qui.
 
@@ -49,7 +49,7 @@ Sono state apportate modifiche al protocollo senza interruzioni dell'API da quan
 
 L' **indice del servizio** descrive un'ampia gamma di risorse. Il set corrente di risorse supportate è il seguente:
 
-Nome della risorsa                                                        | Obbligatoria | Descrizione
+Nome risorsa                                                        | Obbligatoria | Descrizione
 -------------------------------------------------------------------- | -------- | -----------
 [Catalogo](catalog-resource.md)                                       | no       | Record completo di tutti gli eventi del pacchetto.
 [PackageBaseAddress](package-base-address-resource.md)               | sì      | Ottenere il contenuto del pacchetto (. nupkg).
@@ -67,18 +67,18 @@ In generale, tutti i dati non binari restituiti da una risorsa API vengono seria
 In futuro, con l'evolversi del protocollo, è possibile aggiungere nuove proprietà alle risposte JSON. Affinché il client sia di prova futura, l'implementazione non presuppone che lo schema di risposta sia finale e non possa includere dati aggiuntivi. Tutte le proprietà che l'implementazione non è in grado di comprendere devono essere ignorate.
 
 > [!Note]
-> Quando un'origine non implementa `SearchAutocompleteService` alcun comportamento di completamento automatico, deve essere disabilitato correttamente. Quando `ReportAbuseUriTemplate` non viene implementato, il client NuGet ufficiale esegue il fallback all'URL di abusi dei report di NuGet. org (monitorato da [NuGet/Home # 4924](https://github.com/NuGet/Home/issues/4924)). Gli altri client possono scegliere di non visualizzare semplicemente un URL di abuso del report all'utente.
+> Quando un'origine non implementa `SearchAutocompleteService` il comportamento di completamento automatico dovrebbe essere disabilitato normalmente. Quando `ReportAbuseUriTemplate` non è implementato, il client NuGet ufficiale esegue il fallback all'URL degli abusi dei report di NuGet. org (monitorato da [NuGet/Home # 4924](https://github.com/NuGet/Home/issues/4924)). Gli altri client possono scegliere di non visualizzare semplicemente un URL di abuso del report all'utente.
 
 ### <a name="undocumented-resources-on-nugetorg"></a>Risorse non documentate in nuget.org
 
 L'indice del servizio V3 in nuget.org include alcune risorse che non sono documentate in precedenza. Esistono alcuni motivi per non documentare una risorsa.
 
-In primo luogo, non vengono documentate le risorse usate come dettaglio di implementazione di nuget.org. La `SearchGalleryQueryService` classe rientra in questa categoria. [Nugetgallery](https://github.com/NuGet/NuGetGallery) usa questa risorsa per delegare alcune query V2 (OData) all'indice di ricerca invece di usare il database. Questa risorsa è stata introdotta per motivi di scalabilità e non è destinata all'uso esterno.
+In primo luogo, non vengono documentate le risorse usate come dettaglio di implementazione di nuget.org. Il `SearchGalleryQueryService` rientra in questa categoria. [Nugetgallery](https://github.com/NuGet/NuGetGallery) usa questa risorsa per delegare alcune query V2 (OData) all'indice di ricerca invece di usare il database. Questa risorsa è stata introdotta per motivi di scalabilità e non è destinata all'uso esterno.
 
 In secondo luogo, non vengono documentate le risorse che non sono mai state fornite in una versione RTM del client ufficiale.
-`PackageDisplayMetadataUriTemplate`e `PackageVersionDisplayMetadataUriTemplate` rientrano in questa categoria.
+`PackageDisplayMetadataUriTemplate` e `PackageVersionDisplayMetadataUriTemplate` rientrano in questa categoria.
 
-In terzo luogo, non vengono documentate le risorse strettamente associate al protocollo v2, che a sua volta non è documentato intenzionalmente. La `LegacyGallery` risorsa rientra in questa categoria. Questa risorsa consente a un indice del servizio V3 di puntare a un URL di origine V2 corrispondente. Questa risorsa supporta `nuget.exe list`.
+In terzo luogo, non vengono documentate le risorse strettamente associate al protocollo v2, che a sua volta non è documentato intenzionalmente. La risorsa `LegacyGallery` rientra in questa categoria. Questa risorsa consente a un indice del servizio V3 di puntare a un URL di origine V2 corrispondente. Questa risorsa supporta la `nuget.exe list`.
 
 Se una risorsa non è documentata in questa sezione, si consiglia *vivamente* di non assumere una dipendenza. È possibile rimuovere o modificare il comportamento di queste risorse non documentate che potrebbero interrompere l'implementazione in modi imprevisti.
 
@@ -88,12 +88,12 @@ Tutti i timestamp restituiti dall'API sono UTC o altrimenti specificati usando l
 
 ## <a name="http-methods"></a>Metodi HTTP
 
-Verbo   | Usa
+Verbo   | Uso
 ------ | -----------
 GET    | Esegue un'operazione di sola lettura, in genere il recupero dei dati.
-HEAD   | Recupera le intestazioni della risposta per la richiesta `GET` corrispondente.
+HEAD   | Recupera le intestazioni della risposta per la richiesta di `GET` corrispondente.
 PUT    | Crea una risorsa che non esiste o, se esiste, la Aggiorna. Alcune risorse potrebbero non supportare l'aggiornamento.
-DELETE | Elimina o rimuove l'elenco di una risorsa.
+Elimina | Elimina o rimuove l'elenco di una risorsa.
 
 ## <a name="http-status-codes"></a>Codici di stato HTTP
 
@@ -113,21 +113,21 @@ Codice | Descrizione
 500  | Si è verificato un errore imprevisto del servizio.
 503  | Il servizio è temporaneamente non disponibile.
 
-Qualsiasi `GET` richiesta effettuata a un endpoint API può restituire un reindirizzamento HTTP (301 o 302). I client devono gestire normalmente questi reindirizzamenti osservando l' `Location` intestazione ed eseguendo un successivo. `GET` La documentazione relativa a endpoint specifici non richiama in modo esplicito i reindirizzamenti che possono essere usati.
+Qualsiasi richiesta di `GET` effettuata a un endpoint API può restituire un reindirizzamento HTTP (301 o 302). I client devono gestire normalmente questi reindirizzamenti osservando l'intestazione `Location` ed eseguendo un `GET`successivo. La documentazione relativa a endpoint specifici non richiama in modo esplicito i reindirizzamenti che possono essere usati.
 
 Nel caso di un codice di stato a livello di 500, il client può implementare un meccanismo di ripetizione dei tentativi ragionevole. Il client NuGet ufficiale ritenta tre volte quando si verifica un codice di stato a livello di 500 o un errore TCP/DNS.
 
 ## <a name="http-request-headers"></a>Intestazioni di richiesta HTTP
 
-Name                     | Descrizione
+Nome                     | Descrizione
 ------------------------ | -----------
-X-NuGet-ApiKey           | Obbligatorio per push ed Delete, vedere [ `PackagePublish` Resource](package-publish-resource.md)
-X-NuGet-Client-Version   | **Deprecato** e sostituito da`X-NuGet-Protocol-Version`
+X-NuGet-ApiKey           | Per le notifiche push ed Delete, vedere [`PackagePublish` Resource](package-publish-resource.md)
+X-NuGet-Client-Version   | **Deprecato** e sostituito da `X-NuGet-Protocol-Version`
 X-NuGet-Protocol-Version | Obbligatorio in alcuni casi solo su nuget.org, vedere [protocolli NuGet.org](NuGet-Protocols.md)
 X-NuGet-Session-Id       | *Facoltativo*. I client NuGet v 4.7 + identificano le richieste HTTP che fanno parte della stessa sessione client NuGet.
 
-Ha un solo valore per tutte le operazioni correlate a un singolo ripristino in `PackageReference`. `X-NuGet-Session-Id` Per altri scenari, ad esempio il completamento `packages.config` automatico e il ripristino, è possibile che si verifichino diversi ID di sessione a causa del factoring del codice.
+Il `X-NuGet-Session-Id` dispone di un singolo valore per tutte le operazioni correlate a un singolo ripristino in `PackageReference`. Per altri scenari, ad esempio il completamento automatico e `packages.config` il ripristino, è possibile che siano presenti diversi ID di sessione, a causa della modalità di factoring del codice.
 
 ## <a name="authentication"></a>Authentication
 
-L'autenticazione viene lasciata all'implementazione di origine del pacchetto da definire. Per NuGet.org, solo la `PackagePublish` risorsa richiede l'autenticazione tramite un'intestazione speciale della chiave API. Per [ `PackagePublish` ](package-publish-resource.md) informazioni dettagliate, vedere la risorsa.
+L'autenticazione viene lasciata all'implementazione di origine del pacchetto da definire. Per nuget.org, solo la risorsa `PackagePublish` richiede l'autenticazione tramite un'intestazione speciale della chiave API. Per informazioni dettagliate, vedere [`PackagePublish` Resource](package-publish-resource.md) .

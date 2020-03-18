@@ -6,11 +6,11 @@ ms.author: nikolev
 ms.date: 07/01/2018
 ms.topic: conceptual
 ms.openlocfilehash: 00410214500c7f5256be243dd6fca0907ba9b0c4
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380504"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79429108"
 ---
 # <a name="nuget-cross-platform-plugins"></a>Plug-in NuGet multipiattaforma
 
@@ -27,7 +27,7 @@ Di seguito vengono descritte le combinazioni client/Framework dei plug-in.
 | Strumento client  | Framework |
 | ------------ | --------- |
 | Visual Studio | .NET Framework |
-| dotnet. exe | .NET Core |
+| dotnet.exe | .NET Core |
 | NuGet. exe | .NET Framework |
 | MSBuild. exe | .NET Framework |
 | NuGet. exe in mono | .NET Framework |
@@ -110,7 +110,7 @@ Sono supportate due operazioni nel nuovo protocollo plug-in.
 | Nome operazione | Versione minima del protocollo | Versione minima del client NuGet |
 | -------------- | ----------------------- | --------------------- |
 | Scarica pacchetto | 1.0.0 | 4.3.0 |
-| [Autenticazione](NuGet-Cross-Platform-Authentication-Plugin.md) | 2.0.0 | 4.8.0 |
+| [autenticazione](NuGet-Cross-Platform-Authentication-Plugin.md) | 2.0.0 | 4.8.0 |
 
 ## <a name="running-plugins-under-the-correct-runtime"></a>Esecuzione di plug-in nel runtime corretto
 
@@ -196,7 +196,7 @@ Messaggi versione protocollo *1.0.0* :
         * codice di risposta che indica il risultato dell'operazione.
         * hash del file del pacchetto che utilizza l'algoritmo hash richiesto se l'operazione è riuscita
 
-8.  Ottenere le versioni del pacchetto
+8.  Ottenere le versioni di un pacchetto
     * Direzione della richiesta: plug-in NuGet->
     * La richiesta conterrà:
         * ID del pacchetto
@@ -222,7 +222,7 @@ Messaggi versione protocollo *1.0.0* :
          * codice di risposta che indica il risultato dell'operazione.
          * versione del protocollo negoziata se l'operazione ha avuto esito positivo.  Un errore provocherà la terminazione del plug-in.
 
-11.  Initialize
+11.  Inizializza
      * Direzione della richiesta: plug-in NuGet->
      * La richiesta conterrà:
          * versione dello strumento client NuGet
@@ -231,7 +231,7 @@ Messaggi versione protocollo *1.0.0* :
      * Una risposta conterrà:
          * codice di risposta che indica il risultato dell'operazione.  Un errore provocherà la terminazione del plug-in.
 
-12.  Registro
+12.  File di log
      * Direzione della richiesta: plugin-> NuGet
      * La richiesta conterrà:
          * livello di registrazione per la richiesta
@@ -254,7 +254,7 @@ Messaggi versione protocollo *1.0.0* :
      * Una risposta conterrà:
          * codice di risposta che indica il risultato dell'operazione.
 
-15.  Imposta credenziali
+15.  Impostare le credenziali
      * Direzione della richiesta: plug-in NuGet->
      * La richiesta conterrà:
          * percorso del repository di origine del pacchetto
@@ -290,13 +290,13 @@ Messaggi della versione *2.0.0* del protocollo
 
 * Direzione della richiesta: plug-in NuGet->
 * La richiesta conterrà:
-    * URI
-    * numero di tentativi
-    * Non interattiva
+    * Uri
+    * Numero di tentativi
+    * NonInteractive
     * CanShowDialog
 * Una risposta conterrà
-    * Nome utente
-    * Windows 10
-    * Messaggio
+    * Username
+    * Password
+    * Message
     * Elenco di tipi di autenticazione
     * MessageResponseCode

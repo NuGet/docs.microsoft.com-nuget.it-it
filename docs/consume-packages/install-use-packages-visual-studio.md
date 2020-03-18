@@ -11,11 +11,11 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
 ms.openlocfilehash: 3adceac8c725d9ea1610aea090753c9c1d8bc818
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78231007"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428695"
 ---
 # <a name="install-and-manage-packages-in-visual-studio-using-the-nuget-package-manager"></a>Installare e gestire i pacchetti in Visual Studio con Gestione pacchetti NuGet
 
@@ -58,7 +58,7 @@ L'interfaccia utente di Gestione pacchetti NuGet in Visual Studio in Windows con
 
 ## <a name="update-a-package"></a>Aggiornare un pacchetto
 
-1. In **Esplora soluzioni**fare clic con il pulsante destro del mouse su **riferimenti** o sul progetto desiderato e scegliere **Gestisci pacchetti NuGet...**. (In progetti sito Web fare clic con il pulsante destro del mouse sulla cartella **bin** ).
+1. In **Esplora soluzioni**fare clic con il pulsante destro del mouse su **riferimenti** o sul progetto desiderato e scegliere **Gestisci pacchetti NuGet...** . (In progetti sito Web fare clic con il pulsante destro del mouse sulla cartella **bin** ).
 1. Selezionare la scheda **Aggiornamenti** per visualizzare i pacchetti con aggiornamenti disponibili dalle origini dei pacchetti selezionate. Selezionare **Includi versione preliminare** per includere i pacchetti di versioni preliminari nell'elenco degli aggiornamenti.
 1. Selezionare il pacchetto da aggiornare, selezionare la versione desiderata nell'elenco a discesa a destra e selezionare **Aggiorna**.
 
@@ -117,7 +117,7 @@ Per gestire le origini dei pacchetti:
 
     ![Opzioni per le origini dei pacchetti](media/options.png)
 
-1. Per aggiungere un'origine, selezionare **+**, modificare il nome, immettere l'URL o il percorso nel controllo **Origine** e selezionare **Aggiorna**. L'origine viene ora visualizzata nell'elenco a discesa del selettore.
+1. Per aggiungere un'origine, selezionare **+** , modificare il nome, immettere l'URL o il percorso nel controllo **Origine** e selezionare **Aggiorna**. L'origine viene ora visualizzata nell'elenco a discesa del selettore.
 1. Per modificare un'origine di pacchetti, selezionarla, apportare modifiche nelle caselle **Nome** e **Origine** e selezionare **Aggiorna**.
 1. Per disabilitare un'origine di pacchetti, deselezionare la casella a sinistra del nome nell'elenco.
 1. Per rimuovere un'origine di pacchetti, selezionarla e quindi selezionare il pulsante **X**.
