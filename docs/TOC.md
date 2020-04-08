@@ -61,7 +61,7 @@
 ### [Pubblicare un pacchetto](nuget-org/publish-a-package.md)
 ### [Chiavi API](nuget-org/scoped-api-keys.md)
 ## Pubblicare in un feed privato
-### [Panoramica](hosting-packages/overview.md)
+### [Overview](hosting-packages/overview.md)
 ### [Artefatti di Azure](/azure/devops/artifacts/nuget/publish?view=azure-devops)
 ### [NuGet.Server](hosting-packages/nuget-server.md)
 ### [Feed locali](hosting-packages/local-feeds.md)
@@ -108,7 +108,7 @@
 ### [Uninstall-Package](reference/ps-reference/ps-ref-uninstall-package.md)
 ### [Update-Package](reference/ps-reference/ps-ref-update-package.md)
 ## API Server NuGet
-### [Panoramica](api/overview.md)
+### [Overview](api/overview.md)
 ### Risorse
 #### [Completamento automatico](api/search-autocomplete-service-resource.md)
 #### [Catalogo](api/catalog-resource.md)

@@ -21,7 +21,7 @@
         - name: Concetti
           tocHref: /nuget/concepts/
           topicHref: /nuget/concepts/package-installation-process
-        - name: Riferimenti
+        - name: Riferimento
           tocHref: /nuget/reference/
           topicHref: /nuget/reference/nuspec
         - name: API

@@ -12,7 +12,7 @@
 ## [Risoluzione delle controversie](policies/dispute-resolution.md)
 ## [Eliminazione di pacchetti](policies/deleting-packages.md)
 ## [Controlli di esportazione](policies/export-control.md)
-# Riferimenti
+# Riferimento
 ## [API NuGet](../api/overview.md)
 ## [licenses.nuget.org](licenses.nuget.org.md)
 # Risorse
