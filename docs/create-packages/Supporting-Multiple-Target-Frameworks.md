@@ -6,17 +6,17 @@ ms.author: karann
 ms.date: 07/15/2019
 ms.topic: conceptual
 ms.openlocfilehash: 34f7c6132ba6050e20114642932ccf29a5ec088d
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79429010"
 ---
 # <a name="support-multiple-net-versions"></a>Supporto di più versioni di .NET
 
 Molte librerie hanno come destinazione una versione specifica di .NET Framework. Ad esempio, si potrebbe disporre di una versione della libreria specifica per UWP e di un'altra versione che sfrutta le funzionalità di .NET Framework 4.6. Per risolvere questo problema, NuGet supporta l'inserimento di più versioni della stessa libreria in un singolo pacchetto.
 
-Questo articolo descrive il layout di un pacchetto NuGet, indipendentemente dalla modalità di compilazione del pacchetto o degli assembly (ovvero, il layout è lo stesso se si usano più file con *estensione csproj* non SDK e un file con *estensione NuSpec* personalizzato o un singolo file con estensione *csproj*con più destinazioni). Per un progetto di tipo SDK, le [destinazioni per pack](../reference/msbuild-targets.md) di NuGet conoscono il layout previsto per il pacchetto e automatizzano l'inserimento degli assembly nelle cartelle lib corrette e la creazione dei gruppi di dipendenze per ogni framework di destinazione (TFM). Per istruzioni dettagliate, vedere [Supportare più versioni di .NET Framework nel file di progetto](multiple-target-frameworks-project-file.md).
+In questo articolo viene descritto il layout di un pacchetto NuGet, indipendentemente dalla modalità di compilazione del pacchetto o degli assembly, ovvero il layout è lo stesso sia utilizzando più file *csproj* non di tipo SDK e un file *nuspec* personalizzato o un singolo *file csproj*in stile SDK a scopo multiplo . Per un progetto di tipo SDK, le [destinazioni per pack](../reference/msbuild-targets.md) di NuGet conoscono il layout previsto per il pacchetto e automatizzano l'inserimento degli assembly nelle cartelle lib corrette e la creazione dei gruppi di dipendenze per ogni framework di destinazione (TFM). Per istruzioni dettagliate, vedere [Supportare più versioni di .NET Framework nel file di progetto](multiple-target-frameworks-project-file.md).
 
 È necessario impostare manualmente il layout del pacchetto come descritto in questo articolo quando si usa il metodo della directory di lavoro basata sulle convenzioni descritto in [Creazione di un pacchetto](../create-packages/creating-a-package.md#from-a-convention-based-working-directory). Per un progetto di tipo SDK, è consigliabile usare il metodo automatico, ma è anche possibile scegliere di impostare manualmente il layout del pacchetto come descritto in questo articolo.
 
@@ -67,7 +67,7 @@ Se si dispone di assembly specifici dell'architettura, vale a dire assembly dist
 
 Poiché questi assembly saranno disponibili solo in fase di esecuzione, per fornire l'assembly corrispondente anche in fase di compilazione, l'assembly `AnyCPU` deve essere presente nella cartella `/ref/{tfm}`. 
 
-Ricordare che, poiché NuGet seleziona sempre questi asset di compilazione o di runtime da una sola cartella, se sono presenti asset compatibili in `/ref`, `/lib` non verrà considerata per l'aggiunta di assembly in fase di compilazione. Analogamente, se sono presenti alcune risorse compatibili da `/runtimes`, anche `/lib` verranno ignorate per il Runtime.
+Ricordare che, poiché NuGet seleziona sempre questi asset di compilazione o di runtime da una sola cartella, se sono presenti asset compatibili in `/ref`, `/lib` non verrà considerata per l'aggiunta di assembly in fase di compilazione. Analogamente, se sono presenti `/runtimes` alcune `/lib` risorse compatibili da then anche verranno ignorate per il runtime.
 
 Vedere [Creare pacchetti UWP](../guides/create-uwp-packages.md) per un esempio di riferimento a questi file nel manifesto `.nuspec`.
 
@@ -129,7 +129,7 @@ Quando si crea un pacchetto per il file di progetto, NuGet tenta di generare aut
 
 Ogni gruppo ha un attributo denominato `targetFramework` e contiene zero o più elementi `<dependency>`. Tali dipendenze vengono installate insieme quando il framework di destinazione è compatibile con il profilo di framework del progetto. Vedere [Framework di destinazione](../reference/target-frameworks.md) per gli identificatori di framework esatti.
 
-Si consiglia di usare un gruppo per ogni moniker framework di destinazione (TFM) per i file nelle cartelle *lib/* e *ref/* .
+Si consiglia di usare un gruppo per ogni moniker framework di destinazione (TFM) per i file nelle cartelle *lib/* e *ref/*.
 
 L'esempio seguente mostra variazioni diverse dell'elemento `<group>`:
 

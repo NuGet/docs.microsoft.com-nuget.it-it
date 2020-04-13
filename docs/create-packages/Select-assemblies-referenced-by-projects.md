@@ -6,10 +6,10 @@ ms.author: zivkan
 ms.date: 05/24/2019
 ms.topic: conceptual
 ms.openlocfilehash: b32075c3f2c06c15c07d36602bdabdaee8b9405a
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "67427476"
 ---
 # <a name="select-assemblies-referenced-by-projects"></a>Selezionare gli assembly cui i progetti fanno riferimento
@@ -31,7 +31,7 @@ Quando un progetto usa un pacchetto con `PackageReference` e il pacchetto contie
 
 ## <a name="packagesconfig-support"></a>Supporto di `packages.config`
 
-I progetti che usano `packages.config` per gestire i pacchetti NuGet in genere aggiungono riferimenti a tutti gli assembly nella directory `lib\<tfm>\`. La directory `ref\` è stata aggiunta per supportare `PackageReference` e pertanto non viene considerata quando si usa `packages.config`. Per impostare in modo esplicito gli assembly cui viene fatto riferimento per i progetti che usano `packages.config`, il pacchetto deve usare l'elemento [`<references>` nel file nuspec](../reference/nuspec.md#explicit-assembly-references). Ad esempio:
+I progetti che usano `packages.config` per gestire i pacchetti NuGet in genere aggiungono riferimenti a tutti gli assembly nella directory `lib\<tfm>\`. La directory `ref\` è stata aggiunta per supportare `PackageReference` e pertanto non viene considerata quando si usa `packages.config`. Per impostare in modo esplicito `packages.config`gli assembly a cui viene fatto riferimento per i progetti che utilizzano , il pacchetto deve utilizzare l'elemento [ `<references>` nel file nuspec](../reference/nuspec.md#explicit-assembly-references). Ad esempio:
 
 ```xml
 <references>

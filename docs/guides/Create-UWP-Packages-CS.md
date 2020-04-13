@@ -1,44 +1,44 @@
 ---
 title: Creare pacchetti NuGet per la piattaforma UWP (Universal Windows Platform)
-description: Procedura dettagliata end-to-end per la creazione di pacchetti NuGet tramite un componente Windows Runtime per la C#piattaforma UWP (Universal Windows Platform) in.
+description: Una procedura dettagliata end-to-end della creazione di pacchetti NuGet utilizzando un componente di Windows Runtime per la piattaforma Windows universale in C .
 author: rrelyea
 ms.author: rrelyea
 ms.date: 02/28/2020
 ms.topic: tutorial
 ms.openlocfilehash: 61f46f2623769927f881877cfe3f96132211b442
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "78231805"
 ---
-# <a name="create-uwp-packages-c"></a>Creare pacchetti UWP (C#)
+# <a name="create-uwp-packages-c"></a>Creazione di pacchetti UWP (c'è)Create UWP packages (C
 
 La [piattaforma UWP (Universal Windows Platform)](/windows/uwp) è una piattaforma applicativa comune per ogni dispositivo che esegue Windows 10. In questo modello le app UWP possono chiamare sia le API WinRT comuni a tutti i dispositivi che le API (incluse Win32 e .NET) specifiche della famiglia di dispositivi su cui l'app è in esecuzione.
 
-In questa procedura dettagliata viene creato un pacchetto NuGet con C# un componente UWP (incluso un controllo XAML) che può essere usato nei progetti gestiti e nativi.
+In questa procedura dettagliata si crea un pacchetto NuGet con un componente UWP di C' (incluso un controllo XAML) che può essere usato in progetti gestiti e nativi.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
-1. Visual Studio 2019. Installare l'edizione 2019 Community gratuitamente da [VisualStudio.com](https://www.visualstudio.com/); è anche possibile usare le edizioni Professional ed Enterprise.
+1. Visual Studio 2019. Installare la Community Edition 2019 gratuitamente da [visualstudio.com](https://www.visualstudio.com/); è possibile utilizzare anche le edizioni Professional ed Enterprise.
 
 1. Interfaccia della riga di comando di NuGet. Scaricare la versione più recente `nuget.exe` da [nuget.org/downloads](https://nuget.org/downloads), salvandola in una posizione di propria scelta (il download include direttamente il file `.exe`). Aggiungere quindi tale posizione alla variabile di ambiente PATH, se necessario. [Altre informazioni](/nuget/reference/nuget-exe-cli-reference#windows).
 
 ## <a name="create-a-uwp-windows-runtime-component"></a>Creare un componente Windows Runtime UWP
 
-1. In Visual Studio scegliere **File > nuovo > progetto**, cercare "UWP c#", selezionare il modello **Windows Runtime Component (Windows universale)** , fare clic su Avanti, modificare il nome in ImageEnhancer e fare clic su Crea. Accettare i valori predefiniti per Versione di destinazione e Versione minima quando richiesto.
+1. In Visual Studio scegliere **File > Nuovo > progetto,** cercare "uwp c'è", selezionare il modello Componente Windows Runtime **(Windows universale),** fare clic su Avanti, modificare il nome in ImageEnhancer e fare clic su Crea. Accettare i valori predefiniti per Versione di destinazione e Versione minima quando richiesto.
 
     ![Creazione di un nuovo progetto del componente Windows Runtime UWP](media/UWP-NewProject-CS.png)
 
-1. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni, selezionare **aggiungi > nuovo elemento**, selezionare **controllo basato su modelli**, modificare il nome in AwesomeImageControl.cs e fare clic su **Aggiungi**:
+1. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni, selezionare **Aggiungi > nuovo elemento**, selezionare Controllo **basato su modelli**, modificare il nome in AwesomeImageControl.cs e fare clic su **Aggiungi:**
 
     ![Aggiunta di un nuovo elemento Controllo basato su modelli XAML al progetto](media/UWP-NewXAMLControl-CS.png)
 
-1. Fare clic con il pulsante destro del mouse in Esplora soluzioni e scegliere **Proprietà**. Nella pagina proprietà, scegliere scheda **compilazione** e Abilita **file di documentazione XML**:
+1. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e selezionare Proprietà.Right-click the project in Solution Explorer and select **Properties.** Nella pagina Proprietà scegliere la scheda **Compila** e abilitare **File di documentazione XML:**
 
     ![Impostazione di Genera file di documentazione XML su Sì](media/UWP-GenerateXMLDocFiles-CS.png)
 
-1. Fare clic con il pulsante destro del mouse sulla *soluzione* ora, selezionare **compilazione batch**, selezionare le cinque caselle di compilazione nella finestra di dialogo come illustrato di seguito. Ciò assicura che, quando si esegue una compilazione, venga generato un set completo di elementi per ogni sistema di destinazione supportato da Windows.
+1. Fare clic con il pulsante destro del mouse sulla *soluzione,* selezionare **Compilazione batch**, selezionare le cinque caselle di compilazione nella finestra di dialogo come illustrato di seguito. Ciò assicura che, quando si esegue una compilazione, venga generato un set completo di elementi per ogni sistema di destinazione supportato da Windows.
 
     ![Compilazione batch](media/UWP-BatchBuild-CS.png)
 
@@ -52,13 +52,13 @@ In questa procedura dettagliata viene creato un pacchetto NuGet con C# un compon
 Per creare il file `.nuspec` iniziale, eseguire i tre passaggi elencati sotto. Le sezioni che seguono forniscono quindi indicazioni dettagliate sugli altri aggiornamenti necessari.
 
 1. Aprire un prompt dei comandi e passare alla cartella contenente `ImageEnhancer.csproj`, che sarà una sottocartella sotto la posizione in cui si trova il file della soluzione.
-1. Eseguire il comando [`NuGet spec`](/nuget/reference/cli-reference/cli-ref-spec) per generare `ImageEnhancer.nuspec` (il nome del file viene ricavato dal nome del file di `.csroj`):
+1. Eseguire [`NuGet spec`](/nuget/reference/cli-reference/cli-ref-spec) il comando `ImageEnhancer.nuspec` da generare (il nome del `.csroj` file viene ricavato dal nome del file):
 
     ```cli
     nuget spec
     ```
 
-1. Aprire `ImageEnhancer.nuspec` in un editor e aggiornarlo in modo che corrisponda a quanto segue, sostituendo YOUR_NAME con un valore appropriato. Non lasciare uno dei valori di $propertyName $. Il valore `<id>`, in particolare, deve essere univoco in nuget.org. Vedere le convenzioni di denominazione descritte in [Creazione di un pacchetto](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number). Tenere inoltre presente che è anche necessario aggiornare i tag relativi all'autore e alla descrizione o si verifica un errore durante il passaggio di creazione del pacchetto.
+1. Aprire `ImageEnhancer.nuspec` in un editor e aggiornarlo in modo che corrisponda a quanto segue, sostituendo YOUR_NAME con un valore appropriato. Non lasciare alcun valore di $propertyName. Il valore `<id>`, in particolare, deve essere univoco in nuget.org. Vedere le convenzioni di denominazione descritte in [Creazione di un pacchetto](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number). Tenere inoltre presente che è anche necessario aggiornare i tag relativi all'autore e alla descrizione o si verifica un errore durante il passaggio di creazione del pacchetto.
 
     ```xml
     <?xml version="1.0"?>
@@ -123,7 +123,7 @@ Per includere un controllo XAML con il componente, è necessario aggiungere il f
 
 ### <a name="adding-the-native-implementation-libraries"></a>Aggiunta di librerie di implementazione native
 
-All'interno del componente, la logica di base del tipo ImageEnhancer si trova nel codice nativo, che è contenuto nei vari assembly `ImageEnhancer.winmd` generati per ogni runtime di destinazione (ARM, ARM64, x86 e x64). Per includerli nel pacchetto, farvi riferimento nella sezione `<files>` insieme ai file di risorse PRI associati:
+All'interno del componente, la logica di base del Tipo ImageEnhancer `ImageEnhancer.winmd` è nel codice nativo, contenuto nei vari assembly generati per ogni runtime di destinazione (ARM, ARM64, x86 e x64). Per includerli nel pacchetto, farvi riferimento nella sezione `<files>` insieme ai file di risorse PRI associati:
 
 ```xml
 <?xml version="1.0"?>
@@ -197,7 +197,7 @@ Il file `.nuspec` finale sarà simile al seguente, dove YOUR_NAME deve essere so
 
 ## <a name="package-the-component"></a>Creare un pacchetto per il componente
 
-Con il `.nuspec` completato che fa riferimento a tutti i file che è necessario includere nel pacchetto, si è pronti per eseguire il comando [`nuget pack`](/nuget/reference/cli-reference/cli-ref-pack) :
+Con il `.nuspec` completamento che fa riferimento a tutti i file che è [`nuget pack`](/nuget/reference/cli-reference/cli-ref-pack) necessario includere nel pacchetto, è possibile eseguire il comando:
 
 ```cli
 nuget pack ImageEnhancer.nuspec
@@ -214,7 +214,7 @@ Per rendere disponibile il pacchetto per altri sviluppatori, seguire le istruzio
 
 ## <a name="related-topics"></a>Argomenti correlati
 
-- [Informazioni di riferimento sul file .nuspec](../reference/nuspec.md)
+- [Riferimento .nuspec](../reference/nuspec.md)
 - [Pacchetti di simboli](../create-packages/symbol-packages-snupkg.md)
 - [Controllo delle versioni dei pacchetti](../concepts/package-versioning.md)
 - [Supporto di più versioni di .NET Framework](../create-packages/supporting-multiple-target-frameworks.md)

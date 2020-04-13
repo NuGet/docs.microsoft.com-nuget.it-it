@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 5/14/2018
 ms.topic: conceptual
 ms.openlocfilehash: e6f6d9f703dd4761236d166f3772618c100aca09
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "76813767"
 ---
 # <a name="nuget-48-release-notes"></a>Note sulla versione per NuGet 4.8
@@ -22,21 +22,21 @@ Sono disponibili anche le versioni da riga di comando della stessa funzionalità
 * DotNet.exe - [.NET Core SDK 2.1.400](https://www.microsoft.com/net/download/visual-studio-sdks)
 
 
-## <a name="summary-whats-new-in-480"></a>Riepilogo: novità di 4.8.0
+## <a name="summary-whats-new-in-480"></a>Riassunto: Novità della versione 4.8.0
 * NuGet.exe supporta ora i nomi lunghi dei file in Windows 10 - [#6937](https://github.com/NuGet/Home/issues/6937)
 * I plug-in di autenticazione possono ora essere usati in MSBuild, DotNet.exe, NuGet.exe e Visual Studio, anche tra più piattaforme. La prima generazione di plug-in di autenticazione non era supportata in MSBuild, DotNet.exe. Nota: le build di Visual Studio 2017 15.9 Preview includono il plug-in di autenticazione di Visual Studio Team Services. [#6486](https://github.com/NuGet/Home/issues/6486)
 * Il resolver SDK di MSBuild è ora disponibile come parte di NuGet e viene installato con gli strumenti NuGet per Visual Studio. In questo modo si evitano problemi di sincronizzazione delle versioni. [#6799](https://github.com/NuGet/Home/issues/6799)
 * PackageReference supporta ora i metadati DevelopmentDependency - [#4125](https://github.com/NuGet/Home/issues/4125)
 
-## <a name="summary-whats-new-in-482"></a>Riepilogo: novità di 4.8.2
+## <a name="summary-whats-new-in-482"></a>Riassunto: Novità della versione 4.8.2
 
-* Correzione della sicurezza: le autorizzazioni per i file creati all'interno di ~/.NuGet sono troppo aperte [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+* Correzione della sicurezza: Le autorizzazioni per i file creati all'interno di nuget sono troppo aperte [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
 
 ## <a name="known-issues"></a>Problemi noti
 ### <a name="installing-signed-packages-on-a-ci-machine-or-in-an-offline-environment-takes-longer-than-usual"></a>L'installazione di pacchetti firmati in un computer CI o in un ambiente offline richiede più tempo del solito
 
 #### <a name="issue"></a>Problema
-Se il computer ha accesso limitato a Internet (ad esempio un computer di compilazione in uno scenario CI/CD), l'installazione o il ripristino di un pacchetto NuGet firmato genererà un avviso ([NU3028](../reference/errors-and-warnings/nu3028.md)) dal momento che i server di revoca non sono raggiungibili. Si tratta di una condizione prevista. In alcuni casi, tuttavia, ciò può avere conseguenze impreviste, ad esempio l'installazione o il ripristino del pacchetto richiede più tempo del solito.
+Se il computer ha accesso limitato a Internet (ad esempio un computer di compilazione in uno scenario CI/CD), l'installazione o il ripristino di un pacchetto NuGet firmato genererà un avviso ([NU3028](../reference/errors-and-warnings/nu3028.md)) dal momento che i server di revoca non sono raggiungibili. Si tratta di un comportamento previsto. In alcuni casi, tuttavia, ciò può avere conseguenze impreviste, ad esempio l'installazione o il ripristino del pacchetto richiede più tempo del solito.
 
 #### <a name="workaround"></a>Soluzione alternativa
 Eseguire l'aggiornamento a Visual Studio 15.8.4 e NuGet.exe 4.8.1, in cui è stata introdotta una variabile di ambiente per attivare la modalità di controllo delle revoche.
@@ -65,7 +65,7 @@ Nota: questo problema è stato risolto in Visual Studio 2017 15.9 Preview 3.
 ## <a name="issues-fixed-in-this-release"></a>Problemi corretti in questa versione
 
 ### <a name="bugs"></a>Bug
-#### <a name="signing"></a>Firma
+#### <a name="signing"></a>per la firma
 * Firma: installazione di un pacchetto firmato in un ambiente offline [#7008](https://github.com/NuGet/Home/issues/7008) - Corretto nella versione 4.8.1
 * Firma: controllo dell'URL non corretto - [#7174](https://github.com/NuGet/Home/issues/7174)
 * Firma: controllo dell'integrità di un pacchetto in RepositorySignatureVerifier quando il pacchetto è controfirmato nel repository - [#6926](https://github.com/NuGet/Home/issues/6926)
@@ -79,7 +79,7 @@ Nota: questo problema è stato risolto in Visual Studio 2017 15.9 Preview 3.
 * Firma: SignedPackageVerifierSettings.VSClientDefaultPolicy è inutilizzato - [#6601](https://github.com/NuGet/Home/issues/6601)
 
 
-#### <a name="pack"></a>Pacchetto
+#### <a name="pack"></a>Pack
 * Il ripristino e la compilazione non sono necessari quando si usa dotnet.exe per comprimere nuspec - [#6866](https://github.com/NuGet/Home/issues/6866)
 * Consentire token di sostituzione vuoti in NuspecProperties - [#6722](https://github.com/NuGet/Home/issues/6722)
 * PackTask genera un'eccezione NullReferenceException quando viene specificato NuspecProperties - [#4649](https://github.com/NuGet/Home/issues/4649)
@@ -94,7 +94,7 @@ Nota: questo problema è stato risolto in Visual Studio 2017 15.9 Preview 3.
 * `Update-Package [packagename] -reinstall` reinstalla tutti i pacchetti anziché solo quello denominato - [#737](https://github.com/NuGet/Home/issues/737)
 * Possibilità di eseguire l'aggiornamento a un pacchetto NuGet non in elenco dalla console di Gestione pacchetti - [#4553](https://github.com/NuGet/Home/issues/4553)
 
-#### <a name="misc"></a>Vari
+#### <a name="misc"></a>Varie
 * Per correggere `NuGet update self` NuGet.Commandline nupkg non deve essere semver2.0 - [#7116](https://github.com/NuGet/Home/issues/7116)
 * Migliorare le esperienze con gli errori di installazione di NU1107 - [#7107](https://github.com/NuGet/Home/issues/7107)
 * La serializzazione di GetAuthenticationCredentialRequest è errata - [#6983](https://github.com/NuGet/Home/issues/6983)

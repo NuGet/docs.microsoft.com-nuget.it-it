@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 07/27/2017
 ms.topic: reference
 ms.openlocfilehash: 5ecbcd4855de8ea7b6301a5e307779216baf96fc
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "69488288"
 ---
 # <a name="projectjson-reference"></a>Riferimenti di project.json
@@ -18,7 +18,7 @@ ms.locfileid: "69488288"
 
 Il file `project.json` include un elenco dei pacchetti usati in un progetto, noto come formato di gestione dei pacchetti. Prevale su `packages.config`, ma viene a sua volta sostituito da [PackageReference](../consume-packages/package-references-in-project-files.md) con NuGet 4.0+.
 
-Il file [`project.lock.json`](#projectlockjson) (descritto sotto) viene anche usato nei progetti che impiegano `project.json`.
+Il [`project.lock.json`](#projectlockjson) file (descritto di seguito) viene `project.json`utilizzato anche nei progetti che impiegano .
 
 `project.json` presenta la struttura di base seguente, dove ognuno dei quattro oggetti di primo livello può avere un numero indeterminato di oggetti figlio:
 
@@ -39,7 +39,7 @@ Il file [`project.lock.json`](#projectlockjson) (descritto sotto) viene anche us
 }
 ```
 
-## <a name="dependencies"></a>Dipendenze
+## <a name="dependencies"></a>Dependencies
 
 Elenca le dipendenze del pacchetto NuGet per il progetto nel formato seguente:
 
@@ -70,13 +70,13 @@ Per controllare quali asset delle dipendenze confluiscono nel progetto di primo 
 
 | Tag di inclusione/esclusione | Cartelle di destinazione interessate |
 | --- | --- |
-| contentFiles | Content  |
+| contentFiles | Contenuto  |
 | runtime | Runtime, Resources e FrameworkAssemblies  |
 | compile | lib |
 | build | build (proprietà e destinazioni MSBuild) |
 | nativi | nativi |
 | none | Nessuna cartella |
-| tutti | Tutte le cartelle |
+| all | Tutte le cartelle |
 
 I tag specificati con `exclude` hanno la precedenza rispetto a quelli specificati con `include`. Ad esempio, `include="runtime, compile" exclude="compile"` equivale a `include="runtime"`.
 
@@ -136,7 +136,7 @@ Elenca i sistemi operativi e le architetture in cui l'app viene eseguita, ad ese
 Non è necessario specificare un runtime per un pacchetto contenente una libreria PCL che può essere eseguita in qualsiasi runtime. Ciò deve valere anche per qualsiasi dipendenza. In caso contrario, è necessario specificare i runtime.
 
 
-## <a name="supports"></a>Supports
+## <a name="supports"></a>Supporti
 
 Definisce un set di controlli per le dipendenze dei pacchetti. È possibile definire dove si prevede che la libreria PCL o l'app venga eseguita. Le definizioni non sono restrittive perché il codice può essere eseguito altrove, ma, se si specificano questi controlli, NuGet controlla che tutte le dipendenze siano rispettate nei TxM elencati. Alcuni esempi di valori validi sono `net46.app`, `uwp.10.0.app` e così via.
 
@@ -149,7 +149,7 @@ Questa sezione verrà popolata automaticamente quando si seleziona una voce nell
 }
 ```
 
-## <a name="imports"></a>Imports
+## <a name="imports"></a>Importazioni
 
 Le importazioni sono progettate per consentire ai pacchetti che usano il TxM `dotnet` di interagire con pacchetti che non dichiarano un TxM dotnet. Se il progetto usa il TxM `dotnet`, anche tutti i pacchetti da cui si dipende devono avere un TxM `dotnet`, a meno che non si aggiunga il codice seguente a `project.json` per consentire alle piattaforme non `dotnet` di essere compatibili con `dotnet`:
 

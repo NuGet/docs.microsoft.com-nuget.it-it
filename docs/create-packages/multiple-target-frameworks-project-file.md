@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 07/15/2019
 ms.topic: conceptual
 ms.openlocfilehash: 1d23759433efb405fa5f0035049befced2c43d6b
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "72380683"
 ---
 # <a name="support-multiple-net-framework-versions-in-your-project-file"></a>Supportare più versioni di .NET Framework nel file di progetto
@@ -37,7 +37,7 @@ Per i progetti di tipo SDK, è possibile configurare il supporto per più framew
 
    Assicurarsi di modificare l'elemento XML modificato da singolare a plurale, ovvero aggiungere "s" ai tag di apertura e di chiusura.
 
-3. In presenza di codice che funziona in un solo TFM, è possibile usare `#if NET45` o `#if NETSTANDARD2_0` per separare il codice dipendente dal TFM. Per ulteriori informazioni, vedere [How to multitarget](/dotnet/core/tutorials/libraries#how-to-multitarget). Ad esempio, è possibile usare il codice seguente:
+3. In presenza di codice che funziona in un solo TFM, è possibile usare `#if NET45` o `#if NETSTANDARD2_0` per separare il codice dipendente dal TFM. Per ulteriori informazioni, vedere [Come multitarget.](/dotnet/core/tutorials/libraries#how-to-multitarget) Ad esempio, è possibile utilizzare il codice seguente:For example, you can use the following code:
 
    ```csharp
    public string Platform {
@@ -77,4 +77,4 @@ Questo è il file *.csproj* generato con i passaggi precedenti e .NET Core SDK 2
 ## <a name="see-also"></a>Vedere anche
 
 * [Come specificare framework di destinazione](/dotnet/standard/frameworks#how-to-specify-target-frameworks)
-* [Supporto multipiattaforma](/dotnet/standard/library-guidance/cross-platform-targeting)
+* [Specifica di destinazioni multipiattaforma](/dotnet/standard/library-guidance/cross-platform-targeting)

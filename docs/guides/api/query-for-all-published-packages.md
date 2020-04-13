@@ -7,11 +7,11 @@ ms.date: 11/02/2017
 ms.topic: tutorial
 ms.reviewer: kraigb
 ms.openlocfilehash: 0bd21c427b5b89ae9e5f1500d75e1bf63a96e828
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551078"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64498230"
 ---
 # <a name="query-for-all-packages-published-to-nugetorg"></a>Query per recuperare tutti i pacchetti pubblicati su nuget.org
 
@@ -32,7 +32,7 @@ Per questo motivo, è possibile fare riferimento alla guida seguente per gestire
 
 ## <a name="overview"></a>Panoramica
 
-Al centro di questa guida si trova una risorsa dell'[API NuGet](../../api/overview.md) chiamata **catalogo**. Il catalogo è un'API a solo accodamento che consente al chiamante di visualizzare una cronologia completa di pacchetti aggiunti, modificati ed eliminati da nuget.org. Se si è interessati a tutti i pacchetti pubblicati su nuget.org o anche solo a un subset, il catalogo costituisce una valida soluzione per mantenersi aggiornati nel tempo con il set di pacchetti attualmente disponibili.
+Al centro di questa guida si trova una risorsa dell'[API NuGet](../../api/overview.md) chiamata **catalogo**. Il catalogo è un'API di solo accodamento che consente al chiamante di visualizzare una cronologia completa dei pacchetti aggiunti, modificati ed eliminati da nuget.org. Se sei interessato a tutti o anche a un sottoinsieme di pacchetti pubblicati per nuget.org, il catalogo è un ottimo modo per rimanere aggiornato con il set di pacchetti attualmente disponibili con il passare del tempo.
 
 Questa guida è da intendersi come una presentazione generale, ma se si è interessati a informazioni più dettagliate sul catalogo, vedere il relativo [documento di riferimento per l'API](../../api/catalog-resource.md).
 
@@ -56,7 +56,7 @@ Il percorso di ogni risorsa (endpoint) nell'API NuGet deve essere individuato tr
 
     GET https://api.nuget.org/v3/index.json
 
-Il documento del servizio è un documento JSON contenente tutte le risorse su nuget.org. Cercare la risorsa con il valore della proprietà `@type` pari a `Catalog/3.0.0`. Il valore della proprietà `@id` associato è l'URL per l'indice del catalogo stesso. 
+Il documento di servizio è un documento JSON contenente tutte le risorse in nuget.org. Cercare la risorsa `@type` con il `Catalog/3.0.0`valore della proprietà di . Il valore della proprietà `@id` associato è l'URL per l'indice del catalogo stesso. 
 
 ## <a name="find-new-catalog-leaves"></a>Trovare nuovi elementi foglia del catalogo
 
@@ -98,7 +98,7 @@ Se l'applicazione genera errori o un'eccezione, non spostare in avanti il cursor
 
 Se per qualche motivo è presente un bug nella modalità di elaborazione degli elementi figlio del catalogo, è possibile semplicemente spostare il cursore indietro nel tempo e consentire al codice di rielaborare gli elementi del catalogo precedenti.
 
-## <a name="c-sample-code"></a>Codice di esempio in C#
+## <a name="c-sample-code"></a>Codice di esempio C#
 
 Poiché il catalogo è un set di documenti JSON disponibili tramite HTTP, è possibile interagire con esso tramite qualsiasi linguaggio di programmazione che disponga di un client HTTP e di un deserializzatore JSON.
 
@@ -116,7 +116,7 @@ Il modo più semplice per utilizzare il catalogo consiste nell'usare la versione
 
 Un esempio che usa questo pacchetto è disponibile su GitHub nel [progetto NuGet.Protocol.Catalog.Sample](https://github.com/NuGet/Samples/tree/master/CatalogReaderExample/NuGet.Protocol.Catalog.Sample).
 
-#### <a name="sample-output"></a>Esempio di output
+#### <a name="sample-output"></a>Output di esempio
 
 ```output
 2017-11-10T22:16:44.8689025+00:00: Found package details leaf for xSkrape.APIWrapper.REST 1.0.2.
@@ -156,7 +156,7 @@ Per un esempio con un numero minore di dipendenze che illustra l'interazione con
 
 La logica principale del codice è visibile nel [file Program.cs](https://github.com/NuGet/Samples/blob/master/CatalogReaderExample/CatalogReaderExample/Program.cs).
 
-#### <a name="sample-output"></a>Esempio di output
+#### <a name="sample-output"></a>Output di esempio
 
 ```output
 No cursor found. Defaulting to 11/2/2017 9:41:28 PM.

@@ -6,10 +6,10 @@ ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
 ms.openlocfilehash: 8cc990e0c9eed07c59c8dffb04d104be47051736
-ms.sourcegitcommit: 7c9f157ba02d9be543de34ab06813ab1ec10192a
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "69999948"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Domande frequenti su NuGet
@@ -89,9 +89,9 @@ Sì, è possibile aggiungere comandi personalizzati a `nuget.exe`, come descritt
 
 L'oggetto di primo livello nel modello a oggetti di automazione di Visual Studio viene chiamato oggetto DTE (Development Tools Environment). La console rende disponibile questo oggetto tramite una variabile denominata `$DTE`. Per altre informazioni, vedere [Cenni preliminari sul modello di automazione](/visualstudio/extensibility/internals/automation-model-overview) nella documentazione sull'estendibilità di Visual Studio.
 
-**Si tenta di eseguire il cast della variabile $DTE al tipo DTE2, ma viene visualizzato un errore: Impossibile convertire il valore di "EnvDTE.DTEClass" di tipo "EnvDTE.DTEClass" nel tipo "EnvDTE80.DTE2". Qual è il problema?**
+**Si tenta di eseguire il cast della variabile di $DTE al tipo DTE2, ma viene visualizzato un errore: Impossibile convertire il valore "EnvDTE.DTEClass" di tipo "EnvDTE.DTEClass" nel tipo "EnvDTE80.DTE2". Cosa c'è che non va?**
 
-Si tratta di un problema noto correlato alla modalità di interazione di PowerShell con un oggetto COM. Provare quanto segue:
+Si tratta di un problema noto correlato alla modalità di interazione di PowerShell con un oggetto COM. Attenersi alla procedura seguente:
 
 ```ps
 `$dte2 = Get-Interface $dte ([EnvDTE80.DTE2])`
@@ -105,7 +105,7 @@ Si tratta di un problema noto correlato alla modalità di interazione di PowerSh
 
 Vedere [Creare e pubblicare un pacchetto](../quickstart/create-and-publish-a-package.md).
 
-**Sono disponibili più versioni di una libreria destinate a versioni diverse di .NET Framework. Qual è la procedura per compilare un singolo pacchetto che supporti questo scenario?**
+**Ho più versioni della mia libreria che hanno come destinazione diverse versioni di .NET Framework. Come è possibile creare un singolo pacchetto che supporta questa operazione?**
 
 Vedere [Supporto di più versioni di .NET Framework](../create-packages/supporting-multiple-target-frameworks.md).
 
@@ -129,11 +129,11 @@ Sì, vedere il post di blog di Scott Hanselman [How to access NuGet when nuget.o
 
 **Qual è la procedura per installare i pacchetti in un percorso diverso rispetto alla cartella packages predefinita?**
 
-Configurare l'impostazione [`repositoryPath`](../reference/nuget-config-file.md#config-section) in `Nuget.Config` con `nuget config -set repositoryPath=<path>`.
+Impostare [`repositoryPath`](../reference/nuget-config-file.md#config-section) l'impostazione in `Nuget.Config` using `nuget config -set repositoryPath=<path>`.
 
 **Come è possibile evitare di aggiungere la cartella dei pacchetti NuGet nel controllo del codice sorgente?**
 
-Impostare [`disableSourceControlIntegration`](../reference/nuget-config-file.md#solution-section) in `Nuget.Config` su `true`. Questa chiave funziona a livello di soluzione e quindi deve essere aggiunta al file `$(Solutiondir)\.nuget\Nuget.Config`. Quando si abilita il ripristino dei pacchetti da Visual Studio, questo file viene creato automaticamente.
+Impostare [`disableSourceControlIntegration`](../reference/nuget-config-file.md#solution-section) `Nuget.Config` l'in su `true`. Questa chiave funziona a livello di soluzione e quindi deve essere aggiunta al file `$(Solutiondir)\.nuget\Nuget.Config`. Quando si abilita il ripristino dei pacchetti da Visual Studio, questo file viene creato automaticamente.
 
 **Qual è la procedura per disattivare il ripristino dei pacchetti?**
 

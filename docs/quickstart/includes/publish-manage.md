@@ -1,8 +1,16 @@
+---
+ms.openlocfilehash: 9c3cb22c8c220a7297eb88db6ff0941e4c11c914
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64496045"
+---
 Dal profilo personale in nuget.org selezionare **Manage Packages** (Gestisci pacchetti) per visualizzare quello appena pubblicato. Viene anche inviato un messaggio di posta elettronica di conferma. Si noti che l'indicizzazione e la visualizzazione del pacchetto nei risultati della ricerca, dove gli altri utenti possono trovarlo, potrebbero richiedere qualche minuto. In questo intervallo di tempo la pagina del pacchetto visualizza un messaggio simile al seguente:
 
 ![Il pacchetto non è stato ancora indicizzato. Verrà visualizzato nei risultati della ricerca e sarà disponibile per l'installazione e il ripristino al termine dell'indicizzazione.](../media/QS_Create-03-NotIndexed.png)
 
-L'operazione è ora completata. È stato pubblicato in nuget.org il primo pacchetto NuGet, che gli altri sviluppatori possono usare nei propri progetti.
+L'attività è terminata. È stato pubblicato in nuget.org il primo pacchetto NuGet, che gli altri sviluppatori possono usare nei propri progetti.
 
 Se in questa procedura dettagliata è stato creato un pacchetto che non è effettivamente utile (ad esempio un pacchetto creato con una libreria di classi vuota), è necessario *rimuovere* il pacchetto per nasconderlo dai risultati della ricerca:
 

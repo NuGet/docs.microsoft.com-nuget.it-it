@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
 ms.openlocfilehash: c1f1957c58839ac763238938b476eb0882c56a59
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79428744"
 ---
 # <a name="restore-packages-using-package-restore"></a>Ripristinare i pacchetti con Ripristino pacchetto
@@ -22,7 +22,7 @@ Con l'opzione Ripristino pacchetto si garantisce che tutte le dipendenze di un p
 
 L'opzione Ripristino pacchetto installa prima di tutto le dipendenze dirette di un progetto in base alle esigenze, quindi installa eventuali dipendenze di tali pacchetti in tutto il grafico dipendenze.
 
-Se un pacchetto non è già installato, NuGet tenta prima di tutto di recuperarlo dalla [cache](../consume-packages/managing-the-global-packages-and-cache-folders.md). Se il pacchetto non è presente nella cache, NuGet tenta di scaricarlo da tutte le origini abilitate nell'elenco in **Strumenti** > **Opzioni** > **Gestione pacchetti NuGet** > **Origine pacchetti** in Visual Studio. Durante il ripristino NuGet ignora l'ordine delle origini dei pacchetti e usa il pacchetto da una delle origini che per prima risponde alle richieste. Per altre informazioni sul comportamento di NuGet, vedere [Configurazioni comuni di NuGet](Configuring-NuGet-Behavior.md). 
+Se un pacchetto non è già installato, NuGet tenta prima di tutto di recuperarlo dalla [cache](../consume-packages/managing-the-global-packages-and-cache-folders.md). Se il pacchetto non è nella cache, NuGet tenta di scaricare il pacchetto da tutte le origini abilitate nell'elenco in**Strumenti Opzioni** > NuGet Origini pacchetto di Gestione pacchetti in Visual Studio.If the package isn't in the cache, NuGet tries to download the package from all enabled sources in the list at **Tools** > Options**NuGet Package Manager** > **Package Sources** in Visual Studio. Durante il ripristino NuGet ignora l'ordine delle origini dei pacchetti e usa il pacchetto da una delle origini che per prima risponde alle richieste. Per altre informazioni sul comportamento di NuGet, vedere [Configurazioni comuni di NuGet](Configuring-NuGet-Behavior.md). 
 
 > [!Note]
 > NuGet non indica un errore di ripristino di un pacchetto fino a quando non sono state controllate tutte le origini. In quel momento, NuGet segnala un errore solo per l'ultima origine nell'elenco. Questo tipo di errore implica che il pacchetto non era presente in *alcuna* delle origini, anche se gli errori non vengono visualizzati singolarmente per ogni origine.
@@ -38,7 +38,7 @@ Ripristino pacchetto tenta di installare tutte le dipendenze del pacchetto nello
    - [Interfaccia della riga di comando di nuget.exe](#restore-using-the-nugetexe-cli)
    - [MSBuild](#restore-using-msbuild)
    - [Azure Pipelines](#restore-using-azure-pipelines)
-   - [Azure DevOps Server](#restore-using-azure-devops-server)
+   - [Server DevOps di AzureAzure DevOps Server](#restore-using-azure-devops-server)
 
    Se i riferimenti al pacchetto nel file di progetto (con estensione *csproj*) o nel file *packages.config* non sono corretti (non corrispondono allo stato desiderato dopo il ripristino del pacchetto), è necessario installare o aggiornare i pacchetti.
 
@@ -60,7 +60,7 @@ In Visual Studio in Windows, eseguire una delle operazioni seguenti:
 
 Il ripristino dei pacchetti viene eseguito automaticamente quando si crea un progetto da un modello o si compila un progetto. Tale comportamento è soggetto alle opzioni impostate in [Abilitare e disabilitare il ripristino dei pacchetti](#enable-and-disable-package-restore-in-visual-studio). In NuGet 4.0 +, il ripristino avviene automaticamente quando si apportano modifiche a un progetto di tipo SDK (in genere un progetto .NET Core o .NET Standard).
 
-1. Per abilitare il ripristino automatico dei pacchetti, scegliere **Strumenti** > **Opzioni** > **Gestione pacchetti NuGet** e quindi selezionare **Verificare in automatico i pacchetti mancanti durante il build in Visual Studio** in **Ripristino pacchetto**.
+1. Abilitare il ripristino automatico dei pacchetti scegliendo Opzioni **degli strumenti** > **NuGet** > **Package Manager**, quindi Verifica automaticamente la presenza di pacchetti mancanti durante la **compilazione in Visual Studio in** Ripristino **pacchetto**.
 
    Per i progetti non in stile SDK, è prima di tutto necessario selezionare **Consenti a NuGet di scaricare i pacchetti mancanti** per abilitare l'opzione di ripristino automatico.
 
@@ -68,21 +68,21 @@ Il ripristino dei pacchetti viene eseguito automaticamente quando si crea un pro
 
    Se uno o più pacchetti singoli non sono ancora installati correttamente, in **Esplora soluzioni** viene visualizzata un'icona di errore. Fare clic con il pulsante destro del mouse e selezionare **Gestisci pacchetti NuGet**. Usare **Gestione pacchetti** per disinstallare e reinstallare i pacchetti interessati. Per altre informazioni, vedere [Reinstallare e aggiornare pacchetti](../consume-packages/reinstalling-and-updating-packages.md)
 
-   Se viene visualizzato l'errore "Questo progetto fa riferimento a uno o più pacchetti NuGet che non sono presenti in questo computer" o "Impossibile ripristinare uno o più pacchetti NuGet perché il consenso non è stato concesso", [abilitare il ripristino automatico](#enable-and-disable-package-restore-in-visual-studio). Per i progetti precedenti, vedere anche [Eseguire la migrazione al ripristino automatico dei pacchetti](#migrate-to-automatic-package-restore-visual-studio). Vedere anche [Risoluzione degli errori relativi al ripristino dei pacchetti](Package-restore-troubleshooting.md).
+   Se viene visualizzato l'errore "Questo progetto fa riferimento a uno o più pacchetti NuGet che non sono presenti in questo computer" o "Impossibile ripristinare uno o più pacchetti NuGet perché il consenso non è stato concesso", [abilitare il ripristino automatico](#enable-and-disable-package-restore-in-visual-studio). Per i progetti precedenti, vedere anche [Eseguire la migrazione al ripristino automatico dei pacchetti](#migrate-to-automatic-package-restore-visual-studio). Vedere anche [Risoluzione dei problemi relativi](Package-restore-troubleshooting.md)al ripristino dei pacchetti .
 
 ### <a name="restore-packages-manually-using-visual-studio"></a>Ripristinare i pacchetti manualmente con Visual Studio
 
-1. Abilitare il ripristino del pacchetto scegliendo **Strumenti** > **Opzioni** > **Gestione pacchetti NuGet**. Nelle opzioni di **Ripristino pacchetti** selezionare **Consenti a NuGet di scaricare i pacchetti mancanti**.
+1. Abilitare il ripristino del pacchetto scegliendo Opzioni **degli strumenti** > **NuGet** > **Package Manager**. Nelle opzioni di **Ripristino pacchetti** selezionare **Consenti a NuGet di scaricare i pacchetti mancanti**.
 
 1. Fare clic con il pulsante destro del mouse sulla soluzione in **Esplora soluzioni** e scegliere **Ripristina pacchetti NuGet**.
 
    Se uno o più pacchetti singoli non sono ancora installati correttamente, in **Esplora soluzioni** viene visualizzata un'icona di errore. Fare clic con il pulsante destro del mouse e scegliere **Gestisci pacchetti NuGet**, quindi usare **Gestione pacchetti** per disinstallare e reinstallare i pacchetti interessati. Per altre informazioni, vedere [Reinstallare e aggiornare pacchetti](../consume-packages/reinstalling-and-updating-packages.md)
 
-   Se viene visualizzato l'errore "Questo progetto fa riferimento a uno o più pacchetti NuGet che non sono presenti in questo computer" o "Impossibile ripristinare uno o più pacchetti NuGet perché il consenso non è stato concesso", [abilitare il ripristino automatico](#enable-and-disable-package-restore-in-visual-studio). Per i progetti precedenti, vedere anche [Eseguire la migrazione al ripristino automatico dei pacchetti](#migrate-to-automatic-package-restore-visual-studio). Vedere anche [Risoluzione degli errori relativi al ripristino dei pacchetti](Package-restore-troubleshooting.md).
+   Se viene visualizzato l'errore "Questo progetto fa riferimento a uno o più pacchetti NuGet che non sono presenti in questo computer" o "Impossibile ripristinare uno o più pacchetti NuGet perché il consenso non è stato concesso", [abilitare il ripristino automatico](#enable-and-disable-package-restore-in-visual-studio). Per i progetti precedenti, vedere anche [Eseguire la migrazione al ripristino automatico dei pacchetti](#migrate-to-automatic-package-restore-visual-studio). Vedere anche [Risoluzione dei problemi relativi](Package-restore-troubleshooting.md)al ripristino dei pacchetti .
 
 ### <a name="enable-and-disable-package-restore-in-visual-studio"></a>Abilitare e disabilitare il ripristino dei pacchetti in Visual Studio
 
-In Visual Studio il ripristino dei pacchetti viene controllato principalmente in **Strumenti** > **Opzioni** > **Gestione pacchetti NuGet**:
+In Visual Studio è possibile controllare il ripristino dei pacchetti principalmente tramite Le opzioni **degli strumenti** > **NuGet** > **Package Manager**:
 
 ![Controllo di Ripristino pacchetto con le opzioni di Gestione pacchetti NuGet](media/Restore-01-AutoRestoreOptions.png)
 
@@ -120,16 +120,16 @@ Per abilitare o disabilitare l'opzione Ripristino pacchetto per tutti gli utenti
 > [!Important]
 > Se si modificano le impostazioni `packageRestore` direttamente in `nuget.config`, riavviare Visual Studio per visualizzare i valori correnti nella finestra di dialogo **Opzioni**.
 
-### <a name="choose-default-package-management-format"></a>Scegliere il formato di gestione pacchetti predefinito
+### <a name="choose-default-package-management-format"></a>Scegliere il formato di gestione dei pacchetti predefinitoChoose default package management format
 
-![Controllare il formato di gestione pacchetti predefinito anche se le opzioni di gestione pacchetti NuGet](media/Restore-02-PackageFormatOptions.png)
+![Controllare il formato di gestione dei pacchetti predefinito tramite le opzioni di NuGet Package ManagerControl default package management format though NuGet Package Manager options](media/Restore-02-PackageFormatOptions.png)
 
-NuGet presenta due formati in cui un progetto può usare i pacchetti: [`PackageReference`](package-references-in-project-files.md) e [`packages.config`](../reference/packages-config.md). Il formato predefinito può essere selezionato nell'elenco a discesa sotto l'intestazione **Gestione pacchetti** . È disponibile anche un'opzione che indica quando è installato il primo pacchetto in un progetto.
+NuGet ha due formati in cui [`PackageReference`](package-references-in-project-files.md) un [`packages.config`](../reference/packages-config.md)progetto può utilizzare pacchetti: e . Il formato predefinito può essere selezionato dall'elenco a discesa sotto l'intestazione **Gestione pacchetti.** È disponibile anche un'opzione da richiedere quando il primo pacchetto viene installato in un progetto.
 
 > [!Note]
-> Se un progetto non supporta entrambi i formati di gestione dei pacchetti, il formato di gestione dei pacchetti utilizzato sarà quello compatibile con il progetto e pertanto potrebbe non essere il set predefinito nelle opzioni. NuGet, inoltre, non richiede la selezione nella prima installazione del pacchetto, anche se l'opzione è selezionata nella finestra Opzioni.
+> Se un progetto non supporta entrambi i formati di gestione dei pacchetti, il formato di gestione dei pacchetti utilizzato sarà quello compatibile con il progetto e pertanto potrebbe non essere l'impostazione predefinita nelle opzioni. Inoltre, NuGet non richiederà la selezione alla prima installazione del pacchetto, anche se l'opzione è selezionata nella finestra delle opzioni.
 >
-> Se si usa la console di gestione pacchetti per installare il primo pacchetto in un progetto, NuGet non richiede la selezione del formato, anche se l'opzione è selezionata nella finestra Opzioni.
+> Se la Console di gestione pacchetti viene utilizzata per installare il primo pacchetto in un progetto, NuGet non richiederà la selezione del formato, anche se l'opzione è selezionata nella finestra delle opzioni.
 
 ## <a name="restore-using-the-dotnet-cli"></a>Eseguire il ripristino usando l'interfaccia della riga di comando dotnet
 
@@ -143,7 +143,7 @@ NuGet presenta due formati in cui un progetto può usare i pacchetti: [`PackageR
 [!INCLUDE [restore-nuget-exe-cli](includes/restore-nuget-exe-cli.md)]
 
 > [!IMPORTANT]
-> Il comando `restore`non modifica un file di progetto o *packages. config*. Per aggiungere una dipendenza, aggiungere un pacchetto tramite l'interfaccia utente o la console di gestione pacchetti in Visual Studio oppure modificare *packages. config* , quindi eseguire `install` o `restore`.
+> Il `restore`comando non modifica un file di progetto o *packages.config*. Per aggiungere una dipendenza, aggiungere un pacchetto tramite l'interfaccia utente di Gestione pacchetti `install` o `restore`Console in Visual Studio oppure modificare *packages.config* e quindi eseguire o .
 
 ## <a name="restore-using-msbuild"></a>Eseguire il ripristino con MSBuild
 
@@ -201,10 +201,10 @@ Per impostazione predefinita, le operazioni di ripristino di NuGet usano i pacch
 Per evitare di usare la cartella *global-packages*, eseguire una delle operazioni seguenti:
 
 - Cancellare la cartella con `nuget locals global-packages -clear` o `dotnet nuget locals global-packages --clear`.
-- Modificare temporaneamente la posizione della cartella *global-packages* prima dell'operazione di ripristino, usando uno dei metodi seguenti:
+- Modificare temporaneamente il percorso della cartella *global-packages* prima dell'operazione di ripristino, utilizzando uno dei seguenti metodi:
   - Impostare la variabile di ambiente NUGET_PACKAGES su una cartella diversa.
   - Creare un file `NuGet.Config` che imposta `globalPackagesFolder` (se si usa PackageReference) o `repositoryPath` (se si usa `packages.config`) in una cartella diversa. Per altre informazioni, vedere le [impostazioni di configurazione](../reference/nuget-config-file.md#config-section).
-  - Solo MSBuild: specificare una cartella diversa con la proprietà `RestorePackagesPath`.
+  - Solo MSBuild: specificare una `RestorePackagesPath` cartella diversa con la proprietà.
 
 Per evitare di usare la cache per le origini HTTP, eseguire una delle operazioni seguenti:
 
@@ -216,7 +216,7 @@ Per evitare di usare la cache per le origini HTTP, eseguire una delle operazioni
 
 Per NuGet 2.6 e versioni precedenti era precedentemente supportato il ripristino dei pacchetti integrato in MSBuild, ma non è più così. In genere veniva abilitato facendo clic con il pulsante destro del mouse su una soluzione in Visual Studio e scegliendo **Enable NuGet Package Restore** (Abilita il ripristino dei pacchetti NuGet). Se il progetto usa il ripristino dei pacchetti integrato in MSBuild deprecato, eseguire la migrazione al ripristino dei pacchetti automatico.
 
-I progetti che usano il ripristino del pacchetto integrato con MSBuild contengono in genere una cartella *. NuGet* con tre file: *NuGet. config*, *NuGet. exe*e *NuGet. targets*. La presenza di un file *NuGet.targets* determina se NuGet continuerà a usare l'approccio integrato in MSBuild, con conseguente necessità di rimuovere questo file durante la migrazione.
+I progetti che utilizzano il ripristino del pacchetto integrato con MSBuild contengono in genere una cartella *.nuget* con tre file: *NuGet.config*, *nuget.exe*e *NuGet.targets*. La presenza di un file *NuGet.targets* determina se NuGet continuerà a usare l'approccio integrato in MSBuild, con conseguente necessità di rimuovere questo file durante la migrazione.
 
 Per eseguire la migrazione al ripristino dei pacchetti automatico:
 
@@ -231,6 +231,6 @@ Per testare il ripristino dei pacchetti automatico:
 
    Il ripristino dei pacchetti automatico dovrebbe scaricare e installare ogni pacchetto di dipendenze, senza aggiungerli al controllo del codice sorgente.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Vedere [Risolvere gli errori relativi al ripristino dei pacchetti](package-restore-troubleshooting.md).

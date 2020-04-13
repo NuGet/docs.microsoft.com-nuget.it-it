@@ -7,11 +7,11 @@ ms.date: 02/03/2017
 ms.topic: conceptual
 ms.reviewer: ananguar
 ms.openlocfilehash: 2d0bb6356c0a20843bdc884b68f5f61838b82e73
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549246"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64496648"
 ---
 # <a name="nuget-40-rc-release-notes"></a>Note sulla versione per NuGet 4.0 RC
 

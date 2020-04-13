@@ -6,15 +6,15 @@ ms.author: karann
 ms.date: 05/01/2018
 ms.topic: conceptual
 ms.openlocfilehash: ef054f741755bccf56eedfd462915b8e9fd6931a
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "67426986"
 ---
 # <a name="user-data-requests"></a>Richieste di dati degli utenti
 
-Gli utenti di nuget.org possono inviare le richieste di eliminazione ed esportazione delle informazioni tramite [nuget.org](https://www.nuget.org). Entrambi i tipi vengono inviati sotto forma di richieste di supporto e vengono eseguiti dagli amministratori di nuget.org entro 30 giorni.
+nuget.org gli utenti possono inviare richieste di eliminazione di informazioni ed esportazione di informazioni tramite [nuget.org](https://www.nuget.org). Entrambi i tipi vengono inviati sotto forma di richieste di supporto e vengono eseguiti dagli amministratori nuget.org entro 30 giorni.
 
 I dati utente seguenti sono accessibili direttamente tramite nuget.org:
 

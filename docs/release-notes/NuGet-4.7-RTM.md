@@ -6,29 +6,29 @@ ms.author: karann
 ms.date: 5/14/2018
 ms.topic: conceptual
 ms.openlocfilehash: 2290025d42dcd5704b6b019c17346201fe6a990d
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "76813793"
 ---
 # <a name="nuget-47-release-notes"></a>Note sulla versione per NuGet 4.7
 
 [Visual Studio 2017 15.7 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) include [NuGet 4.7.0](https://dist.nuget.org/win-x86-commandline/v4.7.0/nuget.exe).
 
-## <a name="summary-whats-new-in-470"></a>Riepilogo: novità di 4.7.0
+## <a name="summary-whats-new-in-470"></a>Riassunto: Novità della versione 4.7.0
 
 * Le funzionalità di firma dei pacchetti sono state estese per abilitare i [pacchetti firmati da repository](https://github.com/NuGet/Home/wiki/Repository-Signatures)
 
 * Con Visual Studio versione 15.7, è stata introdotta la possibilità di [eseguire la migrazione di progetti esistenti che usano il formato packages.config per usare invece PackageReference](../consume-packages/migrate-packages-config-to-package-reference.md).
 
-## <a name="summary-whats-new-in-472"></a>Riepilogo: novità di 4.7.2
+## <a name="summary-whats-new-in-472"></a>Riassunto: Novità della versione 4.7.2
 
-* Correzione della sicurezza: le autorizzazioni per i file creati all'interno di ~/.NuGet sono troppo aperte [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+* Correzione della sicurezza: Le autorizzazioni per i file creati all'interno di nuget sono troppo aperte [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
 
-## <a name="summary-whats-new-in-473"></a>Riepilogo: novità di 4.7.3
+## <a name="summary-whats-new-in-473"></a>Riassunto: Novità della versione 4.7.3
 
-* Correzione della sicurezza: i file all'interno di transitiva possono avere un percorso relativo sopra la directory NUPKG [#7906](https://github.com/NuGet/Home/issues/7906)
+* Correzione della sicurezza: i file all'interno di NUPKGs possono avere un percorso relativo sopra la directory NUPKG [#7906](https://github.com/NuGet/Home/issues/7906)
 
 ## <a name="known-issues"></a>Problemi noti
 

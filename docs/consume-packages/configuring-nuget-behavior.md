@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 10/25/2017
 ms.topic: conceptual
 ms.openlocfilehash: 89127203df0aa1eb24f36b8ec64c5bb4a4d59319
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79428912"
 ---
 # <a name="common-nuget-configurations"></a>Configurazioni comuni di NuGet
@@ -25,8 +25,8 @@ Il comportamento di NuGet si basa sulle impostazioni accumulate in uno o più fi
 | Computer | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME`. Se `$XDG_DATA_HOME` è null o vuoto, verrà usato `~/.local/share` o `/usr/local/share` (a seconda della distribuzione del sistema operativo)  | Le impostazioni si applicano a tutte le operazioni sul computer, ma ne viene eseguito l'override dalle impostazioni a livello di utente o di progetto. |
 
 Note per versioni precedenti di NuGet:
-- NuGet 3.3 e versioni precedenti usavano una cartella `.nuget` per le impostazioni a livello di soluzione. Questa cartella non viene usata in NuGet 3.4 +.
-- Per NuGet da 2.6 a 3.x, il file di configurazione a livello di computer in Windows si trovava in %ProgramData%\NuGet\Config[\\{IDE}[\\{Versione}[\\{SKU}]]]\NuGet.Config, dove *{IDE}* può essere *VisualStudio*, *{Versione}* era la versione di Visual Studio, ad esempio *14.0*, e *{SKU}* è *Community*, *Pro* o *Enterprise*. Per eseguire la migrazione delle impostazioni a NuGet 4.0 +, è sufficiente copiare il file di configurazione in% ProgramFiles (x86)% \ NuGet\Config. In Linux questo percorso precedente era/etc/opt e, in Mac, il supporto di/Libreria/Application.
+- NuGet 3.3 e versioni precedenti usavano una cartella `.nuget` per le impostazioni a livello di soluzione. Questa cartella non viene utilizzata in NuGet 3.4 .
+- Per NuGet da 2.6 a 3.x, il file di configurazione a livello di computer in Windows si trovava in %ProgramData%\NuGet\Config[\\{IDE}[\\{Versione}[\\{SKU}]]]\NuGet.Config, dove *{IDE}* può essere *VisualStudio*, *{Versione}* era la versione di Visual Studio, ad esempio *14.0*, e *{SKU}* è *Community*, *Pro* o *Enterprise*. Per eseguire la migrazione delle impostazioni a NuGet 4.0, è sufficiente copiare il file di configurazione in %ProgramFiles(x86)%. Su Linux, questa posizione precedente era /etc/opt, e su Mac, /Library/Application Support.
 
 ## <a name="changing-config-settings"></a>Modifica delle impostazioni di configurazione
 
@@ -201,7 +201,7 @@ Lo scopo del file `NuGetDefaults.Config` è quello di specificare le origini da 
 > [!Important]
 > Il file `NuGetDefaults.Config` non causa mai la rimozione di un pacchetto dalla configurazione NuGet di uno sviluppatore. Se dunque lo sviluppatore ha già usato NuGet e quindi l'origine del pacchetto nuget.org è già registrata, non verrà rimossa dopo la creazione di un file `NuGetDefaults.Config`.
 >
-> Inoltre, né `NuGetDefaults.Config` né altri meccanismi in NuGet possono impedire l'accesso alle origini dei pacchetti, ad esempio nuget.org. Se un'organizzazione desidera bloccare tale accesso, deve utilizzare altri mezzi, ad esempio i firewall, a tale scopo.
+> Inoltre, `NuGetDefaults.Config` né né alcun altro meccanismo in NuGet può impedire l'accesso alle origini del pacchetto come nuget.org. Se un'organizzazione desidera bloccare tale accesso, deve utilizzare altri mezzi, ad esempio i firewall per eseguire questa operazione.
 
 ### <a name="nugetdefaultsconfig-location"></a>Percorso di NuGetDefaults.Config
 
@@ -209,7 +209,7 @@ La tabella seguente descrive la posizione di archiviazione prevista per il file 
 
 | Piattaforma del sistema operativo  | Percorso di NuGetDefaults.Config |
 | --- | --- |
-| Windows      | **Visual Studio 2017 o NuGet 4. x +:** `%ProgramFiles(x86)%\NuGet\Config` <br />**Visual Studio 2015 e versioni precedenti o NuGet 3. x e versioni precedenti:** `%PROGRAMDATA%\NuGet` |
+| Windows      | **Visual Studio 2017 o NuGet 4.x+:** `%ProgramFiles(x86)%\NuGet\Config` <br />**Visual Studio 2015 e versioni precedenti o NuGet 3.x e versioni precedenti:** `%PROGRAMDATA%\NuGet` |
 | Mac/Linux    | `$XDG_DATA_HOME` (in genere `~/.local/share` o `/usr/local/share`, a seconda della distribuzione del sistema operativo)|
 
 ### <a name="nugetdefaultsconfig-settings"></a>Impostazioni di NuGetDefaults.Config
@@ -218,7 +218,7 @@ La tabella seguente descrive la posizione di archiviazione prevista per il file 
 
 - `disabledPackageSources`: questa raccolta ha anche lo stesso significato che nei file `NuGet.Config`, dove ogni origine interessata viene elencata per nome e un valore true/false indica se è disabilitata. In questo modo il nome e l'URL dell'origine possono rimanere in `packageSources` senza che debba essere attivata per impostazione predefinita. I singoli sviluppatori possono quindi riabilitare l'origine impostandone il valore su false negli altri file `NuGet.Config` senza dover trovare di nuovo l'URL corretto. Questo è utile anche per fornire agli sviluppatori un elenco completo di URL delle origini interne per un'organizzazione, abilitando al contempo solo l'origine di un singolo team per impostazione predefinita.
 
-- `defaultPushSource`: specifica la destinazione predefinita per le operazioni di `nuget push`, eseguendo l'override del valore predefinito predefinito di nuget.org. Gli amministratori possono distribuire questa impostazione per evitare la pubblicazione di pacchetti interni in nuget.org pubblici per errore, in quanto gli sviluppatori devono usare `nuget push -Source` per pubblicare in nuget.org.
+- `defaultPushSource`: specifica la destinazione `nuget push` predefinita per le operazioni, sovrascrivendo il valore predefinito predefinito predefinito di nuget.org. Gli amministratori possono distribuire questa impostazione per evitare di pubblicare `nuget push -Source` pacchetti interni al pubblico nuget.org per caso, poiché gli sviluppatori devono utilizzare in modo specifico per la pubblicazione in nuget.org.
 
 ### <a name="example-nugetdefaultsconfig-and-application"></a>Applicazione e NuGetDefaults.Config di esempio
 

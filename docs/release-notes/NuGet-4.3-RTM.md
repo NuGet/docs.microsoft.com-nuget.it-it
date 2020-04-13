@@ -7,22 +7,22 @@ ms.date: 08/14/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
 ms.openlocfilehash: 72d707cb9bacd8abbac873ee10b2fd00f233d3cc
-ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58432478"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64496585"
 ---
 # <a name="nuget-43-release-notes"></a>Note sulla versione per NuGet 4.3
 
 [Visual Studio 2017 15.3 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) include NuGet 4.3 RTM, che aggiunge il supporto per nuovi scenari, ad esempio.NET Standard 2.0/.NET Core 2.0, contiene varie correzioni di qualità e migliora le prestazioni. Questa versione introduce anche vari miglioramenti, come il supporto della versione 2.0.0 del versionamento semantico, l'integrazione in MSBuild degli avvisi e degli errori di NuGet e altro ancora.
 
-## <a name="summary-whats-new-in-430"></a>Riepilogo: Novità nella versione 4.3.0
+## <a name="summary-whats-new-in-430"></a>Riassunto: Novità della versione 4.3.0
 
-## <a name="summary-whats-new-in-431"></a>Riepilogo: Novità nella versione 4.3.1
+## <a name="summary-whats-new-in-431"></a>Riassunto: Novità della versione 4.3.1
 
-* Correzione della sicurezza: le autorizzazioni per i file creati all'interno di ~/.nuget sono troppo aperte [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
-* Correzione della sicurezza: i file all'interno di pacchetti NuGet possono avere un percorso relativo sopra la directory NUPKG [#7906](https://github.com/NuGet/Home/issues/7906)
+* Correzione della sicurezza: Le autorizzazioni per i file creati all'interno di nuget sono troppo aperte [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+* Correzione della sicurezza: i file all'interno di NUPKGs possono avere un percorso relativo sopra la directory NUPKG [#7906](https://github.com/NuGet/Home/issues/7906)
 
 ## <a name="known-issues"></a>Problemi noti
 
@@ -78,7 +78,7 @@ Eseguire un ripristino manuale.
 
 - Miglioramento delle prestazioni del ripristino NuGet - Implementazione di NoOp più intelligente per i ripristini dalla riga di comando e VS - [#5080](https://github.com/NuGet/Home/issues/5080)
 
-- NET Core 2.0: l'interfaccia della riga di comando di VS/Dotnet deve iniziare a usare funzionalità NuGet esistenti: Cartelle di fallback - [#4939](https://github.com/NuGet/Home/issues/4939)
+- NET Core 2.0: l'interfaccia della riga di comando di VS/Dotnet deve iniziare a usare funzionalità NuGet esistenti: cartelle di fallback - [#4939](https://github.com/NuGet/Home/issues/4939)
 
 - NET Core 2.0: consentire agli utenti di ignorare avvisi di ripristino specifici (o elevarli a errore) - [#4898](https://github.com/NuGet/Home/issues/4898)
 
@@ -86,7 +86,7 @@ Eseguire un ripristino manuale.
 
 - NET Core 2.0: registrare tutti gli avvisi/errori nel file degli asset (incluso PackageTargetFallback) - [#4895](https://github.com/NuGet/Home/issues/4895)
 
-- Abilitare il supporto di TFM: NetStandard2.0, Tizen - [#4892](https://github.com/NuGet/Home/issues/4892)
+- Abilitare il supporto del moniker TFM: NetStandard2.0, Tizen - [#4892](https://github.com/NuGet/Home/issues/4892)
 
 - Ridurre il numero di progetti NuGet.Core e NuGet.Client (quindi di DLL) - [#2446](https://github.com/NuGet/Home/issues/2446)
 

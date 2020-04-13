@@ -6,10 +6,10 @@ ms.author: mikejo
 ms.date: 06/04/2019
 ms.topic: conceptual
 ms.openlocfilehash: 12d12d5294a474c4d3e4f5d3cad468bb515d21d5
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "67426946"
 ---
 # <a name="scoped-api-keys"></a>Chiavi API con ambito
@@ -29,7 +29,7 @@ Gli ambiti per le chiavi API sono supportati per rendere disponibili autorizzazi
 
 - **Una sola chiave API per controllare tutti i pacchetti**. Con una sola chiave API per la gestione di tutti i pacchetti, è difficile condividere in modo sicuro la chiave quando più sviluppatori lavorano su pacchetti diversi e condividono un account editore.
 - **Tutte le autorizzazioni o nessuna autorizzazione**. Chiunque abbia accesso alla chiave API dispone di tutte le autorizzazioni per i pacchetti (pubblicazione, push e rimozione dall'elenco). In molti casi questa situazione non è ottimale in un ambiente con più team.
-- **Singolo punto di guasto**. Un'unica chiave API significa anche un singolo punto di guasto. Se la chiave viene compromessa, tutti i pacchetti associati all'account potrebbero risultare compromessi. L'aggiornamento della chiave API è l'unico modo per risolvere il problema ed evitare un'interruzione del flusso di lavoro CI/CD. Possono anche esistere casi in cui si vuole revocare l'accesso alla chiave API per un utente (ad esempio quando un dipendente lascia l'organizzazione). Al momento non esiste un metodo ben definito per gestire questa situazione.
+- **Singolo punto di errore**. Un'unica chiave API significa anche un singolo punto di guasto. Se la chiave viene compromessa, tutti i pacchetti associati all'account potrebbero risultare compromessi. L'aggiornamento della chiave API è l'unico modo per risolvere il problema ed evitare un'interruzione del flusso di lavoro CI/CD. Possono anche esistere casi in cui si vuole revocare l'accesso alla chiave API per un utente (ad esempio quando un dipendente lascia l'organizzazione). Al momento non esiste un metodo ben definito per gestire questa situazione.
 
 Con le chiavi API con ambito si tenta di risolvere questi problemi, assicurandosi nel contempo che nessuno dei flussi di lavoro esistenti interrompa l'esecuzione.
 

@@ -6,10 +6,10 @@ ms.author: mikejo
 ms.date: 07/09/2019
 ms.topic: conceptual
 ms.openlocfilehash: b151547e40e567b38acc2b0b9ee84c50d85000c9
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "69488486"
 ---
 # <a name="identify-the-project-format"></a>Identificare il formato del progetto

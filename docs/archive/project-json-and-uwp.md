@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 07/17/2017
 ms.topic: conceptual
 ms.openlocfilehash: ac3c137dd0ba50571737093eef11c8ab0ef932b2
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548664"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64494386"
 ---
 # <a name="projectjson-and-uwp"></a>project.json e UWP
 
@@ -33,17 +33,17 @@ In questo caso è necessario aggiungere il moniker del framework di destinazione
 
 ## <a name="i-dont-need-windows-10-specific-apis-but-want-new-net-features-or-dont-have-netcore45-already"></a>Non sono necessarie le API specifiche di Windows 10, ma si vogliono usare le nuove funzionalità .NET o non si ha già netcore45
 
-In questo caso si aggiungerà il moniker TxM `dotnet` al pacchetto. Diversamente da altri TxM, `dotnet` non implica una superficie di attacco o una piattaforma. Il pacchetto funziona su tutte le piattaforme su cui funzionano le dipendenze. Quando si compila un pacchetto con il TxM `dotnet`, è probabile che si abbiano molte più dipendenze specifiche del TxM in `.nuspec`, perché è necessario definire i pacchetti BCL da cui si dipende, ad esempio `System.Text`, `System.Xml` e così via. Il pacchetto opera nelle posizioni in cui operano tali dipendenze.
+In questo caso si aggiungerà il moniker TxM `dotnet` al pacchetto. Diversamente da altri TxM, `dotnet` non implica una superficie di attacco o una piattaforma. Il pacchetto funziona su tutte le piattaforme su cui funzionano le dipendenze. Quando si compila `dotnet` un pacchetto con TxM, è probabile che si disponga `.nuspec`di molte più dipendenze specifiche di TxM nell'oggetto , in quanto è necessario definire i pacchetti BCL da cui si dipende, ad esempio `System.Text`, `System.Xml`, e così via. I percorsi in cui funzionano tali dipendenze definiscono la posizione del pacchetto.
 
 ### <a name="how-do-i-find-out-my-dependencies"></a>Come trovare le dipendenze
 
 Esistono due modi per determinare le dipendenze da elencare:
 
-1. Usare lo strumento **di terze parti** [NuSpec Dependency Generator](https://github.com/onovotny/ReferenceGenerator). Lo strumento automatizza il processo e aggiorna il file `.nuspec` con i pacchetti dipendenti in fase di compilazione. È disponibile tramite il pacchetto NuGet [NuSpec.ReferenceGenerator](https://www.nuget.org/packages/NuSpec.ReferenceGenerator/).
+1. Utilizzare lo strumento [NuSpec Dependency Generator](https://github.com/onovotny/ReferenceGenerator) **di terze parti.** Lo strumento automatizza il processo e aggiorna il file `.nuspec` con i pacchetti dipendenti in fase di compilazione. È disponibile tramite il pacchetto NuGet [NuSpec.ReferenceGenerator](https://www.nuget.org/packages/NuSpec.ReferenceGenerator/).
 
 1. (Difficile) Usare `ILDasm` per esaminare il file `.dll` e verificare quali assembly sono effettivamente necessari in fase di esecuzione. Determinare quindi il pacchetto NuGet da cui proviene ognuno.
 
-Per informazioni dettagliate sulla creazione di un pacchetto che supporta il TxM `dotnet`, vedere l'argomento [`project.json`](project-json.md).
+Vedere [`project.json`](project-json.md) l'argomento per informazioni dettagliate sulle funzionalità che `dotnet` consentono di creare un pacchetto che supporta il TxM.
 
 > [!Important]
 > Se il pacchetto deve usare progetti PCL, è consigliabile creare una cartella `dotnet` per evitare avvisi e potenziali problemi di compatibilità.
@@ -52,11 +52,11 @@ Per informazioni dettagliate sulla creazione di un pacchetto che supporta il TxM
 
 I pacchetti NuGet che usano questo formato presentano la cartella e i comportamenti noti seguenti:
 
-| Cartella | comportamenti |
+| Cartella | Comportamenti |
 | --- | --- |
-| Compilazione | Contiene i file di destinazioni e proprietà MSBuild che vengono integrati in modo diverso nel progetto, senza altre modifiche. |
+| Compilare | Contiene i file di destinazioni e proprietà MSBuild che vengono integrati in modo diverso nel progetto, senza altre modifiche. |
 | Strumenti | `install.ps1` e `uninstall.ps1` non vengono eseguiti. `init.ps1` funziona come sempre. |
-| Content | Il contenuto non viene copiato automaticamente nel progetto di un utente. Il supporto per l'inclusione di contenuto nel progetto è previsto per una versione successiva. |
+| Contenuto | Il contenuto non viene copiato automaticamente nel progetto di un utente. Il supporto per l'inclusione di contenuto nel progetto è previsto per una versione successiva. |
 | Lib | Per molti pacchetti `lib` funziona come in NuGet 2.x, ma con opzioni espanse per i nomi che possono essere usati e una logica migliore per la selezione della sottocartella corretta quando si utilizzano i pacchetti. Se usata in combinazione con `ref`, la cartella `lib` contiene tuttavia assembly che implementano la superficie di attacco definita dagli assembly nella cartella `ref`. |
 | Rif | `ref` è una cartella facoltativa che contiene assembly .NET che definiscono la superficie pubblica (tipi e metodi pubblici) per un'applicazione in cui eseguire la compilazione. Gli assembly in questa cartella possono non avere implementazioni. Vengono usati esclusivamente per definire la superficie di attacco per il compilatore. Se il pacchetto non ha cartelle `ref`, `lib` è sia l'assembly di riferimento che l'assembly di implementazione. |
 | Runtimes | `runtimes` è una cartella facoltativa contenente il codice specifico del sistema operativo, ad esempio l'architettura della CPU e i file binari specifici del sistema operativo o in altro modo dipendenti dalla piattaforma. |
@@ -113,7 +113,7 @@ In questo esempio gli assembly nelle directory `ref` saranno tutti identici.
 
 ## <a name="runtimes"></a>Runtimes
 
-La cartella runtimes contiene assembly e librerie native necessari per l'esecuzione in specifici "runtime", definiti in genere dal sistema operativo e dall'architettura della CPU. Questi runtime vengono identificati usando gli [identificatori di runtime](/dotnet/core/rid-catalog), ad esempio `win`, `win-x86`, `win7-x86`, `win8-64` e così via.
+La cartella runtimes contiene assembly e librerie native necessari per l'esecuzione in specifici "runtime", definiti in genere dal sistema operativo e dall'architettura della CPU. Questi runtime vengono identificati utilizzando identificatori di runtime `win` `win-x86` [(RIDE),](/dotnet/core/rid-catalog) ad esempio , , `win7-x86`, , `win8-64`e così via.
 
 ## <a name="native-helpers-to-use-platform-specific-apis"></a>Helper nativi per usare API specifiche della piattaforma
 

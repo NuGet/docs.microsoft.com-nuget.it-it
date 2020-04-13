@@ -6,15 +6,15 @@ ms.author: karann
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.openlocfilehash: 7166d622ef9d3975fc1c931d30caf570a765a6da
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "78231318"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>Creare un pacchetto NuGet usando MSBuild
 
-Quando si crea un pacchetto NuGet dal codice, si rendono disponibili tali funzionalità in un componente condivisibile e utilizzabile da altri sviluppatori. Questo articolo descrive come creare un pacchetto usando MSBuild. MSBuild viene preinstallato con tutti i carichi di lavoro di Visual Studio che contengono NuGet. Inoltre, è possibile usare MSBuild anche tramite l'interfaccia della riga di comando DotNet con [DotNet MSBuild](https://docs.microsoft.com/dotnet/core/tools/dotnet-msbuild).
+Quando si crea un pacchetto NuGet dal codice, si rendono disponibili tali funzionalità in un componente condivisibile e utilizzabile da altri sviluppatori. Questo articolo descrive come creare un pacchetto usando MSBuild. MSBuild viene preinstallato con tutti i carichi di lavoro di Visual Studio che contengono NuGet. Inoltre, è anche possibile utilizzare MSBuild tramite l'interfaccia della riga di comando dotnet con [dotnet msbuild](https://docs.microsoft.com/dotnet/core/tools/dotnet-msbuild).
 
 Per i progetti .NET Core e .NET Standard che usano il [formato di tipo SDK](../resources/check-project-format.md), e qualsiasi altro progetto di tipo SDK, NuGet usa le informazioni nel file di progetto direttamente per creare un pacchetto.  Anche per un progetto di tipo non SDK che usa `<PackageReference>`, NuGet usa il file di progetto per creare un pacchetto.
 
@@ -35,9 +35,9 @@ Per creare un pacchetto, sono necessarie le proprietà seguenti.
 - `Authors`, ovvero informazioni sull'autore e sul proprietario. Se non è specificato, il valore predefinito è `AssemblyName`.
 - `Company`, ovvero il nome della società. Se non è specificato, il valore predefinito è `AssemblyName`.
 
-Inoltre, se si stanno comprimendo progetti di tipo non SDK che usano PackageReference, è necessario quanto segue:
+Inoltre, se si comprime progetti non di tipo SDK che utilizzano PackageReference, è necessario quanto segue:
 
-- `PackageOutputPath`, la cartella di output per il pacchetto generato quando si chiama Pack.
+- `PackageOutputPath`, la cartella di output per il pacchetto generato quando si chiama il pacchetto.
 
 In Visual Studio è possibile impostare questi valori nelle proprietà del progetto (fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni, scegliere **Proprietà** e selezionare la scheda **Pacchetto**). È anche possibile impostare queste proprietà direttamente nei file di progetto (con estensione *csproj*).
 
@@ -74,7 +74,7 @@ L'esempio seguente illustra un file di progetto semplice e completo con queste p
 
 Per informazioni dettagliate sulla dichiarazione delle dipendenze e sulla specifica dei numeri di versione, vedere [Riferimenti ai pacchetti nei file di progetto](../consume-packages/package-references-in-project-files.md) e [Controllo delle versioni dei pacchetti](../concepts/package-versioning.md). È anche possibile esporre gli asset dalle dipendenze direttamente nel pacchetto usando gli attributi `<IncludeAssets>` e `<ExcludeAssets>`. Per altre informazioni, vedere [Controllo degli asset delle dipendenze](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets).
 
-## <a name="add-an-optional-description-field"></a>Aggiungere un campo di descrizione facoltativo
+## <a name="add-an-optional-description-field"></a>Aggiungere un campo descrizione facoltativo
 
 [!INCLUDE [add description to package](includes/add-description.md)]
 
@@ -157,7 +157,7 @@ Per eseguire automaticamente `msbuild -t:pack` quando si compila o si ripristina
 <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 ```
 
-Quando si esegue `msbuild -t:pack` per una soluzione, vengono inseriti nel pacchetto tutti i progetti nella soluzione che supportano i pacchetti (proprietà [<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties) impostata su `true`).
+Quando si `msbuild -t:pack` esegue su una soluzione, vengono impaiestati[<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties) tutti i `true`progetti della soluzione che sono imballabili ( la proprietà è impostata su ).
 
 > [!NOTE]
 > Quando si genera automaticamente il pacchetto, il tempo di creazione del pacchetto aumenta il tempo di compilazione per il progetto.

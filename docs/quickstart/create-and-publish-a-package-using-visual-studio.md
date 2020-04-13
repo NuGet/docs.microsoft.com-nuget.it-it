@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 08/16/2019
 ms.topic: quickstart
 ms.openlocfilehash: 32dcc1d233154463e2950b1ce46554b1cb89956e
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79429031"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Guida introduttiva: Creare e pubblicare un pacchetto NuGet con Visual Studio (.NET Standard, solo Windows)
@@ -19,7 +19,7 @@ La creazione di un pacchetto NuGet da una libreria di classi .NET Standard in Vi
 > [!Note]
 > Se si usa Visual Studio per Mac, fare riferimento a [queste informazioni](/xamarin/cross-platform/app-fundamentals/nuget-multiplatform-libraries/existing-library) per la creazione di un pacchetto NuGet o usare gli [strumenti dell'interfaccia della riga di comando dotnet](create-and-publish-a-package-using-the-dotnet-cli.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 1. Installare qualsiasi edizione di Visual Studio 2019 da [visualstudio.com](https://www.visualstudio.com/) con qualsiasi carico di lavoro correlato a .NET Core.
 
@@ -114,7 +114,7 @@ namespace AppLogger
 
 ### <a name="optional-pack-with-msbuild"></a>(Facoltativo) Creare il pacchetto con MSBuild
 
-In alternativa all'uso del comando di menu **Pack** (Pacchetto), NuGet 4.x+ e MSBuild 15.1+ supportano una destinazione `pack` quando il progetto contiene i dati necessari del pacchetto. Aprire un prompt dei comandi, passare alla cartella del progetto ed eseguire il comando seguente. (In genere, è consigliabile avviare il "Prompt dei comandi per gli sviluppatori per Visual Studio" dal menu Start, in modo che venga configurato con tutti i percorsi necessari per MSBuild.)
+In alternativa all'utilizzo del comando di menu **Pack,** NuGet 4.x e `pack` MSBuild 15.1 supporta una destinazione quando il progetto contiene i dati del pacchetto necessari. Aprire un prompt dei comandi, passare alla cartella del progetto ed eseguire il comando seguente. (In genere, è consigliabile avviare il "Prompt dei comandi per gli sviluppatori per Visual Studio" dal menu Start, in modo che venga configurato con tutti i percorsi necessari per MSBuild.)
 
 Per altre informazioni, vedere [Creare un pacchetto usando MSBuild](../create-packages/creating-a-package-msbuild.md).
 
@@ -140,7 +140,7 @@ Prima di poter pubblicare il pacchetto, è necessario aprire una riga di comando
 
 [!INCLUDE [publish-dotnet](includes/publish-dotnet.md)]
 
-# <a name="nuget"></a>[NuGet](#tab/nuget)
+# <a name="nuget"></a>[Nuget](#tab/nuget)
 
 Questo passaggio è un'alternativa all'uso di `dotnet.exe`.
 
@@ -197,13 +197,13 @@ Verrà incluso un file denominato `readme.txt` nella radice del pacchetto. Visua
 
 > [!Video https://channel9.msdn.com/Series/NuGet-101/Create-and-Publish-a-NuGet-Package-with-Visual-Studio-4-of-5/player]
 
-Trova altri video su NuGet su [Channel 9](https://channel9.msdn.com/Series/NuGet-101) e [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_).
+Trova altri video NuGet su [Channel 9](https://channel9.msdn.com/Series/NuGet-101) e [YouTube.](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_)
 
 ## <a name="related-topics"></a>Argomenti correlati
 
 - [Creare un pacchetto](../create-packages/creating-a-package-dotnet-cli.md)
-- [Pubblicare un pacchetto](../nuget-org/publish-a-package.md)
-- [Pacchetti in versione non definitiva](../create-packages/Prerelease-Packages.md)
+- [Pubblicazione di un pacchetto](../nuget-org/publish-a-package.md)
+- [Pacchetti pre-rilascio](../create-packages/Prerelease-Packages.md)
 - [Supportare più framework di destinazione](../create-packages/multiple-target-frameworks-project-file.md)
 - [Controllo delle versioni dei pacchetti](../concepts/package-versioning.md)
 - [Creazione di pacchetti localizzati](../create-packages/creating-localized-packages.md)

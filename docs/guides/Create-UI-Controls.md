@@ -6,17 +6,17 @@ ms.author: karann
 ms.date: 05/23/2018
 ms.topic: tutorial
 ms.openlocfilehash: da8c5a05311c790bf6b873bc0f1a077d3ef1db87
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "73610622"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>Creazione di controlli dell'interfaccia utente come pacchetti NuGet
 
 A partire da Visual Studio 2017, è possibile sfruttare le funzionalità aggiunte per i controlli UWP e WPF inseriti nei pacchetti NuGet. Questa guida illustra tali funzionalità nel contesto dei controlli UWP usando l'[esempio ExtensionSDKasNuGetPackage](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage). Lo stesso vale per i controlli WPF, se non diversamente indicato.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 1. Visual Studio 2017
 1. Familiarità con la [creazione di pacchetti UWP](create-uwp-packages.md)
@@ -120,7 +120,7 @@ Nel caso di WPF, si supponga di volere che il pacchetto dei controlli WPF venga 
 
 ## <a name="add-design-time-support"></a>Aggiungere il supporto in fase di progettazione
 
-Per configurare dove visualizzare le proprietà del controllo nel controllo proprietà, aggiungere gli strumenti decorativi personalizzati e così via e inserire il file `design.dll` nella cartella `lib\uap10.0.14393\Design` in modo appropriato alla piattaforma di destinazione. Per assicurarsi inoltre che la funzionalità **[Modifica modello > Modifica copia](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)** operi correttamente, è necessario includere nella cartella `<your_assembly_name>\Themes` `Generic.xaml` e tutti i dizionari risorse uniti, ancora una volta usando il nome di assembly effettivo. (Questo file non ha alcun effetto sul comportamento di runtime di un controllo). La struttura di cartelle viene quindi visualizzata come segue:
+Per configurare dove visualizzare le proprietà del controllo nel controllo proprietà, aggiungere gli strumenti decorativi personalizzati e così via e inserire il file `design.dll` nella cartella `lib\uap10.0.14393\Design` in modo appropriato alla piattaforma di destinazione. Per assicurarsi inoltre che la funzionalità **[Modifica modello > Modifica copia](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)** operi correttamente, è necessario includere nella cartella `<your_assembly_name>\Themes``Generic.xaml` e tutti i dizionari risorse uniti, ancora una volta usando il nome di assembly effettivo. Questo file non ha alcun impatto sul comportamento di runtime di un controllo. La struttura delle cartelle appare quindi come segue:
 
     \lib
       \uap10.0.14393

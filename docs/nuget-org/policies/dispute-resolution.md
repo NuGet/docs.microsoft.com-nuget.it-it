@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
 ms.openlocfilehash: a2f1fed578f1635296892ab925219f0f27883c02
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "67426936"
 ---
 # <a name="resolving-disputes-over-nuget-package-names"></a>Risoluzione delle controversie sui nomi dei pacchetti NuGet
@@ -24,6 +24,6 @@ Seguendo il processo riportato di seguito, Northwind e Nancy possono collaborare
 
 ## <a name="process"></a>Process
 
-1. Contattare i proprietari del pacchetto per cui è sorta la controversia usando il collegamento **Contact Owners** (Contatta proprietari) nella pagina dei dettagli del pacchetto. Spiegare il problema in modo diretto e cortese.
-2. Inviare una copia del messaggio all'indirizzo [support@nuget.org](mailto:support@nuget.org) in modo che NuGet e .NET Foundation siano al corrente della controversia.
-3. Attendere un massimo di 30 giorni per la risoluzione, quindi segnalare nuovamente il problema all'indirizzo [support@nuget.org](mailto:support@nuget.org). Il team di supporto di nuget.org verrà contattato e tenterà di risolvere la controversia collaborando con entrambe le parti.
+1. Contattare i proprietari del pacchetto oggetto della disputa usando il collegamento **Contact Owners** (Contatta proprietari) disponibile nella pagina dei dettagli del pacchetto. Spiegare il problema in un modo cortese e diretto.
+2. Inviare una copia [support@nuget.org](mailto:support@nuget.org) del messaggio in modo che NuGet e .NET Foundation siano a conoscenza della controversia.
+3. Attendi un massimo di 30 giorni [support@nuget.org](mailto:support@nuget.org) per una risoluzione, quindi invia di nuovo una notifica. Il team di supporto di nuget.org verrà contattato e tenterà di risolvere la controversia collaborando con entrambe le parti.

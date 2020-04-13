@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
 ms.openlocfilehash: b3e6f0efc9e2e12de186ffd4ce29d496d07d5fc4
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79428947"
 ---
 # <a name="create-a-package-using-the-nugetexe-cli"></a>Creare un pacchetto usando l'interfaccia della riga di comando di nuget.exe
@@ -68,7 +68,7 @@ Proprietà facoltative comuni:
 - Breve descrizione dell'[interfaccia utente di Gestione pacchetti in Visual Studio](../consume-packages/install-use-packages-visual-studio.md)
 - ID impostazioni locali
 - URL progetto
-- Licenza come espressione o file (`licenseUrl` è deprecato, usare l'elemento di metadati [`license` di nuspec](../reference/nuspec.md#license))
+- Licenza come espressione o`licenseUrl` file (è deprecato, utilizzare l'elemento [ `license` metadati nuspec](../reference/nuspec.md#license))
 - URL dell'icona
 - Elenchi di dipendenze e riferimenti
 - Tag di supporto per le ricerche nella raccolta
@@ -241,7 +241,7 @@ Tenere presente che sono disponibili diverse altre opzioni di creazione del pacc
 
 #### <a name="solution-level-packages"></a>Pacchetti a livello di soluzione
 
-*Solo NuGet 2. x. Non disponibile in NuGet 3.0 +.*
+*Solo NuGet 2.x. Non disponibile in NuGet 3.0.*
 
 NuGet 2.x supportava la nozione di pacchetto a livello di soluzione che installa strumenti o comandi aggiuntivi per la console di Gestione pacchetti (contenuti della cartella `tools`), ma non aggiunge riferimenti, contenuto o personalizzazioni delle compilazioni ai progetti della soluzione. Tali pacchetti non contengono file nelle cartelle `lib`, `content` o `build` dirette e nessuna dipendenza ha file nelle rispettive cartelle `lib`, `content` o `build`.
 
@@ -267,7 +267,7 @@ L'identificatore del pacchetto (elemento `<id>`) e il numero di versione (elemen
 
 - **Univocità**: l'identificatore deve essere univoco in nuget.org o in qualsiasi raccolta che ospita il pacchetto. Prima di scegliere un identificatore, eseguire una ricerca nella raccolta applicabile per controllare se il nome è già in uso. Per evitare conflitti, è consigliabile usare il nome della società come prima parte dell'identificatore, ad esempio `Contoso.`.
 - **Nomi simili a spazi dei nomi**: seguono un modello simile a quello degli spazi dei nomi in .NET, usando la notazione del punto invece dei trattini. Usare, ad esempio, `Contoso.Utility.UsefulStuff` invece di `Contoso-Utility-UsefulStuff` o `Contoso_Utility_UsefulStuff`. Per gli utenti è anche utile che l'identificatore del pacchetto corrisponda agli spazi dei nomi usati nel codice.
-- **Pacchetti di esempio**: se si produce un pacchetto di codice di esempio che illustra come usare un altro pacchetto, collegare `.Sample` come suffisso all'identificatore, come in `Contoso.Utility.UsefulStuff.Sample`. Il pacchetto di esempio, ovviamente, avrà una dipendenza da un altro pacchetto. Quando si crea un pacchetto di esempio, usare il metodo della directory di lavoro basata sulle convenzioni descritto in precedenza. Nella cartella `content` inserire il codice di esempio in una cartella denominata `\Samples\<identifier>` come in `\Samples\Contoso.Utility.UsefulStuff.Sample`.
+- **Pacchetti di esempio**: se si produce un pacchetto di codice di esempio che illustra come usare un altro pacchetto, collegare `.Sample` come suffisso all'identificatore, come in `Contoso.Utility.UsefulStuff.Sample`. (Il pacchetto di esempio avrebbe ovviamente una dipendenza dall'altro pacchetto.) Quando si crea un pacchetto di esempio, usare il metodo di directory di lavoro basato su convenzioni descritto in precedenza. Nella cartella `content` inserire il codice di esempio in una cartella denominata `\Samples\<identifier>` come in `\Samples\Contoso.Utility.UsefulStuff.Sample`.
 
 **Procedure consigliate per la versione del pacchetto:**
 
@@ -344,7 +344,7 @@ Nel file `.nuspec` assicurarsi quindi di fare riferimento a questi file nel nodo
 
 La possibilità di includere file props e targets di MSBuild in un pacchetto è stata [introdotta con NuGet 2.5](../release-notes/NuGet-2.5.md#automatic-import-of-msbuild-targets-and-props-files), pertanto è consigliabile aggiungere l'attributo `minClientVersion="2.5"` all'elemento `metadata` per indicare la versione client NuGet minima richiesta per utilizzare il pacchetto.
 
-Quando installa un pacchetto con i file `\build`, NuGet aggiunge elementi `<Import>` di MSBuild nel file di progetto che puntano ai file `.targets` e `.props`. (`.props` viene aggiunto all'inizio del file di progetto; `.targets` viene aggiunto nella parte inferiore). Viene aggiunto un elemento `<Import>` MSBuild condizionale separato per ogni Framework di destinazione.
+Quando installa un pacchetto con i file `\build`, NuGet aggiunge elementi `<Import>` di MSBuild nel file di progetto che puntano ai file `.targets` e `.props`. (`.props` viene aggiunto nella parte superiore del file di progetto; `.targets` viene aggiunto in basso.) Viene aggiunto un `<Import>` elemento MSBuild condizionale separato per ogni framework di destinazione.
 
 I file `.props` e `.targets` di MSBuild per l'assegnazione di più framework di destinazione possono essere posizionati nella cartella `\buildMultiTargeting`. Durante l'installazione del pacchetto, NuGet aggiunge elementi `<Import>` corrispondenti al file di progetto, a condizione che il framework di destinazione non sia impostato (la proprietà MSBuild `$(TargetFramework)` deve essere vuota).
 

@@ -12,26 +12,26 @@ keywords: Pacchetti di simboli NuGet, debug dei pacchetti NuGet, supporto per il
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 839c38ec165372bab9b93dec25e5c8e8e9439bfa
-ms.sourcegitcommit: 415c70d7014545c1f65271a2debf8c3c1c5eb688
+ms.openlocfilehash: c42032f1869f4be0af44ffa8fbd5ad522f73c459
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77036890"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "80380418"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Creazione di pacchetti di simboli (estensione snupkg)
 
-Un'esperienza di debug ottimale si basa sulla presenza di simboli di debug poiché forniscono informazioni critiche, come l'associazione tra il codice compilato e il codice sorgente, i nomi delle variabili locali, le analisi dello stack e altro ancora. È possibile usare i pacchetti di simboli (con estensione snupkg) per distribuire questi simboli e migliorare l'esperienza di debug dei pacchetti NuGet.
+Una buona esperienza di debug si basa sulla presenza di simboli di debug in quanto forniscono informazioni critiche come l'associazione tra il codice compilato e il codice sorgente, i nomi delle variabili locali, le tracce dello stack e altro ancora. È possibile utilizzare i pacchetti di simboli (con estensione snupkg) per distribuire questi simboli e migliorare l'esperienza di debug dei pacchetti NuGet.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-[NuGet. exe v 4.9.0 o versione successiva](https://www.nuget.org/downloads) o [DotNet CLI v 2.2.0 o versioni successive](https://www.microsoft.com/net/download/dotnet-core/2.2), che implementano i [protocolli NuGet](../api/nuget-protocols.md)necessari.
+[nuget.exe v4.9.0 o versione successiva](https://www.nuget.org/downloads) o [dotnet CLI v2.2.0 o versione successiva,](https://www.microsoft.com/net/download/dotnet-core/2.2)che implementano i [protocolli NuGet](../api/nuget-protocols.md)necessari.
 
 ## <a name="creating-a-symbol-package"></a>Creazione di un pacchetto di simboli
 
-Se si usa l'interfaccia della riga di comando DotNet o MSBuild, è necessario impostare le proprietà `IncludeSymbols` e `SymbolPackageFormat` per creare un file con estensione snupkg oltre al file nupkg.
+Se si usa dotnet CLI o MSBuild, `IncludeSymbols` è `SymbolPackageFormat` necessario impostare le proprietà e per creare un file con estensione snupkg oltre al file nupkg.
 
-* Aggiungere le proprietà seguenti al file con estensione csproj:
+* Aggiungere le seguenti proprietà al file con estensione csproj:
 
    ```xml
    <PropertyGroup>
@@ -40,7 +40,7 @@ Se si usa l'interfaccia della riga di comando DotNet o MSBuild, è necessario im
    </PropertyGroup>
    ```
 
-* In alternativa, specificare le proprietà seguenti nella riga di comando:
+* In alternativa, specificare queste proprietà nella riga di comando:
 
      ```dotnetcli
      dotnet pack MyPackage.csproj -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
@@ -60,7 +60,7 @@ nuget pack MyPackage.nuspec -Symbols -SymbolPackageFormat snupkg
 nuget pack MyPackage.csproj -Symbols -SymbolPackageFormat snupkg
 ```
 
-La proprietà [`SymbolPackageFormat`](/dotnet/core/tools/csproj#symbolpackageformat) può avere uno dei due valori seguenti: `symbols.nupkg` (predefinito) o `snupkg`. Se questa proprietà non è specificata, verrà creato un pacchetto di simboli legacy.
+La [`SymbolPackageFormat`](/dotnet/core/tools/csproj#symbolpackageformat) proprietà può avere uno `symbols.nupkg` dei due `snupkg`valori seguenti: (impostazione predefinita) o . Se questa proprietà non è specificata, verrà creato un pacchetto di simboli legacy.
 
 > [!Note]
 > Il formato legacy `.symbols.nupkg` è ancora supportato ma solo per motivi di compatibilità (vedere [Pacchetti di simboli legacy](Symbol-Packages.md)). Il server di simboli di NuGet.org accetta solo il nuovo formato di pacchetto di simboli `.snupkg`.
@@ -94,31 +94,31 @@ NuGet pubblicherà entrambi i pacchetti in nuget.org. `MyPackage.nupkg` verrà p
 
 NuGet.org supporta il proprio repository del server di simboli e accetta solo il nuovo formato di pacchetto di simboli `.snupkg`. I consumer di pacchetti possono usare i simboli pubblicati nel server di simboli nuget.org aggiungendo `https://symbols.nuget.org/download/symbols` alle loro origini dei simboli in Visual Studio, in modo da consentire l'esecuzione delle istruzioni nel codice del pacchetto nel debugger di Visual Studio. Vedere [Specifica di file di simboli (con estensione pdb) e di file di origine nel debugger di Visual Studio](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger) per informazioni dettagliate su questo processo.
 
-### <a name="nugetorg-symbol-package-constraints"></a>Vincoli del pacchetto di simboli NuGet.org
+### <a name="nugetorg-symbol-package-constraints"></a>NuGet.org vincoli dei pacchetti di simboli di NuGet.org
 
-NuGet.org presenta i vincoli seguenti per i pacchetti di simboli:
+NuGet.org ha i seguenti vincoli per i pacchetti di simboli:
 
-- Nei pacchetti di simboli sono consentite solo le estensioni di file seguenti: `.pdb`, `.nuspec`, `.xml`, `.psmdcp`, `.rels``.p7s`
-- Nel server di simboli di NuGet. org sono supportati solo [PDB portatili](https://github.com/dotnet/corefx/blob/master/src/System.Reflection.Metadata/specs/PortablePdb-Metadata.md) gestiti.
-- I PDB e le dll nupkg associate devono essere compilati con il compilatore in Visual Studio versione 15,9 o successiva (vedere l' [hash Crypto PDB](https://github.com/dotnet/roslyn/issues/24429))
+- Nei pacchetti di simboli sono consentite `.xml`solo `.psmdcp` `.rels`le seguenti estensioni di file: `.pdb`, `.nuspec`, , , , ,`.p7s`
+- Solo [i file PDB portabili](https://github.com/dotnet/runtime/blob/87572a799bfd37779c079faf28544e3f9a16be58/src/libraries/System.Reflection.Metadata/specs/PortablePdb-Metadata.md) gestiti sono supportati nel server di simboli di NuGet.org.
+- I File PDB e le DLL nUPkg associate devono essere compilati con il compilatore in Visual Studio versione 15.9 o successiva (vedere [Hash crittografico PDB](https://github.com/dotnet/roslyn/issues/24429))
 
-Se questi vincoli non vengono soddisfatti, i pacchetti di simboli pubblicati in NuGet.org non verranno convalidati. 
+I pacchetti di simboli pubblicati per NuGet.org non verranno convalidati se questi vincoli non vengono soddisfatti. 
 
 ### <a name="symbol-package-validation-and-indexing"></a>Convalida e indicizzazione dei pacchetti di simboli
 
-I pacchetti di simboli pubblicati in [NuGet.org](https://www.nuget.org/) vengono sottoposti a diverse convalide, inclusa l'analisi di malware. Se un pacchetto non supera un controllo di convalida, nella pagina dei dettagli del pacchetto verrà visualizzato un messaggio di errore. Inoltre, i proprietari del pacchetto riceveranno un messaggio di posta elettronica con le istruzioni su come risolvere i problemi identificati.
+Pacchetti di simboli pubblicati [per NuGet.org](https://www.nuget.org/) sottoposti a diverse convalide, tra cui la scansione antimalware. Se un pacchetto non supera un controllo di convalida, nella relativa pagina dei dettagli del pacchetto verrà visualizzato un messaggio di errore. Inoltre, i proprietari del pacchetto riceveranno un'e-mail con le istruzioni su come risolvere i problemi identificati.
 
-Quando il pacchetto di simboli ha superato tutte le convalide, i simboli verranno indicizzati dai server dei simboli di NuGet. org e saranno disponibili per l'utilizzo.
+Quando il pacchetto di simboli ha superato tutte le convalide, i simboli verranno indicizzati dai server di simboli di NuGet.org e saranno disponibili per l'utilizzo.
 
-La convalida e l'indicizzazione del pacchetto richiedono in genere meno di 15 minuti. Se la pubblicazione del pacchetto richiede più tempo del previsto, visitare [status.NuGet.org](https://status.nuget.org/) per verificare se NuGet.org sta riscontrando interruzioni. Se tutti i sistemi sono operativi e il pacchetto non viene pubblicato entro un'ora, accedere a nuget.org e usare il collegamento per contattare il supporto tecnico nella pagina dei dettagli del pacchetto.
+La convalida e l'indicizzazione del pacchetto richiedono in genere meno di 15 minuti. Se la pubblicazione del pacchetto richiede più tempo del previsto, visitare [status.nuget.org](https://status.nuget.org/) per verificare se NuGet.org si verificano interruzioni. Se tutti i sistemi sono operativi e il pacchetto non viene pubblicato entro un'ora, accedere a nuget.org e usare il collegamento per contattare il supporto tecnico nella pagina dei dettagli del pacchetto.
 
 ## <a name="symbol-package-structure"></a>Struttura di un pacchetto di simboli
 
-Il pacchetto di simboli (con estensione snupkg) presenta le caratteristiche seguenti:
+Il pacchetto di simboli (.snupkg) presenta le seguenti caratteristiche:
 
-1) Il. snupkg ha lo stesso ID e la stessa versione del pacchetto NuGet corrispondente (. nupkg).
-2) Il file con estensione snupkg ha la stessa struttura di cartelle della corrispondente. nupkg per tutti i file DLL o EXE, con la differenza che anziché dll/exe, il corrispondente PDB verrà incluso nella stessa gerarchia di cartelle. I file e le cartelle con estensioni diverse da PDB verranno lasciati fuori dal file con estensione snupkg.
-3) Il file con estensione NuSpec del pacchetto di simboli presenta il tipo di pacchetto `SymbolsPackage`:
+1) Il .snupkg ha lo stesso id e la stessa versione del pacchetto NuGet corrispondente (.nupkg).
+2) Il .snupkg ha la stessa struttura di cartelle del corrispondente .nupkg per qualsiasi file DLL o EXE con la distinzione che invece di DLL/EXE, i corrispondenti PDU verranno inclusi nella stessa gerarchia di cartelle. I file e le cartelle con estensioni diverse da PDB verranno lasciati fuori dal file con estensione snupkg.
+3) Il file .nuspec del pacchetto `SymbolsPackage` di simboli ha il tipo di pacchetto:
 
    ```xml
    <packageTypes>
@@ -127,11 +127,11 @@ Il pacchetto di simboli (con estensione snupkg) presenta le caratteristiche segu
    ```
 
 4) Se un autore decide di usare un file con estensione nuspec personalizzato per compilare i propri file con estensione nupkg e snupkg, il file con estensione snupkg deve avere la stessa gerarchia di cartelle e gli stessi file descritti in dettaglio al punto 2).
-5) I campi seguenti verranno esclusi dal NuSpec di snupkg: ```authors```, ```owners```, ```requireLicenseAcceptance```, ```license type```, ```licenseUrl```e ```icon```.
+5) I seguenti campi verranno esclusi dal nuspec ```authors```di ```owners``` ```requireLicenseAcceptance```snupkg: , , , , ```license type``` ```licenseUrl```, e ```icon```.
 6) Non usare l'elemento ```<license>```. Un file con estensione snupkg è coperto dalla stessa licenza del file con estensione nupkg corrispondente.
 
 ## <a name="see-also"></a>Vedere anche
 
-Provare a usare il collegamento di origine per abilitare il debug del codice sorgente degli assembly .NET. Per ulteriori informazioni, consultare le [linee guida](/dotnet/standard/library-guidance/sourcelink)per il collegamento all'origine.
+Prendere in considerazione l'utilizzo di Collegamento di origine per abilitare il debug del codice sorgente degli assembly .NET. Per ulteriori informazioni, fare riferimento alla Guida al [collegamento di origine](/dotnet/standard/library-guidance/sourcelink).
 
-Per altre informazioni sui pacchetti di simboli, fare riferimento alla specifica di [debug del pacchetto NuGet & simboli](https://github.com/NuGet/Home/wiki/NuGet-Package-Debugging-&-Symbols-Improvements) di progettazione.
+Per altre informazioni sui pacchetti di simboli, fare riferimento alla specifica di progettazione [NuGet Package Debugging & Symbols Improvements.For](https://github.com/NuGet/Home/wiki/NuGet-Package-Debugging-&-Symbols-Improvements) more information on symbol packages, please refer to the NuGet Package Debugging & Symbols Improvements design spec.

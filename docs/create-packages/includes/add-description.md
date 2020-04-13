@@ -1,14 +1,14 @@
 ---
 ms.openlocfilehash: b615bcb78ad2eaf8524bfbf17864d4652e546ff1
-ms.sourcegitcommit: 1a63a84da2719c8141823ac89a20bf507fd22b00
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "80151362"
 ---
-La descrizione facoltativa del pacchetto, visualizzata nella pagina NuGet.org del pacchetto, viene estratta dal `<description></description>` usato nel file di `.csproj` o inserito tramite il `$description` nel [file nuspec](../../reference/nuspec.md).
+La descrizione facoltativa del pacchetto, visualizzata nella pagina NuGet.org del pacchetto, viene estratta `<description></description>` dall'oggetto utilizzato nel `.csproj` file o inserita tramite il `$description` file [.nuspec](../../reference/nuspec.md).
 
-Un esempio di un campo di _Descrizione_ è illustrato nel testo XML seguente del file di `.csproj` per un pacchetto .NET:
+Un esempio di campo _di descrizione_ è mostrato `.csproj` nel seguente testo XML del file per un pacchetto .NET:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">

@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 01/09/2017
 ms.topic: conceptual
 ms.openlocfilehash: a86a58f8afb4b0f1affeddd47d6c5606fb465757
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "73610994"
 ---
 # <a name="setting-up-package-restore-with-team-foundation-build"></a>Configurazione del ripristino dei pacchetti con Team Foundation Build
@@ -84,7 +84,7 @@ Il codice sorgente è disponibile nella cartella `src`. Anche se la demo usa una
 ### <a name="ignore-files"></a>Ignorare i file
 
 > [!Note]
-> Esiste attualmente un [bug noto del client NuGet](https://nuget.codeplex.com/workitem/4072) a causa del quale il client aggiunge comunque la cartella `packages` al controllo della versione. La soluzione alternativa consiste nel disabilitare l'integrazione del controllo del codice sorgente. A tale scopo, è necessario un file `Nuget.Config ` nella cartella `.nuget` parallela alla soluzione. Se questa cartella non esiste ancora, è necessario crearla. In [`Nuget.Config`](../consume-packages/configuring-nuget-behavior.md) aggiungere il contenuto seguente:
+> Esiste attualmente un [bug noto del client NuGet](https://nuget.codeplex.com/workitem/4072) a causa del quale il client aggiunge comunque la cartella `packages` al controllo della versione. La soluzione alternativa consiste nel disabilitare l'integrazione del controllo del codice sorgente. A tale scopo, è necessario un file `Nuget.Config ` nella cartella `.nuget` parallela alla soluzione. Se questa cartella non esiste ancora, è necessario crearla. In [`Nuget.Config`](../consume-packages/configuring-nuget-behavior.md), aggiungere il seguente contenuto:
 
 ```xml
 <configuration>

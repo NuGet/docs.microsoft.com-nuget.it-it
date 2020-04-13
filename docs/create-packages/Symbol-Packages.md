@@ -1,5 +1,5 @@
 ---
-title: Creazione di pacchetti di simboli legacy (. symbols. nupkg)
+title: Creazione di pacchetti di simboli legacy (.symbols.nupkg)
 description: Come creare pacchetti NuGet contenenti solo i simboli per supportare il debug di altri pacchetti NuGet in Visual Studio.
 author: karann-msft
 ms.author: karann
@@ -7,28 +7,28 @@ ms.date: 09/12/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
 ms.openlocfilehash: 374e9ccfc01cd06508e76529765db3f849342222
-ms.sourcegitcommit: 1799d4ac23c8aacee7498fdc72c40dd1646d267b
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "77476269"
 ---
-# <a name="creating-legacy-symbol-packages-symbolsnupkg"></a>Creazione di pacchetti di simboli legacy (. symbols. nupkg)
+# <a name="creating-legacy-symbol-packages-symbolsnupkg"></a>Creazione di pacchetti di simboli legacy (.symbols.nupkg)
 
 > [!Important]
 > Il nuovo formato consigliato per i pacchetti di simboli è l'estensione snupkg. Vedere [Creazione di pacchetti di simboli (estensione snupkg)](Symbol-Packages-snupkg.md). </br>
 > .symbols.nupkg è ancora supportato ma solo per motivi di compatibilità.
 
-Oltre alla compilazione di pacchetti per nuget.org o altre origini, NuGet supporta anche la creazione di pacchetti di simboli associati che possono essere pubblicati in server di simboli. Il formato del pacchetto di simboli legacy,. symbols. nupkg, può essere inserito nel repository SymbolSource.
+Oltre alla creazione di pacchetti per nuget.org o altre origini, NuGet supporta anche la creazione di pacchetti di simboli associati che possono essere pubblicati nei server di simboli. Il formato del pacchetto di simboli legacy, .symbols.nupkg, può essere inserito nel repository SymbolSource.
 
 I consumer di pacchetti possono quindi aggiungere `https://nuget.smbsrc.net` alle loro origini dei simboli in Visual Studio, in modo da consentire l'esecuzione delle istruzioni nel codice del pacchetto nel debugger di Visual Studio. Vedere [Specifica di file di simboli (con estensione pdb) e di file di origine nel debugger di Visual Studio](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger) per informazioni dettagliate su questo processo.
 
-## <a name="creating-a-legacy-symbol-package"></a>Creazione di un pacchetto di simboli legacy
+## <a name="creating-a-legacy-symbol-package"></a>Creazione di un pacchetto di simboli legacyCreating a legacy symbol package
 
-Per creare un pacchetto di simboli legacy, attenersi alle convenzioni seguenti:
+Per creare un pacchetto di simboli legacy, seguire queste convenzioni:To create a legacy symbol package, follow these conventions:
 
 - Assegnare al pacchetto principale (con il codice) il nome `{identifier}.nupkg` e includere tutti i file tranne i file `.pdb`.
-- Denominare il pacchetto di simboli legacy `{identifier}.symbols.nupkg` e includere la DLL dell'assembly, i file di `.pdb`, i file XMLDOC e i file di origine (vedere le sezioni seguenti).
+- Assegnare al `{identifier}.symbols.nupkg` pacchetto di simboli `.pdb` legacy il nome e includere la DLL dell'assembly, i file, i file XMLDOC, i file di origine (vedere le sezioni che seguono).
 
 È possibile creare entrambi i pacchetti con l'opzione `-Symbols`, da un file `.nuspec` o da un file di progetto:
 
@@ -42,9 +42,9 @@ Si noti che `pack` richiede Mono 4.4.2 su Mac OS X e non funziona nei sistemi Li
 
 ## <a name="legacy-symbol-package-structure"></a>Struttura del pacchetto di simboli legacy
 
-Un pacchetto di simboli legacy può essere destinato a più framework di destinazione nello stesso modo in cui è presente un pacchetto di libreria, quindi la struttura della cartella di `lib` deve essere identica a quella del pacchetto principale, includendo solo `.pdb` file insieme alla DLL.
+Un pacchetto di simboli legacy può essere destinato a più framework di destinazione `lib` nello stesso modo di un pacchetto `.pdb` di libreria, pertanto la struttura della cartella deve essere esattamente la stessa del pacchetto primario, includendo solo i file accanto alla DLL.
 
-Ad esempio, un pacchetto di simboli legacy destinato a .NET 4,0 e Silverlight 4 avrà questo layout:
+Ad esempio, un pacchetto di simboli legacy destinato a .NET 4.0 e Silverlight 4 avrebbe questo layout:
 
     \lib
         \net40
@@ -54,7 +54,7 @@ Ad esempio, un pacchetto di simboli legacy destinato a .NET 4,0 e Silverlight 4 
             \MyAssembly.dll
             \MyAssembly.pdb
 
-I file di origine vengono quindi inseriti in una speciale cartella separata denominata `src`, che deve seguire la relativa struttura del repository di origine. Ciò è dovuto al fatto che i file PDB contengono i percorsi assoluti dei file di origine usati per compilare la DLL corrispondente e devono essere rilevati durante il processo di pubblicazione. Un percorso di base (prefisso del percorso comune) può essere rimosso. Si consideri, ad esempio, una libreria compilata da questi file:
+I file di origine vengono quindi inseriti in una speciale cartella separata denominata `src`, che deve seguire la relativa struttura del repository di origine. Ciò è dovuto al fatto che i file PDB contengono i percorsi assoluti dei file di origine usati per compilare la DLL corrispondente e devono essere rilevati durante il processo di pubblicazione. Un percorso di base (prefisso di percorso comune) può essere rimosso. Si consideri, ad esempio, una libreria creata da questi file:For example, consider a library built from these files:
 
     C:\Projects
         \MyProject
@@ -70,7 +70,7 @@ I file di origine vengono quindi inseriti in una speciale cartella separata deno
                 \MySilverlightExtensions.cs
                 \MyAssembly.csproj (producing \lib\sl4\MyAssembly.dll)
 
-Oltre alla cartella `lib`, un pacchetto di simboli legacy deve contenere questo layout:
+Oltre alla `lib` cartella, un pacchetto di simboli legacy dovrebbe contenere questo layout:From from the folder, a legacy symbol package would need to contain this layout:
 
     \src
         \Common
@@ -85,7 +85,7 @@ Oltre alla cartella `lib`, un pacchetto di simboli legacy deve contenere questo 
 
 ## <a name="referring-to-files-in-the-nuspec"></a>Riferimento ai file nel file nuspec
 
-Un pacchetto di simboli legacy può essere compilato da convenzioni, da una struttura di cartelle come descritto nella sezione precedente o specificandone il contenuto nella sezione `files` del manifesto. Ad esempio, per compilare il pacchetto mostrato nella sezione precedente, usare il codice seguente nel file `.nuspec`:
+Un pacchetto di simboli legacy può essere compilato in base alle convenzioni, da una `files` struttura di cartelle come descritto nella sezione precedente o specificandone il contenuto nella sezione del manifesto. Ad esempio, per compilare il pacchetto mostrato nella sezione precedente, usare il codice seguente nel file `.nuspec`:
 
 ```xml
 <files>
@@ -97,7 +97,7 @@ Un pacchetto di simboli legacy può essere compilato da convenzioni, da una stru
 </files>
 ```
 
-## <a name="publishing-a-legacy-symbol-package"></a>Pubblicazione di un pacchetto di simboli legacy
+## <a name="publishing-a-legacy-symbol-package"></a>Pubblicazione di un pacchetto di simboli legacyPublishing a legacy symbol package
 
 > [!Important]
 > Per eseguire il push dei pacchetti in nuget.org, è necessario usare [nuget.exe v4.9.1 o versione successiva](https://www.nuget.org/downloads), che implementa i [protocolli NuGet](../api/nuget-protocols.md) necessari.
@@ -108,13 +108,13 @@ Un pacchetto di simboli legacy può essere compilato da convenzioni, da una stru
     nuget SetApiKey Your-API-Key
     ```
 
-2. Dopo aver pubblicato il pacchetto primario in nuget.org, eseguire il push del pacchetto di simboli legacy come indicato di seguito, che userà automaticamente symbolsource.org come destinazione a causa del `.symbols` nel nome file:
+2. Dopo aver pubblicato il pacchetto principale in nuget.org, eseguire il push del pacchetto `.symbols` di simboli legacy come indicato di seguito, che utilizzerà automaticamente symbolsource.org come destinazione a causa del file nel nome del file:
 
     ```cli
     nuget push MyPackage.symbols.nupkg
     ```
 
-3. Per eseguire la pubblicazione in un repository di simboli diverso o per eseguire il push di un pacchetto di simboli legacy che non segue la convenzione di denominazione, usare l'opzione `-Source`:
+3. Per pubblicare in un repository di simboli diverso o per eseguire il push `-Source` di un pacchetto di simboli legacy che non segue la convenzione di denominazione, utilizzare l'opzione:
 
     ```cli
     nuget push MyPackage.symbols.nupkg -source https://nuget.smbsrc.net/
@@ -127,11 +127,11 @@ Un pacchetto di simboli legacy può essere compilato da convenzioni, da una stru
     ```
 
    > [!Note]
-   > Con NuGet. exe 4.5.0 o versione successiva, i pacchetti di simboli non vengono automaticamente inseriti in symbolsource.org. È necessario eseguire il push dei pacchetti di simboli separatamente, come illustrato nei passaggi precedenti.
+   > Con nuget.exe 4.5.0 o versioni successive, i pacchetti di simboli non vengono automaticamente inviati a symbolsource.org. È necessario eseguire il push dei pacchetti di simboli separatamente come spiegato nei passaggi precedenti.
    
 In questo caso, NuGet pubblicherà `MyPackage.symbols.nupkg`, se presente, in https://nuget.smbsrc.net/ (URL di push per symbolsource.org), dopo la pubblicazione del pacchetto principale in nuget.org.
 
 ## <a name="see-also"></a>Vedere anche
 
-* [Creazione di pacchetti di simboli (con estensione snupkg)](Symbol-Packages-snupkg.md) : nuovo formato consigliato per i pacchetti di simboli
+* [Creazione di pacchetti di simboli (.snupkg)](Symbol-Packages-snupkg.md) - Il nuovo formato consigliato per i pacchetti di simboli
 * [Moving to the new SymbolSource engine](https://tripleemcoder.com/2015/10/04/moving-to-the-new-symbolsource-engine/) (Passaggio al nuovo motore SymbolSource) su symbolsource.org

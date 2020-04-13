@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
 ms.openlocfilehash: 34b08f06f04efdcf7bf73efc2cbdb5a5494ae2d9
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "69488203"
 ---
 # <a name="impact-of-projectjson-when-creating-packages"></a>Impatto di project.json durante la creazione di pacchetti
@@ -33,7 +33,7 @@ Gli script di installazione inoltre erano supportati solo in Visual Studio. Gli 
 
 Analogamente agli script di installazione, le trasformazioni vengono eseguite durante l'installazione dei pacchetti e in genere non sono idempotenti. Poiché non esiste più una fase di installazione, la trasformazione XDT e funzionalità simili non sono supportate e vengono ignorate se un pacchetto di questo tipo viene usato in uno scenario transitivo.
 
-### <a name="content"></a>Content
+### <a name="content"></a>Contenuto
 
 Nei tradizionali pacchetti NuGet sono disponibili file di contento, ad esempio codice sorgente e file di configurazione, che in genere vengono usati in due scenari:
 
@@ -45,7 +45,7 @@ Il supporto per il contenuto è attualmente disabilitato per motivi simili a que
 
 I file di contenuto possono comunque essere inseriti nei pacchetti anche se attualmente vengono ignorati, tuttavia l'utente finale può comunque copiarli nella posizione corretta.
 
-Per una proposta di ripristino dei file di contenuto e per seguirne lo stato, vedere qui: [https://github.com/NuGet/Home/issues/627](https://github.com/NuGet/Home/issues/627).
+Puoi vedere una delle proposte per riportare i file di [https://github.com/NuGet/Home/issues/627](https://github.com/NuGet/Home/issues/627)contenuto e seguirne lo stato di avanzamento, qui: .
 
 ## <a name="impact-for-package-authors"></a>Impatto per gli autori di pacchetti
 

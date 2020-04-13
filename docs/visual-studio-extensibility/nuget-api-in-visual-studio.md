@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 01/09/2017
 ms.topic: reference
 ms.openlocfilehash: f1a11eb63c07a5d737a9474870f5653f6f7d850a
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50980976"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64495920"
 ---
 # <a name="nuget-api-in-visual-studio"></a>API NuGet in Visual Studio
 
@@ -19,21 +19,21 @@ Oltre all'interfaccia utente e alla console di Gestione pacchetti in Visual Stud
 A partire da NuGet 3.3 +, NuGet esporta i servizi seguenti tutti inclusi nello spazio dei nomi `NuGet.VisualStudio` nell'assembly `NuGet.VisualStudio.dll`:
 
 - [`IRegistryKey`](#iregistrykey-interface): metodo per recuperare un valore da una sottochiave del Registro di sistema.
-- [`IVsPackageInstaller`](#ivspackageinstaller-interface): metodi per installare pacchetti NuGet in progetti.
-- [`IVsPackageInstallerEvents`](#ivspackageinstallerevents-interface): eventi per l'installazione o disinstallazione di pacchetti.
-- [`IVsPackageInstallerProjectEvents`](#ivspackageinstallerprojectevents-interface): eventi batch per l'installazione o disinstallazione di pacchetti.
+- [`IVsPackageInstaller`](#ivspackageinstaller-interface): metodi per installare i pacchetti NuGet nei progetti.
+- [`IVsPackageInstallerEvents`](#ivspackageinstallerevents-interface): eventi per l'installazione/disinstallazione del pacchetto.
+- [`IVsPackageInstallerProjectEvents`](#ivspackageinstallerprojectevents-interface): eventi batch per l'installazione/disinstallazione del pacchetto.
 - [`IVsPackageInstallerServices`](#ivspackageinstallerservices-interface): metodi per recuperare i pacchetti installati nella soluzione corrente e per verificare se un determinato pacchetto è installato in un progetto.
-- [`IVsPackageManagerProvider`](#ivspackagemanagerprovider-interface): metodi per fornire suggerimenti di Gestione pacchetti alternativi per un pacchetto NuGet.
+- [`IVsPackageManagerProvider`](#ivspackagemanagerprovider-interface): metodi per fornire suggerimenti alternativi di Gestione pacchetti per un pacchetto NuGet.: Methods to provide alternative Package Manager suggestions for a NuGet package.
 - [`IVsPackageMetadata`](#ivspackagemetadata-interface): metodi per recuperare informazioni su un pacchetto installato.
-- [`IVsPackageProjectMetadata`](#ivspackageprojectmetadata-interface): metodi per recuperare informazioni su un progetto in cui vengono eseguite azioni NuGet.
+- [`IVsPackageProjectMetadata`](#ivspackageprojectmetadata-interface): metodi per recuperare informazioni su un progetto in cui vengono eseguite le azioni NuGet.
 - [`IVsPackageRestorer`](#ivspackagerestorer-interface): metodi per ripristinare i pacchetti installati in un progetto.
-- [`IVsPackageSourceProvider`](#ivspackagesourceprovider-interface): metodi per recuperare un elenco di origini di pacchetti NuGet.
-- [`IVsPackageUninstaller`](#ivspackageuninstaller-interface): metodi per disinstallare pacchetti NuGet da progetti.
-- [`IVsTemplateWizard`](#ivstemplatewizard-interface): progettata per includere pacchetti preinstallati in modelli di progetto/elemento. Questa interfaccia *non* è concepita per essere richiamata dal codice e non offre metodi pubblici.
+- [`IVsPackageSourceProvider`](#ivspackagesourceprovider-interface): metodi per recuperare un elenco di origini del pacchetto NuGet.
+- [`IVsPackageUninstaller`](#ivspackageuninstaller-interface): metodi per disinstallare i pacchetti NuGet dai progetti.
+- [`IVsTemplateWizard`](#ivstemplatewizard-interface): Progettato per i modelli di progetto/elemento per includere pacchetti preinstallati; questa interfaccia *non* deve essere richiamata dal codice e non dispone di metodi pubblici.
 
 ## <a name="using-nuget-services"></a>Uso dei servizi NuGet
 
-1. Installare il pacchetto [`NuGet.VisualStudio`](https://www.nuget.org/packages/NuGet.VisualStudio) nel progetto che contiene l'assembly `NuGet.VisualStudio.dll`.
+1. Installare [`NuGet.VisualStudio`](https://www.nuget.org/packages/NuGet.VisualStudio) il pacchetto nel progetto, `NuGet.VisualStudio.dll` che contiene l'assembly.
 
     Al momento dell'installazione il pacchetto imposta automaticamente la proprietà **Incorpora tipi di interoperabilità** del riferimento all'assembly su **True**. Il codice diventa così resiliente alle modifiche di versione quando gli utenti eseguono l'aggiornamento a versioni più recenti di NuGet.
 

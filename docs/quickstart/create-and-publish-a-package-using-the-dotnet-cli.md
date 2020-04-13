@@ -6,17 +6,17 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
 ms.openlocfilehash: 8c09d6d5662ed6ff0deffa5d45b823ad0992f399
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "78231305"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Guida introduttiva: Creare e pubblicare un pacchetto (interfaccia della riga di comando dotnet)
 
 La creazione di un pacchetto NuGet da una libreria di classi .NET e la pubblicazione in nuget.org tramite l'interfaccia della riga di comando di `dotnet` sono un processo semplice.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 1. Installare [.NET Core SDK](https://www.microsoft.com/net/download/), che include l'interfaccia della riga di comando di `dotnet`. A partire da Visual Studio 2017, l'interfaccia della riga di comando di dotnet viene installata automaticamente con qualsiasi carico di lavoro .NET Core correlato.
 
@@ -109,7 +109,7 @@ Dopo aver creato un file `.nupkg`, pubblicarlo in nuget.org usando il comando `d
 
 > [!Video https://channel9.msdn.com/Series/NuGet-101/Create-and-Publish-a-NuGet-Package-with-the-NET-CLI-5-of-5/player]
 
-Trova altri video su NuGet su [Channel 9](https://channel9.msdn.com/Series/NuGet-101) e [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_).
+Trova altri video NuGet su [Channel 9](https://channel9.msdn.com/Series/NuGet-101) e [YouTube.](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -120,8 +120,8 @@ Trova altri video su NuGet su [Channel 9](https://channel9.msdn.com/Series/NuGet
 
 Per esplorare in modo più approfondito ciò che NuGet può offrire, selezionare i collegamenti seguenti.
 
-- [Pubblicare un pacchetto](../nuget-org/publish-a-package.md)
-- [Pacchetti in versione non definitiva](../create-packages/Prerelease-Packages.md)
+- [Pubblicazione di un pacchetto](../nuget-org/publish-a-package.md)
+- [Pacchetti pre-rilascio](../create-packages/Prerelease-Packages.md)
 - [Supportare più framework di destinazione](../create-packages/multiple-target-frameworks-project-file.md)
 - [Controllo delle versioni dei pacchetti](../concepts/package-versioning.md)
 - [Creazione di pacchetti localizzati](../create-packages/creating-localized-packages.md)

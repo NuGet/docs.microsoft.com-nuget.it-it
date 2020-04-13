@@ -9,10 +9,10 @@ ms.reviewer:
 - kraigb
 - camsoper
 ms.openlocfilehash: 152de360bfa31a0c8c60fac0b12149748773b13e
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "67427076"
 ---
 # <a name="your-organization-on-nugetorg"></a>Organizzazione in NuGet.org
@@ -23,7 +23,7 @@ Le organizzazioni consentono ad aziende e progetti open source di gestire i pacc
 
 Un account aziendale ha uno o più account (utente) personali come membri. Questi membri possono gestire un set di pacchetti mantenendo un'unica identità per la proprietà.
 
-L'account personale è l'identità dell'utente in NuGet.org e può essere membro di un numero qualsiasi di organizzazioni. Un pacchetto può appartenere a un account aziendale come a un account personale. I consumer di pacchetti non notano differenze tra un account personale e l'account aziendale: entrambi vengono visualizzati come `owners` del pacchetto.
+L'account personale è l'identità dell'utente in NuGet.org e può essere membro di un numero qualsiasi di organizzazioni. Un pacchetto può appartenere a un account aziendale come a un account individuale. I consumer di pacchetti non notano differenze tra un account personale e l'account aziendale: entrambi vengono visualizzati come `owners` del pacchetto.
 
 ## <a name="adding-a-new-organization"></a>Aggiunta di una nuova organizzazione
 
@@ -58,7 +58,7 @@ Nella pagina successiva specificare un account utente diverso per assegnare l'am
 
 L'amministratore dell'organizzazione può aggiungere membri specificando il *nome dell'account utente* NuGet.org di ogni membro. Non è possibile usare indirizzi di posta elettronica. Ogni membro viene poi contrassegnato come collaboratore o amministratore con le autorizzazioni seguenti:
 
-| Autorizzazioni | Collaboratore | Amministratore |
+| Autorizzazione | Collaboratore | Amministratore |
 | --- | --- | --- |
 | Gestire i pacchetti dell'organizzazione<br/>(inviare nuovi pacchetti, aggiornare o rimuovere dall'elenco pacchetti esistenti) | Sì | Sì |
 | Modificare i metadati dell'organizzazione<br/>(indirizzi di posta elettronica, impostazioni di notifica) | No | Sì |

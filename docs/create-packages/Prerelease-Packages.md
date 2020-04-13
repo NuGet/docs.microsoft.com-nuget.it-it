@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
 ms.openlocfilehash: 1c19f962dc9e42154c0f4374432548e867e9538a
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "73610706"
 ---
 # <a name="building-pre-release-packages"></a>Compilazione di versioni non definitive dei pacchetti
@@ -24,7 +24,7 @@ Per supportare il ciclo di vita di rilascio del software, NuGet 1.6 e versioni s
 
 È possibile specificare tali versioni usando uno dei modi seguenti:
 
-- **Se il progetto usa [`PackageReference`](../consume-packages/package-references-in-project-files.md)** : includere il suffisso di versione semantico nell'elemento [`PackageVersion`](/dotnet/core/tools/csproj.md#packageversion) del file `.csproj`:
+- **Se il progetto usa [`PackageReference`](../consume-packages/package-references-in-project-files.md)**: includere il suffisso di versione semantico nell'elemento [`PackageVersion`](/dotnet/core/tools/csproj.md#packageversion) del file `.csproj`:
 
     ```xml
     <PropertyGroup>
@@ -32,7 +32,7 @@ Per supportare il ciclo di vita di rilascio del software, NuGet 1.6 e versioni s
     </PropertyGroup>
     ```
 
-- **Se il progetto include un file [`packages.config`](../reference/packages-config.md)** : includere il suffisso di versione semantico nell'elemento [`version`](../reference/nuspec.md#version) del file [`.nuspec`](../reference/nuspec.md):
+- **Se il progetto include un file [`packages.config`](../reference/packages-config.md)**: includere il suffisso di versione semantico nell'elemento [`version`](../reference/nuspec.md#version) del file [`.nuspec`](../reference/nuspec.md):
 
     ```xml
     <version>1.0.1-alpha</version>
@@ -50,11 +50,11 @@ Per impostazione predefinita, NuGet non include le versioni non definitive quand
 
     La selezione o la deselezione di questa casella di controllo aggiorna l'interfaccia utente di Gestione pacchetti e l'elenco delle versioni disponibili che è possibile installare.
 
-- **Console di Gestione pacchetti**: usare l'opzione `-IncludePrerelease` con i comandi `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package` e `Update-Package`. Vedere [Informazioni di riferimento su PowerShell](../reference/powershell-reference.md).
+- **Console di gestione** `-IncludePrerelease` pacchetti : `Find-Package` `Get-Package`utilizzare `Install-Package` `Sync-Package`l'opzione con i comandi , , , e `Update-Package` . Vedere [Informazioni di riferimento su PowerShell](../reference/powershell-reference.md).
 
-- **Interfaccia della riga di comando di NuGet**: usare l'opzione `-prerelease` con i comandi `install`, `update`, `delete` e `mirror`. Vedere [NuGet CLI reference](../reference/nuget-exe-cli-reference.md) (Informazioni di riferimento sull'interfaccia della riga di comando di NuGet).
+- **NuGet CLI**: `-prerelease` Utilizzare `install`l'opzione con i comandi , `update`, `delete`e `mirror` . Vedere [NuGet CLI reference](../reference/nuget-exe-cli-reference.md) (Informazioni di riferimento sull'interfaccia della riga di comando di NuGet).
 
-## <a name="semantic-versioning"></a>Versionamento semantico
+## <a name="semantic-versioning"></a>Versionamento Semantico
 
 La [convenzione di versionamento semantico o SemVer](https://semver.org/spec/v1.0.0.html) descrive come usare le stringhe nei numeri di versione per indicare il significato del codice sottostante.
 

@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 03/19/2018
 ms.topic: conceptual
 ms.openlocfilehash: e2672aa0bf57242526364639f0df74f9d1adb934
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79428968"
 ---
 # <a name="managing-the-global-packages-cache-and-temp-folders"></a>Gestione delle cartelle dei pacchetti globale, della cache e temporanea
@@ -18,7 +18,7 @@ Quando si installa, aggiorna o ripristina un pacchetto, NuGet gestisce i pacchet
 
 | Nome | Descrizione e posizione (per utente)|
 | --- | --- |
-| global&#8209;packages | La cartella *global-packages* è la posizione in cui NuGet installa i pacchetti scaricati. Ogni pacchetto viene espanso completamente in una sottocartella corrispondente all'identificatore del pacchetto e al numero di versione. I progetti che usano il formato [PackageReference](package-references-in-project-files.md) usano sempre i pacchetti direttamente da questa cartella. Quando si usa il file [packages.config](../reference/packages-config.md), i pacchetti vengono installati nella cartella *global-packages* e quindi copiati nella cartella `packages` del progetto.<br/><ul><li>Windows: `%userprofile%\.nuget\packages`</li><li>Mac/Linux: `~/.nuget/packages`</li><li>Eseguire l'override usando la variabile di ambiente NUGET_PACKAGES, le [impostazioni di configurazione](../reference/nuget-config-file.md#config-section) `globalPackagesFolder` o `repositoryPath` (quando si usano PackageReference e `packages.config`rispettivamente) o la proprietà `RestorePackagesPath` MSBuild (solo MSBuild). La variabile di ambiente ha la precedenza rispetto all'impostazione di configurazione.</li></ul> |
+| global&#8209;packages | La cartella *global-packages* è la posizione in cui NuGet installa i pacchetti scaricati. Ogni pacchetto viene espanso completamente in una sottocartella corrispondente all'identificatore del pacchetto e al numero di versione. I progetti che usano il formato [PackageReference](package-references-in-project-files.md) usano sempre i pacchetti direttamente da questa cartella. Quando si usa il file [packages.config](../reference/packages-config.md), i pacchetti vengono installati nella cartella *global-packages* e quindi copiati nella cartella `packages` del progetto.<br/><ul><li>Windows: `%userprofile%\.nuget\packages`</li><li>Mac/Linux: `~/.nuget/packages`</li><li>Eseguire l'override usando la variabile di ambiente NUGET_PACKAGES,  [le impostazioni di configurazione](../reference/nuget-config-file.md#config-section)`globalPackagesFolder` o `repositoryPath` (rispettivamente quando si usa PackageReference e `packages.config`) o la proprietà MSBuild `RestorePackagesPath` (solo MSBuild). La variabile di ambiente ha la precedenza rispetto all'impostazione di configurazione.</li></ul> |
 | http&#8209;cache | Gestione pacchetti di Visual Studio (NuGet 3.x+) e lo strumento `dotnet` archiviano copie dei pacchetti scaricati nella cache (salvati come file `.dat`), organizzati in sottocartelle per ogni origine di pacchetti. I pacchetti non vengono espansi e la cache ha una scadenza di 30 minuti.<br/><ul><li>Windows: `%localappdata%\NuGet\v3-cache`</li><li>Mac/Linux: `~/.local/share/NuGet/v3-cache`</li><li>Eseguire l'override usando la variabile di ambiente NUGET_HTTP_CACHE_PATH.</li></ul> |
 | temp | Cartella in cui NuGet archivia i file temporanei durante le varie operazioni.<br/><li>Windows: `%temp%\NuGetScratch`</li><li>Mac/Linux: `/tmp/NuGetScratch`</li></ul> |
 | plugins-cache **4.8+** | Cartella in cui NuGet archivia i risultati dalla richiesta di attestazioni delle operazioni.<br/><ul><li>Windows: `%localappdata%\NuGet\plugins-cache`</li><li>Mac/Linux: `~/.local/share/NuGet/plugins-cache`</li><li>Eseguire l'override usando la variabile di ambiente NUGET_PLUGINS_CACHE_PATH.</li></ul> |
@@ -30,7 +30,7 @@ Tramite le cartelle della cache e *global-packages*, NuGet evita in genere il do
 
 Quando viene richiesto di recuperare un pacchetto, NuGet controlla prima di tutto nella cartella *global-packages*. Se nella cartella non è disponibile la versione esatta del pacchetto, NuGet controlla tutte le origini di pacchetti non HTTP. Se il pacchetto non viene trovato, NuGet cerca il pacchetto nella cartella *http-cache* a meno che non si specifichi `--no-cache` con i comandi `dotnet.exe` o `-NoCache` con i comandi `nuget.exe`. Se il pacchetto non è presente nella cache o la cache non viene usata, NuGet recupera il pacchetto tramite HTTP.
 
-Per altre informazioni, vedere [Cosa accade quando viene installato un pacchetto](../concepts/package-installation-process.md).
+Per ulteriori informazioni, vedere [Cosa succede quando viene installato un pacchetto?](../concepts/package-installation-process.md).
 
 ## <a name="viewing-folder-locations"></a>Visualizzazione delle posizioni delle cartelle
 
@@ -116,6 +116,6 @@ Durante l'uso di `nuget locals` o `dotnet nuget locals` possono verificarsi gli 
 
     Non si è autorizzati a eliminare i file nella cache. Modificare le autorizzazioni della cartella, se possibile, e riprovare. In caso contrario, contattare l'amministratore di sistema.
 
-- *Errore: il percorso specificato, il nome file o entrambi sono troppo lunghi. Il nome completo del file deve essere inferiore a 260 caratteri e il nome della directory deve essere composto da meno di 248 caratteri.*
+- *Errore: il percorso specificato, il nome del file o entrambi sono troppo lunghi. Il nome completo del file deve essere inferiore a 260 caratteri e il nome della directory deve essere inferiore a 248 caratteri.*
 
     Abbreviare i nomi delle cartelle e riprovare.

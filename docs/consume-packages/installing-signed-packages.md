@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 11/29/2018
 ms.topic: conceptual
 ms.openlocfilehash: 034b9dd9699af529e4d82d6ee5b1c42214673341
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79428982"
 ---
 # <a name="manage-package-trust-boundaries"></a>Gestire i limiti di attendibilità dei pacchetti
@@ -40,7 +40,7 @@ Questa modalità verifica che tutti i pacchetti siano firmati da uno dei certifi
 
 ### <a name="trust-package-author"></a>Considerare attendibile l'autore del pacchetto
 
-Per considerare attendibili i pacchetti in base alla firma dell'autore, usare il comando [`trusted-signers`](../reference/cli-reference/cli-ref-trusted-signers.md) per impostare la proprietà `author` in nuget.config.
+Per considerare attendibili i pacchetti [`trusted-signers`](../reference/cli-reference/cli-ref-trusted-signers.md) in base `author` alla firma dell'autore, utilizzare il comando per impostare la proprietà nel file nuget.config.
 
 ```cmd
 nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE40881FF5F0AD3E58965DA20A9F571EF1651A56933748E1BF1C99E537C4E039 -FingerprintAlgorithm SHA256
@@ -55,7 +55,7 @@ nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE408
 ```
 
 >[!TIP]
->Usare il [comando `nuget.exe` Verify](../reference/cli-reference/cli-ref-verify.md) per ottenere il valore `SHA256` dell'impronta digitale del certificato.
+>Usare il  [comando verify](../reference/cli-reference/cli-ref-verify.md) di `nuget.exe` per ottenere il valore `SHA256` dell'impronta digitale del certificato.
 
 
 ### <a name="trust-all-packages-from-a-repository"></a>Considerare attendibili tutti i pacchetti di un archivio
@@ -95,7 +95,7 @@ In alcune situazioni può essere opportuno abilitare la verifica usando certific
 
 ### <a name="sync-repository-certificates"></a>Sincronizzazione dei certificati del repository
 
-I repository dei pacchetti devono annunciare i certificati usati nel loro [indice dei servizi](../api/service-index.md). Prima o poi, il repository aggiornerà questi certificati, ad esempio, allo scadere del certificato. Quando ciò avviene, i client con criteri specifici richiederanno un aggiornamento della configurazione per includere il certificato appena aggiunto. È possibile aggiornare facilmente i firmatari attendibili associati a un repository usando il `nuget.exe` [comando di sincronizzazione Trusted-signers](../reference/cli-reference/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-name).
+I repository dei pacchetti devono annunciare i certificati usati nel loro [indice dei servizi](../api/service-index.md). Prima o poi, il repository aggiornerà questi certificati, ad esempio, allo scadere del certificato. Quando ciò avviene, i client con criteri specifici richiederanno un aggiornamento della configurazione per includere il certificato appena aggiunto. I firmatari attendibili associati a un repository possono essere aggiornati facilmente usando il `nuget.exe` [comando trusted-signers sync](../reference/cli-reference/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-name).
 
 ### <a name="schema-reference"></a>Riferimento allo schema
 

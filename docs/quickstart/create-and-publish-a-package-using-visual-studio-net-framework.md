@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 05/13/2018
 ms.topic: quickstart
 ms.openlocfilehash: e00aac83a710e2f745d5e4bb9aec741ee686e595
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "72380636"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Guida introduttiva: Creare e pubblicare un pacchetto con Visual Studio (.NET Framework, Windows)
@@ -17,9 +17,9 @@ ms.locfileid: "72380636"
 La creazione di un pacchetto NuGet da una libreria di classi .NET Framework prevede la creazione della DLL in Visual Studio in Windows, quindi l'uso dello strumento da riga di comando nuget.exe per creare e pubblicare il pacchetto.
 
 > [!Note]
-> Questa Guida introduttiva si applica solo a Visual Studio 2017 e versioni successive per Windows. Visual Studio per Mac non include le funzionalità descritte di seguito. Usare invece gli [strumenti dell'interfaccia della riga di comando dotnet](create-and-publish-a-package-using-the-dotnet-cli.md).
+> Questa guida introduttiva si applica a Visual Studio 2017 e versioni successive solo per Windows.This Quickstart applies to Visual Studio 2017 and higher versions for Windows only. Visual Studio per Mac non include le funzionalità descritte di seguito. Usare invece gli [strumenti dell'interfaccia della riga di comando dotnet](create-and-publish-a-package-using-the-dotnet-cli.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 1. Installare qualsiasi edizione di Visual Studio 2017 o versione successiva da [visualstudio.com](https://www.visualstudio.com/) con qualsiasi carico di lavoro correlato a .NET. Visual Studio 2017 include automaticamente le funzionalità di NuGet quando viene installato un carico di lavoro .NET.
 
@@ -31,7 +31,7 @@ La creazione di un pacchetto NuGet da una libreria di classi .NET Framework prev
 
 È possibile usare un progetto libreria di classi .NET Framework esistente per il codice che si vuole includere in un pacchetto oppure creare un progetto semplice come segue:
 
-1. In Visual Studio scegliere **File > Nuovo > Progetto**, selezionare il nodo **Visual C#** , selezionare il modello "Libreria di classi (.NET Framework)", assegnare al progetto il nome AppLogger e fare clic su **OK**.
+1. In Visual Studio scegliere **File > Nuovo > Progetto**, selezionare il nodo **Visual C#**, selezionare il modello "Libreria di classi (.NET Framework)", assegnare al progetto il nome AppLogger e fare clic su **OK**.
 
 1. Fare clic con il pulsante destro del mouse sul file di progetto risultante e scegliere **Compila** per verificare che il progetto sia stato creato correttamente. La DLL è presente nella cartella Debug (o Release se si crea invece tale configurazione).
 
@@ -86,7 +86,7 @@ Eseguire `nuget spec` una sola volta per generare il manifesto iniziale. Quando 
 
 1. Aprire un prompt dei comandi e passare alla cartella del progetto contenente il file `AppLogger.csproj`.
 
-1. Eseguire il comando seguente: `nuget spec AppLogger.csproj`. Specificando un progetto, NuGet crea un manifesto che corrisponde al nome del progetto, in questo caso `AppLogger.nuspec`. Vengono anche inclusi i token di sostituzione nel manifesto.
+1. Eseguire questo comando: `nuget spec AppLogger.csproj`. Specificando un progetto, NuGet crea un manifesto che corrisponde al nome del progetto, in questo caso `AppLogger.nuspec`. Vengono anche inclusi i token di sostituzione nel manifesto.
 
 1. Aprire `AppLogger.nuspec` in un editor di testo per esaminarne il contenuto, che dovrebbe essere simile al seguente:
 
@@ -118,7 +118,7 @@ Eseguire `nuget spec` una sola volta per generare il manifesto iniziale. Quando 
     - projectUrl
     - iconUrl
     - releaseNotes
-    - tag
+    - tags
 
 1. Per i pacchetti compilati per uso pubblico, prestare particolare attenzione alla proprietà **Tags**, perché i tag consentono ad altri utenti di trovare il pacchetto in origini come nuget.org e di comprenderne le funzioni.
 
@@ -134,7 +134,7 @@ Eseguire `nuget spec` una sola volta per generare il manifesto iniziale. Quando 
 
 ## <a name="publish-the-package"></a>Pubblicare il pacchetto
 
-Dopo aver creato un file di `.nupkg`, è possibile pubblicarlo in nuget.org usando `nuget.exe` con una chiave API acquisita da nuget.org. Per nuget.org è necessario usare `nuget.exe` 4.1.0 o versione successiva.
+Dopo aver `.nupkg` ottenuto un file, `nuget.exe` è possibile pubblicarlo in nuget.org usando una chiave API acquisita da nuget.org. Per nuget.org è `nuget.exe` necessario utilizzare 4.1.0 o versione successiva.
 
 [!INCLUDE [publish-notes](includes/publish-notes.md)]
 
@@ -180,8 +180,8 @@ Vedere [nuget push](../reference/cli-reference/cli-ref-push.md).
 
 Per esplorare in modo più approfondito ciò che NuGet può offrire, selezionare i collegamenti seguenti.
 
-- [Pubblicare un pacchetto](../nuget-org/publish-a-package.md)
-- [Pacchetti in versione non definitiva](../create-packages/Prerelease-Packages.md)
+- [Pubblicazione di un pacchetto](../nuget-org/publish-a-package.md)
+- [Pacchetti pre-rilascio](../create-packages/Prerelease-Packages.md)
 - [Supportare più framework di destinazione](../create-packages/supporting-multiple-target-frameworks.md)
 - [Controllo delle versioni dei pacchetti](../concepts/package-versioning.md)
 - [Creazione di pacchetti localizzati](../create-packages/creating-localized-packages.md)

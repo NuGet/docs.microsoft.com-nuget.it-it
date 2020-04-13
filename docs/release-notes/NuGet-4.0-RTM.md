@@ -6,11 +6,11 @@ ms.author: anangaur
 ms.date: 03/03/2017
 ms.topic: conceptual
 ms.openlocfilehash: c27d0aa2e5c9af9cb15d2f487b93e93aca666214
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547761"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64496601"
 ---
 # <a name="nuget-40-rtm-release-notes"></a>Note sulla versione per NuGet 4.0 RTM
 
@@ -310,7 +310,7 @@ Attualmente non esiste alcuna soluzione.
 
 - Restore3 associa PackageReferences a TargetFrameworks. - [#3504](https://github.com/NuGet/Home/issues/3504)
 
-- Nuget sceglie una versione imprevista di MSBuild nel prompt dei comandi per gli sviluppatori in VS "15" Preview 4 - [#3408](https://github.com/NuGet/Home/issues/3408)
+- Nuget sceglie una versione imprevista di MSBuild nel prompt dei comandi per gli sviluppatori in VS "15" Preview 4  - [#3408](https://github.com/NuGet/Home/issues/3408)
 
 - Scrivere i file di destinazioni/proprietà per il ripristino non riuscito - [#3399](https://github.com/NuGet/Home/issues/3399)
 

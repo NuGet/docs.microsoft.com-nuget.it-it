@@ -7,10 +7,10 @@ ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
 ms.openlocfilehash: 02c6c8f3018bfd063c2d16a10381f88b54cac840
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79429024"
 ---
 # <a name="publishing-packages"></a>Pubblicazione di pacchetti
@@ -24,7 +24,7 @@ Questo articolo illustra la pubblicazione in nuget.org. Per la pubblicazione in 
 
 ## <a name="publish-to-nugetorg"></a>Pubblicare in nuget.org
 
-Per nuget.org, è necessario accedere con una account Microsoft, a cui verrà richiesto di registrare l'account con nuget.org. È anche possibile accedere con un account nuget.org creato usando le versioni precedenti del portale.
+Per nuget.org, è necessario accedere con un account Microsoft, con il quale verrà richiesto di registrare l'account con nuget.org. È inoltre possibile accedere con un account nuget.org creato utilizzando versioni precedenti del portale.
 
 ![Posizione di accesso a NuGet](media/publish_NuGetSignIn.png)
 
@@ -32,7 +32,7 @@ Sarà quindi possibile caricare il pacchetto tramite il portale Web di nuget.org
 
 ### <a name="web-portal-use-the-upload-package-tab-on-nugetorg"></a>Portale Web: usare la scheda Upload Package (Carica pacchetto) in nuget.org
 
-1. Selezionare **Upload**  (Carica) nel menu in alto di nuget.org e passare alla posizione del pacchetto.
+1. Selezionare **Upload ** (Carica) nel menu in alto di nuget.org e passare alla posizione del pacchetto.
 
     ![Caricare un pacchetto in nuget.org](media/publish_UploadYourPackage.PNG)
 
@@ -64,11 +64,11 @@ Per eseguire il push dei pacchetti in nuget.org, è necessario usare [nuget.exe 
     nuget setApiKey <your_API_key>
     ```
 
-    Questo comando Archivia la chiave API nella configurazione di NuGet, in modo che non sia necessario ripetere questo passaggio nello stesso computer.
+    Questo comando archivia la chiave API nella configurazione NuGet in modo che non sia necessario ripetere questo passaggio nello stesso computer.
 
     > [!NOTE]
-    > La chiave API non viene usata per l'autenticazione con il feed privato. Fare riferimento a [`nuget sources` comando](../reference/cli-reference/cli-ref-sources.md) per gestire le credenziali per l'autenticazione con l'origine.
-    > Le chiavi API possono essere ottenute dai singoli server NuGet. Per creare e gestire APIKeys per nuget.org, fare riferimento a [Publish-API-Key](../quickstart/includes/publish-api-key.md)
+    > La chiave API non viene utilizzata per l'autenticazione con il feed privato. Fare [ `nuget sources` ](../reference/cli-reference/cli-ref-sources.md) riferimento al comando per gestire le credenziali per l'autenticazione con l'origine.
+    > Le chiavi API possono essere ottenute dai singoli server NuGet.API keys can be obtained from the individual NuGet servers. Per creare e gestire APIKeys per nuget.org fare riferimento a [publish-api-keyTo](../quickstart/includes/publish-api-key.md) create and manange APIKeys for nuget.org refer to publish-api-key
 
 1. Eseguire il push del pacchetto nella raccolta NuGet usando il comando seguente:
 
@@ -89,9 +89,9 @@ I pacchetti di cui viene eseguito il push in nuget.org vengono sottoposti a dive
 
 Quando il pacchetto ha superato tutti i controlli di convalida, l'indicizzazione e la visualizzazione del pacchetto nei risultati della ricerca potrebbero richiedere qualche minuto. Al termine dell'indicizzazione, viene visualizzato un messaggio di posta elettronica che conferma che il pacchetto è stato pubblicato. Se il pacchetto non supera un controllo di convalida, la pagina dei dettagli del pacchetto verrà aggiornata con l'errore associato e si riceverà anche una notifica tramite posta elettronica.
 
-La convalida e l'indicizzazione del pacchetto richiedono in genere meno di 15 minuti. Se la pubblicazione del pacchetto richiede più tempo del previsto, visitare [status.nuget.org](https://status.nuget.org/) per controllare se si stanno verificando interruzioni in nuget.org. Se tutti i sistemi sono operativi e il pacchetto non viene pubblicato entro un'ora, accedere a nuget.org e usare il collegamento per contattare il supporto tecnico nella pagina del pacchetto.
+La convalida e l'indicizzazione del pacchetto richiedono in genere meno di 15 minuti. Se la pubblicazione del pacchetto richiede più tempo del previsto, visitare [status.nuget.org](https://status.nuget.org/) per verificare se nuget.org si verificano interruzioni. Se tutti i sistemi sono operativi e il pacchetto non viene pubblicato entro un'ora, accedere a nuget.org e usare il collegamento per contattare il supporto tecnico nella pagina del pacchetto.
 
-Per visualizzare lo stato di un pacchetto, selezionare **Gestisci pacchetti** con il nome dell'account in NuGet.org. Al termine della convalida, si riceverà un messaggio di posta elettronica di conferma.
+Per visualizzare lo stato di un pacchetto, seleziona **Gestisci pacchetti** sotto il nome dell'account su nuget.org. Al termine della convalida, si riceve un'e-mail di conferma.
 
 Si noti che l'indicizzazione e la visualizzazione del pacchetto nei risultati della ricerca, dove altri possono trovarlo, potrebbero richiedere tempo. Nella pagina del pacchetto viene nel frattempo visualizzato il messaggio seguente:
 

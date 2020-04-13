@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 01/03/2018
 ms.topic: conceptual
 ms.openlocfilehash: be7c10fb6ce60375f77e38f9b604ec33063e52fc
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43550510"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64498242"
 ---
 # <a name="packages-in-visual-studio-templates"></a>Pacchetti nei modelli di Visual Studio
 
@@ -35,7 +35,7 @@ I pacchetti preinstallati funzionano tramite [creazioni guidate di modelli](/vis
 
 Passaggi per includere i pacchetti in un modello:
 
-1. Nel file `vstemplate` aggiungere un riferimento alla creazione guidata di modelli di NuGet aggiungendo un elemento [`WizardExtension`](/visualstudio/extensibility/wizardextension-element-visual-studio-templates):
+1. Nel `vstemplate` file aggiungere un riferimento alla creazione guidata [`WizardExtension`](/visualstudio/extensibility/wizardextension-element-visual-studio-templates) modello NuGet aggiungendo un elemento:In your file, add a reference to the NuGet template wizard by adding a element:
 
     ```xml
     <WizardExtension>
@@ -129,7 +129,7 @@ Gli SDK che vengono installati tramite un file MSI possono installare i pacchett
         </packages>
         ```
 
-## <a name="best-practices"></a>Suggerimenti
+## <a name="best-practices"></a>Procedure consigliate
 
 1. Dichiarare una dipendenza da VSIX di NuGet aggiungendo un riferimento a esso nel manifesto VSIX:
 
@@ -141,6 +141,6 @@ Gli SDK che vengono installati tramite un file MSI possono installare i pacchett
     <!-- ... -->
     ```
 
-1. Richiedere il salvataggio dei modelli di progetto/elemento in fase di creazione includendo [`<PromptForSaveOnCreation>true</PromptForSaveOnCreation>`](/visualstudio/extensibility/promptforsaveoncreation-element-visual-studio-templates) nel file `.vstemplate`.
+1. Richiedere il salvataggio dei modelli di [`<PromptForSaveOnCreation>true</PromptForSaveOnCreation>`](/visualstudio/extensibility/promptforsaveoncreation-element-visual-studio-templates) progetto/elemento al salvataggio tramite l'inclusione nel `.vstemplate` file.
 
 1. I modelli non includono un file `packages.config` e non includono riferimenti o contenuto che verrebbero aggiunti al momento dell'installazione dei i pacchetti NuGet.

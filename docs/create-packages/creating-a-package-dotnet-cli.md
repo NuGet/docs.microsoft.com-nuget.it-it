@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.openlocfilehash: 712e4c7159aa9719052330d8e45f63e18e390325
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "78230580"
 ---
 # <a name="create-a-nuget-package-using-the-dotnet-cli"></a>Creare un pacchetto NuGet con l'interfaccia della riga di comando di dotnet
@@ -68,7 +68,7 @@ L'esempio seguente illustra un file di progetto semplice e completo con queste p
 
 Per informazioni dettagliate sulla dichiarazione delle dipendenze e sulla specifica dei numeri di versione, vedere [Riferimenti ai pacchetti nei file di progetto](../consume-packages/package-references-in-project-files.md) e [Controllo delle versioni dei pacchetti](../concepts/package-versioning.md). È anche possibile esporre gli asset dalle dipendenze direttamente nel pacchetto usando gli attributi `<IncludeAssets>` e `<ExcludeAssets>`. Per altre informazioni, vedere [Controllo degli asset delle dipendenze](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets).
 
-## <a name="add-an-optional-description-field"></a>Aggiungere un campo di descrizione facoltativo
+## <a name="add-an-optional-description-field"></a>Aggiungere un campo descrizione facoltativo
 
 [!INCLUDE [add description to package](includes/add-description.md)]
 
@@ -104,7 +104,7 @@ Per eseguire automaticamente `dotnet pack` quando si esegue `dotnet build`, aggi
 <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 ```
 
-Quando si esegue `dotnet pack` per una soluzione, vengono inseriti nel pacchetto tutti i progetti nella soluzione che supportano i pacchetti (proprietà [<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties) impostata su `true`).
+Quando si `dotnet pack` esegue su una soluzione, vengono impaiestati[<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties) tutti i `true`progetti della soluzione che sono imballabili ( la proprietà è impostata su ).
 
 > [!NOTE]
 > Quando si genera automaticamente il pacchetto, il tempo di creazione del pacchetto aumenta il tempo di compilazione per il progetto.
@@ -126,7 +126,7 @@ Potrebbe anche essere necessario estendere le funzionalità del pacchetto o supp
 
 - [Controllo delle versioni dei pacchetti](../concepts/package-versioning.md)
 - [Supportare più framework di destinazione](../create-packages/multiple-target-frameworks-project-file.md)
-- [Icona Aggiungi pacchetto](../reference/nuspec.md#icon)
+- [Aggiungere un'icona del pacchetto](../reference/nuspec.md#icon)
 - [Trasformazioni di file di origine e di configurazione](../create-packages/source-and-config-file-transformations.md)
 - [Localizzazione](../create-packages/creating-localized-packages.md)
 - [Versioni non definitive](../create-packages/prerelease-packages.md)

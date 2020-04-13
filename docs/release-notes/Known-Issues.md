@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
 ms.openlocfilehash: 8f2b33a7290301bd16db3b1979ae496eee602f55
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "75383658"
 ---
 # <a name="known-issues-with-nuget"></a>Problemi noti con NuGet
@@ -27,7 +27,7 @@ Quando si usa il comando seguente per archiviare le credenziali, il risultato è
 
 $PAT = "token di accesso personale" $Feed = "URL" .\nuget.exe sources add -Name Test -Source $Feed -UserName $UserName -Password $PAT
 
-**Soluzione alternativa:**
+**Soluzione temporanea:**
 
 Archiviare le password in testo non crittografato usando l'opzione [-StorePasswordInClearText](../reference/cli-reference/cli-ref-sources.md).
 
@@ -45,7 +45,7 @@ Il file `NuGet.Config` nella cartella `%AppData%\NuGet\` (Windows) o `~/.nuget/`
 
 **Problema:**
 
-In NuGet 2.7 o versione successiva, quando si tenta di installare qualsiasi pacchetto che contiene riferimenti ad assembly, è possibile che venga visualizzato il messaggio di errore **"Formato della stringa di input non corretto."** , come di seguito:
+In NuGet 2.7 o versione successiva, quando si tenta di installare qualsiasi pacchetto che contiene riferimenti ad assembly, è possibile che venga visualizzato il messaggio di errore **"Formato della stringa di input non corretto."**, come di seguito:
 
 ```ps
 install-package log4net
@@ -63,7 +63,7 @@ install-package log4net
 
 La causa è l'annullamento della registrazione della libreria dei tipi per il componente COM `VSLangProj.dll` nel sistema. Questa situazione può verificarsi, ad esempio, quando sono disponibili due versioni di Visual Studio installate side-by-side e si disinstalla la versione meno recente. Ciò può causare inavvertitamente l'annullamento della registrazione della libreria COM sopra indicata.
 
-**Soluzione:**
+**Soluzione:**:
 
 Eseguire questo comando da un **prompt dei comandi con privilegi elevati** per registrare di nuovo la libreria dei tipi per `VSLangProj.dll`.
 
@@ -71,7 +71,7 @@ Eseguire questo comando da un **prompt dei comandi con privilegi elevati** per r
 
 Se il comando non riesce, verificare l'esistenza del file in tale percorso.
 
-Per ulteriori informazioni su questo errore, vedere questo [elemento di lavoro](https://nuget.codeplex.com/workitem/3609 "Elemento di lavoro 3609").
+Per ulteriori informazioni su questo errore, vedere questo elemento di [lavoro](https://nuget.codeplex.com/workitem/3609 "Elemento di lavoro 3609").
 
 ## <a name="build-failure-after-package-update-in-vs-2012"></a>Errore di compilazione dopo l'aggiornamento del pacchetto in Visual Studio 2012
 
@@ -105,7 +105,7 @@ Quando si esegue la console di Gestione pacchetti, è possibile che venga visual
     Command execution stopped because the preference variable "ErrorActionPreference" or common parameter
     is set to Stop: Unable to find type
 
-oppure
+o
 
     System.Management.Automation.CmdletInvocationException: Could not load file or assembly 'Scripts\nuget.psm1' or one of its dependencies. <br />The parameter is incorrect. (Exception from HRESULT: 0x80070057 (E_INVALIDARG)) ---&gt; System.IO.FileLoadException: Could not load file or <br />assembly 'Scripts\nuget.psm1' or one of its dependencies. The parameter is incorrect. (Exception from HRESULT: 0x80070057 (E_INVALIDARG)) <br />---&gt; System.ArgumentException: Illegal characters in path.
        at System.IO.Path.CheckInvalidPathChars(String path)
@@ -159,7 +159,7 @@ Se si tenta di disinstallare NuGet tramite Gestione estensioni di Visual Studio,
 
 ## <a name="the-package-manager-console-crashes-when-i-open-it-in-windows-xp-whats-wrong"></a>Arresto anomalo della console di gestione pacchetti quando viene aperta in Windows XP. Qual è il problema?
 
-NuGet richiede il runtime di PowerShell 2.0. Windows XP, per impostazione predefinita, non include PowerShell 2.0. È possibile scaricare il runtime di PowerShell 2,0 da <https://support.microsoft.com/kb/968929>. Dopo l'installazione, riavviare Visual Studio. Dovrebbe essere possibile aprire la console di Gestione pacchetti.
+NuGet richiede il runtime di PowerShell 2.0. Windows XP, per impostazione predefinita, non include PowerShell 2.0. È possibile scaricare il runtime di PowerShell 2.0 da <https://support.microsoft.com/kb/968929>. Dopo l'installazione, riavviare Visual Studio. Dovrebbe essere possibile aprire la console di Gestione pacchetti.
 
 ## <a name="visual-studio-2010-sp1-beta-crashes-on-exit-if-the-package-manager-console-is-open"></a>Arresto anomalo di Visual Studio 2010 SP1 Beta in uscita se la console di Gestione pacchetti è aperta.
 
@@ -201,7 +201,7 @@ Per impostazione predefinita, FluentNHibernate richiede NHibernate 3.0.0.2001. T
 
 ## <a name="write-error-command-doesnt-work-inside-installps1uninstallps1initps1"></a>Il comando Write-Error non funziona all'interno di install.ps1/uninstall.ps1/init.ps1
 
-Si tratta di un problema noto. Anziché chiamare Write-Error, provare a chiamare throw.
+Questo è un problema noto Anziché chiamare Write-Error, provare a chiamare throw.
 
     throw "My error message"
 
@@ -225,4 +225,4 @@ Come descritto in dettaglio in [questo problema su GitHub](https://github.com/Pa
 
 ## <a name="reporting-issues"></a>Segnalazione di problemi
 
-Per segnalare problemi NuGet, visitare [https://github.com/nuget/home/issues](https://github.com/nuget/home/issues).
+Per segnalare i [https://github.com/nuget/home/issues](https://github.com/nuget/home/issues)problemi di NuGet, visitare .
