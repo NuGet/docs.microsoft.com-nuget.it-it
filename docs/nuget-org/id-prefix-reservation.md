@@ -7,10 +7,10 @@ ms.date: 09/07/2019
 ms.topic: reference
 ms.reviewer: karann
 ms.openlocfilehash: da464cc44d8c874e13c0cdfab871f31e643b577f
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "73610505"
 ---
 # <a name="package-id-prefix-reservation"></a>Prenotazione del prefisso ID del pacchetto
@@ -55,11 +55,11 @@ Esistono numerosi altri scenari di prenotazione più avanzata del prefisso, tra 
 
 Quando un pacchetto proviene da un prefisso riservato, nella raccolta [nuget.org](https://www.nuget.org/) e in Visual Studio 2017 versione 15.4 o successive vengono visualizzati i seguenti indicatori visivi:
 
-**Raccolta nuget.org**
-![Raccolta nuget.org](media/nuget-gallery-reserved-prefix.png)
+**raccolta di NuGet.org Gallery**
+![NuGet.org](media/nuget-gallery-reserved-prefix.png)
 
-**Visual Studio**
-![Visual Studio](media/visual-studio-reserved-prefix.png)
+**Visual Studio Visual Studio**
+![](media/visual-studio-reserved-prefix.png)
 
 ## <a name="id-prefix-reservation-application-process"></a>Processo di applicazione della prenotazione del prefisso ID
 
@@ -67,7 +67,7 @@ Quando un pacchetto proviene da un prefisso riservato, nella raccolta [nuget.org
 
 2. Determinare i prefissi che si vuole prenotare, oltre a eventuali [scenari di prenotazione avanzata del prefisso](#advanced-prefix-reservation-scenarios) che potrebbero essere necessari.
 
-3. Inviare un messaggio a [account@nuget.org](mailto:account@nuget.org) con il nome del proprietario visualizzato in [nuget.org](https://www.nuget.org/), oltre a eventuali prefissi riservati che si vuole richiedere. Se si delegano subset di prefissi a più proprietari, assicurarsi di indicare tutti i nomi visualizzati dei proprietari e i subset di prefissi.
+3. Inviare un messaggio di [account@nuget.org](mailto:account@nuget.org) posta elettronica a con il nome visualizzato del proprietario in [NuGet.org](https://www.nuget.org/), così come tutti i prefissi riservati richiesti. Se si delegano subset di prefissi a più proprietari, assicurarsi di indicare tutti i nomi visualizzati dei proprietari e i subset di prefissi.
 
 Dopo l'invio dell'applicazione si riceve una notifica di accettazione o rifiuto (con i criteri che hanno causato il rifiuto). Potrebbe essere necessario porre altre domande di identificazione per verificare l'identità del proprietario.
 
@@ -93,7 +93,7 @@ Durante la revisione di un'applicazione per la prenotazione del prefisso ID, il 
 
 ## <a name="third-party-feed-provider-scenarios"></a>Scenari di provider di feed di terze parti
 
-Se un provider di feed di terze parti è interessato all'implementazione del proprio servizio per fornire prenotazioni di prefisso, è possibile modificare il servizio di ricerca nei provider di feed NuGet V3. La modifica nel servizio di ricerca di feed consiste nell'aggiungere la proprietà `verified`. Il client di NuGet non supporta la proprietà aggiunta nel feed V2.
+Se un provider di feed di terze parti è interessato all'implementazione del proprio servizio per fornire prenotazioni di prefisso, è possibile modificare il servizio di ricerca nei provider di feed NuGet V3. La modifica nel servizio di ricerca di feed consiste nell'aggiungere `verified` la proprietà. Il client di NuGet non supporta la proprietà aggiunta nel feed V2.
 
 Per altre informazioni, consultare la [documentazione relativa al servizio di ricerca dell'API](../api/search-query-service-resource.md).
 
