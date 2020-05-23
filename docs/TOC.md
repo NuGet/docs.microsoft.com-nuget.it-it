@@ -61,7 +61,7 @@
 ### [Pubblicare un pacchetto](nuget-org/publish-a-package.md)
 ### [Chiavi API](nuget-org/scoped-api-keys.md)
 ## Pubblicare in un feed privato
-### [Overview](hosting-packages/overview.md)
+### [Panoramica](hosting-packages/overview.md)
 ### [Artefatti di Azure](/azure/devops/artifacts/nuget/publish?view=azure-devops)
 ### [NuGet.Server](hosting-packages/nuget-server.md)
 ### [Feed locali](hosting-packages/local-feeds.md)
@@ -108,7 +108,7 @@
 ### [Uninstall-Package](reference/ps-reference/ps-ref-uninstall-package.md)
 ### [Update-Package](reference/ps-reference/ps-ref-update-package.md)
 ## API Server NuGet
-### [Overview](api/overview.md)
+### [Panoramica](api/overview.md)
 ### Risorse
 #### [Completamento automatico](api/search-autocomplete-service-resource.md)
 #### [Catalogo](api/catalog-resource.md)
@@ -289,6 +289,7 @@
 ## Note sulla versione
 ### [Problemi noti](release-notes/known-issues.md)
 ### NuGet 5.x
+#### [NuGet 5.6](release-notes/NuGet-5.6.md)
 #### [NuGet 5.5](release-notes/NuGet-5.5.md)
 #### [NuGet 5.4](release-notes/NuGet-5.4.md)
 #### [NuGet 5.3](release-notes/NuGet-5.3.md)
