@@ -6,34 +6,38 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 1179ad649da560766f28c18ab6fa670fd8fa6d8b
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: f574849bf99cd4da4eefd55c3dd5a0648042f0c1
+ms.sourcegitcommit: 7e9c0630335ef9ec1e200e2ee9065f702e52a8ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488300"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85292293"
 ---
 # <a name="autocomplete"></a>Completamento automatico
 
-È possibile creare un ID pacchetto e un'esperienza di completamento automatico della versione usando l'API V3. La risorsa utilizzata per eseguire query di completamento automatico è `SearchAutocompleteService` la risorsa presente nell' [indice del servizio](service-index.md).
+È possibile creare un ID pacchetto e un'esperienza di completamento automatico della versione usando l'API V3. La risorsa utilizzata per eseguire query di completamento automatico è la `SearchAutocompleteService` risorsa presente nell' [indice del servizio](service-index.md).
 
 ## <a name="versioning"></a>Controllo delle versioni
 
-Vengono usati `@type` i valori seguenti:
+`@type`Vengono usati i valori seguenti:
 
-Valore di @type                          | Note
+Valore della proprietà @type                          | Note
 ------------------------------------ | -----
 SearchAutocompleteService            | Versione iniziale
 SearchAutocompleteService/3.0.0-beta | Alias di`SearchAutocompleteService`
-SearchAutocompleteService/3.0.0-rc   | Alias di`SearchAutocompleteService`
+SearchAutocompleteService/3.0.0-RC   | Alias di`SearchAutocompleteService`
+SearchAutocompleteService/3.5.0      | Include il supporto per il `packageType` parametro di query
+
+### <a name="searchautocompleteservice350"></a>SearchAutocompleteService/3.5.0
+Questa versione introduce il supporto per il `packageType` parametro di query, consentendo il filtraggio in base ai tipi di pacchetti definiti dall'autore. È completamente compatibile con le query in `SearchAutocompleteService` .
 
 ## <a name="base-url"></a>URL di base
 
-L'URL di base per le API seguenti è il valore della `@id` proprietà associata a uno dei valori di risorsa `@type` menzionati sopra. Nel documento seguente verrà usato l'URL `{@id}` di base segnaposto.
+L'URL di base per le API seguenti è il valore della `@id` proprietà associata a uno dei valori di risorsa menzionati sopra `@type` . Nel documento seguente verrà usato l'URL di base segnaposto `{@id}` .
 
 ## <a name="http-methods"></a>Metodi HTTP
 
-Tutti gli URL trovati nella risorsa di registrazione supportano i metodi `GET` http `HEAD`e.
+Tutti gli URL trovati nella risorsa di registrazione supportano i metodi HTTP `GET` e `HEAD` .
 
 ## <a name="search-for-package-ids"></a>Ricerca di ID pacchetto
 
@@ -41,19 +45,20 @@ La prima API di completamento automatico supporta la ricerca di una parte di una
 
 Un pacchetto solo con versioni non in elenco non verrà visualizzato nei risultati.
 
-    GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
+    GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}&packageType={PACKAGETYPE}
 
 ### <a name="request-parameters"></a>Parametri della richiesta
 
-Name        | In     | Type    | Obbligatoria | Note
+Nome        | In     | Type    | Necessario | Note
 ----------- | ------ | ------- | -------- | -----
 q           | URL    | string  | no       | Stringa da confrontare con gli ID del pacchetto
 skip        | URL    | integer | no       | Numero di risultati da ignorare per la paginazione
-prendere        | URL    | integer | no       | Numero di risultati da restituire per la paginazione
+take        | URL    | integer | no       | Numero di risultati da restituire per la paginazione
 prerelease  | URL    | boolean | no       | `true`o `false` determinare se includere i [pacchetti in versione non definitiva](../create-packages/prerelease-packages.md)
 semVerLevel | URL    | string  | no       | Una stringa di versione SemVer 1.0.0 
+packageType | URL    | string  | no       | Tipo di pacchetto da utilizzare per filtrare i pacchetti (aggiunti in `SearchAutocompleteService/3.5.0` )
 
-La query `q` di completamento automatico viene analizzata in modo definito dall'implementazione del server. nuget.org supporta l'esecuzione di query per il prefisso dei token ID del pacchetto, che sono parti dell'ID prodotto suddividendo il case originale per Camel e i caratteri simbolo.
+La query di completamento automatico `q` viene analizzata in modo definito dall'implementazione del server. nuget.org supporta l'esecuzione di query per il prefisso dei token ID del pacchetto, che sono parti dell'ID prodotto suddividendo il case originale per Camel e i caratteri simbolo.
 
 Il `skip` valore predefinito del parametro è 0.
 
@@ -65,15 +70,19 @@ Il `semVerLevel` parametro di query viene usato per acconsentire esplicitamente 
 Se questo parametro di query è escluso, verranno restituiti solo gli ID pacchetto con versioni compatibili con SemVer 1.0.0 (con le avvertenze di [controllo delle versioni standard di NuGet](../concepts/package-versioning.md) , ad esempio le stringhe di versione con 4 parti Integer).
 Se `semVerLevel=2.0.0` viene specificato, verranno restituiti sia i pacchetti compatibili con SemVer 1.0.0 che SemVer 2.0.0. Per ulteriori informazioni, vedere il [supporto di SemVer 2.0.0 per NuGet.org](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29) .
 
+Il `packageType` parametro viene utilizzato per filtrare ulteriormente i risultati di completamento automatico solo per i pacchetti che hanno almeno un tipo di pacchetto corrispondente al nome del tipo di pacchetto.
+Se il tipo di pacchetto specificato non è un tipo di pacchetto valido come definito dal [documento del tipo di pacchetto](https://github.com/NuGet/Home/wiki/Package-Type-%5BPacking%5D), verrà restituito un risultato vuoto.
+Se il tipo di pacchetto fornito è vuoto, non verrà applicato alcun filtro. In altre parole, il passaggio di nessun valore al `packageType` parametro si comporterà come se il parametro non venisse passato.
+
 ### <a name="response"></a>Risposta
 
-La risposta è un documento JSON che contiene `take` i risultati di completamento automatico.
+La risposta è un documento JSON che contiene i `take` risultati di completamento automatico.
 
 L'oggetto JSON radice presenta le proprietà seguenti:
 
-NOME      | Type             | Obbligatoria | Note
+Nome      | Type             | Necessario | Note
 --------- | ---------------- | -------- | -----
-totalHits | integer          | sì      | Il numero totale di corrispondenze, che `skip` non riguardano e`take`
+totalHits | integer          | sì      | Il numero totale di corrispondenze, che non riguardano `skip` e`take`
 data      | matrice di stringhe | sì      | ID del pacchetto corrispondenti alla richiesta
 
 ### <a name="sample-request"></a>Richiesta di esempio
@@ -94,7 +103,7 @@ Una versione del pacchetto non in elenco non verrà visualizzata nei risultati.
 
 ### <a name="request-parameters"></a>Parametri della richiesta
 
-Name        | In     | Type    | Obbligatoria | Note
+Nome        | In     | Type    | Necessario | Note
 ----------- | ------ | ------- | -------- | -----
 id          | URL    | string  | sì      | ID del pacchetto per cui recuperare le versioni
 prerelease  | URL    | boolean | no       | `true`o `false` determinare se includere i [pacchetti in versione non definitiva](../create-packages/prerelease-packages.md)
@@ -110,11 +119,11 @@ La risposta è un documento JSON contenente tutte le versioni dei pacchetti dell
 
 L'oggetto JSON radice presenta la proprietà seguente:
 
-Name      | Type             | Obbligatoria | Note
+Nome      | Type             | Necessario | Note
 --------- | ---------------- | -------- | -----
 data      | matrice di stringhe | sì      | Versioni del pacchetto corrispondenti alla richiesta
 
-Le versioni del pacchetto nella `data` matrice possono contenere i metadati di compilazione SemVer 2.0.0 ( `1.0.0+metadata`ad esempio) `semVerLevel=2.0.0` se è specificato nella stringa di query.
+Le versioni del pacchetto nella `data` matrice possono contenere i metadati di compilazione SemVer 2.0.0 (ad esempio `1.0.0+metadata` ) se `semVerLevel=2.0.0` è specificato nella stringa di query.
 
 ### <a name="sample-request"></a>Richiesta di esempio
 
