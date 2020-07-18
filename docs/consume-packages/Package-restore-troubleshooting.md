@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: a1f9f1d03e9a6e58466fa92426bd655d5e8ed83d
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: b162990eae2160961f560b6c6ee73e47cb4121d6
+ms.sourcegitcommit: f29fa9b93fd59e679fab50d7413bbf67da3ea5b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "68860615"
+ms.lasthandoff: 07/17/2020
+ms.locfileid: "86451151"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>Risoluzione degli errori relativi al ripristino dei pacchetti
 
 Questo articolo è dedicato agli errori comuni durante il ripristino dei pacchetti e alle procedure per risolverli. 
 
-Ripristino pacchetto tenta di installare tutte le dipendenze del pacchetto nello stato corretto che corrisponde ai riferimenti al pacchetto nel file di progetto (con estensione *csproj*) o nel file *packages.config*. In Visual Studio, i riferimenti vengono visualizzati in Esplora soluzioni nel nodo **Dipendenze , NuGet** o **Riferimenti.** Per seguire i passaggi necessari per ripristinare i pacchetti, consultate [Ripristinare i pacchetti.](../consume-packages/package-restore.md#restore-packages) Se i riferimenti al pacchetto nel file di progetto (con estensione *csproj*) o nel file *packages.config* non sono corretti (non corrispondono allo stato desiderato dopo il ripristino del pacchetto), è necessario installare o aggiornare i pacchetti invece di usare Ripristino pacchetti.
+Ripristino pacchetto tenta di installare tutte le dipendenze del pacchetto nello stato corretto che corrisponde ai riferimenti al pacchetto nel file di progetto (con estensione *csproj*) o nel file *packages.config*. In Visual Studio i riferimenti vengono visualizzati in Esplora soluzioni sotto le **dipendenze \ NuGet** o il nodo **riferimenti** . Per eseguire i passaggi necessari per ripristinare i pacchetti, vedere [ripristinare i pacchetti](../consume-packages/package-restore.md#restore-packages). Se i riferimenti al pacchetto nel file di progetto (con estensione *csproj*) o nel file *packages.config* non sono corretti (non corrispondono allo stato desiderato dopo il ripristino del pacchetto), è necessario installare o aggiornare i pacchetti invece di usare Ripristino pacchetti.
 
 Se le istruzioni riportate qui non funzionano, [registrare un problema in GitHub](https://github.com/NuGet/docs.microsoft.com-nuget/issues) in modo che lo scenario possa essere esaminato in maggiore dettaglio. Non usare il controllo "Questa pagina è stata utile?" che può essere visualizzato nella pagina perché non offre la possibilità di essere contattati per ulteriori informazioni.
 
@@ -46,7 +46,7 @@ Use NuGet Package Restore to download them. The missing file is {name}.
 
 Questo errore si verifica quando si tenta di compilare un progetto che contiene riferimenti a uno o più pacchetti NuGet, ma tali pacchetti non sono attualmente installati nel computer o nel progetto.
 
-- Quando si utilizza il formato di gestione [PackageReference,](package-references-in-project-files.md) l'errore indica che il pacchetto non è installato nella cartella *global-packages* come descritto in [Managing the global packages and cache folders](managing-the-global-packages-and-cache-folders.md).
+- Quando si usa il formato di gestione [PackageReference](package-references-in-project-files.md) , l'errore indica che il pacchetto non è installato nella cartella *Global-Packages* come descritto in [gestione delle cartelle dei pacchetti globali e della cache](managing-the-global-packages-and-cache-folders.md).
 - Quando si usa [packages.config](../reference/packages-config.md), questo errore indica che il pacchetto non è installato nella cartella `packages` nella radice della soluzione.
 
 Generalmente questa situazione si verifica quando si ottiene il codice sorgente del progetto dal controllo del codice sorgente o tramite un altro download. I pacchetti vengono in genere omessi dal controllo del codice sorgente o dai download perché possono essere ripristinati da feed di pacchetti come nuget.org (vedere [Pacchetti e controllo del codice sorgente](Packages-and-Source-Control.md)). La loro aggiunta comporterebbe altrimenti un notevole aumento di dimensioni del repository oppure la creazione di file ZIP inutilmente grandi.
@@ -61,7 +61,7 @@ Usare uno dei metodi seguenti per ripristinare i pacchetti:
 - [Interfaccia della riga di comando di nuget.exe](package-restore.md#restore-using-the-nugetexe-cli)
 - [MSBuild](package-restore.md#restore-using-msbuild)
 - [Azure Pipelines](package-restore.md#restore-using-azure-pipelines)
-- [Server DevOps di AzureAzure DevOps Server](package-restore.md#restore-using-azure-devops-server)
+- [Azure DevOps Server](package-restore.md#restore-using-azure-devops-server)
 
 Dopo un ripristino corretto, il pacchetto deve essere presente nella cartella *global-packages*. Per i progetti che usano PackageReference, un ripristino deve ricreare il file `obj/project.assets.json`. Per i progetti che usano `packages.config`, il pacchetto deve essere visualizzato nella cartella `packages` del progetto. La compilazione del progetto dovrebbe ora avvenire senza problemi. In caso contrario, [registrare un problema in GitHub](https://github.com/NuGet/docs.microsoft.com-nuget/issues) in modo da ottenere il necessario supporto.
 
@@ -114,7 +114,7 @@ Questo errore indica che il ripristino dei pacchetti è disabilitato nella confi
 
 ## <a name="other-potential-conditions"></a>Altre condizioni potenziali
 
-- Si potrebbero verificare errori di compilazione a causa di file mancanti, con un messaggio che indica di usare il ripristino NuGet per scaricarli. Tuttavia, se si esegue un ripristino potrebbe essere visualizzato il messaggio "Tutti i pacchetti sono già installati. Nessun elemento da ripristinare." In questo caso, eliminare la cartella `packages` (quando si usa `packages.config`) o il file `obj/project.assets.json` (quando si usa PackageReference) e ripetere il ripristino. Se l'errore persiste, usare `nuget locals all -clear` o `dotnet locals all --clear` dalla riga di comando per cancellare le cartelle *global-packages* e della cache come descritto in [Gestione dei pacchetti globali e delle cartelle della cache](managing-the-global-packages-and-cache-folders.md).
+- Si potrebbero verificare errori di compilazione a causa di file mancanti, con un messaggio che indica di usare il ripristino NuGet per scaricarli. Tuttavia, se si esegue un ripristino potrebbe essere visualizzato il messaggio "Tutti i pacchetti sono già installati. Nessun elemento da ripristinare." In questo caso, eliminare la cartella `packages` (quando si usa `packages.config`) o il file `obj/project.assets.json` (quando si usa PackageReference) e ripetere il ripristino. Se l'errore persiste, usare `nuget locals all -clear` o `dotnet nuget locals all --clear` dalla riga di comando per cancellare le cartelle *global-packages* e della cache come descritto in [Gestione dei pacchetti globali e delle cartelle della cache](managing-the-global-packages-and-cache-folders.md).
 
 - Quando si ottiene un progetto dal controllo del codice sorgente, le cartelle di progetto potrebbero essere impostate in sola lettura. Modificare le autorizzazioni delle cartelle e riprovare a ripristinare i pacchetti.
 
