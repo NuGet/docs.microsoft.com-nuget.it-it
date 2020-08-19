@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: da8c5a05311c790bf6b873bc0f1a077d3ef1db87
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: e1ebf5042597693ee55d986a4f93e797c27ad30a
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "73610622"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622707"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>Creazione di controlli dell'interfaccia utente come pacchetti NuGet
 
@@ -46,7 +46,7 @@ La struttura del file è la seguente:
 ```xml
 <FileList>
   <File Reference = "your_package_file">
-    <ToolboxItems VSCategory="vs_category" BlendCategory="blend_category">
+    <ToolboxItems UIFramework="WPF" VSCategory="vs_category" BlendCategory="blend_category">
       <Item Type="type_full_name_1" />
 
       <!-- Any number of additional Items -->
@@ -61,6 +61,7 @@ dove:
 
 - *your_package_file*: nome del file di controllo, ad esempio `ManagedPackage.winmd`. "ManagedPackage" è un nome arbitrario usato per questo esempio e non ha altri significati.
 - *vs_category*: etichetta del gruppo in cui il controllo deve essere visualizzato nella casella degli strumenti della finestra di progettazione di Visual Studio. `VSCategory` è necessario per visualizzare il controllo nella casella degli strumenti.
+*ui_framework*: il nome del Framework, ad esempio ' WPF ', si noti che `UIFramework` l'attributo è obbligatorio nei nodi ToolBoxItems in Visual Studio 16,7 Preview 3 o versione successiva affinché il controllo venga visualizzato nella casella degli strumenti.
 - *blend_category*: etichetta del gruppo in cui il controllo deve essere visualizzato nel riquadro Asset della finestra di progettazione di Blend. `BlendCategory` è necessario per visualizzare il controllo in Asset.
 - *type_full_name_n*: nome completo di ogni controllo, incluso lo spazio dei nomi, ad esempio `ManagedPackage.MyCustomControl`. Si noti che il formato punto viene usato sia per i tipi gestiti che per quelli nativi.
 
@@ -71,7 +72,7 @@ Nell'esempio seguente il controllo implementato in `ManagedPackage.winmd` verrà
 ```xml
 <FileList>
   <File Reference = "ManagedPackage.winmd">
-    <ToolboxItems VSCategory="Managed Package" BlendCategory="Managed Package">
+    <ToolboxItems UIFramework="WPF" VSCategory="Managed Package" BlendCategory="Managed Package">
       <Item Type="ManagedPackage.MyCustomControl" />
     </ToolboxItems>
   </File>
@@ -120,7 +121,7 @@ Nel caso di WPF, si supponga di volere che il pacchetto dei controlli WPF venga 
 
 ## <a name="add-design-time-support"></a>Aggiungere il supporto in fase di progettazione
 
-Per configurare dove visualizzare le proprietà del controllo nel controllo proprietà, aggiungere gli strumenti decorativi personalizzati e così via e inserire il file `design.dll` nella cartella `lib\uap10.0.14393\Design` in modo appropriato alla piattaforma di destinazione. Per assicurarsi inoltre che la funzionalità **[Modifica modello > Modifica copia](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)** operi correttamente, è necessario includere nella cartella `<your_assembly_name>\Themes``Generic.xaml` e tutti i dizionari risorse uniti, ancora una volta usando il nome di assembly effettivo. Questo file non ha alcun impatto sul comportamento di runtime di un controllo. La struttura delle cartelle appare quindi come segue:
+Per configurare dove visualizzare le proprietà del controllo nel controllo proprietà, aggiungere gli strumenti decorativi personalizzati e così via e inserire il file `design.dll` nella cartella `lib\uap10.0.14393\Design` in modo appropriato alla piattaforma di destinazione. Per assicurarsi inoltre che la funzionalità **[Modifica modello > Modifica copia](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)** operi correttamente, è necessario includere nella cartella `<your_assembly_name>\Themes``Generic.xaml` e tutti i dizionari risorse uniti, ancora una volta usando il nome di assembly effettivo. (Questo file non ha alcun effetto sul comportamento di runtime di un controllo). La struttura di cartelle viene quindi visualizzata come segue:
 
     \lib
       \uap10.0.14393

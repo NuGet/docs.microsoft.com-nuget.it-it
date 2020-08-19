@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/03/2018
 ms.topic: conceptual
-ms.openlocfilehash: be7c10fb6ce60375f77e38f9b604ec33063e52fc
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 2dfbd793eee05169f051d9c8943bc065945b92da
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64498242"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622642"
 ---
 # <a name="packages-in-visual-studio-templates"></a>Pacchetti nei modelli di Visual Studio
 
@@ -35,7 +35,7 @@ I pacchetti preinstallati funzionano tramite [creazioni guidate di modelli](/vis
 
 Passaggi per includere i pacchetti in un modello:
 
-1. Nel `vstemplate` file aggiungere un riferimento alla creazione guidata [`WizardExtension`](/visualstudio/extensibility/wizardextension-element-visual-studio-templates) modello NuGet aggiungendo un elemento:In your file, add a reference to the NuGet template wizard by adding a element:
+1. Nel `vstemplate` file aggiungere un riferimento alla creazione guidata modelli NuGet aggiungendo un [`WizardExtension`](/visualstudio/extensibility/wizardextension-element-visual-studio-templates) elemento:
 
     ```xml
     <WizardExtension>
@@ -93,7 +93,7 @@ Se si distribuisce solo un singolo modello di progetto/elemento e non è necessa
 1. Modificare l'elemento `<packages>` nel file `.vstemplate` come indicato di seguito:
 
     ```xml
-    <packages repository="template"">
+    <packages repository="template">
         <!-- ... -->
     </packages>
     ```
@@ -141,6 +141,6 @@ Gli SDK che vengono installati tramite un file MSI possono installare i pacchett
     <!-- ... -->
     ```
 
-1. Richiedere il salvataggio dei modelli di [`<PromptForSaveOnCreation>true</PromptForSaveOnCreation>`](/visualstudio/extensibility/promptforsaveoncreation-element-visual-studio-templates) progetto/elemento al salvataggio tramite l'inclusione nel `.vstemplate` file.
+1. Richiedi il salvataggio dei modelli di progetto/elemento durante la creazione includendo [`<PromptForSaveOnCreation>true</PromptForSaveOnCreation>`](/visualstudio/extensibility/promptforsaveoncreation-element-visual-studio-templates) nel `.vstemplate` file.
 
 1. I modelli non includono un file `packages.config` e non includono riferimenti o contenuto che verrebbero aggiunti al momento dell'installazione dei i pacchetti NuGet.

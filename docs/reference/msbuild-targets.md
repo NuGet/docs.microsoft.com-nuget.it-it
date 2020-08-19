@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 922fc0b25664dede59e33c6cd012dfeedcad0397
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.openlocfilehash: 16fd7b9103ef5ac335f0b2e5493dd2983b182f50
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2020
-ms.locfileid: "79428800"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88623175"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Pack e restore di NuGet come destinazioni MSBuild
 
 *NuGet 4.0+*
 
-Con il formato [PackageReference](../consume-packages/package-references-in-project-files.md) , NuGet 4.0 + può archiviare tutti i metadati del manifesto direttamente all'interno di un file di progetto anziché usare un file di `.nuspec` separato.
+Con il formato [PackageReference](../consume-packages/package-references-in-project-files.md) , NuGet 4.0 + può archiviare tutti i metadati del manifesto direttamente all'interno di un file di progetto anziché usare un `.nuspec` file separato.
 
 Con MSBuild 15.1 +, anche NuGet è un membro di MSBuild di prima classe con le destinazioni `pack` e `restore` come descritto di seguito. Queste destinazioni consentono di usare NuGet come qualsiasi altra attività o destinazione MSBuild. Per istruzioni sulla creazione di un pacchetto NuGet con MSBuild, vedere [creare un pacchetto NuGet con MSBuild](../create-packages/creating-a-package-msbuild.md). Per NuGet 3.x e versioni precedenti, usare invece i comandi [pack](../reference/cli-reference/cli-ref-pack.md) e [restore](../reference/cli-reference/cli-ref-restore.md) tramite l'interfaccia della riga di comando di NuGet.
 
@@ -36,13 +36,13 @@ Dato che `pack` e `restore` sono destinazioni MSBuild, è possibile accedervi pe
 Analogamente, è possibile scrivere un'attività MSBuild, scrivere la propria destinazione e utilizzare proprietà NuGet nell'attività MSBuild.
 
 > [!NOTE]
-> `$(OutputPath)` è relativo e prevede che venga eseguito il comando dalla radice del progetto.
+> `$(OutputPath)` è relativo e prevede che si esegua il comando dalla radice del progetto.
 
 ## <a name="pack-target"></a>Destinazione pack
 
 Per .NET Standard progetti che usano il formato PackageReference, l'uso di `msbuild -t:pack` disegna gli input dal file di progetto da usare per la creazione di un pacchetto NuGet.
 
-La tabella seguente descrive le proprietà di MSBuild che possono essere aggiunte a un file di progetto all'interno del primo nodo `<PropertyGroup>`. È possibile apportare facilmente queste modifiche in Visual Studio 2017 e versioni successive facendo clic con il pulsante destro del mouse sul progetto e scegliendo **Modifica {nome_progetto}** dal menu di scelta rapida. Per praticità, la tabella è organizzata in base alla proprietà equivalente in un [file `.nuspec`](../reference/nuspec.md).
+La tabella seguente descrive le proprietà di MSBuild che possono essere aggiunte a un file di progetto all'interno del primo nodo `<PropertyGroup>`. È possibile apportare facilmente queste modifiche in Visual Studio 2017 e versioni successive facendo clic con il pulsante destro del mouse sul progetto e scegliendo **Modifica {nome_progetto}** dal menu di scelta rapida. Per praticità, la tabella è organizzata in base alla proprietà equivalente in un [ `.nuspec` file](../reference/nuspec.md).
 
 Si noti che le proprietà `Owners` e `Summary` da `.nuspec` non sono supportate con MSBuild.
 
@@ -60,18 +60,18 @@ Si noti che le proprietà `Owners` e `Summary` da `.nuspec` non sono supportate 
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
 | license | PackageLicenseExpression | empty | Corrisponde a `<license type="expression">` |
 | license | PackageLicenseFile | empty | Corrisponde a `<license type="file">`. È necessario comprimere in modo esplicito il file di licenza a cui si fa riferimento. |
-| LicenseUrl | PackageLicenseUrl | empty | `PackageLicenseUrl` è deprecato, utilizzare la proprietà PackageLicenseExpression o PackageLicenseFile |
+| LicenseUrl | PackageLicenseUrl | empty | `PackageLicenseUrl` è deprecato, usare la proprietà PackageLicenseExpression o PackageLicenseFile |
 | ProjectUrl | PackageProjectUrl | empty | |
 | Icona | PackageIcon | empty | È necessario comprimere in modo esplicito il file di immagine icona a cui si fa riferimento.|
-| IconUrl | PackageIconUrl | empty | Per la migliore esperienza di livello inferiore, è necessario specificare `PackageIconUrl` oltre al `PackageIcon`. A lungo termine, `PackageIconUrl` verrà deprecato. |
+| IconUrl | PackageIconUrl | empty | Per la migliore esperienza di livello inferiore, `PackageIconUrl` è necessario specificare oltre a `PackageIcon` . A lungo termine, `PackageIconUrl` verrà deprecato. |
 | Tag | PackageTags | empty | I tag sono delimitati da punto e virgola. |
 | ReleaseNotes | PackageReleaseNotes | empty | |
-| Repository/URL | RepositoryUrl | empty | URL del repository usato per clonare o recuperare il codice sorgente. Esempio: *https://github.com/NuGet/NuGet.Client.git* |
+| Repository/URL | RepositoryUrl | empty | URL del repository usato per clonare o recuperare il codice sorgente. Esempio *https://github.com/NuGet/NuGet.Client.git* |
 | Repository/tipo | RepositoryType | empty | Tipo di repository. Esempi: *git*, *TFS*. |
 | Repository/ramo | RepositoryBranch | empty | Informazioni facoltative sul ramo del repository. Per includere questa proprietà, è necessario specificare anche *RepositoryUrl* . Esempio: *Master* (NuGet 4.7.0 +) |
 | Repository/commit | RepositoryCommit | empty | Commit o insieme di modifiche facoltativo del repository per indicare l'origine su cui è stato compilato il pacchetto. Per includere questa proprietà, è necessario specificare anche *RepositoryUrl* . Esempio: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
-| Summary | Non supportate | | |
+| Riepilogo | Non supportate | | |
 
 ### <a name="pack-target-inputs"></a>Input destinazione pack
 
@@ -114,22 +114,22 @@ Si noti che le proprietà `Owners` e `Summary` da `.nuspec` non sono supportate 
 
 ### <a name="suppress-dependencies"></a>Non visualizzare le dipendenze
 
-Per non visualizzare le dipendenze del pacchetto dal pacchetto NuGet generato, impostare `SuppressDependenciesWhenPacking` su `true`, che consente di ignorare tutte le dipendenze dal file nupkg generato.
+Per non visualizzare le dipendenze del pacchetto dal pacchetto NuGet generato, impostare `SuppressDependenciesWhenPacking` su `true` che consentirà di ignorare tutte le dipendenze dal file nupkg generato.
 
 ### <a name="packageiconurl"></a>PackageIconUrl
 
-`PackageIconUrl` sarà deprecato a favore della nuova proprietà [`PackageIcon`](#packageicon) .
+`PackageIconUrl` verrà deprecato a favore della nuova [`PackageIcon`](#packageicon) Proprietà.
 
-A partire da NuGet 5,3 & Visual Studio 2019 versione 16,3, `pack` genererà un avviso [NU5048](./errors-and-warnings/nu5048.md) se i metadati del pacchetto specificano solo `PackageIconUrl`.
+A partire da NuGet 5,3 & Visual Studio 2019 versione 16,3, `pack` genererà un avviso [NU5048](./errors-and-warnings/nu5048.md) se i metadati del pacchetto specificano solo `PackageIconUrl` .
 
 ### <a name="packageicon"></a>PackageIcon
 
 > [!Tip]
-> È necessario specificare sia `PackageIcon` che `PackageIconUrl` per mantenere la compatibilità con le versioni precedenti di client e origini che non supportano ancora `PackageIcon`. Visual Studio supporterà `PackageIcon` per i pacchetti provenienti da un'origine basata su cartelle in una versione futura.
+> È necessario specificare sia `PackageIcon` che `PackageIconUrl` per mantenere la compatibilità con le versioni precedenti di client e origini che non supportano ancora `PackageIcon` . Visual Studio supporterà `PackageIcon` i pacchetti provenienti da un'origine basata su cartelle in una versione futura.
 
 #### <a name="packing-an-icon-image-file"></a>Compressione di un file di immagine icona
 
-Quando si imballa un file di immagine icona, è necessario utilizzare `PackageIcon` proprietà per specificare il percorso del pacchetto, relativo alla radice del pacchetto. Inoltre, è necessario assicurarsi che il file sia incluso nel pacchetto. Le dimensioni del file di immagine sono limitate a 1 MB. I formati di file supportati sono JPEG e PNG. Si consiglia la risoluzione di un'immagine di 128x128.
+Quando si imballa un file di immagine icona, è necessario utilizzare `PackageIcon` la proprietà per specificare il percorso del pacchetto, relativo alla radice del pacchetto. Inoltre, è necessario assicurarsi che il file sia incluso nel pacchetto. Le dimensioni del file di immagine sono limitate a 1 MB. I formati di file supportati sono JPEG e PNG. Si consiglia la risoluzione di un'immagine di 128x128.
 
 Ad esempio:
 
@@ -262,12 +262,12 @@ Quando si usa `MSBuild -t:pack -p:IsTool=true`, tutti i file, come specificato n
 
 ### <a name="packing-using-a-nuspec"></a>Creazione di un pacchetto con un file .nuspec
 
-Sebbene sia consigliabile [includere tutte le proprietà](../reference/msbuild-targets.md#pack-target) che in genere si trovano nel file di `.nuspec` nel file di progetto, è possibile scegliere di utilizzare un file di `.nuspec` per comprimere il progetto. Per un progetto non di tipo SDK che utilizza `PackageReference`, è necessario importare `NuGet.Build.Tasks.Pack.targets` in modo che l'attività Pack possa essere eseguita. Prima di poter comprimere un file nuspec, è ancora necessario ripristinare il progetto. Un progetto di tipo SDK include le destinazioni di tipo pack per impostazione predefinita.
+Sebbene sia consigliabile includere in alternativa [tutte le proprietà](../reference/msbuild-targets.md#pack-target) che in genere si trovano nel file del `.nuspec` progetto, è possibile scegliere di utilizzare un `.nuspec` file per comprimere il progetto. Per un progetto non di tipo SDK che utilizza `PackageReference` , è necessario importare in `NuGet.Build.Tasks.Pack.targets` modo che l'attività Pack possa essere eseguita. Prima di poter comprimere un file nuspec, è ancora necessario ripristinare il progetto. Un progetto di tipo SDK include le destinazioni di tipo pack per impostazione predefinita.
 
 Il Framework di destinazione del file di progetto non è rilevante e non viene usato per la compressione di un NuSpec. Le tre proprietà di MSBuild seguenti sono rilevanti per la creazione di pacchetti con un file `.nuspec`:
 
 1. `NuspecFile`: percorso relativo o assoluto per il file `.nuspec` usato per la creazione del pacchetto.
-1. `NuspecProperties`: elenco con valori delimitati da punto e virgola di coppie chiave=valore. A causa della modalità di funzionamento dell'analisi della riga di comando di MSBuild, è necessario specificare più proprietà come indicato di seguito: `-p:NuspecProperties=\"key1=value1;key2=value2\"`.  
+1. `NuspecProperties`: elenco con valori delimitati da punto e virgola di coppie chiave=valore. A causa della modalità di funzionamento dell'analisi della riga di comando di MSBuild, è necessario specificare più proprietà come indicato di seguito: `-p:NuspecProperties="key1=value1;key2=value2"`.  
 1. `NuspecBasePath`: percorso di base per il file `.nuspec`.
 
 Se si usa `dotnet.exe` per creare il pacchetto del progetto, usare un comando simile al seguente:
@@ -282,7 +282,7 @@ Se si usa MSBuild per creare il pacchetto del progetto, usare un comando simile 
 msbuild -t:pack <path to .csproj file> -p:NuspecFile=<path to nuspec file> -p:NuspecProperties=<> -p:NuspecBasePath=<Base path> 
 ```
 
-Si noti che la compressione di un NuSpec con dotnet. exe o MSBuild comporta anche la compilazione del progetto per impostazione predefinita. Questa operazione può essere evitata passando ```--no-build``` proprietà a dotnet. exe, che equivale a impostare ```<NoBuild>true</NoBuild> ``` nel file di progetto, oltre a impostare ```<IncludeBuildOutput>false</IncludeBuildOutput> ``` nel file di progetto.
+Si noti che la compressione di un NuSpec tramite dotnet.exe o MSBuild comporta anche la compilazione del progetto per impostazione predefinita. Questa operazione può essere evitata passando ```--no-build``` la proprietà a dotnet.exe, che è l'equivalente dell'impostazione ```<NoBuild>true</NoBuild> ``` nel file di progetto, insieme all'impostazione ```<IncludeBuildOutput>false</IncludeBuildOutput> ``` nel file di progetto.
 
 Un esempio di file con estensione *csproj* per la compressione di un file nuspec è:
 
@@ -301,17 +301,17 @@ Un esempio di file con estensione *csproj* per la compressione di un file nuspec
 
 ### <a name="advanced-extension-points-to-create-customized-package"></a>Punti di estensione avanzati per la creazione di pacchetti personalizzati
 
-La destinazione `pack` fornisce due punti di estensione che vengono eseguiti nella compilazione specifica del Framework di destinazione interno. I punti di estensione supportano l'inclusione di contenuto e assembly specifici del Framework di destinazione in un pacchetto:
+La `pack` destinazione fornisce due punti di estensione che vengono eseguiti nella compilazione specifica del Framework di destinazione interno. I punti di estensione supportano l'inclusione di contenuto e assembly specifici del Framework di destinazione in un pacchetto:
 
-- destinazione `TargetsForTfmSpecificBuildOutput`: utilizzare per i file all'interno della cartella `lib` o di una cartella specificata utilizzando `BuildOutputTargetFolder`.
-- destinazione `TargetsForTfmSpecificContentInPackage`: usare per i file all'esterno del `BuildOutputTargetFolder`.
+- `TargetsForTfmSpecificBuildOutput` destinazione: utilizzare per i file all'interno della `lib` cartella o in una cartella specificata utilizzando `BuildOutputTargetFolder` .
+- `TargetsForTfmSpecificContentInPackage` destinazione: usare per i file all'esterno di `BuildOutputTargetFolder` .
 
 #### <a name="targetsfortfmspecificbuildoutput"></a>TargetsForTfmSpecificBuildOutput
 
-Scrivere una destinazione personalizzata e specificarla come valore della proprietà `$(TargetsForTfmSpecificBuildOutput)`. Per tutti i file che devono passare all'`BuildOutputTargetFolder` (lib per impostazione predefinita), la destinazione deve scrivere i file nel ItemGroup `BuildOutputInPackage` e impostare i due valori di metadati seguenti:
+Scrivere una destinazione personalizzata e specificarla come valore della `$(TargetsForTfmSpecificBuildOutput)` Proprietà. Per tutti i file che devono essere inseriti in `BuildOutputTargetFolder` (per impostazione predefinita, lib), la destinazione deve scrivere i file in ItemGroup `BuildOutputInPackage` e impostare i due valori di metadati seguenti:
 
-- `FinalOutputPath`: il percorso assoluto del file; Se non viene specificato, l'identità viene utilizzata per valutare il percorso di origine.
-- `TargetPath`: (facoltativo) impostare quando il file deve essere inserito in una sottocartella all'interno di `lib\<TargetFramework>`, ad esempio gli assembly satellite che passano sotto le rispettive cartelle delle impostazioni cultura. Il valore predefinito è il nome del file.
+- `FinalOutputPath`: Percorso assoluto del file; Se non viene specificato, l'identità viene utilizzata per valutare il percorso di origine.
+- `TargetPath`: (Facoltativo) impostare quando il file deve essere inserito in una sottocartella all'interno di `lib\<TargetFramework>` , ad esempio gli assembly satellite che passano sotto le rispettive cartelle delle impostazioni cultura. Il valore predefinito è il nome del file.
 
 Esempio:
 
@@ -331,10 +331,10 @@ Esempio:
 
 #### <a name="targetsfortfmspecificcontentinpackage"></a>TargetsForTfmSpecificContentInPackage
 
-Scrivere una destinazione personalizzata e specificarla come valore della proprietà `$(TargetsForTfmSpecificContentInPackage)`. Per tutti i file da includere nel pacchetto, la destinazione deve scrivere i file nel ItemGroup `TfmSpecificPackageFile` e impostare i metadati facoltativi seguenti:
+Scrivere una destinazione personalizzata e specificarla come valore della `$(TargetsForTfmSpecificContentInPackage)` Proprietà. Per tutti i file da includere nel pacchetto, la destinazione deve scrivere i file in ItemGroup `TfmSpecificPackageFile` e impostare i metadati facoltativi seguenti:
 
-- `PackagePath`: percorso in cui il file deve essere restituito nel pacchetto. NuGet genera un avviso se viene aggiunto più di un file allo stesso percorso del pacchetto.
-- `BuildAction`: l'azione di compilazione da assegnare al file, necessaria solo se il percorso del pacchetto si trova nella cartella `contentFiles`. Il valore predefinito è "None".
+- `PackagePath`: Percorso in cui il file deve essere restituito nel pacchetto. NuGet genera un avviso se viene aggiunto più di un file allo stesso percorso del pacchetto.
+- `BuildAction`: L'azione di compilazione da assegnare al file, necessaria solo se il percorso del pacchetto si trova nella `contentFiles` cartella. Il valore predefinito è "None".
 
 Esempio:
 ```xml
@@ -360,12 +360,12 @@ Esempio:
 
 1. Lettura di tutti i riferimenti da progetto a progetto
 1. Lettura delle proprietà del progetto per trovare la cartella intermedia e i framework di destinazione
-1. Passare i dati di MSBuild a NuGet. Build. Tasks. dll
+1. Passare dati MSBuild a NuGet.Build.Tasks.dll
 1. Esecuzione di restore
 1. Download dei pacchetti
 1. Scrittura dei file di asset, delle destinazioni e delle proprietà
 
-La destinazione `restore` funziona **solo** per i progetti che usano il formato PackageReference. **Non funziona per** i progetti che usano il formato `packages.config`; in alternativa, usare [NuGet Restore](../reference/cli-reference/cli-ref-restore.md) .
+La `restore` destinazione funziona **solo** per i progetti che usano il formato PackageReference. **Non funziona per** i progetti che usano il `packages.config` formato; usare invece il [ripristino NuGet](../reference/cli-reference/cli-ref-restore.md) .
 
 ### <a name="restore-properties"></a>Ripristino delle proprietà
 
@@ -385,12 +385,12 @@ Possono esistere ulteriori impostazioni di ripristino derivate da proprietà di 
 | RestoreAdditionalProjectFallbackFoldersExcludes | Esclude le cartelle di fallback specificate in `RestoreAdditionalProjectFallbackFolders` |
 | RestoreTaskAssemblyFile | Percorso di `NuGet.Build.Tasks.dll`. |
 | RestoreGraphProjectInput | Elenco delimitato da punto e virgola dei progetti da ripristinare, che deve contenere percorsi assoluti. |
-| RestoreUseSkipNonexistentTargets  | Quando i progetti vengono raccolti tramite MSBuild, determina se vengono raccolti usando l'ottimizzazione del `SkipNonexistentTargets`. Quando non è impostato, il valore predefinito è `true`. La conseguenza è un comportamento non rapido quando le destinazioni di un progetto non possono essere importate. |
-| MSBuildProjectExtensionsPath | Cartella di output, per impostazione predefinita `BaseIntermediateOutputPath` e la cartella `obj`. |
-| RestoreForce | Nei progetti basati su PackageReference, impone la risoluzione di tutte le dipendenze anche se l'ultimo ripristino ha avuto esito positivo. L'impostazione di questo flag è simile all'eliminazione del file di `project.assets.json`. Questa operazione non consente di ignorare la cache HTTP. |
+| RestoreUseSkipNonexistentTargets  | Quando i progetti vengono raccolti tramite MSBuild, determina se vengono raccolti usando l' `SkipNonexistentTargets` ottimizzazione. Quando non è impostato, il valore predefinito è `true` . La conseguenza è un comportamento non rapido quando le destinazioni di un progetto non possono essere importate. |
+| MSBuildProjectExtensionsPath | Cartella di output, per impostazione predefinita `BaseIntermediateOutputPath` e la `obj` cartella. |
+| RestoreForce | Nei progetti basati su PackageReference, impone la risoluzione di tutte le dipendenze anche se l'ultimo ripristino ha avuto esito positivo. La specifica di questo flag è simile all'eliminazione del `project.assets.json` file. Questa operazione non consente di ignorare la cache HTTP. |
 | RestorePackagesWithLockFile | Optare per l'utilizzo di un file di blocco. |
 | RestoreLockedMode | Eseguire Restore in modalità bloccata. Questo significa che il ripristino non valuterà nuovamente le dipendenze. |
-| NuGetLockFilePath | Percorso personalizzato per il file di blocco. Il percorso predefinito è accanto al progetto ed è denominato `packages.lock.json`. |
+| NuGetLockFilePath | Percorso personalizzato per il file di blocco. Il percorso predefinito è accanto al progetto ed è denominato `packages.lock.json` . |
 | RestoreForceEvaluate | Forza il ripristino per ricalcolare le dipendenze e aggiornare il file di blocco senza alcun avviso. | 
 
 #### <a name="examples"></a>Esempi
@@ -434,7 +434,7 @@ msbuild -t:restore,build
 msbuild -t:build -restore
 ```
 
-La stessa logica si applica ad altre destinazioni simili a `build`.
+La stessa logica si applica ad altre destinazioni simili a `build` .
 
 ### <a name="packagetargetfallback"></a>PackageTargetFallback
 

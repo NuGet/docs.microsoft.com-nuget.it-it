@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8cc990e0c9eed07c59c8dffb04d104be47051736
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 937a0083ca47ba5668059736a7e99f7ca88e8908
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "69999948"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622616"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Domande frequenti su NuGet
 
@@ -89,7 +89,7 @@ Sì, è possibile aggiungere comandi personalizzati a `nuget.exe`, come descritt
 
 L'oggetto di primo livello nel modello a oggetti di automazione di Visual Studio viene chiamato oggetto DTE (Development Tools Environment). La console rende disponibile questo oggetto tramite una variabile denominata `$DTE`. Per altre informazioni, vedere [Cenni preliminari sul modello di automazione](/visualstudio/extensibility/internals/automation-model-overview) nella documentazione sull'estendibilità di Visual Studio.
 
-**Si tenta di eseguire il cast della variabile di $DTE al tipo DTE2, ma viene visualizzato un errore: Impossibile convertire il valore "EnvDTE.DTEClass" di tipo "EnvDTE.DTEClass" nel tipo "EnvDTE80.DTE2". Cosa c'è che non va?**
+**Si tenta di eseguire il cast della variabile $DTE al tipo DTE2, ma viene ricevuto un errore: Impossibile convertire il valore "EnvDTE. DTEClass" di tipo "EnvDTE. DTEClass" nel tipo "EnvDTE80. DTE2". Cosa c'è che non va?**
 
 Si tratta di un problema noto correlato alla modalità di interazione di PowerShell con un oggetto COM. Attenersi alla procedura seguente:
 
@@ -105,7 +105,7 @@ Si tratta di un problema noto correlato alla modalità di interazione di PowerSh
 
 Vedere [Creare e pubblicare un pacchetto](../quickstart/create-and-publish-a-package.md).
 
-**Ho più versioni della mia libreria che hanno come destinazione diverse versioni di .NET Framework. Come è possibile creare un singolo pacchetto che supporta questa operazione?**
+**Sono disponibili più versioni della libreria destinate a versioni diverse della .NET Framework. Ricerca per categorie compilare un singolo pacchetto che supporta questa operazione?**
 
 Vedere [Supporto di più versioni di .NET Framework](../create-packages/supporting-multiple-target-frameworks.md).
 
@@ -119,21 +119,17 @@ Vedere [Bulk publishing NuGet packages](http://jeffhandley.com/archive/2012/12/1
 
 ## <a name="working-with-packages"></a>Utilizzo dei pacchetti
 
-**Qual è la differenza tra un pacchetto a livello di progetto e un pacchetto a livello di soluzione?**
-
-Un pacchetto a livello di soluzione (NuGet 3.x+) viene installato una sola volta in una soluzione e diventa quindi disponibile per tutti i progetti nella soluzione. Un pacchetto a livello di progetto viene installato in ogni progetto che lo usa. Un pacchetto a livello di soluzione potrebbe anche installare nuovi comandi che possono essere chiamati dall'interno della console di Gestione pacchetti.
-
 **È possibile installare i pacchetti NuGet senza connettività Internet?**
 
 Sì, vedere il post di blog di Scott Hanselman [How to access NuGet when nuget.org is down (or you're on a plane)](http://www.hanselman.com/blog/HowToAccessNuGetWhenNuGetorgIsDownOrYoureOnAPlane.aspx) (Come accedere a NuGet quando il sito nuget.org non è disponibile oppure sei in aereo) (hanselman.com).
 
 **Qual è la procedura per installare i pacchetti in un percorso diverso rispetto alla cartella packages predefinita?**
 
-Impostare [`repositoryPath`](../reference/nuget-config-file.md#config-section) l'impostazione in `Nuget.Config` using `nuget config -set repositoryPath=<path>`.
+Impostare l' [`repositoryPath`](../reference/nuget-config-file.md#config-section) impostazione in `Nuget.Config` utilizzando `nuget config -set repositoryPath=<path>` .
 
 **Come è possibile evitare di aggiungere la cartella dei pacchetti NuGet nel controllo del codice sorgente?**
 
-Impostare [`disableSourceControlIntegration`](../reference/nuget-config-file.md#solution-section) `Nuget.Config` l'in su `true`. Questa chiave funziona a livello di soluzione e quindi deve essere aggiunta al file `$(Solutiondir)\.nuget\Nuget.Config`. Quando si abilita il ripristino dei pacchetti da Visual Studio, questo file viene creato automaticamente.
+Impostare [`disableSourceControlIntegration`](../reference/nuget-config-file.md#solution-section) in `Nuget.Config` su `true` . Questa chiave funziona a livello di soluzione e quindi deve essere aggiunta al file `$(Solutiondir)\.nuget\Nuget.Config`. Quando si abilita il ripristino dei pacchetti da Visual Studio, questo file viene creato automaticamente.
 
 **Qual è la procedura per disattivare il ripristino dei pacchetti?**
 

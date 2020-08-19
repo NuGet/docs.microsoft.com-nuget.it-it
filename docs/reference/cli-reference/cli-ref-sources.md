@@ -1,26 +1,26 @@
 ---
 title: Comando origini CLI NuGet
-description: Informazioni di riferimento sul comando NuGet. exe sources
+description: Riferimento per il comando nuget.exe sources
 author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 94134b87f83e057d5d11a2722d9067fb76cc8e21
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 73c9cea8200a1ab1937d25a9a611ae7f2a943dba
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327598"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622590"
 ---
-# <a name="sources-command-nuget-cli"></a>Comando sources (interfaccia della riga di comando di NuGet)
+# <a name="sources-command-nuget-cli"></a>comando Sources (interfaccia della riga di comando di NuGet)
 
-**Si applica a:** utilizzo del pacchetto &bullet; , pubblicazione delle **versioni supportate:** tutti
+**Si applica a:** utilizzo del pacchetto, pubblicazione delle &bullet; **versioni supportate:** tutti
 
-Gestisce l'elenco delle origini presenti nel file di configurazione dell'ambito utente o in un file di configurazione specificato. Il file di configurazione dell'ambito utente si `%appdata%\NuGet\NuGet.Config` trova in (Windows `~/.nuget/NuGet/NuGet.Config` ) e (Mac/Linux).
+Gestisce l'elenco delle origini presenti nel file di configurazione dell'ambito utente o in un file di configurazione specificato. Il file di configurazione dell'ambito utente si trova in `%appdata%\NuGet\NuGet.Config` (Windows) e `~/.nuget/NuGet/NuGet.Config` (Mac/Linux).
 
 Si noti che l'URL di origine di nuget.org è `https://api.nuget.org/v3/index.json`.
 
-## <a name="usage"></a>Utilizzo
+## <a name="usage"></a>Uso
 
 ```cli
 nuget sources <operation> -Name <name> -Source <source>
@@ -30,20 +30,56 @@ dove `<operation>` è un *elenco, Aggiungi, Rimuovi, Abilita, Disabilita* o *Agg
 
 ## <a name="options"></a>Opzioni
 
-| Opzione | Descrizione |
-| --- | --- |
-| ConfigFile | File di configurazione NuGet da applicare. Se non è specificato `%AppData%\NuGet\NuGet.Config` , viene usato ( `~/.nuget/NuGet/NuGet.Config` Windows) o (Mac/Linux).|
-| ForceEnglishOutput | *(3.5 +)* Impone l'esecuzione di NuGet. exe con impostazioni cultura invarianti basate sull'inglese. |
-| Formato | Si applica all' `list` azione e può essere `Detailed` (impostazione predefinita) o `Short`. |
-| ? | Visualizza le informazioni della Guida per il comando. |
-| NonInteractive | Evita la richiesta di input o conferme dell'utente. |
-| Password | Specifica la password per l'autenticazione con l'origine. |
-| StorePasswordInClearText | Indica per archiviare la password in testo non crittografato anziché il comportamento predefinito di archiviazione di un modulo crittografato. |
-| UserName | Specifica il nome utente per l'autenticazione con l'origine. |
-| Verbosity | Specifica il livello di dettaglio visualizzato nell'output: *normale*, *silenzioso*, *dettagliato*. |
+- **`-ConfigFile`**
+
+  File di configurazione NuGet da applicare. Se non è specificato, `%AppData%\NuGet\NuGet.Config` viene usato (Windows) o `~/.nuget/NuGet/NuGet.Config` o `~/.config/NuGet/NuGet.Config` (Mac/Linux).
+
+- **`-ForceEnglishOutput`**
+
+  *(3.5 +)* Impone l'esecuzione nuget.exe usando impostazioni cultura invarianti in lingua inglese.
+
+- **`-Format`**
+
+  Si applica all' `list` azione e può essere `Detailed` (impostazione predefinita) o `Short` .
+
+- **`-?|-help`**
+
+  Visualizza le informazioni della Guida per il comando.
+
+- **`-Name`**
+
+  Nome dell'origine.
+
+- **`-NonInteractive`**
+
+  Evita la richiesta di input o conferme dell'utente.
+
+- **`-Password`**
+
+  Specifica la password per l'autenticazione con l'origine.
+
+- **`-src|-Source`**
+
+  Percorso dell'origine dei pacchetti.
+
+- **`-StorePasswordInClearText`**
+
+  Indica per archiviare la password in testo non crittografato anziché il comportamento predefinito di archiviazione di un modulo crittografato.
+
+- **`-UserName`**
+
+  Specifica il nome utente per l'autenticazione con l'origine.
+
+- **`-ValidAuthenticationTypes`**
+
+  Elenco delimitato da virgole di tipi di autenticazione validi per questa origine. Per impostazione predefinita, tutti i tipi di autenticazione sono validi. Esempio: `basic,negotiate`.
+
+- **`-Verbosity [normal|quiet|detailed]`**
+
+  Specifica la quantità di dettaglio visualizzata nell'output: `normal` (impostazione predefinita), `quiet` o `detailed` .
 
 > [!Note]
-> Assicurarsi di aggiungere la password delle origini nello stesso contesto utente in cui NuGet. exe verrà usato in un secondo momento per accedere all'origine del pacchetto. La password verrà archiviata crittografata nel file di configurazione e potrà essere decrittografata solo nello stesso contesto utente in cui è stata crittografata. Quindi, ad esempio, quando si usa un server di compilazione per ripristinare i pacchetti NuGet, la password deve essere crittografata con lo stesso utente di Windows in cui verrà eseguita l'attività del server di compilazione.
+> Assicurarsi di aggiungere la password delle origini nello stesso contesto utente in cui il nuget.exe viene usato in un secondo momento per accedere all'origine del pacchetto. La password verrà archiviata crittografata nel file di configurazione e potrà essere decrittografata solo nello stesso contesto utente in cui è stata crittografata. Quindi, ad esempio, quando si usa un server di compilazione per ripristinare i pacchetti NuGet, la password deve essere crittografata con lo stesso utente di Windows in cui verrà eseguita l'attività del server di compilazione.
 
 Vedere anche [variabili di ambiente](cli-ref-environment-variables.md)
 

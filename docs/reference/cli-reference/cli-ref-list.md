@@ -1,44 +1,68 @@
 ---
 title: Comando elenco dell'interfaccia della riga di comando NuGet
-description: Riferimento per il comando elenco NuGet. exe
+description: Riferimento per il comando elenco nuget.exe
 author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 94228521b3be85277990bca2da69518b7070bbdf
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.openlocfilehash: 91886dbbdcdb24648289d6f6efbe1f87e4099fff
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76813338"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88623071"
 ---
 # <a name="list-command-nuget-cli"></a>comando list (interfaccia della riga di comando di NuGet)
 
-**Si applica a:** utilizzo del pacchetto, pubblicazione &bullet; **versioni supportate:** tutti
+**Si applica a:** utilizzo del pacchetto, pubblicazione delle &bullet; **versioni supportate:** tutti
 
-Visualizza un elenco di pacchetti da un'origine specificata. Se non viene specificata alcuna origine, vengono utilizzate tutte le origini definite nel file di configurazione globale, `%AppData%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config`. Se `NuGet.Config` non specifica alcuna origine, `list` usa il feed predefinito (nuget.org).
+Visualizza un elenco di pacchetti da un'origine specificata. Se non viene specificata alcuna origine, vengono utilizzate tutte le origini definite nel file di configurazione globale `%AppData%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` . Se `NuGet.Config` non specifica alcuna origine, `list` Usa il feed predefinito (NuGet.org).
 
-## <a name="usage"></a>Usage
+## <a name="usage"></a>Uso
 
 ```cli
 nuget list [search terms] [options]
 ```
 
-dove i termini di ricerca facoltativi filtrano l'elenco visualizzato. I termini di ricerca vengono applicati ai nomi di pacchetti, tag e descrizioni del pacchetto così come sono quando vengono utilizzati in nuget.org.
+dove i termini di ricerca facoltativi filtrano l'elenco visualizzato. I [termini di ricerca](/nuget/consume-packages/finding-and-choosing-packages#search-syntax) vengono applicati ai nomi di pacchetti, tag e descrizioni del pacchetto così come sono quando vengono utilizzati in NuGet.org. 
 
-## <a name="options"></a>Options
+## <a name="options"></a>Opzioni
 
-| Opzione | Descrizione |
-| --- | --- |
-| AllVersions | Elencare tutte le versioni di un pacchetto. Per impostazione predefinita, viene visualizzata solo la versione più recente del pacchetto. |
-| ConfigFile | File di configurazione NuGet da applicare. Se non specificato, viene usato `%AppData%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Mac/Linux).|
-| ForceEnglishOutput | *(3.5 +)* Impone l'esecuzione di NuGet. exe con impostazioni cultura invarianti basate sull'inglese. |
-| Guida di | Visualizza le informazioni della Guida per il comando. |
-| IncludeDelisted | *(3.2 +)* Visualizza i pacchetti non in elenco. |
-| NonInteractive | Evita la richiesta di input o conferme dell'utente. |
-| PreRelease | Include i pacchetti di versioni non definitive nell'elenco. |
-| Source | Specifica un elenco di origini dei pacchetti in cui eseguire la ricerca. |
-| Livello di dettaglio | Specifica il livello di dettaglio visualizzato nell'output: *normale*, *silenzioso*, *dettagliato*. |
+- **`-AllVersions`**
+
+  Elencare tutte le versioni di un pacchetto. Per impostazione predefinita, viene visualizzata solo la versione più recente del pacchetto.
+
+- **`-ConfigFile`**
+
+  File di configurazione NuGet da applicare. Se non è specificato, `%AppData%\NuGet\NuGet.Config` viene usato (Windows) o `~/.nuget/NuGet/NuGet.Config` o `~/.config/NuGet/NuGet.Config` (Mac/Linux).
+
+- **`-ForceEnglishOutput`**
+
+  *(3.5 +)* Impone l'esecuzione nuget.exe usando impostazioni cultura invarianti in lingua inglese.
+
+- **`-?|-help`**
+
+  Visualizza le informazioni della Guida per il comando.
+
+- **`-IncludeDelisted`**
+
+  *(3.2 +)* Visualizza i pacchetti non in elenco.
+
+- **`-NonInteractive`**
+
+  Evita la richiesta di input o conferme dell'utente.
+
+- **`-PreRelease`**
+
+  Include i pacchetti di versioni non definitive nell'elenco.
+
+- **`-Source`**
+
+  Specifica un elenco di origini dei pacchetti in cui eseguire la ricerca.
+
+- **`-Verbosity [normal|quiet|detailed]`**
+
+  Specifica la quantità di dettaglio visualizzata nell'output: `normal` (impostazione predefinita), `quiet` o `detailed` .
 
 Vedere anche [variabili di ambiente](cli-ref-environment-variables.md)
 
@@ -64,4 +88,3 @@ Elencare i pacchetti correlati a JSON da più origini/feed:
 ```
 nuget list JSON -Source "https://nuget.org/api/v2" -Source "https://other-feed-url-goes-here"
 ```
-

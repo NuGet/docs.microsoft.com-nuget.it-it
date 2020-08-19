@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 1c19f962dc9e42154c0f4374432548e867e9538a
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 5dda56ccd4c959bcbcbd12b7a4771ddff1fe7530
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "73610706"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88623006"
 ---
 # <a name="building-pre-release-packages"></a>Compilazione di versioni non definitive dei pacchetti
 
@@ -24,7 +24,7 @@ Per supportare il ciclo di vita di rilascio del software, NuGet 1.6 e versioni s
 
 È possibile specificare tali versioni usando uno dei modi seguenti:
 
-- **Se il progetto usa [`PackageReference`](../consume-packages/package-references-in-project-files.md)**: includere il suffisso di versione semantico nell'elemento [`PackageVersion`](/dotnet/core/tools/csproj.md#packageversion) del file `.csproj`:
+- **Se il progetto usa [`PackageReference`](../consume-packages/package-references-in-project-files.md)**: includere il suffisso di versione semantico nell'elemento [`PackageVersion`](/dotnet/core/tools/csproj#packageversion) del file `.csproj`:
 
     ```xml
     <PropertyGroup>
@@ -50,9 +50,9 @@ Per impostazione predefinita, NuGet non include le versioni non definitive quand
 
     La selezione o la deselezione di questa casella di controllo aggiorna l'interfaccia utente di Gestione pacchetti e l'elenco delle versioni disponibili che è possibile installare.
 
-- **Console di gestione** `-IncludePrerelease` pacchetti : `Find-Package` `Get-Package`utilizzare `Install-Package` `Sync-Package`l'opzione con i comandi , , , e `Update-Package` . Vedere [Informazioni di riferimento su PowerShell](../reference/powershell-reference.md).
+- **Console di gestione pacchetti**: usare l' `-IncludePrerelease` opzione con `Find-Package` i `Get-Package` comandi,, `Install-Package` , `Sync-Package` e `Update-Package` . Vedere [Informazioni di riferimento su PowerShell](../reference/powershell-reference.md).
 
-- **NuGet CLI**: `-prerelease` Utilizzare `install`l'opzione con i comandi , `update`, `delete`e `mirror` . Vedere [NuGet CLI reference](../reference/nuget-exe-cli-reference.md) (Informazioni di riferimento sull'interfaccia della riga di comando di NuGet).
+- **Interfaccia**della riga di comando di NuGet: usare l' `-prerelease` opzione con i `install` `update` comandi,, `delete` e `mirror` . Vedere [NuGet CLI reference](../reference/nuget-exe-cli-reference.md) (Informazioni di riferimento sull'interfaccia della riga di comando di NuGet).
 
 ## <a name="semantic-versioning"></a>Versionamento Semantico
 

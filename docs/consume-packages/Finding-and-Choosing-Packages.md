@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 45928e60033959bc8b4f43d1ef3e4c943e7ec057
-ms.sourcegitcommit: e02482e15c0cef63153086ed50d14f5b2a38f598
+ms.openlocfilehash: feb21ae1e70144491a5c0fe8f6a7be36e61d9b32
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87473875"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622986"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Ricerca e valutazione di pacchetti NuGet per un progetto
 
@@ -90,32 +90,41 @@ Il modo migliore per valutare l'utilità di un pacchetto è scaricarlo e provarl
 
 Allo stesso tempo, usare un pacchetto NuGet implica la creazione di una dipendenza da tale pacchetto, pertanto occorre assicurarsi che sia efficace e affidabile. Poiché l'installazione e il test diretto di un pacchetto richiedono tempo, è anche possibile saperne di più sulla qualità di un pacchetto usando le informazioni riportate nella pagina di presentazione del pacchetto stesso:
 
-- *Statistiche di download*: la sezione **Statistics** (Statistiche) nella pagina del pacchetto su nuget.org mostra il numero totale di download, i download della versione più recente e la media dei download al giorno. Numeri elevati indicano che molti altri sviluppatori hanno una dipendenza dal pacchetto, il che significa che la sua utilità è comprovata.
+- **Statistiche di download**: la sezione **Statistics** (Statistiche) nella pagina del pacchetto su nuget.org mostra il numero totale di download, i download della versione più recente e la media dei download al giorno. Numeri elevati indicano che molti altri sviluppatori hanno una dipendenza dal pacchetto, il che significa che la sua utilità è comprovata.
 
     ![Statistiche di download nella pagina di presentazione del pacchetto](media/Finding-03-Downloads.png)
 
-- *Uso di GitHub*: nella pagina del pacchetto la sezione relativa all' **utilizzo** di GitHub elenca i repository GitHub pubblici che dipendono da questo pacchetto e che hanno un numero elevato di stelle su GitHub. Il numero di stelle di un repository GitHub indica in genere la popolarità del repository con gli utenti di GitHub. più stelle in genere significano più diffuse. Visitare [la pagina Introduzione di GitHub](https://help.github.com/en/github/getting-started-with-github/saving-repositories-with-stars#about-stars) per altre informazioni sul sistema di classificazione a stella e repository di GitHub.
+- **Usato da**: nella pagina del pacchetto, la sezione **usato da** elenca i primi 5 pacchetti NuGet.org più diffusi e i repository GitHub più diffusi che dipendono da questo pacchetto. I pacchetti e i repository che dipendono da questo pacchetto possono essere denominati "dipendenti" del pacchetto. I pacchetti e i repository dipendenti possono essere considerati come "convalide" di questo pacchetto, poiché gli autori dei pacchetti hanno scelto di considerare attendibili e dipendono da esso.
+  - Un pacchetto dipendente deve dipendere da *qualsiasi versione* di questo pacchetto nella *versione più recente dell'elenco di stabilite*. Questa definizione garantisce che i pacchetti dipendenti visualizzati siano una reflection aggiornata della decisione dell'autore del pacchetto di considerarsi attendibile e che dipendano da questo pacchetto. I dipendenti di versioni non definitive non sono elencati perché non sono ancora stati considerati endoresements completi. Vedere la tabella seguente per alcuni esempi:
 
-    ![Utilizzo di GitHub](media/GitHub-Usage.png)
+    | Creare un pacchetto di versioni | Il pacchetto A è elencato come dipendente del pacchetto B? |
+    |-|-|
+    | v 1.0.0<br>v 1.1.0 (ultima versione stabile)--> pacchetto B<br>v 1.2.0-Anteprima | TRUE, la versione stabile più recente dipende dal pacchetto B |
+    | v 1.0.0-> pacchetto B<br>v 1.1.0 (ultima versione stabile)<br>v 1.2.0-Anteprima | FALSE, la versione stabile più recente non dipende dal pacchetto B |
+    | v 1.0.0-> pacchetto B<br>v 1.1.0 (ultima versione stabile)<br>v 1.2.0-Anteprima--> pacchetto B | FALSE, la versione stabile più recente non dipende dal pacchetto B |
+
+  - Il numero di stelle di un repository GitHub indica in genere la popolarità del repository con gli utenti di GitHub. più stelle in genere significano più diffuse. Visitare [la pagina Introduzione di GitHub](https://help.github.com/en/github/getting-started-with-github/saving-repositories-with-stars#about-stars) per altre informazioni sul sistema di classificazione a stella e repository di GitHub.
+
+    ![Usato da](media/Used-By-section-Humanizer.png)
 
     > [!Note]
-    > La sezione relativa all'utilizzo di GitHub di un pacchetto viene generata automaticamente, periodicamente, senza la revisione umana dei singoli repository ed esclusivamente a scopo informativo, in modo da visualizzare i repository GitHub che dipendono dal pacchetto e che sono popolari con gli utenti di GitHub.
+    > Un pacchetto usato dalla sezione viene generato automaticamente, periodicamente, senza la revisione umana dei singoli repository ed esclusivamente a scopo informativo, in modo da visualizzare i pacchetti NuGet.org e i repository GitHub più diffusi che dipendono dal pacchetto.
 
-- *Cronologia delle versioni*: nella pagina del pacchetto cercare in **Info** la data dell'ultimo aggiornamento ed esaminare la voce **Version History** (Cronologia versioni). Un pacchetto ben gestito ha aggiornamenti recenti e una cronologia versioni dettagliata. I pacchetti trascurati hanno pochi aggiornamenti e spesso non sono stati aggiornati da tempo.
+- **Cronologia versioni**: nella pagina del pacchetto, cercare in **info** la data dell'ultimo aggiornamento ed esaminare la **cronologia delle versioni**. Un pacchetto ben gestito ha aggiornamenti recenti e una cronologia versioni dettagliata. I pacchetti trascurati hanno pochi aggiornamenti e spesso non sono stati aggiornati da tempo.
 
     ![Cronologia delle versioni nella pagina di presentazione del pacchetto](media/Finding-04-VersionHistory.png)
 
-- *Installazioni recenti*: nella pagina del pacchetto in **statistiche**Selezionare **Visualizza statistiche complete**. La pagina statistiche complete Mostra le installazioni dei pacchetti nelle ultime sei settimane per numero di versione. Un pacchetto che altri sviluppatori usano attivamente in genere è preferibile rispetto a uno non in uso.
+- **Installazioni recenti**: nella pagina del pacchetto in **statistiche**Selezionare **Visualizza statistiche complete**. La pagina statistiche complete Mostra le installazioni dei pacchetti nelle ultime sei settimane per numero di versione. Un pacchetto che altri sviluppatori usano attivamente in genere è preferibile rispetto a uno non in uso.
 
-- *Supporto*: nella pagina del pacchetto in **Info** selezionare **Project Site** (Sito del progetto), se disponibile, per verificare le opzioni di supporto messe a disposizione dall'autore. Un progetto con un sito dedicato in genere è supportato in modo migliore.
+- **Supporto**: nella pagina del pacchetto in **Info** selezionare **Project Site** (Sito del progetto), se disponibile, per verificare le opzioni di supporto messe a disposizione dall'autore. Un progetto con un sito dedicato in genere è supportato in modo migliore.
 
-- *Cronologia degli sviluppatori*: nella pagina del pacchetto in **Owners** (Proprietari) selezionare un proprietario per vedere quali altri pacchetti ha pubblicato. Gli autori di più pacchetti hanno più probabilità di continuare a fornire supporto per il proprio lavoro in futuro.
+- **Cronologia degli sviluppatori**: nella pagina del pacchetto in **Owners** (Proprietari) selezionare un proprietario per vedere quali altri pacchetti ha pubblicato. Gli autori di più pacchetti hanno più probabilità di continuare a fornire supporto per il proprio lavoro in futuro.
 
-- *Contributi open source*: molti pacchetti vengono mantenuti in repository open source, rendendo possibile per gli sviluppatori che dipendono da tali pacchetti di contribuire direttamente alle correzioni dei bug e ai miglioramenti delle funzionalità. La cronologia dei contributi di un dato pacchetto è inoltre un ottimo indicatore di quanti sviluppatori sono attivamente coinvolti.
+- **Contributi open source**: molti pacchetti vengono mantenuti in repository open source, rendendo possibile per gli sviluppatori che dipendono da tali pacchetti di contribuire direttamente alle correzioni dei bug e ai miglioramenti delle funzionalità. La cronologia dei contributi di un dato pacchetto è inoltre un ottimo indicatore di quanti sviluppatori sono attivamente coinvolti.
 
-- *Contatti con i proprietari*: i nuovi sviluppatori dimostrano indiscutibilmente il loro impegno a realizzare ottimi pacchetti utilizzabili dall'utente, pertanto è opportuno dar loro la possibilità di dare il proprio contributo nell'ecosistema NuGet. Se si vuole, è possibile contattare direttamente lo sviluppatore di un pacchetto tramite l'opzione **Contact Owners** (Contatta proprietari) in **Info** nella pagina di presentazione del pacchetto. Ci sono buone probabilità che sia lieto di collaborare per soddisfare le esigenze dei suoi utenti.
+- **Contatti con i proprietari**: i nuovi sviluppatori dimostrano indiscutibilmente il loro impegno a realizzare ottimi pacchetti utilizzabili dall'utente, pertanto è opportuno dar loro la possibilità di dare il proprio contributo nell'ecosistema NuGet. Se si vuole, è possibile contattare direttamente lo sviluppatore di un pacchetto tramite l'opzione **Contact Owners** (Contatta proprietari) in **Info** nella pagina di presentazione del pacchetto. Ci sono buone probabilità che sia lieto di collaborare per soddisfare le esigenze dei suoi utenti.
 
-- *Prefissi ID pacchetto riservati*: molti proprietari di pacchetti hanno richiesto e ottenuto un [prefisso ID pacchetto riservato](../nuget-org/id-prefix-reservation.md). Un segno di spunta visualizzato accanto all'ID di un pacchetto in [nuget.org](https://www.nuget.org/) o in Visual Studio indica che il proprietario del pacchetto soddisfa i [criteri](../nuget-org/id-prefix-reservation.md#id-prefix-reservation-criteria) stabiliti per la prenotazione del prefisso ID. Ciò significa che il proprietario del pacchetto renderà disponibile il suo identificativo e quello del pacchetto.
+- **Prefissi ID pacchetto riservati**: molti proprietari di pacchetti hanno richiesto e ottenuto un [prefisso ID pacchetto riservato](../nuget-org/id-prefix-reservation.md). Un segno di spunta visualizzato accanto all'ID di un pacchetto in [nuget.org](https://www.nuget.org/) o in Visual Studio indica che il proprietario del pacchetto soddisfa i [criteri](../nuget-org/id-prefix-reservation.md#id-prefix-reservation-criteria) stabiliti per la prenotazione del prefisso ID. Ciò significa che il proprietario del pacchetto renderà disponibile il suo identificativo e quello del pacchetto.
 
 > [!Note]
 > Tenere sempre presente le condizioni di licenza di un pacchetto, che è possibile visualizzare selezionando **informazioni sulle licenze** nella pagina di presentazione di un pacchetto in NuGet.org. Se un pacchetto non specifica le condizioni di licenza, contattare il proprietario del pacchetto direttamente usando il collegamento **Contact owners (Contatta proprietari** ) nella pagina del pacchetto. Microsoft non concede in licenza all'utente alcuna proprietà intellettuale dei provider di pacchetti di terze parti e non è responsabile per le informazioni fornite da terze parti.
