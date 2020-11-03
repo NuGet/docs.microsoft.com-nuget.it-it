@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: 28fae46a65bd4c2b7050e12568c21123fc8658c1
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 371f0d934fcd3c1f111d277131553c1eed0200be
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623162"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238101"
 ---
 # <a name="nugetconfig-reference"></a>Riferimento nuget.config
 
@@ -38,7 +38,7 @@ Contiene impostazioni di configurazione varie, che possono essere impostate tram
 | http_proxy http_proxy.user http_proxy.password no_proxy | Impostazioni del proxy da usare per la connessione a origini di pacchetti. `http_proxy` deve essere nel formato `http://<username>:<password>@<domain>`. Le password vengono crittografate e non possono essere aggiunte manualmente. Per `no_proxy`, il valore è un elenco delimitato da virgole di domini per il bypass del server proxy. In alternativa, è possibile usare le variabili di ambiente http_proxy e no_proxy per questi valori. Per altri dettagli, vedere [NuGet proxy settings](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (Impostazioni del proxy NuGet) (skolima.blogspot.com). |
 | signatureValidationMode | Specifica la modalità di convalida utilizzata per verificare le firme dei pacchetti per l'installazione e il ripristino del pacchetto. I valori sono `accept` , `require` . Il valore predefinito è `accept`.
 
-**Esempio**:
+**Esempio** :
 
 ```xml
 <config>
@@ -58,7 +58,7 @@ Specifica se NuGet esegue o meno i reindirizzamenti di binding automatici quando
 | --- | --- |
 | skip | Valore booleano che indica se ignorare i reindirizzamenti di binding automatici. Il valore predefinito è false. |
 
-**Esempio**:
+**Esempio** :
 
 ```xml
 <bindingRedirects>
@@ -75,7 +75,7 @@ Controlla il ripristino dei pacchetti durante le compilazioni.
 | Enabled | Valore booleano che indica se NuGet può eseguire il ripristino automatico. È anche possibile impostare la variabile di ambiente `EnableNuGetPackageRestore` con il valore `True` invece di impostare questa chiave nel file di configurazione. |
 | automatic | Valore booleano che indica se NuGet deve controllare se mancano pacchetti durante la compilazione. |
 
-**Esempio**:
+**Esempio** :
 
 ```xml
 <packageRestore>
@@ -92,7 +92,7 @@ Controlla se la cartella `packages` di una soluzione è inclusa nel controllo de
 | --- | --- |
 | disableSourceControlIntegration | Valore booleano che indica se ignorare la cartella dei pacchetti quando si utilizza il controllo del codice sorgente. Il valore predefinito è false. |
 
-**Esempio**:
+**Esempio** :
 
 ```xml
 <solution>
@@ -116,7 +116,7 @@ Elenca tutte le origini di pacchetti note. L'ordine viene ignorato durante le op
 | --- | --- |
 | (nome da assegnare all'origine di pacchetti) | Percorso o URL dell'origine di pacchetti. |
 
-**Esempio**:
+**Esempio** :
 
 ```xml
 <packageSources>
@@ -213,7 +213,7 @@ Archivia le chiavi per le origini che usano l'autenticazione con chiave API, com
 | --- | --- |
 | (URL di origine) | Chiave API crittografata. |
 
-**Esempio**:
+**Esempio** :
 
 ```xml
 <apikeys>
@@ -250,7 +250,7 @@ Identifica l'origine attualmente attiva o indica l'aggregazione di tutte le orig
 | --- | --- |
 | (nome dell'origine) o `All` | Se la chiave è il nome di un'origine, il valore è il percorso o l'URL dell'origine. Se `All`, il valore deve essere `(Aggregate source)` per combinare tutte le origini di pacchetti non disabilitate in altro modo. |
 
-**Esempio**:
+**Esempio** :
 
 ```xml
 <activePackageSource>
@@ -268,7 +268,7 @@ Archivia i firmatari attendibili utilizzati per consentire il pacchetto durante 
 
 Questa sezione può essere aggiornata con il [ `nuget trusted-signers` comando](../reference/cli-reference/cli-ref-trusted-signers.md).
 
-**Schema**:
+**Schema** :
 
 Un firmatario attendibile dispone di una raccolta di `certificate` elementi che integrano tutti i certificati che identificano un determinato firmatario. Un firmatario attendibile può essere un `Author` o un `Repository` .
 
@@ -278,12 +278,13 @@ Gli algoritmi hash supportati usati per un'impronta digitale del certificato son
 
 Se un oggetto `certificate` specifica `allowUntrustedRoot` come `true` il certificato specificato può essere concatenato a una radice non attendibile durante la compilazione della catena di certificati come parte della verifica della firma.
 
-**Esempio**:
+**Esempio** :
 
 ```xml
 <trustedSigners>
     <author name="microsoft">
         <certificate fingerprint="3F9001EA83C560D712C24CF213C3D312CB3BFF51EE89435D3430BD06B5D0EECE" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
+        <certificate fingerprint="AA12DA22A49BCE7D5C1AE64CC1F3D892F150DA76140F210ABD2CBFFCA2C18A27" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
     </author>
     <repository name="nuget.org" serviceIndex="https://api.nuget.org/v3/index.json">
         <certificate fingerprint="0E5F38F57DC1BCC806D8494F4F90FBCEDD988B46760709CBEEC6F4219AA6157D" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
@@ -310,7 +311,7 @@ Se non viene trovata alcuna corrispondenza, NuGet controlla le origini file e qu
 | --- | --- |
 | (nome della cartella di fallback) | Percorso della cartella di fallback. |
 
-**Esempio**:
+**Esempio** :
 
 ```xml
 <fallbackPackageFolders>
@@ -324,10 +325,10 @@ Imposta il formato di gestione dei pacchetti predefinito, ovvero *packages.confi
 
 | Chiave | Valore |
 | --- | --- |
-| format | Valore booleano che indica il formato di gestione dei pacchetti predefinito. Se `1` , il formato è PackageReference. Se `0` , format è *packages.config*. |
+| format | Valore booleano che indica il formato di gestione dei pacchetti predefinito. Se `1` , il formato è PackageReference. Se `0` , format è *packages.config* . |
 | disabled | Valore booleano che indica se visualizzare la richiesta di selezione di un formato di pacchetto predefinito durante la prima installazione del pacchetto. `False` nasconde la richiesta. |
 
-**Esempio**:
+**Esempio** :
 
 ```xml
 <packageManagement>
@@ -431,6 +432,7 @@ Di seguito è riportato un esempio `nuget.config` di file che illustra una serie
     <trustedSigners>
         <author name="microsoft">
             <certificate fingerprint="3F9001EA83C560D712C24CF213C3D312CB3BFF51EE89435D3430BD06B5D0EECE" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
+            <certificate fingerprint="AA12DA22A49BCE7D5C1AE64CC1F3D892F150DA76140F210ABD2CBFFCA2C18A27" hashAlgorithm="SHA256" allowUntrustedRoot="false" />
         </author>
         <repository name="nuget.org" serviceIndex="https://api.nuget.org/v3/index.json">
             <certificate fingerprint="0E5F38F57DC1BCC806D8494F4F90FBCEDD988B46760709CBEEC6F4219AA6157D" hashAlgorithm="SHA256" allowUntrustedRoot="false" />

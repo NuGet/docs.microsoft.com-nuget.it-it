@@ -7,11 +7,11 @@ ms.date: 05/18/2018
 ms.topic: reference
 ms.reviewer: ananguar
 ms.openlocfilehash: 7384e8b30cb2ec5fe53ea0fe485858bc1f7b3c43
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2020
-ms.locfileid: "79428681"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238179"
 ---
 # <a name="signed-packages"></a>Pacchetti firmati
 
@@ -20,21 +20,21 @@ ms.locfileid: "79428681"
 I pacchetti NuGet possono includere una firma digitale che fornisce la protezione contro il contenuto manomesso. Questa firma viene prodotta da un certificato X. 509 che aggiunge anche prove di autenticità all'origine effettiva del pacchetto.
 
 I pacchetti firmati forniscono la convalida end-to-end più avanzata. Esistono due tipi diversi di firme NuGet:
-- **Firma dell'autore**. Una firma di autore garantisce che il pacchetto non sia stato modificato dopo che l'autore ha firmato il pacchetto, indipendentemente dal repository o dal metodo di trasporto fornito dal pacchetto. Inoltre, i pacchetti firmati dall'autore forniscono un meccanismo di autenticazione aggiuntivo alla pipeline di pubblicazione nuget.org, perché il certificato di firma deve essere registrato in anticipo. Per ulteriori informazioni, vedere [Register Certificates](#signature-requirements-on-nugetorg).
-- **Firma del repository**. Le firme del repository forniscono una garanzia di integrità per **tutti i** pacchetti in un repository, indipendentemente dal fatto che siano firmati o meno dall'autore, anche se i pacchetti vengono ottenuti da un percorso diverso rispetto al repository originale in cui sono stati firmati.   
+- **Firma dell'autore** . Una firma di autore garantisce che il pacchetto non sia stato modificato dopo che l'autore ha firmato il pacchetto, indipendentemente dal repository o dal metodo di trasporto fornito dal pacchetto. Inoltre, i pacchetti firmati dall'autore forniscono un meccanismo di autenticazione aggiuntivo alla pipeline di pubblicazione nuget.org, perché il certificato di firma deve essere registrato in anticipo. Per ulteriori informazioni, vedere [Register Certificates](#signature-requirements-on-nugetorg).
+- **Firma del repository** . Le firme del repository forniscono una garanzia di integrità per **tutti i** pacchetti in un repository, indipendentemente dal fatto che siano firmati o meno dall'autore, anche se i pacchetti vengono ottenuti da un percorso diverso rispetto al repository originale in cui sono stati firmati.   
 
 Per informazioni dettagliate sulla creazione di un pacchetto firmato autore, vedere [signing Packages](../create-packages/Sign-a-package.md) e il [comando NuGet Sign](../reference/cli-reference/cli-ref-sign.md).
 
 > [!Important]
-> La firma del pacchetto è attualmente supportata solo quando si usa NuGet. exe in Windows. [La verifica dei pacchetti firmati è attualmente supportata solo quando si usa NuGet. exe](../reference/cli-reference/cli-ref-verify.md) o Visual Studio in Windows.
+> La firma del pacchetto è attualmente supportata solo quando si usa nuget.exe in Windows. [La verifica dei pacchetti firmati è attualmente supportata solo quando si usa nuget.exe](../reference/cli-reference/cli-ref-verify.md) o Visual Studio in Windows.
 
 ## <a name="certificate-requirements"></a>Requisiti per i certificati
 
-Per la firma del pacchetto è necessario un certificato di firma del codice, che è un tipo speciale di certificato valido per lo scopo `id-kp-codeSigning` [[RFC 5280 Section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]. Inoltre, il certificato deve avere una lunghezza di chiave pubblica RSA di 2048 bit o superiore.
+Per la firma del pacchetto è necessario un certificato di firma del codice, che è un tipo speciale di certificato valido per lo `id-kp-codeSigning` scopo [[RFC 5280 Section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]. Inoltre, il certificato deve avere una lunghezza di chiave pubblica RSA di 2048 bit o superiore.
 
 ## <a name="timestamp-requirements"></a>Requisiti timestamp
 
-I pacchetti firmati devono includere un timestamp RFC 3161 per garantire la validità della firma oltre il periodo di validità del certificato di firma del pacchetto. Il certificato utilizzato per firmare il timestamp deve essere valido per lo scopo `id-kp-timeStamping` [[RFC 5280 Section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]. Inoltre, il certificato deve avere una lunghezza di chiave pubblica RSA di 2048 bit o superiore.
+I pacchetti firmati devono includere un timestamp RFC 3161 per garantire la validità della firma oltre il periodo di validità del certificato di firma del pacchetto. Il certificato utilizzato per firmare il timestamp deve essere valido per lo `id-kp-timeStamping` scopo [[RFC 5280 Section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]. Inoltre, il certificato deve avere una lunghezza di chiave pubblica RSA di 2048 bit o superiore.
 
 Ulteriori dettagli tecnici sono disponibili nelle [specifiche tecniche di firma del pacchetto](https://github.com/NuGet/Home/wiki/Package-Signatures-Technical-Details) (GitHub).
 

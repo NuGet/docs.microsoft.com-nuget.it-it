@@ -1,20 +1,20 @@
 ---
 title: Guida di riferimento a NuGet Find-Package PowerShell
-description: Informazioni di riferimento sul comando find-package di PowerShell nella console di gestione pacchetti NuGet in Visual Studio.
+description: Informazioni di riferimento per il comando Find-Package PowerShell nella console di gestione pacchetti NuGet in Visual Studio.
 author: karann-msft
 ms.author: karann
 ms.date: 6/1/2017
 ms.topic: reference
-ms.openlocfilehash: 4118b5a38f80a2300b3945738315d56bda096f9a
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: 267dd3eb501cae6e419386a5ca5e0c1ab659f807
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384633"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238088"
 ---
-# <a name="find-package-package-manager-console-in-visual-studio"></a>Find-Package (console di Gestione pacchetti in Visual Studio)
+# <a name="find-package-package-manager-console-in-visual-studio"></a>Find-Package (console di gestione pacchetti in Visual Studio)
 
-*Versione 3.0 +; in questo argomento viene descritto il comando nella [console di gestione pacchetti](../../consume-packages/install-use-packages-powershell.md) in Visual Studio in Windows. Per il comando Generic PowerShell Find-Package, vedere la Guida di [riferimento di PowerShell PackageManagement](/powershell/module/packagemanagement/?view=powershell-6).*
+*Versione 3.0 +; in questo argomento viene descritto il comando nella [console di gestione pacchetti](../../consume-packages/install-use-packages-powershell.md) in Visual Studio in Windows. Per il comando generico di Find-Package PowerShell, vedere le informazioni di [riferimento su PowerShell PackageManagement](/powershell/module/packagemanagement/?view=powershell-6).*
 
 Ottiene il set di pacchetti remoti con ID o parole chiave specificati dall'origine del pacchetto.
 
@@ -29,20 +29,20 @@ Find-Package [-Id] <keywords> -Source <string> [-AllVersions] [-First [<int>]]
 
 | Parametro | Descrizione |
 | --- | --- |
-| ID &lt;parole chiave&gt; | Necessaria Parole chiave da usare durante la ricerca nell'origine del pacchetto. Usare-ExactMatch per restituire solo i pacchetti il cui ID pacchetto corrisponde alle parole chiave. Se non viene specificata alcuna parola chiave, `Find-Package` restituisce un elenco dei primi 20 pacchetti per download o il numero specificato da-First. Si noti che-ID è facoltativo e un no-op. |
-| Source | URL o percorso della cartella per l'origine del pacchetto da cercare. I percorsi delle cartelle locali possono essere assoluti o relativi alla cartella corrente. Se omesso, `Find-Package` Cerca nell'origine del pacchetto attualmente selezionata. |
+| &lt;Parole chiave ID&gt; | Necessaria Parole chiave da usare durante la ricerca nell'origine del pacchetto. Usare-ExactMatch per restituire solo i pacchetti il cui ID pacchetto corrisponde alle parole chiave. Se non viene specificata alcuna parola chiave, `Find-Package` restituisce un elenco dei primi 20 pacchetti per download o il numero specificato da-First. Si noti che-ID è facoltativo e un no-op. |
+| Source (Sorgente) | URL o percorso della cartella per l'origine del pacchetto da cercare. I percorsi delle cartelle locali possono essere assoluti o relativi alla cartella corrente. Se omesso, `Find-Package` Cerca nell'origine del pacchetto attualmente selezionata. |
 | AllVersions | Visualizza tutte le versioni disponibili di ogni pacchetto anziché solo la versione più recente. |
-| First | Numero di pacchetti da restituire dall'inizio dell'elenco; il valore predefinito è 20. |
-| Skip | Omette la prima &lt;i pacchetti int&gt; dall'elenco visualizzato.  |
+| First (Primo) | Numero di pacchetti da restituire dall'inizio dell'elenco; il valore predefinito è 20. |
+| Ignora | Omette i primi &lt; pacchetti int &gt; dall'elenco visualizzato.  |
 | IncludePrerelease | Include i pacchetti di versioni non definitive nei risultati. |
-| ExactMatch | Specificato per utilizzare &lt;parole chiave&gt; come ID pacchetto con distinzione tra maiuscole e minuscole. |
-| StartWith | Restituisce i pacchetti il cui ID di pacchetto inizia con &lt;parole chiave&gt;. |
+| ExactMatch | Specificato per usare &lt; parole chiave &gt; come ID pacchetto con distinzione tra maiuscole e minuscole. |
+| Cominciamo | Restituisce i pacchetti il cui ID di pacchetto inizia con &lt; parole chiave &gt; . |
 
 Nessuno di questi parametri accetta caratteri jolly o di input della pipeline.
 
 ## <a name="common-parameters"></a>Parametri comuni
 
-`Find-Package` supporta i [parametri di PowerShell comuni](https://go.microsoft.com/fwlink/?LinkID=113216)seguenti: debug, azione di errore, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction e WarningVariable.
+`Find-Package` supporta i seguenti [parametri comuni di PowerShell](/powershell/module/microsoft.powershell.core/about/about_commonparameters): debug, azione di errore, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction e WarningVariable.
 
 ## <a name="examples"></a>Esempi
 

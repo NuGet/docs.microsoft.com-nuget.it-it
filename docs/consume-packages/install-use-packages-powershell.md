@@ -7,12 +7,12 @@ ms.date: 07/08/2019
 ms.topic: conceptual
 f1_keywords:
 - vs.nuget.packagemanager.console
-ms.openlocfilehash: 42031f7b5fe4d3c1b4dbe5e1bfbf9197014e0e88
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 8b23b6cc22eff5413e317fbe619edd3d4f4716ee
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428954"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237400"
 ---
 # <a name="install-and-manage-packages-with-the-package-manager-console-in-visual-studio-powershell"></a>Installare e gestire i pacchetti con la console di Gestione pacchetti in Visual Studio (PowerShell)
 
@@ -24,7 +24,7 @@ La console è inclusa in Visual Studio in Windows. Non è disponibile in Visual 
 
 La ricerca e l'installazione di un pacchetto, ad esempio, vengono eseguite con tre semplici passaggi:
 
-1. Aprire il progetto o la soluzione in Visual Studio e aprire la console usando il comando **Strumenti > Gestione pacchetti NuGet > Console di Gestione pacchetti**.
+1. Aprire il progetto o la soluzione in Visual Studio e aprire la console usando il comando **Strumenti > Gestione pacchetti NuGet > Console di Gestione pacchetti** .
 
 1. Trovare il pacchetto che si vuole installare. Se lo si conosce già, andare al passaggio 3.
 
@@ -48,7 +48,7 @@ La ricerca e l'installazione di un pacchetto, ad esempio, vengono eseguite con t
 
 ## <a name="opening-the-console-and-console-controls"></a>Apertura della console e dei controlli della console
 
-1. Aprire la console in Visual Studio usando il comando **Strumenti > Gestione pacchetti NuGet > Console di Gestione pacchetti**. La console è una finestra di Visual Studio che può essere disposta e posizionata nel modo preferito (vedere [Personalizzare il layout delle finestre in Visual Studio](/visualstudio/ide/customizing-window-layouts-in-visual-studio)).
+1. Aprire la console in Visual Studio usando il comando **Strumenti > Gestione pacchetti NuGet > Console di Gestione pacchetti** . La console è una finestra di Visual Studio che può essere disposta e posizionata nel modo preferito (vedere [Personalizzare il layout delle finestre in Visual Studio](/visualstudio/ide/customizing-window-layouts-in-visual-studio)).
 
 1. Per impostazione predefinita, i comandi della console agiscono su un'origine e un progetto di pacchetto specifici impostati nel controllo nella parte superiore della finestra:
 
@@ -56,7 +56,7 @@ La ricerca e l'installazione di un pacchetto, ad esempio, vengono eseguite con t
 
 1. Se si seleziona un'origine e/o un progetto diverso per il pacchetto, verranno modificate le impostazioni predefinite per i comandi successivi. Per sostituire queste impostazioni senza modificare le impostazioni predefinite, la maggior parte dei comandi supporta le opzioni `-Source` e `-ProjectName`.
 
-1. Per gestire le origini dei pacchetti, selezionare l'icona a forma di ingranaggio. Si tratta di un collegamento alla finestra di dialogo **Strumenti > Opzioni > Gestione pacchetti NuGet > Origini pacchetti**, come descritto nella pagina [Interfaccia utente di Gestione pacchetti](install-use-packages-visual-studio.md#package-sources). Inoltre, il controllo a destra del selettore del progetto cancella il contenuto della console:
+1. Per gestire le origini dei pacchetti, selezionare l'icona a forma di ingranaggio. Si tratta di un collegamento alla finestra di dialogo **Strumenti > Opzioni > Gestione pacchetti NuGet > Origini pacchetti** , come descritto nella pagina [Interfaccia utente di Gestione pacchetti](install-use-packages-visual-studio.md#package-sources). Inoltre, il controllo a destra del selettore del progetto cancella il contenuto della console:
 
     ![Impostazioni della console di Gestione pacchetti e controlli per cancellare](media/PackageManagerConsoleControls2.png)
 
@@ -64,7 +64,7 @@ La ricerca e l'installazione di un pacchetto, ad esempio, vengono eseguite con t
 
     ![Controllo di interruzione nella console di Gestione pacchetti](media/PackageManagerConsoleControls3.png)
 
-## <a name="install-a-package"></a>Installa un pacchetto
+## <a name="install-a-package"></a>Installare un pacchetto
 
 ```ps
 # Add the Elmah package to the default project as specified in the console's project selector
@@ -79,7 +79,7 @@ Vedere [Install-Package](../reference/ps-reference/ps-ref-install-package.md).
 L'installazione di un pacchetto nella console esegue gli stessi passaggi descritti in [Cosa accade quando viene installato un pacchetto](../concepts/package-installation-process.md), con le aggiunte seguenti:
 
 - Nella console vengono visualizzate le condizioni di licenza applicabili nella finestra con contratto implicito. Se non si accettano le condizioni, è necessario disinstallare il pacchetto immediatamente.
-- Viene inoltre aggiunto un riferimento al pacchetto al file di progetto, visualizzato in **Esplora soluzioni** nel nodo **Riferimenti**. È necessario salvare il progetto per visualizzare direttamente le modifiche nel file di progetto.
+- Viene inoltre aggiunto un riferimento al pacchetto al file di progetto, visualizzato in **Esplora soluzioni** nel nodo **Riferimenti** . È necessario salvare il progetto per visualizzare direttamente le modifiche nel file di progetto.
 
 ## <a name="uninstall-a-package"></a>Disinstalla un pacchetto
 
@@ -98,7 +98,7 @@ Vedere [Uninstall-Package](../reference/ps-reference/ps-ref-uninstall-package.md
 
 Con la disinstallazione di un pacchetto vengono eseguite le azioni seguenti:
 
-- Rimozione dei riferimenti al pacchetto dal progetto (qualsiasi sia il formato di gestione in uso). I riferimenti non vengono più visualizzati in **Esplora soluzioni**. Potrebbe essere necessario ricompilare il progetto per verificarne la rimozione dalla cartella **Bin**.
+- Rimozione dei riferimenti al pacchetto dal progetto (qualsiasi sia il formato di gestione in uso). I riferimenti non vengono più visualizzati in **Esplora soluzioni** . Potrebbe essere necessario ricompilare il progetto per verificarne la rimozione dalla cartella **Bin** .
 - Ripristino delle eventuali modifiche apportate a `app.config` o `web.config` al momento dell'installazione del pacchetto.
 - Rimozione delle dipendenze installate in precedenza se nessun pacchetto rimanente usa tali dipendenze.
 
@@ -143,7 +143,7 @@ Vedere [Find-Package](../reference/ps-reference/ps-ref-find-package.md). In Visu
 
 A partire da Visual Studio 2017, NuGet e Gestione pacchetti NuGet vengono installati automaticamente quando si seleziona uno dei carichi di lavoro correlati a NET. È anche possibile installarlo singolarmente selezionando **Singoli componenti >Strumenti per il codice > Gestione pacchetti NuGet** nel programma di installazione di Visual Studio.
 
-Inoltre, se non si trova Gestione pacchetti NuGet in Visual Studio 2015 e versioni precedenti, selezionare **Strumenti > Estensioni e aggiornamenti** e cercare l'estensione Gestione pacchetti NuGet. Se non è possibile utilizzare il programma di installazione delle estensioni in Visual Studio, è possibile scaricare l'estensione direttamente da [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html).
+Inoltre, se non si trova Gestione pacchetti NuGet in Visual Studio 2015 e versioni precedenti, selezionare **Strumenti > Estensioni e aggiornamenti** e cercare l'estensione Gestione pacchetti NuGet. Se non si è in grado di usare il programma di installazione delle estensioni in Visual Studio, è possibile scaricare l'estensione direttamente da [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html) .
 
 La console di Gestione pacchetti non è attualmente disponibile con Visual Studio per Mac. I comandi equivalenti, tuttavia, sono disponibili tramite l'[interfaccia della riga di comando di NuGet](../reference/nuget-exe-CLI-reference.md). Visual Studio per Mac include un'interfaccia utente per la gestione dei pacchetti NuGet. Vedere [Inserimento di un pacchetto NuGet nel progetto](/visualstudio/mac/nuget-walkthrough).
 
@@ -168,11 +168,11 @@ $profile
 C:\Users\<user>\Documents\WindowsPowerShell\NuGet_profile.ps1
 ```
 
-Per altri dettagli, vedere [Profili di Windows PowerShell](https://technet.microsoft.com/library/bb613488.aspx).
+Per altri dettagli, vedere [Profili di Windows PowerShell](/previous-versions//bb613488(v=vs.85)).
 
 ## <a name="use-the-nugetexe-cli-in-the-console"></a>Usare l'interfaccia della riga di comando di nuget.exe nella console
 
-Per rendere [ `nuget.exe` l'interfaccia della riga](../reference/nuget-exe-cli-reference.md) di comando disponibile nella Console di gestione pacchetti, installare il pacchetto [NuGet.CommandLine](https://www.nuget.org/packages/NuGet.CommandLine/) dalla console:
+Per rendere disponibile l' [ `nuget.exe` interfaccia](../reference/nuget-exe-cli-reference.md) della riga di comando nella console di gestione pacchetti, installare il pacchetto [NuGet. CommandLine](https://www.nuget.org/packages/NuGet.CommandLine/) dalla console di:
 
 ```ps
 # Other versions are available, see https://www.nuget.org/packages/NuGet.CommandLine/

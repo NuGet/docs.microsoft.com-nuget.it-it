@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 03/19/2018
 ms.topic: conceptual
 ms.openlocfilehash: e2672aa0bf57242526364639f0df74f9d1adb934
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428968"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237322"
 ---
 # <a name="managing-the-global-packages-cache-and-temp-folders"></a>Gestione delle cartelle dei pacchetti globale, della cache e temporanea
 
@@ -24,13 +24,13 @@ Quando si installa, aggiorna o ripristina un pacchetto, NuGet gestisce i pacchet
 | plugins-cache **4.8+** | Cartella in cui NuGet archivia i risultati dalla richiesta di attestazioni delle operazioni.<br/><ul><li>Windows: `%localappdata%\NuGet\plugins-cache`</li><li>Mac/Linux: `~/.local/share/NuGet/plugins-cache`</li><li>Eseguire l'override usando la variabile di ambiente NUGET_PLUGINS_CACHE_PATH.</li></ul> |
 
 > [!Note]
-> NuGet 3.5 e versioni precedenti usano la cartella *packages-cache* invece di *http-cache*, che si trova in `%localappdata%\NuGet\Cache`.
+> NuGet 3.5 e versioni precedenti usano la cartella *packages-cache* invece di *http-cache* , che si trova in `%localappdata%\NuGet\Cache`.
 
-Tramite le cartelle della cache e *global-packages*, NuGet evita in genere il download di pacchetti già esistenti nel computer, con conseguente miglioramento delle prestazioni di installazione, aggiornamento e ripristino. Quando si usa PackageReference, la cartella *global-packages* consente anche di evitare di mantenere i pacchetti scaricati all'interno delle cartelle di progetto, da cui potrebbero essere inavvertitamente aggiunti al controllo del codice sorgente, nonché di ridurre l'impatto complessivo di NuGet sullo spazio di archiviazione del computer.
+Tramite le cartelle della cache e *global-packages* , NuGet evita in genere il download di pacchetti già esistenti nel computer, con conseguente miglioramento delle prestazioni di installazione, aggiornamento e ripristino. Quando si usa PackageReference, la cartella *global-packages* consente anche di evitare di mantenere i pacchetti scaricati all'interno delle cartelle di progetto, da cui potrebbero essere inavvertitamente aggiunti al controllo del codice sorgente, nonché di ridurre l'impatto complessivo di NuGet sullo spazio di archiviazione del computer.
 
-Quando viene richiesto di recuperare un pacchetto, NuGet controlla prima di tutto nella cartella *global-packages*. Se nella cartella non è disponibile la versione esatta del pacchetto, NuGet controlla tutte le origini di pacchetti non HTTP. Se il pacchetto non viene trovato, NuGet cerca il pacchetto nella cartella *http-cache* a meno che non si specifichi `--no-cache` con i comandi `dotnet.exe` o `-NoCache` con i comandi `nuget.exe`. Se il pacchetto non è presente nella cache o la cache non viene usata, NuGet recupera il pacchetto tramite HTTP.
+Quando viene richiesto di recuperare un pacchetto, NuGet controlla prima di tutto nella cartella *global-packages* . Se nella cartella non è disponibile la versione esatta del pacchetto, NuGet controlla tutte le origini di pacchetti non HTTP. Se il pacchetto non viene trovato, NuGet cerca il pacchetto nella cartella *http-cache* a meno che non si specifichi `--no-cache` con i comandi `dotnet.exe` o `-NoCache` con i comandi `nuget.exe`. Se il pacchetto non è presente nella cache o la cache non viene usata, NuGet recupera il pacchetto tramite HTTP.
 
-Per ulteriori informazioni, vedere [Cosa succede quando viene installato un pacchetto?](../concepts/package-installation-process.md).
+Per ulteriori informazioni, vedere [cosa accade quando viene installato un pacchetto?](../concepts/package-installation-process.md).
 
 ## <a name="viewing-folder-locations"></a>Visualizzazione delle posizioni delle cartelle
 
@@ -98,9 +98,9 @@ dotnet nuget locals all --clear
 nuget locals all -clear
 ```
 
-Gli eventuali pacchetti usati dai progetti aperti in Visual Studio non vengono cancellati dalla cartella *global-packages*.
+Gli eventuali pacchetti usati dai progetti aperti in Visual Studio non vengono cancellati dalla cartella *global-packages* .
 
-A partire da Visual Studio 2017, usare il comando di menu **Strumenti > Gestione pacchetti NuGet > Impostazioni di Gestione pacchetti**, quindi selezionare **Cancella tutte le cache NuGet**. La gestione delle cache non è attualmente disponibile tramite la console di Gestione pacchetti. In Visual Studio 2015 usare invece i comandi dell'interfaccia della riga di comando.
+A partire da Visual Studio 2017, usare il comando di menu **Strumenti > Gestione pacchetti NuGet > Impostazioni di Gestione pacchetti** , quindi selezionare **Cancella tutte le cache NuGet** . La gestione delle cache non è attualmente disponibile tramite la console di Gestione pacchetti. In Visual Studio 2015 usare invece i comandi dell'interfaccia della riga di comando.
 
 ![Comando NuGet per la cancellazione delle cache](media/options-clear-caches.png)
 
@@ -110,12 +110,12 @@ Durante l'uso di `nuget locals` o `dotnet nuget locals` possono verificarsi gli 
 
 - *Errore: Impossibile accedere al file <package> perché utilizzato da un altro processo* o *La cancellazione delle risorse locali non è riuscita. Non è possibile eliminare uno o più file*
 
-    Uno o più file nella cartella sono in uso da un altro processo. Ad esempio, è aperto un progetto di Visual Studio che fa riferimento ai pacchetti nella cartella *global-packages*. Chiudere i processi e riprovare.
+    Uno o più file nella cartella sono in uso da un altro processo. Ad esempio, è aperto un progetto di Visual Studio che fa riferimento ai pacchetti nella cartella *global-packages* . Chiudere i processi e riprovare.
 
 - *Errore: Accesso al percorso <path> negato* o *La directory non è vuota*
 
     Non si è autorizzati a eliminare i file nella cache. Modificare le autorizzazioni della cartella, se possibile, e riprovare. In caso contrario, contattare l'amministratore di sistema.
 
-- *Errore: il percorso specificato, il nome del file o entrambi sono troppo lunghi. Il nome completo del file deve essere inferiore a 260 caratteri e il nome della directory deve essere inferiore a 248 caratteri.*
+- *Errore: il percorso specificato, il nome file o entrambi sono troppo lunghi. Il nome completo del file deve essere inferiore a 260 caratteri e il nome della directory deve essere composto da meno di 248 caratteri.*
 
     Abbreviare i nomi delle cartelle e riprovare.

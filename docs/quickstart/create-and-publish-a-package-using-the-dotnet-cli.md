@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: 8c09d6d5662ed6ff0deffa5d45b823ad0992f399
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: a67c8cd92304c6c4abcffbb79ddbe964664d08fb
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "78231305"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237484"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Guida introduttiva: Creare e pubblicare un pacchetto (interfaccia della riga di comando dotnet)
 
@@ -53,7 +53,7 @@ Per ogni pacchetto NuGet è necessario un manifesto che descrive i contenuti e l
 1. Aggiungere eventuali proprietà facoltative descritte in [Proprietà dei metadati di NuGet](/dotnet/core/tools/csproj#nuget-metadata-properties).
 
     > [!Note]
-    > Per i pacchetti compilati per uso pubblico, prestare particolare attenzione alla proprietà **PackageTags**, perché questi tag consentono ad altri utenti di trovare il pacchetto e di comprenderne le funzioni.
+    > Per i pacchetti compilati per uso pubblico, prestare particolare attenzione alla proprietà **PackageTags** , perché questi tag consentono ad altri utenti di trovare il pacchetto e di comprenderne le funzioni.
 
 ## <a name="run-the-pack-command"></a>Eseguire il comando pack
 
@@ -109,7 +109,7 @@ Dopo aver creato un file `.nupkg`, pubblicarlo in nuget.org usando il comando `d
 
 > [!Video https://channel9.msdn.com/Series/NuGet-101/Create-and-Publish-a-NuGet-Package-with-the-NET-CLI-5-of-5/player]
 
-Trova altri video NuGet su [Channel 9](https://channel9.msdn.com/Series/NuGet-101) e [YouTube.](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_)
+Trova altri video su NuGet su [Channel 9](https://channel9.msdn.com/Series/NuGet-101) e [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -120,10 +120,11 @@ Trova altri video NuGet su [Channel 9](https://channel9.msdn.com/Series/NuGet-10
 
 Per esplorare in modo più approfondito ciò che NuGet può offrire, selezionare i collegamenti seguenti.
 
-- [Pubblicazione di un pacchetto](../nuget-org/publish-a-package.md)
-- [Pacchetti pre-rilascio](../create-packages/Prerelease-Packages.md)
+- [Pubblicare un pacchetto](../nuget-org/publish-a-package.md)
+- [Pacchetti in versione non definitiva](../create-packages/Prerelease-Packages.md)
 - [Supportare più framework di destinazione](../create-packages/multiple-target-frameworks-project-file.md)
 - [Controllo delle versioni dei pacchetti](../concepts/package-versioning.md)
+- [Aggiunta di un'espressione o di un file di licenza](../reference/msbuild-targets#packing-a-license-expression-or-a-license-file)
 - [Creazione di pacchetti localizzati](../create-packages/creating-localized-packages.md)
 - [Creazione di pacchetti di simboli](../create-packages/symbol-packages-snupkg.md)
 - [Firma dei pacchetti](../create-packages/Sign-a-package.md)

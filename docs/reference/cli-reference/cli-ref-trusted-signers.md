@@ -6,12 +6,12 @@ ms.author: patbel
 ms.date: 11/12/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: 2753f92601b3d8b43593762cc07cd8384646feea
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 9e25f439617a76d30880bea3c10a5d063e681a41
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622668"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238153"
 ---
 # <a name="trusted-signers-command-nuget-cli"></a>comando Trusted-signers (interfaccia della riga di comando di NuGet)
 
@@ -19,7 +19,7 @@ ms.locfileid: "88622668"
 
 Ottiene o imposta i firmatari attendibili per la configurazione NuGet. Per ulteriori informazioni sull'utilizzo, vedere [configurazioni comuni di NuGet](../../consume-packages/configuring-nuget-behavior.md). Per informazioni dettagliate sull'aspetto dello schema di nuget.config, vedere il [riferimento al file di configurazione NuGet](../nuget-config-file.md).
 
-## <a name="usage"></a>Uso
+## <a name="usage"></a>Utilizzo
 
 ```cli
 nuget trusted-signers <list|add|remove|sync> [options]
@@ -46,6 +46,7 @@ Registered trusted signers:
  2.   microsoft [author]
       Certificate fingerprint(s):
         SHA256 - 3F9001EA83C560D712C24CF213C3D312CB3BFF51EE89435D3430BD06B5D0EECE
+        SHA256 - AA12DA22A49BCE7D5C1AE64CC1F3D892F150DA76140F210ABD2CBFFCA2C18A27
 
  3.   myUntrustedAuthorSignature [author]
       Certificate fingerprint(s):
@@ -89,7 +90,7 @@ dove `<package(s)>` è uno o più `.nupkg` file.
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_Nota_: questa opzione consente di aggiungere solo repository attendibili. 
+_Nota_ : questa opzione consente di aggiungere solo repository attendibili. 
 
 - **`-AllowUntrustedRoot`**
 
@@ -109,7 +110,7 @@ _Nota_: questa opzione consente di aggiungere solo repository attendibili.
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_Nota_: se un firmatario attendibile con il nome specificato esiste già, l'elemento del certificato verrà aggiunto a tale firmatario. In caso contrario, verrà creato un autore attendibile con un elemento certificato fornito dalle informazioni del certificato.
+_Nota_ : se un firmatario attendibile con il nome specificato esiste già, l'elemento del certificato verrà aggiunto a tale firmatario. In caso contrario, verrà creato un autore attendibile con un elemento certificato fornito dalle informazioni del certificato.
 
 
 - **`-AllowUntrustedRoot`**
@@ -132,7 +133,7 @@ Rimuove eventuali firmatari attendibili che corrispondono al nome specificato.
 
 Richiede l'elenco più recente di certificati usati in un repository attualmente attendibile per aggiornare l'elenco di certificati esistente nel firmatario attendibile.
 
-_Nota_: questo movimento eliminerà l'elenco corrente dei certificati e li sostituirà con un elenco aggiornato dal repository.
+_Nota_ : questo movimento eliminerà l'elenco corrente dei certificati e li sostituirà con un elenco aggiornato dal repository.
 
 ## <a name="options"></a>Opzioni
 

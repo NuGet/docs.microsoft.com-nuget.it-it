@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 11/29/2018
 ms.topic: conceptual
 ms.openlocfilehash: 034b9dd9699af529e4d82d6ee5b1c42214673341
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428982"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237627"
 ---
 # <a name="manage-package-trust-boundaries"></a>Gestire i limiti di attendibilità dei pacchetti
 
@@ -40,7 +40,7 @@ Questa modalità verifica che tutti i pacchetti siano firmati da uno dei certifi
 
 ### <a name="trust-package-author"></a>Considerare attendibile l'autore del pacchetto
 
-Per considerare attendibili i pacchetti [`trusted-signers`](../reference/cli-reference/cli-ref-trusted-signers.md) in base `author` alla firma dell'autore, utilizzare il comando per impostare la proprietà nel file nuget.config.
+Per considerare attendibili i pacchetti basati sulla firma dell'autore, utilizzare il [`trusted-signers`](../reference/cli-reference/cli-ref-trusted-signers.md) comando per impostare la `author` proprietà nell'nuget.config.
 
 ```cmd
 nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE40881FF5F0AD3E58965DA20A9F571EF1651A56933748E1BF1C99E537C4E039 -FingerprintAlgorithm SHA256
@@ -97,7 +97,7 @@ In alcune situazioni può essere opportuno abilitare la verifica usando certific
 
 I repository dei pacchetti devono annunciare i certificati usati nel loro [indice dei servizi](../api/service-index.md). Prima o poi, il repository aggiornerà questi certificati, ad esempio, allo scadere del certificato. Quando ciò avviene, i client con criteri specifici richiederanno un aggiornamento della configurazione per includere il certificato appena aggiunto. I firmatari attendibili associati a un repository possono essere aggiornati facilmente usando il `nuget.exe` [comando trusted-signers sync](../reference/cli-reference/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-name).
 
-### <a name="schema-reference"></a>Riferimento allo schema
+### <a name="schema-reference"></a>Riferimento dello schema
 
 Il riferimento allo schema completo per i criteri client è reperibile in [nuget.config reference](../reference/nuget-config-file.md#trustedsigners-section) (Informazioni di riferimento su nuget.config)
 

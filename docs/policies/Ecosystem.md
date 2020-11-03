@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 31243076f36f6ff274c4377c1773ea59dda8c834
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 165587fb64be5a5f4dbfdece7dc3a1e6402b733e
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64495494"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237426"
 ---
 # <a name="an-overview-of-the-nuget-ecosystem"></a>Panoramica dell'ecosistema NuGet
 
@@ -24,7 +24,7 @@ Tutti questi progetti risultano innovativi grazie al contributo degli sviluppato
 
 NuGet fornisce un sistema di gestione pacchetti open source gratuito per la piattaforma di sviluppo Microsoft, costituito da alcuni strumenti client e dal set di servizi che formano la [raccolta NuGet ufficiale](http://www.nuget.org). In combinazione, costituiscono il progetto NuGet gestito da [.NET Foundation](http://www.dotnetfoundation.org/).
 
-L'organizzazione NuGet include vari repository su GitHub. [https://github.com/Nuget/Home](https://github.com/Nuget/Home)fornisce una panoramica di tutti i repository e dove trovare i vari componenti NuGet.
+L'organizzazione NuGet include vari repository su GitHub. [https://github.com/Nuget/Home](https://github.com/Nuget/Home) fornisce una panoramica di tutti i repository e dove trovare i vari componenti di NuGet.
 
 ## <a name="microsoft-projects"></a>Progetti Microsoft
 
@@ -37,7 +37,7 @@ Molte altre persone e aziende hanno apportato contributi significativi all'ecosi
 - [AppVeyor (soluzione CI)](https://www.appveyor.com/)
 - [Artifactory](https://www.jfrog.com/artifactory/)
 - [BoxStarter](http://boxstarter.org/)
-- [Cioccolato](https://chocolatey.org/)
+- [Cioccolatoso](https://chocolatey.org/)
 - [CoApp](http://coapp.org/)
 - [JetBrains ReSharper](https://resharper-plugins.jetbrains.com/)
 - [JetBrains TeamCity](https://www.jetbrains.com/teamcity/)
@@ -68,7 +68,7 @@ Di seguito sono elencati gli strumenti e le utilità basati su NuGet:
 
 ## <a name="training-materials-and-references"></a>Riferimenti e materiali per la formazione
 
-L'uso di un nuovo strumento o di una nuova tecnologia in genere implica una curva di apprendimento, ma fortunatamente quella di NuGet non è affatto ripida. In realtà, chiunque può [iniziare a utilizzare i pacchetti](../quickstart/use-a-package.md) rapidamente.
+L'uso di un nuovo strumento o di una nuova tecnologia in genere implica una curva di apprendimento, ma fortunatamente quella di NuGet non è affatto ripida. In realtà, chiunque può [iniziare a utilizzare i pacchetti](../quickstart/install-and-use-a-package-in-visual-studio.md) rapidamente.
 
 Detto questo, per poter creare pacchetti validi e adottare NuGet nell'ambito di processi di compilazione e distribuzione automatizzati è consigliabile dedicare un po' di tempo alle risorse seguenti:
 

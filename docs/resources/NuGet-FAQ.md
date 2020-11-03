@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 937a0083ca47ba5668059736a7e99f7ca88e8908
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: aae6f0474cc6e8e8aa5c269b79be6fd949d9184c
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622616"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237997"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Domande frequenti su NuGet
 
@@ -41,13 +41,13 @@ Per altre informazioni, vedere [Ricerca e scelta di pacchetti](../consume-packag
 - Visual Studio in Windows supporta l'[interfaccia utente di Gestione pacchetti](../consume-packages/install-use-packages-visual-studio.md) e la [console di Gestione pacchetti](../consume-packages/install-use-packages-powershell.md).
 - Visual Studio per Mac include funzionalità incorporate di NuGet come descritto in [Inserimento di un pacchetto NuGet nel progetto](/visualstudio/mac/nuget-walkthrough).
 - Visual Studio Code (tutte le piattaforme) non include alcuna integrazione diretta di NuGet. Usare l'[interfaccia della riga di comando di NuGet](../reference/nuget-exe-cli-reference.md) o l'[interfaccia della riga di comando di dotnet](../reference/dotnet-commands.md).
-- Azure DevOps offre [un passaggio di compilazione per il ripristino dei pacchetti NuGet](/vsts/build-release/tasks/package/nuget). È anche possibile [ospitare feed di pacchetti NuGet privati in Azure DevOps](https://docs.microsoft.com/azure/devops/artifacts/nuget/publish).
+- Azure DevOps offre [un passaggio di compilazione per il ripristino dei pacchetti NuGet](/vsts/build-release/tasks/package/nuget). È anche possibile [ospitare feed di pacchetti NuGet privati in Azure DevOps](/azure/devops/artifacts/nuget/publish).
 
 **Come è possibile controllare la versione esatta degli strumenti di NuGet installati?**
 
-In Visual Studio, usare il comando **Guida > informazioni su Microsoft Visual Studio** e controllare la versione visualizzata accanto a **Gestione pacchetti NuGet**.
+In Visual Studio, usare il comando **Guida > informazioni su Microsoft Visual Studio** e controllare la versione visualizzata accanto a **Gestione pacchetti NuGet** .
 
-In alternativa, avviare la console di Gestione pacchetti (**Strumenti > Gestione pacchetti NuGet > Console di Gestione pacchetti**) e immettere `$host` per visualizzare informazioni su NuGet, compresa la versione.
+In alternativa, avviare la console di Gestione pacchetti ( **Strumenti > Gestione pacchetti NuGet > Console di Gestione pacchetti** ) e immettere `$host` per visualizzare informazioni su NuGet, compresa la versione.
 
 **Quali linguaggi di programmazione sono supportati da NuGet?**
 
@@ -103,7 +103,7 @@ Si tratta di un problema noto correlato alla modalità di interazione di PowerSh
 
 **Qual è la procedura per presentare un pacchetto in un feed?**
 
-Vedere [Creare e pubblicare un pacchetto](../quickstart/create-and-publish-a-package.md).
+Vedere [Creare e pubblicare un pacchetto](../quickstart/create-and-publish-a-package-using-visual-studio.md).
 
 **Sono disponibili più versioni della libreria destinate a versioni diverse della .NET Framework. Ricerca per categorie compilare un singolo pacchetto che supporta questa operazione?**
 

@@ -6,11 +6,11 @@ ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
 ms.openlocfilehash: 7039dd27f2dddebc3c84e5ad35d5efec59547792
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428688"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237387"
 ---
 # <a name="manage-packages-using-the-nugetexe-cli"></a>Gestire pacchetti tramite l'interfaccia della riga di comando nuget.exe
 
@@ -27,28 +27,28 @@ Questo articolo illustra l'utilizzo di base di alcuni dei comandi più comuni de
 
 - Installare l'interfaccia della riga di comando `nuget.exe` scaricandola da [nuget.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe), salvare il file `.exe` in una cartella appropriata e aggiungere tale cartella alla variabile di ambiente PATH.
 
-## <a name="install-a-package"></a>Installa un pacchetto
+## <a name="install-a-package"></a>Installare un pacchetto
 
 Il comando [install](../reference/cli-reference/cli-ref-install.md) scarica e installa un pacchetto in un progetto (per impostazione predefinita nella cartella corrente) usando le origini pacchetto specificate. Installare i nuovi pacchetti nella cartella *packages* nella directory radice del progetto.
 
 > [!IMPORTANT]
-> Il comando `install` non modifica un file di progetto o *il file packages.config*. È pertanto simile a `restore` perché aggiunge soltanto pacchetti su disco, ma non modifica le dipendenze di un progetto. Per aggiungere una dipendenza, aggiungere un pacchetto tramite l'interfaccia utente di Gestione pacchetti o la console in Visual Studio oppure modificare il file *packages.config*, quindi eseguire `install` o `restore`.
+> Il comando `install` non modifica un file di progetto o *il file packages.config* . È pertanto simile a `restore` perché aggiunge soltanto pacchetti su disco, ma non modifica le dipendenze di un progetto. Per aggiungere una dipendenza, aggiungere un pacchetto tramite l'interfaccia utente di Gestione pacchetti o la console in Visual Studio oppure modificare il file *packages.config* , quindi eseguire `install` o `restore`.
 
 1. Aprire una riga di comando e passare alla directory che contiene il file di progetto.
 
-2. Usare il comando seguente per installare un pacchetto NuGet nella cartella *packages*.
+2. Usare il comando seguente per installare un pacchetto NuGet nella cartella *packages* .
 
     ```cli
     nuget install <packageID> -OutputDirectory packages
     ```
 
-    Per installare il pacchetto `Newtonsoft.json` nella cartella *packages*, usare il comando seguente:
+    Per installare il pacchetto `Newtonsoft.json` nella cartella *packages* , usare il comando seguente:
 
     ```cli
     nuget install Newtonsoft.Json -OutputDirectory packages
     ```
 
-In alternativa, è possibile usare il comando seguente per installare un pacchetto NuGet tramite un file `packages.config` esistente nella cartella *packages*. In questo modo non si aggiunge il pacchetto alle dipendenze del progetto, ma si installa il pacchetto localmente.
+In alternativa, è possibile usare il comando seguente per installare un pacchetto NuGet tramite un file `packages.config` esistente nella cartella *packages* . In questo modo non si aggiunge il pacchetto alle dipendenze del progetto, ma si installa il pacchetto localmente.
 
 ```cli
 nuget install packages.config -OutputDirectory packages
@@ -72,7 +72,7 @@ Per altre informazioni sulle limitazioni e sul comportamento del comando `instal
 
 ## <a name="remove-a-package"></a>Rimuovere un pacchetto
 
-Per eliminare uno o più pacchetti, eliminare i pacchetti che si vogliono rimuovere dalla cartella *packages*.
+Per eliminare uno o più pacchetti, eliminare i pacchetti che si vogliono rimuovere dalla cartella *packages* .
 
 Se si vuole reinstallare i pacchetti, usare il comando `restore` o `install`.
 
@@ -84,7 +84,7 @@ Se si vuole reinstallare i pacchetti, usare il comando `restore` o `install`.
 nuget list -Source <source>
 ```
 
-Elencare ad esempio i pacchetti nella cartella *packages*.
+Elencare ad esempio i pacchetti nella cartella *packages* .
 
 ```cli
 nuget list -Source C:\Users\username\source\repos\MyProject\packages

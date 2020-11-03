@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: e1ebf5042597693ee55d986a4f93e797c27ad30a
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 17062d83349fe1b8cd28e57dd888686a226ac9cb
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622707"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238023"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>Creazione di controlli dell'interfaccia utente come pacchetti NuGet
 
@@ -59,11 +59,11 @@ La struttura del file è la seguente:
 
 dove:
 
-- *your_package_file*: nome del file di controllo, ad esempio `ManagedPackage.winmd`. "ManagedPackage" è un nome arbitrario usato per questo esempio e non ha altri significati.
-- *vs_category*: etichetta del gruppo in cui il controllo deve essere visualizzato nella casella degli strumenti della finestra di progettazione di Visual Studio. `VSCategory` è necessario per visualizzare il controllo nella casella degli strumenti.
-*ui_framework*: il nome del Framework, ad esempio ' WPF ', si noti che `UIFramework` l'attributo è obbligatorio nei nodi ToolBoxItems in Visual Studio 16,7 Preview 3 o versione successiva affinché il controllo venga visualizzato nella casella degli strumenti.
-- *blend_category*: etichetta del gruppo in cui il controllo deve essere visualizzato nel riquadro Asset della finestra di progettazione di Blend. `BlendCategory` è necessario per visualizzare il controllo in Asset.
-- *type_full_name_n*: nome completo di ogni controllo, incluso lo spazio dei nomi, ad esempio `ManagedPackage.MyCustomControl`. Si noti che il formato punto viene usato sia per i tipi gestiti che per quelli nativi.
+- *your_package_file* : nome del file di controllo, ad esempio `ManagedPackage.winmd`. "ManagedPackage" è un nome arbitrario usato per questo esempio e non ha altri significati.
+- *vs_category* : etichetta del gruppo in cui il controllo deve essere visualizzato nella casella degli strumenti della finestra di progettazione di Visual Studio. `VSCategory` è necessario per visualizzare il controllo nella casella degli strumenti.
+*ui_framework* : il nome del Framework, ad esempio ' WPF ', si noti che `UIFramework` l'attributo è obbligatorio nei nodi ToolBoxItems in Visual Studio 16,7 Preview 3 o versione successiva affinché il controllo venga visualizzato nella casella degli strumenti.
+- *blend_category* : etichetta del gruppo in cui il controllo deve essere visualizzato nel riquadro Asset della finestra di progettazione di Blend. `BlendCategory` è necessario per visualizzare il controllo in Asset.
+- *type_full_name_n* : nome completo di ogni controllo, incluso lo spazio dei nomi, ad esempio `ManagedPackage.MyCustomControl`. Si noti che il formato punto viene usato sia per i tipi gestiti che per quelli nativi.
 
 Negli scenari più avanzati è anche possibile includere più elementi `<File>` in `<FileList>` quando un singolo pacchetto contiene più assembly del controllo. È anche possibile avere più nodi `<ToolboxItems>` in un singolo `<File>` se si vuole organizzare i controlli in categorie separate.
 
@@ -94,7 +94,7 @@ I formati supportati sono `.png`, `.jpg`, `.jpeg`, `.gif` e `.bmp`. Il formato c
 
 ![Esempio di icona della casella degli strumenti](https://raw.githubusercontent.com/NuGet/docs.microsoft.com-nuget/live/docs/guides/media/ColorPicker_16x16x24.bmp)
 
-Lo sfondo di colore rosa viene sostituito in fase di esecuzione. Le icone vengono ricolorate quando viene modificato il tema di Visual Studio e questo è il colore di sfondo previsto. Per altre informazioni, vedere [Immagini e icone per Visual Studio](https://docs.microsoft.com/visualstudio/extensibility/ux-guidelines/images-and-icons-for-visual-studio).
+Lo sfondo di colore rosa viene sostituito in fase di esecuzione. Le icone vengono ricolorate quando viene modificato il tema di Visual Studio e questo è il colore di sfondo previsto. Per altre informazioni, vedere [Immagini e icone per Visual Studio](/visualstudio/extensibility/ux-guidelines/images-and-icons-for-visual-studio).
 
 Nell'esempio seguente il progetto contiene un file di immagine denominato "ManagedPackage.MyCustomControl.png".
 
@@ -147,7 +147,7 @@ Nel caso di WPF, si supponga di continuare con l'esempio in cui si vuole che il 
 
 ## <a name="use-strings-and-resources"></a>Usare stringhe e risorse
 
-È possibile incorporare nel pacchetto le risorse stringa (`.resw`) che possono essere usate dal controllo o dal progetto UWP utilizzato e impostare la proprietà **Azione di compilazione** del file `.resw` su **PRIResource**.
+È possibile incorporare nel pacchetto le risorse stringa (`.resw`) che possono essere usate dal controllo o dal progetto UWP utilizzato e impostare la proprietà **Azione di compilazione** del file `.resw` su **PRIResource** .
 
 Per un esempio, vedere [MyCustomControl.cs](https://github.com/NuGet/Samples/blob/master/ExtensionSDKasNuGetPackage/ManagedPackage/MyCustomControl.cs) nell'esempio ExtensionSDKasNuGetPackage.
 

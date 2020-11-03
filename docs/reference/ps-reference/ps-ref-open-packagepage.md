@@ -1,18 +1,18 @@
 ---
-title: Riferimenti per PowerShell open-PackagePage NuGet
-description: Informazioni di riferimento sul comando di PowerShell open-PackagePage nella console di gestione pacchetti NuGet in Visual Studio.
+title: Guida di riferimento a NuGet Open-PackagePage PowerShell
+description: Informazioni di riferimento per il comando Open-PackagePage PowerShell nella console di gestione pacchetti NuGet in Visual Studio.
 author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 39199ebfc37756ed40158a1c07afca7709067350
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: ba90e09c017ec66d73c35a60025474bc77cf65a7
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384428"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238062"
 ---
-# <a name="open-packagepage-package-manager-console-in-visual-studio"></a>Open-PackagePage (console di Gestione pacchetti in Visual Studio)
+# <a name="open-packagepage-package-manager-console-in-visual-studio"></a>Open-PackagePage (console di gestione pacchetti in Visual Studio)
 
 *Deprecato in 3.0 +; disponibile solo nella [console di gestione pacchetti](../../consume-packages/install-use-packages-powershell.md) in Visual Studio in Windows.*
 
@@ -29,9 +29,9 @@ Open-PackagePage [-Id] <string> [-Version] [-Source] [-License] [-ReportAbuse]
 
 | Parametro | Descrizione |
 | --- | --- |
-| Id | ID del pacchetto desiderato. L'opzione-ID è facoltativa. |
+| ID | ID del pacchetto desiderato. L'opzione-ID è facoltativa. |
 | Versione | Versione del pacchetto, per impostazione predefinita la versione più recente. |
-| Source | Origine del pacchetto, per impostazione predefinita l'origine selezionata nell'elenco a discesa origine. |
+| Source (Sorgente) | Origine del pacchetto, per impostazione predefinita l'origine selezionata nell'elenco a discesa origine. |
 | Licenza | Apre il browser all'URL di licenza del pacchetto. Se non si specifica né-License né-ReportAbuse, il browser apre l'URL del progetto del pacchetto. |
 | ReportAbuse | Apre il browser all'URL di utilizzo del report del pacchetto. Se non si specifica né-License né-ReportAbuse, il browser apre l'URL del progetto del pacchetto. |
 | PassThru | Visualizza l'URL. usare con-WhatIf per non visualizzare l'apertura del browser. |
@@ -40,7 +40,7 @@ Nessuno di questi parametri accetta caratteri jolly o di input della pipeline.
 
 ## <a name="common-parameters"></a>Parametri comuni
 
-`Open-PackagePage` supporta i [parametri di PowerShell comuni](https://go.microsoft.com/fwlink/?LinkID=113216)seguenti: debug, azione di errore, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction e WarningVariable.
+`Open-PackagePage` supporta i seguenti [parametri comuni di PowerShell](/powershell/module/microsoft.powershell.core/about/about_commonparameters): debug, azione di errore, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction e WarningVariable.
 
 ## <a name="examples"></a>Esempi
 

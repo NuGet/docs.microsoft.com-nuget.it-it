@@ -6,23 +6,23 @@ ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
 ms.openlocfilehash: 4b95251e4b055523a9533b4125589b2650be932d
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428828"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237744"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Risoluzione delle dipendenze dei pacchetti in NuGet
 
 Ogni volta che un pacchetto viene installato o reinstallato, compresa l'installazione nell'ambito di un processo di [ripristino](../consume-packages/package-restore.md), NuGet installa anche eventuali altri pacchetti da cui dipende questo primo pacchetto.
 
-Tali dipendenze immediate potrebbero quindi avere anche dipendenze proprie, che possono continuare fino a una profondità arbitraria. Ciò produce un cosiddetto *grafico dipendenze*, che descrive le relazioni tra i pacchetti a tutti i livelli.
+Tali dipendenze immediate potrebbero quindi avere anche dipendenze proprie, che possono continuare fino a una profondità arbitraria. Ciò produce un cosiddetto *grafico dipendenze* , che descrive le relazioni tra i pacchetti a tutti i livelli.
 
 Quando più pacchetti hanno la stessa dipendenza, lo stesso ID di pacchetto può essere visualizzato nel grafico più volte, potenzialmente con limitazioni delle versioni diverse. Tuttavia, solo una versione di un determinato pacchetto può essere usata in un progetto, pertanto NuGet deve scegliere quale versione usare. Il processo esatto dipende dal formato di gestione dei pacchetti in uso.
 
 ## <a name="dependency-resolution-with-packagereference"></a>Risoluzione delle dipendenze con PackageReference
 
-Quando si installano pacchetti in progetti usando il formato PackageReference, NuGet aggiunge riferimenti a un grafico di pacchetto semplice nel file appropriato e risolve i conflitti in anticipo. Questo processo è noto come *ripristino transitivo*. La reinstallazione o il ripristino dei pacchetti è quindi un processo di download dei pacchetti elencati nel grafico, che genera compilazioni più veloci e più prevedibili. È inoltre possibile sfruttare le versioni mobili, ad esempio 2.8.You can also take advantage of floating versions, such as 2.8. \*, per evitare di modificare il progetto per utilizzare la versione più recente di un pacchetto.
+Quando si installano pacchetti in progetti usando il formato PackageReference, NuGet aggiunge riferimenti a un grafico di pacchetto semplice nel file appropriato e risolve i conflitti in anticipo. Questo processo è noto come *ripristino transitivo* . La reinstallazione o il ripristino dei pacchetti è quindi un processo di download dei pacchetti elencati nel grafico, che genera compilazioni più veloci e più prevedibili. È inoltre possibile sfruttare le versioni a virgola mobile, ad esempio 2,8. \* , per evitare di modificare il progetto in modo da utilizzare la versione più recente di un pacchetto.
 
 Quando il processo di ripristino di NuGet viene eseguito prima di una compilazione, risolve prima le dipendenze in memoria, quindi scrive il grafico risultante in un file denominato `project.assets.json`. Scrive anche le dipendenze risolte in un file di blocco denominato `packages.lock.json`, se la [funzionalità di file di blocco è abilitata](../consume-packages/package-references-in-project-files.md#locking-dependencies).
 Il file di asset si trova in `MSBuildProjectExtensionsPath`, che per impostazione predefinita corrisponde alla cartella "obj" del progetto. MSBuild legge quindi questo file e lo converte in un set di cartelle in cui sono disponibili riferimenti potenziali, aggiungendoli quindi all'albero del progetto in memoria.
@@ -53,16 +53,16 @@ Quando un'applicazione specifica un numero di versione esatto, ad esempio 1.2, c
 
 <a name="floating-versions"></a>
 
-#### <a name="floating-versions"></a>Versioni mobili
+#### <a name="floating-versions"></a>Versioni a virgola mobile
 
-Una versione a virgola mobile \* viene specificata con il carattere. Ad esempio: `6.0.*`. Questa specifica di versione dice "utilizzare l'ultima versione 6.0.x"; `4.*` significa "usare l'ultima versione 4.x". L'uso di una versione mobile riduce le modifiche al file di progetto, mantenendosi aggiornato con la versione più recente di una dipendenza.
+Con il carattere viene specificata una versione di dipendenza mobile \* . Ad esempio: `6.0.*`. Questa specifica della versione indica "usa la versione 6.0. x più recente"; `4.*` significa "usare la versione 4. x più recente". L'uso di una versione a virgola mobile riduce le modifiche apportate al file di progetto, mantenendo al contempo la versione più recente di una dipendenza.
 
-Quando si usa una versione mobile, NuGet risolve la versione più `6.0.*` alta di un pacchetto che corrisponde al modello di versione, ad esempio ottiene la versione più alta di un pacchetto che inizia con 6.0:When using a floating version, NuGet resolves the highest version of a package that matches the version pattern, for example gets the highest version of a package that starts with 6.0:
+Quando si usa una versione a virgola mobile, NuGet risolve la versione più recente di un pacchetto che corrisponde al modello di versione, ad esempio `6.0.*` ottiene la versione più recente di un pacchetto che inizia con 6,0:
 
 ![Scelta della versione 6.0.1 quando è richiesta una versione mobile 6.0.*](media/projectJson-dependency-4.png)
 
 > [!Note]
-> Per informazioni sul comportamento delle versioni mobili e delle versioni non definitive, vedere [Controllo delle versioni dei pacchetti](package-versioning.md#version-ranges).
+> Per informazioni sul comportamento delle versioni a virgola mobile e delle versioni non definitive, vedere controllo delle versioni dei [pacchetti](package-versioning.md#version-ranges).
 
 
 <a name="nearest-wins"></a>

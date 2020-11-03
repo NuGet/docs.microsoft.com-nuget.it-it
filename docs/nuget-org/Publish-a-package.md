@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: dc20e43bfb43a4b6e47297fb3446319860034d46
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: fe5625247dca51c10d82fffe82022c40a4716069
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623026"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237932"
 ---
 # <a name="publishing-packages"></a>Pubblicazione di pacchetti
 
@@ -24,7 +24,7 @@ Questo articolo illustra la pubblicazione in nuget.org. Per la pubblicazione in 
 
 ## <a name="publish-to-nugetorg"></a>Pubblicare in nuget.org
 
-Per nuget.org, è necessario accedere con una account Microsoft, a cui verrà richiesto di registrare l'account con nuget.org. È anche possibile accedere con un account nuget.org creato usando le versioni precedenti del portale.
+Per nuget.org è necessario accedere con un account Microsoft, con il quale verrà richiesto di registrare l'account in nuget.org.
 
 ![Posizione di accesso a NuGet](media/publish_NuGetSignIn.png)
 
@@ -32,7 +32,7 @@ Sarà quindi possibile caricare il pacchetto tramite il portale Web di nuget.org
 
 ### <a name="web-portal-use-the-upload-package-tab-on-nugetorg"></a>Portale Web: usare la scheda Upload Package (Carica pacchetto) in nuget.org
 
-1. Selezionare **Upload ** (Carica) nel menu in alto di nuget.org e passare alla posizione del pacchetto.
+1. Selezionare **Upload** (Carica) nel menu in alto di nuget.org e passare alla posizione del pacchetto.
 
     ![Caricare un pacchetto in nuget.org](media/publish_UploadYourPackage.PNG)
 
@@ -47,7 +47,7 @@ Sarà quindi possibile caricare il pacchetto tramite il portale Web di nuget.org
 ### <a name="command-line"></a>Riga di comando
 
 Per eseguire il push dei pacchetti in nuget.org, è necessario prima di tutto una chiave API creata in nuget.org. È necessario usare dotnet.exe (.NET Core) o nuget.exe v 4.1.0 o versioni successive, che implementano i protocolli NuGet necessari.
-Per ulteriori informazioni, vedere la pagina relativa ai protocolli [.NET Core](https://docs.microsoft.com/dotnet/core/install/), [nuget.exe](https://www.nuget.org/downloads)e [NuGet](../api/nuget-protocols.md).
+Per ulteriori informazioni, vedere la pagina relativa ai protocolli [.NET Core](/dotnet/core/install/), [nuget.exe](https://www.nuget.org/downloads)e [NuGet](../api/nuget-protocols.md).
 
 #### <a name="create-api-keys"></a>Creare chiavi API
 

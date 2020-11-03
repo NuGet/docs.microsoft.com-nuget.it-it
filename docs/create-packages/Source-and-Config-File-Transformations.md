@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 04/24/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 2fefd9cff4d151111023521c31d58878743775bf
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 8e3eade14c70782563ba82894f072f9b3a611923
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "78231175"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237984"
 ---
 # <a name="transforming-source-code-and-configuration-files"></a>Trasformazioni di codice sorgente e file di configurazione
 
@@ -52,7 +52,7 @@ Il token `$rootnamespace$` è la proprietà del progetto usata più di frequente
 Come descritto nelle sezioni successive, le trasformazioni di file di configurazione possono essere eseguite in due modi:
 
 - Includere i file `app.config.transform` e `web.config.transform` nella cartella `content` del pacchetto, dove l'estensione `.transform` indica a NuGet che questi file contengono il codice XML da unire con i file di configurazione esistenti quando il pacchetto viene installato. Quando si disinstalla un pacchetto, lo stesso codice XML viene rimosso.
-- Includere i file `app.config.install.xdt` e `web.config.install.xdt` nella cartella `content` del pacchetto usando la [sintassi XDT](https://msdn.microsoft.com/library/dd465326.aspx) per descrivere le modifiche desiderate. Con questa opzione è anche possibile includere un file `.uninstall.xdt` per ripristinare le modifiche quando il pacchetto viene rimosso da un progetto.
+- Includere i file `app.config.install.xdt` e `web.config.install.xdt` nella cartella `content` del pacchetto usando la [sintassi XDT](/previous-versions/aspnet/dd465326(v=vs.110)) per descrivere le modifiche desiderate. Con questa opzione è anche possibile includere un file `.uninstall.xdt` per ripristinare le modifiche quando il pacchetto viene rimosso da un progetto.
 
 > [!Note]
 > Le trasformazioni non vengono applicate ai file `.config` a cui si fa riferimento come collegamento in Visual Studio.
@@ -108,14 +108,14 @@ Come esempio più esteso, il pacchetto [Error Logging Modules and Handlers (ELMA
 
 Per esaminare il relativo file `web.config.transform`, scaricare il pacchetto ELMAH dal collegamento precedente, modificare l'estensione del pacchetto da `.nupkg` a `.zip` e quindi aprire `content\web.config.transform` in tale file ZIP.
 
-Per vedere l'effetto dell'installazione e della disinstallazione del pacchetto, creare un nuovo progetto ASP.NET in Visual Studio (il modello è disponibile in **Visual C# > Web** nella finestra di dialogo Nuovo progetto) e selezionare un'applicazione ASP.NET vuota. Aprire `web.config` per visualizzarne lo stato iniziale. Quindi fare clic con il pulsante destro del mouse sul progetto, selezionare **Gestisci pacchetti NuGet**, cercare ELMAH su nuget.org e installare la versione più recente. Notare tutte le modifiche apportate a `web.config`. Disinstallare quindi il pacchetto. `web.config` tornerà allo stato precedente.
+Per vedere l'effetto dell'installazione e della disinstallazione del pacchetto, creare un nuovo progetto ASP.NET in Visual Studio (il modello è disponibile in **Visual C# > Web** nella finestra di dialogo Nuovo progetto) e selezionare un'applicazione ASP.NET vuota. Aprire `web.config` per visualizzarne lo stato iniziale. Quindi fare clic con il pulsante destro del mouse sul progetto, selezionare **Gestisci pacchetti NuGet** , cercare ELMAH su nuget.org e installare la versione più recente. Notare tutte le modifiche apportate a `web.config`. Disinstallare quindi il pacchetto. `web.config` tornerà allo stato precedente.
 
 ### <a name="xdt-transforms"></a>Trasformazioni XDT
 
 > [!Note]
-> Come indicato nella [sezione relativa ai problemi `packages.config` di `PackageReference`compatibilità dei pacchetti della documentazione per la migrazione da a ](../consume-packages/migrate-packages-config-to-package-reference.md#package-compatibility-issues), le trasformazioni XDT descritte di seguito sono supportate solo da `packages.config`. Se si aggiungono i file seguenti al pacchetto, i consumer che `PackageReference` utilizzano il pacchetto non avranno le trasformazioni applicate (fare riferimento a questo [esempio](https://github.com/NuGet/Samples/tree/master/XDTransformExample) per far funzionare le trasformazioni XDT ).`PackageReference`
+> Come indicato nella [sezione problemi di compatibilità dei pacchetti della documentazione per la migrazione `packages.config` da `PackageReference` a ](../consume-packages/migrate-packages-config-to-package-reference.md#package-compatibility-issues), le trasformazioni di xdt descritte di seguito sono supportate solo da `packages.config` . Se si aggiungono i file seguenti al pacchetto, i consumer che usano il pacchetto con `PackageReference` non avranno le trasformazioni applicate (fare riferimento a [questo esempio](https://github.com/NuGet/Samples/tree/master/XDTransformExample) per fare in modo che le trasformazioni xdt funzionino con `PackageReference` ).
 
-È possibile modificare i file di configurazione usando la [sintassi XDT](https://msdn.microsoft.com/library/dd465326.aspx). È anche possibile fare in modo che NuGet sostituisca i token con le [proprietà del progetto](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7) includendo il nome della proprietà all'interno di delimitatori `$` (senza distinzione tra maiuscole e minuscole).
+È possibile modificare i file di configurazione usando la [sintassi XDT](/previous-versions/aspnet/dd465326(v=vs.110)). È anche possibile fare in modo che NuGet sostituisca i token con le [proprietà del progetto](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7) includendo il nome della proprietà all'interno di delimitatori `$` (senza distinzione tra maiuscole e minuscole).
 
 Ad esempio, il file seguente `app.config.install.xdt` inserirà un elemento `appSettings` in `app.config` contenente i valori `FullPath`, `FileName` e `ActiveConfigurationSettings` dal progetto:
 
