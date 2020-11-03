@@ -10,7 +10,7 @@ Dal profilo personale in nuget.org selezionare **Manage Packages** (Gestisci pac
 
 ![Il pacchetto non è stato ancora indicizzato. Verrà visualizzato nei risultati della ricerca e sarà disponibile per l'installazione e il ripristino al termine dell'indicizzazione.](../media/QS_Create-03-NotIndexed.png)
 
-L'attività è terminata. È stato pubblicato in nuget.org il primo pacchetto NuGet, che gli altri sviluppatori possono usare nei propri progetti.
+Ecco fatto! È stato pubblicato in nuget.org il primo pacchetto NuGet, che gli altri sviluppatori possono usare nei propri progetti.
 
 Se in questa procedura dettagliata è stato creato un pacchetto che non è effettivamente utile (ad esempio un pacchetto creato con una libreria di classi vuota), è necessario *rimuovere* il pacchetto per nasconderlo dai risultati della ricerca:
 

@@ -18,6 +18,6 @@ ms.locfileid: "68419912"
 
     ![Copia della chiave API negli Appunti](../media/QS_Create-02-APIKey.png)
 
-1. **Importante**: salvare la chiave in un luogo sicuro, perché non è possibile copiare la chiave nuovamente in seguito. Se si torna alla pagina della chiave API, è necessario rigenerarla per copiarla. È anche possibile rimuovere la chiave API se non si vuole più eseguire il push tramite l'interfaccia della riga di comando.
+1. **Importante** : salvare la chiave in un luogo sicuro, perché non è possibile copiare la chiave nuovamente in seguito. Se si torna alla pagina della chiave API, è necessario rigenerarla per copiarla. È anche possibile rimuovere la chiave API se non si vuole più eseguire il push tramite l'interfaccia della riga di comando.
 
 L'assegnazione degli ambiti consente di creare chiavi API separate per scopi diversi. Per ogni chiave esiste un intervallo di tempo di scadenza ed è possibile specificare un ambito limitato a pacchetti (o criteri GLOB) specifici. L'ambito per ogni chiave può essere anche limitato a operazioni specifiche: push di nuovi pacchetti e aggiornamenti, push solo degli aggiornamenti o rimozione dall'elenco. Tramite l'assegnazione di un ambito, è possibile creare chiavi API per i diversi utenti che gestiscono i pacchetti per l'organizzazione in modo che abbiamo solo le autorizzazioni necessarie. Per altre informazioni, vedere [Chiavi API con ambito](../../nuget-org/scoped-api-keys.md).
