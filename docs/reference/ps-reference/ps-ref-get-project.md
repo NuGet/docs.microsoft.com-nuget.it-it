@@ -12,32 +12,32 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 11/03/2020
 ms.locfileid: "93238075"
 ---
-# <a name="get-project-package-manager-console-in-visual-studio"></a><span data-ttu-id="f7d45-103">Get-Project (console di gestione pacchetti in Visual Studio)</span><span class="sxs-lookup"><span data-stu-id="f7d45-103">Get-Project (Package Manager Console in Visual Studio)</span></span>
+# <a name="get-project-package-manager-console-in-visual-studio"></a><span data-ttu-id="ad91c-103">Get-Project (console di gestione pacchetti in Visual Studio)</span><span class="sxs-lookup"><span data-stu-id="ad91c-103">Get-Project (Package Manager Console in Visual Studio)</span></span>
 
-<span data-ttu-id="f7d45-104">*Disponibile solo nella [console di gestione pacchetti](../../consume-packages/install-use-packages-powershell.md) in Visual Studio in Windows.*</span><span class="sxs-lookup"><span data-stu-id="f7d45-104">*Available only within the [Package Manager Console](../../consume-packages/install-use-packages-powershell.md) in Visual Studio on Windows.*</span></span>
+<span data-ttu-id="ad91c-104">*Disponibile solo nella [console di gestione pacchetti](../../consume-packages/install-use-packages-powershell.md) in Visual Studio in Windows.*</span><span class="sxs-lookup"><span data-stu-id="ad91c-104">*Available only within the [Package Manager Console](../../consume-packages/install-use-packages-powershell.md) in Visual Studio on Windows.*</span></span>
 
-<span data-ttu-id="f7d45-105">Visualizza le informazioni relative al progetto predefinito o specificato.</span><span class="sxs-lookup"><span data-stu-id="f7d45-105">Displays information about the default or specified project.</span></span> <span data-ttu-id="f7d45-106">`Get-Project` in particolare, restituisce un referente all'oggetto DTE di Visual Studio (ambiente degli strumenti di sviluppo) per il progetto.</span><span class="sxs-lookup"><span data-stu-id="f7d45-106">`Get-Project` specifically returns a referent to the Visual Studio DTE (Development Tools Environment) object for the project.</span></span>
+<span data-ttu-id="ad91c-105">Visualizza le informazioni relative al progetto predefinito o specificato.</span><span class="sxs-lookup"><span data-stu-id="ad91c-105">Displays information about the default or specified project.</span></span> <span data-ttu-id="ad91c-106">`Get-Project` in particolare, restituisce un referente all'oggetto DTE di Visual Studio (ambiente degli strumenti di sviluppo) per il progetto.</span><span class="sxs-lookup"><span data-stu-id="ad91c-106">`Get-Project` specifically returns a referent to the Visual Studio DTE (Development Tools Environment) object for the project.</span></span>
 
-## <a name="syntax"></a><span data-ttu-id="f7d45-107">Sintassi</span><span class="sxs-lookup"><span data-stu-id="f7d45-107">Syntax</span></span>
+## <a name="syntax"></a><span data-ttu-id="ad91c-107">Sintassi</span><span class="sxs-lookup"><span data-stu-id="ad91c-107">Syntax</span></span>
 
 ```ps
 Get-Project [[-Name] <string>] [-All] [<CommonParameters>]
 ```
 
-## <a name="parameters"></a><span data-ttu-id="f7d45-108">Parametri</span><span class="sxs-lookup"><span data-stu-id="f7d45-108">Parameters</span></span>
+## <a name="parameters"></a><span data-ttu-id="ad91c-108">Parametri</span><span class="sxs-lookup"><span data-stu-id="ad91c-108">Parameters</span></span>
 
-| <span data-ttu-id="f7d45-109">Parametro</span><span class="sxs-lookup"><span data-stu-id="f7d45-109">Parameter</span></span> | <span data-ttu-id="f7d45-110">Descrizione</span><span class="sxs-lookup"><span data-stu-id="f7d45-110">Description</span></span> |
+| <span data-ttu-id="ad91c-109">Parametro</span><span class="sxs-lookup"><span data-stu-id="ad91c-109">Parameter</span></span> | <span data-ttu-id="ad91c-110">Descrizione</span><span class="sxs-lookup"><span data-stu-id="ad91c-110">Description</span></span> |
 | --- | --- |
-| <span data-ttu-id="f7d45-111">Nome</span><span class="sxs-lookup"><span data-stu-id="f7d45-111">Name</span></span> | <span data-ttu-id="f7d45-112">Specifica il progetto da visualizzare, per impostazione predefinita il progetto predefinito selezionato nella console di gestione pacchetti.</span><span class="sxs-lookup"><span data-stu-id="f7d45-112">Specifies the project to display, defaulting to the default project selected in the Package Manager Console.</span></span> <span data-ttu-id="f7d45-113">L'opzione-Name è facoltativa.</span><span class="sxs-lookup"><span data-stu-id="f7d45-113">The -Name switch is itself optional.</span></span> |
-| <span data-ttu-id="f7d45-114">Tutti</span><span class="sxs-lookup"><span data-stu-id="f7d45-114">All</span></span> | <span data-ttu-id="f7d45-115">Visualizza le informazioni per ogni progetto nella soluzione. l'ordine dei progetti non è deterministico.</span><span class="sxs-lookup"><span data-stu-id="f7d45-115">Displays information for every project in the solution; the order of projects is not deterministic.</span></span> |
+| <span data-ttu-id="ad91c-111">Nome</span><span class="sxs-lookup"><span data-stu-id="ad91c-111">Name</span></span> | <span data-ttu-id="ad91c-112">Specifica il progetto da visualizzare, per impostazione predefinita il progetto predefinito selezionato nella console di gestione pacchetti.</span><span class="sxs-lookup"><span data-stu-id="ad91c-112">Specifies the project to display, defaulting to the default project selected in the Package Manager Console.</span></span> <span data-ttu-id="ad91c-113">L'opzione-Name è facoltativa.</span><span class="sxs-lookup"><span data-stu-id="ad91c-113">The -Name switch is itself optional.</span></span> |
+| <span data-ttu-id="ad91c-114">Tutti</span><span class="sxs-lookup"><span data-stu-id="ad91c-114">All</span></span> | <span data-ttu-id="ad91c-115">Visualizza le informazioni per ogni progetto nella soluzione. l'ordine dei progetti non è deterministico.</span><span class="sxs-lookup"><span data-stu-id="ad91c-115">Displays information for every project in the solution; the order of projects is not deterministic.</span></span> |
 
-<span data-ttu-id="f7d45-116">Nessuno di questi parametri accetta caratteri jolly o di input della pipeline.</span><span class="sxs-lookup"><span data-stu-id="f7d45-116">None of these parameters accept pipeline input or wildcard characters.</span></span>
+<span data-ttu-id="ad91c-116">Nessuno di questi parametri accetta caratteri jolly o di input della pipeline.</span><span class="sxs-lookup"><span data-stu-id="ad91c-116">None of these parameters accept pipeline input or wildcard characters.</span></span>
 
-## <a name="common-parameters"></a><span data-ttu-id="f7d45-117">Parametri comuni</span><span class="sxs-lookup"><span data-stu-id="f7d45-117">Common Parameters</span></span>
+## <a name="common-parameters"></a><span data-ttu-id="ad91c-117">Parametri comuni</span><span class="sxs-lookup"><span data-stu-id="ad91c-117">Common Parameters</span></span>
 
-<span data-ttu-id="f7d45-118">`Get-Project` supporta i seguenti [parametri comuni di PowerShell](/powershell/module/microsoft.powershell.core/about/about_commonparameters): debug, azione di errore, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction e WarningVariable.</span><span class="sxs-lookup"><span data-stu-id="f7d45-118">`Get-Project` supports the following [common PowerShell parameters](/powershell/module/microsoft.powershell.core/about/about_commonparameters): Debug, Error Action, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction, and WarningVariable.</span></span>
+<span data-ttu-id="ad91c-118">`Get-Project` supporta i seguenti [parametri comuni di PowerShell](/powershell/module/microsoft.powershell.core/about/about_commonparameters): debug, azione di errore, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction e WarningVariable.</span><span class="sxs-lookup"><span data-stu-id="ad91c-118">`Get-Project` supports the following [common PowerShell parameters](/powershell/module/microsoft.powershell.core/about/about_commonparameters): Debug, Error Action, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction, and WarningVariable.</span></span>
 
-## <a name="examples"></a><span data-ttu-id="f7d45-119">Esempi</span><span class="sxs-lookup"><span data-stu-id="f7d45-119">Examples</span></span>
+## <a name="examples"></a><span data-ttu-id="ad91c-119">Esempi</span><span class="sxs-lookup"><span data-stu-id="ad91c-119">Examples</span></span>
 
 ```ps
 # Displays information for the default project
