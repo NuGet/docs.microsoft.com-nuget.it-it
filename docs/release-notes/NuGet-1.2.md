@@ -42,8 +42,8 @@ Questi assembly non sono inclusi nel pacchetto perché si presuppone che si trov
 
 |Attributo |Descrizione|
 |----------------|-----------|
-|**assemblyName**|*Obbligatorio* . Nome dell'assembly, ad esempio `System.Net` .|
-|**targetFramework**|*Facoltativo* . Consente di specificare un Framework e un nome di profilo (o alias) a cui si applica questo assembly del Framework, ad esempio "net40" o "SL4". USA lo stesso formato descritto in [supporto di più framework di destinazione](../create-packages/supporting-multiple-target-frameworks.md).|
+|**assemblyName**|*Obbligatorio*. Nome dell'assembly, ad esempio `System.Net` .|
+|**targetFramework**|*Facoltativo*. Consente di specificare un Framework e un nome di profilo (o alias) a cui si applica questo assembly del Framework, ad esempio "net40" o "SL4". USA lo stesso formato descritto in [supporto di più framework di destinazione](../create-packages/supporting-multiple-target-frameworks.md).|
 
 ```xml
   <frameworkAssemblies>

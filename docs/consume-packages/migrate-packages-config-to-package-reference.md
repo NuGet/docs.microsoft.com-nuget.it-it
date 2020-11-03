@@ -57,7 +57,7 @@ A questo punto, l'opzione di migrazione dovrebbe essere visibile. Si noti che qu
 
 1. Aprire una soluzione contenente il progetto con `packages.config`.
 
-1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul nodo **Riferimenti** o sul file `packages.config` e scegliere **Esegui la migrazione da packages.config a PackageReference** .
+1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul nodo **Riferimenti** o sul file `packages.config` e scegliere **Esegui la migrazione da packages.config a PackageReference**.
 
 1. L'utilità di migrazione analizza i riferimenti ai pacchetti NuGet del progetto e tenta di categorizzarli in **Dipendenze di primo livello** (pacchetti NuGet installati direttamente) e **Dipendenze transitive** (pacchetti installati come dipendenze dei pacchetti di primo livello).
 
@@ -82,7 +82,7 @@ A questo punto, l'opzione di migrazione dovrebbe essere visibile. Si noti che qu
 
 1. Aprire il progetto.
 
-1. Aprire la console di Gestione pacchetti dal menu **Strumenti > Gestione pacchetti NuGet > Console di Gestione pacchetti** .
+1. Aprire la console di Gestione pacchetti dal menu **Strumenti > Gestione pacchetti NuGet > Console di Gestione pacchetti**.
 
 1. Eseguire il comando seguente nella console:
 

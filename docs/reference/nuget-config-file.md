@@ -325,7 +325,7 @@ Imposta il formato di gestione dei pacchetti predefinito, ovvero *packages.confi
 
 | Chiave | Valore |
 | --- | --- |
-| format | Valore booleano che indica il formato di gestione dei pacchetti predefinito. Se `1` , il formato è PackageReference. Se `0` , format è *packages.config* . |
+| format | Valore booleano che indica il formato di gestione dei pacchetti predefinito. Se `1` , il formato è PackageReference. Se `0` , format è *packages.config*. |
 | disabled | Valore booleano che indica se visualizzare la richiesta di selezione di un formato di pacchetto predefinito durante la prima installazione del pacchetto. `False` nasconde la richiesta. |
 
 **Esempio** :

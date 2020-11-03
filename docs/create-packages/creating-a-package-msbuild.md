@@ -96,7 +96,7 @@ Se si usa MSBuild con un progetto di tipo non SDK e PackageReference, aggiungere
    </ItemGroup>
    ```
 
-2. Aprire un prompt dei comandi per gli sviluppatori digitando **Prompt dei comandi per gli sviluppatori** nella casella **Cerca** .
+2. Aprire un prompt dei comandi per gli sviluppatori digitando **Prompt dei comandi per gli sviluppatori** nella casella **Cerca**.
 
    In genere, è consigliabile avviare il prompt dei comandi per gli sviluppatori per Visual Studio dal menu **Start** , in modo che venga configurato con tutti i percorsi necessari per MSBuild.
 

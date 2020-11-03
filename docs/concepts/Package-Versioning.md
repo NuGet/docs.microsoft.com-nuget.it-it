@@ -15,7 +15,7 @@ ms.locfileid: "93237361"
 ---
 # <a name="package-versioning"></a>Controllo delle versioni dei pacchetti
 
-A un pacchetto specifico viene sempre fatto riferimento usando l'identificatore del pacchetto e un numero di versione esatto. Per [Entity Framework](https://www.nuget.org/packages/EntityFramework/) su nuget.org, ad esempio, sono disponibili alcune decine di pacchetti specifici, compresi tra la versione *4.1.10311* e la versione *6.1.3* (la versione stabile più recente) e svariate versioni non definitive come *6.2.0-beta1* .
+A un pacchetto specifico viene sempre fatto riferimento usando l'identificatore del pacchetto e un numero di versione esatto. Per [Entity Framework](https://www.nuget.org/packages/EntityFramework/) su nuget.org, ad esempio, sono disponibili alcune decine di pacchetti specifici, compresi tra la versione *4.1.10311* e la versione *6.1.3* (la versione stabile più recente) e svariate versioni non definitive come *6.2.0-beta1*.
 
 Quando si crea un pacchetto, si assegna un numero di versione specifico con un suffisso di testo per la versione non definitiva facoltativo. Quando si utilizzano i pacchetti, invece, è possibile specificare un numero di versione esatto o un intervallo di versioni accettabili.
 
@@ -55,7 +55,7 @@ Ciò premesso, gli sviluppatori di pacchetti seguono generalmente convenzioni di
 - `-rc`: versione finale candidata, in genere potenzialmente finale (stabile) se non emergono bug significativi.
 
 > [!Note]
-> NuGet 4.3.0+ supporta [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html), ovvero numeri di versione non definitiva con la notazione con punto, come in *1.0.1-build.23* . La notazione con punto non è supportata con le versioni di NuGet precedenti alla versione 4.3.0. È possibile usare un formato come *1.0.1-build23* .
+> NuGet 4.3.0+ supporta [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html), ovvero numeri di versione non definitiva con la notazione con punto, come in *1.0.1-build.23*. La notazione con punto non è supportata con le versioni di NuGet precedenti alla versione 4.3.0. È possibile usare un formato come *1.0.1-build23*.
 
 Se durante la risoluzione dei riferimenti al pacchetto risultano più versioni del pacchetto che differiscono solo per il suffisso, NuGet sceglie prima una versione senza suffisso, quindi applica la precedenza alle versioni non definitive in ordine alfabetico inverso. Le versioni seguenti, ad esempio, verrebbero scelte nell'esatto ordine indicato:
 
@@ -80,7 +80,7 @@ Certe regole semantiche di SemVer 2.0.0 non sono supportate nei client meno rece
 Per nuget.org, un pacchetto viene definito come pacchetto SemVer 2.0.0 se una delle affermazioni seguenti è vera:
 
 - La versione del pacchetto è conforme a SemVer 2.0.0 ma non è conforme a SemVer 1.0.0, come definito sopra.
-- Uno degli intervalli di versioni delle dipendenze del pacchetto ha una versione minima o massima conforme a SemVer 2.0.0 ma non conforme a SemVer 1.0.0, definita in precedenza. Ad esempio, *[1.0.0-alpha.1, )* .
+- Uno degli intervalli di versioni delle dipendenze del pacchetto ha una versione minima o massima conforme a SemVer 2.0.0 ma non conforme a SemVer 1.0.0, definita in precedenza. Ad esempio, *[1.0.0-alpha.1, )*.
 
 Se si carica un pacchetto specifico di SemVer 2.0.0 in nuget.org, il pacchetto è invisibile ai client meno recenti e disponibile solo per i client NuGet seguenti:
 

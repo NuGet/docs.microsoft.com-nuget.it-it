@@ -32,7 +32,7 @@ Per creare un account di NuGet.org, è necessario avere un account Microsoft per
 
 1. Immettere i dettagli dell'account Microsoft o Azure Active Directory.
 
-1. Fare clic su **Yes** (Sì) per accettare le autorizzazioni da concedere all'applicazione *NuGet.org* .
+1. Fare clic su **Yes** (Sì) per accettare le autorizzazioni da concedere all'applicazione *NuGet.org*.
 
    ![Concessione delle autorizzazioni a NuGet.org](media/nuget-org-permissions.png)
 
@@ -50,7 +50,7 @@ Si ha ora un account di NuGet.org. È possibile eseguire la gestione degli accou
 
 L'autenticazione a due fattori, o 2FA, è un livello aggiuntivo di sicurezza usato per l'accesso a siti Web o app. Con 2FA, è necessario eseguire l'accesso con l'account Microsoft (MSA) e fornire un'altra forma di autenticazione che solo si conosce o si ha accesso. Per migliorare la protezione dell'account, abilitare l'autenticazione a due fattori (scelta consigliata).
 
-1. Quando si è connessi all'account, aprire il profilo e scegliere **Abilita** in **Account di accesso** .
+1. Quando si è connessi all'account, aprire il profilo e scegliere **Abilita** in **Account di accesso**.
 
    ![Abilitare 2FA](media/nuget-org-register-2fa.png)
 
@@ -60,7 +60,7 @@ L'autenticazione a due fattori, o 2FA, è un livello aggiuntivo di sicurezza usa
 
 3. Quando si accede, scegliere testo o posta elettronica come seconda forma di autenticazione.
 
-   Verificare il numero di telefono o l'indirizzo di posta elettronica già associato all'account Microsoft. Potrebbe essere necessario immettere un nuovo numero di telefono o un nuovo indirizzo di posta elettronica per l'account. In tal caso, immettere le informazioni richieste come indicato e quindi fare clic su **Avanti** .
+   Verificare il numero di telefono o l'indirizzo di posta elettronica già associato all'account Microsoft. Potrebbe essere necessario immettere un nuovo numero di telefono o un nuovo indirizzo di posta elettronica per l'account. In tal caso, immettere le informazioni richieste come indicato e quindi fare clic su **Avanti**.
 
    ![Abilitare 2FA](media/nuget-org-sign-in-2fa.png)
 

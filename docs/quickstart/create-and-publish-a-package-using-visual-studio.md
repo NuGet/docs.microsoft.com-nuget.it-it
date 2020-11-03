@@ -36,7 +36,7 @@ La creazione di un pacchetto NuGet da una libreria di classi .NET Standard in Vi
 
 È possibile usare un progetto libreria di classi .NET Standard esistente per il codice che si vuole includere in un pacchetto oppure creare un progetto semplice come segue:
 
-1. In Visual Studio scegliere **File > Nuovo > Progetto** , espandere il nodo **Visual C# > .NET Standard** , selezionare il modello "Libreria di classi (.NET Standard)", assegnare al progetto il nome AppLogger e fare clic su **OK** .
+1. In Visual Studio scegliere **File > Nuovo > Progetto** , espandere il nodo **Visual C# > .NET Standard** , selezionare il modello "Libreria di classi (.NET Standard)", assegnare al progetto il nome AppLogger e fare clic su **OK**.
 
    > [!Tip]
    > A meno che non esista un motivo valido per decidere diversamente, .NET Standard è la destinazione preferita per i pacchetti NuGet, perché garantisce la compatibilità con la gamma più ampia di progetti consumer.
@@ -60,7 +60,7 @@ namespace AppLogger
 
 ## <a name="configure-package-properties"></a>Configurare le proprietà del pacchetto
 
-1. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere il comando di menu **Proprietà** , quindi selezionare la scheda **Pacchetto** .
+1. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere il comando di menu **Proprietà** , quindi selezionare la scheda **Pacchetto**.
 
    La scheda **Pacchetto** viene visualizzata solo per i progetti di tipo SDK in Visual Studio, in genere progetti di libreria di classi .NET Standard o .NET Core. Per i progetti non di tipo SDK (in genere .NET Framework), [eseguire la migrazione del progetto](../consume-packages/migrate-packages-config-to-package-reference.md) o vedere [Creare e pubblicare un pacchetto .NET Framework](create-and-publish-a-package-using-visual-studio-net-framework.md) per istruzioni dettagliate.
 
@@ -76,15 +76,15 @@ namespace AppLogger
     >
     > Se si tenta di pubblicare un pacchetto con un nome già esistente, viene visualizzato un errore.
 
-1. (Facoltativo) Per visualizzare le proprietà direttamente nel file di progetto, fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere **Modifica AppLogger.csproj** .
+1. (Facoltativo) Per visualizzare le proprietà direttamente nel file di progetto, fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere **Modifica AppLogger.csproj**.
 
-   Questa opzione è disponibile solo a partire da Visual Studio 2017 per i progetti che usano l'attributo SDK. In caso contrario, fare clic con il pulsante destro del mouse sul progetto e scegliere **Scarica progetto** . Fare quindi clic con il pulsante destro del mouse sul progetto scaricato e scegliere **Modifica AppLogger.csproj** .
+   Questa opzione è disponibile solo a partire da Visual Studio 2017 per i progetti che usano l'attributo SDK. In caso contrario, fare clic con il pulsante destro del mouse sul progetto e scegliere **Scarica progetto**. Fare quindi clic con il pulsante destro del mouse sul progetto scaricato e scegliere **Modifica AppLogger.csproj**.
 
 ## <a name="run-the-pack-command"></a>Eseguire il comando pack
 
-1. Impostare la configurazione da **rilasciare** .
+1. Impostare la configurazione da **rilasciare**.
 
-1. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere il comando **Pack** .
+1. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere il comando **Pack**.
 
     ![Comando pack NuGet nel menu di scelta rapida del progetto di Visual Studio](media/qs_create-vs-02-pack-command.png)
 
@@ -103,9 +103,9 @@ namespace AppLogger
 
 È possibile configurare Visual Studio per generare automaticamente il pacchetto NuGet quando si compila il progetto.
 
-1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto e scegliere **Proprietà** .
+1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto e scegliere **Proprietà**.
 
-2. Nella scheda **Pacchetto** selezionare **Genera pacchetto NuGet durante la compilazione** .
+2. Nella scheda **Pacchetto** selezionare **Genera pacchetto NuGet durante la compilazione**.
 
    ![Generare automaticamente il pacchetto in fase di compilazione](media/qs_create-vs-05-generate-on-build.png)
 

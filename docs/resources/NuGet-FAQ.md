@@ -45,7 +45,7 @@ Per altre informazioni, vedere [Ricerca e scelta di pacchetti](../consume-packag
 
 **Come è possibile controllare la versione esatta degli strumenti di NuGet installati?**
 
-In Visual Studio, usare il comando **Guida > informazioni su Microsoft Visual Studio** e controllare la versione visualizzata accanto a **Gestione pacchetti NuGet** .
+In Visual Studio, usare il comando **Guida > informazioni su Microsoft Visual Studio** e controllare la versione visualizzata accanto a **Gestione pacchetti NuGet**.
 
 In alternativa, avviare la console di Gestione pacchetti ( **Strumenti > Gestione pacchetti NuGet > Console di Gestione pacchetti** ) e immettere `$host` per visualizzare informazioni su NuGet, compresa la versione.
 

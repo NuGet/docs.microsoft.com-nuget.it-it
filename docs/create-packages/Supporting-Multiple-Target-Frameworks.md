@@ -129,7 +129,7 @@ Quando si crea un pacchetto per il file di progetto, NuGet tenta di generare aut
 
 Ogni gruppo ha un attributo denominato `targetFramework` e contiene zero o più elementi `<dependency>`. Tali dipendenze vengono installate insieme quando il framework di destinazione è compatibile con il profilo di framework del progetto. Vedere [Framework di destinazione](../reference/target-frameworks.md) per gli identificatori di framework esatti.
 
-Si consiglia di usare un gruppo per ogni moniker framework di destinazione (TFM) per i file nelle cartelle *lib/* e *ref/* .
+Si consiglia di usare un gruppo per ogni moniker framework di destinazione (TFM) per i file nelle cartelle *lib/* e *ref/*.
 
 L'esempio seguente mostra variazioni diverse dell'elemento `<group>`:
 

@@ -244,7 +244,7 @@ Se vuole accedere a NuGet.org con l'account Microsoft (@yourdomain.com), l'utent
 
 Non è possibile. Per quanto riguarda i criteri, non è possibile modificare i nomi utente. Questa operazione è inoltre una modifica sostanziale per gli utenti che possono avere definito [criteri di attendibilità del pacchetto in base al proprietario del pacchetto](../consume-packages/installing-signed-packages.md#trust-package-owners). L'unico modo per cambiare il nome utente consiste nel creare un nuovo account con il nome utente desiderato. È consigliabile eliminare l'account esistente prima di crearne uno nuovo. In caso contrario non sarà possibile riutilizzare l'account Microsoft registrato.
 > [!Important]
-> L'eliminazione dell'utente **mantiene riservato**`username`. Non sarà possibile riutilizzare lo stesso nome utente, **neanche cambiando alcune lettere in maiuscole o minuscole** . Se, ad esempio, è stato creato un utente con nome utente `mycoolname` e si vuole cambiare quest'ultimo in `MyCoolName` (modifica di maiuscole e minuscole), questa operazione non sarà possibile dopo l'eliminazione dell'utente.
+> L'eliminazione dell'utente **mantiene riservato**`username`. Non sarà possibile riutilizzare lo stesso nome utente, **neanche cambiando alcune lettere in maiuscole o minuscole**. Se, ad esempio, è stato creato un utente con nome utente `mycoolname` e si vuole cambiare quest'ultimo in `MyCoolName` (modifica di maiuscole e minuscole), questa operazione non sarà possibile dopo l'eliminazione dell'utente.
 
 Seguire i passaggi indicati nella sezione [eliminare l'account NuGet.org](#how-to-delete-my-nugetorg-account) e per [registrare un nuovo account con il](individual-accounts.md) nome utente corretto.
 

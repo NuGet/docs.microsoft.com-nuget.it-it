@@ -24,7 +24,7 @@ La console è inclusa in Visual Studio in Windows. Non è disponibile in Visual 
 
 La ricerca e l'installazione di un pacchetto, ad esempio, vengono eseguite con tre semplici passaggi:
 
-1. Aprire il progetto o la soluzione in Visual Studio e aprire la console usando il comando **Strumenti > Gestione pacchetti NuGet > Console di Gestione pacchetti** .
+1. Aprire il progetto o la soluzione in Visual Studio e aprire la console usando il comando **Strumenti > Gestione pacchetti NuGet > Console di Gestione pacchetti**.
 
 1. Trovare il pacchetto che si vuole installare. Se lo si conosce già, andare al passaggio 3.
 
@@ -48,7 +48,7 @@ La ricerca e l'installazione di un pacchetto, ad esempio, vengono eseguite con t
 
 ## <a name="opening-the-console-and-console-controls"></a>Apertura della console e dei controlli della console
 
-1. Aprire la console in Visual Studio usando il comando **Strumenti > Gestione pacchetti NuGet > Console di Gestione pacchetti** . La console è una finestra di Visual Studio che può essere disposta e posizionata nel modo preferito (vedere [Personalizzare il layout delle finestre in Visual Studio](/visualstudio/ide/customizing-window-layouts-in-visual-studio)).
+1. Aprire la console in Visual Studio usando il comando **Strumenti > Gestione pacchetti NuGet > Console di Gestione pacchetti**. La console è una finestra di Visual Studio che può essere disposta e posizionata nel modo preferito (vedere [Personalizzare il layout delle finestre in Visual Studio](/visualstudio/ide/customizing-window-layouts-in-visual-studio)).
 
 1. Per impostazione predefinita, i comandi della console agiscono su un'origine e un progetto di pacchetto specifici impostati nel controllo nella parte superiore della finestra:
 
@@ -79,7 +79,7 @@ Vedere [Install-Package](../reference/ps-reference/ps-ref-install-package.md).
 L'installazione di un pacchetto nella console esegue gli stessi passaggi descritti in [Cosa accade quando viene installato un pacchetto](../concepts/package-installation-process.md), con le aggiunte seguenti:
 
 - Nella console vengono visualizzate le condizioni di licenza applicabili nella finestra con contratto implicito. Se non si accettano le condizioni, è necessario disinstallare il pacchetto immediatamente.
-- Viene inoltre aggiunto un riferimento al pacchetto al file di progetto, visualizzato in **Esplora soluzioni** nel nodo **Riferimenti** . È necessario salvare il progetto per visualizzare direttamente le modifiche nel file di progetto.
+- Viene inoltre aggiunto un riferimento al pacchetto al file di progetto, visualizzato in **Esplora soluzioni** nel nodo **Riferimenti**. È necessario salvare il progetto per visualizzare direttamente le modifiche nel file di progetto.
 
 ## <a name="uninstall-a-package"></a>Disinstalla un pacchetto
 
@@ -98,7 +98,7 @@ Vedere [Uninstall-Package](../reference/ps-reference/ps-ref-uninstall-package.md
 
 Con la disinstallazione di un pacchetto vengono eseguite le azioni seguenti:
 
-- Rimozione dei riferimenti al pacchetto dal progetto (qualsiasi sia il formato di gestione in uso). I riferimenti non vengono più visualizzati in **Esplora soluzioni** . Potrebbe essere necessario ricompilare il progetto per verificarne la rimozione dalla cartella **Bin** .
+- Rimozione dei riferimenti al pacchetto dal progetto (qualsiasi sia il formato di gestione in uso). I riferimenti non vengono più visualizzati in **Esplora soluzioni**. Potrebbe essere necessario ricompilare il progetto per verificarne la rimozione dalla cartella **Bin**.
 - Ripristino delle eventuali modifiche apportate a `app.config` o `web.config` al momento dell'installazione del pacchetto.
 - Rimozione delle dipendenze installate in precedenza se nessun pacchetto rimanente usa tali dipendenze.
 
