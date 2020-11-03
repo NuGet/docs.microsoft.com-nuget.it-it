@@ -6,9 +6,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 09/02/2020
 ms.locfileid: "89359650"
 ---
-<span data-ttu-id="42725-101">La descrizione facoltativa del pacchetto, visualizzata nella pagina NuGet.org del pacchetto, viene estratta dall'oggetto `<description></description>` usato nel `.csproj` file o viene effettuato il pull tramite il `$description` nel [file. NuSpec](../../reference/nuspec.md).</span><span class="sxs-lookup"><span data-stu-id="42725-101">The package's optional description, displayed on the package's NuGet.org page, is either pulled in from the `<description></description>` used in the `.csproj` file or pulled in via the `$description` in the [.nuspec file](../../reference/nuspec.md).</span></span>
+<span data-ttu-id="3890e-101">La descrizione facoltativa del pacchetto, visualizzata nella pagina NuGet.org del pacchetto, viene estratta dall'oggetto `<description></description>` usato nel `.csproj` file o viene effettuato il pull tramite il `$description` nel [file. NuSpec](../../reference/nuspec.md).</span><span class="sxs-lookup"><span data-stu-id="3890e-101">The package's optional description, displayed on the package's NuGet.org page, is either pulled in from the `<description></description>` used in the `.csproj` file or pulled in via the `$description` in the [.nuspec file](../../reference/nuspec.md).</span></span>
 
-<span data-ttu-id="42725-102">Un esempio di un campo di _Descrizione_ è illustrato nel testo XML seguente del `.csproj` file per un pacchetto .NET:</span><span class="sxs-lookup"><span data-stu-id="42725-102">An example of a _description_ field is shown in the following XML text of the `.csproj` file for a .NET package:</span></span>
+<span data-ttu-id="3890e-102">Un esempio di un campo di _Descrizione_ è illustrato nel testo XML seguente del `.csproj` file per un pacchetto .NET:</span><span class="sxs-lookup"><span data-stu-id="3890e-102">An example of a _description_ field is shown in the following XML text of the `.csproj` file for a .NET package:</span></span>
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
