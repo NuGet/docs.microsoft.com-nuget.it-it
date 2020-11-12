@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0edfa1f61e6b18ef38689ed2272b2c5992a46ae6
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 05fa68ad3a0b353117a14e2b3e1cdf13dc806127
+ms.sourcegitcommit: 0cc6ac680c3202d0b036c0bed7910f6709215682
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237848"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94550388"
 ---
 # <a name="restore-packages-using-package-restore"></a>Ripristinare i pacchetti con Ripristino pacchetto
 
@@ -169,7 +169,7 @@ Per ripristinare i pacchetti elencati nel file di progetto con PackageReference,
    Verificare che l'output di MSBuild indichi che la compilazione è stata completata correttamente.
    
 > [!Note]
-> MSBuild dispone di un' `-restore` opzione che verrà eseguita `Restore` , ricaricare il progetto e quindi compilare. Vedere [ripristino e compilazione con un comando di MSBuild](/nuget/reference/msbuild-targets#restoring-and-building-with-one-msbuild-command).
+> MSBuild dispone di un' `-restore` opzione che verrà eseguita `Restore` , ricaricare il progetto e quindi compilare. Vedere [ripristino e compilazione con un comando di MSBuild](../reference/msbuild-targets.md#restoring-and-building-with-one-msbuild-command).
 
 ```cmd
 # Will restore the project, then build, since build is the default target.
