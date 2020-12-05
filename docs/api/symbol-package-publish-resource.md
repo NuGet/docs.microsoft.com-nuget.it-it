@@ -1,9 +1,7 @@
 ---
 title: Pacchetti di simboli push, API NuGet | Microsoft Docs
 author: cristinamanum
-ms.author:
-- cmanu
-- kraigb
+ms.author: cmanu
 manager: skofman
 ms.date: 10/30/2018
 ms.topic: reference
@@ -12,29 +10,29 @@ ms.technology: ''
 description: Il servizio Publish consente ai client di pubblicare nuovi pacchetti di simboli.
 keywords: Pacchetto di simboli push dell'API NuGet
 ms.reviewer: karann
-ms.openlocfilehash: 27e557bf15ce31152243a409eddc4112eeb6c38b
-ms.sourcegitcommit: ac9a00ccaf90e539a381e92b650074910b21eb0d
+ms.openlocfilehash: bd4a10cc976c9d0775a63cfe61c35327c196065c
+ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70235112"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96738877"
 ---
 # <a name="push-symbol-packages"></a>Pacchetti di simboli push
 
 È possibile eseguire il push dei pacchetti di simboli ([snupkg](../create-packages/Symbol-Packages-snupkg.md)) usando l'API NuGet V3.
-Queste operazioni sono basate `SymbolPackagePublish` sulla risorsa presente nell'indice del [servizio](service-index.md).
+Queste operazioni sono basate sulla `SymbolPackagePublish` risorsa presente nell' [indice del servizio](service-index.md).
 
 ## <a name="versioning"></a>Controllo delle versioni
 
-Viene utilizzato `@type` il valore seguente:
+`@type`Viene utilizzato il valore seguente:
 
-Valore di @type                 | Note
+Valore della proprietà @type                 | Note
 --------------------        | -----
 SymbolPackagePublish/4.9.0  | Versione iniziale
 
 ## <a name="base-url"></a>URL di base
 
-L'URL di base per le API seguenti è il valore della `@id` proprietà `SymbolPackagePublish/4.9.0` della risorsa nell' [indice del servizio](service-index.md)dell'origine del pacchetto. Per la documentazione riportata di seguito, viene usato l'URL di NuGet. org. Considerare `https://www.nuget.org/api/v2/symbolpackage` come un segnaposto per `@id` il valore trovato nell'indice del servizio.
+L'URL di base per le API seguenti è il valore della `@id` proprietà della `SymbolPackagePublish/4.9.0` risorsa nell' [indice del servizio](service-index.md)dell'origine del pacchetto. Per la documentazione riportata di seguito, viene usato l'URL di NuGet. org. Considerare `https://www.nuget.org/api/v2/symbolpackage` come un segnaposto per il `@id` valore trovato nell'indice del servizio.
 
 ## <a name="http-methods"></a>Metodi HTTP
 
@@ -53,9 +51,9 @@ I pacchetti di simboli con lo stesso ID e la stessa versione possono essere invi
 
 ### <a name="request-parameters"></a>Parametri della richiesta
 
-Name           | In     | Type   | Obbligatoria | Note
+Nome           | In     | Type   | Necessario | Note
 -------------- | ------ | ------ | -------- | -----
-X-NuGet-ApiKey | Intestazione | string | sì      | Ad esempio, `X-NuGet-ApiKey: {USER_API_KEY}`.
+X-NuGet-ApiKey | Intestazione | string | sì      | ad esempio, `X-NuGet-ApiKey: {USER_API_KEY}`
 
 La chiave API è una stringa opaca ottenuta dall'origine del pacchetto dall'utente e configurata nel client. Non è richiesto alcun formato stringa particolare, ma la lunghezza della chiave API non deve superare una dimensione ragionevole per i valori dell'intestazione HTTP.
 

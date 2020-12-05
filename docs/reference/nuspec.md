@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: f91d47bdf9b957b512d3d83434693ee93de07afb
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 6e5107ac05046ea46cc819ebe2a504ba6b030634
+ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623136"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96738942"
 ---
 # <a name="nuspec-reference"></a>Informazioni di riferimento sul file .nuspec
 
@@ -96,6 +96,9 @@ Quando si carica un pacchetto in nuget.org, il `authors` campo è limitato a 400
 ### <a name="optional-metadata-elements"></a>Elementi dei metadati facoltativi
 
 #### <a name="owners"></a>owners
+> [!Important]
+> il proprietario è deprecato. Usare invece gli autori.
+
 Elenco delimitato da virgole degli autori di pacchetti che utilizzano nomi di profilo in nuget.org. Si tratta spesso dello stesso elenco di `authors` e viene ignorato quando si carica il pacchetto in NuGet.org. Vedere [gestione dei proprietari dei pacchetti in NuGet.org](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg). 
 
 #### <a name="projecturl"></a>projectUrl
@@ -205,7 +208,7 @@ Per l'equivalente MSBuild, vedere la pagina [relativa all'imballaggio di un file
 Valore booleano che specifica se il client deve richiedere al consumer di accettare la licenza del pacchetto prima di installarlo.
 
 #### <a name="developmentdependency"></a>developmentDependency
-*(2.8 +) * Valore booleano che specifica se il pacchetto deve essere contrassegnato come dipendenza solo per lo sviluppo, in modo che il pacchetto non possa essere incluso come dipendenza in altri pacchetti. Con PackageReference (NuGet 4.8 +), questo flag indica anche che gli asset in fase di compilazione verranno esclusi dalla compilazione. Vedere [supporto di DevelopmentDependency per PackageReference](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference)
+*(2.8 +)* Valore booleano che specifica se il pacchetto deve essere contrassegnato come dipendenza solo per lo sviluppo, in modo che il pacchetto non possa essere incluso come dipendenza in altri pacchetti. Con PackageReference (NuGet 4.8 +), questo flag indica anche che gli asset in fase di compilazione verranno esclusi dalla compilazione. Vedere [supporto di DevelopmentDependency per PackageReference](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference)
 
 #### <a name="summary"></a>riepilogo
 > [!Important]
@@ -319,7 +322,7 @@ In genere, quando si dispone di un progetto, si crea inizialmente il file `.nusp
 
 Ad eccezione di `$configuration$`, i valori nel progetto vengono usati preferenzialmente rispetto a qualsiasi altro valore assegnato allo stesso token nella riga di comando.
 
-| token | Origine del valore | Valore
+| Token | Origine del valore | Valore
 | --- | --- | ---
 | **$id $** | File di progetto | AssemblyName (title) dal file di progetto |
 | **$version $** | AssemblyInfo | AssemblyInformationalVersion se presente, in caso contrario AssemblyVersion |
@@ -360,7 +363,7 @@ Quando si carica un pacchetto in nuget.org, ogni attributo di dipendenza `id` è
 
 | Tag di inclusione/esclusione | Cartelle di destinazione interessate |
 | --- | --- |
-| contentFiles | Contenuto |
+| contentFiles | Content |
 | runtime | Runtime, Resources e FrameworkAssemblies |
 | compile | lib |
 | build | build (proprietà e destinazioni MSBuild) |
@@ -521,7 +524,7 @@ Ogni elemento `<file>` specifica gli attributi seguenti:
 | **target** | Percorso relativo della cartella all'interno del pacchetto in cui vengono collocati i file di origine, che deve iniziare con `lib`, `content`, `build` o `tools`. Vedere [Creazione di un file .nuspec da una directory di lavoro basata su convenzioni](../create-packages/creating-a-package.md#from-a-convention-based-working-directory). |
 | **escludere** | Elenco delimitato da punti e virgola dei file o dei modelli di file da escludere dal percorso `src`. Il carattere jolly `*` è consentito e il carattere jolly doppio `**` implica una ricerca ricorsiva nelle cartelle. |
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 **Singolo assembly**
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 16fd7b9103ef5ac335f0b2e5493dd2983b182f50
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 4a04c6dd7993fc47bcf7a6fe46236ed700a0d105
+ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623175"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96738929"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Pack e restore di NuGet come destinazioni MSBuild
 
@@ -48,7 +48,7 @@ Si noti che le proprietà `Owners` e `Summary` da `.nuspec` non sono supportate 
 
 | Valore di attributo/NuSpec | Proprietà MSBuild | Predefinito | Note |
 |--------|--------|--------|--------|
-| ID | PackageId | AssemblyName | $(AssemblyName) da MSBuild |
+| Id | PackageId | AssemblyName | $(AssemblyName) da MSBuild |
 | Versione | PackageVersion | Versione | Compatibile con SemVer, ad esempio "1.0.0", "1.0.0-beta" o "1.0.0-beta-00345" |
 | VersionPrefix | PackageVersionPrefix | empty | L'impostazione di PackageVersion sovrascrive PackageVersionPrefix |
 | VersionSuffix | PackageVersionSuffix | empty | $(VersionSuffix) da MSBuild. L'impostazione di PackageVersion sovrascrive PackageVersionSuffix |
@@ -71,7 +71,7 @@ Si noti che le proprietà `Owners` e `Summary` da `.nuspec` non sono supportate 
 | Repository/ramo | RepositoryBranch | empty | Informazioni facoltative sul ramo del repository. Per includere questa proprietà, è necessario specificare anche *RepositoryUrl* . Esempio: *Master* (NuGet 4.7.0 +) |
 | Repository/commit | RepositoryCommit | empty | Commit o insieme di modifiche facoltativo del repository per indicare l'origine su cui è stato compilato il pacchetto. Per includere questa proprietà, è necessario specificare anche *RepositoryUrl* . Esempio: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
-| Riepilogo | Non supportate | | |
+| Riepilogo | Non supportato | | |
 
 ### <a name="pack-target-inputs"></a>Input destinazione pack
 
@@ -365,7 +365,8 @@ Esempio:
 1. Download dei pacchetti
 1. Scrittura dei file di asset, delle destinazioni e delle proprietà
 
-La `restore` destinazione funziona **solo** per i progetti che usano il formato PackageReference. **Non funziona per** i progetti che usano il `packages.config` formato; usare invece il [ripristino NuGet](../reference/cli-reference/cli-ref-restore.md) .
+La `restore` destinazione funziona per i progetti che usano il formato PackageReference.
+`MSBuild 16.5+` dispone anche del supporto per il [consenso esplicito](#restoring-packagereference-and-packages.config-with-msbuild) per il `packages.config` formato.
 
 ### <a name="restore-properties"></a>Ripristino delle proprietà
 
@@ -391,9 +392,10 @@ Possono esistere ulteriori impostazioni di ripristino derivate da proprietà di 
 | RestorePackagesWithLockFile | Optare per l'utilizzo di un file di blocco. |
 | RestoreLockedMode | Eseguire Restore in modalità bloccata. Questo significa che il ripristino non valuterà nuovamente le dipendenze. |
 | NuGetLockFilePath | Percorso personalizzato per il file di blocco. Il percorso predefinito è accanto al progetto ed è denominato `packages.lock.json` . |
-| RestoreForceEvaluate | Forza il ripristino per ricalcolare le dipendenze e aggiornare il file di blocco senza alcun avviso. | 
+| RestoreForceEvaluate | Forza il ripristino per ricalcolare le dipendenze e aggiornare il file di blocco senza alcun avviso. |
+| RestorePackagesConfig | Opzione di consenso esplicito che ripristina i progetti con packages.config. Supporto `MSBuild -t:restore` solo con. |
 
-#### <a name="examples"></a>Esempi
+#### <a name="examples"></a>Esempio
 
 Riga di comando:
 
@@ -435,6 +437,17 @@ msbuild -t:build -restore
 ```
 
 La stessa logica si applica ad altre destinazioni simili a `build` .
+
+### <a name="restoring-packagereference-and-packagesconfig-with-msbuild"></a>Ripristino di PackageReference e packages.config con MSBuild
+
+Con MSBuild 16.5 +, packages.config sono supportati anche per `msbuild -t:restore` .
+
+```cli
+msbuild -t:restore -p:RestorePackagesConfig=true
+```
+
+> [!NOTE]
+> `packages.config` il ripristino è disponibile solo con `MSBuild 16.5+` e non con `dotnet.exe`
 
 ### <a name="packagetargetfallback"></a>PackageTargetFallback
 
