@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 11/02/2017
 ms.topic: tutorial
 ms.reviewer: kraigb
-ms.openlocfilehash: 0bd21c427b5b89ae9e5f1500d75e1bf63a96e828
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 749d9466976d51c7cb65332c8b149e3a30862e63
+ms.sourcegitcommit: 650c08f8bc3d48dfd206a111e5e2aaca3001f569
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64498230"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97523394"
 ---
 # <a name="query-for-all-packages-published-to-nugetorg"></a>Query per recuperare tutti i pacchetti pubblicati su nuget.org
 
@@ -32,7 +32,7 @@ Per questo motivo, è possibile fare riferimento alla guida seguente per gestire
 
 ## <a name="overview"></a>Panoramica
 
-Al centro di questa guida si trova una risorsa dell'[API NuGet](../../api/overview.md) chiamata **catalogo**. Il catalogo è un'API di solo accodamento che consente al chiamante di visualizzare una cronologia completa dei pacchetti aggiunti, modificati ed eliminati da nuget.org. Se sei interessato a tutti o anche a un sottoinsieme di pacchetti pubblicati per nuget.org, il catalogo è un ottimo modo per rimanere aggiornato con il set di pacchetti attualmente disponibili con il passare del tempo.
+Al centro di questa guida si trova una risorsa dell'[API NuGet](../../api/overview.md) chiamata **catalogo**. Il catalogo è un'API di sola aggiunta che consente al chiamante di visualizzare una cronologia completa dei pacchetti aggiunti, modificati ed eliminati da nuget.org. Se si è interessati a tutti o anche a un subset di pacchetti pubblicati in nuget.org, il catalogo è un ottimo modo per rimanere sempre aggiornati con il set di pacchetti attualmente disponibili.
 
 Questa guida è da intendersi come una presentazione generale, ma se si è interessati a informazioni più dettagliate sul catalogo, vedere il relativo [documento di riferimento per l'API](../../api/catalog-resource.md).
 
@@ -56,7 +56,7 @@ Il percorso di ogni risorsa (endpoint) nell'API NuGet deve essere individuato tr
 
     GET https://api.nuget.org/v3/index.json
 
-Il documento di servizio è un documento JSON contenente tutte le risorse in nuget.org. Cercare la risorsa `@type` con il `Catalog/3.0.0`valore della proprietà di . Il valore della proprietà `@id` associato è l'URL per l'indice del catalogo stesso. 
+Il documento di servizio è un documento JSON contenente tutte le risorse in nuget.org. Cercare la risorsa con il `@type` valore della proprietà `Catalog/3.0.0` . Il valore della proprietà `@id` associato è l'URL per l'indice del catalogo stesso. 
 
 ## <a name="find-new-catalog-leaves"></a>Trovare nuovi elementi foglia del catalogo
 
@@ -110,7 +110,7 @@ git clone https://github.com/NuGet/Samples.git
 
 ### <a name="catalog-sdk"></a>SDK del catalogo
 
-Il modo più semplice per utilizzare il catalogo consiste nell'usare la versione preliminare del pacchetto SDK del catalogo .NET: [NuGet.Protocol.Catalog](https://dotnet.myget.org/feed/nuget-build/package/nuget/NuGet.Protocol.Catalog). Questo pacchetto è disponibile nel feed MyGet `nuget-build`, per cui si usa l'URL di origine del pacchetto NuGet `https://dotnet.myget.org/F/nuget-build/api/v3/index.json`.
+Il modo più semplice per usare il catalogo consiste nell'usare il pacchetto SDK del catalogo .NET in versione non definitiva `NuGet.Protocol.Catalog` , disponibile in Azure Artifacts usando l'URL di origine del pacchetto NuGet seguente: `https://pkgs.dev.azure.com/dnceng/public/_packaging/nuget-build/nuget/v3/index.json` .
 
 È possibile installare questo pacchetto in un progetto compatibile con `netstandard1.3` o versione successiva, come NET Framework 4.6.
 

@@ -1,16 +1,16 @@
 ---
 title: Ripristino dei pacchetti NuGet
 description: Panoramica della modalità di ripristino dei pacchetti NuGet da cui dipende un progetto, inclusa la procedura per disabilitare il ripristino e vincolare le versioni.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: be68d3bd1c7dfcc5661276c0b62d46722af61a00
-ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
+ms.openlocfilehash: bac4d88c29539f9fbe7b33b44ce11d350920d365
+ms.sourcegitcommit: 650c08f8bc3d48dfd206a111e5e2aaca3001f569
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96738955"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97523534"
 ---
 # <a name="restore-packages-using-package-restore"></a>Ripristinare i pacchetti con Ripristino pacchetto
 
@@ -22,7 +22,7 @@ Con l'opzione Ripristino pacchetto si garantisce che tutte le dipendenze di un p
 
 L'opzione Ripristino pacchetto installa prima di tutto le dipendenze dirette di un progetto in base alle esigenze, quindi installa eventuali dipendenze di tali pacchetti in tutto il grafico dipendenze.
 
-Se un pacchetto non è già installato, NuGet tenta prima di tutto di recuperarlo dalla [cache](../consume-packages/managing-the-global-packages-and-cache-folders.md). Se il pacchetto non è presente nella cache, NuGet tenta di scaricare il pacchetto da tutte le origini abilitate nell'elenco in **strumenti**  >  **Opzioni Opzioni**  >  pacchetti di **Gestione pacchetti NuGet**  >  **Package Sources** in Visual Studio. Durante il ripristino NuGet ignora l'ordine delle origini dei pacchetti e usa il pacchetto da una delle origini che per prima risponde alle richieste. Per altre informazioni sul comportamento di NuGet, vedere [Configurazioni comuni di NuGet](Configuring-NuGet-Behavior.md). 
+Se un pacchetto non è già installato, NuGet tenta prima di tutto di recuperarlo dalla [cache](../consume-packages/managing-the-global-packages-and-cache-folders.md). Se il pacchetto non è presente nella cache, NuGet tenta di scaricare il pacchetto da tutte le origini abilitate nell'elenco in **strumenti**  >  **Opzioni Opzioni**  >  pacchetti di **Gestione pacchetti NuGet**  >   in Visual Studio. Durante il ripristino NuGet ignora l'ordine delle origini dei pacchetti e usa il pacchetto da una delle origini che per prima risponde alle richieste. Per altre informazioni sul comportamento di NuGet, vedere [Configurazioni comuni di NuGet](Configuring-NuGet-Behavior.md). 
 
 > [!Note]
 > NuGet non indica un errore di ripristino di un pacchetto fino a quando non sono state controllate tutte le origini. In quel momento, NuGet segnala un errore solo per l'ultima origine nell'elenco. Questo tipo di errore implica che il pacchetto non era presente in *alcuna* delle origini, anche se gli errori non vengono visualizzati singolarmente per ogni origine.
@@ -147,7 +147,7 @@ NuGet presenta due formati in cui un progetto può usare i pacchetti: [`PackageR
 
 ## <a name="restore-using-msbuild"></a>Eseguire il ripristino con MSBuild
 
-Usare il comando [msbuild-t:Restore](../reference/msbuild-targets.md#restore-target) per ripristinare i pacchetti elencati nel file di progetto (vedere [PackageReference](../../consume-packages/package-references-in-project-files.md)) e a partire da MSBuild 16.5 +, `packages.config` progetti.
+Usare il comando [msbuild-t:Restore](../reference/msbuild-targets.md#restore-target) per ripristinare i pacchetti elencati nel file di progetto (vedere [PackageReference](package-references-in-project-files.md)) e a partire da MSBuild 16.5 +, `packages.config` progetti.
 
  Questo comando è disponibile solo in NuGet 4.x+ e MSBuild 15.1 +, inclusi con Visual Studio 2017 e versioni successive.
 A partire da MSBuild 16.5 +, questo comando può anche ripristinare i `packages.config` progetti basati quando viene eseguito con `-p:RestorePackagesConfig=true` .
