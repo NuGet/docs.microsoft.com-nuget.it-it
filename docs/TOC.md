@@ -1,4 +1,3 @@
-# [Riepilogo documentazione](index.yml)
 # [Che cos'è NuGet?](what-is-nuget.md)
 # Introduzione
 ## [Installare gli strumenti client di NuGet](install-nuget-client-tools.md)
