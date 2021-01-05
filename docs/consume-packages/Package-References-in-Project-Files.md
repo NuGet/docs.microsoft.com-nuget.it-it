@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: a5833df60c5f7905359f421141347b1237f45d86
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 1127e7aee27d57abd5f14dd3bea82dfff3ba6d93
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237640"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699778"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Riferimenti a pacchetti (PackageReference) nei file di progetto
 
@@ -139,7 +139,7 @@ Nell'esempio seguente, il progetto utilizzerà tutti gli elementi tranne i file 
 Si noti che dato che `build` non è incluso in `PrivateAssets`, le destinazioni e le proprietà *verranno trasferite* al progetto padre. Si consideri, ad esempio, che il riferimento precedente viene usato in un progetto che compila un pacchetto NuGet chiamato AppLogger. AppLogger può utilizzare le destinazioni e le proprietà da `Contoso.Utility.UsefulStuff`, analogamente ai progetti che utilizzano AppLogger.
 
 > [!NOTE]
-> Quando `developmentDependency` è impostato su `true` in un file `.nuspec`, un pacchetto viene contrassegnato come dipendenza solo per lo sviluppo, impedendo in tal modo che il pacchetto venga incluso come dipendenza in altri pacchetti. Con PackageReference *(NuGet 4.8 +)* , questo flag indica anche che gli asset in fase di compilazione verranno esclusi dalla compilazione. Per altre informazioni, vedere [Supporto di DevelopmentDependency per PackageReference](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference).
+> Quando `developmentDependency` è impostato su `true` in un file `.nuspec`, un pacchetto viene contrassegnato come dipendenza solo per lo sviluppo, impedendo in tal modo che il pacchetto venga incluso come dipendenza in altri pacchetti. Con PackageReference *(NuGet 4.8 +)*, questo flag indica anche che gli asset in fase di compilazione verranno esclusi dalla compilazione. Per altre informazioni, vedere [Supporto di DevelopmentDependency per PackageReference](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference).
 
 ## <a name="adding-a-packagereference-condition"></a>Aggiunta di una condizione PackageReference
 
@@ -201,10 +201,42 @@ NuGet genera inoltre automaticamente le proprietà per i pacchetti contenenti un
   <Target Name="TakeAction" AfterTargets="Build">
     <Exec Command="$(PkgPackage_With_Tools)\tools\tool.exe" />
   </Target>
-````
+```
 
 Le proprietà di MSBuild e le identità dei pacchetti non hanno le stesse restrizioni, pertanto l'identità del pacchetto deve essere modificata in un nome descrittivo di MSBuild, preceduto dalla parola `Pkg` .
 Per verificare il nome esatto della proprietà generata, esaminare il file [NuGet. g. props](../reference/msbuild-targets.md#restore-outputs) generato.
+
+## <a name="packagereference-aliases"></a>Alias PackageReference
+
+In alcuni casi rari, i pacchetti diversi conterranno le classi nello stesso spazio dei nomi. A partire da NuGet 5,7 & Visual Studio 2019 Update 7, equivalente a ProjectReference, PackageReference supporta [`Aliases`](/dotnet/api/microsoft.codeanalysis.projectreference.aliases) .
+Per impostazione predefinita, non viene specificato alcun alias. Quando viene specificato un alias, è necessario fare riferimento a *tutti* gli assembly provenienti dal pacchetto con annotazioni con un alias.
+
+È possibile esaminare l'utilizzo di esempio in [NuGet\Samples](https://github.com/NuGet/Samples/tree/master/PackageReferenceAliasesExample)
+
+Nel file di progetto specificare gli alias come indicato di seguito:
+
+```xml
+  <ItemGroup>
+    <PackageReference Include="NuGet.Versioning" Version="5.8.0" Aliases="ExampleAlias" />
+  </ItemGroup>
+```
+
+e nel codice lo usano come segue:
+
+```cs
+extern alias ExampleAlias;
+
+namespace PackageReferenceAliasesExample
+{
+...
+        {
+            var version = ExampleAlias.NuGet.Versioning.NuGetVersion.Parse("5.0.0");
+            Console.WriteLine($"Version : {version}");
+        }
+...
+}
+
+```
 
 ## <a name="nuget-warnings-and-errors"></a>Avvisi ed errori di NuGet
 
@@ -273,7 +305,7 @@ In Visual Studio è anche possibile disattivare gli [avvisi](/visualstudio/ide/h
 
 *Questa funzionalità è disponibile con NuGet **4.9** o versione successiva e con Visual Studio 2017 **15.9** o versione successiva.*
 
-L'input per il ripristino NuGet è un set di riferimenti al pacchetto dal file di progetto (dipendenze dirette o di primo livello) e l'output è una chiusura completa di tutte le dipendenze del pacchetto, incluse le dipendenze transitive. NuGet prova a produrre sempre la stessa chiusura completa di dipendenze del pacchetto se l'elenco PackageReference di input non è stato modificato. Esistono tuttavia alcuni scenari in cui non è possibile farlo. Ad esempio:
+L'input per il ripristino NuGet è un set di riferimenti al pacchetto dal file di progetto (dipendenze dirette o di primo livello) e l'output è una chiusura completa di tutte le dipendenze del pacchetto, incluse le dipendenze transitive. NuGet prova a produrre sempre la stessa chiusura completa di dipendenze del pacchetto se l'elenco PackageReference di input non è stato modificato. Esistono tuttavia alcuni scenari in cui non è possibile farlo. Esempio:
 
 * Quando si usano versioni mobili, ad esempio `<PackageReference Include="My.Sample.Lib" Version="4.*"/>`. Anche se in questo caso la finalità è il passaggio alla versione più recente a ogni ripristino dei pacchetti, esistono scenari in cui gli utenti richiedono che il grafo venga bloccato su una determinata versione più recente e passi a una versione successiva, se disponibile, in caso di movimento esplicito.
 * Viene pubblicata una versione più recente del pacchetto che risponde ai requisiti di versione di PackageReference. ad esempio 

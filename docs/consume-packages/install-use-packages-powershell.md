@@ -7,18 +7,21 @@ ms.date: 07/08/2019
 ms.topic: conceptual
 f1_keywords:
 - vs.nuget.packagemanager.console
-ms.openlocfilehash: 8b23b6cc22eff5413e317fbe619edd3d4f4716ee
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 31fa51bc017eaaf9306d5f267e5d4b0d7a15ec9c
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237400"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699840"
 ---
 # <a name="install-and-manage-packages-with-the-package-manager-console-in-visual-studio-powershell"></a>Installare e gestire i pacchetti con la console di Gestione pacchetti in Visual Studio (PowerShell)
 
 La console di Gestione pacchetti NuGet consente di usare i [comandi di PowerShell di NuGet](../reference/powershell-reference.md) per trovare, installare, disinstallare e aggiornare i pacchetti NuGet. L'uso della console è necessario nei casi in cui l'interfaccia utente di Gestione pacchetti non offre un modo per eseguire un'operazione. Per usare i comandi dell'interfaccia della riga di comando di `nuget.exe` nella console, vedere [Uso dell'interfaccia della riga di comando di nuget.exe nella console](#use-the-nugetexe-cli-in-the-console).
 
 La console è inclusa in Visual Studio in Windows. Non è disponibile in Visual Studio per Mac o Visual Studio Code.
+
+> [!Important]
+> I comandi elencati di seguito sono specifici della console di gestione pacchetti in Visual Studio e si differenziano dai [comandi del modulo Gestione pacchetti](/powershell/module/packagemanagement/) disponibili in un ambiente PowerShell generale. In particolare, in ogni ambiente sono presenti comandi che non sono disponibili nell'altra e i comandi con lo stesso nome potrebbero differire anche per gli argomenti specifici. Quando si usa la console di Gestione pacchetti in Visual Studio, vengono applicati i comandi e gli argomenti illustrati in questo argomento.
 
 ## <a name="find-and-install-a-package"></a>Trovare e installare un pacchetto
 
@@ -56,7 +59,7 @@ La ricerca e l'installazione di un pacchetto, ad esempio, vengono eseguite con t
 
 1. Se si seleziona un'origine e/o un progetto diverso per il pacchetto, verranno modificate le impostazioni predefinite per i comandi successivi. Per sostituire queste impostazioni senza modificare le impostazioni predefinite, la maggior parte dei comandi supporta le opzioni `-Source` e `-ProjectName`.
 
-1. Per gestire le origini dei pacchetti, selezionare l'icona a forma di ingranaggio. Si tratta di un collegamento alla finestra di dialogo **Strumenti > Opzioni > Gestione pacchetti NuGet > Origini pacchetti** , come descritto nella pagina [Interfaccia utente di Gestione pacchetti](install-use-packages-visual-studio.md#package-sources). Inoltre, il controllo a destra del selettore del progetto cancella il contenuto della console:
+1. Per gestire le origini dei pacchetti, selezionare l'icona a forma di ingranaggio. Si tratta di un collegamento alla finestra di dialogo **Strumenti > Opzioni > Gestione pacchetti NuGet > Origini pacchetti**, come descritto nella pagina [Interfaccia utente di Gestione pacchetti](install-use-packages-visual-studio.md#package-sources). Inoltre, il controllo a destra del selettore del progetto cancella il contenuto della console:
 
     ![Impostazioni della console di Gestione pacchetti e controlli per cancellare](media/PackageManagerConsoleControls2.png)
 

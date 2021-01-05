@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: b162990eae2160961f560b6c6ee73e47cb4121d6
-ms.sourcegitcommit: f29fa9b93fd59e679fab50d7413bbf67da3ea5b3
+ms.openlocfilehash: 9f680a714717d1bde0472f2e1266cacfd8bd4d5f
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86451151"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699713"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>Risoluzione degli errori relativi al ripristino dei pacchetti
 
@@ -46,7 +46,7 @@ Use NuGet Package Restore to download them. The missing file is {name}.
 
 Questo errore si verifica quando si tenta di compilare un progetto che contiene riferimenti a uno o più pacchetti NuGet, ma tali pacchetti non sono attualmente installati nel computer o nel progetto.
 
-- Quando si usa il formato di gestione [PackageReference](package-references-in-project-files.md) , l'errore indica che il pacchetto non è installato nella cartella *Global-Packages* come descritto in [gestione delle cartelle dei pacchetti globali e della cache](managing-the-global-packages-and-cache-folders.md).
+- Quando si usa il formato di gestione [PackageReference](package-references-in-project-files.md) , questo errore potrebbe essere un residuo da una packages.config alla migrazione PackageReference e deve essere [rimosso manualmente](../resources/NuGet-FAQ.md#working-with-packages) dal file di progetto.
 - Quando si usa [packages.config](../reference/packages-config.md), questo errore indica che il pacchetto non è installato nella cartella `packages` nella radice della soluzione.
 
 Generalmente questa situazione si verifica quando si ottiene il codice sorgente del progetto dal controllo del codice sorgente o tramite un altro download. I pacchetti vengono in genere omessi dal controllo del codice sorgente o dai download perché possono essere ripristinati da feed di pacchetti come nuget.org (vedere [Pacchetti e controllo del codice sorgente](Packages-and-Source-Control.md)). La loro aggiunta comporterebbe altrimenti un notevole aumento di dimensioni del repository oppure la creazione di file ZIP inutilmente grandi.

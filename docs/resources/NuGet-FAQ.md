@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: aae6f0474cc6e8e8aa5c269b79be6fd949d9184c
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: be24660d05f34242e45f223e2248b943ecc38616
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237997"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699650"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Domande frequenti su NuGet
 
@@ -47,7 +47,7 @@ Per altre informazioni, vedere [Ricerca e scelta di pacchetti](../consume-packag
 
 In Visual Studio, usare il comando **Guida > informazioni su Microsoft Visual Studio** e controllare la versione visualizzata accanto a **Gestione pacchetti NuGet**.
 
-In alternativa, avviare la console di Gestione pacchetti ( **Strumenti > Gestione pacchetti NuGet > Console di Gestione pacchetti** ) e immettere `$host` per visualizzare informazioni su NuGet, compresa la versione.
+In alternativa, avviare la console di Gestione pacchetti (**Strumenti > Gestione pacchetti NuGet > Console di Gestione pacchetti**) e immettere `$host` per visualizzare informazioni su NuGet, compresa la versione.
 
 **Quali linguaggi di programmazione sono supportati da NuGet?**
 
@@ -149,3 +149,10 @@ Questo non è un problema quando si usa PackageReference, perché ogni file di p
 
 - Aggiungere `https://api.nuget.org/v3/index.json` all'elenco di origini, o
 - Eliminare `%appdata%\.nuget\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) e consentire a NuGet di ricrearlo.
+
+**È stata eseguita la migrazione a PackageReference, perché la compilazione ha esito negativo `This project references NuGet package(s) that are missing on this computer.` ?**
+
+Nei progetti di packages.config, quando `build` è stato installato un pacchetto con Props o targets, NuGet aggiunge una `EnsureNuGetPackageBuildImports` destinazione per verificare che i pacchetti di contenuto MSBuild siano stati importati prima della compilazione.
+Se `target` è stato modificato manualmente, NuGet potrebbe non essere in grado di rilevare che è necessario rimuovere durante la migrazione.
+
+Se il progetto è `PackageReference` e la destinazione è ancora presente nel file di progetto, è consigliabile rimuoverla.

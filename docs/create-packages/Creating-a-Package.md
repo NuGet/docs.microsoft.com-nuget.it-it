@@ -1,16 +1,16 @@
 ---
 title: Creare un pacchetto NuGet con l'interfaccia della riga di comando di nuget.exe
-description: Guida dettagliata al processo di progettazione e creazione di un pacchetto NuGet, incluse le principali decisioni critiche, ad esempio quelle relative ai file e al controllo delle versioni.
+description: Guida dettagliata sulla progettazione e la creazione di un pacchetto NuGet, inclusi i file e il controllo delle versioni.
 author: karann-msft
-ms.author: karann
+ms.author: feaguila
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: b3e6f0efc9e2e12de186ffd4ce29d496d07d5fc4
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: ec06a8f721b7b67ddc5d72323305b9b22f292de6
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428947"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699802"
 ---
 # <a name="create-a-package-using-the-nugetexe-cli"></a>Creare un pacchetto usando l'interfaccia della riga di comando di nuget.exe
 
@@ -68,8 +68,8 @@ Proprietà facoltative comuni:
 - Breve descrizione dell'[interfaccia utente di Gestione pacchetti in Visual Studio](../consume-packages/install-use-packages-visual-studio.md)
 - ID impostazioni locali
 - URL progetto
-- Licenza come espressione o`licenseUrl` file (è deprecato, utilizzare l'elemento [ `license` metadati nuspec](../reference/nuspec.md#license))
-- URL dell'icona
+- Licenza come espressione o file ( `licenseUrl` è deprecato, usare invece l' [ `license` elemento dei metadati NuSpec](../reference/nuspec.md#license) )
+- Un file di icona ( `iconUrl` deprecato utilizza invece l' [ `icon` elemento dei metadati NuSpec](../reference/nuspec.md#icon) )
 - Elenchi di dipendenze e riferimenti
 - Tag di supporto per le ricerche nella raccolta
 
@@ -79,11 +79,11 @@ Di seguito è riportato un file `.nuspec` tipico (ma fittizio), con commenti che
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
-        <!-- The identifier that must be unique within the hosting gallery -->
+        <!-- Identifier that must be unique within the hosting gallery -->
         <id>Contoso.Utility.UsefulStuff</id>
 
-        <!-- The package version number that is used when resolving dependencies -->
-        <version>1.8.3-beta</version>
+        <!-- Package version number that is used when resolving dependencies -->
+        <version>1.8.3</version>
 
         <!-- Authors contain text that appears directly on the gallery -->
         <authors>Dejana Tesic, Rajeev Dey</authors>
@@ -101,8 +101,8 @@ Di seguito è riportato un file `.nuspec` tipico (ma fittizio), con commenti che
         <license type="expression">Apache-2.0</license>
         
 
-        <!-- The icon is used in Visual Studio's package manager UI -->
-        <iconUrl>http://github.com/contoso/UsefulStuff/nuget_icon.png</iconUrl>
+        <!-- Icon is used in Visual Studio's package manager UI -->
+        <icon>icon.png</icon>
 
         <!-- 
             If true, this value prompts the user to accept the license when
@@ -134,6 +134,7 @@ Di seguito è riportato un file `.nuspec` tipico (ma fittizio), con commenti che
     <!-- A readme.txt to display when the package is installed -->
     <files>
         <file src="readme.txt" target="" />
+        <file src="icon.png" target="" />
     </files>
 </package>
 ```
@@ -172,7 +173,7 @@ Dato che un pacchetto NuGet è solo un file ZIP rinominato con l'estensione `.nu
 Il vantaggio di questo approccio è che non è necessario specificare nel manifesto i file che si vuole includere nel pacchetto, come illustrato più avanti in questo argomento. È sufficiente fare in modo che il processo di compilazione generi l'esatta struttura di cartelle da inserire nel pacchetto, per poter facilmente includere altri file che altrimenti potrebbero non fare parte di un progetto:
 
 - Contenuto e codice sorgente da inserire nel progetto di destinazione.
-- Script di PowerShell
+- Script PowerShell
 - Trasformazioni della configurazione esistente e dei file del codice sorgente di un progetto.
 
 Le convenzioni delle cartelle sono le seguenti:
@@ -183,11 +184,11 @@ Le convenzioni delle cartelle sono le seguenti:
 | lib/{tfm} | File di assembly (`.dll`), di documentazione (`.xml`) e di simboli (`.pdb`) per il moniker del framework di destinazione (TFM, Target Framework Moniker) specificato | Gli assembly vengono aggiunti come riferimenti per la compilazione, oltre che per il runtime. `.xml` e `.pdb` vengono copiati nelle cartelle di progetto. Per la creazione di sottocartelle specifiche del framework di destinazione, vedere [Supporto di più framework di destinazione](supporting-multiple-target-frameworks.md). |
 | ref/{tfm} | File di assembly (`.dll`) e di simboli (`.pdb`) per il moniker del framework di destinazione (TFM, Target Framework Moniker) specificato | Gli assembly vengono aggiunti come riferimenti solo per la fase di compilazione. Non verrà quindi copiato nulla nella cartella bin del progetto. |
 | runtimes | File di assembly (`.dll`), di simboli (`.pdb`) e di risorse native (`.pri`) specifici dell'architettura | Gli assembly vengono aggiunti come riferimenti solo per il runtime. Gli altri file vengono copiati nelle cartelle di progetto. Deve esistere sempre un assembly specifico `AnyCPU` corrispondente (TFM) sotto la cartella `/ref/{tfm}` per fornire l'assembly della fase di compilazione corrispondente. Vedere [Supporto di più framework di destinazione](supporting-multiple-target-frameworks.md). |
-| content | File arbitrari | I contenuti vengono copiati nella radice del progetto. La cartella **content** può essere considerata come la radice dell'applicazione di destinazione che in definitiva utilizza il pacchetto. Per fare in modo che il pacchetto aggiunga un'immagine nella cartella */images* dell'applicazione, inserirla nella cartella *content/images* del pacchetto. |
+| contenuto | File arbitrari | I contenuti vengono copiati nella radice del progetto. La cartella **content** può essere considerata come la radice dell'applicazione di destinazione che in definitiva utilizza il pacchetto. Per fare in modo che il pacchetto aggiunga un'immagine nella cartella */images* dell'applicazione, inserirla nella cartella *content/images* del pacchetto. |
 | build | *(3.x+)* File `.targets` e `.props` di MSBuild | Vengono automaticamente inseriti nel progetto. |
 | buildMultiTargeting | *(4.0+)* File `.targets` e `.props` di MSBuild per l'assegnazione di più framework di destinazione | Vengono automaticamente inseriti nel progetto. |
 | buildTransitive | *(5.0 +)* File `.targets` e `.props` di MSBuild che si propagano in modo transitivo a qualsiasi progetto che gli utilizza. Vedere la pagina delle [funzionalità](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior). | Vengono automaticamente inseriti nel progetto. |
-| strumenti | Script di PowerShell e programmi accessibili dalla console di Gestione pacchetti | La cartella `tools` viene aggiunta alla variabile di ambiente `PATH` solo per la console di Gestione pacchetti, in particolare *non* alla variabile `PATH` impostata per MSBuild durante la compilazione del progetto. |
+| tools | Script di PowerShell e programmi accessibili dalla console di Gestione pacchetti | La cartella `tools` viene aggiunta alla variabile di ambiente `PATH` solo per la console di Gestione pacchetti, in particolare *non* alla variabile `PATH` impostata per MSBuild durante la compilazione del progetto. |
 
 Poiché la struttura di cartelle può contenere un numero indeterminato di assembly per un numero indeterminato di framework di destinazione, questo metodo è necessario quando si creano pacchetti che supportano più framework.
 
@@ -241,7 +242,7 @@ Tenere presente che sono disponibili diverse altre opzioni di creazione del pacc
 
 #### <a name="solution-level-packages"></a>Pacchetti a livello di soluzione
 
-*Solo NuGet 2.x. Non disponibile in NuGet 3.0.*
+*Solo NuGet 2. x. Non disponibile in NuGet 3.0 +.*
 
 NuGet 2.x supportava la nozione di pacchetto a livello di soluzione che installa strumenti o comandi aggiuntivi per la console di Gestione pacchetti (contenuti della cartella `tools`), ma non aggiunge riferimenti, contenuto o personalizzazioni delle compilazioni ai progetti della soluzione. Tali pacchetti non contengono file nelle cartelle `lib`, `content` o `build` dirette e nessuna dipendenza ha file nelle rispettive cartelle `lib`, `content` o `build`.
 
@@ -255,7 +256,7 @@ Il comando seguente crea un manifesto predefinito con segnaposto, che assicura d
 nuget spec [<package-name>]
 ```
 
-Se si omette \<package-name\>, il file risultante è `Package.nuspec`. Se come nome si specifica ad esempio `Contoso.Utility.UsefulStuff`, il file è `Contoso.Utility.UsefulStuff.nuspec`.
+Se si omette \<package-name\> , il file risultante sarà `Package.nuspec` . Se come nome si specifica ad esempio `Contoso.Utility.UsefulStuff`, il file è `Contoso.Utility.UsefulStuff.nuspec`.
 
 Il file `.nuspec` risultante contiene segnaposto per i valori come `projectUrl`. Assicurarsi di modificare il file prima di usarlo per creare il file `.nupkg` finale.
 
@@ -267,7 +268,7 @@ L'identificatore del pacchetto (elemento `<id>`) e il numero di versione (elemen
 
 - **Univocità**: l'identificatore deve essere univoco in nuget.org o in qualsiasi raccolta che ospita il pacchetto. Prima di scegliere un identificatore, eseguire una ricerca nella raccolta applicabile per controllare se il nome è già in uso. Per evitare conflitti, è consigliabile usare il nome della società come prima parte dell'identificatore, ad esempio `Contoso.`.
 - **Nomi simili a spazi dei nomi**: seguono un modello simile a quello degli spazi dei nomi in .NET, usando la notazione del punto invece dei trattini. Usare, ad esempio, `Contoso.Utility.UsefulStuff` invece di `Contoso-Utility-UsefulStuff` o `Contoso_Utility_UsefulStuff`. Per gli utenti è anche utile che l'identificatore del pacchetto corrisponda agli spazi dei nomi usati nel codice.
-- **Pacchetti di esempio**: se si produce un pacchetto di codice di esempio che illustra come usare un altro pacchetto, collegare `.Sample` come suffisso all'identificatore, come in `Contoso.Utility.UsefulStuff.Sample`. (Il pacchetto di esempio avrebbe ovviamente una dipendenza dall'altro pacchetto.) Quando si crea un pacchetto di esempio, usare il metodo di directory di lavoro basato su convenzioni descritto in precedenza. Nella cartella `content` inserire il codice di esempio in una cartella denominata `\Samples\<identifier>` come in `\Samples\Contoso.Utility.UsefulStuff.Sample`.
+- **Pacchetti di esempio**: se si produce un pacchetto di codice di esempio che illustra come usare un altro pacchetto, collegare `.Sample` come suffisso all'identificatore, come in `Contoso.Utility.UsefulStuff.Sample`. Il pacchetto di esempio, ovviamente, avrà una dipendenza da un altro pacchetto. Quando si crea un pacchetto di esempio, usare il metodo della directory di lavoro basata sulle convenzioni descritto in precedenza. Nella cartella `content` inserire il codice di esempio in una cartella denominata `\Samples\<identifier>` come in `\Samples\Contoso.Utility.UsefulStuff.Sample`.
 
 **Procedure consigliate per la versione del pacchetto:**
 
@@ -316,6 +317,7 @@ In alcuni casi, potrebbe essere necessario aggiungere destinazioni o proprietà 
 
 I file nella cartella radice `\build` sono considerati adatti a tutti i framework di destinazione. Per indicare file specifici del framework, inserirli prima nelle sottocartelle appropriate, come di seguito:
 
+```
     \build
         \netstandard1.4
             \Contoso.Utility.UsefulStuff.props
@@ -323,6 +325,7 @@ I file nella cartella radice `\build` sono considerati adatti a tutti i framewor
         \net462
             \Contoso.Utility.UsefulStuff.props
             \Contoso.Utility.UsefulStuff.targets
+```
 
 Nel file `.nuspec` assicurarsi quindi di fare riferimento a questi file nel nodo `<files>`:
 
@@ -344,7 +347,7 @@ Nel file `.nuspec` assicurarsi quindi di fare riferimento a questi file nel nodo
 
 La possibilità di includere file props e targets di MSBuild in un pacchetto è stata [introdotta con NuGet 2.5](../release-notes/NuGet-2.5.md#automatic-import-of-msbuild-targets-and-props-files), pertanto è consigliabile aggiungere l'attributo `minClientVersion="2.5"` all'elemento `metadata` per indicare la versione client NuGet minima richiesta per utilizzare il pacchetto.
 
-Quando installa un pacchetto con i file `\build`, NuGet aggiunge elementi `<Import>` di MSBuild nel file di progetto che puntano ai file `.targets` e `.props`. (`.props` viene aggiunto nella parte superiore del file di progetto; `.targets` viene aggiunto in basso.) Viene aggiunto un `<Import>` elemento MSBuild condizionale separato per ogni framework di destinazione.
+Quando installa un pacchetto con i file `\build`, NuGet aggiunge elementi `<Import>` di MSBuild nel file di progetto che puntano ai file `.targets` e `.props`. `.props`viene aggiunto all'inizio del file di progetto; `.targets` viene aggiunto alla fine. Viene aggiunto un elemento MSBuild condizionale separato `<Import>` per ogni Framework di destinazione.
 
 I file `.props` e `.targets` di MSBuild per l'assegnazione di più framework di destinazione possono essere posizionati nella cartella `\buildMultiTargeting`. Durante l'installazione del pacchetto, NuGet aggiunge elementi `<Import>` corrispondenti al file di progetto, a condizione che il framework di destinazione non sia impostato (la proprietà MSBuild `$(TargetFramework)` deve essere vuota).
 

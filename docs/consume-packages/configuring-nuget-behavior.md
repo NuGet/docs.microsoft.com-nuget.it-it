@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: 89127203df0aa1eb24f36b8ec64c5bb4a4d59319
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: e81c380eab3f1a8635e50e62811c7ae463ec3653
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428912"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699777"
 ---
 # <a name="common-nuget-configurations"></a>Configurazioni comuni di NuGet
 
@@ -21,12 +21,12 @@ Il comportamento di NuGet si basa sulle impostazioni accumulate in uno o più fi
 | Scope | Percorso del file NuGet.Config | Descrizione |
 | --- | --- | --- |
 | Soluzione | Cartella corrente (ovvero la cartella della soluzione) o qualsiasi cartella fino alla radice dell'unità.| Nella cartella di una soluzione le impostazioni si applicano a tutti i progetti presenti nelle sottocartelle. Si noti che se un file di configurazione viene inserito in una cartella di progetto, non ha alcun effetto su tale progetto. |
-| Utente | Windows: `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux: `~/.config/NuGet/NuGet.Config` o `~/.nuget/NuGet/NuGet.Config` (a seconda della distribuzione del sistema operativo) | Le impostazioni si applicano a tutte le operazioni, ma ne viene eseguito l'override dalle impostazioni a livello di progetto. |
-| Computer | Windows: `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux: `$XDG_DATA_HOME`. Se `$XDG_DATA_HOME` è null o vuoto, verrà usato `~/.local/share` o `/usr/local/share` (a seconda della distribuzione del sistema operativo)  | Le impostazioni si applicano a tutte le operazioni sul computer, ma ne viene eseguito l'override dalle impostazioni a livello di utente o di progetto. |
+| Utente | **Windows:**`%appdata%\NuGet\NuGet.Config`<br/>**Mac/Linux:** `~/.config/NuGet/NuGet.Config` o `~/.nuget/NuGet/NuGet.Config` (varia in base alla distribuzione del sistema operativo) <br/>Le configurazioni aggiuntive sono supportate in tutte le piattaforme. Queste configurazioni non possono essere modificate dagli strumenti. </br> **Windows:**`%appdata%\NuGet\config\*.Config` <br/>**Mac/Linux:** `~/.config/NuGet/config/*.config` o `~/.nuget/config/*.config` | Le impostazioni si applicano a tutte le operazioni, ma ne viene eseguito l'override dalle impostazioni a livello di progetto. |
+| Computer | **Windows:**`%ProgramFiles(x86)%\NuGet\Config`<br/>**Mac/Linux:** `$XDG_DATA_HOME` . Se `$XDG_DATA_HOME` è null o vuoto, verrà usato `~/.local/share` o `/usr/local/share` (a seconda della distribuzione del sistema operativo)  | Le impostazioni si applicano a tutte le operazioni sul computer, ma ne viene eseguito l'override dalle impostazioni a livello di utente o di progetto. |
 
 Note per versioni precedenti di NuGet:
-- NuGet 3.3 e versioni precedenti usavano una cartella `.nuget` per le impostazioni a livello di soluzione. Questa cartella non viene utilizzata in NuGet 3.4 .
-- Per NuGet da 2.6 a 3.x, il file di configurazione a livello di computer in Windows si trovava in %ProgramData%\NuGet\Config[\\{IDE}[\\{Versione}[\\{SKU}]]]\NuGet.Config, dove *{IDE}* può essere *VisualStudio*, *{Versione}* era la versione di Visual Studio, ad esempio *14.0*, e *{SKU}* è *Community*, *Pro* o *Enterprise*. Per eseguire la migrazione delle impostazioni a NuGet 4.0, è sufficiente copiare il file di configurazione in %ProgramFiles(x86)%. Su Linux, questa posizione precedente era /etc/opt, e su Mac, /Library/Application Support.
+- NuGet 3.3 e versioni precedenti usavano una cartella `.nuget` per le impostazioni a livello di soluzione. Questa cartella non viene usata in NuGet 3.4 +.
+- Per NuGet da 2.6 a 3.x, il file di configurazione a livello di computer in Windows si trovava in %ProgramData%\NuGet\Config[\\{IDE}[\\{Versione}[\\{SKU}]]]\NuGet.Config, dove *{IDE}* può essere *VisualStudio*, *{Versione}* era la versione di Visual Studio, ad esempio *14.0*, e *{SKU}* è *Community*, *Pro* o *Enterprise*. Per eseguire la migrazione delle impostazioni a NuGet 4.0 +, è sufficiente copiare il file di configurazione in% ProgramFiles (x86)% \ NuGet\Config. In Linux questo percorso precedente era/etc/opt e, in Mac, il supporto di/Libreria/Application.
 
 ## <a name="changing-config-settings"></a>Modifica delle impostazioni di configurazione
 
@@ -194,6 +194,18 @@ NuGet quindi carica e applica le impostazioni come segue, a seconda della posizi
 
 - **Chiamata da disk_drive_2/Project2 o disk_drive_2/Project2/Source**: viene caricato prima il file a livello di utente (A) seguito dal file (B) e dal file (D). Poiché `packageSources` non viene cancellato, sia `nuget.org` che `https://MyPrivateRepo/DQ/nuget` sono disponibili come origini. I pacchetti vengono espansi in disk_drive_2/tmp, come specificato in (B).
 
+## <a name="additional-user-wide-configuration"></a>Configurazione aggiuntiva a livello di utente
+
+A partire da 5,7, NuGet ha aggiunto il supporto per altri file di configurazione a livello di utente. Ciò consente ai fornitori di terze parti di aggiungere altri file di configurazione utente senza elevazione dei privilegi.
+Questi file di configurazione si trovano nella cartella di configurazione a livello di utente standard all'interno di una `config` sottocartella.
+Verranno considerati tutti i file che terminano con `.config` o `.Config` .
+Questi file non possono essere modificati dagli strumenti standard.
+
+| Piattaforma del sistema operativo  | Configurazioni aggiuntive |
+| --- | --- |
+| Windows      | `%appdata%\NuGet\config\*.Config` |
+| Mac/Linux    | `~/.config/NuGet/config/*.config` o `~/.nuget/config/*.config` |
+
 ## <a name="nuget-defaults-file"></a>File delle impostazioni predefinite di NuGet
 
 Lo scopo del file `NuGetDefaults.Config` è quello di specificare le origini da cui i pacchetti vengono installati e aggiornati e di controllare la destinazione predefinita per la pubblicazione dei pacchetti con `nuget push`. Poiché gli amministratori possono distribuire facilmente file `NuGetDefaults.Config` coerenti agli sviluppatori e ai computer di compilazione (ad esempio usando Criteri di gruppo), possono assicurarsi che tutti nell'organizzazione usino le origini dei pacchetti corrette invece di nuget.org.
@@ -201,7 +213,7 @@ Lo scopo del file `NuGetDefaults.Config` è quello di specificare le origini da 
 > [!Important]
 > Il file `NuGetDefaults.Config` non causa mai la rimozione di un pacchetto dalla configurazione NuGet di uno sviluppatore. Se dunque lo sviluppatore ha già usato NuGet e quindi l'origine del pacchetto nuget.org è già registrata, non verrà rimossa dopo la creazione di un file `NuGetDefaults.Config`.
 >
-> Inoltre, `NuGetDefaults.Config` né né alcun altro meccanismo in NuGet può impedire l'accesso alle origini del pacchetto come nuget.org. Se un'organizzazione desidera bloccare tale accesso, deve utilizzare altri mezzi, ad esempio i firewall per eseguire questa operazione.
+> Inoltre, né `NuGetDefaults.Config` né alcun altro meccanismo in NuGet possono impedire l'accesso alle origini dei pacchetti, ad esempio NuGet.org. Se un'organizzazione desidera bloccare tale accesso, deve utilizzare altri mezzi, ad esempio i firewall, a tale scopo.
 
 ### <a name="nugetdefaultsconfig-location"></a>Percorso di NuGetDefaults.Config
 
@@ -218,7 +230,7 @@ La tabella seguente descrive la posizione di archiviazione prevista per il file 
 
 - `disabledPackageSources`: questa raccolta ha anche lo stesso significato che nei file `NuGet.Config`, dove ogni origine interessata viene elencata per nome e un valore true/false indica se è disabilitata. In questo modo il nome e l'URL dell'origine possono rimanere in `packageSources` senza che debba essere attivata per impostazione predefinita. I singoli sviluppatori possono quindi riabilitare l'origine impostandone il valore su false negli altri file `NuGet.Config` senza dover trovare di nuovo l'URL corretto. Questo è utile anche per fornire agli sviluppatori un elenco completo di URL delle origini interne per un'organizzazione, abilitando al contempo solo l'origine di un singolo team per impostazione predefinita.
 
-- `defaultPushSource`: specifica la destinazione `nuget push` predefinita per le operazioni, sovrascrivendo il valore predefinito predefinito predefinito di nuget.org. Gli amministratori possono distribuire questa impostazione per evitare di pubblicare `nuget push -Source` pacchetti interni al pubblico nuget.org per caso, poiché gli sviluppatori devono utilizzare in modo specifico per la pubblicazione in nuget.org.
+- `defaultPushSource`: specifica la destinazione predefinita per `nuget push` le operazioni, eseguendo l'override del valore predefinito predefinito di NuGet.org. Gli amministratori possono distribuire questa impostazione per evitare la pubblicazione di pacchetti interni in nuget.org pubblici per errore, in quanto gli sviluppatori devono usare `nuget push -Source` per pubblicare in NuGet.org.
 
 ### <a name="example-nugetdefaultsconfig-and-application"></a>Applicazione e NuGetDefaults.Config di esempio
 

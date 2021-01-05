@@ -1,16 +1,16 @@
 ---
 title: Pack e restore di NuGet come destinazioni MSBuild
 description: I comandi pack e restore di NuGet possono essere usati direttamente come destinazioni MSBuild con NuGet 4.0 +.
-author: karann-msft
-ms.author: karann
+author: nkolev92
+ms.author: nikolev
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4a04c6dd7993fc47bcf7a6fe46236ed700a0d105
-ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
+ms.openlocfilehash: 66df4e0e4739300608fd5f9e44eea5bcd00079c8
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96738929"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699894"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Pack e restore di NuGet come destinazioni MSBuild
 
@@ -54,7 +54,7 @@ Si noti che le proprietà `Owners` e `Summary` da `.nuspec` non sono supportate 
 | VersionSuffix | PackageVersionSuffix | empty | $(VersionSuffix) da MSBuild. L'impostazione di PackageVersion sovrascrive PackageVersionSuffix |
 | Autori | Autori | Nome utente dell'utente corrente | |
 | Proprietari | N/D | Non presente in NuSpec | |
-| Titolo | Titolo | PackageId| |
+| Title | Title | PackageId| |
 | Descrizione | Descrizione | "Descrizione del pacchetto" | |
 | Copyright | Copyright | empty | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
@@ -71,7 +71,7 @@ Si noti che le proprietà `Owners` e `Summary` da `.nuspec` non sono supportate 
 | Repository/ramo | RepositoryBranch | empty | Informazioni facoltative sul ramo del repository. Per includere questa proprietà, è necessario specificare anche *RepositoryUrl* . Esempio: *Master* (NuGet 4.7.0 +) |
 | Repository/commit | RepositoryCommit | empty | Commit o insieme di modifiche facoltativo del repository per indicare l'origine su cui è stato compilato il pacchetto. Per includere questa proprietà, è necessario specificare anche *RepositoryUrl* . Esempio: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
-| Riepilogo | Non supportato | | |
+| Riepilogo | Non supportate | | |
 
 ### <a name="pack-target-inputs"></a>Input destinazione pack
 
@@ -131,7 +131,7 @@ A partire da NuGet 5,3 & Visual Studio 2019 versione 16,3, `pack` genererà un a
 
 Quando si imballa un file di immagine icona, è necessario utilizzare `PackageIcon` la proprietà per specificare il percorso del pacchetto, relativo alla radice del pacchetto. Inoltre, è necessario assicurarsi che il file sia incluso nel pacchetto. Le dimensioni del file di immagine sono limitate a 1 MB. I formati di file supportati sono JPEG e PNG. Si consiglia la risoluzione di un'immagine di 128x128.
 
-Ad esempio:
+Esempio:
 
 ```xml
 <PropertyGroup>
@@ -242,7 +242,7 @@ Quando si usa un'espressione di licenza, è necessario usare la proprietà Packa
 
 [Altre informazioni sulle espressioni di licenza e le licenze accettate da NuGet.org](nuspec.md#license).
 
-Quando si imballa un file di licenza, è necessario utilizzare la proprietà PackageLicenseFile per specificare il percorso del pacchetto, relativo alla radice del pacchetto. Inoltre, è necessario assicurarsi che il file sia incluso nel pacchetto. Ad esempio:
+Quando si imballa un file di licenza, è necessario utilizzare la proprietà PackageLicenseFile per specificare il percorso del pacchetto, relativo alla radice del pacchetto. Inoltre, è necessario assicurarsi che il file sia incluso nel pacchetto. Esempio:
 
 ```xml
 <PropertyGroup>
@@ -256,6 +256,23 @@ Quando si imballa un file di licenza, è necessario utilizzare la proprietà Pac
 
 [Esempio di file di licenza](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample).
 
+### <a name="packing-a-file-without-an-extension"></a>Compressione di un file senza estensione
+
+In alcuni scenari, ad esempio quando si imballa un file di licenza, potrebbe essere necessario includere un file senza estensione.
+Per motivi cronologici, NuGet & MSBuild considera i percorsi senza un'estensione come directory.
+
+```xml
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="LICENSE" Pack="true" PackagePath=""/>
+  </ItemGroup>  
+```
+
+[File senza un esempio di estensione](https://github.com/NuGet/Samples/blob/master/PackageLicenseFileExtensionlessExample/).
 ### <a name="istool"></a>IsTool
 
 Quando si usa `MSBuild -t:pack -p:IsTool=true`, tutti i file, come specificato nello scenario [Assembly di output](#output-assemblies), vengono copiati nella cartella `tools` invece che nella cartella `lib`. Si noti che questo comportamento è diverso da `DotNetCliTool`, che viene specificato impostando `PackageType` nel file `.csproj`.
@@ -366,7 +383,10 @@ Esempio:
 1. Scrittura dei file di asset, delle destinazioni e delle proprietà
 
 La `restore` destinazione funziona per i progetti che usano il formato PackageReference.
-`MSBuild 16.5+` dispone anche del supporto per il [consenso esplicito](#restoring-packagereference-and-packages.config-with-msbuild) per il `packages.config` formato.
+`MSBuild 16.5+` dispone anche del supporto per il [consenso esplicito](#restoring-packagereference-and-packagesconfig-with-msbuild) per il `packages.config` formato.
+
+> [!NOTE]
+> La `restore` destinazione [non deve essere eseguita](#restoring-and-building-with-one-msbuild-command) in combinazione con la `build` destinazione.
 
 ### <a name="restore-properties"></a>Ripristino delle proprietà
 
@@ -395,7 +415,7 @@ Possono esistere ulteriori impostazioni di ripristino derivate da proprietà di 
 | RestoreForceEvaluate | Forza il ripristino per ricalcolare le dipendenze e aggiornare il file di blocco senza alcun avviso. |
 | RestorePackagesConfig | Opzione di consenso esplicito che ripristina i progetti con packages.config. Supporto `MSBuild -t:restore` solo con. |
 
-#### <a name="examples"></a>Esempio
+#### <a name="examples"></a>Esempi
 
 Riga di comando:
 
