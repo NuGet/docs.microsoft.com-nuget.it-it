@@ -1,16 +1,16 @@
 ---
 title: Formato PackageReference NuGet (riferimenti a pacchetti nei file di progetto)
 description: Informazioni dettagliate su PackageReference NuGet nei file di progetto, come supportato da NuGet 4.0 +, Visual Studio 2017 e .NET Core 2.0
-author: karann-msft
-ms.author: karann
+author: nkolev92
+ms.author: nikolev
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1127e7aee27d57abd5f14dd3bea82dfff3ba6d93
-ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
+ms.openlocfilehash: dcaed83ca54e3234702e963ffc2ebbde4cd75b28
+ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97699778"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98235763"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Riferimenti a pacchetti (PackageReference) nei file di progetto
 
@@ -107,7 +107,7 @@ I tag di metadati seguenti controllano gli asset delle dipendenze:
 
 I valori consentiti per questi tag sono i seguenti, con più valori separati da un punto e virgola, ad eccezione di `all` e `none` che devono essere usati da soli:
 
-| Valore | Descrizione |
+| valore | Descrizione |
 | --- | ---
 | compile | Contenuti della cartella `lib`. Controlla se il progetto può essere compilato in base agli assembly nella cartella |
 | runtime | Contenuti delle cartelle `lib` e `runtimes`. Controlla se questi assembly verranno copiati nella directory di output build |
@@ -305,7 +305,7 @@ In Visual Studio è anche possibile disattivare gli [avvisi](/visualstudio/ide/h
 
 *Questa funzionalità è disponibile con NuGet **4.9** o versione successiva e con Visual Studio 2017 **15.9** o versione successiva.*
 
-L'input per il ripristino NuGet è un set di riferimenti al pacchetto dal file di progetto (dipendenze dirette o di primo livello) e l'output è una chiusura completa di tutte le dipendenze del pacchetto, incluse le dipendenze transitive. NuGet prova a produrre sempre la stessa chiusura completa di dipendenze del pacchetto se l'elenco PackageReference di input non è stato modificato. Esistono tuttavia alcuni scenari in cui non è possibile farlo. Esempio:
+L'input per il ripristino NuGet è un set di riferimenti al pacchetto dal file di progetto (dipendenze dirette o di primo livello) e l'output è una chiusura completa di tutte le dipendenze del pacchetto, incluse le dipendenze transitive. NuGet prova a produrre sempre la stessa chiusura completa di dipendenze del pacchetto se l'elenco PackageReference di input non è stato modificato. Esistono tuttavia alcuni scenari in cui non è possibile farlo. Ad esempio:
 
 * Quando si usano versioni mobili, ad esempio `<PackageReference Include="My.Sample.Lib" Version="4.*"/>`. Anche se in questo caso la finalità è il passaggio alla versione più recente a ogni ripristino dei pacchetti, esistono scenari in cui gli utenti richiedono che il grafo venga bloccato su una determinata versione più recente e passi a una versione successiva, se disponibile, in caso di movimento esplicito.
 * Viene pubblicata una versione più recente del pacchetto che risponde ai requisiti di versione di PackageReference. ad esempio 
@@ -390,3 +390,34 @@ Se `ProjectA` ha una dipendenza da `PackageX` versione `2.0.0` e fa anche riferi
 | `-LockedMode` | `--locked-mode` | RestoreLockedMode | Abilita la modalità di blocco per il ripristino. Questa operazione è utile negli scenari CI/CD in cui si desiderano compilazioni ripetibili.|   
 | `-ForceEvaluate` | `--force-evaluate` | RestoreForceEvaluate | Questa opzione è utile con i pacchetti con la versione mobile definita nel progetto. Per impostazione predefinita, NuGet Restore non aggiornerà automaticamente la versione del pacchetto a ogni ripristino, a meno che non si esegua Restore con questa opzione. |
 | `-LockFilePath` | `--lock-file-path` | NuGetLockFilePath | Definisce un percorso di file di blocco personalizzato per un progetto. Per impostazione predefinita, NuGet supporta `packages.lock.json` nella directory radice. Se nella stessa directory sono presenti più progetti, NuGet supporta il file di blocco `packages.<project_name>.lock.json` specifico del progetto |
+
+## <a name="assettargetfallback"></a>AssetTargetFallback
+
+La `AssetTargetFallback` proprietà consente di specificare versioni aggiuntive del Framework compatibili per i progetti a cui fa riferimento il progetto e i pacchetti NuGet utilizzati dal progetto.
+
+Se si specifica una dipendenza del pacchetto usando `PackageReference` ma il pacchetto non contiene asset compatibili con il Framework di destinazione del progetto, la `AssetTargetFallback` Proprietà entra in gioco. La compatibilità del pacchetto a cui si fa riferimento viene riverificata utilizzando ogni Framework di destinazione specificato in `AssetTargetFallback` .
+Quando `project` si fa riferimento a un oggetto o a `package` `AssetTargetFallback` , viene generato l'avviso [NU1701](../reference/errors-and-warnings/NU1701.md) .
+
+Per esempi relativi alla compatibilità, vedere la tabella seguente `AssetTargetFallback` .
+
+| Framework del progetto | AssetTargetFallback | Framework di pacchetto | Risultato |
+|-------------------|---------------------|--------------------|--------|
+| .NET Framework 4.7.2 | | .NET Standard 2.0 | .NET Standard 2.0 |
+| App .NET Core 3,1 | | .NET Standard 2,0, .NET Framework 4.7.2 | .NET Standard 2.0 |
+| App .NET Core 3,1 | | .NET Framework 4.7.2 | Incompatibile, con esito negativo [`NU1202`](../reference/errors-and-warnings/NU1202.md) |
+| App .NET Core 3,1 | net472;net471 | .NET Framework 4.7.2 | .NET Framework 4.7.2 con [`NU1701`](../reference/errors-and-warnings/NU1701.md) |
+
+È possibile specificare più Framework utilizzando `;` come delimitatore. Per aggiungere un Framework di fallback, è possibile eseguire le operazioni seguenti:
+
+```xml
+<AssetTargetFallback Condition=" '$(TargetFramework)'=='netcoreapp3.1' ">
+    $(AssetTargetFallback);net472;net471
+</AssetTargetFallback>
+```
+
+È possibile lasciare disattivato `$(AssetTargetFallback)` se si desidera sovrascrivere, anziché aggiungere i `AssetTargetFallback` valori esistenti.
+
+> [!NOTE]
+> Se si usa un [progetto basato su .NET SDK](/dotnet/core/sdk), `$(AssetTargetFallback)` vengono configurati i valori appropriati e non è necessario impostarli manualmente.
+>
+> `$(PackageTargetFallback)` era una funzionalità precedente che ha tentato di risolvere questo problema, ma è fondamentalmente interrotta e non *deve* essere usata. Per eseguire la migrazione da `$(PackageTargetFallback)` a `$(AssetTargetFallback)` , è sufficiente modificare il nome della proprietà.

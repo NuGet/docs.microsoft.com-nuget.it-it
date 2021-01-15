@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 39a4de4071eec70c88a2add158f2a3a734f7d7b7
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 0eca8478b4d6509dbc1407560d2c86069c7575dd
+ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622928"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98235737"
 ---
 # <a name="nuget-client-sdk"></a>NuGet Client SDK
 
@@ -20,23 +20,18 @@ ms.locfileid: "88622928"
 * [`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging) : Usato per interagire con i pacchetti NuGet. `NuGet.Protocol` dipende da questo pacchetto
 
 È possibile trovare il codice sorgente per questi pacchetti nel repository GitHub [NuGet/NuGet. client](https://github.com/NuGet/NuGet.Client) .
+È possibile trovare il codice sorgente per questi esempi nel progetto [NuGet. Protocol. Samples](https://github.com/NuGet/Samples/tree/master/NuGetProtocolSamples) su GitHub.
 
 > [!Note]
 > Per la documentazione sul protocollo server NuGet, vedere l'API del [Server NuGet](~/api/overview.md).
 
-## <a name="getting-started"></a>Introduzione
+## <a name="nugetprotocol"></a>NuGet. Protocol
 
-### <a name="install-the-packages"></a>Installare i pacchetti
+Installare il `NuGet.Protocol` pacchetto per interagire con i feed di pacchetti NuGet basati su cartelle e http:
 
 ```ps1
-dotnet add package NuGet.Protocol  # interact with HTTP and folder-based NuGet package feeds, includes NuGet.Packaging
-
-dotnet add package NuGet.Packaging # interact with .nupkg and .nuspec files from a stream
+dotnet add package NuGet.Protocol
 ```
-
-## <a name="examples"></a>Esempi
-
-È possibile trovare questi esempi nel progetto [NuGet. Protocol. Samples](https://github.com/NuGet/Samples/tree/master/NuGetProtocolSamples) su GitHub.
 
 ### <a name="list-package-versions"></a>Elencare le versioni del pacchetto
 
@@ -61,6 +56,36 @@ Ottenere i metadati per il pacchetto "Newtonsoft.Json" usando l' [API dei metada
 Cercare i pacchetti "JSON" usando l' [API di ricerca NuGet V3](../api/search-query-service-resource.md):
 
 [!code-csharp[SearchPackages](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=SearchPackages)]
+
+### <a name="push-a-package"></a>Eseguire il push di un pacchetto
+
+Eseguire il push di un pacchetto usando l' [API di push ed eliminazione NuGet V3](../api/package-publish-resource.md):
+
+[!code-csharp[PushPackage](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=PushPackage)]
+
+### <a name="delete-a-package"></a>Eliminare un pacchetto
+
+Eliminare un pacchetto usando l' [API di push ed eliminazione NuGet V3](../api/package-publish-resource.md):
+
+> [!Note]
+> I server NuGet sono liberi di interpretare una richiesta di eliminazione del pacchetto come "eliminazione hardware", "eliminazione temporanea" o "Unlist".
+> Nuget.org, ad esempio, interpreta la richiesta di eliminazione del pacchetto come "Unlist". Per ulteriori informazioni su questa procedura, vedere il criterio [eliminazione dei pacchetti](../nuget-org/policies/deleting-packages.md) .
+
+[!code-csharp[DeletePackage](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=DeletePackage)]
+
+### <a name="work-with-authenticated-feeds"></a>Usare i feed autenticati
+
+Usare [`NuGet.Protocol`](https://www.nuget.org/packages/NuGet.Protocol) per lavorare con i feed autenticati.
+
+[!code-csharp[AuthenticatedFeed](~/../nuget-samples/NuGetProtocolSamples/Program.cs?name=AuthenticatedFeed)]
+
+## <a name="nugetpackaging"></a>NuGet. Packaging
+
+Installare il `NuGet.Packaging` pacchetto per interagire con `.nupkg` `.nuspec` i file e da un flusso:
+
+```ps1
+dotnet add package NuGet.Packaging
+```
 
 ### <a name="create-a-package"></a>Creare un pacchetto
 

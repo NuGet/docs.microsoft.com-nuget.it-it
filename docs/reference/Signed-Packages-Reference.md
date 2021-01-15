@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 05/18/2018
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 7384e8b30cb2ec5fe53ea0fe485858bc1f7b3c43
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: ac9efadc1d29bec86ca9b7821d5587e0171613aa
+ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238179"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98235711"
 ---
 # <a name="signed-packages"></a>Pacchetti firmati
 
@@ -23,10 +23,10 @@ I pacchetti firmati forniscono la convalida end-to-end più avanzata. Esistono d
 - **Firma dell'autore**. Una firma di autore garantisce che il pacchetto non sia stato modificato dopo che l'autore ha firmato il pacchetto, indipendentemente dal repository o dal metodo di trasporto fornito dal pacchetto. Inoltre, i pacchetti firmati dall'autore forniscono un meccanismo di autenticazione aggiuntivo alla pipeline di pubblicazione nuget.org, perché il certificato di firma deve essere registrato in anticipo. Per ulteriori informazioni, vedere [Register Certificates](#signature-requirements-on-nugetorg).
 - **Firma del repository**. Le firme del repository forniscono una garanzia di integrità per **tutti i** pacchetti in un repository, indipendentemente dal fatto che siano firmati o meno dall'autore, anche se i pacchetti vengono ottenuti da un percorso diverso rispetto al repository originale in cui sono stati firmati.   
 
-Per informazioni dettagliate sulla creazione di un pacchetto firmato autore, vedere [signing Packages](../create-packages/Sign-a-package.md) e il [comando NuGet Sign](../reference/cli-reference/cli-ref-sign.md).
+Per informazioni dettagliate sulla creazione di un pacchetto firmato autore, vedere [signing Packages](../create-packages/Sign-a-package.md) e il [comando NuGet Sign](../reference/cli-reference/cli-ref-sign.md). È possibile verificare le firme dei pacchetti usando i comandi [DotNet NuGet Verify](/dotnet/core/tools/dotnet-nuget-verify.md) o [NuGet Verify](../reference/cli-reference/cli-ref-verify.md) .
 
 > [!Important]
-> La firma del pacchetto è attualmente supportata solo quando si usa nuget.exe in Windows. [La verifica dei pacchetti firmati è attualmente supportata solo quando si usa nuget.exe](../reference/cli-reference/cli-ref-verify.md) o Visual Studio in Windows.
+> I pacchetti per la firma di autore sono supportati solo da nuget.exe in Windows al momento. Tuttavia, tutti i pacchetti caricati in nuget.org vengono automaticamente firmati.
 
 ## <a name="certificate-requirements"></a>Requisiti per i certificati
 
@@ -57,4 +57,6 @@ nuget.org dispone di requisiti aggiuntivi per l'accettazione di un pacchetto fir
 ## <a name="related-articles"></a>Articoli correlati
 
 - [Firma di pacchetti NuGet](../create-packages/Sign-a-Package.md)
+- [Verificare pacchetti firmati tramite l'interfaccia della riga di comando DotNet](/dotnet/core/tools/dotnet-nuget-verify.md)
+- [Verificare i pacchetti firmati tramite nuget.exe](../reference/cli-reference/cli-ref-verify.md)
 - [Gestire i limiti di attendibilità dei pacchetti](../consume-packages/installing-signed-packages.md)
