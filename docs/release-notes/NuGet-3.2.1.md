@@ -1,38 +1,38 @@
 ---
 title: Note sulla versione di NuGet 3.2.1
-description: Note sulla versione per NuGet 3.2.1, tra cui noti problemi, correzioni di bug, funzionalità aggiunte e dcr.
-author: karann-msft
-ms.author: karann
+description: Note sulla versione per NuGet 3.2.1, inclusi problemi noti, correzioni di bug, funzionalità aggiunte e DCR.
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: e5ddbb8aa52ef85c823404364a3aca79fd16f3b1
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: cbbef3517122ceda91cb4b4463fe8be43d204db4
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548190"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776520"
 ---
-# <a name="nuget-321-release-notes"></a><span data-ttu-id="9756b-103">Note sulla versione di NuGet 3.2.1</span><span class="sxs-lookup"><span data-stu-id="9756b-103">NuGet 3.2.1 Release Notes</span></span>
+# <a name="nuget-321-release-notes"></a><span data-ttu-id="cac39-103">Note sulla versione di NuGet 3.2.1</span><span class="sxs-lookup"><span data-stu-id="cac39-103">NuGet 3.2.1 Release Notes</span></span>
 
-<span data-ttu-id="9756b-104">[Note sulla versione di NuGet 3.2](../release-notes/nuget-3.2.md) | [note sulla versione di NuGet 3.3](../release-notes/nuget-3.3.md)</span><span class="sxs-lookup"><span data-stu-id="9756b-104">[NuGet 3.2 Release Notes](../release-notes/nuget-3.2.md) | [NuGet 3.3 Release Notes](../release-notes/nuget-3.3.md)</span></span>
+<span data-ttu-id="cac39-104">Note sulla versione di [NuGet 3,2](../release-notes/nuget-3.2.md)  |  [Note sulla versione di NuGet 3,3](../release-notes/nuget-3.3.md)</span><span class="sxs-lookup"><span data-stu-id="cac39-104">[NuGet 3.2 Release Notes](../release-notes/nuget-3.2.md) | [NuGet 3.3 Release Notes](../release-notes/nuget-3.3.md)</span></span>
 
-<span data-ttu-id="9756b-105">NuGet 3.2.1 per la riga di comando è stato rilasciato il 12 ottobre 2015 grazie a una serie di ottimizzazioni e correzioni per la versione 3.2 ed è disponibile dal [dist.nuget.org](http://dist.nuget.org/index.html).</span><span class="sxs-lookup"><span data-stu-id="9756b-105">NuGet 3.2.1 for the command-line was released October 12, 2015 with a handful of optimizations and fixes for the 3.2 release and is available from [dist.nuget.org](http://dist.nuget.org/index.html).</span></span>
+<span data-ttu-id="cac39-105">NuGet 3.2.1 per la riga di comando è stato rilasciato il 12 ottobre 2015 con alcune ottimizzazioni e correzioni per la versione 3,2 ed è disponibile da [dist.NuGet.org](http://dist.nuget.org/index.html).</span><span class="sxs-lookup"><span data-stu-id="cac39-105">NuGet 3.2.1 for the command-line was released October 12, 2015 with a handful of optimizations and fixes for the 3.2 release and is available from [dist.nuget.org](http://dist.nuget.org/index.html).</span></span>
 
-## <a name="improvements"></a><span data-ttu-id="9756b-106">Miglioramenti</span><span class="sxs-lookup"><span data-stu-id="9756b-106">Improvements</span></span>
+## <a name="improvements"></a><span data-ttu-id="cac39-106">Miglioramenti</span><span class="sxs-lookup"><span data-stu-id="cac39-106">Improvements</span></span>
 
-* <span data-ttu-id="9756b-107">NuGet ora Usa il file di configurazione con le maiuscole e minuscole originali di `NuGet.Config`.</span><span class="sxs-lookup"><span data-stu-id="9756b-107">NuGet now uses the configuration file with the original casing of `NuGet.Config`.</span></span>  <span data-ttu-id="9756b-108">Questo aspetto è importante nei sistemi operativi distinzione maiuscole/minuscole [1427](https://github.com/NuGet/Home/issues/1427)</span><span class="sxs-lookup"><span data-stu-id="9756b-108">This is important on case-sensitive operating systems [1427](https://github.com/NuGet/Home/issues/1427)</span></span>
-* <span data-ttu-id="9756b-109">Ripristino di NuGet ignorerà ora progetti dnx (`*.xproj`) che deve essere elaborato con `dnu` [1227](https://github.com/NuGet/Home/issues/1227)</span><span class="sxs-lookup"><span data-stu-id="9756b-109">NuGet restore will now ignore dnx projects (`*.xproj`) that should be processed with `dnu` [1227](https://github.com/NuGet/Home/issues/1227)</span></span>
-* <span data-ttu-id="9756b-110">Ottimizzata l'utilizzo della rete quando si lavora con `index.json` e i dati di registrazione del pacchetto [1426](https://github.com/NuGet/Home/issues/1426)</span><span class="sxs-lookup"><span data-stu-id="9756b-110">Optimized network utilization when working with `index.json` and package registration data [1426](https://github.com/NuGet/Home/issues/1426)</span></span>
-* <span data-ttu-id="9756b-111">Download delle risorse migliorate funzionalità di gestione per essere più affidabile con i servizi v2 [1448](https://github.com/NuGet/Home/issues/1448)</span><span class="sxs-lookup"><span data-stu-id="9756b-111">Improved resource download handling to be more robust with v2 services [1448](https://github.com/NuGet/Home/issues/1448)</span></span>
+* <span data-ttu-id="cac39-107">NuGet ora usa il file di configurazione con la combinazione di maiuscole e minuscole originale di `NuGet.Config` .</span><span class="sxs-lookup"><span data-stu-id="cac39-107">NuGet now uses the configuration file with the original casing of `NuGet.Config`.</span></span>  <span data-ttu-id="cac39-108">Questo è importante nei sistemi operativi con distinzione tra maiuscole e minuscole [1427](https://github.com/NuGet/Home/issues/1427)</span><span class="sxs-lookup"><span data-stu-id="cac39-108">This is important on case-sensitive operating systems [1427](https://github.com/NuGet/Home/issues/1427)</span></span>
+* <span data-ttu-id="cac39-109">Il ripristino NuGet ignorerà ora i progetti DNX ( `*.xproj` ) che devono essere elaborati con `dnu` [1227](https://github.com/NuGet/Home/issues/1227)</span><span class="sxs-lookup"><span data-stu-id="cac39-109">NuGet restore will now ignore dnx projects (`*.xproj`) that should be processed with `dnu` [1227](https://github.com/NuGet/Home/issues/1227)</span></span>
+* <span data-ttu-id="cac39-110">Ottimizzazione dell'utilizzo della rete quando si utilizzano `index.json` i dati di registrazione del pacchetto [1426](https://github.com/NuGet/Home/issues/1426)</span><span class="sxs-lookup"><span data-stu-id="cac39-110">Optimized network utilization when working with `index.json` and package registration data [1426](https://github.com/NuGet/Home/issues/1426)</span></span>
+* <span data-ttu-id="cac39-111">Miglioramento della gestione del download delle risorse per una maggiore affidabilità con i servizi V2 [1448](https://github.com/NuGet/Home/issues/1448)</span><span class="sxs-lookup"><span data-stu-id="cac39-111">Improved resource download handling to be more robust with v2 services [1448](https://github.com/NuGet/Home/issues/1448)</span></span>
 
-## <a name="fixes"></a><span data-ttu-id="9756b-112">Correzioni</span><span class="sxs-lookup"><span data-stu-id="9756b-112">Fixes</span></span>
+## <a name="fixes"></a><span data-ttu-id="cac39-112">Correzioni</span><span class="sxs-lookup"><span data-stu-id="cac39-112">Fixes</span></span>
 
-* <span data-ttu-id="9756b-113">Aggiornamento di NuGet aggiorni correttamente `.csproj` / `.vcxproj` riferimenti [1483](https://github.com/NuGet/Home/issues/1483)</span><span class="sxs-lookup"><span data-stu-id="9756b-113">NuGet update correctly updates `.csproj`/`.vcxproj` references [1483](https://github.com/NuGet/Home/issues/1483)</span></span>
-* <span data-ttu-id="9756b-114">Impediscono ora di creazione quando un SpecialFolders.UserProfile non è possibile individuare una cartella locale .nuget [1531](https://github.com/NuGet/Home/issues/1531)</span><span class="sxs-lookup"><span data-stu-id="9756b-114">Now preventing a local .nuget folder from being created when a SpecialFolders.UserProfile cannot be located [1531](https://github.com/NuGet/Home/issues/1531)</span></span>
-* <span data-ttu-id="9756b-115">La gestione dei pacchetti nella cache locale che sono danneggiate durante il download migliorata [1405](https://github.com/NuGet/Home/issues/1405) [1157](https://github.com/NuGet/Home/issues/1157)</span><span class="sxs-lookup"><span data-stu-id="9756b-115">Improved handling of packages in local cache that are corrupted during download [1405](https://github.com/NuGet/Home/issues/1405) [1157](https://github.com/NuGet/Home/issues/1157)</span></span>
+* <span data-ttu-id="cac39-113">Aggiornamento di NuGet aggiorna correttamente i `.csproj` / `.vcxproj` riferimenti [1483](https://github.com/NuGet/Home/issues/1483)</span><span class="sxs-lookup"><span data-stu-id="cac39-113">NuGet update correctly updates `.csproj`/`.vcxproj` references [1483](https://github.com/NuGet/Home/issues/1483)</span></span>
+* <span data-ttu-id="cac39-114">È ora possibile impedire la creazione di una cartella locale. NuGet quando non è possibile trovare SpecialFolders. UserProfile [1531](https://github.com/NuGet/Home/issues/1531)</span><span class="sxs-lookup"><span data-stu-id="cac39-114">Now preventing a local .nuget folder from being created when a SpecialFolders.UserProfile cannot be located [1531](https://github.com/NuGet/Home/issues/1531)</span></span>
+* <span data-ttu-id="cac39-115">Gestione migliorata dei pacchetti nella cache locale danneggiata durante il download [1405](https://github.com/NuGet/Home/issues/1405) [1157](https://github.com/NuGet/Home/issues/1157)</span><span class="sxs-lookup"><span data-stu-id="cac39-115">Improved handling of packages in local cache that are corrupted during download [1405](https://github.com/NuGet/Home/issues/1405) [1157](https://github.com/NuGet/Home/issues/1157)</span></span>
 
-<span data-ttu-id="9756b-116">Un elenco completo dei problemi risolti per l'estensione di riga di comando e Visual Studio è disponibili in GitHub di NuGet [3.2.1 attività cardine](https://github.com/NuGet/Home/issues?q=milestone%3A3.2.1+is%3Aclosed)</span><span class="sxs-lookup"><span data-stu-id="9756b-116">A complete list of issues addressed for the command-line and Visual Studio extension can be found in the NuGet GitHub [3.2.1 milestone](https://github.com/NuGet/Home/issues?q=milestone%3A3.2.1+is%3Aclosed)</span></span>
+<span data-ttu-id="cac39-116">Un elenco completo dei problemi risolti per la riga di comando e l'estensione di Visual Studio è disponibile nell' [attività cardine](https://github.com/NuGet/Home/issues?q=milestone%3A3.2.1+is%3Aclosed) NuGet di GitHub 3.2.1</span><span class="sxs-lookup"><span data-stu-id="cac39-116">A complete list of issues addressed for the command-line and Visual Studio extension can be found in the NuGet GitHub [3.2.1 milestone](https://github.com/NuGet/Home/issues?q=milestone%3A3.2.1+is%3Aclosed)</span></span>
 
-## <a name="known-issues"></a><span data-ttu-id="9756b-117">Problemi noti</span><span class="sxs-lookup"><span data-stu-id="9756b-117">Known Issues</span></span>
+## <a name="known-issues"></a><span data-ttu-id="cac39-117">Problemi noti</span><span class="sxs-lookup"><span data-stu-id="cac39-117">Known Issues</span></span>
 
-<span data-ttu-id="9756b-118">Continuiamo a tenere traccia dei problemi nel nostro elenco di problemi di GitHub che può trovarsi in: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)</span><span class="sxs-lookup"><span data-stu-id="9756b-118">We continue to track issues on our GitHub issues list which can be found at: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)</span></span>
+<span data-ttu-id="cac39-118">Continuiamo a tenere traccia dei problemi nell'elenco dei problemi di GitHub disponibili all'indirizzo: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)</span><span class="sxs-lookup"><span data-stu-id="cac39-118">We continue to track issues on our GitHub issues list which can be found at: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)</span></span>
