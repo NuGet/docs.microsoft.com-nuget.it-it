@@ -1,16 +1,16 @@
 ---
-title: Guida di riferimento all'interfaccia della riga di comando (CLI) NuGet
+title: Guida di riferimento all'interfaccia Command-Line NuGet
 description: Indice di riferimento della riga di comando per l'interfaccia della riga di comando nuget.exe
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/23/2018
 ms.topic: reference
-ms.openlocfilehash: e9343f1fdddcf839322849925372587e685aef4a
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: a9a5fc4d3b1e0f19fa3ea249ca7759c8ebc2d12e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623149"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777699"
 ---
 # <a name="nuget-cli-reference"></a>Informazioni di riferimento sull'interfaccia della riga di comando di NuGet
 
@@ -47,7 +47,7 @@ Comandi e applicabilità disponibili per la creazione di pacchetti, l'utilizzo d
 | [push](cli-reference/cli-ref-push.md) | Pubblicazione | Tutti | Pubblica un pacchetto in un'origine del pacchetto. |
 | [config](cli-reference/cli-ref-config.md) | Tutti | Tutti | Ottiene o imposta i valori di configurazione NuGet. |
 | [help or ?](cli-reference/cli-ref-help.md) | Tutti | Tutti | Visualizza informazioni della guida o la guida per un comando. |
-| [locals](cli-reference/cli-ref-locals.md) | Consumo | 3.3 + | Elenca i percorsi delle cartelle *Global-Packages*, *http-cache*e *Temp* e cancella il contenuto di tali cartelle. |
+| [locals](cli-reference/cli-ref-locals.md) | Consumo | 3.3 + | Elenca i percorsi delle cartelle *Global-Packages*, *http-cache* e *Temp* e cancella il contenuto di tali cartelle. |
 | [restore](cli-reference/cli-ref-restore.md) | Consumo | 2.7+ | Ripristina tutti i pacchetti a cui fa riferimento il formato di gestione dei pacchetti in uso. Quando si esegue in mono, il ripristino dei pacchetti con il formato PackageReference non è supportato. |
 | [setapikey](cli-reference/cli-ref-setapikey.md) | Pubblicazione, utilizzo | Tutti | Salva una chiave API per una determinata origine del pacchetto quando tale origine richiede una chiave per l'accesso. |
 | [spec](cli-reference/cli-ref-spec.md) | Creazione | Tutti | Genera un `.nuspec` file, usando i token se genera il file da un progetto di Visual Studio. |

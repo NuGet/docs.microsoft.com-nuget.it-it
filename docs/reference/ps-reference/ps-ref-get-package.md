@@ -1,16 +1,16 @@
 ---
 title: Guida di riferimento a NuGet Get-Package PowerShell
 description: Informazioni di riferimento per il comando Get-Package PowerShell nella console di gestione pacchetti NuGet in Visual Studio.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 1576e3f20eba1ecdd099b1e7c23aef6b1a1a0a4f
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 8394f888ec3d5e57eacd351a4867173da1070ead
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237231"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777501"
 ---
 # <a name="get-package-package-manager-console-in-visual-studio"></a>Get-Package (console di gestione pacchetti in Visual Studio)
 
@@ -36,7 +36,7 @@ Senza parametri, `Get-Package` Visualizza l'elenco dei pacchetti installati nel 
 | ListAvailable | Elenca i pacchetti disponibili da un'origine del pacchetto, per impostazione predefinita nuget.org. Mostra un valore predefinito di 50 pacchetti, a meno che non siano specificati-PageSize e/o-First. |
 | Aggiornamenti | Elenca i pacchetti per i quali è disponibile un aggiornamento dall'origine del pacchetto. |
 | ProjectName | Progetto da cui ottenere i pacchetti installati. Se omesso, restituisce i progetti installati per l'intera soluzione. |
-| Filtro | Stringa di filtro utilizzata per restringere l'elenco dei pacchetti mediante l'applicazione dell'ID, della descrizione e dei tag del pacchetto. |
+| Filtra | Stringa di filtro utilizzata per restringere l'elenco dei pacchetti mediante l'applicazione dell'ID, della descrizione e dei tag del pacchetto. |
 | First (Primo) | Numero di pacchetti da restituire dall'inizio dell'elenco. Se non è specificato, il valore predefinito è 50. |
 | Ignora | Omette i primi &lt; pacchetti int &gt; dall'elenco visualizzato.  |
 | AllVersions | Visualizza tutte le versioni disponibili di ogni pacchetto anziché solo la versione più recente. |

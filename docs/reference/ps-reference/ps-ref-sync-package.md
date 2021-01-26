@@ -1,16 +1,16 @@
 ---
 title: Guida di riferimento a NuGet Sync-Package PowerShell
 description: Informazioni di riferimento per il comando Sync-Package PowerShell nella console di gestione pacchetti NuGet in Visual Studio.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: fc4c875b5dcb0b90e4d048daf5984ed265370090
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 4261b0a20a4fd4183f7b08096c3477e6f9d0a02d
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238049"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777400"
 ---
 # <a name="sync-package-package-manager-console-in-visual-studio"></a>Sync-Package (console di gestione pacchetti in Visual Studio)
 
@@ -30,14 +30,14 @@ Sync-Package [-Id] <string> [-IgnoreDependencies] [-ProjectName <string>] [[-Ver
 
 | Parametro | Descrizione |
 | --- | --- |
-| ID | Necessaria Identificatore del pacchetto da sincronizzare. L'opzione-ID è facoltativa. |
+| Id | Necessaria Identificatore del pacchetto da sincronizzare. L'opzione-ID è facoltativa. |
 | IgnoreDependencies | Installare solo questo pacchetto e non le relative dipendenze. |
 | ProjectName | Progetto da cui sincronizzare il pacchetto, per impostazione predefinita il progetto predefinito. |
 | Versione | Versione del pacchetto da sincronizzare, per impostazione predefinita la versione attualmente installata. |
 | Source (Sorgente) | URL o percorso della cartella per l'origine del pacchetto da cercare. I percorsi delle cartelle locali possono essere assoluti o relativi alla cartella corrente. Se omesso, `Sync-Package` Cerca nell'origine del pacchetto attualmente selezionata. |
 | IncludePrerelease | Include i pacchetti di versioni non definitive nella sincronizzazione. |
 | FileConflictAction | Azione da intraprendere quando viene richiesto di sovrascrivere o ignorare i file esistenti a cui fa riferimento il progetto. I valori possibili sono *overwrite, ignore, None, OverwriteAll* e *(3.0 +)* *IgnoreAll*. |
-| DependencyVersion | Versione dei pacchetti di dipendenze da usare. i possibili tipi sono i seguenti:<br/><ul><li>*Minimo* (impostazione predefinita): versione più bassa</li><li>*HighestPatch* : versione con la patch principale più bassa, minore minore, più alta</li><li>*HighestMinor* : versione con la patch principale più bassa, minore più elevata</li><li>*Massimo* (impostazione predefinita per Update-Package senza parametri): la versione più recente</li></ul>È possibile impostare il valore predefinito usando l' [`dependencyVersion`](../nuget-config-file.md#config-section) impostazione nel `Nuget.Config` file. |
+| DependencyVersion | Versione dei pacchetti di dipendenze da usare. i possibili tipi sono i seguenti:<br/><ul><li>*Minimo* (impostazione predefinita): versione più bassa</li><li>*HighestPatch*: versione con la patch principale più bassa, minore minore, più alta</li><li>*HighestMinor*: versione con la patch principale più bassa, minore più elevata</li><li>*Massimo* (impostazione predefinita per Update-Package senza parametri): la versione più recente</li></ul>È possibile impostare il valore predefinito usando l' [`dependencyVersion`](../nuget-config-file.md#config-section) impostazione nel `Nuget.Config` file. |
 | WhatIf | Mostra cosa accade quando si esegue il comando senza eseguire effettivamente la sincronizzazione. |
 
 Nessuno di questi parametri accetta caratteri jolly o di input della pipeline.

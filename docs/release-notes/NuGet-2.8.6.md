@@ -1,28 +1,28 @@
 ---
 title: Note sulla versione di NuGet versione 2.8.6
-description: Note sulla versione per NuGet versione 2.8.6, tra cui noti problemi, correzioni di bug, funzionalità aggiunte e dcr.
-author: karann-msft
-ms.author: karann
+description: Note sulla versione per NuGet versione 2.8.6, inclusi problemi noti, correzioni di bug, funzionalità aggiunte e DCR.
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: d57c658999ed3c79b962de84fd973276833ef3fd
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: ea291bdf7a5b6cc3ac3bde526030e517db4632d7
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546491"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776705"
 ---
 # <a name="nuget-286-release-notes"></a>Note sulla versione di NuGet versione 2.8.6
 
-[Note sulla versione di NuGet 2.8.5](../release-notes/nuget-2.8.5.md) | [note sulla versione di NuGet 2.8.7](../release-notes/nuget-2.8.7.md)
+Note sulla versione di [NuGet 2.8.5](../release-notes/nuget-2.8.5.md)  |  [Note sulla versione di NuGet 2.8.7](../release-notes/nuget-2.8.7.md)
 
-NuGet versione 2.8.6 è stato rilasciato il 20 luglio 2015 come aggiornamento secondario al nostro 2.8.5 destinati VSIX con alcune correzioni e miglioramenti per supportare i pacchetti che possono essere distribuiti con il supporto per il modello di sviluppo di UWP di Windows 10.
+NuGet versione 2.8.6 è stato rilasciato il 20 luglio 2015 come aggiornamento secondario di 2.8.5 VSIX con alcune correzioni e miglioramenti mirati per supportare i pacchetti che possono essere forniti con il supporto per il modello di sviluppo UWP di Windows 10.
 
-Questa versione dell'estensione Gestione pacchetti NuGet fornisce supporto solo per Visual Studio 2013.
+Questa versione dell'estensione Gestione pacchetti NuGet fornisce il supporto solo per Visual Studio 2013.
 
-In questa versione, la finestra di dialogo Gestione pacchetti NuGet ha aggiunto il supporto per:
+In questa versione è stato aggiunto il supporto per la finestra di dialogo Gestione pacchetti NuGet per:
 
-* È stato introdotto il moniker del Framework di destinazione UAP per supportare lo sviluppo di applicazioni di Windows 10.
-* Endpoint versione 3 del protocollo NuGet
-* Supporto per [NuGet. config](../consume-packages/configuring-nuget-behavior.md) attributo delle protocolVersion sulle origini di repository. Valore predefinito è "2"
-* Eseguire il fallback al repository remoto se una versione del pacchetto richiesto non è disponibile nella cache locale
+* Introduzione del moniker del Framework di destinazione UAP per supportare lo sviluppo di applicazioni Windows 10.
+* Endpoint del protocollo NuGet versione 3
+* Supporto per [Nuget.Config](../consume-packages/configuring-nuget-behavior.md) attributo protocolVersion nelle origini del repository. Il valore predefinito è "2"
+* Fallback al repository remoto se nella cache locale non è disponibile una versione del pacchetto necessaria

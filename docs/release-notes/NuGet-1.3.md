@@ -1,20 +1,20 @@
 ---
 title: Note sulla versione di NuGet 1,3
 description: Note sulla versione per NuGet 1,3, inclusi problemi noti, correzioni di bug, funzionalità aggiunte e DCR.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 45d5caa46d532670e370b81f675663b3c5aaaa95
-ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
+ms.openlocfilehash: 54eda149352810eacc1d6340ad16cec1b03194e3
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74825254"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777118"
 ---
 # <a name="nuget-13-release-notes"></a>Note sulla versione di NuGet 1,3
 
-[Note sulla versione di nuget 1,2](../release-notes/nuget-1.2.md) | [Note sulla versione di NuGet 1,4](../release-notes/nuget-1.4.md)
+Note sulla versione di [NuGet 1,2](../release-notes/nuget-1.2.md)  |  [Note sulla versione di NuGet 1,4](../release-notes/nuget-1.4.md)
 
 NuGet 1,3 è stato rilasciato il 25 aprile 2011.
 
@@ -29,29 +29,39 @@ Il team NuGet ha collaborato con gli utenti di [symbolsource.org](http://www.sym
 Questo comando consente di ottenere facilmente la pagina del progetto per un pacchetto all'interno della console di gestione pacchetti. Sono inoltre disponibili opzioni per aprire l'URL della licenza e la pagina relativa all'abuso del report per il pacchetto.
 La sintassi per il comando è:
 
-    Open-PackagePage -Id <string> [-Version] [-Source] [-License] [-ReportAbuse] [-PassThru]
+```
+Open-PackagePage -Id <string> [-Version] [-Source] [-License] [-ReportAbuse] [-PassThru]
+```
 
-L'opzione `-PassThru` viene utilizzata per restituire il valore dell'URL specificato.
+L' `-PassThru` opzione viene utilizzata per restituire il valore dell'URL specificato.
 
 Esempi:
 
-    PM> Open-PackagePage Ninject
+```
+PM> Open-PackagePage Ninject
+```
 
 Apre un browser per l'URL del progetto specificato nel pacchetto Ninject.
 
-    PM> Open-PackagePage Ninject -License
+```
+PM> Open-PackagePage Ninject -License
+```
 
 Apre un browser per l'URL di licenza specificato nel pacchetto Ninject.
 
-    PM> Open-PackagePage Ninject -ReportAbuse
+```
+PM> Open-PackagePage Ninject -ReportAbuse
+```
 
 Apre un browser per l'URL nell'origine del pacchetto corrente utilizzata per segnalare gli abusi per il pacchetto specificato.
 
-    PM> $url = Open-PackagePage Ninject -License -WhatIf -PassThru
+```
+PM> $url = Open-PackagePage Ninject -License -WhatIf -PassThru
+```
 
 Assegna l'URL della licenza alla variabile, $url, senza aprire l'URL in un browser.
 
-### <a name="performance-improvements"></a>Miglioramenti delle prestazioni
+### <a name="performance-improvements"></a>Miglioramenti alle prestazioni
 
 NuGet 1,3 introduce un notevole miglioramento delle prestazioni. NuGet 1,3 evita di scaricare la stessa versione di un pacchetto più volte includendo una cache per utente locale. È possibile accedere alla cache e cancellarla tramite la finestra di dialogo Impostazioni di gestione pacchetti:
 
@@ -59,13 +69,13 @@ NuGet 1,3 introduce un notevole miglioramento delle prestazioni. NuGet 1,3 evita
 
 Altri miglioramenti alle prestazioni includono l'aggiunta del supporto per la compressione HTTP e il miglioramento della velocità di installazione dei pacchetti in Visual Studio.
 
-### <a name="visual-studio-and-nugetexe-uses-the-same-list-of-package-sources"></a>Visual Studio e NuGet. exe usano lo stesso elenco di origini di pacchetti
+### <a name="visual-studio-and-nugetexe-uses-the-same-list-of-package-sources"></a>Visual Studio e nuget.exe utilizzano lo stesso elenco di origini di pacchetti
 
-Prima di NuGet 1,3, l'elenco delle origini dei pacchetti usate da NuGet. exe e dal componente aggiuntivo NuGet di Visual Studio non veniva archiviato nella stessa posizione. NuGet 1,3 ora usa lo stesso elenco in entrambe le posizioni. L'elenco viene archiviato in `NuGet.Config` e archiviato nella cartella AppData.
+Prima di NuGet 1,3, l'elenco di origini dei pacchetti usato da nuget.exe e NuGet Visual Studio Add-In non venivano archiviati nella stessa posizione. NuGet 1,3 ora usa lo stesso elenco in entrambe le posizioni. L'elenco viene archiviato in `NuGet.Config` e archiviato nella cartella AppData.
 
-### <a name="nugetexe-ignores-files-and-folders-that-start-with--by-default"></a>NuGet. exe ignora i file e le cartelle che iniziano con ' .' per impostazione predefinita
+### <a name="nugetexe-ignores-files-and-folders-that-start-with--by-default"></a>nuget.exe ignora i file e le cartelle che iniziano con ' .' per impostazione predefinita
 
-Per consentire a NuGet di funzionare correttamente con sistemi di controllo del codice sorgente quali Subversion e Mercurial, NuGet. exe ignora le cartelle e i file che iniziano con il carattere ' .' durante la creazione dei pacchetti. È possibile eseguirne l'override usando due nuovi flag:
+Per consentire a NuGet di funzionare correttamente con sistemi di controllo del codice sorgente quali Subversion e Mercurial, nuget.exe ignora le cartelle e i file che iniziano con il carattere ' .' durante la creazione dei pacchetti. È possibile eseguirne l'override usando due nuovi flag:
 
 * __-NoDefaultExcludes__ viene usato per eseguire l'override di questa impostazione e includere tutti i file.
 * __-Exclude__ viene usato per aggiungere altri file o cartelle da escludere usando un modello. Ad esempio, per escludere tutti i file con l'estensione di file '. bak '
@@ -87,4 +97,4 @@ Per un elenco completo delle correzioni di bug, vedere la pagina [relativa al ri
 ## <a name="bug-fixes-worth-noting"></a>Correzioni di bug da notare
 
 * I pacchetti con file di origine funzionano sia nei siti Web che nei progetti di applicazione Web.
-Per i siti Web, i file di origine vengono copiati nella cartella `App_Code`
+Per i siti Web, i file di origine vengono copiati nella `App_Code` cartella

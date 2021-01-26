@@ -1,16 +1,16 @@
 ---
 title: Provider di credenziali nuget.exe
 description: nuget.exe i provider di credenziali eseguono l'autenticazione con un feed e vengono implementati come eseguibili da riga di comando che seguono convenzioni specifiche.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: 41e3e63138351bafd5e3a56080268faef10d85a3
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 285504508fa88c96f5c7a23f15ef14d81ebc21e1
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238114"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777764"
 ---
 # <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>Autenticazione dei feed con nuget.exe provider di credenziali
 
@@ -22,11 +22,11 @@ Per altri dettagli su tutti gli approcci di autenticazione per, vedere [utilizzo
 
 nuget.exe i provider di credenziali possono essere usati in tre modi:
 
-- A **livello globale** : per rendere disponibile un provider di credenziali per tutte le istanze di `nuget.exe` in esecuzione nel profilo dell'utente corrente, aggiungerlo a `%LocalAppData%\NuGet\CredentialProviders` . Potrebbe essere necessario creare la `CredentialProviders` cartella. I provider di credenziali possono essere installati alla radice della `CredentialProviders`  cartella o all'interno di una sottocartella. Se un provider di credenziali dispone di più file/assembly, è possibile utilizzare le sottocartelle per organizzare i provider.
+- A **livello globale**: per rendere disponibile un provider di credenziali per tutte le istanze di `nuget.exe` in esecuzione nel profilo dell'utente corrente, aggiungerlo a `%LocalAppData%\NuGet\CredentialProviders` . Potrebbe essere necessario creare la `CredentialProviders` cartella. I provider di credenziali possono essere installati alla radice della `CredentialProviders`  cartella o all'interno di una sottocartella. Se un provider di credenziali dispone di più file/assembly, è possibile utilizzare le sottocartelle per organizzare i provider.
 
-- **Da una variabile di ambiente** : i provider di credenziali possono essere archiviati ovunque e resi accessibili a impostando `nuget.exe` la `%NUGET_CREDENTIALPROVIDERS_PATH%` variabile di ambiente sul percorso del provider. Questa variabile può essere un elenco delimitato da punti e virgola (ad esempio, `path1;path2` ) se sono presenti più percorsi.
+- **Da una variabile di ambiente**: i provider di credenziali possono essere archiviati ovunque e resi accessibili a impostando `nuget.exe` la `%NUGET_CREDENTIALPROVIDERS_PATH%` variabile di ambiente sul percorso del provider. Questa variabile può essere un elenco delimitato da punti e virgola (ad esempio, `path1;path2` ) se sono presenti più percorsi.
 
-- **Insieme a nuget.exe** : nuget.exe i provider di credenziali possono essere inseriti nella stessa cartella del `nuget.exe` .
+- **Insieme a nuget.exe**: nuget.exe i provider di credenziali possono essere inseriti nella stessa cartella del `nuget.exe` .
 
 Quando si caricano i provider di credenziali, `nuget.exe` Cerca nei percorsi precedenti, in ordine, tutti i file denominati `credentialprovider*.exe` , quindi carica i file nell'ordine in cui sono stati trovati. Se nella stessa cartella sono presenti più provider di credenziali, questi vengono caricati in ordine alfabetico.
 
@@ -64,15 +64,17 @@ Un provider deve eseguire le operazioni seguenti:
 
 | Proprietà |Note|
 |----------------|-----------|
-| Nome utente | Nome utente per le richieste autenticate.|
+| Username | Nome utente per le richieste autenticate.|
 | Password | Password per le richieste autenticate.|
 | Message | Dettagli facoltativi sulla risposta, usati solo per visualizzare dettagli aggiuntivi nei casi di errore. |
 
 Esempio di stdout:
 
-    { "Username" : "freddy@example.com",
-      "Password" : "bwm3bcx6txhprzmxhl2x63mdsul6grctazoomtdb6kfbof7m3a3z",
-      "Message"  : "" }
+```
+{ "Username" : "freddy@example.com",
+    "Password" : "bwm3bcx6txhprzmxhl2x63mdsul6grctazoomtdb6kfbof7m3a3z",
+    "Message"  : "" }
+```
 
 ## <a name="troubleshooting-a-credential-provider"></a>Risoluzione dei problemi relativi a un provider di credenziali
 

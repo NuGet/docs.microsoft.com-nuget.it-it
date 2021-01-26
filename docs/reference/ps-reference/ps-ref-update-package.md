@@ -1,16 +1,16 @@
 ---
 title: Guida di riferimento a NuGet Update-Package PowerShell
 description: Informazioni di riferimento per il comando Update-Package PowerShell nella console di gestione pacchetti NuGet in Visual Studio.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: af918d11e8f976be962d52084c5eda4d53e382c6
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 159817e56d978d6432e989d2027907c0d2445222
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238036"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777382"
 ---
 # <a name="update-package-package-manager-console-in-visual-studio"></a>Update-Package (console di gestione pacchetti in Visual Studio)
 
@@ -36,7 +36,7 @@ Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 
 |  Parametro | Descrizione |
 | --- | --- |
-| ID | Identificatore del pacchetto da aggiornare. Se omesso, aggiorna tutti i pacchetti. L'opzione-ID è facoltativa. |
+| Id | Identificatore del pacchetto da aggiornare. Se omesso, aggiorna tutti i pacchetti. L'opzione-ID è facoltativa. |
 | IgnoreDependencies | Ignora l'aggiornamento delle dipendenze del pacchetto. |
 | ProjectName | Nome del progetto contenente i pacchetti da aggiornare, per impostazione predefinita tutti i progetti. |
 | Versione | Versione da usare per l'aggiornamento, per impostazione predefinita la versione più recente. In NuGet 3.0 +, il valore della versione deve essere uno dei valori *minimo, massimo, HighestMinor* o *HighestPatch* (equivalente a-safe). |
@@ -45,7 +45,7 @@ Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 | IncludePrerelease | Include pacchetti di versioni non definitive per gli aggiornamenti. |
 | Reinstallazione | Resintalls i pacchetti usando le versioni attualmente installate. Vedere [Reinstallazione e aggiornamento di pacchetti](../../consume-packages/reinstalling-and-updating-packages.md). |
 | FileConflictAction | Azione da intraprendere quando viene richiesto di sovrascrivere o ignorare i file esistenti a cui fa riferimento il progetto. I valori possibili sono *overwrite, ignore, None, OverwriteAll* e *IgnoreAll* (3.0 +). |
-| DependencyVersion | Versione dei pacchetti di dipendenze da usare. i possibili tipi sono i seguenti:<br/><ul><li>*Minimo* (impostazione predefinita): versione più bassa</li><li>*HighestPatch* : versione con la patch principale più bassa, minore minore, più alta</li><li>*HighestMinor* : versione con la patch principale più bassa, minore più elevata</li><li>*Massimo* (impostazione predefinita per Update-Package senza parametri): la versione più recente</li></ul>È possibile impostare il valore predefinito usando l' [`dependencyVersion`](../nuget-config-file.md#config-section) impostazione nel `Nuget.Config` file. |
+| DependencyVersion | Versione dei pacchetti di dipendenze da usare. i possibili tipi sono i seguenti:<br/><ul><li>*Minimo* (impostazione predefinita): versione più bassa</li><li>*HighestPatch*: versione con la patch principale più bassa, minore minore, più alta</li><li>*HighestMinor*: versione con la patch principale più bassa, minore più elevata</li><li>*Massimo* (impostazione predefinita per Update-Package senza parametri): la versione più recente</li></ul>È possibile impostare il valore predefinito usando l' [`dependencyVersion`](../nuget-config-file.md#config-section) impostazione nel `Nuget.Config` file. |
 | ToHighestPatch | equivalente a-safe. |
 | ToHighestMinor | Vincola gli aggiornamenti solo alle versioni con la stessa versione principale del pacchetto attualmente installato. |
 | WhatIf | Mostra cosa accade quando si esegue il comando senza eseguire effettivamente l'aggiornamento. |

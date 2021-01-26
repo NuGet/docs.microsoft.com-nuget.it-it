@@ -1,16 +1,16 @@
 ---
 title: Note sulla versione di NuGet 2,8
 description: Note sulla versione per NuGet 2,8, inclusi problemi noti, correzioni di bug, funzionalità aggiunte e DCR.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 98b8b7334738306e6d40ba7c455409a87c4bb822
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: cb77cf0f049b5b3cfe1039d83ab58e33457674bf
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237023"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776721"
 ---
 # <a name="nuget-28-release-notes"></a>Note sulla versione di NuGet 2,8
 
@@ -44,13 +44,15 @@ NuGet 2,8 è stato rilasciato il 29 gennaio 2014.
 
 Quando si risolvono le dipendenze dei pacchetti, NuGet ha implementato in passato una strategia di selezione della versione più bassa del pacchetto principale e secondaria che soddisfa le dipendenze del pacchetto. A differenza della versione principale e secondaria, tuttavia, la versione della patch è stata sempre risolta con la versione più recente. Anche se il comportamento era ben intenzionale, ha creato un'assenza di determinismo per l'installazione dei pacchetti con dipendenze. Si consideri l'esempio seguente:
 
-    PackageA@1.0.0 -[ >=1.0.0 ]-> PackageB@1.0.0
+```
+PackageA@1.0.0 -[ >=1.0.0 ]-> PackageB@1.0.0
 
-    Developer1 installs PackageA@1.0.0: installed PackageA@1.0.0 and PackageB@1.0.0
+Developer1 installs PackageA@1.0.0: installed PackageA@1.0.0 and PackageB@1.0.0
 
-    PackageB@1.0.1 is published
+PackageB@1.0.1 is published
 
-    Developer2 installs PackageA@1.0.0: installed PackageA@1.0.0 and PackageB@1.0.1
+Developer2 installs PackageA@1.0.0: installed PackageA@1.0.0 and PackageB@1.0.1
+```
 
 In questo esempio, anche se Developer1 e Developer2 sono installati PackageA@1.0.0 , ognuno è finito con una versione diversa di PackageB. NuGet 2,8 modifica questo comportamento predefinito in modo che il comportamento di risoluzione delle dipendenze per le versioni delle patch sia coerente con il comportamento per le versioni principali e secondarie. Nell'esempio precedente, quindi, PackageB@1.0.0 verrebbe installato in seguito all'installazione di PackageA@1.0.0 , indipendentemente dalla versione più recente della patch.
 
@@ -64,24 +66,28 @@ Sebbene NuGet 2,8 modifichi il comportamento _predefinito_ per la risoluzione de
 
 Oltre all'opzione-DependencyVersion descritta in precedenza, NuGet ha anche la possibilità di impostare un nuovo attributo nel file Nuget.Config che definisce il valore predefinito, se l'opzione-DependencyVersion non è specificata in una chiamata di Install-Package. Questo valore verrà rispettato anche dalla finestra di dialogo Gestione pacchetti NuGet per tutte le operazioni di installazione dei pacchetti. Per impostare questo valore, aggiungere l'attributo seguente al file di Nuget.Config:
 
-    <config>
-        <add key="dependencyversion" value="Highest" />
-    </config>
+```xml
+<config>
+    <add key="dependencyversion" value="Highest" />
+</config>
+```
 
 ## <a name="preview-nuget-operations-with--whatif"></a>Anteprima delle operazioni NuGet con-WhatIf
 
 Alcuni pacchetti NuGet possono avere grafici delle dipendenze profonde e, di conseguenza, possono essere utili durante un'operazione di installazione, disinstallazione o aggiornamento per vedere prima cosa accadrà. NuGet 2,8 aggiunge l'opzione PowerShell-WhatIf standard ai comandi install-package, Uninstall-Package e Update-Package per consentire la visualizzazione dell'intera chiusura dei pacchetti a cui verrà applicato il comando. Ad esempio, `install-package Microsoft.AspNet.WebApi -whatif` l'esecuzione di in un'applicazione Web ASP.NET vuota produce quanto segue.
 
-    PM> install-package Microsoft.AspNet.WebApi -whatif
-    Attempting to resolve dependency 'Microsoft.AspNet.WebApi.WebHost (≥ 5.0.0)'.
-    Attempting to resolve dependency 'Microsoft.AspNet.WebApi.Core (≥ 5.0.0)'.
-    Attempting to resolve dependency 'Microsoft.AspNet.WebApi.Client (≥ 5.0.0)'.
-    Attempting to resolve dependency 'Newtonsoft.Json (≥ 4.5.11)'.
-    Install Newtonsoft.Json 4.5.11
-    Install Microsoft.AspNet.WebApi.Client 5.0.0
-    Install Microsoft.AspNet.WebApi.Core 5.0.0
-    Install Microsoft.AspNet.WebApi.WebHost 5.0.0
-    Install Microsoft.AspNet.WebApi 5.0.0
+```
+PM> install-package Microsoft.AspNet.WebApi -whatif
+Attempting to resolve dependency 'Microsoft.AspNet.WebApi.WebHost (≥ 5.0.0)'.
+Attempting to resolve dependency 'Microsoft.AspNet.WebApi.Core (≥ 5.0.0)'.
+Attempting to resolve dependency 'Microsoft.AspNet.WebApi.Client (≥ 5.0.0)'.
+Attempting to resolve dependency 'Newtonsoft.Json (≥ 4.5.11)'.
+Install Newtonsoft.Json 4.5.11
+Install Microsoft.AspNet.WebApi.Client 5.0.0
+Install Microsoft.AspNet.WebApi.Core 5.0.0
+Install Microsoft.AspNet.WebApi.WebHost 5.0.0
+Install Microsoft.AspNet.WebApi 5.0.0
+```
 
 ## <a name="downgrade-package"></a>Esegui il downgrade del pacchetto
 
@@ -101,12 +107,14 @@ Quando si sviluppano applicazioni per più piattaforme di destinazione, è comun
 
 Anche se i pacchetti NuGet vengono in genere usati da una raccolta remota, ad esempio [la raccolta NuGet](http://www.nuget.org/) che usa una connessione di rete, esistono molti scenari in cui il client non è connesso. Senza una connessione di rete, il client NuGet non è stato in grado di installare correttamente i pacchetti, anche quando tali pacchetti erano già presenti nel computer del client nella cache NuGet locale. NuGet 2,8 aggiunge il fallback della cache automatica alla console di gestione pacchetti. Ad esempio, quando si disconnette la scheda di rete e si installa jQuery, nella console viene visualizzato quanto segue:
 
-    PM> Install-Package jquery
-    The source at nuget.org [https://www.nuget.org/api/v2/] is unreachable. Falling back to NuGet Local Cache at C:\Users\me\AppData\Local\NuGet\Cache
-    Installing 'jQuery 2.0.3'.
-    Successfully installed 'jQuery 2.0.3'.
-    Adding 'jQuery 2.0.3' to WebApplication18.
-    Successfully added 'jQuery 2.0.3' to WebApplication18.
+```
+PM> Install-Package jquery
+The source at nuget.org [https://www.nuget.org/api/v2/] is unreachable. Falling back to NuGet Local Cache at C:\Users\me\AppData\Local\NuGet\Cache
+Installing 'jQuery 2.0.3'.
+Successfully installed 'jQuery 2.0.3'.
+Adding 'jQuery 2.0.3' to WebApplication18.
+Successfully added 'jQuery 2.0.3' to WebApplication18.
+```
 
 La funzionalità di fallback della cache non richiede argomenti di comando specifici. Inoltre, il fallback della cache attualmente funziona solo nella console di gestione pacchetti. il comportamento attualmente non funziona nella finestra di dialogo Gestione pacchetti.
 

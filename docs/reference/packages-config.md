@@ -1,24 +1,24 @@
 ---
-title: Riferimento al file Packages. config di NuGet
+title: Informazioni di riferimento sul file NuGet packages.config
 description: In alcuni tipi di progetto, il file packages.config include l'elenco aggiornato dei pacchetti NuGet usati nel progetto.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 05/21/2018
 ms.topic: reference
-ms.openlocfilehash: 3665989d35d7362b30a106cf6b4ed0210619efee
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.openlocfilehash: 3e5db779f735cd42aa331f9f8a93496d32c8df54
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78230570"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777624"
 ---
 # <a name="packagesconfig-reference"></a>Informazioni di riferimento su packages.config
 
 Il file `packages.config` viene usato in alcuni tipi di progetto per gestire l'elenco dei pacchetti a cui fa riferimento il progetto. In questo modo NuGet può ripristinare facilmente le dipendenze del progetto quando il progetto devono essere trasportato in un computer diverso, ad esempio un server di compilazione, senza tutti i pacchetti.
 
-Se usato, `packages.config` si trova in genere in una radice del progetto. Viene creata automaticamente quando viene eseguita la prima operazione NuGet, ma è possibile crearla anche manualmente prima di eseguire qualsiasi comando, ad esempio `nuget restore`.
+Se usato, `packages.config` in genere si trova in una radice del progetto. Viene creata automaticamente quando viene eseguita la prima operazione NuGet, ma è possibile crearla anche manualmente prima di eseguire qualsiasi comando, ad esempio `nuget restore` .
 
-I progetti che usano [PackageReference](../consume-packages/Package-References-in-Project-Files.md) non usano `packages.config`.
+I progetti che usano [PackageReference](../consume-packages/Package-References-in-Project-Files.md) non usano `packages.config` .
 
 ## <a name="schema"></a>SCHEMA
 

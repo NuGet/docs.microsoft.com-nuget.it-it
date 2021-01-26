@@ -1,16 +1,16 @@
 ---
 title: Note sulla versione di NuGet 1,2
 description: Note sulla versione per NuGet 1,2, inclusi problemi noti, correzioni di bug, funzionalità aggiunte e DCR.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 5d10d6bf27614980a144c30c3af6f9892a109061
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: af2248a41800f7641be9b77d7bb72e2a94d4ce47
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237186"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777195"
 ---
 # <a name="nuget-12-release-notes"></a>Note sulla versione di NuGet 1,2
 
@@ -65,6 +65,6 @@ L'elenco precedente è stato il più evidente tra le numerose funzionalità impl
 
 ## <a name="known-issues"></a>Problemi noti
 
-* **1,2 incompatibilità dei pacchetti** : i pacchetti compilati con la versione più recente dello strumento da riga di comando nuget.exe (> 1,2) non funzioneranno con le versioni precedenti del componente aggiuntivo NuGet vs (ad esempio 1,1). Se si esegue un messaggio di errore che informa sullo schema incompatibile, si è verificato questo errore. Aggiornare NuGet alla versione più recente.
-* **Incompatibilità di NuGet. Server** : se si ospita un feed NuGet interno usando il progetto NuGet. Server, sarà necessario aggiornare il progetto con la versione più recente di NuGet. Server.
-* **Errore di mancata corrispondenza della firma** : se si è rilevato un errore durante un aggiornamento con un messaggio relativo a una mancata corrispondenza di firma, è necessario disinstallare prima NuGet e quindi installarlo. Questa pagina è elencata nella [pagina problemi noti](../release-notes/known-issues.md) che fornisce ulteriori dettagli. Il problema riguarda solo quelli che eseguono Visual Studio 2010 SP1 ed è installata una versione di NuGet 1,0 che è stata firmata in modo non corretto. Questa versione è stata resa disponibile dal sito Web CodePlex solo per un breve periodo di tempo, quindi questo problema non dovrebbe influire su troppe persone.
+* **1,2 incompatibilità dei pacchetti**: i pacchetti compilati con la versione più recente dello strumento da riga di comando nuget.exe (> 1,2) non funzioneranno con le versioni precedenti del componente aggiuntivo NuGet vs (ad esempio 1,1). Se si esegue un messaggio di errore che informa sullo schema incompatibile, si è verificato questo errore. Aggiornare NuGet alla versione più recente.
+* **Incompatibilità di NuGet. Server**: se si ospita un feed NuGet interno usando il progetto NuGet. Server, sarà necessario aggiornare il progetto con la versione più recente di NuGet. Server.
+* **Errore di mancata corrispondenza della firma**: se si è rilevato un errore durante un aggiornamento con un messaggio relativo a una mancata corrispondenza di firma, è necessario disinstallare prima NuGet e quindi installarlo. Questa pagina è elencata nella [pagina problemi noti](../release-notes/known-issues.md) che fornisce ulteriori dettagli. Il problema riguarda solo quelli che eseguono Visual Studio 2010 SP1 ed è installata una versione di NuGet 1,0 che è stata firmata in modo non corretto. Questa versione è stata resa disponibile dal sito Web CodePlex solo per un breve periodo di tempo, quindi questo problema non dovrebbe influire su troppe persone.

@@ -1,16 +1,16 @@
 ---
 title: Guida di riferimento a NuGet Uninstall-Package PowerShell
 description: Informazioni di riferimento per il comando Uninstall-Package PowerShell nella console di gestione pacchetti NuGet in Visual Studio.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 06/01/2017
 ms.topic: reference
-ms.openlocfilehash: d164176355e32e5bbe0a017fc2b291cbc9ef326a
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 961a9d68e5cba09030401fc871a93bf1145b23a3
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237127"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777390"
 ---
 # <a name="uninstall-package-package-manager-console-in-visual-studio"></a>Uninstall-Package (console di gestione pacchetti in Visual Studio)
 
@@ -31,7 +31,7 @@ Se altri pacchetti dipendono da quello corrente, il comando ha esito negativo a 
 
 | Parametro | Descrizione |
 | --- | --- |
-| ID | Necessaria Identificatore del pacchetto da disinstallare. L'opzione-ID è facoltativa. |
+| Id | Necessaria Identificatore del pacchetto da disinstallare. L'opzione-ID è facoltativa. |
 | Versione | Versione del pacchetto da disinstallare, per impostazione predefinita la versione attualmente installata. |
 | RemoveDependencies | Disinstallare il pacchetto e le relative dipendenze non utilizzate. Ovvero, se una dipendenza dispone di un altro pacchetto che dipende da esso, viene ignorato. |
 | ProjectName | Progetto da cui disinstallare il pacchetto, per impostazione predefinita il progetto predefinito. |

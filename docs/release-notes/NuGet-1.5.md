@@ -1,20 +1,20 @@
 ---
 title: Note sulla versione di NuGet 1,5
 description: Note sulla versione per NuGet 1,5, inclusi problemi noti, correzioni di bug, funzionalità aggiunte e DCR.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 940a19cdc485d611d03b52ee3102bc95a78a36bb
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: c9946f3d8cf545ec14f842c40105743c231b4b72
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75383349"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777089"
 ---
 # <a name="nuget-15-release-notes"></a>Note sulla versione di NuGet 1,5
 
-[Note sulla versione di nuget 1,4](../release-notes/nuget-1.4.md) | [Note sulla versione di NuGet 1,6](../release-notes/nuget-1.6.md)
+Note sulla versione di [NuGet 1,4](../release-notes/nuget-1.4.md)  |  [Note sulla versione di NuGet 1,6](../release-notes/nuget-1.6.md)
 
 NuGet 1,5 è stato rilasciato il 30 agosto 2011.
 
@@ -29,7 +29,7 @@ Per ulteriori informazioni su questa funzionalità, leggere questo [post di Blog
 
 ### <a name="explicit-assembly-references"></a>Riferimenti ad assembly espliciti
 
-È stato aggiunto un nuovo elemento `<references />` usato per specificare in modo esplicito quali assembly all'interno del pacchetto deve essere fatto riferimento.
+È stato aggiunto un nuovo `<references />` elemento utilizzato per specificare in modo esplicito gli assembly all'interno del pacchetto a cui fare riferimento.
 
 Ad esempio, se si aggiungono gli elementi seguenti:
 
@@ -40,18 +40,18 @@ Ad esempio, se si aggiungono gli elementi seguenti:
 </references>
 ```
 
-Verrà quindi fatto riferimento solo alla `xunit.dll` e alla `xunit.extensions.dll` dalla [sottocartella del Framework/profilo](../reference/nuspec.md#explicit-assembly-references) appropriata della cartella `lib` anche se sono presenti altri assembly nella cartella.
+Verranno quindi `xunit.dll` `xunit.extensions.dll` a cui viene fatto riferimento solo a e dalla [sottocartella del Framework/profilo](../reference/nuspec.md#explicit-assembly-references) appropriata della `lib` cartella anche se sono presenti altri assembly nella cartella.
 
-Se questo elemento viene omesso, viene applicato il comportamento consueto, ovvero per fare riferimento a ogni assembly nella cartella `lib`.
+Se questo elemento viene omesso, viene applicato il comportamento consueto, ovvero per fare riferimento a ogni assembly nella `lib` cartella.
 
 __Per cosa si usa questa funzionalità?__
 
-Questa funzionalità supporta solo assembly in fase di progettazione. Quando si usano contratti di codice, ad esempio, è necessario che gli assembly del contratto si trovino accanto agli assembly di runtime che aumentano, in modo che Visual Studio possa trovarli, ma gli assembly del contratto non devono essere effettivamente usati come riferimento dal progetto e non devono essere copiati nella cartella `bin`.
+Questa funzionalità supporta solo assembly in fase di progettazione. Quando si usano contratti di codice, ad esempio, è necessario che gli assembly del contratto si trovino accanto agli assembly di runtime che aumentano, in modo che Visual Studio possa trovarli, ma gli assembly del contratto non devono essere effettivamente usati come riferimento dal progetto e non devono essere copiati nella `bin` cartella.
 
 Analogamente, la funzionalità può essere usata per unit test Framework, ad esempio XUnit, che richiedono la posizione degli assembly degli strumenti accanto agli assembly di runtime, esclusi i riferimenti ai progetti.
 
 ### <a name="added-ability-to-exclude-files-in-the-nuspec"></a>Aggiunta della possibilità di escludere i file nel file con estensione NuSpec
-L'elemento `<file>` all'interno di un file di `.nuspec` può essere utilizzato per includere un file specifico o un set di file utilizzando un carattere jolly. Quando si usa un carattere jolly, non è possibile escludere un subset specifico dei file inclusi. Si supponga, ad esempio, di volere tutti i file di testo all'interno di una cartella tranne uno specifico.
+L' `<file>` elemento all'interno di un `.nuspec` file può essere utilizzato per includere un file specifico o un set di file utilizzando un carattere jolly. Quando si usa un carattere jolly, non è possibile escludere un subset specifico dei file inclusi. Si supponga, ad esempio, di volere tutti i file di testo all'interno di una cartella tranne uno specifico.
 
 ```xml
 <files>
@@ -81,10 +81,12 @@ Quando si disinstalla un pacchetto con dipendenze, NuGet richiede, consentendo l
 ![Rimozione di pacchetti dipendenti](./media/remove-dependent-packages.png)
 
 
-### <a name="get-package-command-improvement"></a>miglioramento del comando `Get-Package`
-Il `Get-Package` comando supporta ora un parametro di `-ProjectName`. Quindi, il comando
+### <a name="get-package-command-improvement"></a>`Get-Package` miglioramento del comando
+Il `Get-Package` comando ora supporta un `-ProjectName` parametro. Quindi, il comando
 
-    Get-Package –ProjectName A
+```
+Get-Package –ProjectName A
+```
 
 Elenca tutti i pacchetti installati nel progetto A.
 
@@ -107,10 +109,10 @@ I pacchetti NuGet ora includono il supporto per le note sulla versione. Le note 
 
 ![Note sulla versione nella scheda aggiornamenti](./media/manage-nuget-packages-release-notes.png)
 
-Per aggiungere note sulla versione a un pacchetto, usare il nuovo elemento dei metadati `<releaseNotes />` nel file NuSpec.
+Per aggiungere note sulla versione a un pacchetto, usare il nuovo `<releaseNotes />` elemento metadata nel file nuspec.
 
-### <a name="nuspec-ltfiles-gt-improvement"></a>. NuSpec & ltfiles/&gt; Improvement
-Il file `.nuspec` ora consente l'elemento `<files />` vuoto, che indica a NuGet. exe di non includere alcun file nel pacchetto.
+### <a name="nuspec-ltfiles-gt-improvement"></a>. NuSpec &ltfiles/ &gt; Improvement
+Il `.nuspec` file consente ora `<files />` un elemento vuoto, che indica nuget.exe non includere alcun file nel pacchetto.
 
 ## <a name="bug-fixes"></a>Correzioni di bug
 NuGet 1,5 aveva un totale di 107 elementi di lavoro corretti. 103 di questi sono stati contrassegnati come bug.
@@ -119,6 +121,6 @@ Per un elenco completo degli elementi di lavoro corretti in NuGet 1,5, vedere la
 
 ## <a name="bug-fixes-worth-noting"></a>Correzioni di bug degni di Nota:
 
-* [Problema 1273](http://nuget.codeplex.com/workitem/1273): `packages.config` reso più intuitivo il controllo della versione, ordinando i pacchetti alfabeticamente e rimuovendo gli spazi vuoti aggiuntivi.
-* [Problema 844](http://nuget.codeplex.com/workitem/844): i numeri di versione vengono ora normalizzati in modo che `Install-Package 1.0` funzioni in un pacchetto con la versione `1.0.0`.
-* [Problema 1060](http://nuget.codeplex.com/workitem/1060): quando si crea un pacchetto con NuGet. exe, il flag di `-Version` esegue l'override dell'elemento `<version />`.
+* [Problema 1273](http://nuget.codeplex.com/workitem/1273): è stato reso `packages.config` più semplice il controllo della versione ordinando i pacchetti in ordine alfabetico e rimuovendo gli spazi vuoti aggiuntivi.
+* [Problema 844](http://nuget.codeplex.com/workitem/844): i numeri di versione sono ora normalizzati `Install-Package 1.0` in modo che funzionino in un pacchetto con la versione `1.0.0` .
+* [Problema 1060](http://nuget.codeplex.com/workitem/1060): quando si crea un pacchetto usando nuget.exe, il `-Version` flag esegue l'override dell' `<version />` elemento.

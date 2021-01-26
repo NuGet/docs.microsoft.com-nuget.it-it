@@ -1,16 +1,16 @@
 ---
 title: Riferimento al file di nuget.config
 description: Informazioni di riferimento sul file NuGet.Config, incluse le sezioni config, bindingRedirects, packageRestore, solution e packageSource.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: 371f0d934fcd3c1f111d277131553c1eed0200be
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 9b15550d0e6e8aec4d526391d77c654a756f343e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238101"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777671"
 ---
 # <a name="nugetconfig-reference"></a>Riferimento nuget.config
 
@@ -29,7 +29,7 @@ Contiene impostazioni di configurazione varie, che possono essere impostate tram
 
 `dependencyVersion` e `repositoryPath` si applicano solo ai progetti che usano `packages.config` . `globalPackagesFolder` si applica solo ai progetti che usano il formato PackageReference.
 
-| Chiave | Valore |
+| Chiave | valore |
 | --- | --- |
 | dependencyVersion (solo `packages.config`) | Valore `DependencyVersion` predefinito per l'installazione, il ripristino e l'aggiornamento del pacchetto, quando non viene specificata direttamente l'opzione `-DependencyVersion`. Questo valore viene usato anche dall'interfaccia utente di Gestione pacchetti NuGet. I valori sono `Lowest`, `HighestPatch`, `HighestMinor`, `Highest`. |
 | globalPackagesFolder (progetti che usano solo PackageReference) | Percorso della cartella dei pacchetti globale predefinita. L'impostazione predefinita è `%userprofile%\.nuget\packages` (Windows) o `~/.nuget/packages` (Mac/Linux). È possibile usare un percorso relativo nei file `nuget.config` specifici del progetto. Questa impostazione viene sottoposta a override dalla variabile di ambiente NUGET_PACKAGES, che ha la precedenza. |
@@ -38,7 +38,7 @@ Contiene impostazioni di configurazione varie, che possono essere impostate tram
 | http_proxy http_proxy.user http_proxy.password no_proxy | Impostazioni del proxy da usare per la connessione a origini di pacchetti. `http_proxy` deve essere nel formato `http://<username>:<password>@<domain>`. Le password vengono crittografate e non possono essere aggiunte manualmente. Per `no_proxy`, il valore è un elenco delimitato da virgole di domini per il bypass del server proxy. In alternativa, è possibile usare le variabili di ambiente http_proxy e no_proxy per questi valori. Per altri dettagli, vedere [NuGet proxy settings](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (Impostazioni del proxy NuGet) (skolima.blogspot.com). |
 | signatureValidationMode | Specifica la modalità di convalida utilizzata per verificare le firme dei pacchetti per l'installazione e il ripristino del pacchetto. I valori sono `accept` , `require` . Il valore predefinito è `accept`.
 
-**Esempio** :
+**Esempio**:
 
 ```xml
 <config>
@@ -54,11 +54,11 @@ Contiene impostazioni di configurazione varie, che possono essere impostate tram
 
 Specifica se NuGet esegue o meno i reindirizzamenti di binding automatici quando viene installato un pacchetto.
 
-| Chiave | Valore |
+| Chiave | valore |
 | --- | --- |
 | skip | Valore booleano che indica se ignorare i reindirizzamenti di binding automatici. Il valore predefinito è false. |
 
-**Esempio** :
+**Esempio**:
 
 ```xml
 <bindingRedirects>
@@ -70,12 +70,12 @@ Specifica se NuGet esegue o meno i reindirizzamenti di binding automatici quando
 
 Controlla il ripristino dei pacchetti durante le compilazioni.
 
-| Chiave | Valore |
+| Chiave | valore |
 | --- | --- |
 | Enabled | Valore booleano che indica se NuGet può eseguire il ripristino automatico. È anche possibile impostare la variabile di ambiente `EnableNuGetPackageRestore` con il valore `True` invece di impostare questa chiave nel file di configurazione. |
 | automatic | Valore booleano che indica se NuGet deve controllare se mancano pacchetti durante la compilazione. |
 
-**Esempio** :
+**Esempio**:
 
 ```xml
 <packageRestore>
@@ -88,11 +88,11 @@ Controlla il ripristino dei pacchetti durante le compilazioni.
 
 Controlla se la cartella `packages` di una soluzione è inclusa nel controllo del codice sorgente. Questa sezione funziona solo nei file `nuget.config` in una cartella della soluzione.
 
-| Chiave | Valore |
+| Chiave | valore |
 | --- | --- |
 | disableSourceControlIntegration | Valore booleano che indica se ignorare la cartella dei pacchetti quando si utilizza il controllo del codice sorgente. Il valore predefinito è false. |
 
-**Esempio** :
+**Esempio**:
 
 ```xml
 <solution>
@@ -112,11 +112,11 @@ Si noti che l'URL di origine di nuget.org è `https://api.nuget.org/v3/index.jso
 
 Elenca tutte le origini di pacchetti note. L'ordine viene ignorato durante le operazioni di ripristino e con qualsiasi progetto che usa il formato PackageReference. NuGet rispetta l'ordine delle origini per le operazioni di installazione e aggiornamento con i progetti che usano `packages.config` .
 
-| Chiave | Valore |
+| Chiave | valore |
 | --- | --- |
 | (nome da assegnare all'origine di pacchetti) | Percorso o URL dell'origine di pacchetti. |
 
-**Esempio** :
+**Esempio**:
 
 ```xml
 <packageSources>
@@ -209,11 +209,11 @@ Quando si usano password non crittografate:
 
 Archivia le chiavi per le origini che usano l'autenticazione con chiave API, come impostato con il [ `nuget setapikey` comando](../reference/cli-reference/cli-ref-setapikey.md).
 
-| Chiave | Valore |
+| Chiave | valore |
 | --- | --- |
 | (URL di origine) | Chiave API crittografata. |
 
-**Esempio** :
+**Esempio**:
 
 ```xml
 <apikeys>
@@ -225,7 +225,7 @@ Archivia le chiavi per le origini che usano l'autenticazione con chiave API, com
 
 Identifica le origini attualmente disabilitate. Può essere vuoto.
 
-| Chiave | Valore |
+| Chiave | valore |
 | --- | --- |
 | (nome dell'origine) | Valore booleano che indica se l'origine è disabilitata. |
 
@@ -246,11 +246,11 @@ Identifica le origini attualmente disabilitate. Può essere vuoto.
 
 Identifica l'origine attualmente attiva o indica l'aggregazione di tutte le origini.
 
-| Chiave | Valore |
+| Chiave | valore |
 | --- | --- |
 | (nome dell'origine) o `All` | Se la chiave è il nome di un'origine, il valore è il percorso o l'URL dell'origine. Se `All`, il valore deve essere `(Aggregate source)` per combinare tutte le origini di pacchetti non disabilitate in altro modo. |
 
-**Esempio** :
+**Esempio**:
 
 ```xml
 <activePackageSource>
@@ -268,7 +268,7 @@ Archivia i firmatari attendibili utilizzati per consentire il pacchetto durante 
 
 Questa sezione può essere aggiornata con il [ `nuget trusted-signers` comando](../reference/cli-reference/cli-ref-trusted-signers.md).
 
-**Schema** :
+**Schema**:
 
 Un firmatario attendibile dispone di una raccolta di `certificate` elementi che integrano tutti i certificati che identificano un determinato firmatario. Un firmatario attendibile può essere un `Author` o un `Repository` .
 
@@ -278,7 +278,7 @@ Gli algoritmi hash supportati usati per un'impronta digitale del certificato son
 
 Se un oggetto `certificate` specifica `allowUntrustedRoot` come `true` il certificato specificato può essere concatenato a una radice non attendibile durante la compilazione della catena di certificati come parte della verifica della firma.
 
-**Esempio** :
+**Esempio**:
 
 ```xml
 <trustedSigners>
@@ -307,11 +307,11 @@ Se una delle due ricerche ha esito positivo, non è necessario eseguire il downl
 
 Se non viene trovata alcuna corrispondenza, NuGet controlla le origini file e quindi le origini http, quindi Scarica i pacchetti.
 
-| Chiave | Valore |
+| Chiave | valore |
 | --- | --- |
 | (nome della cartella di fallback) | Percorso della cartella di fallback. |
 
-**Esempio** :
+**Esempio**:
 
 ```xml
 <fallbackPackageFolders>
@@ -323,12 +323,12 @@ Se non viene trovata alcuna corrispondenza, NuGet controlla le origini file e qu
 
 Imposta il formato di gestione dei pacchetti predefinito, ovvero *packages.config* o PackageReference. I progetti in stile SDK utilizzano sempre PackageReference.
 
-| Chiave | Valore |
+| Chiave | valore |
 | --- | --- |
 | format | Valore booleano che indica il formato di gestione dei pacchetti predefinito. Se `1` , il formato è PackageReference. Se `0` , format è *packages.config*. |
 | disabled | Valore booleano che indica se visualizzare la richiesta di selezione di un formato di pacchetto predefinito durante la prima installazione del pacchetto. `False` nasconde la richiesta. |
 
-**Esempio** :
+**Esempio**:
 
 ```xml
 <packageManagement>

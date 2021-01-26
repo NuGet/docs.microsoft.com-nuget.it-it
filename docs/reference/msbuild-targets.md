@@ -5,12 +5,12 @@ author: nkolev92
 ms.author: nikolev
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7de3f0f1133a89848e9268d489751293fb3cbf25
-ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
+ms.openlocfilehash: 0c32978baf6146f10c262ba7af94f61fee22272d
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98235698"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777721"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Pack e restore di NuGet come destinazioni MSBuild
 
@@ -40,9 +40,9 @@ Analogamente, è possibile scrivere un'attività MSBuild, scrivere la propria de
 
 ## <a name="pack-target"></a>Destinazione pack
 
-Per .NET Standard progetti che usano il formato PackageReference, l'uso di `msbuild -t:pack` disegna gli input dal file di progetto da usare per la creazione di un pacchetto NuGet.
+Per i progetti .NET che usano il `PackageReference` formato, usando `msbuild -t:pack` disegna gli input dal file di progetto da usare per la creazione di un pacchetto NuGet.
 
-La tabella seguente descrive le proprietà di MSBuild che possono essere aggiunte a un file di progetto all'interno del primo nodo `<PropertyGroup>`. È possibile apportare facilmente queste modifiche in Visual Studio 2017 e versioni successive facendo clic con il pulsante destro del mouse sul progetto e scegliendo **Modifica {nome_progetto}** dal menu di scelta rapida. Per praticità, la tabella è organizzata in base alla proprietà equivalente in un [ `.nuspec` file](../reference/nuspec.md).
+Nella tabella seguente vengono descritte le proprietà di MSBuild che possono essere aggiunte a un file di progetto all'interno del primo `<PropertyGroup>` nodo. È possibile apportare facilmente queste modifiche in Visual Studio 2017 e versioni successive facendo clic con il pulsante destro del mouse sul progetto e scegliendo **Modifica {nome_progetto}** dal menu di scelta rapida. Per praticità, la tabella è organizzata in base alla proprietà equivalente in un [ `.nuspec` file](../reference/nuspec.md).
 
 Si noti che le proprietà `Owners` e `Summary` da `.nuspec` non sono supportate con MSBuild.
 
@@ -52,63 +52,67 @@ Si noti che le proprietà `Owners` e `Summary` da `.nuspec` non sono supportate 
 | Versione | PackageVersion | Versione | Compatibile con SemVer, ad esempio "1.0.0", "1.0.0-beta" o "1.0.0-beta-00345" |
 | VersionPrefix | PackageVersionPrefix | empty | L'impostazione di PackageVersion sovrascrive PackageVersionPrefix |
 | VersionSuffix | PackageVersionSuffix | empty | $(VersionSuffix) da MSBuild. L'impostazione di PackageVersion sovrascrive PackageVersionSuffix |
-| Autori | Autori | Nome utente dell'utente corrente | |
+| Autori | Autori | Nome utente dell'utente corrente | Elenco delimitato da punti e virgola di autori di pacchetti, corrispondenti ai nomi di profilo in nuget.org. Questi vengono visualizzati nella raccolta NuGet in nuget.org e vengono usati per fare riferimento a pacchetti con gli stessi autori. |
 | Proprietari | N/D | Non presente in NuSpec | |
-| Titolo | Titolo | PackageId| |
-| Descrizione | Descrizione | "Descrizione del pacchetto" | |
-| Copyright | Copyright | empty | |
-| RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
-| license | PackageLicenseExpression | empty | Corrisponde a `<license type="expression">` |
-| license | PackageLicenseFile | empty | Corrisponde a `<license type="file">`. È necessario comprimere in modo esplicito il file di licenza a cui si fa riferimento. |
-| LicenseUrl | PackageLicenseUrl | empty | `PackageLicenseUrl` è deprecato, usare la proprietà PackageLicenseExpression o PackageLicenseFile |
+| Titolo | Titolo | PackageId| Titolo del pacchetto facilmente comprensibile per l'utente, usato di solito per la visualizzazione dell'interfaccia utente, ad esempio in nuget.org e in Gestione pacchetti in Visual Studio. |
+| Descrizione | Descrizione | "Descrizione del pacchetto" | Descrizione lunga per l'assembly. Se `PackageDescription` viene omesso, questa proprietà viene utilizzata anche come descrizione del pacchetto. |
+| Copyright | Copyright | empty | Informazioni sul copyright per il pacchetto. |
+| RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | Valore booleano che specifica se il client deve richiedere al consumer di accettare la licenza del pacchetto prima di installarlo. |
+| license | PackageLicenseExpression | empty | Corrisponde a `<license type="expression">`. Vedere [compressione di un'espressione di licenza o di un file di licenza](#packing-a-license-expression-or-a-license-file). |
+| license | PackageLicenseFile | empty | Percorso di un file di licenza all'interno del pacchetto se si usa una licenza personalizzata o una licenza a cui non è stato assegnato un identificatore SPDX. È necessario comprimere in modo esplicito il file di licenza a cui si fa riferimento. Corrisponde a `<license type="file">`. Vedere [compressione di un'espressione di licenza o di un file di licenza](#packing-a-license-expression-or-a-license-file). |
+| LicenseUrl | PackageLicenseUrl | empty | L'oggetto `PackageLicenseUrl` è deprecato. In sostituzione usare `PackageLicenseExpression` o `PackageLicenseFile`. |
 | ProjectUrl | PackageProjectUrl | empty | |
-| Icona | PackageIcon | empty | È necessario comprimere in modo esplicito il file di immagine icona a cui si fa riferimento.|
-| IconUrl | PackageIconUrl | empty | Per la migliore esperienza di livello inferiore, `PackageIconUrl` è necessario specificare oltre a `PackageIcon` . A lungo termine, `PackageIconUrl` verrà deprecato. |
-| Tag | PackageTags | empty | I tag sono delimitati da punto e virgola. |
-| ReleaseNotes | PackageReleaseNotes | empty | |
-| Repository/URL | RepositoryUrl | empty | URL del repository usato per clonare o recuperare il codice sorgente. Esempio *https://github.com/NuGet/NuGet.Client.git* |
-| Repository/tipo | RepositoryType | empty | Tipo di repository. Esempi: *git*, *TFS*. |
-| Repository/ramo | RepositoryBranch | empty | Informazioni facoltative sul ramo del repository. Per includere questa proprietà, è necessario specificare anche *RepositoryUrl* . Esempio: *Master* (NuGet 4.7.0 +) |
-| Repository/commit | RepositoryCommit | empty | Commit o insieme di modifiche facoltativo del repository per indicare l'origine su cui è stato compilato il pacchetto. Per includere questa proprietà, è necessario specificare anche *RepositoryUrl* . Esempio: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) |
+| Icona | PackageIcon | empty | Percorso di un'immagine nel pacchetto da utilizzare come icona del pacchetto. È necessario comprimere in modo esplicito il file di immagine icona a cui si fa riferimento. Per altre informazioni, vedere [compressione di un file di immagine icona](#packing-an-icon-image-file) e [ `icon` metadati](/nuget/reference/nuspec#icon). |
+| IconUrl | PackageIconUrl | empty | `PackageIconUrl` è deprecato a favore di `PackageIcon` . Tuttavia, per la migliore esperienza di livello inferiore, è necessario specificare oltre `PackageIconUrl` a `PackageIcon` . |
+| Tag | PackageTags | empty | Elenco di tag con valori delimitati da punto e virgola che designa il pacchetto. |
+| ReleaseNotes | PackageReleaseNotes | empty | Note sulla versione per il pacchetto. |
+| Repository/URL | RepositoryUrl | empty | URL del repository usato per clonare o recuperare il codice sorgente. Esempio: *https://github.com/NuGet/NuGet.Client.git* . |
+| Repository/tipo | RepositoryType | empty | Tipo di repository. Esempi: `git` (impostazione predefinita), `tfs` . |
+| Repository/ramo | RepositoryBranch | empty | Informazioni facoltative sul ramo del repository. `RepositoryUrl` per includere questa proprietà, è necessario specificare anche. Esempio: *Master* (NuGet 4.7.0 +). |
+| Repository/commit | RepositoryCommit | empty | Commit o insieme di modifiche facoltativo del repository per indicare l'origine su cui è stato compilato il pacchetto. `RepositoryUrl` per includere questa proprietà, è necessario specificare anche. Esempio: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +). |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
 | Riepilogo | Non supportato | | |
 
 ### <a name="pack-target-inputs"></a>Input destinazione pack
 
-- IsPackable
-- SuppressDependenciesWhenPacking
-- PackageVersion
-- PackageId
-- Autori
-- Descrizione
-- Copyright
-- PackageRequireLicenseAcceptance
-- DevelopmentDependency
-- PackageLicenseExpression
-- PackageLicenseFile
-- PackageLicenseUrl
-- PackageProjectUrl
-- PackageIconUrl
-- PackageReleaseNotes
-- PackageTags
-- PackageOutputPath
-- IncludeSymbols
-- IncludeSource
-- PackageTypes
-- IsTool
-- RepositoryUrl
-- RepositoryType
-- RepositoryBranch
-- RepositoryCommit
-- NoPackageAnalysis
-- MinClientVersion
-- IncludeBuildOutput
-- IncludeContentInPack
-- BuildOutputTargetFolder
-- ContentTargetFolders
-- NuspecFile
-- NuspecBasePath
-- NuspecProperties
+| Proprietà | Descrizione |
+| - | - |
+| IsPackable | Valore booleano che specifica se dal progetto può essere creato un pacchetto. Il valore predefinito è `true`. |
+| SuppressDependenciesWhenPacking | Impostare su `true` per non visualizzare le dipendenze del pacchetto dal pacchetto NuGet generato. |
+| PackageVersion | Specifica la versione che avrà il pacchetto risultante. Accetta tutte le forme della stringa di versione NuGet. Il valore predefinito corrisponde al valore di `$(Version)`, vale a dire della proprietà `Version` nel progetto. |
+| PackageId | Specifica il nome del pacchetto risultante. Se non specificato, l'impostazione predefinita per l'operazione `pack` corrisponde all'uso di `AssemblyName` o del nome della directory come nome del pacchetto. |
+| PackageDescription | Descrizione lunga del pacchetto per la visualizzazione dell'interfaccia utente. |
+| Autori | Elenco delimitato da punti e virgola di autori di pacchetti, corrispondenti ai nomi di profilo in nuget.org. Questi vengono visualizzati nella raccolta NuGet in nuget.org e vengono usati per fare riferimento a pacchetti con gli stessi autori. |
+| Descrizione | Descrizione lunga per l'assembly. Se `PackageDescription` viene omesso, questa proprietà viene utilizzata anche come descrizione del pacchetto. |
+| Copyright | Informazioni sul copyright per il pacchetto. |
+| PackageRequireLicenseAcceptance | Valore booleano che specifica se il client deve richiedere al consumer di accettare la licenza del pacchetto prima di installarlo. Il valore predefinito è `false`. |
+| DevelopmentDependency | Valore booleano che specifica se il pacchetto è contrassegnato come dipendenza solo per lo sviluppo, impedendo che il pacchetto venga incluso come dipendenza in altri pacchetti. Con `PackageReference` (NuGet 4.8 +), questo flag indica anche che gli asset in fase di compilazione sono esclusi dalla compilazione. Per altre informazioni, vedere [Supporto di DevelopmentDependency per PackageReference](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference). |
+| PackageLicenseExpression | [Identificatore di licenza SPDX](https://spdx.org/licenses/) o espressione, ad esempio `Apache-2.0` . Per ulteriori informazioni, vedere [compressione di un'espressione di licenza o di un file di licenza](#packing-a-license-expression-or-a-license-file). |
+| PackageLicenseFile | Percorso di un file di licenza all'interno del pacchetto se si usa una licenza personalizzata o una licenza a cui non è stato assegnato un identificatore SPDX. |
+| PackageLicenseUrl | L'oggetto `PackageLicenseUrl` è deprecato. In sostituzione usare `PackageLicenseExpression` o `PackageLicenseFile`. |
+| PackageProjectUrl | |
+| PackageIcon | Specifica il percorso dell'icona del pacchetto, relativo alla radice del pacchetto. Per altre informazioni, vedere [compressione di un file di immagine icona](#packing-an-icon-image-file). |
+| PackageReleaseNotes| Note sulla versione per il pacchetto. |
+| PackageTags | Elenco di tag con valori delimitati da punto e virgola che designa il pacchetto. |
+| PackageOutputPath | Determina il percorso di output in cui verrà rilasciato il pacchetto creato. Il valore predefinito è `$(OutputPath)`. |
+| IncludeSymbols | Valore booleano che indica se al momento della creazione del pacchetto deve essere creato un pacchetto aggiuntivo di simboli. Il formato del pacchetto di simboli è controllato dalla proprietà `SymbolPackageFormat`. Per ulteriori informazioni, vedere [IncludeSymbols](#includesymbols). |
+| IncludeSource | Valore booleano che indica se il processo di creazione del pacchetto deve creare un pacchetto di origine. Il pacchetto di origine contiene il codice sorgente della libreria, nonché i file PDB. I file di origine vengono posizionati nella directory `src/ProjectName` del file del pacchetto risultante. Per ulteriori informazioni, vedere [IncludeSource](#includesource). |
+| PackageTypes
+| IsTool | Specifica se tutti i file di output devono essere copiati nella cartella *tools* anziché nella cartella *lib*. Per ulteriori informazioni, vedere la pagina relativa allo [strumento](#istool). |
+| RepositoryUrl | URL del repository usato per clonare o recuperare il codice sorgente. Esempio: *https://github.com/NuGet/NuGet.Client.git* . |
+| RepositoryType | Tipo di repository. Esempi: `git` (impostazione predefinita), `tfs` . |
+| RepositoryBranch | Informazioni facoltative sul ramo del repository. `RepositoryUrl` per includere questa proprietà, è necessario specificare anche. Esempio: *Master* (NuGet 4.7.0 +). |
+| RepositoryCommit | Commit o insieme di modifiche facoltativo del repository per indicare l'origine su cui è stato compilato il pacchetto. `RepositoryUrl` per includere questa proprietà, è necessario specificare anche. Esempio: *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +). |
+| SymbolPackageFormat | Specifica il formato del pacchetto di simboli. Se "symbols. nupkg", un pacchetto di simboli legacy viene creato con un'estensione *. symbols. nupkg* che contiene PDB, dll e altri file di output. Se "snupkg", viene creato un pacchetto di simboli snupkg contenente il PDB portatile. Il valore predefinito è "symbols. nupkg". |
+| NoPackageAnalysis | Specifica che `pack` non deve eseguire l'analisi del pacchetto dopo la compilazione del pacchetto. |
+| MinClientVersion | Specifica la versione minima del client NuGet, imposta da nuget.exe e da Gestione pacchetti di Visual Studio, che può installare questo pacchetto. |
+| IncludeBuildOutput | Questo valore booleano specifica se gli assembly di output di compilazione devono essere compressi nel file con *estensione nupkg* o meno. |
+| IncludeContentInPack | Questo valore booleano specifica se gli elementi che hanno un tipo di `Content` sono inclusi automaticamente nel pacchetto risultante. Il valore predefinito è `true`. |
+| BuildOutputTargetFolder | Specifica la cartella in cui inserire gli assembly di output. Gli assembly di output (e altri file di output) vengono copiati nelle rispettive cartelle per framework. Per altre informazioni, vedere [assembly di output](#output-assemblies). |
+| ContentTargetFolders | Specifica il percorso predefinito in cui devono essere inseriti tutti i file di contenuto se `PackagePath` non viene specificato. Il valore predefinito è "content;contentFiles". Per altre informazioni, vedere [Including content in a package](#including-content-in-a-package) (Includere contenuto in un pacchetto). |
+| NuspecFile | Percorso relativo o assoluto per il file *.nuspec* usato per la creazione del pacchetto. Se specificato, viene usato **esclusivamente** per le informazioni di creazione del pacchetto e tutte le informazioni nei progetti non vengono usate. Per altre informazioni, vedere [compressione con. NuSpec](#packing-using-a-nuspec). |
+| NuspecBasePath | Percorso di base per il file *.nuspec*. Per altre informazioni, vedere [compressione con. NuSpec](#packing-using-a-nuspec). |
+| NuspecProperties | Elenco con valori delimitati da punto e virgola di coppie chiave=valore. Per altre informazioni, vedere [compressione con. NuSpec](#packing-using-a-nuspec). |
 
 ## <a name="pack-scenarios"></a>Scenari pack
 
@@ -118,18 +122,16 @@ Per non visualizzare le dipendenze del pacchetto dal pacchetto NuGet generato, i
 
 ### <a name="packageiconurl"></a>PackageIconUrl
 
-`PackageIconUrl` verrà deprecato a favore della nuova [`PackageIcon`](#packageicon) Proprietà.
-
-A partire da NuGet 5,3 & Visual Studio 2019 versione 16,3, `pack` genererà un avviso [NU5048](./errors-and-warnings/nu5048.md) se i metadati del pacchetto specificano solo `PackageIconUrl` .
+`PackageIconUrl` è deprecato a favore della [`PackageIcon`](#packageicon) Proprietà. A partire da NuGet 5,3 e Visual Studio 2019 versione 16,3, `pack` genera l'avviso [NU5048](./errors-and-warnings/nu5048.md) se i metadati del pacchetto specificano solo `PackageIconUrl` .
 
 ### <a name="packageicon"></a>PackageIcon
 
 > [!Tip]
-> È necessario specificare sia `PackageIcon` che `PackageIconUrl` per mantenere la compatibilità con le versioni precedenti di client e origini che non supportano ancora `PackageIcon` . Visual Studio supporterà `PackageIcon` i pacchetti provenienti da un'origine basata su cartelle in una versione futura.
+> Per mantenere la compatibilità con le versioni precedenti di client e origini che non supportano ancora `PackageIcon` , specificare sia `PackageIcon` che `PackageIconUrl` . Visual Studio supporta `PackageIcon` i pacchetti provenienti da un'origine basata su cartelle.
 
 #### <a name="packing-an-icon-image-file"></a>Compressione di un file di immagine icona
 
-Quando si imballa un file di immagine icona, è necessario utilizzare `PackageIcon` la proprietà per specificare il percorso del pacchetto, relativo alla radice del pacchetto. Inoltre, è necessario assicurarsi che il file sia incluso nel pacchetto. Le dimensioni del file di immagine sono limitate a 1 MB. I formati di file supportati sono JPEG e PNG. Si consiglia la risoluzione di un'immagine di 128x128.
+Quando si imballa un file di immagine icona, utilizzare `PackageIcon` la proprietà per specificare il percorso del file icona rispetto alla radice del pacchetto. Assicurarsi inoltre che il file sia incluso nel pacchetto. Le dimensioni del file di immagine sono limitate a 1 MB. I formati di file supportati sono JPEG e PNG. Si consiglia la risoluzione di un'immagine di 128x128.
 
 Ad esempio:
 
@@ -231,8 +233,7 @@ Se un file di tipo Compile è all'esterno della cartella di progetto, viene semp
 
 ### <a name="packing-a-license-expression-or-a-license-file"></a>Compressione di un'espressione di licenza o di un file di licenza
 
-Quando si usa un'espressione di licenza, è necessario usare la proprietà PackageLicenseExpression. 
-[Esempio di espressione di licenza](https://github.com/NuGet/Samples/tree/master/PackageLicenseExpressionExample).
+Quando si utilizza un'espressione di licenza, utilizzare la `PackageLicenseExpression` Proprietà. Per un esempio, vedere [esempio di espressione di licenza](https://github.com/NuGet/Samples/tree/master/PackageLicenseExpressionExample).
 
 ```xml
 <PropertyGroup>
@@ -240,9 +241,9 @@ Quando si usa un'espressione di licenza, è necessario usare la proprietà Packa
 </PropertyGroup>
 ```
 
-[Altre informazioni sulle espressioni di licenza e le licenze accettate da NuGet.org](nuspec.md#license).
+Per altre informazioni sulle espressioni di licenza e le licenze accettate da NuGet.org, vedere [metadati](nuspec.md#license)delle licenze.
 
-Quando si imballa un file di licenza, è necessario utilizzare la proprietà PackageLicenseFile per specificare il percorso del pacchetto, relativo alla radice del pacchetto. Inoltre, è necessario assicurarsi che il file sia incluso nel pacchetto. Ad esempio:
+Quando si imballa un file di licenza, utilizzare la `PackageLicenseFile` proprietà per specificare il percorso del pacchetto, relativo alla radice del pacchetto. Assicurarsi inoltre che il file sia incluso nel pacchetto. Ad esempio:
 
 ```xml
 <PropertyGroup>
@@ -254,7 +255,10 @@ Quando si imballa un file di licenza, è necessario utilizzare la proprietà Pac
 </ItemGroup>
 ```
 
-[Esempio di file di licenza](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample).
+Per un esempio, vedere [esempio di file di licenza](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample).
+
+> [!NOTE]
+> `PackageLicenseExpression`È possibile specificare solo uno degli, `PackageLicenseFile` e `PackageLicenseUrl` alla volta.
 
 ### <a name="packing-a-file-without-an-extension"></a>Compressione di un file senza estensione
 
