@@ -1,16 +1,16 @@
 ---
 title: Comando setApiKey dell'interfaccia della riga di comando NuGet
 description: Riferimento per il comando nuget.exe setApiKey
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: b84d4257c580f6e734c26ebfc589be27bea10c82
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 3e0c2f84e336e0a642b1b5e815e74a1fb0878467
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622811"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780012"
 ---
 # <a name="setapikey-command-nuget-cli"></a>comando setApiKey (interfaccia della riga di comando di NuGet)
 
@@ -18,7 +18,7 @@ ms.locfileid: "88622811"
 
 Salva una chiave API per un URL del server specificato in in `NuGet.Config` modo che non debba essere immessa per i comandi successivi.
 
-## <a name="usage"></a>Uso
+## <a name="usage"></a>Utilizzo
 
 ```cli
 nuget setapikey <key> -Source <url> [options]

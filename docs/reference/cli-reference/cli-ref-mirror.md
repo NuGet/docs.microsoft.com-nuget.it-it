@@ -1,16 +1,16 @@
 ---
 title: Comando mirror CLI NuGet
 description: Riferimento per il comando nuget.exe mirror
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: a7247aeb21418e78dbfe9be15c2e7cd152aa3f4a
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 6ecd5c11383f78fdaeb01090366a8ffe294b4f8b
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622967"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98779176"
 ---
 # <a name="mirror-command-nuget-cli"></a>comando mirror (interfaccia della riga di comando di NuGet)
 
@@ -21,7 +21,7 @@ Rispecchia un pacchetto e le relative dipendenze dai repository di origine speci
 > [!NOTE]
 > NuGet.ServerExtensions.dll e NuGet-Signed.exe che in precedenza supportano questo comando in NuGet 2. x (rinominando NuGet-Signed.exe in nuget.exe) non sono più disponibili per il download. Per usare un comando simile a questo, provare [NuGetMirror](https://www.nuget.org/packages/NuGetMirror/).
 
-## <a name="usage"></a>Uso
+## <a name="usage"></a>Utilizzo
 
 ```cli
 nuget mirror <packageID | configFilePath> <listUrlTarget> <publishUrlTarget> [options]

@@ -1,16 +1,16 @@
 ---
 title: Comando di installazione CLI NuGet
 description: Riferimento per il comando nuget.exe install
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 23856728d07d07183b5aedcd6218a56a444c410b
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 34b79bfa7a0dddf5da6b5c465293caec49129f6c
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623097"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98779268"
 ---
 # <a name="install-command-nuget-cli"></a>comando di installazione (interfaccia della riga di comando di NuGet)
 
@@ -29,7 +29,7 @@ Il `install` comando non modifica un file di progetto o `packages.config` . in q
 
 Per aggiungere una dipendenza, aggiungere un pacchetto tramite l'interfaccia utente o la console di gestione pacchetti in Visual Studio oppure modificare `packages.config` e quindi eseguire `install` o `restore` .
 
-## <a name="usage"></a>Uso
+## <a name="usage"></a>Utilizzo
 
 ```cli
 nuget install <packageID | configFilePath> [options]

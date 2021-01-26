@@ -1,16 +1,16 @@
 ---
 title: Comando Pack dell'interfaccia della riga di comando NuGet
 description: Riferimento per il comando nuget.exe Pack
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 0483a75c7ee1fd851f935f44d96a417e2e86bf20
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: e2906d53119cb8c922df7d177cd686836ac50a5a
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622954"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780038"
 ---
 # <a name="pack-command-nuget-cli"></a>comando Pack (interfaccia della riga di comando di NuGet)
 
@@ -22,7 +22,7 @@ Crea un pacchetto NuGet basato sul file con [estensione NuSpec](../nuspec.md) o 
 > Usare [`dotnet pack`](../dotnet-Commands.md) o [`msbuild -t:pack`](../msbuild-targets.md) per i progetti basati su [PackageReference](../../consume-packages/package-references-in-project-files.md) .
 > In mono la creazione di un pacchetto da un file di progetto non è supportata. È anche necessario modificare i percorsi non locali nel file nei `.nuspec` percorsi di tipo UNIX, in quanto nuget.exe non converte i nomi di percorso di Windows.
 
-## <a name="usage"></a>Uso
+## <a name="usage"></a>Utilizzo
 
 ```cli
 nuget pack <nuspecPath | projectPath> [options] [-Properties ...]

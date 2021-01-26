@@ -1,16 +1,16 @@
 ---
 title: Note sulla versione di NuGet 5,5
 description: Note sulla versione per NuGet 5,5, incluse nuove funzionalità, correzioni di bug e DCR.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 03/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0e8ab66c937058e84420bc3e3a5031cbc133aad7
-ms.sourcegitcommit: 1a63a84da2719c8141823ac89a20bf507fd22b00
+ms.openlocfilehash: 0fde67dd03c31e986ed89f2f8627608e279ef908
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80148297"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780106"
 ---
 # <a name="nuget-55-release-notes"></a>Note sulla versione di NuGet 5,5
 
@@ -32,23 +32,23 @@ Veicoli per la distribuzione di NuGet:
 
 * Supporto per la visualizzazione di icone autosufficienti nell'interfaccia utente di gestione pacchetti di Visual Studio per i pacchetti ospitati nei feed locali- [#8189](https://github.com/NuGet/Home/issues/8189)
 
-* Miglioramento significativo delle prestazioni di ripristino senza op con `RestoreUseStaticGraphEvaluation` che consente di velocizzare le valutazioni chiamando API Graph statiche di MSBuild- [8791](https://github.com/NuGet/Home/issues/8791)
+* Miglioramento significativo delle prestazioni di ripristino senza op mediante `RestoreUseStaticGraphEvaluation` la quale è possibile velocizzare le valutazioni chiamando API Graph statiche di MSBuild- [8791](https://github.com/NuGet/Home/issues/8791)
 
-* Miglioramento dell'affidabilità di DotNet. exe con i plug-in di autenticazione multipiattaforma
+* Miglioramento dell'affidabilità dotnet.exe con i plug-in di autenticazione multipiattaforma
     * dotnet restore non riuscito con TaskCanceledException- [#7842](https://github.com/NuGet/Home/issues/7842)
     * Plug-in: "un'attività è stata annullata". problema con l'autenticazione ADO a causa di questo. - [#8528](https://github.com/NuGet/Home/issues/8528)
 
-* aggiungere `dotnet nuget <add|remove|update|disable|enable|list> source` comando- [#4126](https://github.com/NuGet/Home/issues/4126)
+* Aggiungi `dotnet nuget <add|remove|update|disable|enable|list> source` [#4126](https://github.com/NuGet/Home/issues/4126) comando
 
-* Per `--skip-duplicate` uso di DotNet NuGet push- [#8778](https://github.com/NuGet/Home/issues/8778)
+* Eseguire il `--skip-duplicate`  push per l'uso di DotNet NuGet push- [#8778](https://github.com/NuGet/Home/issues/8778)
 
-* Supporto di `packages.config` con MSBuild/Restore- [#8506](https://github.com/NuGet/Home/issues/8506)
+* Supporto `packages.config` con MSBuild/Restore- [#8506](https://github.com/NuGet/Home/issues/8506)
 
 ### <a name="issues-fixed-in-this-release"></a>Problemi corretti in questa versione
 
 **Bug**
 
-* Rework-aggiornamento automatico con le API V3- [#4197](https://github.com/NuGet/Home/issues/4197)
+* Rielaborare Self-Updater con le API V3- [#4197](https://github.com/NuGet/Home/issues/4197)
 
 * Versione di dipendenza del pacchetto errata se la versione della dipendenza del pacchetto è impostata su' *'- [#6697](https://github.com/NuGet/Home/issues/6697)
 
@@ -56,7 +56,7 @@ Veicoli per la distribuzione di NuGet:
 
 * Il file di blocco non è rispettato negli scenari "*": [#8073](https://github.com/NuGet/Home/issues/8073)
 
-* NuGet. exe non viene risolto nella versione più recente di un pacchetto quando si usa * in PackageReference (MSBuild/DotNet/VS Restore do)- [#8432](https://github.com/NuGet/Home/issues/8432)
+* NuGet.exe non si risolve nella versione più recente di un pacchetto quando si usa * in PackageReference (MSBuild/DotNet/VS Restore do)- [#8432](https://github.com/NuGet/Home/issues/8432)
 
 * pacchetto di elenco DotNet con il progetto WPF con più destinazioni- [#8463](https://github.com/NuGet/Home/issues/8463)
 
@@ -92,9 +92,9 @@ Veicoli per la distribuzione di NuGet:
 
 * Restore: stringhe di grandi dimensioni create nell'heap degli oggetti grandi (LOH)- [#9031](https://github.com/NuGet/Home/issues/9031)
 
-* NuGet. exe personalizzato su mono più recente potrebbe interrompersi a causa del sistema di risoluzione di MSBuild SDK- [8848](https://github.com/NuGet/Home/issues/8848)
+* nuget.exe personalizzati sul mono più recente potrebbero interrompersi a causa del sistema di risoluzione dell'SDK di MSBuild- [8848](https://github.com/NuGet/Home/issues/8848)
 
-* il ripristino non riesce quando NuGet. dgspec. JSON è "usato da un altro processo"- [8692](https://github.com/NuGet/Home/issues/8692)
+* il ripristino non riesce quando nuget.dgspec.jssu è "usato da un altro processo"- [8692](https://github.com/NuGet/Home/issues/8692)
 
 **DCR**
 

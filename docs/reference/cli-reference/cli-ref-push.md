@@ -1,16 +1,16 @@
 ---
 title: Comando push dell'interfaccia della riga di comando NuGet
 description: Riferimento per il comando nuget.exe push
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: d53a2e7f41219e68e59b195d1d5a9d1f62ad7c63
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 54a09361173ae10040433b05fcfae7304e39452e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622846"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98779184"
 ---
 # <a name="push-command-nuget-cli"></a>comando Push (interfaccia della riga di comando di NuGet)
 
@@ -23,7 +23,7 @@ Inserisce un pacchetto in un'origine del pacchetto e lo pubblica.
 
 La configurazione predefinita di NuGet si ottiene caricando `%AppData%\NuGet\NuGet.Config` (Windows) o `~/.nuget/NuGet/NuGet.Config` (Mac/Linux), quindi caricando tutti `Nuget.Config` `.nuget\Nuget.Config` i file o a partire dalla radice dell'unità e terminando con la directory corrente (vedere [configurazioni NuGet comuni](../../consume-packages/configuring-nuget-behavior.md))
 
-## <a name="usage"></a>Uso
+## <a name="usage"></a>Utilizzo
 
 ```cli
 nuget push <packagePath> [options]

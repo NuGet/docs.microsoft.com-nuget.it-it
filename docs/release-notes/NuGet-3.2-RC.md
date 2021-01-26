@@ -1,119 +1,119 @@
 ---
-title: Note sulla versione per NuGet 3.2 RC
-description: Note sulla versione per NuGet 3.2 RC, tra cui i problemi noti, correzioni di bug, funzionalità aggiunte e dcr.
-author: karann-msft
-ms.author: karann
+title: Note sulla versione di NuGet 3,2 RC
+description: Note sulla versione per NuGet 3,2 RC, inclusi problemi noti, correzioni di bug, funzionalità aggiunte e DCR.
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: eafdedc3ad022a6794dbeb390de87d7f317e28f1
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: HT
+ms.openlocfilehash: 8132affb8273604ae79d4e1f85e6072d8eaf5ad6
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551498"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780288"
 ---
-# <a name="nuget-32-rc-release-notes"></a>Note sulla versione per NuGet 3.2 RC
+# <a name="nuget-32-rc-release-notes"></a>Note sulla versione di NuGet 3,2 RC
 
-[Note sulla versione di NuGet 3.1.1](../release-notes/nuget-3.1.1.md) | [note sulla versione di NuGet 3.2](../release-notes/nuget-3.2.md)
+Note sulla versione di [NuGet 3.1.1](../release-notes/nuget-3.1.1.md)  |  [Note sulla versione di NuGet 3,2](../release-notes/nuget-3.2.md)
 
-Versione finale candidata di NuGet 3.2 è stata rilasciata il 2 settembre 2015 come una raccolta di miglioramenti e correzioni per il 3.1.1 release.  Inoltre, queste sono le prime versioni pubblicate prima di tutto al nuovo repository dist.nuget.org.
+NuGet 3,2 Release Candidate è stato rilasciato il 2 settembre 2015 come una raccolta di miglioramenti e correzioni per la versione 3.1.1.  Inoltre, queste sono le prime versioni pubblicate prima nel nuovo repository dist.nuget.org.
 
-## <a name="new-features"></a>Nuove funzionalità
+## <a name="new-features"></a>Nuove funzioni e caratteristiche
 
-* I progetti che si trovano nella stessa cartella ora possono avere diversi `project.json` file nella cartella specifica di ogni progetto.  Per ogni progetto, denominare il `project.json` file `{ProjectName}.project.json` e NuGet faccia correttamente riferimento e usare tale contenuto per ogni progetto in modo appropriato.  Supporta una nuova funzionalità [1102](https://github.com/NuGet/Home/issues/1102)
-* `NuGet.Config` supporta ora un globalPackagesFolder come percorso relativo - [1062](https://github.com/NuGet/Home/issues/1062)
+* I progetti che risiedono nella stessa cartella possono ora avere `project.json` file diversi nella cartella specifica per ogni progetto.  Per ogni progetto, denominare il `project.json` file `{ProjectName}.project.json` e NuGet per fare riferimento a tale contenuto e utilizzarlo in modo appropriato per ogni progetto.  Supporta una nuova funzionalità  [1102](https://github.com/NuGet/Home/issues/1102)
+* `NuGet.Config` supporta ora globalPackagesFolder come percorso relativo- [1062](https://github.com/NuGet/Home/issues/1062)
 
-## <a name="command-line-updates"></a>Aggiornamenti della riga di comando
+## <a name="command-line-updates"></a>Aggiornamenti da riga di comando
 
-Si tratta della prima versione del client nuget.exe che supporta i server di NuGet v3 e il ripristino dei pacchetti per i progetti gestiti con un `project.json` file.
+Questa è la prima versione del client nuget.exe che supporta i server NuGet V3 e il ripristino dei pacchetti per i progetti gestiti con un `project.json` file.
 
-#### <a name="there-were-a-number-of-authenticated-feed-issues-that-were-addressed-in-this-release-to-improve-interactions-with-the-client"></a>Si sono verificati alcuni problemi di feed autenticati che sono stati risolti in questa versione per migliorare le interazioni con il client.
+#### <a name="there-were-a-number-of-authenticated-feed-issues-that-were-addressed-in-this-release-to-improve-interactions-with-the-client"></a>In questa versione sono stati risolti alcuni problemi relativi ai feed autenticati per migliorare le interazioni con il client.
 
-* Installare / ripristino interazioni inviare solo le credenziali per la richiesta iniziale per i feed autenticati - [1300](https://github.com/NuGet/Home/issues/1300), [456](https://github.com/NuGet/Home/issues/456)
-* Comando di push non viene risolto le credenziali di configurazione - [1248](https://github.com/NuGet/Home/issues/1248)
-* Agente utente e le intestazioni vengono ora inviate ai repository NuGet per facilitare il rilevamento delle statistiche - [929](https://github.com/NuGet/Home/issues/929)
+* Le interazioni di installazione/ripristino inviano solo le credenziali per la richiesta iniziale al feed autenticato- [1300](https://github.com/NuGet/Home/issues/1300), [456](https://github.com/NuGet/Home/issues/456)
+* Il comando push non risolve le credenziali dalla configurazione- [1248](https://github.com/NuGet/Home/issues/1248)
+* Gli agenti utente e le intestazioni vengono ora inviati ai repository NuGet per semplificare il rilevamento delle statistiche- [929](https://github.com/NuGet/Home/issues/929)
 
-#### <a name="we-made-a-number-of-improvements-to-better-handle-network-failures-while-attempting-to-work-with-a-remote-nuget-repository"></a>Sono stati apportati numerosi miglioramenti per gestire meglio gli errori di rete durante il tentativo di usare un repository remoto di NuGet:
+#### <a name="we-made-a-number-of-improvements-to-better-handle-network-failures-while-attempting-to-work-with-a-remote-nuget-repository"></a>Sono stati apportati numerosi miglioramenti per gestire meglio gli errori di rete durante il tentativo di usare un repository NuGet remoto:
 
-* Messaggi di errore quando non è possibile connettersi ai feed remoto - migliorati [1238](https://github.com/NuGet/Home/issues/1238)
-* Comando restore di NuGet per correttamente restituisce 1 quando si verifica una condizione di errore - correggere [1186](https://github.com/NuGet/Home/issues/1186)
-* A questo punto tentativi di connessione di rete ogni 200 ms per un massimo di 5 tentativi in caso di errori 5xx HTTP - [1120](https://github.com/NuGet/Home/issues/1120)
-* La gestione di reindirizzamento delle risposte del server durante un comando push - migliorata [1051](https://github.com/NuGet/Home/issues/1051)
-* `nuget install -source` supporta ora l'URL o repository il nome da NuGet. config come argomento - [1046](https://github.com/NuGet/Home/issues/1046)
-* I pacchetti mancanti che non risiedono in un repository durante un'operazione di ripristino vengono ora segnalati come errori anziché avvisi [1038](https://github.com/NuGet/Home/issues/1038)
-* Corretta gestione multipartwebrequest di \r\n per gli scenari di Unix/Linux - [776](https://github.com/NuGet/Home/issues/776)
+* Messaggi di errore migliorati quando non è possibile connettersi ai feed remoti- [1238](https://github.com/NuGet/Home/issues/1238)
+* Correzione del comando di ripristino NuGet per restituire correttamente un valore 1 quando si verifica una condizione di errore- [1186](https://github.com/NuGet/Home/issues/1186)
+* A questo punto, riprovare le connessioni di rete ogni 200ms per un massimo di 5 tentativi in caso di errori 5XX HTTP- [1120](https://github.com/NuGet/Home/issues/1120)
+* Gestione migliorata delle risposte di reindirizzamento del server durante un comando Push- [1051](https://github.com/NuGet/Home/issues/1051)
+* `nuget install -source` supporta ora il nome dell'URL o del repository da Nuget.Config come argomento- [1046](https://github.com/NuGet/Home/issues/1046)
+* I pacchetti mancanti che non si trovavano in un repository durante il ripristino vengono ora segnalati come errori invece degli avvisi [1038](https://github.com/NuGet/Home/issues/1038)
+* Correzione della gestione multipartwebrequest di \r\n per scenari UNIX/Linux- [776](https://github.com/NuGet/Home/issues/776)
 
-#### <a name="there-are-a-number-of-fixes-to-issues-with-various-commands"></a>Esistono una serie di correzioni per problemi con vari comandi:
+#### <a name="there-are-a-number-of-fixes-to-issues-with-various-commands"></a>Sono disponibili numerose correzioni per i problemi relativi ai vari comandi:
 
-* Comando di push non è più consente di eseguire un'operazione GET prima un'operazione PUT su un'origine pacchetto - [1237](https://github.com/NuGet/Home/issues/1237)
-* Comando Elenca non ripete non è più numeri di versione - [1185](https://github.com/NuGet/Home/issues/1185)
-* Pack argumentem-build ora correttamente supporta C# 6.0 - [1107](https://github.com/NuGet/Home/issues/1107)
-* Corretti problemi di tentativo di compattare un progetto F # compilate con Visual Studio 2015 - [1048](https://github.com/NuGet/Home/issues/1048)
-* Ripristinare questo punto non esegue nessuna operazione quando i pacchetti sono già presenti - [1040](https://github.com/NuGet/Home/issues/1040)
-* I messaggi di errore migliorato quando `packages.config` file non è valido - [1034](https://github.com/NuGet/Home/issues/1034)
-* Comando restore con correzione `-SolutionDirectory` switch per lavorare con i percorsi relativi - [992](https://github.com/NuGet/Home/issues/992)
-* Comando aggiornato per supportare l'aggiornamento a livello di soluzione - migliorata [924](https://github.com/NuGet/Home/issues/924)
+* Il comando push non esegue più un'operazione GET prima di un PUT su un'origine pacchetto- [1237](https://github.com/NuGet/Home/issues/1237)
+* Il comando elenco non ripete più i numeri di versione- [1185](https://github.com/NuGet/Home/issues/1185)
+* Pack con l'argomento-Build ora supporta correttamente C# 6,0- [1107](https://github.com/NuGet/Home/issues/1107)
+* Problemi corretti durante il tentativo di comprimere un progetto F # compilato con Visual Studio 2015- [1048](https://github.com/NuGet/Home/issues/1048)
+* Ripristinare ora no-Ops quando i pacchetti esistono già- [1040](https://github.com/NuGet/Home/issues/1040)
+* Messaggi di errore migliorati quando il `packages.config` formato del file non è valido- [1034](https://github.com/NuGet/Home/issues/1034)
+* Correzione del comando di ripristino con `-SolutionDirectory` Switch per lavorare con i percorsi relativi- [992](https://github.com/NuGet/Home/issues/992)
+* Comando aggiornato migliorato per supportare l'aggiornamento a livello di soluzione- [924](https://github.com/NuGet/Home/issues/924)
 
-Un elenco completo dei problemi risolti in questa versione sono disponibili in GitHub di NuGet [attività cardine della riga di comando](https://github.com/nuget/home/issues?utf8=%E2%9C%93&q=is%3Aissue+milestone%3A3.2.0-commandline+is%3Aclosed+-label%3AClosedAs%3ADuplicate).
+Un elenco completo dei problemi risolti in questa versione è disponibile nell' [attività cardine della riga di comando](https://github.com/nuget/home/issues?utf8=%E2%9C%93&q=is%3Aissue+milestone%3A3.2.0-commandline+is%3Aclosed+-label%3AClosedAs%3ADuplicate)GitHub di NuGet.
 
-## <a name="visual-studio-extension-updates"></a>Aggiornamenti di estensione di Visual Studio
+## <a name="visual-studio-extension-updates"></a>Aggiornamenti delle estensioni di Visual Studio
 
 ### <a name="new-features-in-visual-studio"></a>Nuove funzionalità di Visual Studio
 
-* Una nuova voce di menu di contesto è stato aggiunto a Esplora soluzioni nel nodo della soluzione che consente ai pacchetti da ripristinare senza compilare la soluzione ([1274](https://github.com/NuGet/Home/issues/1274)).
+* È stata aggiunta una nuova voce di menu di scelta rapida al Esplora soluzioni sul nodo della soluzione che consente il ripristino dei pacchetti senza compilare la soluzione ([1274](https://github.com/NuGet/Home/issues/1274)).
 
-![Nuovo 'Ripristina pacchetti' Menu di scelta rapida](./media/NuGet-3.2/newContextMenu.png)
+![Nuova voce di menu di scelta rapida ' Ripristina pacchetti '](./media/NuGet-3.2/newContextMenu.png)
 
 ### <a name="updates-and-fixes-in-visual-studio"></a>Aggiornamenti e correzioni in Visual Studio
 
-#### <a name="the-fixes-for-authenticated-feeds-were-rolled-up-and-addressed-in-the-extension-as-well--the-following-authentication-items-were-also-addressed-in-the-extension"></a>Le correzioni per i feed autenticati erano rollup e risolti in anche l'estensione.  Gli elementi di autenticazione seguenti sono stati anche risolti nell'estensione:
+#### <a name="the-fixes-for-authenticated-feeds-were-rolled-up-and-addressed-in-the-extension-as-well--the-following-authentication-items-were-also-addressed-in-the-extension"></a>Le correzioni per i feed autenticati sono state sottoposte a rollup e risolte anche nell'estensione.  Nell'estensione sono stati inoltre risolti gli elementi di autenticazione seguenti:
 
-* A questo punto correttamente considerando NuGet v3 i feed con autenticazione in modo corretto, anziché come versione 2 autenticato feed - [1216](https://github.com/NuGet/Home/issues/1216)
-* Con correzione richiesta per le credenziali di autenticazione nei progetti che usano `project.json` e la comunicazione con i feed v2 - [1082](https://github.com/NuGet/Home/issues/1082)
+* Ora è possibile trattare correttamente i feed autenticati di NuGet V3 correttamente, anziché come feed autenticati v2- [1216](https://github.com/NuGet/Home/issues/1216)
+* Correzione della richiesta di credenziali di autenticazione nei progetti mediante `project.json` la comunicazione con i feed v2- [1082](https://github.com/NuGet/Home/issues/1082)
 
-#### <a name="network-connectivity-had-affected-the-user-interface-in-visual-studio-and-we-addressed-this-with-the-following-fixes"></a>Connettività di rete ha interessato l'interfaccia utente in Visual Studio e abbiamo risolto il problema con le correzioni seguenti:
+#### <a name="network-connectivity-had-affected-the-user-interface-in-visual-studio-and-we-addressed-this-with-the-following-fixes"></a>La connettività di rete ha interessato l'interfaccia utente in Visual Studio ed è stato risolto con le correzioni seguenti:
 
-* Migliorata la manutenzione della cache locale di versioni del pacchetto - [1096](https://github.com/NuGet/Home/issues/1096)
-* Modificato il comportamento di un errore durante la connessione a un v3 feed non è più tentativi di considerarlo come un feed v2 - [1253](https://github.com/NuGet/Home/issues/1253)
-* A questo punto prevenzione degli errori di installazione quando si installa un pacchetto con più origini dei pacchetti - [1183](https://github.com/NuGet/Home/issues/1183)
+* Miglioramento della manutenzione della cache locale delle versioni del pacchetto- [1096](https://github.com/NuGet/Home/issues/1096)
+* Il comportamento dell'errore è stato modificato quando ci si connette a un feed V3 per non provare più a considerarlo come feed v2- [1253](https://github.com/NuGet/Home/issues/1253)
+* Ora che impedisce errori di installazione durante l'installazione di un pacchetto con più origini pacchetti- [1183](https://github.com/NuGet/Home/issues/1183)
 
-La gestione delle interazioni con operazioni di compilazione è stata migliorata:
+È stata migliorata la gestione delle interazioni con le operazioni di compilazione:
 
-* Ora continuare compilare progetti se il ripristino dei pacchetti per un singolo progetto ha esito negativo - [1169](https://github.com/NuGet/Home/issues/1169)
-* Installazione di un pacchetto in un progetto che dipende da un altro progetto nella soluzione impone una ricompilazione di soluzione - [981](https://github.com/NuGet/Home/issues/981)
-* Correggere le installazioni del pacchetto non riuscita a correttamente il rollback delle modifiche a un progetto - [1265](https://github.com/NuGet/Home/issues/1265)
-* Correzione dalla rimozione accidentale del `developmentDependency` attributo su un pacchetto in `packages.config`  -  [1263](https://github.com/NuGet/Home/issues/1263)
-* Le chiamate a `install.ps1` disporrà di una corretta `$package.AssemblyReferences` oggetto passato - [1245](https://github.com/NuGet/Home/issues/1245)
-* Non impedisce più disinstallazione dei pacchetti nei progetti UWP mentre il progetto si trova in uno stato non valido - [1128](https://github.com/NuGet/Home/issues/1128)
-* Soluzioni che contengono una combinazione di `packages.config` e `project.json` progetti ora siano compilati correttamente senza richiedere una seconda operazione - di compilazione [1122](https://github.com/NuGet/Home/issues/1122)
-* Corretta individuazione dei file app. config se sono collegati o che si trova in una cartella diversa - [1111](https://github.com/NuGet/Home/issues/1111), [894](https://github.com/NuGet/Home/issues/894)
-* I progetti UWP possono ora installare i pacchetti rimossi dall'elenco - [1109](https://github.com/NuGet/Home/issues/1109)
-* Ripristino del pacchetto è consentito usare mentre una soluzione non è in uno stato salvato - [1081](https://github.com/NuGet/Home/issues/1081)
-
-
-Gestione degli aggiornamenti sono stati corretti i file di configurazione:
-
-* Non è più la rimozione di un file di destinazioni recapitate da un pacchetto nelle compilazioni successive di un `project.json` progetto gestito - [1288](https://github.com/NuGet/Home/issues/1288)
-* Non è più modifica dei file NuGet. config durante la compilazione di soluzioni di ASP.NET 5 - [1201](https://github.com/NuGet/Home/issues/1201)
-* La modifica non è più consentita vincolo delle versioni durante l'aggiornamento del pacchetto - [1130](https://github.com/NuGet/Home/issues/1130)
-* Bloccare i file rimangono ora bloccati durante la compilazione - [1127](https://github.com/NuGet/Home/issues/1127)
-* È in corso `packages.config` e non doverlo riscrivere durante gli aggiornamenti - [585](https://github.com/NuGet/Home/issues/585)
+* A questo punto, continuare a compilare i progetti se il ripristino dei pacchetti per un singolo progetto non riesce- [1169](https://github.com/NuGet/Home/issues/1169)
+* L'installazione di un pacchetto in un progetto che dipende da un altro progetto nella soluzione impone la ricompilazione di una soluzione- [981](https://github.com/NuGet/Home/issues/981)
+* Correzione delle installazioni non riuscite per eseguire correttamente il rollback delle modifiche apportate a un progetto- [1265](https://github.com/NuGet/Home/issues/1265)
+* Correzione della rimozione accidentale dell' `developmentDependency` attributo in un pacchetto in `packages.config`  -  [1263](https://github.com/NuGet/Home/issues/1263)
+* Le chiamate a `install.ps1` ora hanno un `$package.AssemblyReferences` oggetto appropriato passato- [1245](https://github.com/NuGet/Home/issues/1245)
+* Non è più possibile impedire la disinstallazione dei pacchetti nei progetti UWP mentre il progetto è in uno stato non valido- [1128](https://github.com/NuGet/Home/issues/1128)
+* Le soluzioni che contengono una combinazione di `packages.config` `project.json` progetti e sono ora compilate correttamente senza richiedere una seconda operazione di compilazione- [1122](https://github.com/NuGet/Home/issues/1122)
+* Individuazione corretta dei file di app.config se sono collegati o posizionati in una cartella diversa- [1111](https://github.com/NuGet/Home/issues/1111), [894](https://github.com/NuGet/Home/issues/894)
+* I progetti UWP possono ora installare pacchetti non in elenco- [1109](https://github.com/NuGet/Home/issues/1109)
+* Il ripristino del pacchetto è ora consentito mentre una soluzione non è in uno stato salvato- [1081](https://github.com/NuGet/Home/issues/1081)
 
 
-Le interazioni con controllo del codice sorgente TFS sono state migliorate:
+Correzione degli aggiornamenti dei file di configurazione:
 
-* Non è più esito negativo per i pacchetti che sono associati a TFS, le installazioni [1164](https://github.com/NuGet/Home/issues/1164), [980](https://github.com/NuGet/Home/issues/980)
-* Interfaccia utente di NuGet corretto per consentire l'integrazione di TFS 2013 - [1071](https://github.com/NuGet/Home/issues/1071)
-* Correzione di riferimenti a pacchetti ripristinati per correttamente provengono da una cartella packages - [1004](https://github.com/NuGet/Home/issues/1004)
-
-Infine, è migliorato anche questi elementi:
-
-* Livello di dettaglio dei messaggi di log ridotti per `project.json` gestiti i progetti - [1163](https://github.com/NuGet/Home/issues/1163)
-* A questo punto visualizzare correttamente la versione installata di un pacchetto nell'interfaccia utente - [1061](https://github.com/NuGet/Home/issues/1061)
+* Non è più possibile rimuovere un file di destinazioni recapitato da un pacchetto nelle compilazioni successive di un `project.json` progetto gestito- [1288](https://github.com/NuGet/Home/issues/1288)
+* Non è più necessario modificare i file di Nuget.Config durante la compilazione della soluzione ASP.NET 5- [1201](https://github.com/NuGet/Home/issues/1201)
+* Non è più necessario modificare il vincolo versioni consentite durante l'aggiornamento del pacchetto- [1130](https://github.com/NuGet/Home/issues/1130)
+* I file di blocco ora rimangono bloccati durante la compilazione- [1127](https://github.com/NuGet/Home/issues/1127)
+* A questo punto, è possibile modificarlo `packages.config` e non riscriverlo durante gli aggiornamenti- [585](https://github.com/NuGet/Home/issues/585)
 
 
-Un elenco completo dei problemi risolti per l'estensione di Visual Studio è disponibili in GitHub di NuGet [3,2 attività cardine](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+-label%3AClosedAs%3ADuplicate+milestone%3A3.2)
+Sono state migliorate le interazioni con il controllo del codice sorgente TFS:
+
+* Non è più possibile eseguire l'installazione per i pacchetti associati a TFS- [1164](https://github.com/NuGet/Home/issues/1164), [980](https://github.com/NuGet/Home/issues/980)
+* Correzione dell'interfaccia utente di NuGet per consentire l'integrazione di TFS 2013- [1071](https://github.com/NuGet/Home/issues/1071)
+* Correzione dei riferimenti ai pacchetti ripristinati correttamente da una cartella Pacchetti- [1004](https://github.com/NuGet/Home/issues/1004)
+
+Infine, sono stati migliorati anche gli elementi seguenti:
+
+* Livello di dettaglio dei messaggi di log ridotti per i `project.json` progetti gestiti- [1163](https://github.com/NuGet/Home/issues/1163)
+* Visualizzazione corretta della versione installata di un pacchetto nell'interfaccia utente- [1061](https://github.com/NuGet/Home/issues/1061)
+
+
+Un elenco completo dei problemi risolti per l'estensione di Visual Studio è reperibile nell' [attività cardine](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+-label%3AClosedAs%3ADuplicate+milestone%3A3.2) di GitHub 3,2 di NuGet
 
 ## <a name="known-issues"></a>Problemi noti
 
-Continuiamo a tenere traccia dei problemi nel nostro elenco di problemi di GitHub che può trovarsi in: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)
+Continuiamo a tenere traccia dei problemi nell'elenco dei problemi di GitHub disponibili all'indirizzo: [http://github.com/nuget/home/issues](http://github.com/nuget/home/issues)

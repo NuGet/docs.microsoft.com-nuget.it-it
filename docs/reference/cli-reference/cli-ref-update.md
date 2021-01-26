@@ -1,16 +1,16 @@
 ---
 title: Comando di aggiornamento CLI di NuGet
 description: Riferimento per il comando nuget.exe Update
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 106c4027f03d8e8c1d19545b3ca9b6cd5263830e
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: cfa7fdcc6af46fd5f4030ba424754291f697bc43
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93236789"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98779140"
 ---
 # <a name="update-command-nuget-cli"></a>comando Update (interfaccia della riga di comando di NuGet)
 
@@ -40,7 +40,7 @@ dove `<configPath>` identifica un `packages.config` file di soluzione o che elen
   
 - **`-DependencyVersion [Lowest, HighestPatch, HighestMinor, Highest, Ignore]`**
 
-  Specifica la versione dei pacchetti di dipendenze da usare. i possibili tipi sono i seguenti:<br/><ul><li>*Minimo* (impostazione predefinita): versione più bassa</li><li>*HighestPatch* : versione con la patch principale più bassa, minore minore, più alta</li><li>*HighestMinor* : versione con la patch principale più bassa, minore più elevata</li><li>*Massimo* : la versione più recente</li><li>*Ignora* : non verrà usato alcun pacchetto di dipendenza</li></ul>
+  Specifica la versione dei pacchetti di dipendenze da usare. i possibili tipi sono i seguenti:<br/><ul><li>*Minimo* (impostazione predefinita): versione più bassa</li><li>*HighestPatch*: versione con la patch principale più bassa, minore minore, più alta</li><li>*HighestMinor*: versione con la patch principale più bassa, minore più elevata</li><li>*Massimo*: la versione più recente</li><li>*Ignora*: non verrà usato alcun pacchetto di dipendenza</li></ul>
 
 - **`-FileConflictAction [PromptUser, Overwrite, Ignore]`**
 

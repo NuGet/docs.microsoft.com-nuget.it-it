@@ -1,16 +1,16 @@
 ---
 title: Comando origini CLI NuGet
 description: Riferimento per il comando nuget.exe sources
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 73c9cea8200a1ab1937d25a9a611ae7f2a943dba
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 0e9cbdd089c5c0f66d25e7588ece504feae63f2f
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622590"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780002"
 ---
 # <a name="sources-command-nuget-cli"></a>comando Sources (interfaccia della riga di comando di NuGet)
 
@@ -20,7 +20,7 @@ Gestisce l'elenco delle origini presenti nel file di configurazione dell'ambito 
 
 Si noti che l'URL di origine di nuget.org è `https://api.nuget.org/v3/index.json`.
 
-## <a name="usage"></a>Uso
+## <a name="usage"></a>Utilizzo
 
 ```cli
 nuget sources <operation> -Name <name> -Source <source>

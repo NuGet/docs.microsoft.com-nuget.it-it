@@ -1,16 +1,16 @@
 ---
 title: Note sulla versione di NuGet 5,3
 description: Note sulla versione per NuGet 5,3, incluse nuove funzionalità, correzioni di bug e DCR.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 09/06/2019
 ms.topic: conceptual
-ms.openlocfilehash: ca71c5b9ef546f3ea92e55763d5059466ac3a930
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.openlocfilehash: 009a219139a767ee6453305be68ccce478b0ec75
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76813754"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780118"
 ---
 # <a name="nuget-53-release-notes"></a>Note sulla versione di NuGet 5,3
 
@@ -27,9 +27,9 @@ Veicoli per la distribuzione di NuGet:
 
 * [L'icona del pacchetto può essere incorporata nel pacchetto](../reference/msbuild-targets.md#packing-an-icon-image-file), anziché richiedere un URL esterno. - [#352](https://github.com/NuGet/Home/issues/352)
 
-* Sicurezza migliorata con il rilevamento e l'imposizione di SHA per Packages. config- [#7281](https://github.com/NuGet/Home/issues/7281)
+* Sicurezza migliorata con il rilevamento e l'imposizione di SHA per Packages.Config- [#7281](https://github.com/NuGet/Home/issues/7281)
 
-* Abilitare la deprecazione di pacchetti NuGet obsoleti o legacy [#2867](https://github.com/NuGet/Home/issues/2867) | [post di Blog](https://devblogs.microsoft.com/nuget/deprecating-packages-on-nuget-org/) | [docs](../nuget-org/deprecate-packages.md)
+* Abilitare la deprecazione di pacchetti NuGet obsoleti o legacy [#2867](https://github.com/NuGet/Home/issues/2867)  |  [post di Blog](https://devblogs.microsoft.com/nuget/deprecating-packages-on-nuget-org/)  |  [docs](../nuget-org/deprecate-packages.md)
 
 ### <a name="issues-fixed-in-this-release"></a>Problemi corretti in questa versione
 
@@ -37,7 +37,7 @@ Veicoli per la distribuzione di NuGet:
 
 * I pacchetti NuGet prodotti con 3.0.100-preview9 SDK non possono essere usati dagli utenti di 2,2 SDK... a seconda del fuso orario [#8603](https://github.com/NuGet/Home/issues/8603)
 
-* La virgoletta "caratteri nel percorso provoca un errore di caratteri non validi nel percorso" in `nuget restore` [#8168](https://github.com/NuGet/Home/issues/8168)
+* "I caratteri nel percorso hanno causato l'errore" caratteri non validi nel percorso " `nuget restore` [#8168](https://github.com/NuGet/Home/issues/8168)
 
 * Visual Studio: gli assembly sono completamente NGen-ed non parzialmente NGen-ed- [#8513](https://github.com/NuGet/Home/issues/8513)
 
@@ -47,9 +47,9 @@ Veicoli per la distribuzione di NuGet:
 
 * Miglioramenti di NU1403: convalida di tutti i pacchetti, inclusi i valori Sha previsti/effettivi [#8424](https://github.com/NuGet/Home/issues/8424)
 
-* Enumerazione multipla in `NuGetPackageManager.PreviewUpdatePackagesAsync` - [#8401](https://github.com/NuGet/Home/issues/8401)
+* Enumerazione multipla in `NuGetPackageManager.PreviewUpdatePackagesAsync`  -  [#8401](https://github.com/NuGet/Home/issues/8401)
 
-* Annulla la modifica "Public-> Internal" in PluginProcess- [#8390](https://github.com/NuGet/Home/issues/8390)
+* Annulla la modifica "public-> Internal" in PluginProcess- [#8390](https://github.com/NuGet/Home/issues/8390)
 
 * IVsPackageSourceProvider. GetSources (...) ha un comportamento di eccezione definito in modo non corretto- [#8383](https://github.com/NuGet/Home/issues/8383)
 
@@ -71,7 +71,7 @@ Veicoli per la distribuzione di NuGet:
 
 * Eseguire la lettura delle impostazioni in VS Lazy- [#8156](https://github.com/NuGet/Home/issues/8156)
 
-* La regressione in `Nuget sources add` causa l'errore "il carattere ':', valore esadecimale 0x3A, non può essere incluso in un nome" Errors- [#7948](https://github.com/NuGet/Home/issues/7948)
+* La regressione in `Nuget sources add` fa sì che il carattere ":", valore esadecimale 0x3A, non possa essere incluso in un nome "Errors- [#7948](https://github.com/NuGet/Home/issues/7948)
 
 * Provider di credenziali del plug-in NuGet: nascondere la finestra del processo [#7511](https://github.com/NuGet/Home/issues/7511)
 
@@ -87,11 +87,11 @@ Veicoli per la distribuzione di NuGet:
 
 * Abilita ripristino nei file con estensione proj- [#8212](https://github.com/NuGet/Home/issues/8212)
 
-* Introdurre `NUGET_NETFX_PLUGIN_PATHS` e `NUGET_NETCORE_PLUGIN_PATHS` per supportare la configurazione di entrambi allo stesso tempo: [#8151](https://github.com/NuGet/Home/issues/8151)
+* Introdurre `NUGET_NETFX_PLUGIN_PATHS` e `NUGET_NETCORE_PLUGIN_PATHS` per supportare la configurazione di entrambi allo stesso tempo- [#8151](https://github.com/NuGet/Home/issues/8151)
 
 * Abilitare più versioni per un PackageDownload tramite l'attributo Version [#8074](https://github.com/NuGet/Home/issues/8074)
 
-* Opzioni Add-SolutionDirectory e-PackageDirectory per NuGet. exe Pack- [#7163](https://github.com/NuGet/Home/issues/7163)
+* Opzioni Add-SolutionDirectory e-PackageDirectory per nuget.exe Pack- [#7163](https://github.com/NuGet/Home/issues/7163)
 
 **[Elenco di tutti i problemi risolti in questa versione-5,3](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%225.3")**
 

@@ -1,16 +1,16 @@
 ---
 title: Note sulla versione per NuGet 4.9 RTM
 description: Note sulla versione per NuGet 4.9 incluse informazioni su problemi noti, correzioni di bug, nuove funzionalità e DCR.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: e0dea74fe179c0dce4996f3e498185bb3a491856
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 429218fa4968d572ef187ef1dbfacac8a3bde2b4
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64496456"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780153"
 ---
 # <a name="nuget-49-release-notes"></a>Note sulla versione per NuGet 4.9
 
@@ -26,7 +26,7 @@ Veicoli per la distribuzione di NuGet:
 
 ## <a name="summary-whats-new-in-490"></a>Riepilogo: Novità della versione 4.9.0
 
-* Firma: abilitare ClientPolicies per richiedere l'utilizzo di un set di autori attendibili e repository elencati in NuGet.Config - post di [blog](https://blog.nuget.org/20181205/Lock-down-your-dependencies-using-configurable-trust-policies.html) [#6961](https://github.com/NuGet/Home/issues/6961)
+* Firma: abilitare ClientPolicies per richiedere l'uso di un set di autori e repository attendibili elencati in NuGet.Config- [#6961](https://github.com/NuGet/Home/issues/6961), [post di Blog](https://blog.nuget.org/20181205/Lock-down-your-dependencies-using-configurable-trust-policies.html)
 
 * Creare file ".snupkg" per contenere i simboli nel pacchetto -- ottimizzare il push per fare in modo che il protocollo nuget accetti file snupkg per il server dei simboli - [#6878](https://github.com/NuGet/Home/issues/6878), [post di blog](https://blog.nuget.org/20181116/Improved-debugging-experience-with-the-NuGet-org-symbol-server-and-snupkg.html)
 
@@ -98,7 +98,7 @@ Veicoli per la distribuzione di NuGet:
 
 [Elenco di tutti i problemi corretti nella versione 4.9.1](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.1")
 
-## <a name="summary-whats-new-in-492"></a>Riassunto: Novità della versione 4.9.2
+## <a name="summary-whats-new-in-492"></a>Riepilogo: novità di 4.9.2
 
 ### <a name="issues-fixed-in-this-release"></a>Problemi corretti in questa versione
 
@@ -110,7 +110,7 @@ Veicoli per la distribuzione di NuGet:
 
 [Elenco di tutti i problemi corretti nella versione 4.9.2](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.2")
 
-## <a name="summary-whats-new-in-493"></a>Riassunto: Novità della versione 4.9.3
+## <a name="summary-whats-new-in-493"></a>Riepilogo: novità di 4.9.3
 
 ### <a name="issues-fixed-in-this-release"></a>Problemi corretti in questa versione
 #### <a name="repeatable-package-restores-using-a-lock-file-issues"></a>Problemi "Ripristini di pacchetti ripetibili con un file di blocco"
@@ -140,9 +140,9 @@ Veicoli per la distribuzione di NuGet:
 
 [Elenco di tutti i problemi corretti nella versione 4.9.3](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.3")
 
-## <a name="summary-whats-new-in-494"></a>Riassunto: Novità della versione 4.9.4
+## <a name="summary-whats-new-in-494"></a>Riepilogo: novità di 4.9.4
 
-* Correzione della sicurezza: Le autorizzazioni per i file creati all'interno di nuget sono troppo aperte [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+* Correzione della sicurezza: le autorizzazioni per i file creati all'interno di ~/.NuGet sono troppo aperte [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
 
 
 ## <a name="known-issues"></a>Problemi noti

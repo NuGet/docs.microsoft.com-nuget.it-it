@@ -1,16 +1,16 @@
 ---
 title: Comando di ripristino di NuGet CLI
 description: Riferimento per il comando nuget.exe Restore
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 108317aba2107948180ab0149c0c5ba5150cf9b8
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 49fabbd0ef0c1c0c16f13bdf741296575fa72359
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622830"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780033"
 ---
 # <a name="restore-command-nuget-cli"></a>comando Restore (interfaccia della riga di comando di NuGet)
 
@@ -20,7 +20,7 @@ Scarica e installa tutti i pacchetti mancanti nella `packages` cartella. Se usat
 
 In Mac OSX e Linux con l'interfaccia della riga di comando in mono, il ripristino dei pacchetti non è supportato con PackageReference.
 
-## <a name="usage"></a>Uso
+## <a name="usage"></a>Utilizzo
 
 ```cli
 nuget restore <projectPath> [options]
