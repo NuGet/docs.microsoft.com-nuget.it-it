@@ -1,16 +1,16 @@
 ---
 title: Note sulla versione di NuGet 5,4
 description: Note sulla versione per NuGet 5,4, incluse nuove funzionalità, correzioni di bug e DCR.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 09/06/2019
 ms.topic: conceptual
-ms.openlocfilehash: c7fb9c1e587b6603abe63581c662571abfd4506b
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: dd4c10672db3a65b68f18636105ee55ab09da7ef
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384111"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776185"
 ---
 # <a name="nuget-54-release-notes"></a>Note sulla versione di NuGet 5,4
 
@@ -28,7 +28,7 @@ Veicoli per la distribuzione di NuGet:
 
 * Nuova funzione helper: dato un elenco di ID e versioni del pacchetto, ottenere i pacchetti di livello superiore probabili. - [#8316](https://github.com/NuGet/Home/issues/8316)
 
-* Nuova azione [`nuget/setup-nuget`](https://github.com/marketplace/actions/setup-nuget-exe-for-use-with-actions) per l'installazione e la configurazione di NuGet. exe nelle [azioni di GitHub](https://github.com/features/actions). - [#8818](https://github.com/NuGet/Home/issues/8818)
+* Nuova [`nuget/setup-nuget`](https://github.com/marketplace/actions/setup-nuget-exe-for-use-with-actions) azione per l'installazione e la configurazione di NuGet.exe sulle [azioni di GitHub](https://github.com/features/actions). - [#8818](https://github.com/NuGet/Home/issues/8818)
 
 ### <a name="issues-fixed-in-this-release"></a>Problemi corretti in questa versione
 
@@ -42,7 +42,7 @@ Veicoli per la distribuzione di NuGet:
 
 * Il file di blocco non è stato generato correttamente. l'ordinamento del Framework non dovrebbe avere alcun effetto sul ripristino con lockedmode- [#8645](https://github.com/NuGet/Home/issues/8645)
 
-* La convalida LockFile non riesce per i progetti con <RuntimeIdentifiers> impostati nell'SDK 3.0.100- [#8639](https://github.com/NuGet/Home/issues/8639)
+* La convalida LockFile non riesce per i progetti con <RuntimeIdentifiers> set in SDK 3.0.100- [#8639](https://github.com/NuGet/Home/issues/8639)
 
 * La convalida della firma ora rifiuterà correttamente le firme con timestamp con due valori nello stesso OID- [#8629](https://github.com/NuGet/Home/issues/8629)
 

@@ -1,65 +1,69 @@
 ---
 title: Indice del servizio, API NuGet
-description: L'indice del servizio è il punto di ingresso dell'API HTTP NuGet e vengono elencate le funzionalità del server.
+description: L'indice del servizio è il punto di ingresso dell'API HTTP NuGet ed enumera le funzionalità del server.
 author: joelverhagen
 ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 1dcfb87690b728280b494d4434f9c1d7ee7a7e74
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: c2d4d23313c80c24b537b1df227a9cea6784ef6e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324721"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775363"
 ---
-# <a name="service-index"></a>Indice del servizio
+# <a name="service-index"></a>Indice dei servizi
 
-L'indice del servizio è un documento JSON che rappresenta il punto di ingresso per un'origine del pacchetto NuGet e consente un'implementazione del client individuare le funzionalità dell'origine del pacchetto. L'indice del servizio è un oggetto JSON con due proprietà obbligatorie: `version` (la versione dello schema dell'indice del servizio) e `resources` (gli endpoint o le funzionalità dell'origine del pacchetto).
+L'indice del servizio è un documento JSON che rappresenta il punto di ingresso per un'origine del pacchetto NuGet e consente a un'implementazione client di individuare le funzionalità dell'origine del pacchetto. L'indice del servizio è un oggetto JSON con due proprietà obbligatorie: `version` (la versione dello schema dell'indice del servizio) e `resources`  (gli endpoint o le funzionalità dell'origine del pacchetto).
 
-indice del servizio di NuGet.org è disponibile all'indirizzo `https://api.nuget.org/v3/index.json`.
+l'indice del servizio NuGet. org si trova in `https://api.nuget.org/v3/index.json` .
 
 ## <a name="versioning"></a>Controllo delle versioni
 
-Il `version` valore è una stringa di versione analizzabili SemVer 2.0.0, che indica la versione dello schema dell'indice del servizio. L'API di utilizzo, è necessario che la stringa di versione abbia un numero di versione principale `3`. Quando vengono apportate modifiche non di rilievo allo schema di indice del servizio, versione secondaria della stringa di versione verrà aumentato.
+Il `version` valore è una stringa di versione analizzabile SemVer 2.0.0 che indica la versione dello schema dell'indice del servizio. L'API impone che la stringa di versione abbia un numero di versione principale di `3` . Quando vengono apportate modifiche non di rilievo allo schema dell'indice del servizio, viene aumentata la versione secondaria della stringa di versione.
 
-Ogni risorsa l'indice del servizio è con controllo delle versioni in modo indipendente dalla versione dello schema dell'indice del servizio.
+Ogni risorsa nell'indice del servizio viene sottoversione indipendentemente dalla versione dello schema dell'indice del servizio.
 
-La versione dello schema corrente è `3.0.0`. Il `3.0.0` versione è funzionalmente equivalente al precedente `3.0.0-beta.1` versione ma dovrebbe essere preferito in quanto comunica in modo più chiaro lo schema stabile, definito.
+La versione corrente dello schema è `3.0.0` . La `3.0.0` versione è funzionalmente equivalente alla `3.0.0-beta.1` versione precedente, ma deve essere preferita perché comunica più chiaramente lo schema stabile e definito.
 
 ## <a name="http-methods"></a>Metodi HTTP
 
-L'indice del servizio è accessibile tramite i metodi HTTP `GET` e `HEAD`.
+L'indice del servizio è accessibile tramite metodi HTTP `GET` e `HEAD` .
 
 ## <a name="resources"></a>Risorse
 
-Il `resources` proprietà contiene una matrice di risorse supportati da questa origine pacchetto.
+La `resources` proprietà contiene una matrice di risorse supportate dall'origine del pacchetto.
 
 ### <a name="resource"></a>Risorsa
 
-Una risorsa è un oggetto di `resources` matrice. Rappresenta una funzionalità con controllo delle versioni di un'origine del pacchetto. Una risorsa ha le proprietà seguenti:
+Una risorsa è un oggetto nella `resources` matrice. Rappresenta una funzionalità con versione di un'origine del pacchetto. Una risorsa presenta le proprietà seguenti:
 
-nome          | Tipo   | Obbligatorio | Note
+Nome          | Type   | Necessario | Note
 ------------- | ------ | -------- | -----
-@id           | stringa | sì      | L'URL della risorsa
-@type         | stringa | sì      | Costante stringa che rappresenta il tipo di risorsa
-commento       | stringa | No       | Descrizione leggibile della risorsa
+@id           | string | sì      | URL della risorsa
+@type         | string | sì      | Costante di stringa che rappresenta il tipo di risorsa
+comment       | string | no       | Descrizione leggibile della risorsa
 
-Il `@id` è un URL che deve essere assoluto e deve avere lo schema HTTP o HTTPS.
+`@id`È un URL che deve essere assoluto e deve avere lo schema http o HTTPS.
 
-Il `@type` viene usato per identificare il protocollo specifico da usare quando si interagisce con la risorsa. Il tipo della risorsa è una stringa opaca, ma in genere ha il formato:
+`@type`Viene usato per identificare il protocollo specifico da usare quando si interagisce con la risorsa. Il tipo della risorsa è una stringa opaca, ma in genere presenta il formato seguente:
 
-    {RESOURCE_NAME}/{RESOURCE_VERSION}
+```
+{RESOURCE_NAME}/{RESOURCE_VERSION}
+```
 
-I client è previsto a livello di codice il `@type` valori che comprendere e cercarli in indice del servizio di origine del pacchetto. L'esatto `@type` vengono enumerati i valori attualmente in uso nei documenti di riferimento delle singole risorse elencati nel [Cenni preliminari sull'API](overview.md#resources-and-schema).
+Si prevede che i client `@type` consentano di codificare in modo rigido i valori che conoscono e li cercano nell'indice del servizio di un'origine del pacchetto. I `@type` valori esatti attualmente in uso vengono enumerati nei singoli documenti di riferimento delle risorse elencati nella [Panoramica dell'API](overview.md#resources-and-schema).
 
-Ai fini di questa documentazione, la documentazione relativa a diverse risorse verrà essenzialmente raggruppata per il `{RESOURCE_NAME}` trovato nell'indice servizio analogo al raggruppamento dallo scenario. 
+Ai fini di questa documentazione, la documentazione relativa alle diverse risorse verrà essenzialmente raggruppata in base all'oggetto `{RESOURCE_NAME}` rilevato nell'indice del servizio, che è analogo al raggruppamento in base allo scenario. 
 
-Non è necessario che ogni risorsa dispone di un valore univoco `@id` o `@type`. È responsabilità dell'implementazione client per determinare quale risorsa scegliere da preferire rispetto a un altro. Una possibile implementazione è che le risorse con lo stesso o compatibile `@type` può essere usato in modo round robin in caso di errore di server o di errore di connessione.
+Non è necessario che ogni risorsa abbia un o univoco `@id` `@type` . Spetta all'implementazione client determinare la risorsa da preferire rispetto a un'altra. Una possibile implementazione è che le risorse dello stesso o compatibili `@type` possono essere utilizzate in modo round robin in caso di errore di connessione o errore del server.
 
 ### <a name="sample-request"></a>Richiesta di esempio
 
-    GET https://api.nuget.org/v3/index.json
+```
+GET https://api.nuget.org/v3/index.json
+```
 
 ### <a name="sample-response"></a>Risposta di esempio
 

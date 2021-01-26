@@ -1,24 +1,24 @@
 ---
 title: Informazioni di riferimento sul file project.json per NuGet
 description: In alcuni tipi di progetto, il file project.json include l'elenco aggiornato dei pacchetti NuGet usati nel progetto.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 07/27/2017
 ms.topic: reference
-ms.openlocfilehash: 5ecbcd4855de8ea7b6301a5e307779216baf96fc
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 6665f4f3e688cb4a3989216c8c8f1a8655b61ed8
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "69488288"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775200"
 ---
 # <a name="projectjson-reference"></a>Riferimenti di project.json
 
-*NuGet 3.x+*
+*NuGet 3. x +*
 
 Il file `project.json` include un elenco dei pacchetti usati in un progetto, noto come formato di gestione dei pacchetti. Prevale su `packages.config`, ma viene a sua volta sostituito da [PackageReference](../consume-packages/package-references-in-project-files.md) con NuGet 4.0+.
 
-Il [`project.lock.json`](#projectlockjson) file (descritto di seguito) viene `project.json`utilizzato anche nei progetti che impiegano .
+Il [`project.lock.json`](#projectlockjson) file (descritto di seguito) viene anche usato nei progetti che usano `project.json` .
 
 `project.json` presenta la struttura di base seguente, dove ognuno dei quattro oggetti di primo livello può avere un numero indeterminato di oggetti figlio:
 
@@ -70,15 +70,15 @@ Per controllare quali asset delle dipendenze confluiscono nel progetto di primo 
 
 | Tag di inclusione/esclusione | Cartelle di destinazione interessate |
 | --- | --- |
-| contentFiles | Contenuto  |
+| contentFiles | Content  |
 | runtime | Runtime, Resources e FrameworkAssemblies  |
 | compile | lib |
 | build | build (proprietà e destinazioni MSBuild) |
 | nativi | nativi |
-| none | Nessuna cartella |
+| Nessuno | Nessuna cartella |
 | all | Tutte le cartelle |
 
-I tag specificati con `exclude` hanno la precedenza rispetto a quelli specificati con `include`. Ad esempio, `include="runtime, compile" exclude="compile"` equivale a `include="runtime"`.
+I tag specificati con `exclude` hanno la precedenza rispetto a quelli specificati con `include`. Ad esempio, `include="runtime, compile" exclude="compile"` è identico a `include="runtime"`.
 
 Ad esempio, per includere le cartelle `build` e `native` di una dipendenza, usare il codice seguente:
 

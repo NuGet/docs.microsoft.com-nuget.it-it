@@ -1,31 +1,31 @@
 ---
 title: Note sulla versione per NuGet 4.4 RTM
 description: Note sulla versione per NuGet 4.3 RTM incluse informazioni su problemi noti, correzioni di bug, funzionalità aggiunte e DCR.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/14/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 3be24a86cc92c4e6d07fcae1dc625a150f28d7b4
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 970a920a401b8a74c04d84cbad9933c54e3cd19e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64498691"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776293"
 ---
 # <a name="nuget-44-release-notes"></a>Note sulla versione per NuGet 4.4
 
 [Visual Studio 2017 15.4 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) include NuGet 4.4 RTM.
 
-## <a name="summary-whats-new-in-440"></a>Riassunto: Novità della versione 4.4.0
+## <a name="summary-whats-new-in-440"></a>Riepilogo: novità di 4.4.0
 
-## <a name="summary-whats-new-in-442"></a>Riassunto: Novità della versione 4.4.2
+## <a name="summary-whats-new-in-442"></a>Riepilogo: novità di 4.4.2
 
-* Correzione della sicurezza: Le autorizzazioni per i file creati all'interno di nuget sono troppo aperte [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+* Correzione della sicurezza: le autorizzazioni per i file creati all'interno di ~/.NuGet sono troppo aperte [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
 
-## <a name="summary-whats-new-in-443"></a>Riassunto: Novità della versione 4.4.3
+## <a name="summary-whats-new-in-443"></a>Riepilogo: novità di 4.4.3
 
-* Correzione della sicurezza: i file all'interno di NUPKGs possono avere un percorso relativo sopra la directory NUPKG [#7906](https://github.com/NuGet/Home/issues/7906)
+* Correzione della sicurezza: i file all'interno di transitiva possono avere un percorso relativo sopra la directory NUPKG [#7906](https://github.com/NuGet/Home/issues/7906)
 
 ## <a name="known-issues"></a>Problemi noti
 
@@ -71,7 +71,7 @@ A volte, quando si usa un pacchetto contenente un assembly con una firma non val
 
 #### <a name="workaround"></a>Soluzione alternativa
 
-Attualmente non esiste alcuna soluzione.
+Al momento non sono disponibili soluzioni alternative.
 
 ## <a name="issues-fixed-in-nuget-44-rtm-timeframe"></a>Problemi risolti nell'intervallo di tempo NuGet 4.4 RTM
 
@@ -195,8 +195,8 @@ Attualmente non esiste alcuna soluzione.
 
 ## <a name="links-to-github-issues-fixed-in-44-rtm"></a>Collegamenti ai problemi di GitHub risolti nella versione 4.4 RTM
 
-[Elenco problemi 1](https://github.com/NuGet/Home/issues?q=is:issue+is:closed+milestone:"4.4")
+[Elenco di problemi 1](https://github.com/NuGet/Home/issues?q=is:issue+is:closed+milestone:"4.4")
 
-[Elenco problemi 2](https://github.com/NuGet/Home/issues?q=is:issue+is:closed+milestone:%224.4+-+7%2F31+through+8%2F18%22)
+[Elenco di problemi 2](https://github.com/NuGet/Home/issues?q=is:issue+is:closed+milestone:%224.4+-+7%2F31+through+8%2F18%22)
 
-[Elenco problemi 3](https://github.com/NuGet/Home/issues?q=is:issue+is:closed+milestone:%224.4+-+7%2F10+through+7%2F28%22)
+[Elenco di problemi 3](https://github.com/NuGet/Home/issues?q=is:issue+is:closed+milestone:%224.4+-+7%2F10+through+7%2F28%22)

@@ -1,16 +1,16 @@
 ---
 title: Note sulla versione di NuGet 5,0 RTM
 description: Note sulla versione per NuGet 5,0, inclusi problemi noti, correzioni di bug, nuove funzionalità e DCR.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 04/02/2019
 ms.topic: conceptual
-ms.openlocfilehash: e4a6be7fb26e3cc4bd297eaf02999f6ac1389b77
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 637db1ae128ce020c33e54e56148c848a5f905a5
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93236802"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776218"
 ---
 # <a name="nuget-50-release-notes"></a>Note sulla versione di NuGet 5,0
 

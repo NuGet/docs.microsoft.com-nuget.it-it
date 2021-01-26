@@ -1,20 +1,20 @@
 ---
 title: Richieste di dati degli utenti
 description: Criteri per le richieste di esportazione ed eliminazione dei dati degli utenti
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 05/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: ef054f741755bccf56eedfd462915b8e9fd6931a
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: e0ec429469a992c9558d1635890fd568398206a1
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "67426986"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775724"
 ---
 # <a name="user-data-requests"></a>Richieste di dati degli utenti
 
-nuget.org gli utenti possono inviare richieste di eliminazione di informazioni ed esportazione di informazioni tramite [nuget.org](https://www.nuget.org). Entrambi i tipi vengono inviati sotto forma di richieste di supporto e vengono eseguiti dagli amministratori nuget.org entro 30 giorni.
+Gli utenti di nuget.org possono inviare richieste di eliminazione delle informazioni e richieste di esportazione delle informazioni tramite [NuGet.org](https://www.nuget.org). Entrambi i tipi vengono inviati sotto forma di richieste di supporto e vengono eseguiti dagli amministratori di nuget.org entro 30 giorni.
 
 I dati utente seguenti sono accessibili direttamente tramite nuget.org:
 

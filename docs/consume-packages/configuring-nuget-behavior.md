@@ -1,16 +1,16 @@
 ---
 title: Configurazioni comuni di NuGet
 description: I file NuGet.Config controllano il comportamento di NuGet sia a livello globale che di progetto e vengono modificati con il comando nuget config.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: e81c380eab3f1a8635e50e62811c7ae463ec3653
-ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
+ms.openlocfilehash: 35339626b0a20ccfceafa89fef94fb3187013fd7
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97699777"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774864"
 ---
 # <a name="common-nuget-configurations"></a>Configurazioni comuni di NuGet
 
@@ -18,10 +18,10 @@ Il comportamento di NuGet si basa sulle impostazioni accumulate in uno o più fi
 
 ## <a name="config-file-locations-and-uses"></a>Percorsi e usi dei file di configurazione
 
-| Scope | Percorso del file NuGet.Config | Descrizione |
+| Ambito | Percorso del file NuGet.Config | Descrizione |
 | --- | --- | --- |
 | Soluzione | Cartella corrente (ovvero la cartella della soluzione) o qualsiasi cartella fino alla radice dell'unità.| Nella cartella di una soluzione le impostazioni si applicano a tutti i progetti presenti nelle sottocartelle. Si noti che se un file di configurazione viene inserito in una cartella di progetto, non ha alcun effetto su tale progetto. |
-| Utente | **Windows:**`%appdata%\NuGet\NuGet.Config`<br/>**Mac/Linux:** `~/.config/NuGet/NuGet.Config` o `~/.nuget/NuGet/NuGet.Config` (varia in base alla distribuzione del sistema operativo) <br/>Le configurazioni aggiuntive sono supportate in tutte le piattaforme. Queste configurazioni non possono essere modificate dagli strumenti. </br> **Windows:**`%appdata%\NuGet\config\*.Config` <br/>**Mac/Linux:** `~/.config/NuGet/config/*.config` o `~/.nuget/config/*.config` | Le impostazioni si applicano a tutte le operazioni, ma ne viene eseguito l'override dalle impostazioni a livello di progetto. |
+| User | **Windows:**`%appdata%\NuGet\NuGet.Config`<br/>**Mac/Linux:** `~/.config/NuGet/NuGet.Config` o `~/.nuget/NuGet/NuGet.Config` (varia in base alla distribuzione del sistema operativo) <br/>Le configurazioni aggiuntive sono supportate in tutte le piattaforme. Queste configurazioni non possono essere modificate dagli strumenti. </br> **Windows:**`%appdata%\NuGet\config\*.Config` <br/>**Mac/Linux:** `~/.config/NuGet/config/*.config` o `~/.nuget/config/*.config` | Le impostazioni si applicano a tutte le operazioni, ma ne viene eseguito l'override dalle impostazioni a livello di progetto. |
 | Computer | **Windows:**`%ProgramFiles(x86)%\NuGet\Config`<br/>**Mac/Linux:** `$XDG_DATA_HOME` . Se `$XDG_DATA_HOME` è null o vuoto, verrà usato `~/.local/share` o `/usr/local/share` (a seconda della distribuzione del sistema operativo)  | Le impostazioni si applicano a tutte le operazioni sul computer, ma ne viene eseguito l'override dalle impostazioni a livello di utente o di progetto. |
 
 Note per versioni precedenti di NuGet:
@@ -120,14 +120,16 @@ Quando NuGet trova le impostazioni in questi file, le applica come segue:
 
 Si supponga di avere la struttura di cartelle seguente in due unità separate:
 
-    disk_drive_1
-        User
-    disk_drive_2
-       Project1
-         Source
-       Project2
-         Source
-       tmp
+```
+disk_drive_1
+    User
+disk_drive_2
+    Project1
+        Source
+    Project2
+        Source
+    tmp
+```
 
 Si hanno poi quattro file `NuGet.Config` nelle posizioni seguenti con il contenuto indicato. Il file a livello di computer non è incluso in questo esempio, ma il comportamento sarà simile a quello del file a livello di utente.
 

@@ -1,16 +1,16 @@
 ---
-title: Note sulla versione per NuGet 4.0 RC
+title: Note sulla versione per NuGet 4.0 RTM
 description: Note sulla versione per NuGet 4.0 RTM incluse informazioni su problemi noti, correzioni di bug e DCR.
 author: anangaur
 ms.author: anangaur
 ms.date: 03/03/2017
 ms.topic: conceptual
-ms.openlocfilehash: c27d0aa2e5c9af9cb15d2f487b93e93aca666214
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: c3ec5c20e5175edd315de20ca98c7a106c51809e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64496601"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776270"
 ---
 # <a name="nuget-40-rtm-release-notes"></a>Note sulla versione per NuGet 4.0 RTM
 
@@ -46,7 +46,7 @@ In alcune occasioni, quando si usa un pacchetto contenente un assembly con una f
 
 #### <a name="workaround"></a>Soluzione alternativa
 
-Attualmente non esiste alcuna soluzione.
+Al momento non sono disponibili soluzioni alternative.
 
 ### <a name="you-are-unable-to-view-add-or-update-dotnetclitools-using-nuget-package-manager"></a>Non è possibile visualizzare, aggiungere o aggiornare DotNetCLITools usando Gestione pacchetti NuGet
 
@@ -86,7 +86,7 @@ L'aggiornamento manuale nella console mediante Aggiorna pacchetto funziona una s
 
 #### <a name="workaround"></a>Soluzione alternativa
 
-Attualmente non esiste alcuna soluzione.
+Al momento non sono disponibili soluzioni alternative.
 
 ### <a name="retargeting-target-framework-version-may-lead-to-incomplete-intellisense"></a>La ridestinazione della versione framework di destinazione può portare a informazioni Intellisense incomplete
 
@@ -106,7 +106,7 @@ msbuild /t:restore può avere esito negativo quando un progetto basato su Packag
 
 #### <a name="workaround"></a>Soluzione alternativa
 
-Attualmente non esiste alcuna soluzione.
+Al momento non sono disponibili soluzioni alternative.
 
 ## <a name="issues-fixed-in-nuget-40-rtm-timeframe"></a>Problemi risolti nell'intervallo di tempo NuGet 4.0 RTM
 

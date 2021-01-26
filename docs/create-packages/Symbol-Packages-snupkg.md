@@ -1,7 +1,7 @@
 ---
 title: Come pubblicare i pacchetti di simboli NuGet usando il nuovo formato di pacchetto di simboli con estensione snupkg | Microsoft Docs
-author: cristinamanu
-ms.author: cristinamanu
+author: JonDouglas
+ms.author: jodou
 manager: skofman
 ms.date: 10/30/2018
 ms.topic: reference
@@ -12,16 +12,18 @@ keywords: Pacchetti di simboli NuGet, debug dei pacchetti NuGet, supporto per il
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: fbcc035a6b800617f995d3bcebd7e1764aa467b0
-ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
+ms.openlocfilehash: 001637348fdd435e4ffd3a5a55e8128d1eab453c
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98235724"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774573"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Creazione di pacchetti di simboli (estensione snupkg)
 
 Un'esperienza di debug ottimale si basa sulla presenza di simboli di debug poiché forniscono informazioni critiche, come l'associazione tra il codice compilato e il codice sorgente, i nomi delle variabili locali, le analisi dello stack e altro ancora. È possibile usare i pacchetti di simboli (con estensione snupkg) per distribuire questi simboli e migliorare l'esperienza di debug dei pacchetti NuGet.
+
+> Si noti che il pacchetto di simboli non è l'unica strategia per rendere i simboli di debug disponibili per gli utenti della libreria. È anche [possibile `embed` ](https://docs.microsoft.com/dotnet/core/deploying/single-file#include-pdb-files-inside-the-bundle) in `dll` o `exe` con la seguente proprietà del progetto:`<DebugType>embedded</DebugType>`
 
 ## <a name="prerequisites"></a>Prerequisiti
 

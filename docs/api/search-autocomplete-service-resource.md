@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: f574849bf99cd4da4eefd55c3dd5a0648042f0c1
-ms.sourcegitcommit: 7e9c0630335ef9ec1e200e2ee9065f702e52a8ec
+ms.openlocfilehash: 2893e13ff7b070844a2bdd5722da3aa1f123538d
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85292293"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98773965"
 ---
 # <a name="autocomplete"></a>Completamento automatico
 
@@ -24,8 +24,8 @@ ms.locfileid: "85292293"
 Valore della proprietà @type                          | Note
 ------------------------------------ | -----
 SearchAutocompleteService            | Versione iniziale
-SearchAutocompleteService/3.0.0-beta | Alias di`SearchAutocompleteService`
-SearchAutocompleteService/3.0.0-RC   | Alias di`SearchAutocompleteService`
+SearchAutocompleteService/3.0.0-beta | Alias di `SearchAutocompleteService`
+SearchAutocompleteService/3.0.0-RC   | Alias di `SearchAutocompleteService`
 SearchAutocompleteService/3.5.0      | Include il supporto per il `packageType` parametro di query
 
 ### <a name="searchautocompleteservice350"></a>SearchAutocompleteService/3.5.0
@@ -45,16 +45,18 @@ La prima API di completamento automatico supporta la ricerca di una parte di una
 
 Un pacchetto solo con versioni non in elenco non verrà visualizzato nei risultati.
 
-    GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}&packageType={PACKAGETYPE}
+```
+GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}&packageType={PACKAGETYPE}
+```
 
 ### <a name="request-parameters"></a>Parametri della richiesta
 
 Nome        | In     | Type    | Necessario | Note
 ----------- | ------ | ------- | -------- | -----
 q           | URL    | string  | no       | Stringa da confrontare con gli ID del pacchetto
-skip        | URL    | integer | no       | Numero di risultati da ignorare per la paginazione
-take        | URL    | integer | no       | Numero di risultati da restituire per la paginazione
-prerelease  | URL    | boolean | no       | `true`o `false` determinare se includere i [pacchetti in versione non definitiva](../create-packages/prerelease-packages.md)
+skip        | URL    | numero intero | no       | Numero di risultati da ignorare per la paginazione
+take        | URL    | numero intero | no       | Numero di risultati da restituire per la paginazione
+prerelease  | URL    | boolean | no       | `true` o `false` determinare se includere i [pacchetti in versione non definitiva](../create-packages/prerelease-packages.md)
 semVerLevel | URL    | string  | no       | Una stringa di versione SemVer 1.0.0 
 packageType | URL    | string  | no       | Tipo di pacchetto da utilizzare per filtrare i pacchetti (aggiunti in `SearchAutocompleteService/3.5.0` )
 
@@ -82,12 +84,14 @@ L'oggetto JSON radice presenta le proprietà seguenti:
 
 Nome      | Type             | Necessario | Note
 --------- | ---------------- | -------- | -----
-totalHits | integer          | sì      | Il numero totale di corrispondenze, che non riguardano `skip` e`take`
+totalHits | numero intero          | sì      | Il numero totale di corrispondenze, che non riguardano `skip` e `take`
 data      | matrice di stringhe | sì      | ID del pacchetto corrispondenti alla richiesta
 
 ### <a name="sample-request"></a>Richiesta di esempio
 
-    GET https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
+```
+GET https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
+```
 
 ### <a name="sample-response"></a>Risposta di esempio
 
@@ -99,14 +103,16 @@ Una volta individuato l'ID di un pacchetto usando l'API precedente, un client pu
 
 Una versione del pacchetto non in elenco non verrà visualizzata nei risultati.
 
-    GET {@id}?id={ID}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
+```
+GET {@id}?id={ID}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
+```
 
 ### <a name="request-parameters"></a>Parametri della richiesta
 
 Nome        | In     | Type    | Necessario | Note
 ----------- | ------ | ------- | -------- | -----
 id          | URL    | string  | sì      | ID del pacchetto per cui recuperare le versioni
-prerelease  | URL    | boolean | no       | `true`o `false` determinare se includere i [pacchetti in versione non definitiva](../create-packages/prerelease-packages.md)
+prerelease  | URL    | boolean | no       | `true` o `false` determinare se includere i [pacchetti in versione non definitiva](../create-packages/prerelease-packages.md)
 semVerLevel | URL    | string  | no       | Una stringa di versione SemVer 2.0.0 
 
 Se `prerelease` non viene specificato, i pacchetti di versioni non definitive vengono esclusi.
@@ -127,7 +133,9 @@ Le versioni del pacchetto nella `data` matrice possono contenere i metadati di c
 
 ### <a name="sample-request"></a>Richiesta di esempio
 
-    GET https://api-v2v3search-0.nuget.org/autocomplete?id=nuget.protocol&prerelease=true
+```
+GET https://api-v2v3search-0.nuget.org/autocomplete?id=nuget.protocol&prerelease=true
+```
 
 ### <a name="sample-response"></a>Risposta di esempio
 

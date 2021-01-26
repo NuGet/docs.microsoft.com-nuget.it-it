@@ -1,16 +1,16 @@
 ---
 title: Creare pacchetti NuGet di .NET Standard e .NET Framework con Visual Studio 2015
 description: Procedura dettagliata end-to-end per la creazione di pacchetti NuGet di .NET Standard e .NET Framework con NuGet 3.x e Visual Studio 2015.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 02/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: b16bf422e2627be3b8516a875d749639734064a9
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: d55228bbbd238d8930404ea52c5a80383bc9e0a3
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "72380714"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774389"
 ---
 # <a name="create-net-standard-and-net-framework-packages-with-visual-studio-2015"></a>Creare pacchetti .NET Standard e .NET Framework con Visual Studio 2015
 
@@ -68,7 +68,7 @@ Questa guida illustra la creazione di un pacchetto NuGet destinato a .NET Standa
     nuget spec
     ```
 
-1. Aprire `AppLogger.nuspec` in un editor e aggiornarlo in modo che corrisponda a quanto segue, sostituendo YOUR_NAME con un valore appropriato. Il `<id>` valore, in particolare, deve essere univoco in tutta nuget.org (vedere le convenzioni di denominazione descritte in [Creazione di un pacchetto](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number). Tenere inoltre presente che è anche necessario aggiornare i tag relativi all'autore e alla descrizione o si verifica un errore durante il passaggio di creazione del pacchetto.
+1. Aprire `AppLogger.nuspec` in un editor e aggiornarlo in modo che corrisponda a quanto segue, sostituendo YOUR_NAME con un valore appropriato. Il `<id>` valore, in particolare, deve essere univoco in NuGet.org. vedere le convenzioni di denominazione descritte in [creazione di un pacchetto](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number). Tenere inoltre presente che è anche necessario aggiornare i tag relativi all'autore e alla descrizione o si verifica un errore durante il passaggio di creazione del pacchetto.
 
     ```xml
     <?xml version="1.0"?>
@@ -159,14 +159,14 @@ Questo codice genera `AppLogger.YOUR_NAME.1.0.0.nupkg`. Aprendo il file in uno s
 > [!Tip]
 > Un file `.nupkg` è solo un file ZIP con un'estensione diversa. È anche possibile esaminare i contenuti del pacchetto, modificando `.nupkg` in `.zip`, ma si ricordi di ripristinare l'estensione prima di caricare un pacchetto in nuget.org.
 
-Per rendere il pacchetto disponibile ad altri sviluppatori, seguire le istruzioni in [Pubblicare un pacchetto.](../nuget-org/publish-a-package.md)
+Per rendere il pacchetto disponibile ad altri sviluppatori, seguire le istruzioni in [pubblicare un pacchetto](../nuget-org/publish-a-package.md).
 
 Si noti che `pack` richiede Mono 4.4.2 su Mac OS X e non funziona nei sistemi Linux. In un Mac è anche necessario convertire i nomi di percorso di Windows nel file `.nuspec` in percorsi di tipo Unix.
 
 ## <a name="related-topics"></a>Argomenti correlati
 
 - [Informazioni di riferimento sul file .nuspec](../reference/nuspec.md)
-- [Supporto di più versioni di .NET FrameworkSupporting multiple .NET framework versions](../create-packages/supporting-multiple-target-frameworks.md)
+- [Supporto di più versioni di .NET Framework](../create-packages/supporting-multiple-target-frameworks.md)
 - [Includere proprietà e destinazioni MSBuild in un pacchetto](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
 - [Creazione di pacchetti localizzati](../create-packages/creating-localized-packages.md)
 - [Pacchetti di simboli](../create-packages/symbol-packages-snupkg.md)

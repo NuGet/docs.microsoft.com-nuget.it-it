@@ -6,14 +6,14 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 86c9d07cf90b84fffd09b04847d41772dd633b98
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 7047dfd48b7f93756bbb1491de1b7e65da2c12b4
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237874"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775415"
 ---
-# <a name="search"></a>Cerca
+# <a name="search"></a>Ricerca
 
 È possibile cercare i pacchetti disponibili in un'origine pacchetto usando l'API V3. La risorsa utilizzata per la ricerca è la `SearchQueryService` risorsa trovata nell' [indice del servizio](service-index.md).
 
@@ -45,15 +45,17 @@ L'API di ricerca consente a un client di eseguire una query per una pagina di pa
 
 Un pacchetto non in elenco non dovrebbe mai apparire nei risultati della ricerca.
 
-    GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}&packageType={PACKAGETYPE}
+```
+GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}&packageType={PACKAGETYPE}
+```
 
 ### <a name="request-parameters"></a>Parametri della richiesta
 
-Nome        | In     | Type    | Obbligatoria | Note
+Nome        | In     | Type    | Necessario | Note
 ----------- | ------ | ------- | -------- | -----
 q           | URL    | string  | no       | Termini di ricerca da utilizzare per filtrare i pacchetti
-skip        | URL    | integer | no       | Numero di risultati da ignorare per la paginazione
-take        | URL    | integer | no       | Numero di risultati da restituire per la paginazione
+skip        | URL    | numero intero | no       | Numero di risultati da ignorare per la paginazione
+take        | URL    | numero intero | no       | Numero di risultati da restituire per la paginazione
 prerelease  | URL    | boolean | no       | `true` o `false` determinare se includere i [pacchetti in versione non definitiva](../create-packages/prerelease-packages.md)
 semVerLevel | URL    | string  | no       | Una stringa di versione SemVer 1.0.0 
 packageType | URL    | string  | no       | Tipo di pacchetto da utilizzare per filtrare i pacchetti (aggiunti in `SearchQueryService/3.5.0` )
@@ -80,22 +82,22 @@ La risposta è un documento JSON contenente fino ai `take` Risultati della ricer
 
 L'oggetto JSON radice presenta le proprietà seguenti:
 
-Nome      | Type             | Obbligatoria | Note
+Nome      | Type             | Necessario | Note
 --------- | ---------------- | -------- | -----
-totalHits | integer          | yes      | Il numero totale di corrispondenze, che non riguardano `skip` e `take`
-Data      | matrice di oggetti | yes      | Risultati della ricerca corrispondenti alla richiesta
+totalHits | numero intero          | sì      | Il numero totale di corrispondenze, che non riguardano `skip` e `take`
+data      | matrice di oggetti | sì      | Risultati della ricerca corrispondenti alla richiesta
 
 ### <a name="search-result"></a>Risultato della ricerca
 
 Ogni elemento nella `data` matrice è un oggetto JSON costituito da un gruppo di versioni del pacchetto che condividono lo stesso ID pacchetto.
 L'oggetto ha le proprietà seguenti:
 
-Nome           | Type                       | Obbligatoria | Note
+Nome           | Type                       | Necessario | Note
 -------------- | -------------------------- | -------- | -----
-id             | string                     | yes      | ID del pacchetto corrispondente
-version        | string                     | yes      | Stringa di versione SemVer 2.0.0 completa del pacchetto (potrebbe contenere metadati di compilazione)
+id             | string                     | sì      | ID del pacchetto corrispondente
+version        | string                     | sì      | Stringa di versione SemVer 2.0.0 completa del pacchetto (potrebbe contenere metadati di compilazione)
 description    | string                     | no       | 
-versions       | matrice di oggetti           | yes      | Tutte le versioni del pacchetto che corrispondono al `prerelease` parametro
+versions       | matrice di oggetti           | sì      | Tutte le versioni del pacchetto che corrispondono al `prerelease` parametro
 authors        | Stringa o matrice di stringhe | no       | 
 iconUrl        | string                     | no       | 
 licenseUrl     | string                     | no       | 
@@ -105,29 +107,31 @@ registrazione   | string                     | no       | URL assoluto dell' [in
 riepilogo        | string                     | no       | 
 tags           | Stringa o matrice di stringhe | no       | 
 title          | string                     | no       | 
-totalDownloads | integer                    | no       | Questo valore può essere dedotto dalla somma dei download nella `versions` matrice
+totalDownloads | numero intero                    | no       | Questo valore può essere dedotto dalla somma dei download nella `versions` matrice
 verificato       | boolean                    | no       | Valore booleano JSON che indica se il pacchetto è [verificato](../nuget-org/id-prefix-reservation.md)
-packageTypes   | matrice di oggetti           | yes      | Tipi di pacchetto definiti dall'autore del pacchetto (aggiunti in `SearchQueryService/3.5.0` )
+packageTypes   | matrice di oggetti           | sì      | Tipi di pacchetto definiti dall'autore del pacchetto (aggiunti in `SearchQueryService/3.5.0` )
 
 In nuget.org, un pacchetto verificato è uno che dispone di un ID pacchetto corrispondente a un prefisso ID riservato e di proprietà di uno dei proprietari del prefisso riservato. Per ulteriori informazioni, vedere la [documentazione relativa alla prenotazione del prefisso ID](../nuget-org/id-prefix-reservation.md).
 
 I metadati contenuti nell'oggetto risultato della ricerca sono ricavati dalla versione più recente del pacchetto. Ogni elemento nella `versions` matrice è un oggetto JSON con le proprietà seguenti:
 
-Nome      | Type    | Obbligatoria | Note
+Nome      | Type    | Necessario | Note
 --------- | ------- | -------- | -----
-@id       | string  | yes      | URL assoluto della [foglia di registrazione](registration-base-url-resource.md#registration-leaf) associata
-version   | string  | yes      | Stringa di versione SemVer 2.0.0 completa del pacchetto (potrebbe contenere metadati di compilazione)
-Download | integer | yes      | Numero di download per la versione specifica del pacchetto
+@id       | string  | sì      | URL assoluto della [foglia di registrazione](registration-base-url-resource.md#registration-leaf) associata
+version   | string  | sì      | Stringa di versione SemVer 2.0.0 completa del pacchetto (potrebbe contenere metadati di compilazione)
+Download | numero intero | sì      | Numero di download per la versione specifica del pacchetto
 
 La `packageTypes` matrice è sempre costituita da almeno un elemento (1). Il tipo di pacchetto per un determinato ID pacchetto è considerato i tipi di pacchetto definiti dalla versione più recente del pacchetto rispetto agli altri parametri di ricerca. Ogni elemento nella `packageTypes` matrice è un oggetto JSON con le proprietà seguenti:
 
-Nome      | Type    | Obbligatoria | Note
+Nome      | Type    | Necessario | Note
 --------- | ------- | -------- | -----
-name      | string  | yes      | Nome del tipo di pacchetto.
+name      | string  | sì      | Nome del tipo di pacchetto.
 
 ### <a name="sample-request"></a>Richiesta di esempio
 
-    GET https://azuresearch-usnc.nuget.org/query?q=NuGet.Versioning&prerelease=false&semVerLevel=2.0.0
+```
+GET https://azuresearch-usnc.nuget.org/query?q=NuGet.Versioning&prerelease=false&semVerLevel=2.0.0
+```
 
 ### <a name="sample-response"></a>Risposta di esempio
 

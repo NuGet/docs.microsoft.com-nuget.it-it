@@ -1,17 +1,17 @@
 ---
 title: Informazioni di riferimento sulle versioni dei pacchetti NuGet
 description: Informazioni dettagliate su come specificare i numeri di versione e gli intervalli per altri pacchetti da cui dipende un pacchetto NuGet e sulla modalità di installazione delle dipendenze.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 4cb12f439d796d583f52d657225c39418d5a4836
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 5ba7860fae1037c0c0eb4c55d2df12d98b1d77cf
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237361"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775113"
 ---
 # <a name="package-versioning"></a>Controllo delle versioni dei pacchetti
 
@@ -27,19 +27,21 @@ In questo argomento
 
 ## <a name="version-basics"></a>Nozioni di base sulle versioni
 
-Un numero di versione specifico è nel formato *Principale.Secondaria.Patch[-Suffisso]* , dove i singoli componenti hanno i significati seguenti:
+Un numero di versione specifico è nel formato *Principale.Secondaria.Patch[-Suffisso]*, dove i singoli componenti hanno i significati seguenti:
 
-- *Principale* : modifiche di rilievo
-- *Minor* : nuove funzionalità, ma compatibili con le versioni precedenti
-- *Patch* : solo correzioni di bug compatibili con le versioni precedenti
+- *Principale*: modifiche di rilievo
+- *Minor*: nuove funzionalità, ma compatibili con le versioni precedenti
+- *Patch*: solo correzioni di bug compatibili con le versioni precedenti
 - *-Suffisso* (facoltativo): un trattino seguito da una stringa che indica una versione non definitiva (in base alla [convenzione Semantic Versioning o SemVer 1.0](https://semver.org/spec/v1.0.0.html)).
 
 **Esempi:**
 
-    1.0.1
-    6.11.1231
-    4.3.1-rc
-    2.2.44-beta1
+```
+1.0.1
+6.11.1231
+4.3.1-rc
+2.2.44-beta1
+```
 
 > [!Important]
 > nuget.org rifiuta il caricamento di un pacchetto senza un numero di versione esatto. La versione deve essere specificata nel file `.nuspec` o nel file di progetto usato per creare il pacchetto.
@@ -59,14 +61,16 @@ Ciò premesso, gli sviluppatori di pacchetti seguono generalmente convenzioni di
 
 Se durante la risoluzione dei riferimenti al pacchetto risultano più versioni del pacchetto che differiscono solo per il suffisso, NuGet sceglie prima una versione senza suffisso, quindi applica la precedenza alle versioni non definitive in ordine alfabetico inverso. Le versioni seguenti, ad esempio, verrebbero scelte nell'esatto ordine indicato:
 
-    1.0.1
-    1.0.1-zzz
-    1.0.1-rc
-    1.0.1-open
-    1.0.1-beta
-    1.0.1-alpha2
-    1.0.1-alpha
-    1.0.1-aaa
+```
+1.0.1
+1.0.1-zzz
+1.0.1-rc
+1.0.1-open
+1.0.1-beta
+1.0.1-alpha2
+1.0.1-alpha
+1.0.1-aaa
+```
 
 ## <a name="semantic-versioning-200"></a>Semantic Versioning 2.0.0
 
@@ -228,18 +232,15 @@ Quando si ottengono pacchetti da un repository durante le operazioni di installa
 
 - Gli zeri iniziali vengono rimossi dai numeri di versione:
 
-        1.00 is treated as 1.0
-        1.01.1 is treated as 1.1.1
-        1.00.0.1 is treated as 1.0.0.1
+  1,00 viene considerato come 1,0 1.01.1 viene considerato come 1.1.1 1.00.0.1 viene considerato 1.0.0.1
 
 - uno zero nella quarta parte del numero di versione verrà omesso
 
-        1.0.0.0 is treated as 1.0.0
-        1.0.01.0 is treated as 1.0.1
-        
+  1.0.0.0 viene considerato come 1.0.0 1.0.01.0 viene considerato come 1.0.1
+
 - SemVer i metadati di compilazione 2.0.0 sono stati rimossi
 
-        1.0.7+r3456 is treated as 1.0.7
+  1.0.7 + r3456 viene considerato 1.0.7
 
 Le operazioni `pack` e `restore` normalizzano le versioni quando possibile. Per i pacchetti già compilati, la normalizzazione non influisce sui numeri di versione dei pacchetti stessi, ma influisce solo sul modo in cui NuGet abbina le versioni durante la risoluzione delle dipendenze.
 

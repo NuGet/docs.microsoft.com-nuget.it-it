@@ -1,102 +1,106 @@
 ---
-title: API NuGet, repository firme | Microsoft Docs
+title: Firme del repository, API NuGet | Microsoft Docs
 author: joelverhagen
 ms.author: jver
 ms.date: 3/2/2018
 ms.topic: reference
-description: La risorsa di firme del repository consente ai client di origini dei pacchetti di annunciare il repository di funzionalità di firma.
+description: La risorsa firme del repository consente alle origini dei pacchetti client di annunciare le funzionalità di firma del repository.
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: ea318446c41a0d85d3fbf959dd38c929a0d0e9a1
-ms.sourcegitcommit: 6b71926f062ecddb8729ef8567baf67fd269642a
+ms.openlocfilehash: bfdbbb3a11de3be3f2258a3a289c0188740cdfce
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59931852"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775338"
 ---
 # <a name="repository-signatures"></a>Firme di repository
 
-Se un'origine pacchetto supporta le firme di aggiunta repository per i pacchetti pubblicati, è possibile che un client di determinare i certificati di firma utilizzati per l'origine del pacchetto. Questa risorsa consente ai client di rilevare se un repository firmato pacchetto è stato manomesso o ha un certificato di firma imprevisto.
+Se un'origine del pacchetto supporta l'aggiunta di firme di repository ai pacchetti pubblicati, è possibile che un client determini i certificati di firma utilizzati dall'origine del pacchetto. Questa risorsa consente ai client di rilevare se un pacchetto firmato del repository è stato alterato o ha un certificato di firma imprevisto.
 
-La risorsa usata per recuperare informazioni sulla firma questo repository è il `RepositorySignatures` trovare la risorsa nella [indice del servizio](service-index.md).
+La risorsa usata per recuperare le informazioni sulla firma del repository è la `RepositorySignatures` risorsa trovata nell' [indice del servizio](service-index.md).
 
 ## <a name="versioning"></a>Controllo delle versioni
 
-Nell'esempio `@type` valore viene usato:
+`@type`Viene utilizzato il valore seguente:
 
-Valore di@type                 | Note
+Valore della proprietà @type                | Note
 -------------------------- | -----
-RepositorySignatures/4.7.0 | La versione iniziale
-RepositorySignatures/4.9.0 | Supportato da NuGet v4.9 + client
-RepositorySignatures/5.0.0 | Consente di attivare `allRepositorySigned`. Supportato da NuGet v5.0 + client
+RepositorySignatures/4.7.0 | Versione iniziale
+RepositorySignatures/4.9.0 | Supportato da NuGet v 4.9 + client
+RepositorySignatures/5.0.0 | Consente l'abilitazione di `allRepositorySigned` . Supportato da NuGet v 5.0 + client
 
 ## <a name="base-url"></a>URL di base
 
-URL del punto di ingresso per le API seguenti è il valore della `@id` proprietà associato alla risorsa menzionati in precedenza `@type` valore. In questo argomento Usa l'URL segnaposto `{@id}`.
+L'URL del punto di ingresso per le API seguenti è il valore della `@id` proprietà associata al valore di risorsa sopra menzionato `@type` . In questo argomento viene utilizzato l'URL segnaposto `{@id}` .
 
-Si noti che a differenza di altre risorse, il `{@id}` l'URL è obbligatorio per essere serviti tramite HTTPS.
+Si noti che, a differenza di altre risorse, `{@id}` è necessario che l'URL venga servito tramite HTTPS.
 
 ## <a name="http-methods"></a>Metodi HTTP
 
-Tutti gli URL trovati nei metodi di supporto solo HTTP di repository le firme resource `GET` e `HEAD`.
+Tutti gli URL presenti nella risorsa delle firme del repository supportano solo i metodi HTTP `GET` e `HEAD` .
 
 ## <a name="repository-signatures-index"></a>Indice delle firme del repository
 
-L'indice di firme di repository contiene due tipi di informazioni:
+L'indice delle firme del repository contiene due tipi di informazioni:
 
-1. Se tutti i pacchetti disponibili nell'origine sono firmati da questa origine pacchetto repository.
-1. L'elenco dei certificati usati per l'origine del pacchetto per firmare i pacchetti.
+1. Indica se tutti i pacchetti trovati nell'origine sono repository firmati da questa origine del pacchetto.
+1. Elenco di certificati utilizzati dall'origine del pacchetto per la firma dei pacchetti.
 
-Nella maggior parte dei casi, l'elenco dei certificati verrà aggiunto sempre a. I nuovi certificati verranno aggiunto all'elenco quando il certificato di firma precedente è scaduto e l'origine del pacchetto deve iniziare a usare un nuovo certificato di firma. Se un certificato viene rimosso dall'elenco, che significa che tutte le firme dei pacchetti create con il certificato di firma rimosso non è più da considerare valide dal client. In questo caso, la firma del pacchetto, ma non necessariamente il pacchetto, non è valido. Un criterio client può consentire l'installazione del pacchetto come senza segno.
+Nella maggior parte dei casi, l'elenco dei certificati verrà aggiunto solo a. I nuovi certificati vengono aggiunti all'elenco quando il certificato di firma precedente è scaduto e l'origine del pacchetto deve iniziare a usare un nuovo certificato di firma. Se un certificato viene rimosso dall'elenco, significa che tutte le firme dei pacchetti create con il certificato di firma rimosso non devono più essere considerate valide dal client. In questo caso, la firma del pacchetto, ma non necessariamente il pacchetto, non è valida. Un criterio client può consentire l'installazione del pacchetto come senza segno.
 
-Nel caso di revoca del certificato (ad esempio, venga compromessa), l'origine del pacchetto deve firmare di nuovo tutti i pacchetti firmati dal certificato interessato. Inoltre, l'origine del pacchetto deve rimuovere il certificato interessato dall'elenco di certificati di firma.
+Nel caso di revoca del certificato (ad esempio, compromissione della chiave), è previsto che l'origine del pacchetto firmi nuovamente tutti i pacchetti firmati dal certificato interessato. Inoltre, l'origine del pacchetto deve rimuovere il certificato interessato dall'elenco dei certificati di firma.
 
-La richiesta seguente recupera l'indice di firme di repository.
+La richiesta seguente recupera l'indice delle firme del repository.
 
-    GET {@id}
+```
+GET {@id}
+```
 
-L'indice di firma del repository è un documento JSON che contiene un oggetto con le proprietà seguenti:
+L'indice della firma del repository è un documento JSON che contiene un oggetto con le proprietà seguenti:
 
-Nome                | Tipo             | Obbligatorio | Note
+Nome                | Type             | Necessario | Note
 ------------------- | ---------------- | -------- | -----
-allRepositorySigned | boolean          | sì      | Deve essere `false` sulle risorse 4.7.0 e 4.9.0
-signingCertificates | Matrice di oggetti | sì      | 
+allRepositorySigned | boolean          | sì      | Deve trovarsi `false` sulle risorse 4.7.0 e 4.9.0
+signingCertificates | matrice di oggetti | sì      | 
 
-Il `allRepositorySigned` valore booleano è impostato su false se l'origine del pacchetto ha alcuni pacchetti che non hanno alcuna firma dell'archivio. Se il valore booleano è impostato su true, tutti i pacchetti disponibili in origine deve avere una firma di repository prodotta da uno dei certificati di firma menzionati `signingCertificates`.
+Il `allRepositorySigned` valore booleano è impostato su false se l'origine del pacchetto include alcuni pacchetti senza firma del repository. Se il valore booleano è impostato su true, tutti i pacchetti disponibili nell'origine devono disporre di una firma del repository prodotta da uno dei certificati di firma indicati in `signingCertificates` .
 
 > [!Warning]
-> Il `allRepositorySigned` booleano deve essere false per le risorse 4.7.0 e 4.9.0. I client NuGet v4.7 v 4.8 e v4.9 non è possibile installare i pacchetti da origini che hanno `allRepositorySigned` impostato su true.
+> Il `allRepositorySigned` valore booleano deve essere false nelle risorse 4.7.0 e 4.9.0. I client NuGet v 4.7, v 4.8 e v 4.9 non possono installare pacchetti da origini che hanno `allRepositorySigned` impostato su true.
 
-Deve essere presente uno o più certificati di firma nel `signingCertificates` matrice se il `allRepositorySigned` valore booleano è impostato su true. Se la matrice è vuota e `allRepositorySigned` è impostato su true, tutti i pacchetti dall'origine devono essere considerati validi, anche se un criterio client consentono ancora il consumo dei pacchetti. Ogni elemento nella matrice è un oggetto JSON con le proprietà seguenti.
+`signingCertificates`Se il `allRepositorySigned` valore booleano è impostato su true, nella matrice devono essere presenti uno o più certificati di firma. Se la matrice è vuota e `allRepositorySigned` è impostata su true, tutti i pacchetti dell'origine devono essere considerati non validi, sebbene i criteri client possano comunque consentire l'utilizzo di pacchetti. Ogni elemento in questa matrice è un oggetto JSON con le proprietà seguenti.
 
-Nome         | Tipo   | Obbligatorio | Note
+Nome         | Type   | Necessario | Note
 ------------ | ------ | -------- | -----
-contentUrl   | stringa | sì      | URL assoluto per il certificato pubblico con codifica DER
+contentUrl   | string | sì      | URL assoluto del certificato pubblico con codifica DER
 impronte digitali | object | sì      |
-Oggetto      | stringa | sì      | Il nome distinto del soggetto del certificato
-issuer       | stringa | sì      | Il nome distinto dell'emittente del certificato
-notBefore    | stringa | sì      | Il timestamp di inizio del periodo di validità del certificato
-notAfter     | stringa | sì      | Il timestamp finale del periodo di validità del certificato
+subject      | string | sì      | Nome distinto del soggetto del certificato
+autorità di certificazione       | string | sì      | Nome distinto dell'emittente del certificato.
+notBefore    | string | sì      | Timestamp iniziale del periodo di validità del certificato
+notAfter     | string | sì      | Timestamp finale del periodo di validità del certificato
 
-Si noti che il `contentUrl` deve essere gestito tramite HTTPS. Questo URL non ha alcun modello di URL specifico e deve essere individuato in modo dinamico utilizzando questo documento di repository le firme dell'indice. 
+Si noti che `contentUrl` è necessario che sia servito tramite HTTPS. Questo URL non ha un modello di URL specifico e deve essere individuato in modo dinamico usando questo documento di indice delle firme del repository. 
 
-Tutte le proprietà in questo oggetto (oltre `contentUrl`) deve essere derivabile dal certificato, vedere `contentUrl`.
-Queste proprietà derivabile sono fornite per praticità per ridurre i round trip.
+Tutte le proprietà di questo oggetto (a parte `contentUrl` ) devono essere derivabili dal certificato trovato in `contentUrl` .
+Queste proprietà derivabili vengono fornite come praticità per ridurre al minimo i round trip.
 
-Il `fingerprints` oggetto presenta le proprietà seguenti:
+Di seguito sono elencate le proprietà dell'oggetto `fingerprints`:
 
-Nome                   | Tipo   | Obbligatorio | Note
+Nome                   | Type   | Necessario | Note
 ---------------------- | ------ | -------- | -----
-2.16.840.1.101.3.4.2.1 | stringa | sì      | L'impronta digitale SHA-256
+2.16.840.1.101.3.4.2.1 | string | sì      | Impronta digitale SHA-256
 
 Il nome della chiave `2.16.840.1.101.3.4.2.1` è l'OID dell'algoritmo hash SHA-256.
 
-Tutti i valori hash devono essere rappresentazioni di stringa di caratteri minuscoli, con codifica esadecimale di digest hash.
+Tutti i valori hash devono essere rappresentazioni di stringa con codifica esadecimale minuscole del digest hash.
 
 ### <a name="sample-request"></a>Richiesta di esempio
 
-    GET https://api.nuget.org/v3-index/repository-signatures/index.json
+```
+GET https://api.nuget.org/v3-index/repository-signatures/index.json
+```
 
 ### <a name="sample-response"></a>Risposta di esempio
 

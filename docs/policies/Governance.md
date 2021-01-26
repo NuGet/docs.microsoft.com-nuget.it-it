@@ -1,16 +1,16 @@
 ---
 title: Governance dei progetti per NuGet
 description: Modello di governance per NuGet, inclusi ruoli e responsabilità per committer, collaboratori e utenti.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 2aaaf41b3fc4ef3621333e5099780b5d7ef393bc
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 2edaac0218dc936ea6bfe1814c0aab963028ea87
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64500389"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775594"
 ---
 # <a name="nuget-governance"></a>Governance per NuGet
 
@@ -40,16 +40,16 @@ In genere, un committer si concentra su un aspetto specifico del progetto e offr
 
 I committer non esercitano alcuna autorità in merito alla direzione generale del progetto NuGet. Sono tuttavia ascoltati dal responsabile del progetto. Il committer è tenuto ad assicurarsi che il responsabile sia a conoscenza delle esigenze e degli obiettivi collettivi della community e a contribuire allo sviluppo o alla sollecitazione di contributi appropriati per il progetto. Ai committer viene spesso accordato il controllo informale delle loro aree di responsabilità specifiche e vengono loro assegnati i diritti per la modifica diretta di determinate aree del codice sorgente. Ciò significa che, anche se i committer non hanno un'autorità decisionale esplicita, spesso si ritroveranno a compiere azioni in linea con le decisioni prese dal responsabile.
 
-### <a name="contributors"></a>Collaboratori
+### <a name="contributors"></a>Autori di contributi
 
 I collaboratori sono membri della community che inviano patch per NuGet. Queste patch possono essere singoli contributi oppure periodiche. Ci si aspetta che i collaboratori inviino patch inizialmente piccole e progressivamente più estese, man mano che il collaboratore, i committer e il responsabile del progetto acquisiscono sicurezza sulla qualità delle patch di un collaboratore. Per i collaboratori è previsto un riconoscimento nel documento delle note sulla versione del prodotto associato.
 
-Prima che la prima patch di un collaboratore venga inserita nel repository, il collaboratore deve firmare un [contratto di licenza per i collaboratori](http://en.wikipedia.org/wiki/Contributor_License_Agreement) o un contratto di assegnazione per .NET Foundation. La patch può essere inviata e discussa, ma non ne verrà eseguito il commit nel repository se i documenti appropriati non sono pronti. Per ottenere un contratto di licenza per [contributions@nuget.org](mailto:contributions@nuget.org)i collaboratori, inviare una richiesta via e-mail a .
+Prima che la prima patch di un collaboratore venga inserita nel repository, il collaboratore deve firmare un [contratto di licenza per i collaboratori](http://en.wikipedia.org/wiki/Contributor_License_Agreement) o un contratto di assegnazione per .NET Foundation. La patch può essere inviata e discussa, ma non ne verrà eseguito il commit nel repository se i documenti appropriati non sono pronti. Per ottenere un contratto di licenza con collaboratore, inviare una richiesta tramite posta elettronica a [contributions@nuget.org](mailto:contributions@nuget.org) .
 
 Per diventare un collaboratore, inviare una richiesta di pull a uno dei repository seguenti:
 
 - [Client NuGet](https://github.com/NuGet/NuGet.Client)
-- [Galleria NuGet](https://github.com/nuget/nugetgallery)
+- [Raccolta NuGet](https://github.com/nuget/nugetgallery)
 - [Documentazione NuGet](https://github.com/nuget/nugetdocs)
 
 Il processo dettagliato per l'invio di una richiesta pull varia in base al repository:
@@ -88,7 +88,7 @@ Nei casi sfortunati di incapacità o decesso del titolare di un account NuGet, s
     - Certificato di nascita del titolare dell'account, nel caso l'utente richiedente sia un genitore, o,
     - Documentazione della tutela, nel caso l'utente richiedente sia un tutore legale del titolare dell'account.
 
-Se hai bisogno di richiamare questa informativa, inviaci un'e-mail [support@nuget.org](mailto:support@nuget.org) con l'ID e la versione del pacchetto.
+Se si ritiene di dover richiamare questi criteri, inviare un messaggio di posta elettronica all'indirizzo [support@nuget.org](mailto:support@nuget.org) con l'ID e la versione del pacchetto.
 
 ## <a name="transparency"></a>Trasparenza
 

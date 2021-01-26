@@ -1,60 +1,64 @@
 ---
-title: Protocolli di NuGet.org
-description: I protocolli di nuget.org in continua evoluzione per interagire con i client NuGet.
+title: Protocolli nuget.org
+description: Protocolli nuget.org in evoluzione per interagire con i client NuGet.
 author: anangaur
 ms.author: anangaur
-ms.date: 10/30/2017
+ms.date: 01/21/2021
 ms.topic: conceptual
 ms.reviewer: kraigb
-ms.openlocfilehash: d0add777040dbb8bcde6d8e385a4feab568e5cdd
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: ea072484c896c4862e47b2c03a1b177f196b0aad
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547273"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98773971"
 ---
-# <a name="nugetorg-protocols"></a>protocolli di NuGet.org
+# <a name="nugetorg-protocols"></a>Protocolli di nuget.org
 
-Per interagire con nuget.org, è necessario seguire alcuni protocolli client. Perché mantengano in continua evoluzione di questi protocolli, i client devono identificare la versione del protocollo che usano quando si chiamano le API di nuget.org specifico. In questo modo nuget.org per introdurre le modifiche in modo non di rilievo per i client precedenti.
+Per interagire con nuget.org, è necessario che i client seguano alcuni protocolli. Poiché questi protocolli continuano a evolversi, i client devono identificare la versione del protocollo che usano quando chiamano API nuget.org specifiche. Ciò consente a nuget.org di introdurre modifiche in modo non sostanziale per i client precedenti.
 
 > [!Note]
-> Le API illustrate in questa pagina sono specifiche di nuget.org e vi è alcuna aspettativa per altre implementazioni di server NuGet per introdurre queste API. 
+> Le API documentate in questa pagina sono specifiche per nuget.org e non è previsto che altre implementazioni di server NuGet introducano queste API. 
 
-Per informazioni sull'API NuGet implementato su vasta scala nell'ecosistema NuGet, vedere la [panoramica dell'API](overview.md).
+Per informazioni sull'API NuGet implementata a livello generale nell'ecosistema NuGet, vedere [Panoramica dell'API](overview.md).
 
-Questo argomento elenca i vari protocolli come e quando diventano di esistenza.
+In questo argomento vengono elencati diversi protocolli come e quando sono disponibili.
 
 ## <a name="nuget-protocol-version-410"></a>Versione del protocollo NuGet 4.1.0
 
-La 4.1.0 protocollo specifica dell'utilizzo delle chiavi di verifica dell'ambito per interagire con servizi diversi da nuget.org, per convalidare un pacchetto in un account di nuget.org. Si noti che il `4.1.0` versione numero è una stringa opaca ma coincide con la prima versione del client NuGet ufficiale che questo protocollo è supportato.
+Il protocollo 4.1.0 specifica l'uso delle chiavi Verify-scope per interagire con i servizi diversi da nuget.org per convalidare un pacchetto con un account nuget.org. Si noti che il `4.1.0` numero di versione è una stringa opaca, ma che coincide con la prima versione del client NuGet ufficiale che supporta questo protocollo.
 
-La convalida garantisce che le chiavi API create dall'utente vengono utilizzate solo con nuget.org e che altri verifica o convalida da un servizio di terze parti viene gestita tramite una chiave di ambito verificare usato una sola volta. Queste chiavi verificare ambito sono utilizzabile per verificare che il pacchetto appartiene a un determinato utente (account) in nuget.org.
+La convalida garantisce che le chiavi API create dall'utente vengano utilizzate solo con nuget.org e che la verifica o la convalida da parte di un servizio di terze parti venga gestita tramite le chiavi monouso Verify-scope. Queste chiavi Verify-scope possono essere usate per convalidare che il pacchetto appartenga a un determinato utente (account) in nuget.org.
 
-### <a name="client-requirement"></a>Requisiti del client
+### <a name="client-requirement"></a>Requisito client
 
-I client devono passare l'intestazione seguente quando si effettuano chiamate all'API **push** pacchetti da nuget.org:
+È necessario che i client passino l'intestazione seguente quando eseguono chiamate API per eseguire il **push** dei pacchetti in NuGet.org:
 
-    X-NuGet-Protocol-Version: 4.1.0
+```
+X-NuGet-Protocol-Version: 4.1.0
+```
 
-Si noti che il `X-NuGet-Client-Version` intestazione ha una semantica simile ma è riservata per essere utilizzato solo dai client NuGet ufficiale. I client di terze parti devono usare il `X-NuGet-Protocol-Version` intestazione e il valore.
+Si noti che l' `X-NuGet-Client-Version` intestazione ha una semantica simile, ma è riservata a essere usata solo dal client NuGet ufficiale. I client di terze parti devono usare l' `X-NuGet-Protocol-Version` intestazione e il valore.
 
-Il **push** protocollo stesso è descritto nella documentazione per il [ `PackagePublish` risorsa](package-publish-resource.md).
+Il protocollo di **push** è descritto nella documentazione relativa alla [ `PackagePublish` risorsa](package-publish-resource.md).
 
-Se un client interagisce con servizi esterni e deve verificare se un pacchetto a cui appartiene un determinato utente (account), dovrebbe usare il protocollo seguente e usare le chiavi di verifica-ambito e non le chiavi API da nuget.org.
+Se un client interagisce con i servizi esterni e deve verificare se un pacchetto appartiene a un determinato utente (account), deve usare il protocollo seguente e usare le chiavi Verify-scope e non le chiavi API da nuget.org.
 
-### <a name="api-to-request-a-verify-scope-key"></a>Per richiedere una chiave di verifica dell'ambito dell'API
+### <a name="api-to-request-a-verify-scope-key"></a>API per richiedere una chiave Verify-scope
 
-Questa API viene usata per ottenere una chiave di verifica dall'ambito di un autore di nuget.org convalidare un pacchetto di proprietà di quest'ultimo.
+Questa API viene usata per ottenere una chiave Verify-scope per un autore di nuget.org per convalidare un pacchetto di proprietà di loro.
 
-    POST api/v2/package/create-verification-key/{ID}/{VERSION}
+```
+POST api/v2/package/create-verification-key/{ID}/{VERSION}
+```
 
 #### <a name="request-parameters"></a>Parametri della richiesta
 
-nome           | In     | Tipo   | Obbligatorio | Note
+Nome           | In     | Type   | Necessario | Note
 -------------- | ------ | ------ | -------- | -----
-Id             | URL    | stringa | sì      | Identidier il pacchetto per il quale viene richiesta la chiave di ambito di verifica
-VERSION        | URL    | stringa | No       | La versione del pacchetto
-X-NuGet-ApiKey | Header | stringa | sì      | Ad esempio, `X-NuGet-ApiKey: {USER_API_KEY}`.
+ID             | URL    | string | sì      | Identidier del pacchetto per il quale viene richiesta la chiave di ambito Verify
+VERSION        | URL    | string | no       | Versione del pacchetto
+X-NuGet-ApiKey | Intestazione | string | sì      | Ad esempio: `X-NuGet-ApiKey: {USER_API_KEY}`
 
 #### <a name="response"></a>Risposta
 
@@ -65,27 +69,29 @@ X-NuGet-ApiKey | Header | stringa | sì      | Ad esempio, `X-NuGet-ApiKey: {USE
 }
 ```
 
-### <a name="api-to-verify-the-verify-scope-key"></a>API per verificare la chiave di verifica ambito
+### <a name="api-to-verify-the-verify-scope-key"></a>API per verificare la chiave dell'ambito Verify
 
-Questa API viene usata per convalidare una chiave di verifica dell'ambito per il pacchetto di proprietà dell'autore di nuget.org.
+Questa API viene usata per convalidare una chiave Verify-scope per il pacchetto di proprietà dell'autore nuget.org.
 
-    GET api/v2/verifykey/{ID}/{VERSION}
+```
+GET api/v2/verifykey/{ID}/{VERSION}
+```
 
 #### <a name="request-parameters"></a>Parametri della richiesta
 
-nome           | In     | Tipo   | Obbligatorio | Note
+Nome           | In     | Type   | Necessario | Note
 -------------  | ------ | ------ | -------- | -----
-Id             | URL    | stringa | sì      | L'identificatore del pacchetto per il quale viene richiesta la chiave di ambito di verifica
-VERSION        | URL    | stringa | No       | La versione del pacchetto
-X-NuGet-ApiKey | Header | stringa | sì      | Ad esempio, `X-NuGet-ApiKey: {VERIFY_SCOPE_KEY}`.
+ID             | URL    | string | sì      | Identificatore del pacchetto per il quale viene richiesta la chiave di ambito Verify
+VERSION        | URL    | string | no       | Versione del pacchetto
+X-NuGet-ApiKey | Intestazione | string | sì      | Ad esempio: `X-NuGet-ApiKey: {VERIFY_SCOPE_KEY}`
 
 > [!Note]
-> Questo tasto di ambito API verifica scade tra ora del giorno o al primo utilizzo, a seconda di quale si verifica per primo.
+> Questa chiave API dell'ambito di verifica scade entro un giorno o al primo utilizzo, a seconda di quale si verifica per primo.
 
 #### <a name="response"></a>Risposta
 
 Codice di stato | Significato
 ----------- | -------
 200         | La chiave API è valida
-403         | La chiave API non è valido o non autorizzato a eseguire il push per il pacchetto
-404         | Il pacchetto a cui fa riferimento `ID` e `VERSION` (facoltativo) non esiste
+403         | La chiave API non è valida o non è autorizzata a eseguire il push sul pacchetto
+404         | Il pacchetto a cui `ID` fa riferimento e `VERSION` (facoltativo) non esiste

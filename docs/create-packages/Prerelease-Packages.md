@@ -1,16 +1,16 @@
 ---
 title: Versioni non definitive nei pacchetti NuGet
 description: Linee guida per la compilazione di versioni non definitive dei pacchetti
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 5dda56ccd4c959bcbcbd12b7a4771ddff1fe7530
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: ae6628efa6d97ff5ba2c4c359b9565a3214cb346
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623006"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774669"
 ---
 # <a name="building-pre-release-packages"></a>Compilazione di versioni non definitive dei pacchetti
 
@@ -52,7 +52,7 @@ Per impostazione predefinita, NuGet non include le versioni non definitive quand
 
 - **Console di gestione pacchetti**: usare l' `-IncludePrerelease` opzione con `Find-Package` i `Get-Package` comandi,, `Install-Package` , `Sync-Package` e `Update-Package` . Vedere [Informazioni di riferimento su PowerShell](../reference/powershell-reference.md).
 
-- **Interfaccia**della riga di comando di NuGet: usare l' `-prerelease` opzione con i `install` `update` comandi,, `delete` e `mirror` . Vedere [NuGet CLI reference](../reference/nuget-exe-cli-reference.md) (Informazioni di riferimento sull'interfaccia della riga di comando di NuGet).
+- **Interfaccia** della riga di comando di NuGet: usare l' `-prerelease` opzione con i `install` `update` comandi,, `delete` e `mirror` . Vedere [NuGet CLI reference](../reference/nuget-exe-cli-reference.md) (Informazioni di riferimento sull'interfaccia della riga di comando di NuGet).
 
 ## <a name="semantic-versioning"></a>Versionamento Semantico
 
@@ -77,15 +77,17 @@ Tenendo conto di questo aspetto, è in genere consigliabile seguire convenzioni 
 
 Indipendentemente dai suffissi usati, tuttavia, NuGet stabilirà sempre la precedenza in ordine alfabetico inverso:
 
-    1.0.1
-    1.0.1-zzz
-    1.0.1-rc
-    1.0.1-open
-    1.0.1-beta.12
-    1.0.1-beta.5
-    1.0.1-beta
-    1.0.1-alpha.2
-    1.0.1-alpha
+```
+1.0.1
+1.0.1-zzz
+1.0.1-rc
+1.0.1-open
+1.0.1-beta.12
+1.0.1-beta.5
+1.0.1-beta
+1.0.1-alpha.2
+1.0.1-alpha
+```
 
 Come illustrato, la versione senza suffisso avrà sempre la precedenza rispetto alle versioni non definitive.
 

@@ -1,16 +1,16 @@
 ---
 title: Pacchetti NuGet e controllo del codice sorgente
 description: Considerazioni sulle modalità di gestione dei pacchetti NuGet all'interno di sistemi di controllo della versione e di controllo del codice sorgente e su come omettere i pacchetti con Git e il controllo della versione di Team Foundation.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9d9ea10ccd32bb65ad0d62b591f5e2cb58ea3427
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 9bae65573ca49c68d07250228c1923890e0f14ac
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "69019986"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775013"
 ---
 # <a name="omitting-nuget-packages-in-source-control-systems"></a>Omissione di pacchetti NuGet nei sistemi di controllo del codice sorgente
 
@@ -27,7 +27,7 @@ Anche se il ripristino dei pacchetti è il comportamento predefinito con NuGet, 
 
 ## <a name="omitting-packages-with-git"></a>Omissione di pacchetti con Git
 
-Usare il [file con estensione gitignore](https://git-scm.com/docs/gitignore) per ignorare i pacchetti NuGet (`.nupkg`) la cartella `packages` e `project.assets.json`, tra le altre cose. Per informazioni di riferimento, vedere [l'esempio `.gitignore` per](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore)i progetti di Visual Studio:
+Usare il [file con estensione gitignore](https://git-scm.com/docs/gitignore) per ignorare i pacchetti NuGet (`.nupkg`) la cartella `packages` e `project.assets.json`, tra le altre cose. Per informazioni di riferimento, vedere l' [esempio `.gitignore` per i progetti di Visual Studio](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore):
 
 Le parti importanti del file `.gitignore` sono:
 

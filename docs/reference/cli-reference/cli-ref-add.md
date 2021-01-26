@@ -1,20 +1,20 @@
 ---
 title: Comando di aggiunta CLI di NuGet
 description: Riferimento per il comando nuget.exe Aggiungi
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 89d268946243e8eae07e482db48e809a15260c38
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 096d2f7a61a3c861ce2084368500ab8e8b21f212
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622902"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776091"
 ---
 # <a name="add-command-nuget-cli"></a>comando Add (interfaccia della riga di comando di NuGet)
 
-**Si applica a**: versioni supportate per la pubblicazione di pacchetti &bullet; **Supported versions**: 3.3 +
+**Si applica a**: versioni supportate per la pubblicazione di pacchetti &bullet; : 3.3 +
 
 Aggiunge un pacchetto specificato a un'origine pacchetto non HTTP (una cartella o un percorso UNC) in un layout gerarchico, in cui vengono create cartelle per l'ID del pacchetto e il numero di versione. Ad esempio:
 
@@ -31,7 +31,7 @@ Quando si esegue il ripristino o l'aggiornamento con l'origine del pacchetto, il
 
 Per espandere tutti i file del pacchetto nell'origine del pacchetto di destinazione, utilizzare l' `-Expand` opzione. Ciò comporta in genere la visualizzazione di sottocartelle aggiuntive nella destinazione, ad esempio `tools` e `lib` .
 
-## <a name="usage"></a>Uso
+## <a name="usage"></a>Utilizzo
 
 ```cli
 nuget add <packagePath> -Source <sourcePath> [options]

@@ -1,16 +1,16 @@
 ---
 title: Risoluzione delle controversie sui nomi dei pacchetti NuGet
 description: Processo per la risoluzione delle controversie tra gli autori di pacchetti NuGet correlate alla personalizzazione, ai marchi e ad altre situazioni conflittuali.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7e725d8114cde3de189dc3a648bc5a6c0b0e785b
-ms.sourcegitcommit: 0a63956bf12aaf1b1b45e680bc8e90f97347988c
+ms.openlocfilehash: d9ed7de95a1f38ea2c288b28958519b1dff0e595
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83367947"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775658"
 ---
 # <a name="resolving-disputes-over-nuget-package-names"></a>Risoluzione delle controversie sui nomi dei pacchetti NuGet
 

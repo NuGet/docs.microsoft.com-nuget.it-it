@@ -1,16 +1,16 @@
 ---
 title: Multitargeting per i pacchetti NuGet nel file di progetto
-description: Descrizione dei vari metodi per selezionare come destinazione più versioni di .NET Framework da un singolo pacchetto NuGet.
-author: karann-msft
-ms.author: karann
+description: Descrizione dei vari metodi per la destinazione di più versioni .NET Framework dall'interno di un singolo pacchetto NuGet nel file di progetto.
+author: JonDouglas
+ms.author: jodou
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1d23759433efb405fa5f0035049befced2c43d6b
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: a05d053340bb2fe795991dfa5a2b95d8625dfd44
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "72380683"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774373"
 ---
 # <a name="support-multiple-net-framework-versions-in-your-project-file"></a>Supportare più versioni di .NET Framework nel file di progetto
 
@@ -37,7 +37,7 @@ Per i progetti di tipo SDK, è possibile configurare il supporto per più framew
 
    Assicurarsi di modificare l'elemento XML modificato da singolare a plurale, ovvero aggiungere "s" ai tag di apertura e di chiusura.
 
-3. In presenza di codice che funziona in un solo TFM, è possibile usare `#if NET45` o `#if NETSTANDARD2_0` per separare il codice dipendente dal TFM. Per ulteriori informazioni, vedere [Come multitarget.](/dotnet/core/tutorials/libraries#how-to-multitarget) Ad esempio, è possibile utilizzare il codice seguente:For example, you can use the following code:
+3. In presenza di codice che funziona in un solo TFM, è possibile usare `#if NET45` o `#if NETSTANDARD2_0` per separare il codice dipendente dal TFM. Per ulteriori informazioni, vedere [How to multitarget](/dotnet/core/tutorials/libraries#how-to-multitarget). Ad esempio, è possibile usare il codice seguente:
 
    ```csharp
    public string Platform {

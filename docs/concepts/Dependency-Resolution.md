@@ -1,22 +1,22 @@
 ---
 title: Risoluzione delle dipendenze dei pacchetti NuGet
 description: Dettagli del processo tramite cui le dipendenze di un pacchetto NuGet vengono risolte e installate in NuGet 2.x e NuGet 3.x+.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 4b95251e4b055523a9533b4125589b2650be932d
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 0ef309d95c6ef5437765c02791da6dab13794678
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237744"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775265"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Risoluzione delle dipendenze dei pacchetti in NuGet
 
 Ogni volta che un pacchetto viene installato o reinstallato, compresa l'installazione nell'ambito di un processo di [ripristino](../consume-packages/package-restore.md), NuGet installa anche eventuali altri pacchetti da cui dipende questo primo pacchetto.
 
-Tali dipendenze immediate potrebbero quindi avere anche dipendenze proprie, che possono continuare fino a una profondità arbitraria. Ciò produce un cosiddetto *grafico dipendenze* , che descrive le relazioni tra i pacchetti a tutti i livelli.
+Tali dipendenze immediate potrebbero quindi avere anche dipendenze proprie, che possono continuare fino a una profondità arbitraria. Ciò produce un cosiddetto *grafico dipendenze*, che descrive le relazioni tra i pacchetti a tutti i livelli.
 
 Quando più pacchetti hanno la stessa dipendenza, lo stesso ID di pacchetto può essere visualizzato nel grafico più volte, potenzialmente con limitazioni delle versioni diverse. Tuttavia, solo una versione di un determinato pacchetto può essere usata in un progetto, pertanto NuGet deve scegliere quale versione usare. Il processo esatto dipende dal formato di gestione dei pacchetti in uso.
 
@@ -55,7 +55,7 @@ Quando un'applicazione specifica un numero di versione esatto, ad esempio 1.2, c
 
 #### <a name="floating-versions"></a>Versioni a virgola mobile
 
-Con il carattere viene specificata una versione di dipendenza mobile \* . Ad esempio: `6.0.*`. Questa specifica della versione indica "usa la versione 6.0. x più recente"; `4.*` significa "usare la versione 4. x più recente". L'uso di una versione a virgola mobile riduce le modifiche apportate al file di progetto, mantenendo al contempo la versione più recente di una dipendenza.
+Con il carattere viene specificata una versione di dipendenza mobile \* . Ad esempio: `6.0.*`. Questa specifica della versione indica "usa la versione 6.0. x più recente"; `4.*` significa "usare la versione 4. x più recente". L'uso di una versione mobile riduce le modifiche a un file di progetto, mantenendolo aggiornato alla versione più recente di una dipendenza.
 
 Quando si usa una versione a virgola mobile, NuGet risolve la versione più recente di un pacchetto che corrisponde al modello di versione, ad esempio `6.0.*` ottiene la versione più recente di un pacchetto che inizia con 6,0:
 

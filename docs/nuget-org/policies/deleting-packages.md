@@ -1,22 +1,22 @@
 ---
 title: Eliminazione di pacchetti NuGet da nuget.org
 description: Criteri per la rimozione di pacchetti dall'elenco di nuget.org; l'eliminazione permanente non è supportata, salvo quando i pacchetti violano altri criteri.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3abe809d76e75801c2f936aba129d27ba7b64913
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: e5c62177b40162cb8b6b37b0d272fb7a945156c1
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80581273"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775713"
 ---
 # <a name="deleting-packages"></a>Eliminazione di pacchetti
 
 nuget.org non supporta l'eliminazione permanente dei pacchetti. Questa operazione comporterebbe l'interruzione di tutti i progetti che dipendono dalla disponibilità del pacchetto eliminato, in particolare con i flussi di lavoro di compilazione che implicano il ripristino del pacchetto.
 
-nuget.org supporta [l'annullamento dell'elenco](#unlisting-a-package)di un pacchetto , che può essere eseguito nella pagina di gestione del pacchetto sul sito Web. I pacchetti rimossi dall'elenco non vengono visualizzati su nuget.org o nell'interfaccia utente di Visual Studio, né compaiono all'interno dei risultati della ricerca. I pacchetti rimossi dall'elenco, tuttavia, possono essere ancora scaricati e installati usando il numero di versione esatto, che supporta il ripristino del pacchetto. Inoltre, i pacchetti rimossi dall'elenco potrebbero essere ancora individuati negli scenari specifici seguenti:
+nuget.org supporta l'annullamento dell' [elenco di un pacchetto](#unlisting-a-package), che può essere eseguito nella pagina di gestione dei pacchetti nel sito Web. I pacchetti rimossi dall'elenco non vengono visualizzati su nuget.org o nell'interfaccia utente di Visual Studio, né compaiono all'interno dei risultati della ricerca. I pacchetti rimossi dall'elenco, tuttavia, possono essere ancora scaricati e installati usando il numero di versione esatto, che supporta il ripristino del pacchetto. Inoltre, i pacchetti rimossi dall'elenco potrebbero essere ancora individuati negli scenari specifici seguenti:
 
 - Ripristino del pacchetto usando versioni mobili (ad esempio, `1.0.0-*`), se il pacchetto più recente disponibile corrispondente alle limitazioni della versione o della dipendenza è un pacchetto rimosso dall'elenco.
 - Replica dei pacchetti tramite il catalogo (dal momento che il catalogo contiene anche pacchetti rimossi dall'elenco).
@@ -40,16 +40,16 @@ Se si rileva un pacchetto che viola gli elementi sopra elencati, fare clic sul c
 
 Si noti che il team di NuGet e .NET Foundation si riservano il diritto di modificare questi criteri in qualsiasi momento.
 
-## <a name="unlisting-a-package"></a>Annullamento dell'elenco di un pacchettoUnlisting a package
-L'annullamento dell'elenco di una versione del pacchetto lo nasconde dalla ricerca e dalla pagina dei dettagli del pacchetto nuget.org. Ciò consente agli utenti esistenti del pacchetto di continuare a utilizzarlo, ma riduce la nuova adozione poiché il pacchetto non è visibile nella ricerca.
+## <a name="unlisting-a-package"></a>Disintegrazione di un pacchetto
+Se si rimuove dall'elenco la versione di un pacchetto, questa viene nascosta dalla ricerca e dalla pagina dei dettagli del pacchetto nuget.org. Ciò consente agli utenti esistenti del pacchetto di continuare a usarlo, ma riduce la nuova adozione perché il pacchetto non è visibile nella ricerca.
 
-Passaggi per annullare l'elenco di un pacchetto:
+Passaggi per l'elenco di un pacchetto:
 
-1. Seleziona `Your account name` (nell'angolo in alto a destra) >`Manage packages` > `Published packages`
-1. Seleziona l'icona "Gestisci pacchetto"
-1. Espandere la sezione "Listing" e selezionare la versione del pacchetto
-1. Deseleziona "Elenca nei risultati della ricerca" e seleziona "Salva"
+1. Selezionare `Your account name` (nell'angolo in alto a destra) >`Manage packages` > `Published packages`
+1. Selezionare l'icona "Gestisci pacchetto"
+1. Espandere la sezione "elenco" e selezionare la versione del pacchetto
+1. Deselezionare "elenca nei risultati della ricerca" e selezionare "Salva"
 
-La versione specifica del pacchetto non è stata elencata. Per verificarlo, disconnettersi dall'account e passare alla pagina del pacchetto (senza https://www.nuget.org/packages/YOUR-PACKAGE-NAME/la parte della versione) ad esempio: . Vedrai tutte le versioni del pacchetto che **non** sono state in elenco. Tuttavia, il proprietario del pacchetto, una volta effettuato l'accesso, può visualizzare tutte le versioni e il relativo stato di presentazione.
+La versione del pacchetto specifica è ora riportata nell'elenco. Per verificarlo, disconnettere l'account e passare alla pagina del pacchetto, senza la parte relativa alla versione, ad esempio: https://www.nuget.org/packages/YOUR-PACKAGE-NAME/ . Vengono visualizzate tutte le versioni del pacchetto che **non** sono state riportate nell'elenco. Tuttavia, al momento dell'accesso, il proprietario del pacchetto può visualizzare tutte le versioni e il relativo stato di visualizzazione.
 
-È anche possibile deprecare una versione del pacchetto (nel caso in cui non sia possibile eliminare una versione del pacchetto). Per ulteriori informazioni sulla deprecazione delle versioni dei pacchetti, vedere [Deprechezione dei pacchetti](../deprecate-packages.md).
+È anche possibile deprecare una versione del pacchetto, nel caso in cui non sia possibile eliminare una versione del pacchetto. Per ulteriori informazioni su come deprecare le versioni dei pacchetti, vedere [deprecating Packages](../deprecate-packages.md).

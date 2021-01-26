@@ -1,57 +1,57 @@
 ---
-title: Note sulla versione 3.0 di NuGet
-description: Note sulla versione per NuGet 3.0.0, tra cui noti problemi, correzioni di bug, funzionalità aggiunte e dcr.
-author: karann-msft
-ms.author: karann
+title: Note sulla versione di NuGet 3,0
+description: Note sulla versione per NuGet 3.0.0, inclusi problemi noti, correzioni di bug, funzionalità aggiunte e DCR.
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 1ade2b5b5ff7d57d756829c1c1853b5573c17d6d
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 4d4ce17c33dc38df5504a77d9cc3530d466d70af
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551863"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776546"
 ---
-# <a name="nuget-30-release-notes"></a>Note sulla versione 3.0 di NuGet
+# <a name="nuget-30-release-notes"></a>Note sulla versione di NuGet 3,0
 
-[Note sulla versione di NuGet 3.0 RC2](../release-notes/nuget-3.0-RC2.md) | [note sulla versione di NuGet 3.1](../release-notes/nuget-3.1.md)
+Note sulla versione di [NuGet 3,0 RC2](../release-notes/nuget-3.0-RC2.md)  |  [Note sulla versione di NuGet 3,1](../release-notes/nuget-3.1.md)
 
-NuGet 3.0 è stato rilasciato il 20 luglio 2015 come estensione di bundle per Visual Studio 2015. Ci siamo concentrati per offrire questa versione con Visual Studio in modo che l'esperienza di NuGet 3.0 completata aggiornata sarà disponibile per i nuovi utenti di Visual Studio. Questa versione dell'estensione NuGet è disponibile solo per Visual Studio 2015.
+NuGet 3,0 è stato rilasciato il 20 luglio 2015 come estensione del bundle a Visual Studio 2015. Abbiamo effettuato il push per fornire questa versione con Visual Studio in modo che l'esperienza completa aggiornata di NuGet 3,0 sia disponibile per i nuovi utenti di Visual Studio. Questa versione dell'estensione NuGet è disponibile solo per Visual Studio 2015.
 
-È consigliabile per gli sviluppatori che dispongono dell'accesso per l'aggiornamento della raccolta di Visual Studio alla versione più recente che è disponibile, come viene pubblicata un'aggiornamento poco dopo il rilascio di Visual Studio 2015 che contiene il supporto per lo sviluppo di Windows 10.
+Si consiglia agli sviluppatori che hanno accesso a Visual Studio Gallery di eseguire l'aggiornamento alla versione più recente disponibile, in quanto viene pubblicato un aggiornamento poco dopo il rilascio di Visual Studio 2015 che contiene il supporto per lo sviluppo di Windows 10.
 
-In totale, abbiamo chiuso 240 problemi nella versione 3.0, ed è possibile esaminare i [elenco completo dei problemi in GitHub](https://github.com/NuGet/Home/issues?q=milestone%3A3.0.0-RTM+is%3Aclosed).
+In totale, sono stati chiusi 240 problemi nella versione 3,0 ed è possibile esaminare l' [elenco completo dei problemi in GitHub](https://github.com/NuGet/Home/issues?q=milestone%3A3.0.0-RTM+is%3Aclosed).
 
 ## <a name="known-issues"></a>Problemi noti
 
-Si sono verificati alcuni problemi noti fornito con questa versione e di tutti gli elementi corretti nella versione 3.1 pianificato coincide con il rilascio di Windows 10 al 29 luglio.  Si è in grado di aggiornare l'estensione di Visual Studio dalla raccolta o dopo tale data per risolvere questi problemi noti.
+Con questa versione sono stati introdotti numerosi problemi noti e tutti questi elementi sono stati risolti nella versione 3,1 prevista per coincidere con il rilascio di Windows 10 il 29 luglio.  È possibile aggiornare l'estensione di Visual Studio dalla raccolta in data o dopo tale data per risolvere questi problemi noti.
 
-*  Conversione non viene fornita per l'etichetta "Non visualizzare più questo messaggio" nella finestra di anteprima e l'etichetta "Autori" nella finestra di descrizione del pacchetto.
-*  Quando si lavora a un progetto usando TFS controllo del codice sorgente, NuGet non può presentare package manager dell'interfaccia utente se il file NuGet. config è contrassegnato come sola lettura.
-   * **Soluzione alternativa** estrarre il file da TFS.
-*  Testo in giallo "riavvio bar" nella finestra di Powershell di NuGet non è visibile quando si usa il tema scuro di Visual Studio.
-   * **Soluzione alternativa** Usa il tema chiaro di Visual Studio.
+*  La traduzione non è stata specificata per l'etichetta "non visualizzare più questo messaggio" nella finestra di anteprima e l'etichetta "authors" nella finestra di descrizione del pacchetto.
+*  Quando si usa un progetto con il controllo del codice sorgente TFS, NuGet non è in grado di presentare l'interfaccia utente di gestione pacchetti se il file Nuget.Config è contrassegnato come di sola lettura.
+   * **Soluzione alternativa** Estrarre il file da TFS.
+*  Quando si usa il tema scuro di Visual Studio, il testo nella "barra di riavvio" gialla della finestra di PowerShell di NuGet non è visibile.
+   * **Soluzione alternativa** Usare il tema chiaro di Visual Studio.
 
 
 ## <a name="summary-of-top-issues-resolved"></a>Riepilogo dei principali problemi risolti
 
-* [Aggiornamenti frequenti rete viene chiamato quando viene aggiornata la finestra di gestione pacchetti](https://github.com/NuGet/Home/issues/515)
-* [Scorrimento un ritardo se la modifica in installato visualizzazione in Gestione pacchetti](https://github.com/NuGet/Home/issues/519)
-* [Le chiamate di rete devono essere eseguite su un thread in background](https://github.com/NuGet/Home/issues/516)
-* [Aggiungere la casella di controllo 'Non visualizzare la finestra di anteprima'](https://github.com/NuGet/Home/issues/566)
-* [Processo aggiunto la limitazione per ridurre l'utilizzo del processore](https://github.com/NuGet/Home/issues/356)
-* Migliorata la gestione dei riferimenti di libreria di classi portabile
+* [Frequenti chiamate di aggiornamento della rete quando viene aggiornata la finestra di gestione pacchetti](https://github.com/NuGet/Home/issues/515)
+* [Scorrimento ritardato durante la modifica della visualizzazione installata in Gestione pacchetti](https://github.com/NuGet/Home/issues/519)
+* [Le chiamate di rete devono essere eseguite in un thread in background](https://github.com/NuGet/Home/issues/516)
+* [È stata aggiunta la casella di controllo ' non visualizzare la finestra di anteprima '](https://github.com/NuGet/Home/issues/566)
+* [Aggiunta limitazione del processo per ridurre l'utilizzo del processore](https://github.com/NuGet/Home/issues/356)
+* Gestione migliorata dei riferimenti alla libreria di classi portabile
     * [https://github.com/NuGet/Home/issues/562](https://github.com/NuGet/Home/issues/562)
     * [https://github.com/NuGet/Home/issues/454](https://github.com/NuGet/Home/issues/454)
     * [https://github.com/NuGet/Home/issues/440](https://github.com/NuGet/Home/issues/440)
-* [Servizio di completamento automatico è stato in maiuscole / minuscole](https://github.com/NuGet/Home/issues/198)
-* [Aggiornamento reintrodurre le credenziali di autenticazione di base](https://github.com/NuGet/Home/issues/456)
-* [Registrazione degli errori migliorata](https://github.com/NuGet/Home/issues/407)
-* [Messaggi di errore migliorata powershell quando si chiama Update-Package](https://github.com/NuGet/Home/issues/5)
-* [Risolto il collegamento 'Altre informazioni sulle opzioni' per impedire un arresto anomalo in Windows 10](https://github.com/NuGet/Home/issues/822)
-* [Ricordare di impostazione di casella di controllo di versione non definitiva](https://github.com/NuGet/Home/issues/732)
-* [Gather migliorate le prestazioni memorizzando nella cache i risultati tra i progetti in una soluzione](https://github.com/NuGet/Home/issues/721)
-* [Più pacchetti possono essere raccolte in parallelo](https://github.com/NuGet/Home/issues/713)
-* [Rimosso install-package-forzare il comando](https://github.com/NuGet/Home/issues/697)
+* [Distinzione tra maiuscole e minuscole per il servizio AutoComplete](https://github.com/NuGet/Home/issues/198)
+* [Aggiornare per reintrodurre le credenziali di autenticazione di base](https://github.com/NuGet/Home/issues/456)
+* [È stata migliorata la registrazione degli errori](https://github.com/NuGet/Home/issues/407)
+* [Messaggi di errore di PowerShell migliorati quando si chiama Update-Package](https://github.com/NuGet/Home/issues/5)
+* [Correzione del collegamento ' informazioni sulle opzioni ' per impedire arresti anomali in Windows 10](https://github.com/NuGet/Home/issues/822)
+* [Ricorda impostazione della casella di controllo versione non definitiva](https://github.com/NuGet/Home/issues/732)
+* [Miglioramento della raccolta delle prestazioni mediante la memorizzazione nella cache dei risultati tra i progetti in una soluzione](https://github.com/NuGet/Home/issues/721)
+* [È possibile raccogliere più pacchetti in parallelo](https://github.com/NuGet/Home/issues/713)
+* [Comando Install-Package-Force rimosso](https://github.com/NuGet/Home/issues/697)
 
-Teniamo d'occhio [nostro blog](http://blog.nuget.org) per più lo stato di avanzamento e annunci man mano che pronti a fornire supporto tecnico per lo sviluppo di Windows 10.
+Tieni sotto controllo il [nostro Blog](http://blog.nuget.org) per ottenere più informazioni sullo stato di avanzamento e sugli annunci, perché siamo pronti per offrire supporto per lo sviluppo in Windows 10.

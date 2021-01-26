@@ -10,12 +10,12 @@ ms.technology: ''
 description: Il servizio Publish consente ai client di pubblicare nuovi pacchetti di simboli.
 keywords: Pacchetto di simboli push dell'API NuGet
 ms.reviewer: karann
-ms.openlocfilehash: bd4a10cc976c9d0775a63cfe61c35327c196065c
-ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
+ms.openlocfilehash: 91bb4c9ca77fd7f1ff35831e02eb4f9d65d641c5
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96738877"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98773891"
 ---
 # <a name="push-symbol-packages"></a>Pacchetti di simboli push
 
@@ -42,7 +42,9 @@ Il `PUT` metodo HTTP è supportato da questa risorsa.
 
 nuget.org supporta il push del nuovo formato dei pacchetti di simboli ([snupkg](../create-packages/Symbol-Packages-snupkg.md)) usando l'API seguente. 
 
-    PUT https://www.nuget.org/api/v2/symbolpackage
+```
+PUT https://www.nuget.org/api/v2/symbolpackage
+```
 
 I pacchetti di simboli con lo stesso ID e la stessa versione possono essere inviati più volte. Un pacchetto di simboli verrà rifiutato nei casi seguenti.
 - Non esiste un pacchetto con lo stesso ID e la stessa versione.
@@ -53,11 +55,11 @@ I pacchetti di simboli con lo stesso ID e la stessa versione possono essere invi
 
 Nome           | In     | Type   | Necessario | Note
 -------------- | ------ | ------ | -------- | -----
-X-NuGet-ApiKey | Intestazione | string | sì      | ad esempio, `X-NuGet-ApiKey: {USER_API_KEY}`
+X-NuGet-ApiKey | Intestazione | string | sì      | Ad esempio: `X-NuGet-ApiKey: {USER_API_KEY}`
 
 La chiave API è una stringa opaca ottenuta dall'origine del pacchetto dall'utente e configurata nel client. Non è richiesto alcun formato stringa particolare, ma la lunghezza della chiave API non deve superare una dimensione ragionevole per i valori dell'intestazione HTTP.
 
-### <a name="request-body"></a>Corpo della richiesta
+### <a name="request-body"></a>Testo della richiesta
 
 Il corpo della richiesta per il push dei simboli è uguale al corpo della richiesta di una richiesta di push del pacchetto (vedere [push e eliminazione di pacchetti](package-publish-resource.md)). 
 

@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: ffbcb8dc18542f39c32a6d84b279c8eccaf98fc3
-ms.sourcegitcommit: 7e9c0630335ef9ec1e200e2ee9065f702e52a8ec
+ms.openlocfilehash: 11485f583d6993919f6bb8acabcc87d9e4261975
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85292313"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774155"
 ---
 # <a name="catalog"></a>Catalogo
 
@@ -63,7 +63,9 @@ Gli elementi del catalogo vengono sempre aggiunti al catalogo in base a un ordin
 
 La richiesta seguente recupera l'indice del catalogo.
 
-    GET {@id}
+```
+GET {@id}
+```
 
 L'indice del catalogo è un documento JSON che contiene un oggetto con le proprietà seguenti:
 
@@ -71,7 +73,7 @@ Nome            | Type             | Necessario | Note
 --------------- | ---------------- | -------- | -----
 commitId        | string           | sì      | ID univoco associato al commit più recente
 commitTimeStamp | string           | sì      | Timestamp del commit più recente
-count           | integer          | sì      | Numero di pagine nell'indice.
+count           | numero intero          | sì      | Numero di pagine nell'indice.
 items           | matrice di oggetti | sì      | Matrice di oggetti, ognuno dei quali rappresenta una pagina
 
 Ogni elemento nella `items` matrice è un oggetto con alcune informazioni minime su ogni pagina. Questi oggetti della pagina non contengono le foglie del catalogo (elementi). L'ordine degli elementi in questa matrice non è definito. Le pagine possono essere ordinate dal client in memoria usando la relativa `commitTimeStamp` Proprietà.
@@ -89,13 +91,15 @@ Nome            | Type    | Necessario | Note
 @id             | string  | sì      | URL per recuperare la pagina del catalogo
 commitId        | string  | sì      | ID univoco associato al commit più recente in questa pagina
 commitTimeStamp | string  | sì      | Timestamp del commit più recente in questa pagina
-count           | integer | sì      | Numero di elementi nella pagina catalogo
+count           | numero intero | sì      | Numero di elementi nella pagina catalogo
 
 Diversamente dalla [risorsa dei metadati del pacchetto](registration-base-url-resource.md) , che in alcuni casi rimane inline nell'indice, le foglie del catalogo non vengono mai inserite nell'indice e devono sempre essere recuperate tramite l'URL della pagina `@id` .
 
 ### <a name="sample-request"></a>Richiesta di esempio
 
-    GET https://api.nuget.org/v3/catalog0/index.json
+```
+GET https://api.nuget.org/v3/catalog0/index.json
+```
 
 ### <a name="sample-response"></a>Risposta di esempio
 
@@ -113,7 +117,7 @@ Nome            | Type             | Necessario | Note
 --------------- | ---------------- | -------- | -----
 commitId        | string           | sì      | ID univoco associato al commit più recente in questa pagina
 commitTimeStamp | string           | sì      | Timestamp del commit più recente in questa pagina
-count           | integer          | sì      | Numero di elementi nella pagina
+count           | numero intero          | sì      | Numero di elementi nella pagina
 items           | matrice di oggetti | sì      | Gli elementi del catalogo in questa pagina
 padre          | string           | sì      | URL dell'indice del catalogo
 
@@ -147,7 +151,9 @@ Per ulteriori informazioni sul significato di ogni tipo, vedere il [tipo di elem
 
 ### <a name="sample-request"></a>Richiesta di esempio
 
-    GET https://api.nuget.org/v3/catalog0/page2926.json
+```
+GET https://api.nuget.org/v3/catalog0/page2926.json
+```
 
 ### <a name="sample-response"></a>Risposta di esempio
 
@@ -179,8 +185,8 @@ La `@type` proprietà è una stringa o una matrice di stringhe. Per praticità, 
 
 Gli elementi del catalogo con il tipo `PackageDetails` contengono uno snapshot dei metadati del pacchetto per un pacchetto specifico (combinazione di ID e versione). Un elemento del catalogo Dettagli pacchetto viene generato quando un'origine del pacchetto rileva uno degli scenari seguenti:
 
-1. Viene eseguito il **push**di un pacchetto.
-1. Viene **elencato**un pacchetto.
+1. Viene eseguito il **push** di un pacchetto.
+1. Viene **elencato** un pacchetto.
 1. Un pacchetto non è incluso **nell'elenco**.
 1. Un pacchetto viene **propagato**.
 
@@ -205,12 +211,12 @@ disponibili                  | boolean                    | no       | Indica se
 minClientVersion        | string                     | no       |
 packageHash             | string                     | sì      | Hash del pacchetto, codifica con [base 64 standard](https://tools.ietf.org/html/rfc4648#section-4)
 packageHashAlgorithm    | string                     | sì      |
-Pacchetto             | integer                    | sì      | Dimensioni del package. nupkg in byte
+Pacchetto             | numero intero                    | sì      | Dimensioni del package. nupkg in byte
 packageTypes            | matrice di oggetti           | no       | Tipi di pacchetto specificati dall'autore.
 projectUrl              | string                     | no       |
 releaseNotes            | string                     | no       |
 requireLicenseAgreement | boolean                    | no       | Presume `false` se è escluso
-summary                 | string                     | no       |
+riepilogo                 | string                     | no       |
 tags                    | matrice di stringhe           | no       |
 title                   | string                     | no       |
 verbatimVersion         | string                     | no       | La stringa di versione come in origine è stata trovata in. NuSpec
@@ -235,7 +241,9 @@ Il `published` timestamp è l'ora dell'ultima elencazione del pacchetto.
 
 #### <a name="sample-request"></a>Richiesta di esempio
 
+```
 GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
+```
 
 #### <a name="sample-response"></a>Risposta di esempio
 
@@ -256,7 +264,9 @@ La `published` proprietà è l'ora in cui è stato eliminato il pacchetto, che i
 
 #### <a name="sample-request"></a>Richiesta di esempio
 
+```
 GET https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_lib.1.0.0-test.json
+```
 
 #### <a name="sample-response"></a>Risposta di esempio
 

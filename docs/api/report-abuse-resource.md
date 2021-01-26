@@ -1,60 +1,64 @@
 ---
-title: Modello di URL di report Abuse, API NuGet
-description: Il modello di URL report abuse consente ai client visualizzare un collegamento nell'interfaccia utente di loro.
+title: Modello di URL di abuso report, API NuGet
+description: Il modello report abuse URL consente ai client di visualizzare un collegamento Segnala abusi nell'interfaccia utente.
 author: joelverhagen
 ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: d0ff41b08eeba5a6e4bc7c44722b6bc57f502047
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: b36058c9c841e2cca6eb61121ada8275f1525a8f
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549339"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775227"
 ---
-# <a name="report-abuse-url-template"></a>Modello di report abuse URL
+# <a name="report-abuse-url-template"></a>Modello di URL di report abusi
 
-È possibile che un client per creare un URL che può essere utilizzato dall'utente per segnalare abusi relative a un pacchetto specifico. Ciò è utile quando si vuole che il file di origine abilitare tutte le esperienze di client (anche 3rd party) delegare i report di uso improprio all'origine del pacchetto.
+È possibile che un client crei un URL che può essere usato dall'utente per segnalare gli abusi relativi a un pacchetto specifico. Questa operazione è utile quando un'origine del pacchetto vuole abilitare tutte le esperienze client (anche di terze parti) per delegare i report sugli abusi all'origine del pacchetto.
 
-La risorsa usata per la creazione di questo URL è il `ReportAbuseUriTemplate` trovare la risorsa nella [indice del servizio](service-index.md).
+La risorsa utilizzata per la compilazione di questo URL è la `ReportAbuseUriTemplate` risorsa presente nell' [indice del servizio](service-index.md).
 
 ## <a name="versioning"></a>Controllo delle versioni
 
-Nell'esempio `@type` vengono utilizzati i valori:
+`@type`Vengono usati i valori seguenti:
 
-Valore di @type                       | Note
+Valore della proprietà @type                       | Note
 --------------------------------- | -----
-ReportAbuseUriTemplate/3.0.0-beta | La versione iniziale
-ReportAbuseUriTemplate/3.0.0-rc   | Alias di `ReportAbuseUriTemplate/3.0.0-beta`
+ReportAbuseUriTemplate/3.0.0-beta | Versione iniziale
+ReportAbuseUriTemplate/3.0.0-RC   | Alias di `ReportAbuseUriTemplate/3.0.0-beta`
 
 ## <a name="url-template"></a>Modello di URL
 
-L'URL per l'API seguente è il valore della `@id` proprietà associati a uno della risorsa menzionati in precedenza `@type` valori.
+L'URL per l'API seguente è il valore della `@id` proprietà associata a uno dei valori di risorsa `@type` indicati sopra.
 
 ## <a name="http-methods"></a>Metodi HTTP
 
-Anche se il client non può effettuare richieste per l'URL per segnalare abusi per conto dell'utente, la pagina web deve supportare il `GET` metodo per consentire un URL selezionato essere facilmente aperto in un web browser.
+Anche se il client non è destinato a eseguire richieste all'URL del report abusi per conto dell'utente, la pagina Web deve supportare il `GET` metodo per consentire l'apertura semplice di un URL selezionato in un Web browser.
 
-## <a name="construct-the-url"></a>Creare l'URL
+## <a name="construct-the-url"></a>Costruire l'URL
 
-Dato un ID noto pacchetto e versione, l'implementazione client può creare un URL utilizzato per accedere a un'interfaccia web. L'implementazione client deve visualizzare questo URL costruito (o un collegamento selezionabile) all'utente e consente loro di aprire un web browser all'URL ed effettuare qualsiasi report abuse necessarie. L'implementazione del form report abuse è determinato dall'implementazione del server.
+Dato un ID e una versione del pacchetto noti, l'implementazione client può costruire un URL usato per accedere a un'interfaccia Web. L'implementazione client deve visualizzare l'URL costruito (o collegamento selezionabile) per consentire all'utente di aprire un Web browser all'URL e di apportare eventuali segnalazioni di abusi necessarie. L'implementazione del modulo report di abusi è determinata dall'implementazione del server.
 
-Il valore della `@id` è una stringa URL contenente uno dei token di segnaposto seguente:
+Il valore di `@id` è una stringa URL che contiene i token segnaposto seguenti:
 
 ### <a name="url-placeholders"></a>Segnaposto URL
 
-nome        | Tipo    | Obbligatorio | Note
+Nome        | Type    | Necessario | Note
 ----------- | ------- | -------- | -----
-`{id}`      | stringa  | No       | L'ID del pacchetto per segnalare abusi per
-`{version}` | stringa  | No       | La versione del pacchetto per segnalare abusi per
+`{id}`      | string  | no       | ID del pacchetto per segnalare gli abusi per
+`{version}` | string  | no       | Versione del pacchetto per cui segnalare gli abusi
 
-Il `{id}` e `{version}` valori interpretato dall'implementazione del server devono essere maiuscole e minuscole e non sensibili al fatto che la versione è normalizzata.
+I `{id}` `{version}` valori e interpretati dall'implementazione del server non devono fare distinzione tra maiuscole e minuscole e non sono sensibili alla normalizzazione della versione.
 
-Ad esempio, modello di uso improprio del report di nuget.org aspetto simile al seguente:
+Il modello di abusi dei report di NuGet. org, ad esempio, ha un aspetto simile al seguente:
 
-    https://www.nuget.org/packages/{id}/{version}/ReportAbuse
+```
+https://www.nuget.org/packages/{id}/{version}/ReportAbuse
+```
 
-Se l'implementazione client deve visualizzare un collegamento al modulo di uso improprio del report per NuGet.Versioning 4.3.0, verrebbe generato l'URL seguente e offrirlo all'utente:
+Se l'implementazione client deve visualizzare un collegamento al modulo segnalazione abusi per NuGet. Versioning 4.3.0, produrrebbe l'URL seguente e lo fornirà all'utente:
 
-    https://www.nuget.org/packages/NuGet.Versioning/4.3.0/ReportAbuse
+```
+https://www.nuget.org/packages/NuGet.Versioning/4.3.0/ReportAbuse
+```

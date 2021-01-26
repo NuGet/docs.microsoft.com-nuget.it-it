@@ -1,16 +1,16 @@
 ---
 title: Panoramica dell'ecosistema NuGet
 description: Risorse complete dell'ecosistema NuGet che includono origini NuGet, progetti NuGet non Microsoft, utilità e materiali per la formazione.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 165587fb64be5a5f4dbfdece7dc3a1e6402b733e
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 57fa8e5683e687aab3022ebc77d7e69a61615877
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237426"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775608"
 ---
 # <a name="an-overview-of-the-nuget-ecosystem"></a>Panoramica dell'ecosistema NuGet
 
@@ -37,7 +37,7 @@ Molte altre persone e aziende hanno apportato contributi significativi all'ecosi
 - [AppVeyor (soluzione CI)](https://www.appveyor.com/)
 - [Artifactory](https://www.jfrog.com/artifactory/)
 - [BoxStarter](http://boxstarter.org/)
-- [Cioccolatoso](https://chocolatey.org/)
+- [Chocolatey](https://chocolatey.org/)
 - [CoApp](http://coapp.org/)
 - [JetBrains ReSharper](https://resharper-plugins.jetbrains.com/)
 - [JetBrains TeamCity](https://www.jetbrains.com/teamcity/)

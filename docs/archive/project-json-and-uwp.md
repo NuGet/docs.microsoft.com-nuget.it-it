@@ -1,16 +1,16 @@
 ---
 title: File project.json di NuGet con progetti UWP
 description: Descrizione di come il file project.json viene usato per tenere traccia delle dipendenze di NuGet nei progetti UWP (Universal Windows Platform).
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 07/17/2017
 ms.topic: conceptual
-ms.openlocfilehash: ac3c137dd0ba50571737093eef11c8ab0ef932b2
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 30e2272aafb5d2ea8d932e3cb0209d97c30b3209
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64494386"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98773810"
 ---
 # <a name="projectjson-and-uwp"></a>project.json e UWP
 
@@ -33,17 +33,17 @@ In questo caso è necessario aggiungere il moniker del framework di destinazione
 
 ## <a name="i-dont-need-windows-10-specific-apis-but-want-new-net-features-or-dont-have-netcore45-already"></a>Non sono necessarie le API specifiche di Windows 10, ma si vogliono usare le nuove funzionalità .NET o non si ha già netcore45
 
-In questo caso si aggiungerà il moniker TxM `dotnet` al pacchetto. Diversamente da altri TxM, `dotnet` non implica una superficie di attacco o una piattaforma. Il pacchetto funziona su tutte le piattaforme su cui funzionano le dipendenze. Quando si compila `dotnet` un pacchetto con TxM, è probabile che si disponga `.nuspec`di molte più dipendenze specifiche di TxM nell'oggetto , in quanto è necessario definire i pacchetti BCL da cui si dipende, ad esempio `System.Text`, `System.Xml`, e così via. I percorsi in cui funzionano tali dipendenze definiscono la posizione del pacchetto.
+In questo caso si aggiungerà il moniker TxM `dotnet` al pacchetto. Diversamente da altri TxM, `dotnet` non implica una superficie di attacco o una piattaforma. Il pacchetto funziona su tutte le piattaforme su cui funzionano le dipendenze. Quando si compila un pacchetto con `dotnet` TXM, è probabile che siano presenti molte altre dipendenze specifiche di TXM nel `.nuspec` , perché è necessario definire i pacchetti BCL da cui si dipende, ad esempio `System.Text` , `System.Xml` e così via. Le posizioni in cui lavorano tali dipendenze definiscono il percorso di funzionamento del pacchetto.
 
 ### <a name="how-do-i-find-out-my-dependencies"></a>Come trovare le dipendenze
 
 Esistono due modi per determinare le dipendenze da elencare:
 
-1. Utilizzare lo strumento [NuSpec Dependency Generator](https://github.com/onovotny/ReferenceGenerator) **di terze parti.** Lo strumento automatizza il processo e aggiorna il file `.nuspec` con i pacchetti dipendenti in fase di compilazione. È disponibile tramite il pacchetto NuGet [NuSpec.ReferenceGenerator](https://www.nuget.org/packages/NuSpec.ReferenceGenerator/).
+1. Usare lo strumento di **terze parti** [Generatore di dipendenze NuSpec](https://github.com/onovotny/ReferenceGenerator) . Lo strumento automatizza il processo e aggiorna il file `.nuspec` con i pacchetti dipendenti in fase di compilazione. È disponibile tramite il pacchetto NuGet [NuSpec.ReferenceGenerator](https://www.nuget.org/packages/NuSpec.ReferenceGenerator/).
 
 1. (Difficile) Usare `ILDasm` per esaminare il file `.dll` e verificare quali assembly sono effettivamente necessari in fase di esecuzione. Determinare quindi il pacchetto NuGet da cui proviene ognuno.
 
-Vedere [`project.json`](project-json.md) l'argomento per informazioni dettagliate sulle funzionalità che `dotnet` consentono di creare un pacchetto che supporta il TxM.
+[`project.json`](project-json.md)Per informazioni dettagliate sulle funzionalità che semplificano la creazione di un pacchetto che supporta TXM, vedere l'argomento `dotnet` .
 
 > [!Important]
 > Se il pacchetto deve usare progetti PCL, è consigliabile creare una cartella `dotnet` per evitare avvisi e potenziali problemi di compatibilità.
@@ -56,7 +56,7 @@ I pacchetti NuGet che usano questo formato presentano la cartella e i comportame
 | --- | --- |
 | Compilare | Contiene i file di destinazioni e proprietà MSBuild che vengono integrati in modo diverso nel progetto, senza altre modifiche. |
 | Strumenti | `install.ps1` e `uninstall.ps1` non vengono eseguiti. `init.ps1` funziona come sempre. |
-| Contenuto | Il contenuto non viene copiato automaticamente nel progetto di un utente. Il supporto per l'inclusione di contenuto nel progetto è previsto per una versione successiva. |
+| Content | Il contenuto non viene copiato automaticamente nel progetto di un utente. Il supporto per l'inclusione di contenuto nel progetto è previsto per una versione successiva. |
 | Lib | Per molti pacchetti `lib` funziona come in NuGet 2.x, ma con opzioni espanse per i nomi che possono essere usati e una logica migliore per la selezione della sottocartella corretta quando si utilizzano i pacchetti. Se usata in combinazione con `ref`, la cartella `lib` contiene tuttavia assembly che implementano la superficie di attacco definita dagli assembly nella cartella `ref`. |
 | Rif | `ref` è una cartella facoltativa che contiene assembly .NET che definiscono la superficie pubblica (tipi e metodi pubblici) per un'applicazione in cui eseguire la compilazione. Gli assembly in questa cartella possono non avere implementazioni. Vengono usati esclusivamente per definire la superficie di attacco per il compilatore. Se il pacchetto non ha cartelle `ref`, `lib` è sia l'assembly di riferimento che l'assembly di implementazione. |
 | Runtimes | `runtimes` è una cartella facoltativa contenente il codice specifico del sistema operativo, ad esempio l'architettura della CPU e i file binari specifici del sistema operativo o in altro modo dipendenti dalla piattaforma. |
@@ -73,11 +73,13 @@ Il comportamento della cartella `lib` non è cambiato di molto in NuGet v3. Tutt
 
 Struttura lib di esempio:
 
-    lib
-    ├───net40
-    │       MyLibrary.dll
-    └───wp81
-            MyLibrary.dll
+```
+lib
+├───net40
+│       MyLibrary.dll
+└───wp81
+        MyLibrary.dll
+```
 
 La cartella `lib` contiene assembly usati in fase di esecuzione. Per la maggior parte dei pacchetti, è sufficiente una cartella sotto `lib` per ogni TxM di destinazione.
 
@@ -91,55 +93,59 @@ Gli assembly inclusi nella cartella `ref` sono ovviamente gli assembly di riferi
 
 La struttura della cartella `ref` è la stessa di `lib`, ad esempio:
 
-    └───MyImageProcessingLib
-         ├───lib
-         │   ├───net40
-         │   │       MyImageProcessingLibrary.dll
-         │   │
-         │   ├───net451
-         │   │       MyImageProcessingLibrary.dll
-         │   │
-         │   └───win81
-         │           MyImageProcessingLibrary.dll
-         │
-         └───ref
-             ├───net40
-             │       MyImageProcessingLibrary.dll
-             │
-             └───portable-net451-win81
-                     MyImageProcessingLibrary.dll
+```
+└───MyImageProcessingLib
+        ├───lib
+        │   ├───net40
+        │   │       MyImageProcessingLibrary.dll
+        │   │
+        │   ├───net451
+        │   │       MyImageProcessingLibrary.dll
+        │   │
+        │   └───win81
+        │           MyImageProcessingLibrary.dll
+        │
+        └───ref
+            ├───net40
+            │       MyImageProcessingLibrary.dll
+            │
+            └───portable-net451-win81
+                    MyImageProcessingLibrary.dll
+```
 
 In questo esempio gli assembly nelle directory `ref` saranno tutti identici.
 
 ## <a name="runtimes"></a>Runtimes
 
-La cartella runtimes contiene assembly e librerie native necessari per l'esecuzione in specifici "runtime", definiti in genere dal sistema operativo e dall'architettura della CPU. Questi runtime vengono identificati utilizzando identificatori di runtime `win` `win-x86` [(RIDE),](/dotnet/core/rid-catalog) ad esempio , , `win7-x86`, , `win8-64`e così via.
+La cartella runtimes contiene assembly e librerie native necessari per l'esecuzione in specifici "runtime", definiti in genere dal sistema operativo e dall'architettura della CPU. Questi runtime vengono identificati usando gli [identificatori di runtime (RID)](/dotnet/core/rid-catalog) , ad esempio `win` ,, `win-x86` `win7-x86` , `win8-64` e così via.
 
 ## <a name="native-helpers-to-use-platform-specific-apis"></a>Helper nativi per usare API specifiche della piattaforma
 
 L'esempio seguente illustra un pacchetto che ha solo un'implementazione gestita per più piattaforme, ma usa helper nativi in Windows 8 dove può chiamare le API native specifiche di Windows 8.
 
-    └───MyLibrary
-         ├───lib
-         │   └───net40
-         │           MyLibrary.dll
-         │
-         └───runtimes
-             ├───win8-x64
-             │   ├───lib
-             │   │   └───net40
-             │   │           MyLibrary.dll
-             │   │
-             │   └───native
-             │           MyNativeLibrary.dll
-             │
-             └───win8-x86
-                 ├───lib
-                 │   └───net40
-                 │           MyLibrary.dll
-                 │
-                 └───native
-                         MyNativeLibrary.dll
+```
+└───MyLibrary
+        ├───lib
+        │   └───net40
+        │           MyLibrary.dll
+        │
+        └───runtimes
+            ├───win8-x64
+            │   ├───lib
+            │   │   └───net40
+            │   │           MyLibrary.dll
+            │   │
+            │   └───native
+            │           MyNativeLibrary.dll
+            │
+            └───win8-x86
+                ├───lib
+                │   └───net40
+                │           MyLibrary.dll
+                │
+                └───native
+                        MyNativeLibrary.dll
+```
 
 Con il pacchetto precedente si verifica quanto segue:
 
@@ -155,23 +161,25 @@ Poiché viene sempre selezionata una sola cartella `lib`, se è presente una car
 
 Un altro modo per usare i runtime consiste nell'inviare un pacchetto che è solo un wrapper gestito tramite un assembly nativo. In questo scenario si crea un pacchetto simile al seguente:
 
-    └───MyLibrary
-         └───runtimes
-             ├───win8-x64
-             │   ├───lib
-             │   │   └───net451
-             │   │           MyLibrary.dll
-             │   │
-             │   └───native
-             │           MyImplementation.dll
-             │
-             └───win8-x86
-                 ├───lib
-                 │   └───net451
-                 │           MyLibrary.dll
-                 │
-                 └───native
-                         MyImplementation.dll
+```
+└───MyLibrary
+        └───runtimes
+            ├───win8-x64
+            │   ├───lib
+            │   │   └───net451
+            │   │           MyLibrary.dll
+            │   │
+            │   └───native
+            │           MyImplementation.dll
+            │
+            └───win8-x86
+                ├───lib
+                │   └───net451
+                │           MyLibrary.dll
+                │
+                └───native
+                        MyImplementation.dll
+```
 
 In questo caso non sono presenti cartelle `lib` di primo livello uguali a tale cartella perché non esistono implementazioni di questo pacchetto che non si basano sull'assembly nativo corrispondente. Se l'assembly gestito, `MyLibrary.dll`, fosse esattamente lo stesso in entrambi i casi, sarebbe possibile inserirlo in una cartella `lib` di primo livello, ma, poiché l'assenza di un assembly nativo non impedisce la corretta installazione del pacchetto se venisse installato in una piattaforma diversa da win-x86 o win-x64, la cartella lib di primo livello verrebbe usata, ma nessun assembly nativo verrebbe copiato.
 

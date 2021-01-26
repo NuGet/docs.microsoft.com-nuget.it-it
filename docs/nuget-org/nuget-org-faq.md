@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7076378b53c439eef51a243fa6efcfb01b8cfa73
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: aa845464dbe939260d5fca3e4b89bd846df471a7
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237906"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775931"
 ---
 # <a name="nugetorg-frequently-asked-questions"></a>Domande frequenti su NuGet.org
 
@@ -92,7 +92,7 @@ Verificare innanzitutto di usare le versioni più recenti di NuGet. Se il proble
 
 - Installare la versione più recente di [Fiddler](https://www.telerik.com/download/fiddler).
 - Avviare Fiddler e disabilitare l'acquisizione del traffico tramite il menu **File > Capture Traffic** (File > Acquisisci traffico).
-- Rimuovere tutte le sessioni (selezionare tutti gli elementi nell'elenco e premere **CANC** ).
+- Rimuovere tutte le sessioni (selezionare tutti gli elementi nell'elenco e premere **CANC**).
 - Configurare Fiddler per acquisire il traffico HTTPS selezionando **Decrypt HTTPS traffic** (Decrittografa traffico HTTPS) nella scheda **HTTPS** nel menu **Tools > Fiddler Options** (Strumenti > Opzioni Fiddler).
 - Chiudere Visual Studio.
 - Abilitare il menu **File > Capture Traffic** (File > Acquisisci traffico).
@@ -124,10 +124,10 @@ Se non si ricorda a quale account Microsoft è associato l'account di NuGet.org,
 
 ### <a name="how-to-change-the-microsoft-account-i-use-for-nugetorg-login"></a>Come si cambia l'account Microsoft usato per l'accesso a NuGet.org?
 Se si vuole cambiare l'account Microsoft per l'utente di NuGet.org, seguire questa procedura. Si supponga che l'account Microsoft con indirizzo di posta elettronica `account1@outlook.com` sia associato all'account di NuGet.org con nome utente `MyNuGetAccount`. Si vuole cambiare l'account di accesso con un altro account Microsoft con indirizzo di posta elettronica `account2@outlook.com`
-1. Accedere usando **l'account Microsoft attualmente associato** , vale a dire `account1@outlook.com`, nella [pagina di accesso](https://www.nuget.org/users/account/LogOn) dopo aver fatto clic su **Sign in with Microsoft** (Accedi con Microsoft).
+1. Accedere usando **l'account Microsoft attualmente associato**, vale a dire `account1@outlook.com`, nella [pagina di accesso](https://www.nuget.org/users/account/LogOn) dopo aver fatto clic su **Sign in with Microsoft** (Accedi con Microsoft).
 1. Dopo l'accesso, passare alla pagina [Account settings](https://www.nuget.org/account) (Impostazioni account).
 1. Espandere la sezione **Login Account** (Account di accesso). Fare clic sul pulsante **Change Account** (Cambia account).
-1. Verrà effettuato il reindirizzamento alla pagina di accesso Microsoft. Accedere con l'account a cui si vuole modificare l'associazione, ad esempio `account2@outlook.com` . **Nota** : potrebbe essere necessario fare clic su **disconnettersi e accedere con un account diverso** durante il flusso di accesso per poter accedere con un account Microsoft diverso.
+1. Verrà effettuato il reindirizzamento alla pagina di accesso Microsoft. Accedere con l'account a cui si vuole modificare l'associazione, ad esempio `account2@outlook.com` . **Nota**: potrebbe essere necessario fare clic su **disconnettersi e accedere con un account diverso** durante il flusso di accesso per poter accedere con un account Microsoft diverso.
 1. Se viene visualizzato un errore simile al seguente, vedere [account Microsoft è collegato a un altro account NuGet.org](#microsoft-account-is-linked-with-another-nugetorg-account) per altri dettagli.
     >_Non è stato possibile aggiornare il account Microsoft con ' Account2 <account2@outlook.com> '. Questo problema può verificarsi se è già collegato a un altro account NuGet. Per ulteriori informazioni, contattare il supporto tecnico._
 
@@ -188,11 +188,11 @@ Seguire la procedura descritta in non è possibile usare l'account di [accesso M
 ### <a name="unable-to-use-microsoft-login-how-do-i-recover-my-nugetorg-account"></a>Non è possibile usare l'account di accesso Microsoft. Come si recupera l'account di NuGet.org?
 
 Se si è provato a usare l' [assistenza](#which-microsoft-account-is-linked-to-my-nugetorg-account) per l'accesso e non si ha accesso al account Microsoft associato all'account NuGet.org, attenersi alla procedura seguente per collegare un nuovo account Microsoft all'account NuGet.org.
-1. **Requisito** : è necessario accedere a un account Microsoft che non è associato ad alcun account NuGet.org esistente. Se non se ne ha alcuno, è possibile [crearne uno](https://signup.live.com).
+1. **Requisito**: è necessario accedere a un account Microsoft che non è associato ad alcun account NuGet.org esistente. Se non se ne ha alcuno, è possibile [crearne uno](https://signup.live.com).
 2. Se si dimenticano il nome utente e la password per l'account di NuGet.org, seguire la [procedura per ripristinare l'account di accesso con password](#how-to-recover-nugetorg-password-login).
 3. [Accedere a NuGet.org](https://www.nuget.org/users/account/LogOnNuGetAccount) usando l'account di accesso con nome utente/password.
 4. Dopo l'accesso, verrà visualizzata la finestra di dialogo popup illustrata più avanti. Si tratta di finestra di dialogo che informa della sospensione delle password.
-5. **Nota** : ignorare l'istruzione per eseguire l'accesso con il account Microsoft specificato. È ora possibile collegare l'account di NuGet.org a qualsiasi altro account di accesso Microsoft.
+5. **Nota**: ignorare l'istruzione per eseguire l'accesso con il account Microsoft specificato. È ora possibile collegare l'account di NuGet.org a qualsiasi altro account di accesso Microsoft.
 6. Fare clic sul pulsante **Sign in with Microsoft** (Accedi con Microsoft) e accedere con l'account Microsoft a cui si ha accesso, come indicato nel passaggio 1.
 7. L'account è ora collegato al nuovo account Microsoft, che d'ora in avanti potrà essere usato per accedere a NuGet.org.
 
@@ -203,7 +203,7 @@ Se si è provato a usare l' [assistenza](#which-microsoft-account-is-linked-to-m
 Se si vuole trasformare l'account in un'organizzazione e l'account è già associato a un account di accesso Microsoft, seguire i passaggi indicati nella documentazione relativa a [organizzazioni in nuget org](organizations-on-nuget-org.md).
 
 Se tuttavia l'account NuGet.org non è associato o collegato a un account Microsoft, la procedura seguente consente di trasformare l'account in un'organizzazione.
-1. **Requisito** : è necessario avere un singolo account creato per la prima volta in NuGet.org da usare come amministratore nell'account dell'organizzazione. Se non si ha un [account, creare un nuovo account NuGet.org](individual-accounts.md)
+1. **Requisito**: è necessario avere un singolo account creato per la prima volta in NuGet.org da usare come amministratore nell'account dell'organizzazione. Se non si ha un [account, creare un nuovo account NuGet.org](individual-accounts.md)
 2. Seguire i [passaggi per ripristinare](#how-to-recover-nugetorg-password-login) l'account di accesso con password per l'account NuGet.org se non si ha l'accesso con password, in caso contrario, ignorare questo passaggio.
 3. [Accedere a NuGet.org](https://www.nuget.org/users/account/LogOnNuGetAccount) usando l'account di accesso con nome utente/password.
 4. Dopo l'accesso, verrà visualizzata la finestra di dialogo popup illustrata più avanti. Si tratta di finestra di dialogo che informa della sospensione delle password. 
@@ -220,9 +220,7 @@ Se tuttavia l'account NuGet.org non è associato o collegato a un account Micros
 
 Se durante il flusso di accesso con il dominio dell'account di posta elettronica (@yourdomain.com) viene visualizzato un errore simile a quello che segue, vedere la procedura riportata più avanti per recuperare l'account di NuGet.org.
 
-<p align="center">
-    <img src="media/unmanaged-aad-tenant.png" />
-</p>
+![Errore durante l'accesso per gli account AAD](media/unmanaged-aad-tenant.png)
 
 **Che cos'è questa operazione di stato non gestito durante l'accesso? E perché si sta verificando adesso?** 
 

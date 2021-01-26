@@ -1,20 +1,20 @@
 ---
 title: Note sulla versione di NuGet 3,3
 description: Note sulla versione per NuGet 3,3, inclusi problemi noti, correzioni di bug, funzionalità aggiunte e DCR.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: aa8290c80cc500b59d1779bf76662c07382fd277
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.openlocfilehash: cd3f8c9c4586c608d41e7b8bfc413acfc6aff497
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76813780"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776504"
 ---
 # <a name="nuget-33-release-notes"></a>Note sulla versione di NuGet 3,3
 
-[Note sulla versione di NuGet 3.2.1](../release-notes/nuget-3.2.1.md) | [Note sulla versione di NUGET 3,4-RC](../release-notes/nuget-3.4-RC.md)
+Note sulla versione di [NuGet 3.2.1](../release-notes/nuget-3.2.1.md)  |  [Note sulla versione di NuGet 3,4-RC](../release-notes/nuget-3.4-RC.md)
 
 NuGet 3,3 è stato rilasciato il 30 novembre 2015 con un numero significativo di aggiornamenti dell'interfaccia utente e funzionalità della riga di comando, oltre a una raccolta di utili correzioni per i client NuGet.
 
@@ -37,11 +37,11 @@ NuGet 3,3 è stato rilasciato il 30 novembre 2015 con un numero significativo di
 
 ## <a name="new-command-line-features"></a>Nuove funzionalità della riga di comando
 
-In questa versione sono stati introdotti i comandi `add` e `init` per inizializzare i repository basati su cartelle, come descritto nel [riferimento a NuGet. exe](../reference/nuget-exe-cli-reference.md). I repository costruiti e gestiti con questa struttura di cartelle offriranno [vantaggi significativi](http://blog.nuget.org/20150922/Accelerate-Package-Source.html) in materia di prestazioni, come descritto nel Blog.
+In questa versione sono stati introdotti i `add` `init` comandi e per inizializzare i repository basati su cartelle come descritto nel [ riferimentonuget.exe](../reference/nuget-exe-cli-reference.md). I repository costruiti e gestiti con questa struttura di cartelle offriranno [vantaggi significativi](http://blog.nuget.org/20150922/Accelerate-Package-Source.html) in materia di prestazioni, come descritto nel Blog.
 
 ## <a name="contentfiles"></a>ContentFiles
 
-Il contenuto è ora supportato in `project.json` progetti gestiti tramite la nuova cartella `contentFiles` e `.nuspec` la notazione dell'elemento `contentFiles`.  Questo contenuto può essere specificato più direttamente dall'autore del pacchetto per le interazioni con i sistemi di progetto.  Altre informazioni su come configurare contentFiles in un documento `.nuspec` sono disponibili nel [riferimento. NuSpec](../reference/nuspec.md).
+Il contenuto è ora supportato nei `project.json` progetti gestiti tramite la nuova `contentFiles` notazione di elementi e cartelle `.nuspec` `contentFiles` .  Questo contenuto può essere specificato più direttamente dall'autore del pacchetto per le interazioni con i sistemi di progetto.  Altre informazioni su come configurare contentFiles in un `.nuspec` documento sono disponibili nel [riferimento. NuSpec](../reference/nuspec.md).
 
 ## <a name="nuget-locals-cache-management"></a>Gestione cache NuGet locale
 
@@ -55,7 +55,7 @@ La riga di comando di NuGet è stata aggiornata per includere informazioni su co
 
 L'elenco completo dei problemi risolti nella versione 3,3 è disponibile in GitHub nell' [attività cardine 3,3](https://github.com/NuGet/Home/issues?q=is%3Aissue+milestone%3A3.3.0+is%3Aclosed).
 
-L'elenco dei problemi risolti nella versione della riga di comando 3,3 viene registrato nell' [attività cardine della riga di comando 3,3](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A3.3.0-commandline).
+L'elenco dei problemi risolti nella versione della riga di comando 3,3 viene registrato nell' [attività cardine di 3,3 Command-Line](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A3.3.0-commandline).
 
 ## <a name="known-issues"></a>Problemi noti
 

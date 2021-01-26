@@ -1,292 +1,292 @@
 ---
-title: Note sulla versione Beta di NuGet 3.5
-description: Note sulla versione per NuGet 3.5, inclusi i problemi noti, correzioni di bug, funzionalità aggiunte e dcr.
-author: karann-msft
-ms.author: karann
+title: Note sulla versione per NuGet 3.5 RTM
+description: Note sulla versione per NuGet 3,5, inclusi problemi noti, correzioni di bug, funzionalità aggiunte e DCR.
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: d8df2cb51ddcc03fb3922d9e9def17b39fccc661
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 158373fb62f57fe6947fb863a1eef8122399959a
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43550684"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776346"
 ---
-# <a name="nuget-35-release-notes"></a>Note sulla versione 3.5 di NuGet
+# <a name="nuget-35-release-notes"></a>Note sulla versione di NuGet 3,5
 
-[Note sulla versione 3.5-RC di NuGet](../release-notes/nuget-3.5-RC.md) | [note sulla versione per NuGet 4.0 RC](../release-notes/nuget-4.0-RC.md)
+Note sulla versione [di NuGet 3,5-RC](../release-notes/nuget-3.5-RC.md)  |  [Note sulla versione di NuGet 4,0 RC](../release-notes/nuget-4.0-RC.md)
 
 ## <a name="bug-fixes"></a>Correzioni di bug
 
-* Service Pack non utilizza MSBuild 14.1 su mono - [#3550](https://github.com/NuGet/Home/issues/3550)
+* Pack non usa MSBuild 14,1 in mono- [#3550](https://github.com/NuGet/Home/issues/3550)
 
-* Scheda di aggiornamento non consente di selezionare la versione più recente versione installata corrente seleziona - invece di aggiornare [#3498](https://github.com/NuGet/Home/issues/3498)
+* Aggiornamento scheda non selezionare la versione disponibile più recente da aggiornare invece selezionare versione installata corrente- [#3498](https://github.com/NuGet/Home/issues/3498)
 
-* Correzione di arresto anomalo dopo l'autenticazione una privata v2 feed MyGet e facendo clic su "Show x più risultati"- [#3469](https://github.com/NuGet/Home/issues/3469)
+* Correzione dell'arresto anomalo dopo l'autenticazione di un feed MyGet privato V2 e facendo clic su "Mostra altri x risultati"- [#3469](https://github.com/NuGet/Home/issues/3469)
 
-* Messaggi di log sembrano essere in ordine inverso per l'interfaccia utente - [#3446](https://github.com/NuGet/Home/issues/3446)
+* I messaggi di log sembrano essere in ordine inverso per l'interfaccia utente- [#3446](https://github.com/NuGet/Home/issues/3446)
 
-* V3.4.4 - ripristino Nuget genera un'eccezione "il formato del percorso specificato non è supportato -" [#3442](https://github.com/NuGet/Home/issues/3442)
+* v 3.4.4-il ripristino di NuGet genera "il formato del percorso specificato non è supportato"- [#3442](https://github.com/NuGet/Home/issues/3442)
 
-* NuGet cmdLine 3.6 beta non rispetta - Prop Configuration = Release - [#3432](https://github.com/NuGet/Home/issues/3432)
+* NuGet cmdLine 3,6 beta non rispetta-prop Configuration = Release- [#3432](https://github.com/NuGet/Home/issues/3432)
 
-* Installare NuGet IKVM lento nel progetto di grandi dimensioni - [#3428](https://github.com/NuGet/Home/issues/3428)
+* Installazione lenta di NuGet IKVM in un progetto di grandi dimensioni- [#3428](https://github.com/NuGet/Home/issues/3428)
 
-* Update - Self tiene in aggiornarsi - NuGet.exe [#3395](https://github.com/NuGet/Home/issues/3395)
+* Aggiornamento nuget.exe-self mantiene l'aggiornamento autonomo- [#3395](https://github.com/NuGet/Home/issues/3395)
 
-* installazione e ripristino 3.5 da condivisione UNC offre prestazioni regressione da 3.4.4 - [#3355](https://github.com/NuGet/Home/issues/3355)
+* 3,5 l'installazione o il ripristino dalla condivisione UNC presenta una regressione delle prestazioni da 3.4.4- [#3355](https://github.com/NuGet/Home/issues/3355)
 
-* Errore durante l'installazione di Moq dalla gestione dei pacchetti dell'interfaccia utente per un progetto net451 - [#3349](https://github.com/NuGet/Home/issues/3349)
+* Errore durante l'installazione di MOQ dall'interfaccia utente di gestione pacchetti per un progetto net451- [#3349](https://github.com/NuGet/Home/issues/3349)
 
-* Installazione della scheda a livello di soluzione non mostra la versione del pacchetto - [#3339](https://github.com/NuGet/Home/issues/3339)
+* La scheda Installa a livello di soluzione non Mostra la versione del pacchetto [#3339](https://github.com/NuGet/Home/issues/3339)
 
-* xproj `project.json` aggiornamento dalla scheda installato perde lo stato - [#3303](https://github.com/NuGet/Home/issues/3303)
+* l' `project.json` aggiornamento di xproj dalla scheda installata perde lo stato [#3303](https://github.com/NuGet/Home/issues/3303)
 
-* Pacchetto NuGet in `.csproj` Ignora elemento file vuoti in `.nuspec` file - [#3257](https://github.com/NuGet/Home/issues/3257)
+* Il pacchetto NuGet in `.csproj` Ignora l'elemento file vuoti nel `.nuspec` file- [#3257](https://github.com/NuGet/Home/issues/3257)
 
-* Progetti di siti Web ospitati in IIS non dovrebbero causare ripristino esito negativo - [#3235](https://github.com/NuGet/Home/issues/3235)
+* I progetti di siti Web ospitati in IIS non devono causare la mancata riuscita del ripristino [#3235](https://github.com/NuGet/Home/issues/3235)
 
-* Credenziali non recuperate da NuGet. config quando endpoint v3 reindirizza a v2 - [#3179](https://github.com/NuGet/Home/issues/3179)
+* Le credenziali non vengono recuperate da Nuget.Config quando l'endpoint V3 viene reindirizzato alla versione v2- [#3179](https://github.com/NuGet/Home/issues/3179)
 
-* Pacchetto NuGet non riesce a risolvere l'assembly durante il recupero dei metadati dell'assembly portabile - [#3128](https://github.com/NuGet/Home/issues/3128)
+* Il pacchetto NuGet non riesce a risolvere l'assembly durante il recupero dei metadati dell'assembly portabile- [#3128](https://github.com/NuGet/Home/issues/3128)
 
-* Impossibile trovare NuGet `msbuild.exe` su Mono - [#3085](https://github.com/NuGet/Home/issues/3085)
+* Impossibile trovare NuGet `msbuild.exe` in mono- [#3085](https://github.com/NuGet/Home/issues/3085)
 
-* NuGet.exe pack non consente un tag di pre-release che inizia con numeri - [#1743](https://github.com/NuGet/Home/issues/1743)
+* nuget.exe Pack non consente un tag di versione non definitiva che inizia con numeri- [#1743](https://github.com/NuGet/Home/issues/1743)
 
-* installazione del pacchetto NuGet non riesce in VS2015E - [#1298](https://github.com/NuGet/Home/issues/1298)
+* l'installazione del pacchetto NuGet non riesce in VS2015E- [#1298](https://github.com/NuGet/Home/issues/1298)
 
-* attributo allowedversions valido Filtra non lavorativi a livello di soluzione - [#333](https://github.com/NuGet/Home/issues/333)
+* il filtro allowedVersions non funziona a livello di soluzione- [#333](https://github.com/NuGet/Home/issues/333)
 
-* Ripristino non riesce in modo casuale con un elemento con la stessa chiave è già stato aggiunto. - [#2646](https://github.com/NuGet/Home/issues/2646)
+* Il ripristino ha esito negativo in modo casuale ed è già stato aggiunto un elemento con la stessa chiave. - [#2646](https://github.com/NuGet/Home/issues/2646)
 
-* Non è possibile installare Nuget.Common in `.csproj`  -  [#2635](https://github.com/NuGet/Home/issues/2635)
+* Impossibile installare NuGet. Common in `.csproj`  -  [#2635](https://github.com/NuGet/Home/issues/2635)
 
-* Quando si utilizza l'interfaccia utente per la ricerca di un'origine V2, FindPackagesById viene chiamato due volte per ogni ID - [#2517](https://github.com/NuGet/Home/issues/2517)
+* Quando si usa l'interfaccia utente per cercare un'origine V2, FindPackagesById viene chiamato due volte per ogni ID [#2517](https://github.com/NuGet/Home/issues/2517)
 
-* Pacchetti non possono dipendere da progetti - [#2490](https://github.com/NuGet/Home/issues/2490)
+* I pacchetti non possono dipendere da progetti- [#2490](https://github.com/NuGet/Home/issues/2490)
 
-* NuGet.exe pack - Exclude è documentato ma non supportato - [#2284](https://github.com/NuGet/Home/issues/2284)
+* nuget.exe Pack-Exclude è documentato ma non supportato- [#2284](https://github.com/NuGet/Home/issues/2284)
 
-* I messaggi di problemi con l'errore quando la sezione 'contentFiles' di `.nuspec` non è valido - [#1686](https://github.com/NuGet/Home/issues/1686)
+* Problemi con i messaggi di errore quando la sezione ' contentFiles ' di `.nuspec` non è valida [#1686](https://github.com/NuGet/Home/issues/1686)
 
-* Push invia sempre l'intero pacchetto due volte con autenticato origini pacchetto - [#1501](https://github.com/NuGet/Home/issues/1501)
+* Push invia sempre due volte l'intero pacchetto con le origini dei pacchetti autenticati- [#1501](https://github.com/NuGet/Home/issues/1501)
 
-* È stata fornita alcuna informazione quando la chiamata a nuget.exe *. csproj update durante il progetto non dispone di un `packages.config`  -  [#1496](https://github.com/NuGet/Home/issues/1496)
+* Non sono state fornite informazioni durante la chiamata di nuget.exe Update *. csproj mentre il progetto non dispone di un `packages.config`  -  [#1496](https://github.com/NuGet/Home/issues/1496)
 
-* `packages.config`Restore non tenterà sui codici di stato 5xx da origini V2 - [#1217](https://github.com/NuGet/Home/issues/1217)
+* `packages.config` il ripristino non ritenta sui codici di stato di 5xx da V2 origini- [#1217](https://github.com/NuGet/Home/issues/1217)
 
-* Coppia di punti nel file src in `.nuspec` non funziona - [#2947](https://github.com/NuGet/Home/issues/2947)
+* Il doppio punto nel file src in `.nuspec` non funziona [#2947](https://github.com/NuGet/Home/issues/2947)
 
-* È necessario ignorare i feed con crittografia - ripristino CoreCLR [#2942](https://github.com/NuGet/Home/issues/2942)
+* Il ripristino di CoreCLR deve ignorare i feed con la crittografia [#2942](https://github.com/NuGet/Home/issues/2942)
 
-* NuGet.exe push gestione 403 - richiesta in modo non corretto di credenziali - [#2910](https://github.com/NuGet/Home/issues/2910)
+* Gestione nuget.exe push 403: richiesta non corretta per le credenziali- [#2910](https://github.com/NuGet/Home/issues/2910)
 
-* Gestione pacchetti NuGet aggiornamento rimuove il `project.json`  -  [#2888](https://github.com/NuGet/Home/issues/2888)
+* L'aggiornamento di NuGet tramite Gestione pacchetti rimuove le proprietà dalla `project.json`  -  [#2888](https://github.com/NuGet/Home/issues/2888)
 
-* NuGet.PackageManagement.VisualStudio tenta di caricare "NuGet.TeamFoundationServer14", ma che il nome DLL modificato in "NuGet.TeamFoundationServer" - [#2857](https://github.com/NuGet/Home/issues/2857)
+* NuGet. PackageManagement. VisualStudio tenta di caricare "NuGet. TeamFoundationServer14", ma il nome della DLL è stato modificato in "NuGet. TeamFoundationServer"- [#2857](https://github.com/NuGet/Home/issues/2857)
 
-* Pacchetto di gestione dell'interfaccia utente non viene visualizzato appena aggiornata versione - [#2828](https://github.com/NuGet/Home/issues/2828)
+* L'interfaccia utente di gestione pacchetti non Mostra la nuova versione aggiornata- [#2828](https://github.com/NuGet/Home/issues/2828)
 
-* pacchetto di aggiornamento sta tentando di utilizzare packageid, versione anziché package.version - [#2771](https://github.com/NuGet/Home/issues/2771)
+* Update-Package che tenta di usare PackageID, Version anziché Package. Version- [#2771](https://github.com/NuGet/Home/issues/2771)
 
-* NuGet restore csproj deve errore se il progetto non usa nuget (`packages.config` o `project.json`)- [#2766](https://github.com/NuGet/Home/issues/2766)
+* NuGet Restore csproj dovrebbe essere errore se il progetto non usa NuGet ( `packages.config` o `project.json` )- [#2766](https://github.com/NuGet/Home/issues/2766)
 
-* Errore di TFS "[file] non venga rilevato nell'area di lavoro o non si dispone dell'autorizzazione per accedervi" durante l'aggiornamento o la disinstallazione quando soluzione/progetto è associato al controllo del codice sorgente TFS - [#2739](https://github.com/NuGet/Home/issues/2739)
+* Errore TFS "[file] non trovato nell'area di lavoro oppure non si dispone dell'autorizzazione per accedervi" durante l'aggiornamento o la disinstallazione quando soluzione/progetto è associato al controllo del codice sorgente TFS- [#2739](https://github.com/NuGet/Home/issues/2739)
 
-* pacchetto di aggiornamento non ottiene le dipendenze per i pacchetti non-destinazione - [#2724](https://github.com/NuGet/Home/issues/2724)
+* il pacchetto di aggiornamento non ottiene le dipendenze per i pacchetti non di destinazione- [#2724](https://github.com/NuGet/Home/issues/2724)
 
-* Non è possibile impostare il livello di dettaglio i log per le azioni dell'interfaccia utente di gestione del pacchetto Nuget - [#2705](https://github.com/NuGet/Home/issues/2705)
+* Non è possibile impostare il livello di dettaglio dei log per le azioni dell'interfaccia utente di gestione pacchetti NuGet- [#2705](https://github.com/NuGet/Home/issues/2705)
 
-* la configurazione NuGet non è valida - VS 2015 VSIX (v3.4.3) - [#2667](https://github.com/NuGet/Home/issues/2667)
+* la configurazione di NuGet non è valida-VS 2015 VSIX (v 3.4.3)- [#2667](https://github.com/NuGet/Home/issues/2667)
 
-* DefaultPushSource in `NuGetDefaults.Config` (`ProgramData\NuGet`) non funziona - [#2653](https://github.com/NuGet/Home/issues/2653)
+* DefaultPushSource `NuGetDefaults.Config` ( `ProgramData\NuGet` ) non funziona- [#2653](https://github.com/NuGet/Home/issues/2653)
 
-* ottenere valore non può essere null in fase di compilazione - pacchetto NuGet versione 3.4.3 versione - [#2648](https://github.com/NuGet/Home/issues/2648)
+* versione di NuGet 3.4.3: il recupero del valore non può essere null nella compilazione del pacchetto: [#2648](https://github.com/NuGet/Home/issues/2648)
 
-* ripristino non utilizza credenziali archiviate da NuGet. config per i feed di VSTS - [#2647](https://github.com/NuGet/Home/issues/2647)
+* il ripristino non usa le credenziali archiviate da Nuget.Config per i feed VSTS- [#2647](https://github.com/NuGet/Home/issues/2647)
 
-* [dotnet ripristino] - configfile è relativo alla directory di progetto anziché il comando dir cmd - [#2639](https://github.com/NuGet/Home/issues/2639)
+* [dotnet restore]--configfile è relativo alla directory del progetto anziché alla directory cmd- [#2639](https://github.com/NuGet/Home/issues/2639)
 
-* Le allocazioni eccessive nel codice di confronto versione - [#2632](https://github.com/NuGet/Home/issues/2632)
+* Allocazioni eccessive nel codice di comparsing delle versioni- [#2632](https://github.com/NuGet/Home/issues/2632)
 
-* Più istanze di nuget.exe sta tentando di installare lo stesso pacchetto in paralleli fa sì che un'operazione di scrittura double - [#2628](https://github.com/NuGet/Home/issues/2628)
+* Più istanze di nuget.exe tentativo di installare lo stesso pacchetto in parallelo causano una doppia scrittura [#2628](https://github.com/NuGet/Home/issues/2628)
 
-* Informazioni sulle dipendenze non è stato memorizzato nella cache per le operazioni multiprogetto - [#2619](https://github.com/NuGet/Home/issues/2619)
+* Le informazioni sulle dipendenze non vengono memorizzate nella cache per le operazioni multiprogetto- [#2619](https://github.com/NuGet/Home/issues/2619)
 
-* Installare e aggiornare i pacchetti di download senza verificare la cartella pacchetti innanzitutto - [#2618](https://github.com/NuGet/Home/issues/2618)
+* Installare e aggiornare i pacchetti di download senza controllare prima la cartella Packages- [#2618](https://github.com/NuGet/Home/issues/2618)
 
-* Se l'elenco di origine del pacchetto è vuoto, non è possibile aggiungere l'origine del pacchetto tramite l'interfaccia utente (NuGet 3.4.x)- [#2617](https://github.com/NuGet/Home/issues/2617)
+* Se l'elenco di origine del pacchetto è vuoto, non è possibile aggiungere l'origine del pacchetto tramite l'interfaccia utente (NuGet 3.4. x)- [#2617](https://github.com/NuGet/Home/issues/2617)
 
-* Fuorviante errore durante il tentativo di installare il pacchetto che dipende dalla fase di progettazione aspetti - [#2594](https://github.com/NuGet/Home/issues/2594)
+* Errore fuorviante durante il tentativo di installare il pacchetto che dipende dalle facciate della fase di progettazione. [#2594](https://github.com/NuGet/Home/issues/2594)
 
-* Installa un pacchetto dalla console PackageManager con l'impostazione "All" tenta prima origine - [#2557](https://github.com/NuGet/Home/issues/2557)
+* L'installazione di un pacchetto dalla console di PackageManager con l'impostazione "All" prova solo la prima origine- [#2557](https://github.com/NuGet/Home/issues/2557)
 
-* Versione beta più recente non decompressione ModernHttpClient - [#2518](https://github.com/NuGet/Home/issues/2518)
+* Beta più recente non decomprimere ModernHttpClient- [#2518](https://github.com/NuGet/Home/issues/2518)
 
-* Arresto anomalo di VS2015 all'avvio con NuGet self-compilato 3.4.1 - [#2419](https://github.com/NuGet/Home/issues/2419)
+* Arresto anomalo VS2015 all'avvio con NuGet a compilazione automatica 3.4.1- [#2419](https://github.com/NuGet/Home/issues/2419)
 
-* Comando di aggiornamento potrebbe essere più dettagliato se i richiede che sia necessaria.... - [#2418](https://github.com/NuGet/Home/issues/2418)
+* Il comando Update potrebbe essere leggermente più dettagliato se lo chiedo...- [#2418](https://github.com/NuGet/Home/issues/2418)
 
-* VSIX compilato localmente deve avere le stesse DLL e i file della compilazione CI. - [#2401](https://github.com/NuGet/Home/issues/2401)
+* Il progetto VSIX compilato localmente deve avere le stesse dll e file della compilazione CI. - [#2401](https://github.com/NuGet/Home/issues/2401)
 
-* Risolvere gli avvisi di downgrade di NuGet nella compilazione - [#2396](https://github.com/NuGet/Home/issues/2396)
+* Correggere gli avvisi di downgrade NuGet nel [#2396](https://github.com/NuGet/Home/issues/2396) di compilazione
 
-* Impossibile autenticare l'origine del pacchetto (3 volte) è bloccato per sempre - [#2362](https://github.com/NuGet/Home/issues/2362)
+* Non è possibile autenticare l'origine del pacchetto (3 volte). il blocco è sempre [#2362](https://github.com/NuGet/Home/issues/2362)
 
-* Contenuto del pacchetto non verrà ripristinato correttamente quando si installa un pacchetto da nuget 3.3 + feed con l'argomento - NoCache quando il pacchetto contiene `.nupkg` file - [#2354](https://github.com/NuGet/Home/issues/2354)
+* Il contenuto del pacchetto non viene ripristinato correttamente quando si installa un pacchetto da un feed NuGet v 3.3 + con l'argomento-NoCache quando il pacchetto contiene `.nupkg` file- [#2354](https://github.com/NuGet/Home/issues/2354)
 
-* Installazione di NuGet con tutte le origini del pacchetto, ma pacchetto mancante dall'1 origine, non viene completata - [#2322](https://github.com/NuGet/Home/issues/2322)
+* L'installazione di NuGet con tutte le origini dei pacchetti, ma il pacchetto mancante da 1 origine, non riesce [#2322](https://github.com/NuGet/Home/issues/2322)
 
-* [PerfWatson] UIDelay: nuget.packagemanagement.visualstudio.dll! NuGet.PackageManagement.VisualStudio.VSMSBuildNuGetProjectSystem+*lt; &gt;c__DisplayClass_0 +&lt;&lt;AddReference&gt;b__&gt;d.MoveNext - [#2285](https://github.com/NuGet/Home/issues/2285)
+* [PerfWatson] UIDelay: nuget.packagemanagement.visualstudio.dll! NuGet. PackageManagement. VisualStudio. VSMSBuildNuGetProjectSystem + * lt; &gt; c__DisplayClass_0 + &lt; &lt; AddReference &gt; B__ &gt; d. MoveNext- [#2285](https://github.com/NuGet/Home/issues/2285)
 
-* Installare blocchi se una singola origine si verifica un errore di autorizzazione - [#2034](https://github.com/NuGet/Home/issues/2034)
+* Installa i blocchi se un'unica origine non riesce a eseguire l'autorizzazione- [#2034](https://github.com/NuGet/Home/issues/2034)
 
-* `.nuspec`versione intervallo deve eseguire l'override di versione - IncludeReferencedProjects - [#1983](https://github.com/NuGet/Home/issues/1983)
+* `.nuspec` l'intervallo di versioni deve eseguire l'override della versione-IncludeReferencedProjects- [#1983](https://github.com/NuGet/Home/issues/1983)
 
-* Pacchetto di aggiornamento rallentare super - "il tentativo di raccogliere informazioni sulle dipendenze" - [#1909](https://github.com/NuGet/Home/issues/1909)
+* Update-Package Super Slow: "tentativo di raccogliere informazioni sulle dipendenze"- [#1909](https://github.com/NuGet/Home/issues/1909)
 
-* Creare un pacchetto NuGet punta a downgrade quando batch l'aggiornamento delle relative dipendenze - [#1903](https://github.com/NuGet/Home/issues/1903)
+* Pacchetto di downgrade Stealth di NuGet quando batch Aggiorna le dipendenze- [#1903](https://github.com/NuGet/Home/issues/1903)
 
-* aggiornamento NuGet.exe elimina il nome sicuro dell'assembly e l'attributo privato. - [#1778](https://github.com/NuGet/Home/issues/1778)
+* nuget.exe aggiornamento elimina il nome sicuro e l'attributo privato dell'assembly. - [#1778](https://github.com/NuGet/Home/issues/1778)
 
-* Percorso relativo del file per "DefaultPushSource" - [#1746](https://github.com/NuGet/Home/issues/1746)
+* Percorso file relativo per "DefaultPushSource"- [#1746](https://github.com/NuGet/Home/issues/1746)
 
-* Migliorare i messaggi di errore di sistema di risoluzione - [#1373](https://github.com/NuGet/Home/issues/1373)
+* Migliorare i messaggi di errore del resolver- [#1373](https://github.com/NuGet/Home/issues/1373)
 
-* pacchetto di aggiornamento v3 non riesce con pacchetti non nell'origine specificata - [#1013](https://github.com/NuGet/Home/issues/1013)
+* Update-Package in V3 ha esito negativo con i pacchetti non inclusi nell'origine specificata: [#1013](https://github.com/NuGet/Home/issues/1013)
 
-* Utilizzando i percorsi relativi per le origini pacchetto risulta problematico per utilizzare - [#865](https://github.com/NuGet/Home/issues/865)
+* L'uso di percorsi relativi per le origini dei pacchetti è problematico per l'uso di- [#865](https://github.com/NuGet/Home/issues/865)
 
-* Manca una dipendenza nel file NUPKG generato dal progetto se dipendenza indiretta esiste già con un requisito di versione inferiore - [#759](https://github.com/NuGet/Home/issues/759)
+* Dipendenza mancante nel file NUPKG generato dal progetto se esiste già una dipendenza indiretta con un requisito di versione inferiore- [#759](https://github.com/NuGet/Home/issues/759)
 
-* L'eliminazione di un progetto chiude una finestra dell'interfaccia utente corrispondente, ma, ridenominazione di un progetto non si rinomina la finestra dell'interfaccia utente. Si noti che è in ascolto PMC ridenominazione del progetto e di eventi nei progetti remove - [#670](https://github.com/NuGet/Home/issues/670)
+* L'eliminazione di un progetto chiude la finestra dell'interfaccia utente corrispondente, ma la ridenominazione di un progetto non Rinomina la finestra dell'interfaccia utente. Si noti che la console di gestione delle attività è in ascolto della ridenominazione del progetto e degli [#670](https://github.com/NuGet/Home/issues/670) eventi di rimozione
 
-* [Willow carico di lavoro Web] Creazione Razor v3 WSP si blocca - [#3241](https://github.com/NuGet/Home/issues/3241)
+* [Carico di lavoro Web Willow] Creazione di blocchi WSP per Razor v3- [#3241](https://github.com/NuGet/Home/issues/3241)
 
-* Installazione e il ripristino di un particolare pacchetto ha esito negativo con "Pacchetto contiene più file nuspec." - [#3231](https://github.com/NuGet/Home/issues/3231)
+* L'installazione/ripristino di un particolare pacchetto ha esito negativo con "il pacchetto contiene più file nuspec". - [#3231](https://github.com/NuGet/Home/issues/3231)
 
-* Minuscolo ID & `packages.config` scenari - [#3209](https://github.com/NuGet/Home/issues/3209)
+* Scenari con ID minuscolo & `packages.config` - [#3209](https://github.com/NuGet/Home/issues/3209)
 
-* [-beta2 3.5] Ripristino del pacchetto non riesce a ripristinare i pacchetti "legacy" - [#3208](https://github.com/NuGet/Home/issues/3208)
+* [3,5-beta2] Il ripristino del pacchetto non riesce a ripristinare i pacchetti "Legacy"- [#3208](https://github.com/NuGet/Home/issues/3208)
 
-* pacchetto NuGet aggiunge in modo forzato file con estensione tt alla cartella del contenuto indipendentemente - [#3203](https://github.com/NuGet/Home/issues/3203)
+* il pacchetto NuGet aggiunge in modo forzato i file con estensione TT alla cartella del contenuto indipendentemente dalla [#3203](https://github.com/NuGet/Home/issues/3203)
 
-* pacchetto di aggiornamento dell'app web ASP.NET genera l'avviso relativo al file: origine - [#3194](https://github.com/NuGet/Home/issues/3194)
+* Update-Package dell'app Web ASP.NET genera un avviso relativo al file: Source- [#3194](https://github.com/NuGet/Home/issues/3194)
 
-* NuGet pack csproj (con `project.json`) si blocca se sono non presenti packOptions e proprietario nel file JSON - [#3180](https://github.com/NuGet/Home/issues/3180)
+* NuGet Pack csproj (con `project.json` ) si arresta in modo anomalo se non sono presenti packOptions e Owner nel file JSON [#3180](https://github.com/NuGet/Home/issues/3180)
 
-* pacchetto NuGet per `project.json` ignora i tag packOptions come riepilogo, gli autori e proprietari e così via - [#3161](https://github.com/NuGet/Home/issues/3161)
+* il pacchetto NuGet per `project.json` Ignora i tag packOptions come Summary, authors, owners e così via [#3161](https://github.com/NuGet/Home/issues/3161)
 
-* NullReferenceException tramite NuGet.Packaging.PhysicalPackageFile.GetStream - [#3160](https://github.com/NuGet/Home/issues/3160)
+* NullReferenceException tramite NuGet. Packaging. PhysicalPackageFile. GetStream- [#3160](https://github.com/NuGet/Home/issues/3160)
 
-* Pacchetto NuGet ignora le dipendenze nell'output `.nuspec` per `project.json`  -  [#3145](https://github.com/NuGet/Home/issues/3145)
+* Il pacchetto NuGet ignora le dipendenze nell'output `.nuspec` per `project.json`  -  [#3145](https://github.com/NuGet/Home/issues/3145)
 
-* Aggiornamento di più pacchetti con rollback lascia il progetto in uno stato danneggiato - [#3139](https://github.com/NuGet/Home/issues/3139)
+* L'aggiornamento di più pacchetti con rollback lascia il progetto in uno stato di interruzione- [#3139](https://github.com/NuGet/Home/issues/3139)
 
-* ContentFiles in presenza non vengono aggiunti per i progetti di moniker netstandard - [#3118](https://github.com/NuGet/Home/issues/3118)
+* ContentFiles in any non sono stati aggiunti per i progetti netstandard- [#3118](https://github.com/NuGet/Home/issues/3118)
 
-* Impossibile creare pacchetto libreria per .net Standard correttamente - [#3108](https://github.com/NuGet/Home/issues/3108)
+* Non è possibile creare un pacchetto della libreria di destinazione .NET standard correttamente- [#3108](https://github.com/NuGet/Home/issues/3108)
 
-* File -> Nuovo progetto -> ha esito negativo al progetto libreria di classi (portabile) VS2015 e Dev15 - [#3094](https://github.com/NuGet/Home/issues/3094)
+* File > nuovo progetto-> progetto libreria di classi (portabile) non riesce in VS2015 e Dev15- [#3094](https://github.com/NuGet/Home/issues/3094)
 
-* Errore di NuGet - 1.0.0-* non è una stringa di versione valida - [#3070](https://github.com/NuGet/Home/issues/3070)
+* errore nuGet-1.0.0-* non è una stringa di versione valida- [#3070](https://github.com/NuGet/Home/issues/3070)
 
-* Find-Package ha esito negativo per la visualizzazione, ma il funzionamento di Install-Package - [#3068](https://github.com/NuGet/Home/issues/3068)
+* Find-Package non viene visualizzato ma Install-Package funziona- [#3068](https://github.com/NuGet/Home/issues/3068)
 
-* Errore quando "Install-Package jquery.validation" in dev15 - [#3061](https://github.com/NuGet/Home/issues/3061)
+* Errore durante "Install-Package jQuery. Validation" in dev15- [#3061](https://github.com/NuGet/Home/issues/3061)
 
-* passa al percorso di destinazione non valida - pacchetto NuGet di xproj [#3060](https://github.com/NuGet/Home/issues/3060)
+* il pacchetto NuGet di xproj viene impostato per impostazione predefinita su percorso di destinazione non valido: [#3060](https://github.com/NuGet/Home/issues/3060)
 
-* Quando è installato Visual Studio 2015 update 3 in un Visual Studio che usa NuGet si verifica l'errore di versione 3.5.0 - [#3053](https://github.com/NuGet/Home/issues/3053)
+* Quando si esegue l'installazione di Visual Studio 2015 Update 3 su un Visual Studio che usa la versione NuGet 3.5.0 si verifica un errore [#3053](https://github.com/NuGet/Home/issues/3053)
 
-* "Bloccata da Packages" in `project.json` (UWP, dette anche compilazione integrato) progetto - [#3046](https://github.com/NuGet/Home/issues/3046)
+* Progetto "bloccato da packages.config" in `project.json` (UWP, a. k. a Build Integrated) [#3046](https://github.com/NuGet/Home/issues/3046)
 
-* aggiornamento della riga di comando di dotnet installato dallo script di compilazione per preview2-003121, ovvero la compilazione preview2 ufficiale. - [#3045](https://github.com/NuGet/Home/issues/3045)
+* aggiornare l'interfaccia della riga di comando DotNet installata dallo script di compilazione in Preview2-003121, che è la compilazione Preview2 ufficiale. - [#3045](https://github.com/NuGet/Home/issues/3045)
 
-* Pacchetto interfaccia utente di gestione: non visualizza una nuova versione dopo aver aggiornato un pacchetto- [#3041](https://github.com/NuGet/Home/issues/3041)
+* Interfaccia utente di gestione pacchetti: non Visualizza la nuova versione dopo l'aggiornamento di un pacchetto- [#3041](https://github.com/NuGet/Home/issues/3041)
 
-* -ApiKey nella riga di comando di eliminazione non viene in lettura/inviata 3.5.0-beta - [#3037](https://github.com/NuGet/Home/issues/3037)
+* -ApiKey nella riga di comando DELETE non è stato letto/inviato in 3.5.0-Beta- [#3037](https://github.com/NuGet/Home/issues/3037)
 
-* Stringa non corretto: una versione stabile di un pacchetto non deve avere in una versione non definitiva dipendenza. - [#3030](https://github.com/NuGet/Home/issues/3030)
+* Stringa non corretta: una versione stabile di un pacchetto non deve avere una dipendenza della versione provvisoria. - [#3030](https://github.com/NuGet/Home/issues/3030)
 
-* Cache OptimizedZipPackage lascia le cartelle vuote - [#3029](https://github.com/NuGet/Home/issues/3029)
+* La cache OptimizedZipPackage lascia cartelle vuote- [#3029](https://github.com/NuGet/Home/issues/3029)
 
-* Creazione di get di progetto libreria di classi Portabile (destinazione net46 e windows 10) l'eccezione NullRef. - [#3014](https://github.com/NuGet/Home/issues/3014)
+* Creazione dell'eccezione NullRef del progetto PCL (' net46 e Windows 10). - [#3014](https://github.com/NuGet/Home/issues/3014)
 
-* Aggiornamento di NuGet deve fornire un messaggio informativo quando una versione successiva è limitata dal vincolo di attributo allowedversions valido - [#3013](https://github.com/NuGet/Home/issues/3013)
+* L'aggiornamento di NuGet deve fornire un messaggio informativo quando una versione più alta è limitata dal vincolo allowedVersions- [#3013](https://github.com/NuGet/Home/issues/3013)
 
-* Problemi di ripristino NuGet v3 - [#2891](https://github.com/NuGet/Home/issues/2891)
+* Problemi di ripristino di NuGet V3- [#2891](https://github.com/NuGet/Home/issues/2891)
 
-* Plug-in credenziali chiuso con errore -1 / errore di download del pacchetto quando si utilizzano provider di credenziali con più origini - [#2885](https://github.com/NuGet/Home/issues/2885)
+* Il plug-in delle credenziali è stato terminato con errore-1/errore durante il download del pacchetto quando si usano i provider di credenziali con più origini [#2885](https://github.com/NuGet/Home/issues/2885)
 
-* `project.json`ripristino NuGet comporta la ricompilazione quando non modificato - [#2817](https://github.com/NuGet/Home/issues/2817)
+* `project.json` il ripristino di NuGet causa la ricompilazione quando non è stato modificato nulla [#2817](https://github.com/NuGet/Home/issues/2817)
 
-* Pacchetti di simboli non devono mai essere utilizzato nell'installazione o aggiornamento - [#2807](https://github.com/NuGet/Home/issues/2807)
+* I pacchetti di simboli non devono mai essere usati in installazione o aggiornamento- [#2807](https://github.com/NuGet/Home/issues/2807)
 
-* Visual Studio non supporta le variabili di ambiente in repositoryPath (nuget.exe non) - [#2763](https://github.com/NuGet/Home/issues/2763)
+* VS non supporta variabili di ambiente in repositoryPath (nuget.exe)- [#2763](https://github.com/NuGet/Home/issues/2763)
 
-* Etichetta di UIElement senza etichetta nel Package Manager UI per l'accessibilità - [#2745](https://github.com/NuGet/Home/issues/2745)
+* Etichettare gli UIElement senza etichetta nell'interfaccia utente di gestione pacchetti per l'accessibilità- [#2745](https://github.com/NuGet/Home/issues/2745)
 
-* Framework portabili con i profili con trattini sono rifiutate. - [#2734](https://github.com/NuGet/Home/issues/2734)
+* I Framework portabili con profili con sillabazione vengono rifiutati. - [#2734](https://github.com/NuGet/Home/issues/2734)
 
-* Gestione pacchetti NuGet deve mettere in evidenza tale elenco di opzioni in dettaglio non è valida per i pacchetti `project.json`  -  [#2665](https://github.com/NuGet/Home/issues/2665)
+* Gestione pacchetti NuGet dovrebbe rendere chiaro che l'elenco di opzioni nei pacchetti non si applica ai `project.json`  -  [#2665](https://github.com/NuGet/Home/issues/2665)
 
-* NuGet.exe push/delete non utilizzano la chiave API - [#2627](https://github.com/NuGet/Home/issues/2627)
+* nuget.exe push/Delete non userà la chiave API- [#2627](https://github.com/NuGet/Home/issues/2627)
 
-* Rimuovere la proprietà bloccata dal file di blocco - [#2379](https://github.com/NuGet/Home/issues/2379)
+* Rimuovere la proprietà Locked dal file di blocco- [#2379](https://github.com/NuGet/Home/issues/2379)
 
-* NuGet 3.3.0 aggiornamento ha esito negativo con '... un ulteriore vincolo definito in Packages. config impedisce l'operazione.' - [#1816](https://github.com/NuGet/Home/issues/1816)
+* L'aggiornamento di NuGet 3.3.0 ha esito negativo con ' un vincolo aggiuntivo... definito in packages.config impedisce questa operazione. - [#1816](https://github.com/NuGet/Home/issues/1816)
 
-* L'installazione del pacchetto da un'origine locale che non esiste genera un messaggio fittizio - [#1674](https://github.com/NuGet/Home/issues/1674)
+* L'installazione di un pacchetto da un'origine locale che non esiste genera un messaggio fasullo [#1674](https://github.com/NuGet/Home/issues/1674)
 
-* "Aggiornamento disponibile" filtro consente di visualizzare gli aggiornamenti che violano il vincolo di versione - [#1094](https://github.com/NuGet/Home/issues/1094)
+* Il filtro "aggiornamento disponibile" Mostra gli aggiornamenti che violano il vincolo di versione [#1094](https://github.com/NuGet/Home/issues/1094)
 
-* Non è possibile aggiornare i pacchetti nativi - [#1291](https://github.com/NuGet/Home/issues/1291)
+* Non è possibile aggiornare i pacchetti nativi- [#1291](https://github.com/NuGet/Home/issues/1291)
 
 
 ## <a name="features"></a>Funzionalità
 
-* Supporta l'impostazione CopyLocal su false nei riferimenti aggiunti da NuGet - [#329](https://github.com/NuGet/Home/issues/329)
+* Supporto dell'impostazione di CopyLocal su false nei riferimenti aggiunti da NuGet- [#329](https://github.com/NuGet/Home/issues/329)
 
-* il supporto per MSBuild 15 - NuGet.exe [#1937](https://github.com/NuGet/Home/issues/1937)
+* Supporto nuget.exe per MSBuild 15- [#1937](https://github.com/NuGet/Home/issues/1937)
 
-* Supporto per Pack.`csproj` + `project.json` - [#1689](https://github.com/NuGet/Home/issues/1689)
+* Supporto di Pack per.`csproj` + `project.json` - [#1689](https://github.com/NuGet/Home/issues/1689)
 
-* Disabilitare l'intervento dell'utente quando sono presenti azioni dell'utente in esecuzione- [#1440](https://github.com/NuGet/Home/issues/1440)
+* Disabilitare l'azione dell'utente quando sono in esecuzione azioni utente- [#1440](https://github.com/NuGet/Home/issues/1440)
 
-* NuGet è necessario aggiungere il supporto per `runtimes/{rid}/nativeassets/{txm}/`  -  [#2782](https://github.com/NuGet/Home/issues/2782)
+* NuGet dovrebbe aggiungere il supporto per `runtimes/{rid}/nativeassets/{txm}/`  -  [#2782](https://github.com/NuGet/Home/issues/2782)
 
-* Compatibilità di framework mancante in NuGet aggiungere 2. x (che sono già in 3. x) - [#2720](https://github.com/NuGet/Home/issues/2720)
+* Aggiungere le compatibilità del Framework mancanti in NuGet 2. x (che sono già in 3. x)- [#2720](https://github.com/NuGet/Home/issues/2720)
 
-* Supporto per le cartelle pacchetto fallback - [#2899](https://github.com/NuGet/Home/issues/2899)
+* Supporto per le cartelle dei pacchetti di fallback- [#2899](https://github.com/NuGet/Home/issues/2899)
 
-* Progettare e implementare una nozione di tipo di pacchetto per supportare i pacchetti strumento - [#2476](https://github.com/NuGet/Home/issues/2476)
+* Progettare e implementare una nozione di tipo di pacchetto per supportare pacchetti di strumenti- [#2476](https://github.com/NuGet/Home/issues/2476)
 
-* Aggiungere un'API per ottenere il percorso della cartella di pacchetti globale - [#2403](https://github.com/NuGet/Home/issues/2403)
+* Aggiungere un'API per ottenere il percorso della cartella dei pacchetti globali- [#2403](https://github.com/NuGet/Home/issues/2403)
 
-* Abilitare SemVer 2.0.0 Pack - [#3356](https://github.com/NuGet/Home/issues/3356)
+* Abilitare SemVer 2.0.0 in Pack- [#3356](https://github.com/NuGet/Home/issues/3356)
 
 ## <a name="dcrs"></a>DCR
 
-* NuGet.exe push: parametro di timeout non funziona - [#2785](https://github.com/NuGet/Home/issues/2785)
+* nuget.exe parametro di timeout push non funziona- [#2785](https://github.com/NuGet/Home/issues/2785)
 
-* Testo della descrizione del pacchetto deve essere selezionabile - [#1769](https://github.com/NuGet/Home/issues/1769)
+* Il testo della descrizione del pacchetto deve essere selezionabile- [#1769](https://github.com/NuGet/Home/issues/1769)
 
-* Abilitare nuget.exe per produrre `.props` e `.targets` file per `.nuproj` progetti [#2711](https://github.com/NuGet/Home/issues/2711)
+* Abilitare nuget.exe per produrre `.props` `.targets` i file e per i `.nuproj` progetti [#2711](https://github.com/NuGet/Home/issues/2711)
 
-* Aggiungere l'API da confrontare con importazioni - Framework di estendibilità [#2633](https://github.com/NuGet/Home/issues/2633)
+* Aggiungere l'API di estensibilità per confrontare i Framework con le importazioni- [#2633](https://github.com/NuGet/Home/issues/2633)
 
-* Nascondere le opzioni di dipendenza quando si utilizza `project.json`  -  [#2486](https://github.com/NuGet/Home/issues/2486)
+* Nascondi le opzioni di dipendenza quando si usa `project.json`  -  [#2486](https://github.com/NuGet/Home/issues/2486)
 
-* Stampa l'intestazione di versione nuget.exe in output dettagliato - [#1887](https://github.com/NuGet/Home/issues/1887)
+* Stampare l'intestazione della versione nuget.exe nell'output dettagliato- [#1887](https://github.com/NuGet/Home/issues/1887)
 
-* NuGet è necessario informare gli utenti che l'aggiornamento o l'installazione in un tfm dotnet basato su PCL potrebbe provocare problemi - [#3138](https://github.com/NuGet/Home/issues/3138)
+* NuGet deve informare gli utenti che l'aggiornamento o l'installazione in una libreria PCL basata su DotNet TFM può causare problemi: [#3138](https://github.com/NuGet/Home/issues/3138)
 
-* Installazione/aggiornamento non valido per il progetto con tfm Avvisa = "dotnet" - [#3137](https://github.com/NuGet/Home/issues/3137)
+* Avviso di installazione/aggiornamento errato per il progetto w/TFM = "DotNet"- [#3137](https://github.com/NuGet/Home/issues/3137)
 
-* Risolvere i problemi di prestazioni con ReShaper e NuGet per l'aggiornamento - [#3044](https://github.com/NuGet/Home/issues/3044)
+* Risolvere i problemi di prestazioni con reshaping e NuGet per Update- [#3044](https://github.com/NuGet/Home/issues/3044)
 
-* Aggiungere il supporto netcoreapp11 e netstandard17 - [#2998](https://github.com/NuGet/Home/issues/2998)
+* Aggiungere il supporto per netcoreapp11 e netstandard17- [#2998](https://github.com/NuGet/Home/issues/2998)
 
-* Attributo AssemblyMetadata sfrutta `.nuspec` token sostituzioni - [#2851](https://github.com/NuGet/Home/issues/2851)
+* Utilizzare l'attributo AssemblyMetadata per le `.nuspec` sostituzioni di token- [#2851](https://github.com/NuGet/Home/issues/2851)
