@@ -35,9 +35,10 @@
 ## [Creare un pacchetto (interfaccia della riga di comando dotnet)](create-packages/creating-a-package-dotnet-cli.md)
 ## [Creare un pacchetto (interfaccia della riga di comando nuget.exe)](create-packages/creating-a-package.md)
 ## [Creare un pacchetto (MSBuild)](create-packages/creating-a-package-msbuild.md)
-## [Supportare framework a più destinazioni nel file di progetto](create-packages/multiple-target-frameworks-project-file.md)
+## [Procedure consigliate per la creazione di pacchetti](create-packages/Package-authoring-best-practices.md)
 ## [Compilare un pacchetto per versione non definitiva](create-packages/prerelease-packages.md)
 ## [Creare un pacchetto di simboli](create-packages/symbol-packages-snupkg.md)
+## [Supportare framework a più destinazioni nel file di progetto](create-packages/multiple-target-frameworks-project-file.md)
 ## Attività avanzate
 ### [Supportare più framework di destinazione](create-packages/supporting-multiple-target-frameworks.md)
 ### [Modificare il codice sorgente e i file di configurazione](create-packages/source-and-config-file-transformations.md)
