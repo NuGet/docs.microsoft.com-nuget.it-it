@@ -5,16 +5,16 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 05/21/2018
 ms.topic: reference
-ms.openlocfilehash: 3e5db779f735cd42aa331f9f8a93496d32c8df54
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: da682197d4a156f9dff8ce169aab449a5392ef41
+ms.sourcegitcommit: c19d398cecee3cad2d79a8b22650fc1988d41a3f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777624"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99260303"
 ---
 # <a name="packagesconfig-reference"></a>Informazioni di riferimento su packages.config
 
-Il file `packages.config` viene usato in alcuni tipi di progetto per gestire l'elenco dei pacchetti a cui fa riferimento il progetto. In questo modo NuGet può ripristinare facilmente le dipendenze del progetto quando il progetto devono essere trasportato in un computer diverso, ad esempio un server di compilazione, senza tutti i pacchetti.
+Il file `packages.config` viene usato in alcuni tipi di progetto per gestire l'elenco dei pacchetti a cui fa riferimento il progetto. Questo consente a NuGet di ripristinare facilmente le dipendenze del progetto quando il progetto deve essere trasportato in un computer diverso, ad esempio un server di compilazione, senza tutti questi pacchetti.
 
 Se usato, `packages.config` in genere si trova in una radice del progetto. Viene creata automaticamente quando viene eseguita la prima operazione NuGet, ma è possibile crearla anche manualmente prima di eseguire qualsiasi comando, ad esempio `nuget restore` .
 
@@ -32,7 +32,7 @@ Lo schema è semplice. Dopo l'intestazione XML standard è presente un singolo n
 | allowedVersions | No | Intervallo di versioni consentite per questo pacchetto applicate durante l'aggiornamento del pacchetto (vedere [Limitazione delle versioni per l'aggiornamento](../consume-packages/reinstalling-and-updating-packages.md#constraining-upgrade-versions). Questo attributo *non* influisce sul pacchetto installato durante un'operazione di installazione o di ripristino. Per la sintassi, vedere [Controllo delle versioni dei pacchetti](../concepts/package-versioning.md#version-ranges). Anche l'interfaccia utente di Gestione pacchetti disabilita tutte le versioni non comprese nell'intervallo consentito. | 
 | developmentDependency | No | Se il progetto stesso che utilizza il pacchetto crea un pacchetto NuGet, l'impostazione di questo attributo su `true` per una dipendenza impedisce l'inclusione di tale pacchetto quando viene creato il pacchetto utilizzato. Il valore predefinito è `false`. | 
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Il file `packages.config` seguente fa riferimento a due dipendenze:
 
