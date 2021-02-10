@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 11485f583d6993919f6bb8acabcc87d9e4261975
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 6c04453fec9beb7b0998953384ec60694e1213c1
+ms.sourcegitcommit: af059dc776cfdcbad20baab2919b5d6dc1e9022d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774155"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99990156"
 ---
 # <a name="catalog"></a>Catalogo
 
@@ -69,7 +69,7 @@ GET {@id}
 
 L'indice del catalogo è un documento JSON che contiene un oggetto con le proprietà seguenti:
 
-Nome            | Type             | Necessario | Note
+Nome            | Tipo             | Necessario | Note
 --------------- | ---------------- | -------- | -----
 commitId        | string           | sì      | ID univoco associato al commit più recente
 commitTimeStamp | string           | sì      | Timestamp del commit più recente
@@ -86,7 +86,7 @@ Quando gli elementi vengono aggiunti al catalogo, l'indice `commitId` verrà mod
 
 Gli oggetti della pagina del catalogo trovati nella proprietà dell'indice del catalogo `items` hanno le proprietà seguenti:
 
-Nome            | Type    | Necessario | Note
+Nome            | Tipo    | Necessario | Note
 --------------- | ------- | -------- | -----
 @id             | string  | sì      | URL per recuperare la pagina del catalogo
 commitId        | string  | sì      | ID univoco associato al commit più recente in questa pagina
@@ -113,7 +113,7 @@ I nuovi elementi del catalogo vengono aggiunti alla pagina nell'indice del catal
 
 Il documento della pagina del catalogo è un oggetto JSON con le proprietà seguenti:
 
-Nome            | Type             | Necessario | Note
+Nome            | Tipo             | Necessario | Note
 --------------- | ---------------- | -------- | -----
 commitId        | string           | sì      | ID univoco associato al commit più recente in questa pagina
 commitTimeStamp | string           | sì      | Timestamp del commit più recente in questa pagina
@@ -133,7 +133,7 @@ Man mano che vengono aggiunti elementi alla pagina, le `commitId` modifiche e `c
 
 Gli oggetti elemento del catalogo disponibili nella proprietà della pagina del catalogo `items` hanno le proprietà seguenti:
 
-Nome            | Type    | Necessario | Note
+Nome            | Tipo    | Necessario | Note
 --------------- | ------- | -------- | -----
 @id             | string  | sì      | URL per recuperare l'elemento del catalogo
 @type           | string  | sì      | Tipo di elemento del catalogo
@@ -165,7 +165,7 @@ La foglia del catalogo contiene i metadati relativi a una versione e a un ID pac
 
 Il documento foglia del catalogo è un oggetto JSON con le proprietà seguenti:
 
-Nome                    | Type                       | Necessario | Note
+Nome                    | Tipo                       | Necessario | Note
 ----------------------- | -------------------------- | -------- | -----
 @type                   | Stringa o matrice di stringhe | sì      | Il tipo o i tipi dell'elemento del catalogo
 Catalogo: commitid        | string                     | sì      | ID commit associato a questo elemento del catalogo
@@ -196,7 +196,7 @@ I client che utilizzano gli elementi del catalogo non devono tentare di determin
 
 Gli elementi del catalogo Dettagli pacchetto hanno le proprietà seguenti, oltre a quelle [incluse in tutte le foglie del catalogo](#catalog-leaf).
 
-Nome                    | Type                       | Necessario | Note
+Nome                    | Tipo                       | Necessario | Note
 ----------------------- | -------------------------- | -------- | -----
 authors                 | string                     | no       |
 created                 | string                     | no       | Timestamp del momento in cui il pacchetto è stato creato per la prima volta. Proprietà fallback: `published` .
@@ -220,6 +220,7 @@ riepilogo                 | string                     | no       |
 tags                    | matrice di stringhe           | no       |
 title                   | string                     | no       |
 verbatimVersion         | string                     | no       | La stringa di versione come in origine è stata trovata in. NuSpec
+vulnerabilità         | matrice di oggetti           | no       | Vulnerabilità di sicurezza del pacchetto
 
 La `version` Proprietà Package è la stringa di versione completa dopo la normalizzazione. Ciò significa che i dati di compilazione di SemVer 2.0.0 possono essere inclusi qui.
 
@@ -229,7 +230,7 @@ Il `created` timestamp è quando il pacchetto è stato ricevuto per la prima vol
 
 La `packageTypes` proprietà sarà presente solo se un tipo di pacchetto è stato specificato dall'autore. Se è presente, sarà sempre presente almeno una voce (1). Ogni elemento nella `packageTypes` matrice è un oggetto JSON con le proprietà seguenti:
 
-Nome      | Type    | Necessario | Note
+Nome      | Tipo    | Necessario | Note
 --------- | ------- | -------- | -----
 name      | string  | sì      | Nome del tipo di pacchetto.
 version    | string  | no       | Versione del tipo di pacchetto. Presente solo se l'autore ha specificato in modo esplicito una versione in NuSpec.
@@ -238,6 +239,17 @@ Il `published` timestamp è l'ora dell'ultima elencazione del pacchetto.
 
 > [!Note]
 > In nuget.org, il `published` valore viene impostato sull'anno 1900 quando il pacchetto viene riincluso nell'elenco.
+
+#### <a name="vulnerabilities"></a>Vulnerabilità
+
+Matrice di oggetti `vulnerability`. Ogni vulnerabilità presenta le proprietà seguenti:
+
+Nome         | Tipo   | Necessario | Note
+------------ | ------ | -------- | -----
+advisoryUrl  | string | sì      | Posizione dell'avviso di sicurezza per il pacchetto
+severity     | string | sì      | Gravità dell'avviso: "0" = basso, "1" = moderato, "2" = alto, "3" = critico
+
+Se la `severity` proprietà contiene valori diversi da quelli elencati di seguito, la gravità dell'avviso verrà considerata come bassa.
 
 #### <a name="sample-request"></a>Richiesta di esempio
 

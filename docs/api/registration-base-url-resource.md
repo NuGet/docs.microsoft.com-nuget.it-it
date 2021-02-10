@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 403686de42bf4dc1fa94b9dd92ca6d33f3be2183
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 8d1ab4d1f3d75d93c30d94958fd9d1abf0742730
+ms.sourcegitcommit: af059dc776cfdcbad20baab2919b5d6dc1e9022d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775290"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99990116"
 ---
 # <a name="package-metadata"></a>Metadati dei pacchetti
 
@@ -78,7 +78,7 @@ GET {@id}/{LOWER_ID}/index.json
 
 ### <a name="request-parameters"></a>Parametri della richiesta
 
-Nome     | In     | Type    | Necessario | Note
+Nome     | In     | Tipo    | Necessario | Note
 -------- | ------ | ------- | -------- | -----
 LOWER_ID | URL    | string  | sì      | ID del pacchetto, minuscolo
 
@@ -88,7 +88,7 @@ Il `LOWER_ID` valore è l'ID pacchetto desiderato in minuscolo usando le regole 
 
 La risposta è un documento JSON con un oggetto radice con le proprietà seguenti:
 
-Nome  | Type             | Necessario | Note
+Nome  | Tipo             | Necessario | Note
 ----- | ---------------- | -------- | -----
 count | numero intero          | sì      | Numero di pagine di registrazione nell'indice
 items | matrice di oggetti | sì      | Matrice di pagine di registrazione
@@ -99,7 +99,7 @@ Ogni elemento nella matrice dell'oggetto index `items` è un oggetto JSON che ra
 
 L'oggetto pagina di registrazione trovato nell'indice di registrazione presenta le proprietà seguenti:
 
-Nome   | Type             | Necessario | Note
+Nome   | Tipo             | Necessario | Note
 ------ | ---------------- | -------- | -----
 @id    | string           | sì      | URL della pagina di registrazione
 count  | numero intero          | sì      | Il numero di fogli di registrazione nella pagina
@@ -123,7 +123,7 @@ Ogni elemento nella matrice dell'oggetto pagina `items` è un oggetto JSON che r
 
 L'oggetto foglia di registrazione trovato in una pagina di registrazione presenta le proprietà seguenti:
 
-Nome           | Type   | Necessario | Note
+Nome           | Tipo   | Necessario | Note
 -------------- | ------ | -------- | -----
 @id            | string | sì      | URL della foglia di registrazione
 catalogEntry   | object | sì      | Voce di catalogo contenente i metadati del pacchetto
@@ -135,7 +135,7 @@ Ogni oggetto foglia di registrazione rappresenta i dati associati a una singola 
 
 La `catalogEntry` proprietà nell'oggetto foglia di registrazione presenta le proprietà seguenti:
 
-Nome                     | Type                       | Necessario | Note
+Nome                     | Tipo                       | Necessario | Note
 ------------------------ | -------------------------- | -------- | -----
 @id                      | string                     | sì      | URL del documento utilizzato per produrre questo oggetto
 authors                  | Stringa o matrice di stringhe | no       | 
@@ -155,6 +155,7 @@ riepilogo                  | string                     | no       |
 tags                     | stringa o matrice di stringhe  | no       | 
 title                    | string                     | no       | 
 version                  | string                     | sì      | Stringa di versione completa dopo la normalizzazione
+vulnerabilità          | matrice di oggetti           | no       | Vulnerabilità di sicurezza del pacchetto
 
 La `version` Proprietà Package è la stringa di versione completa dopo la normalizzazione. Ciò significa che i dati di compilazione di SemVer 2.0.0 possono essere inclusi qui.
 
@@ -169,7 +170,7 @@ Il valore della `licenseExpression` proprietà è conforme alla [sintassi delle 
 
 Ogni oggetto gruppo di dipendenze presenta le proprietà seguenti:
 
-Nome            | Type             | Necessario | Note
+Nome            | Tipo             | Necessario | Note
 --------------- | ---------------- | -------- | -----
 targetFramework | string           | no       | Framework di destinazione a cui sono applicabili tali dipendenze.
 dipendenze    | matrice di oggetti | no       |
@@ -182,7 +183,7 @@ La `dependencies` proprietà è una matrice di oggetti, ognuno dei quali rappres
 
 Ogni dipendenza del pacchetto presenta le proprietà seguenti:
 
-Nome         | Type   | Necessario | Note
+Nome         | Tipo   | Necessario | Note
 ------------ | ------ | -------- | -----
 id           | string | sì      | ID della dipendenza del pacchetto
 range        | object | no       | Intervallo di [versioni](../concepts/package-versioning.md#version-ranges) consentite della dipendenza
@@ -194,7 +195,7 @@ Se la `range` proprietà è esclusa o una stringa vuota, il client deve eseguire
 
 Ogni deprecazione del pacchetto presenta le proprietà seguenti:
 
-Nome             | Type             | Necessario | Note
+Nome             | Tipo             | Necessario | Note
 ---------------- | ---------------- | -------- | -----
 motivi          | matrice di stringhe | sì      | Motivi per cui il pacchetto è stato deprecato
 message          | string           | no       | Ulteriori dettagli su questa deprecazione
@@ -214,10 +215,19 @@ Se la `reasons` proprietà contiene stringhe che non sono del set noto, è neces
 
 L'oggetto pacchetto alternativo presenta le proprietà seguenti:
 
-Nome         | Type   | Necessario | Note
+Nome         | Tipo   | Necessario | Note
 ------------ | ------ | -------- | -----
 id           | string | sì      | ID del pacchetto alternativo
 range        | object | no       | Intervallo di [versione](../concepts/package-versioning.md#version-ranges)consentito o `*` se è consentita una versione
+
+#### <a name="vulnerabilities"></a>Vulnerabilità
+
+Matrice di oggetti `vulnerability`. Ogni vulnerabilità presenta le proprietà seguenti:
+
+Nome         | Tipo   | Necessario | Note
+------------ | ------ | -------- | -----
+advisoryUrl  | string | sì      | Posizione dell'avviso di sicurezza per il pacchetto
+severity     | string | sì      | Gravità dell'avviso: "0" = basso, "1" = moderato, "2" = alto, "3" = critico
 
 ### <a name="sample-request"></a>Richiesta di esempio
 
@@ -240,7 +250,7 @@ La pagina di registrazione contiene le foglie di registrazione. L'URL per recupe
 
 Quando la `items` matrice non viene specificata nell'indice di registrazione, una richiesta HTTP Get del `@id` valore restituirà un documento JSON con un oggetto come radice. L'oggetto ha le proprietà seguenti:
 
-Nome   | Type             | Necessario | Note
+Nome   | Tipo             | Necessario | Note
 ------ | ---------------- | -------- | -----
 @id    | string           | sì      | URL della pagina di registrazione
 count  | numero intero          | sì      | Il numero di fogli di registrazione nella pagina
@@ -272,7 +282,7 @@ L'URL per recuperare un'foglia di registrazione viene ottenuto dalla `@id` propr
 
 Il foglio di registrazione è un documento JSON con un oggetto radice con le proprietà seguenti:
 
-Nome           | Type    | Necessario | Note
+Nome           | Tipo    | Necessario | Note
 -------------- | ------- | -------- | -----
 @id            | string  | sì      | URL della foglia di registrazione
 catalogEntry   | string  | no       | URL della voce di catalogo che ha prodotto l'elemento foglia

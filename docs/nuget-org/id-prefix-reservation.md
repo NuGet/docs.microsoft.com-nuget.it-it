@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 09/07/2019
 ms.topic: reference
 ms.reviewer: karann
-ms.openlocfilehash: af9969df33c6bf7a62709e6e3535b8b886376e3e
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 428fd3d7b324f6eb825b17e4a87a662fbd84a2f0
+ms.sourcegitcommit: af059dc776cfdcbad20baab2919b5d6dc1e9022d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775921"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99990100"
 ---
 # <a name="package-id-prefix-reservation"></a>Prenotazione del prefisso ID del pacchetto
 
@@ -73,23 +73,25 @@ Dopo l'invio dell'applicazione si riceve una notifica di accettazione o rifiuto 
 
 ### <a name="id-prefix-reservation-criteria"></a>Criteri di prenotazione del prefisso ID
 
-Durante la revisione di un'applicazione per la prenotazione del prefisso ID, il team di [nuget.org](https://www.nuget.org/) valuta l'applicazione rispetto ai criteri indicati di seguito. Non è necessario che siano soddisfatti tutti i criteri perché un prefisso venga riservato, ma l'applicazione potrebbe essere rifiutata se non esiste una prova sostanziale che dimostra che i criteri sono soddisfatti (con una spiegazione):
+Quando si esaminano le applicazioni per la prenotazione del prefisso ID, il team di [NuGet.org](https://www.nuget.org) valuterà l'applicazione in base ai criteri riportati di seguito. Si noti che non è necessario soddisfare tutti i criteri affinché un prefisso venga riservato, ma è possibile che l'applicazione venga negata se non sono presenti evidenze sostanziali dei criteri da soddisfare (con una spiegazione fornita):
 
-1. Il prefisso ID del pacchetto identifica in modo corretto e chiaro il proprietario del pacchetto?
+1. Il prefisso dell'ID pacchetto è corretto e identifica chiaramente il proprietario della prenotazione?
 
-1. Il proprietario del pacchetto [ha abilitato l'autenticazione a due fattori per l'account NuGet.org](individual-accounts.md#enable-two-factor-authentication-2fa)?
-
-1. Al prefisso ID del pacchetto fa riferimento un numero significativo di pacchetti già inviati dal proprietario?
+1. Il proprietario ha [abilitato 2FA per il proprio account NuGet.org](individual-accounts.md#enable-two-factor-authentication-2fa)?
 
 1. Il prefisso ID del pacchetto è un elemento comune che non deve appartenere a un singolo proprietario o una sola organizzazione?
 
-1. *Non* prenotare il prefisso ID del pacchetto può causare ambiguità e confusione per la community?
+1. *Non* riservare il prefisso dell'ID pacchetto causa ambiguità, confusione o altro danno alla community?
+
+Quando si pubblicano pacchetti in NuGet.org all'interno della prenotazione del prefisso ID, è necessario prendere in considerazione le procedure consigliate seguenti:
 
 1. Le proprietà di identificazione dei pacchetti che corrispondono al prefisso ID del pacchetto sono chiare e coerenti (in particolare l'autore del pacchetto)?
 
 1. I pacchetti hanno una licenza (usano l'elemento dei metadati [license](../reference/nuspec.md#license) e NON licenseUrl che sarà deprecato)?
 
-1. Se i pacchetti hanno un'icona (usando l'elemento dei metadati iconUrl), usano anche l'elemento di metadati [Icon](../reference/nuspec.md#icon) (non è necessario rimuovere iconUrl)?
+1. Se i pacchetti hanno un'icona (usando l'elemento dei metadati iconUrl), usano anche l'elemento di metadati [Icon](../reference/nuspec.md#icon) ? Non è necessario rimuovere iconUrl, ma è necessario usare icone incorporate.
+ 
+Si consiglia di esaminare la [Guida alle procedure consigliate](../create-packages/package-authoring-best-practices.md) per la creazione di pacchetti completa, oltre ai punti precedenti.
 
 ## <a name="third-party-feed-provider-scenarios"></a>Scenari di provider di feed di terze parti
 
