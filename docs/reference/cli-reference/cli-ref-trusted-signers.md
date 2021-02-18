@@ -6,12 +6,12 @@ ms.author: patbel
 ms.date: 11/12/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: 9e25f439617a76d30880bea3c10a5d063e681a41
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 4b6a1c3b6eb0fefd9a78c78233f974eb0db19e93
+ms.sourcegitcommit: aeb9072f2fcaca73dc9de05b7fd643f1aa7c5821
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238153"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101101368"
 ---
 # <a name="trusted-signers-command-nuget-cli"></a>comando Trusted-signers (interfaccia della riga di comando di NuGet)
 
@@ -90,7 +90,7 @@ dove `<package(s)>` è uno o più `.nupkg` file.
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_Nota_ : questa opzione consente di aggiungere solo repository attendibili. 
+_Nota_: questa opzione consente di aggiungere solo repository attendibili. 
 
 - **`-AllowUntrustedRoot`**
 
@@ -110,7 +110,7 @@ _Nota_ : questa opzione consente di aggiungere solo repository attendibili.
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_Nota_ : se un firmatario attendibile con il nome specificato esiste già, l'elemento del certificato verrà aggiunto a tale firmatario. In caso contrario, verrà creato un autore attendibile con un elemento certificato fornito dalle informazioni del certificato.
+_Nota_: se un firmatario attendibile con il nome specificato esiste già, l'elemento del certificato verrà aggiunto a tale firmatario. In caso contrario, verrà creato un autore attendibile con un elemento certificato fornito dalle informazioni del certificato.
 
 
 - **`-AllowUntrustedRoot`**
@@ -133,7 +133,7 @@ Rimuove eventuali firmatari attendibili che corrispondono al nome specificato.
 
 Richiede l'elenco più recente di certificati usati in un repository attualmente attendibile per aggiornare l'elenco di certificati esistente nel firmatario attendibile.
 
-_Nota_ : questo movimento eliminerà l'elenco corrente dei certificati e li sostituirà con un elenco aggiornato dal repository.
+_Nota_: questo movimento eliminerà l'elenco corrente dei certificati e li sostituirà con un elenco aggiornato dal repository.
 
 ## <a name="options"></a>Opzioni
 
@@ -175,7 +175,7 @@ nuget trusted-signers Add -Name author1 -CertificateFingerprint CE40881FF5F0AD3E
 
 nuget trusted-signers Add -Repository .\..\MyRepositorySignedPackage.nupkg -Name TrustedRepo
 
-nuget-trusted-signers Remove -Name TrustedRepo
+nuget trusted-signers Remove -Name TrustedRepo
 
-nuget-trusted-signers Sync -Name TrustedRepo
+nuget trusted-signers Sync -Name TrustedRepo
 ```
