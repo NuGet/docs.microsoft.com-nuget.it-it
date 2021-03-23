@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 5ba7860fae1037c0c0eb4c55d2df12d98b1d77cf
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 77b96e83f8fc7afd391537d16120d037585dd379
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775113"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859200"
 ---
 # <a name="package-versioning"></a>Controllo delle versioni dei pacchetti
 
@@ -123,7 +123,7 @@ Quando si usa il formato PackageReference, NuGet supporta anche l'uso di una not
 > [!Note]
 > Gli intervalli di versione in PackageReference includono le versioni non definitive. Per impostazione predefinita, le versioni mobili non risolvono le versioni non definitive se non con consenso esplicito. Per lo stato della richiesta di funzionalità correlata, vedere il [problema 6434](https://github.com/NuGet/Home/issues/6434#issuecomment-358782297).
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 Specificare sempre una versione o un intervallo di versioni per le dipendenze dei pacchetti nei file di progetto, nei file `packages.config` e nei file `.nuspec`. Senza una versione o un intervallo di versioni, NuGet 2.8.x e versioni precedenti scelgono la versione più recente del pacchetto disponibile durante la risoluzione di una dipendenza, mentre NuGet 3.x e versioni successive scelgono la versione del pacchetto più bassa. La specifica di una versione o di un intervallo di versioni evita questa incertezza.
 
@@ -245,3 +245,13 @@ Quando si ottengono pacchetti da un repository durante le operazioni di installa
 Le operazioni `pack` e `restore` normalizzano le versioni quando possibile. Per i pacchetti già compilati, la normalizzazione non influisce sui numeri di versione dei pacchetti stessi, ma influisce solo sul modo in cui NuGet abbina le versioni durante la risoluzione delle dipendenze.
 
 Tuttavia, i repository di pacchetti NuGet devono gestire questi valori nello stesso modo di NuGet per evitare la duplicazione della versione del pacchetto. Un repository che contiene la versione *1.0* di un pacchetto non deve inoltre ospitare la versione *1.0.0* come pacchetto separato e diverso.
+
+## <a name="where-nugetversion-diverges-from-semantic-versioning"></a>Dove NuGetVersion diverge dal controllo delle versioni semantico
+
+Se si vuole a livello usare le versioni dei pacchetti NuGet, è consigliabile usare [il pacchetto NuGet. Versioning](https://www.nuget.org/packages/NuGet.Versioning). Il metodo statico `NuGetVersion.Parse(string)` può essere utilizzato per analizzare le stringhe di versione e `VersionComparer` può essere utilizzato per ordinare le `NuGetVersion` istanze.
+
+Se si implementa la funzionalità NuGet in un linguaggio che non viene eseguito in .NET, di seguito è riportato un elenco noto di differenze tra `NuGetVersion` e il controllo delle versioni semantico e i motivi per cui una libreria di controllo delle versioni semantica esistente potrebbe non funzionare per i pacchetti già pubblicati in NuGet.org.
+
+1. `NuGetVersion` supporta un segmento di versione 4, `Revision` , per essere compatibile con o un superset di, [`System.Version`](/dotnet/api/system.version) . Pertanto, escludendo le etichette di versione provvisoria e dei metadati, una stringa di versione è `Major.Minor.Patch.Revision` . Come per la normalizzazione delle versioni descritta in precedenza, se `Revision` è zero, viene omesso dalla stringa di versione normalizzata.
+2. `NuGetVersion` richiede solo il segmento principale da definire. Tutti gli altri sono facoltativi e sono equivalenti a zero. Ciò significa che `1` , `1.0` , `1.0.0` e `1.0.0.0` sono tutti accettati e uguali.
+3. `NuGetVersion` Usa il case non attiva confronti di stringhe per i componenti di versioni non definitive. Ciò significa che `1.0.0-alpha` e `1.0.0-Alpha` sono uguali.

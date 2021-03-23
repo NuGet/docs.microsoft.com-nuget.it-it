@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 6a68b07c42e6abf4ad57d0129fa76d7dd620145f
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 4028657862cfd56d0653b370e8344cab8392d69d
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777683"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859499"
 ---
 # <a name="nuspec-reference"></a>Informazioni di riferimento sul file .nuspec
 
@@ -34,7 +34,7 @@ In questo argomento
 
 - `.nuspec`Non è necessario un file per creare pacchetti per i [progetti di tipo SDK](../resources/check-project-format.md) (in genere .net core e .NET standard progetti che usano l' [attributo SDK](/dotnet/core/tools/csproj#additions)). Si noti che `.nuspec` quando si crea il pacchetto viene generato un oggetto.
 
-   Se si sta creando un pacchetto usando `dotnet.exe pack` o `msbuild pack target` , si consiglia di [includere tutte le proprietà](../reference/msbuild-targets.md#pack-target) che in genere si trovano nel file del `.nuspec` progetto. Tuttavia, è invece possibile scegliere di [usare un `.nuspec` file per eseguire il Pack usando `dotnet.exe` o `msbuild pack target` ](../reference/msbuild-targets.md#packing-using-a-nuspec).
+   Se si sta creando un pacchetto usando `dotnet.exe pack` o `msbuild pack target` , si consiglia di [includere tutte le proprietà](../reference/msbuild-targets.md#pack-target) che in genere si trovano nel file del `.nuspec` progetto. Tuttavia, è invece possibile scegliere di [usare un `.nuspec` file per eseguire il Pack usando `dotnet.exe` o `msbuild pack target` ](../reference/msbuild-targets.md#packing-using-a-nuspec-file).
 
 - Per i progetti migrati da `packages.config` a [PackageReference](../consume-packages/package-references-in-project-files.md), `.nuspec` non è necessario un file per creare il pacchetto. Usare invece [msbuild-t:Pack](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
 
@@ -198,7 +198,7 @@ Ad esempio, quando si crea un pacchetto utilizzando nuget.exe è necessario aggi
 </package>
 ```
 
-[Esempio di icona del pacchetto NuSpec.](https://github.com/NuGet/Samples/tree/master/PackageIconNuspecExample)
+[Esempio di icona del pacchetto NuSpec.](https://github.com/NuGet/Samples/tree/main/PackageIconNuspecExample)
 
 Per l'equivalente MSBuild, vedere la pagina [relativa all'imballaggio di un file di immagine icona](msbuild-targets.md#packing-an-icon-image-file).
 
@@ -328,7 +328,7 @@ In genere, quando si dispone di un progetto, si crea inizialmente il file `.nusp
 
 Ad eccezione di `$configuration$`, i valori nel progetto vengono usati preferenzialmente rispetto a qualsiasi altro valore assegnato allo stesso token nella riga di comando.
 
-| Token | Origine del valore | valore
+| Token | Origine del valore | Valore
 | --- | --- | ---
 | **$id $** | File di progetto | AssemblyName (title) dal file di progetto |
 | **$version $** | AssemblyInfo | AssemblyInformationalVersion se presente, in caso contrario AssemblyVersion |
@@ -530,7 +530,7 @@ Ogni elemento `<file>` specifica gli attributi seguenti:
 | **target** | Percorso relativo della cartella all'interno del pacchetto in cui vengono collocati i file di origine, che deve iniziare con `lib`, `content`, `build` o `tools`. Vedere [Creazione di un file .nuspec da una directory di lavoro basata su convenzioni](../create-packages/creating-a-package.md#from-a-convention-based-working-directory). |
 | **escludere** | Elenco delimitato da punti e virgola dei file o dei modelli di file da escludere dal percorso `src`. Il carattere jolly `*` è consentito e il carattere jolly doppio `**` implica una ricerca ricorsiva nelle cartelle. |
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 **Singolo assembly**
 

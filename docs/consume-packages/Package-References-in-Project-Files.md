@@ -5,14 +5,14 @@ author: nkolev92
 ms.author: nikolev
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: dcaed83ca54e3234702e963ffc2ebbde4cd75b28
-ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
+ms.openlocfilehash: df7c793d115622f04a148cbbc3ebf396a3e4ab69
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98235763"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859187"
 ---
-# <a name="package-references-packagereference-in-project-files"></a>Riferimenti a pacchetti (PackageReference) nei file di progetto
+# <a name="package-references-packagereference-in-project-files"></a>Riferimenti ai pacchetti ( `PackageReference` ) nei file di progetto
 
 I riferimenti ai pacchetti, tramite il nodo `PackageReference`, consentono di gestire le dipendenze di NuGet direttamente all'interno di file di progetto, invece di dover ricorrere a un file `packages.config` separato. L'uso di PackageReference non influenza altri aspetti di NuGet. Ad esempio le impostazioni nei file `NuGet.config` (incluse le origini dei pacchetti) vengono comunque applicate come illustrato in [Configurazione comuni di NuGet](configuring-nuget-behavior.md).
 
@@ -107,7 +107,7 @@ I tag di metadati seguenti controllano gli asset delle dipendenze:
 
 I valori consentiti per questi tag sono i seguenti, con più valori separati da un punto e virgola, ad eccezione di `all` e `none` che devono essere usati da soli:
 
-| valore | Descrizione |
+| Valore | Descrizione |
 | --- | ---
 | compile | Contenuti della cartella `lib`. Controlla se il progetto può essere compilato in base agli assembly nella cartella |
 | runtime | Contenuti delle cartelle `lib` e `runtimes`. Controlla se questi assembly verranno copiati nella directory di output build |
@@ -211,7 +211,7 @@ Per verificare il nome esatto della proprietà generata, esaminare il file [NuGe
 In alcuni casi rari, i pacchetti diversi conterranno le classi nello stesso spazio dei nomi. A partire da NuGet 5,7 & Visual Studio 2019 Update 7, equivalente a ProjectReference, PackageReference supporta [`Aliases`](/dotnet/api/microsoft.codeanalysis.projectreference.aliases) .
 Per impostazione predefinita, non viene specificato alcun alias. Quando viene specificato un alias, è necessario fare riferimento a *tutti* gli assembly provenienti dal pacchetto con annotazioni con un alias.
 
-È possibile esaminare l'utilizzo di esempio in [NuGet\Samples](https://github.com/NuGet/Samples/tree/master/PackageReferenceAliasesExample)
+È possibile esaminare l'utilizzo di esempio in [NuGet\Samples](https://github.com/NuGet/Samples/tree/main/PackageReferenceAliasesExample)
 
 Nel file di progetto specificare gli alias come indicato di seguito:
 

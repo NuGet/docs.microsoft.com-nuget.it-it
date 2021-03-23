@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 02/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 125579832db2ac32217d24f6fc6fc1b555f54350
-ms.sourcegitcommit: aeb9072f2fcaca73dc9de05b7fd643f1aa7c5821
+ms.openlocfilehash: e0f235d99e41e23a4551fbf7577f6c42e3381f5b
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101101437"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859226"
 ---
 # <a name="best-practices-for-a-secure-software-supply-chain"></a>Procedure consigliate per una supply chain di software sicuro
 
@@ -75,7 +75,7 @@ Si trova in genere in una delle due posizioni seguenti:
 -   [`packages.config`](../reference/packages-config.md) : Si trova nella radice del progetto.
 -   [`<PackageReference>`](../consume-packages/package-references-in-project-files.md) : Si trova nel file di progetto. 
 
-A seconda del metodo usato per gestire le dipendenze di NuGet, è anche possibile usare Visual Studio per visualizzare le dipendenze direttamente in [Esplora soluzioni](/visualstudio/ide/solutions-and-projects-in-visual-studio?view=vs-2019#solution-explorer) o in [Gestione pacchetti NuGet](../consume-packages/install-use-packages-visual-studio.md).
+A seconda del metodo usato per gestire le dipendenze di NuGet, è anche possibile usare Visual Studio per visualizzare le dipendenze direttamente in [Esplora soluzioni](/visualstudio/ide/solutions-and-projects-in-visual-studio#solution-explorer) o in [Gestione pacchetti NuGet](../consume-packages/install-use-packages-visual-studio.md).
 
 Per gli ambienti dell'interfaccia della riga di comando, è possibile usare il [`dotnet list package`](/dotnet/core/tools/dotnet-list-package) comando per elencare le dipendenze del progetto o della soluzione. 
 
@@ -140,7 +140,7 @@ Per configurare i criteri di attendibilità del client, [vedere la documentazion
 
 I file di blocco archiviano l'hash del contenuto del pacchetto. Se l'hash del contenuto di un pacchetto che si desidera installare corrisponde al file di blocco, verrà garantita la ripetibilità del pacchetto.
 
-Per abilitare i file di blocco, [vedere la documentazione seguente](../consume-packages/package-references-in-project-files#locking-dependencies).
+Per abilitare i file di blocco, [vedere la documentazione seguente](../consume-packages/package-references-in-project-files.md#locking-dependencies).
 
 ## <a name="monitor-your-supply-chain"></a>Monitorare la supply chain
 

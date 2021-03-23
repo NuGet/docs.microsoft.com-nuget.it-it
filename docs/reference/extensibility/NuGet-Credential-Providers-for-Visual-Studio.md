@@ -5,19 +5,19 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: f324f1e27e0d718571525152fcf16b55b900dbaa
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: ab3bde0d320375f854a8f0a98fb90acfecf54aa3
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777757"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859096"
 ---
 # <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>Autenticazione dei feed in Visual Studio con i provider di credenziali NuGet
 
 L'estensione di Visual Studio NuGet 3.6 + supporta i provider di credenziali che consentono a NuGet di usare i feed autenticati.
 Dopo aver installato un provider di credenziali NuGet per Visual Studio, l'estensione NuGet di Visual Studio acquisisce e aggiorna automaticamente le credenziali per i feed autenticati, se necessario.
 
-È possibile trovare un'implementazione di esempio nell' [esempio VsCredentialProvider](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider).
+È possibile trovare un'implementazione di esempio nell' [esempio VsCredentialProvider](https://github.com/NuGet/Samples/tree/main/VsCredentialProvider).
 
 In Visual Studio, NuGet usa un oggetto interno `VsCredentialProviderImporter` che analizza anche i provider di credenziali plug-in. Questi provider di credenziali plug-in devono essere individuabili come esportazione MEF di tipo `IVsCredentialProvider` .
 
@@ -58,7 +58,7 @@ public interface IVsCredentialProvider
 }
 ```
 
-È possibile trovare un'implementazione di esempio nell' [esempio VsCredentialProvider](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider).
+È possibile trovare un'implementazione di esempio nell' [esempio VsCredentialProvider](https://github.com/NuGet/Samples/tree/main/VsCredentialProvider).
 
 Ogni provider di credenziali NuGet per Visual Studio deve:
 
@@ -78,4 +78,4 @@ Un provider di credenziali NuGet personalizzato per Visual Studio deve implement
 | bool non interattivo | Se true, il provider di credenziali deve ignorare tutti i prompt utente e usare i valori predefiniti. |
 | CancellationToken cancellationToken | Questo token di annullamento deve essere controllato per determinare se l'operazione che richiede le credenziali è stata annullata. |
 
-**Valore restituito**: oggetto credentials che implementa l' [ `System.Net.ICredentials` interfaccia](/dotnet/api/system.net.icredentials?view=netstandard-2.0).
+**Valore restituito**: oggetto credentials che implementa l' [ `System.Net.ICredentials` interfaccia](/dotnet/api/system.net.icredentials).

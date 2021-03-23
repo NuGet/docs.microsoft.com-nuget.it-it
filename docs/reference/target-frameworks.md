@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 7671b50b84bf1447fe94e02896786d1f309425dd
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 9172aefb48ab3e542498f5a144f1d4f381ad55bd
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777318"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859486"
 ---
 # <a name="target-frameworks"></a>Framework di destinazione
 
@@ -23,13 +23,17 @@ NuGet usa I riferimenti ai framework di destinazione in svariate posizioni per i
 - [packages.config](../reference/packages-config.md): l'attributo `targetframework` di una dipendenza specifica la variante di un pacchetto da installare.
 
 > [!Note]
-> Il codice sorgente del client NuGet che consente di calcolare le tabelle riportate di seguito è disponibile nelle posizioni seguenti:
-> - Nomi dei framework supportati: [FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
-> - Precedenza e mapping dei framework: [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
+> NuGet supporta tutti i Framework di destinazione .NET moderni:
+> - Per un elenco dei framework di destinazione più recenti, vedere la documentazione relativa ai [Framework di destinazione in progetti in stile SDK](/dotnet/standard/frameworks) .
 
 ## <a name="supported-frameworks"></a>Framework supportati
 
 In genere si fa riferimento a un framework tramite un breve moniker del framework di destinazione o TFM (Target Framework Moniker). In .NET Standard viene anche generalizzato in *TXM* per consentire un unico riferimento a più Framework.
+
+> [!Note]
+> Il codice sorgente del client NuGet che consente di calcolare le tabelle riportate di seguito è disponibile nelle posizioni seguenti:
+> - Nomi dei framework supportati: [FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
+> - Precedenza e mapping dei framework: [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
 
 I client NuGet supportano i framework nella tabella seguente. Gli equivalenti sono visualizzati tra parentesi quadre []. Si noti che alcuni strumenti, ad esempio `dotnet`, potrebbero usare varianti dei moniker TFM canonici in alcuni file. Ad esempio, `dotnet pack` usa `.NETCoreApp2.0` in un file `.nuspec` invece di `netcoreapp2.0`. I vari strumenti client NuGet gestiscono queste variazioni correttamente, ma è consigliabile usare sempre i TFM canonici quando si modificano direttamente i file.
 

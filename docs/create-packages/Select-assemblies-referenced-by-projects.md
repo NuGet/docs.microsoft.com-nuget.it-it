@@ -5,12 +5,12 @@ author: zivkan
 ms.author: zivkan
 ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: b32075c3f2c06c15c07d36602bdabdaee8b9405a
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: b2202946d0060e09828250d240f931044d1bf485
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "67427476"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859031"
 ---
 # <a name="select-assemblies-referenced-by-projects"></a>Selezionare gli assembly cui i progetti fanno riferimento
 
@@ -21,7 +21,7 @@ I riferimenti espliciti agli assembly consentono a un subset di assembly di esse
 
 ## <a name="packagereference-support"></a>Supporto di `PackageReference`
 
-Quando un progetto usa un pacchetto con `PackageReference` e il pacchetto contiene una directory `ref\<tfm>\`, NuGet classificherà tali assembly come asset di compilazione, mentre gli assembly `lib\<tfm>\` sono classificati come asset di runtime. Gli assembly in `ref\<tfm>\` non vengono usati al runtime. Ciò significa che qualsiasi assembly in `ref\<tfm>\` deve avere un assembly corrispondente in `lib\<tfm>\` o in una directory `runtime\` pertinente, in caso contrario potrebbero verificarsi errori di runtime. Poiché gli assembly in `ref\<tfm>\` non vengono usati al runtime, possono essere [assembly di soli metadati](https://github.com/dotnet/roslyn/blob/master/docs/features/refout.md) in modo da ridurre le dimensioni del pacchetto.
+Quando un progetto usa un pacchetto con `PackageReference` e il pacchetto contiene una directory `ref\<tfm>\`, NuGet classificherà tali assembly come asset di compilazione, mentre gli assembly `lib\<tfm>\` sono classificati come asset di runtime. Gli assembly in `ref\<tfm>\` non vengono usati al runtime. Ciò significa che qualsiasi assembly in `ref\<tfm>\` deve avere un assembly corrispondente in `lib\<tfm>\` o in una directory `runtime\` pertinente, in caso contrario potrebbero verificarsi errori di runtime. Poiché gli assembly in `ref\<tfm>\` non vengono usati al runtime, possono essere [assembly di soli metadati](https://github.com/dotnet/roslyn/blob/main/docs/features/refout.md) in modo da ridurre le dimensioni del pacchetto.
 
 > [!Important]
 > Se un pacchetto contiene l'elemento `<references>` nuspec (usato da `packages.config`, vedere di seguito) e non contiene assembly in `ref\<tfm>\`, NuGet annuncerà gli assembly elencati nell'elemento `<references>` nuspec sia come asset di compilazione che come asset di runtime. Ciò significa che vi saranno eccezioni di runtime quando gli assembly cui si fa riferimento dovranno caricare qualsiasi altro assembly nella directory `lib\<tfm>\`.
@@ -31,7 +31,7 @@ Quando un progetto usa un pacchetto con `PackageReference` e il pacchetto contie
 
 ## <a name="packagesconfig-support"></a>Supporto di `packages.config`
 
-I progetti che usano `packages.config` per gestire i pacchetti NuGet in genere aggiungono riferimenti a tutti gli assembly nella directory `lib\<tfm>\`. La directory `ref\` è stata aggiunta per supportare `PackageReference` e pertanto non viene considerata quando si usa `packages.config`. Per impostare in modo esplicito `packages.config`gli assembly a cui viene fatto riferimento per i progetti che utilizzano , il pacchetto deve utilizzare l'elemento [ `<references>` nel file nuspec](../reference/nuspec.md#explicit-assembly-references). Ad esempio:
+I progetti che usano `packages.config` per gestire i pacchetti NuGet in genere aggiungono riferimenti a tutti gli assembly nella directory `lib\<tfm>\`. La directory `ref\` è stata aggiunta per supportare `PackageReference` e pertanto non viene considerata quando si usa `packages.config`. Per impostare in modo esplicito gli assembly a cui viene fatto riferimento per i progetti che utilizzano `packages.config` , il pacchetto deve utilizzare l' [ `<references>` elemento nel file nuspec](../reference/nuspec.md#explicit-assembly-references). Ad esempio:
 
 ```xml
 <references>
@@ -42,7 +42,7 @@ I progetti che usano `packages.config` per gestire i pacchetti NuGet in genere a
 ```
 
 > [!Note]
-> Il progetto `packages.config` usa un processo denominato [ResolveAssemblyReference](https://github.com/Microsoft/msbuild/blob/master/documentation/wiki/ResolveAssemblyReference.md) per copiare gli assembly nella directory di output `bin\<configuration>\`. L'assembly del progetto viene copiato, il sistema di compilazione esamina il manifesto dell'assembly per individuare gli assembly di riferimento e quindi copia gli assembly e ripete l'operazione in modo ricorsivo per tutti gli assembly. Questo significa che se uno degli assembly nella directory `lib\<tfm>\` non è elencato come una dipendenza nel manifesto di qualsiasi altro assembly (se l'assembly viene caricato al runtime usando `Assembly.Load`, MEF o un altro framework di inserimento delle dipendenze), potrebbe non essere copiato nella directory di output `bin\<configuration>\` del progetto pur trovandosi in `bin\<tfm>\`.
+> Il progetto `packages.config` usa un processo denominato [ResolveAssemblyReference](https://github.com/Microsoft/msbuild/blob/main/documentation/wiki/ResolveAssemblyReference.md) per copiare gli assembly nella directory di output `bin\<configuration>\`. L'assembly del progetto viene copiato, il sistema di compilazione esamina il manifesto dell'assembly per individuare gli assembly di riferimento e quindi copia gli assembly e ripete l'operazione in modo ricorsivo per tutti gli assembly. Questo significa che se uno degli assembly nella directory `lib\<tfm>\` non è elencato come una dipendenza nel manifesto di qualsiasi altro assembly (se l'assembly viene caricato al runtime usando `Assembly.Load`, MEF o un altro framework di inserimento delle dipendenze), potrebbe non essere copiato nella directory di output `bin\<configuration>\` del progetto pur trovandosi in `bin\<tfm>\`.
 
 ## <a name="example"></a>Esempio
 

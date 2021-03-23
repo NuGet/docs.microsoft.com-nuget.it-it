@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 01/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: e89b50601deb204892536406b4ddabf7005e0642
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: f9e08d37b30dfea83fd9b61f168c1e20f530ff9f
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98776128"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859408"
 ---
 # <a name="nuget-client-sdk"></a>NuGet Client SDK
 
@@ -20,7 +20,7 @@ ms.locfileid: "98776128"
 * [`NuGet.Packaging`](https://www.nuget.org/packages/NuGet.Packaging) : Usato per interagire con i pacchetti NuGet. `NuGet.Protocol` dipende da questo pacchetto
 
 È possibile trovare il codice sorgente per questi pacchetti nel repository GitHub [NuGet/NuGet. client](https://github.com/NuGet/NuGet.Client) .
-È possibile trovare il codice sorgente per questi esempi nel progetto [NuGet. Protocol. Samples](https://github.com/NuGet/Samples/tree/master/NuGetProtocolSamples) su GitHub.
+È possibile trovare il codice sorgente per questi esempi nel progetto [NuGet. Protocol. Samples](https://github.com/NuGet/Samples/tree/main/NuGetProtocolSamples) su GitHub.
 
 > [!Note]
 > Per la documentazione sul protocollo server NuGet, vedere l'API del [Server NuGet](~/api/overview.md).
