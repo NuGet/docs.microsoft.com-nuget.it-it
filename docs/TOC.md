@@ -69,7 +69,8 @@
 ## [Processo di installazione pacchetti](concepts/package-installation-process.md)
 ## [Controllo delle versioni dei pacchetti](concepts/package-versioning.md)
 ## [Risoluzione delle dipendenze](concepts/dependency-resolution.md)
-## [Procedure consigliate per una supply chain di software sicuro](concepts/Security-Best-Practices.md)
+## [Procedure consigliate per una supply chain software sicura](concepts/Security-Best-Practices.md)
+## [Risoluzione dei problemi relativi ai pacchetti installati](concepts/troubleshooting-installed-packages.md)
 # Riferimento
 ## [.nuspec](reference/nuspec.md)
 ## [File nuget.config](reference/nuget-config-file.md)
@@ -291,7 +292,7 @@
 ## Note sulla versione
 ### [Problemi noti](release-notes/known-issues.md)
 ### NuGet 5.x
-#### [NuGet 5,9](release-notes/NuGet-5.9.md)
+#### [NuGet 5.9](release-notes/NuGet-5.9.md)
 #### [NuGet 5.8](release-notes/NuGet-5.8.md)
 #### [NuGet 5.7](release-notes/NuGet-5.7.md)
 #### [NuGet 5.6](release-notes/NuGet-5.6.md)
