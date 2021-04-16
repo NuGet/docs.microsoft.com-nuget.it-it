@@ -1,6 +1,6 @@
 ---
 title: Note sulla versione di NuGet 5.9
-description: Note sulla versione per NuGet 5.9, tra cui nuove funzionalità, correzioni di bug e controller di dominio.
+description: Note sulla versione per NuGet 5.9, incluse nuove funzionalità, correzioni di bug e controller di dominio.
 author: erdembayar
 ms.author: eryondon
 ms.date: 3/11/2021
@@ -68,7 +68,7 @@ Veicoli per la distribuzione di NuGet:
 
 * INuGetPackageFileService - Recuperare immagini e licenze incorporate per Codespace connessi e autonomi - [#10151](https://github.com/NuGet/Home/issues/10151)
 
-* VS OE: formattatore mancante IProjectMetadataContextInfo - [#10079](https://github.com/NuGet/Home/issues/10079)
+* VS OE: formattatore IProjectMetadataContextInfo mancante - [#10079](https://github.com/NuGet/Home/issues/10079)
 
 * [CPVM-Perf] Ridurre le informazioni scritte in centralTransitiveDependencyGroups - [#10002](https://github.com/NuGet/Home/issues/10002)
 
@@ -76,7 +76,7 @@ Veicoli per la distribuzione di NuGet:
 
 * Le icone con alcuni palette a colori causano l'arresto anomalo dell'interfaccia utente di PM [- #10037](https://github.com/NuGet/Home/issues/10037)
 
-* [CPVM-Perf] Ridurre il clone PackageSpec quando si aggiungono le informazioni CPVM - [#10003](https://github.com/NuGet/Home/issues/10003)
+* [CPVM-Perf] Ridurre il clone PackageSpec quando si aggiungono le informazioni cpvm - [#10003](https://github.com/NuGet/Home/issues/10003)
 
 * Interfaccia utente di PM: caricamento dell'icona asincrona - [#10009](https://github.com/NuGet/Home/issues/10009)
 
@@ -86,7 +86,7 @@ Veicoli per la distribuzione di NuGet:
 
 * Avviso per l'avviso NU5128 quando packastool con alias targetframework - [#10097](https://github.com/NuGet/Home/issues/10097)
 
-* La logica di OutputPath nelle destinazioni Pack in una compilazione personalizzata non funziona correttamente- [#9234](https://github.com/NuGet/Home/issues/9234)
+* La logica outputPath nelle destinazioni Pack in una compilazione personalizzata non funziona correttamente- [#9234](https://github.com/NuGet/Home/issues/9234)
 
 * Vs OE: memorizzare nella cache l'istanza di IServiceBroker nel client - [#10141](https://github.com/NuGet/Home/issues/10141)
 
@@ -120,11 +120,11 @@ Veicoli per la distribuzione di NuGet:
 
 * Le installazioni dell'interfaccia della riga di comando non devono installare pacchetti non in elenco [- #7466](https://github.com/NuGet/Home/issues/7466)
 
-* Ripristino di grafi msbuild statici : registrazione non anoniva su MSBuildStartupDirectory - [#10335](https://github.com/NuGet/Home/issues/10335)
+* Ripristino di grafi msbuild statici - Registrazione non di accesso per MSBuildStartupDirectory - [#10335](https://github.com/NuGet/Home/issues/10335)
 
-* Le dipendenze di progetto di ProjectReference contrassegnate come PrivateAssets non devono essere incluse nel controllo aggiornato del file di [blocco- #8565](https://github.com/NuGet/Home/issues/8565)
+* Le dipendenze del progetto di ProjectReference contrassegnate come PrivateAssets non devono essere incluse nel controllo aggiornato del file di [blocco- #8565](https://github.com/NuGet/Home/issues/8565)
 
-* Progetti SDK con dati non validi che non visualizzano errori di ripristino in Visual Studio - [#10406](https://github.com/NuGet/Home/issues/10406)
+* I progetti SDK con dati non validi non visualizzano errori di ripristino in Visual Studio - [#10406](https://github.com/NuGet/Home/issues/10406)
 
 * NU1004 durante il ripristino di una soluzione con progetti legacy e netstandard2 misti dalla riga di comando con LockedMode - [#9623](https://github.com/NuGet/Home/issues/9623)
 
@@ -164,25 +164,25 @@ Veicoli per la distribuzione di NuGet:
 
 * L'icona deprecata si sovrappone alla versione del pacchetto deprecato nella scheda Sfoglia - [#10452](https://github.com/NuGet/Home/issues/10452)
 
-* La gestione degli errori NU1604 PackageReference è diversa tra Visual Studio e la riga di comando (& Gestione pacchetti interfaccia utente) - [#9289](https://github.com/NuGet/Home/issues/9289)
+* La gestione degli errori NU1604 PackageReference è diversa in Visual Studio e nella riga di comando (interfaccia utente di ripristino & Gestione pacchetti) - [#9289](https://github.com/NuGet/Home/issues/9289)
 
-* Codespace: formattatori necessari non registrati - [#10467](https://github.com/NuGet/Home/issues/10467)
+* Codespaces: formattatori necessari non registrati - [#10467](https://github.com/NuGet/Home/issues/10467)
 
 * Rimuovere net45 come framework di destinazione da NuGet.Frameworks - [#10470](https://github.com/NuGet/Home/issues/10470)
 
-* Implementazione: aggiungere nuove telemetrie per tenere traccia degli eventi correlati all'utilizzo di PMC e PowerShell. - [#10142](https://github.com/NuGet/Home/issues/10142)
+* Implementazione: aggiungere nuovi dati di telemetria per tenere traccia degli eventi correlati all'utilizzo di PowerShell e PMC. - [#10142](https://github.com/NuGet/Home/issues/10142)
 
-* Nella finestra Anteprima modifiche viene visualizzato un solo pacchetto quando sono disponibili più pacchetti da aggiornare nell'interfaccia Gestione pacchetti- [#10483](https://github.com/NuGet/Home/issues/10483)
+* Nella finestra Anteprima modifiche viene visualizzato un solo pacchetto quando sono disponibili più pacchetti da aggiornare nell'interfaccia utente di Gestione pacchetti- [#10483](https://github.com/NuGet/Home/issues/10483)
 
-* I gruppi frameworkreference vuoti devono essere generati quando si imballa progetti multitargeting [- #10218](https://github.com/NuGet/Home/issues/10218)
+* I gruppi frameworkReferences vuoti devono essere generati [](https://github.com/NuGet/Home/issues/10218) durante la creazione di un pacchetto di progetti con più #10218
 
-* È difficile visualizzare la casella di controllo del pacchetto nella scheda "Aggiornamenti" con una casella tratteggiata quando si esplora la scheda nei temi blu/blu (contrasto aggiuntivo)/Chiaro - [#8963](https://github.com/NuGet/Home/issues/8963)
+* È difficile visualizzare la casella di controllo del pacchetto nella scheda "Aggiornamenti" con una casella tratteggiata quando si passa da Tab nei temi Blu/Blu (contrasto aggiuntivo)/Chiaro - [#8963](https://github.com/NuGet/Home/issues/8963)
 
-* Le caselle di controllo della scheda Aggiornamenti non funzionano correttamente con le utilità per la lettura dello [schermo- #10449](https://github.com/NuGet/Home/issues/10449)
+* Le caselle di controllo della scheda Aggiornamenti non funzionano correttamente con le utilità per la lettura dello schermo [- #10449](https://github.com/NuGet/Home/issues/10449)
 
 * L'aggiornamento in PMUI fa sì che il riferimento all'oggetto non sia impostato su un'istanza di un oggetto [#9882](https://github.com/NuGet/Home/issues/9882)
 
-* Implementazione: aggiungere nuove telemetrie per tenere traccia degli eventi correlati al follow-up dell'utilizzo di PMC e PowerShell. - [#10478](https://github.com/NuGet/Home/issues/10478)
+* Implementazione: aggiungere nuovi dati di telemetria per tenere traccia degli eventi correlati al follow-up dell'utilizzo di PowerShell e PMC. - [#10478](https://github.com/NuGet/Home/issues/10478)
 
 * Errore di copia e incolla in V2FeedPackageInfo - [#10480](https://github.com/NuGet/Home/issues/10480)
 
@@ -206,16 +206,16 @@ Grazie a tutti i collaboratori che hanno contribuito a rendere straordinaria que
 [Evasodavid](https://github.com/PathogenDavid) | [3754](https://github.com/NuGet/NuGet.Client/pull/3754) | Il controllo dell'esistenza dei file di licenza e icona deve sempre usare un confronto con distinzione tra maiuscole e [minuscole, #9817](https://github.com/NuGet/Home/issues/9817)
 [campersau](https://github.com/campersau) | [3677](https://github.com/NuGet/NuGet.Client/pull/3677) | Usare BitmapCreateOptions.IgnoreColorProfile per risolvere un problema WPF quando si usa DecodePixelWidth - [#10037](https://github.com/NuGet/Home/issues/10037)
 [bjorkstromm](https://github.com/bjorkstromm) | [3697](https://github.com/NuGet/NuGet.Client/pull/3697) | Windows SDK collegamento 10 viene interrotto nella guida ai contributi di NuGet.Client - [#10099](https://github.com/NuGet/Home/issues/10099)
-[bjorkstromm](https://github.com/bjorkstromm) | [3696](https://github.com/NuGet/NuGet.Client/pull/3696) | I collegamenti relativi sono interrotti nella guida al debug di NuGet.Client - [#10100](https://github.com/NuGet/Home/issues/10100)
-[Nirmal4G](https://github.com/Nirmal4G) | [3637](https://github.com/NuGet/NuGet.Client/pull/3637) | Migliorare le fixture di test e il codice correlato - [#9996](https://github.com/NuGet/Home/issues/9996)
-[rolfbjarne](https://github.com/rolfbjarne) | [3743](https://github.com/NuGet/NuGet.Client/pull/3743) | L'output viene incapsulato a 80 caratteri in macOS quando viene reindirizzato - [#10198](https://github.com/NuGet/Home/issues/10198)
+[bjorkstromm](https://github.com/bjorkstromm) | [3696](https://github.com/NuGet/NuGet.Client/pull/3696) | I collegamenti relativi vengono interrotti nella guida al debug di NuGet.Client - [#10100](https://github.com/NuGet/Home/issues/10100)
+[Nirmal4G](https://github.com/Nirmal4G) | [3637](https://github.com/NuGet/NuGet.Client/pull/3637) | Migliorare le correzioni di test e il codice correlato - [#9996](https://github.com/NuGet/Home/issues/9996)
+[rolfbjarne](https://github.com/rolfbjarne) | [3743](https://github.com/NuGet/NuGet.Client/pull/3743) | L'output viene incapsulato a 80 caratteri in macOS quando viene reindirizzato [- #10198](https://github.com/NuGet/Home/issues/10198)
 [xen2](https://github.com/xen2) | [2861](https://github.com/NuGet/NuGet.Client/pull/2861) | Rendere disponibile NuGet.PackageManagement come pacchetto .NET Standard - [#6150](https://github.com/NuGet/Home/issues/6150)
-[Anipik](https://github.com/Anipik) | [3810](https://github.com/NuGet/NuGet.Client/pull/3810) | Introduzione di una nuova proprietà msbuild per escludere l'output di compilazione per tfms specifici durante l'attività pack [- #10396](https://github.com/NuGet/Home/issues/10396)
+[Anipik](https://github.com/Anipik) | [3810](https://github.com/NuGet/NuGet.Client/pull/3810) | Introdurre una nuova proprietà msbuild per escludere l'output di compilazione per tfms specifici durante l'attività pack [- #10396](https://github.com/NuGet/Home/issues/10396)
 
-## <a name="summary-whats-new-in-591"></a>Riepilogo: Novità nella versione 5.9.1
+## <a name="summary-whats-new-in-591"></a>Riepilogo: Novità della versione 5.9.1
 
-* "dotnet nuget remove source nuget.org" non funziona la prima volta- [#10745](https://github.com/NuGet/Home/issues/10745)
-* Rendere la convalida predefinita disabilitata in Linux, ma abilitata per impostazione predefinita in Windows - [#10713](https://github.com/NuGet/Home/issues/10713)
+* "dotnet nuget remove source nuget.org" non funziona la prima [volta- #10745](https://github.com/NuGet/Home/issues/10745)
+* Rendere disabilitata la convalida predefinita in Linux, ma abilitata per impostazione predefinita in Windows - [#10713](https://github.com/NuGet/Home/issues/10713)
 
 **[Elenco di tutti i problemi risolti in questa versione - 5.9.1](https://app.zenhub.com/workspaces/nuget-client-team-55aec9a240305cf007585881/reports/release?release=6075f42efd068017639b4036)**
 
@@ -223,5 +223,5 @@ Grazie a tutti i collaboratori che hanno contribuito a rendere straordinaria que
 
 ## <a name="feedback-welcome"></a>Commenti e suggerimenti
 
-I commenti degli utenti sono importanti.  Se si verificano problemi con questa versione, controllare i problemi [di GitHub](https://github.com/NuGet/Home/issues) [e](https://developercommunity.visualstudio.com/) Developer Community di Visual Studio problemi esistenti.  Per i nuovi problemi all'interno di NuGet, segnalare un [problema di GitHub.](https://github.com/NuGet/Home/issues/new)
+I commenti degli utenti sono importanti.  In caso di problemi con questa versione, controllare i problemi di [GitHub](https://github.com/NuGet/Home/issues) [e](https://developercommunity.visualstudio.com/) Developer Community di Visual Studio problemi esistenti.  Per i nuovi problemi all'interno di NuGet, segnalare un [problema di GitHub.](https://github.com/NuGet/Home/issues/new)
 Per problemi generali relativi all'esperienza [](/visualstudio/ide/how-to-report-a-problem-with-visual-studio) NuGet, **segnalarci** tramite l'opzione Segnala un problema disponibile nell'IDE preferito in Guida > segnala un problema .
