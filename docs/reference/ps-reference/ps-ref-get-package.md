@@ -1,22 +1,22 @@
 ---
-title: Guida di riferimento a NuGet Get-Package PowerShell
-description: Informazioni di riferimento per il comando Get-Package PowerShell nella console di gestione pacchetti NuGet in Visual Studio.
+title: Informazioni di riferimento Get-Package PowerShell per NuGet
+description: Informazioni di Get-Package comando di PowerShell nella console Gestione pacchetti NuGet in Visual Studio.
 author: JonDouglas
 ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 8394f888ec3d5e57eacd351a4867173da1070ead
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 7c91faecaac2967c7a01dd81e72b9097e7bd6cae
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777501"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901733"
 ---
-# <a name="get-package-package-manager-console-in-visual-studio"></a>Get-Package (console di gestione pacchetti in Visual Studio)
+# <a name="get-package-package-manager-console-in-visual-studio"></a>Get-Package (Gestione pacchetti Console in Visual Studio)
 
-*In questo argomento viene descritto il comando nella [console di gestione pacchetti](../../consume-packages/install-use-packages-powershell.md) in Visual Studio in Windows. Per il comando generico di Get-Package PowerShell, vedere le informazioni di [riferimento su PowerShell PackageManagement](/powershell/module/packagemanagement/?view=powershell-6).*
+*Questo argomento descrive il comando all'interno [della console Gestione pacchetti](../../consume-packages/install-use-packages-powershell.md) in Visual Studio in Windows. Per il comando di gestione Get-Package PowerShell generico, vedere le informazioni di [riferimento su PackageManagement di PowerShell.](/powershell/module/packagemanagement)*
 
-Recupera l'elenco dei pacchetti installati nel repository locale, elenca i pacchetti disponibili da un'origine del pacchetto quando viene usato con l'opzione-ListAvailable oppure elenca gli aggiornamenti disponibili se usati con l'opzione-Update.
+Recupera l'elenco dei pacchetti installati nel repository locale, elenca i pacchetti disponibili da un'origine del pacchetto se usati con l'opzione -ListAvailable oppure elenca gli aggiornamenti disponibili quando vengono usati con l'opzione -Update.
 
 ## <a name="syntax"></a>Sintassi
 
@@ -26,28 +26,28 @@ Get-Package -Source <string> [-ListAvailable] [-Updates] [-ProjectName <string>]
     [-PageSize] [<CommonParameters>]
 ```
 
-Senza parametri, `Get-Package` Visualizza l'elenco dei pacchetti installati nel progetto predefinito.
+Senza parametri, `Get-Package` visualizza l'elenco dei pacchetti installati nel progetto predefinito.
 
 ## <a name="parameters"></a>Parametri
 
 | Parametro | Descrizione |
 | --- | --- |
-| Source (Sorgente) | URL o percorso della cartella per il pacchetto. I percorsi delle cartelle locali possono essere assoluti o relativi alla cartella corrente. Se omesso, `Get-Package` Cerca nell'origine del pacchetto attualmente selezionata. Se usato con-ListAvailable, il valore predefinito è nuget.org. |
-| ListAvailable | Elenca i pacchetti disponibili da un'origine del pacchetto, per impostazione predefinita nuget.org. Mostra un valore predefinito di 50 pacchetti, a meno che non siano specificati-PageSize e/o-First. |
-| Aggiornamenti | Elenca i pacchetti per i quali è disponibile un aggiornamento dall'origine del pacchetto. |
+| Source (Sorgente) | URL o percorso della cartella per il pacchetto . I percorsi delle cartelle locali possono essere assoluti o relativi alla cartella corrente. Se omesso, `Get-Package` cerca l'origine del pacchetto attualmente selezionata. Se usato con -ListAvailable, il valore predefinito è nuget.org. |
+| ListAvailable | Elenca i pacchetti disponibili da un'origine pacchetto, che per impostazione predefinita nuget.org. Mostra un valore predefinito di 50 pacchetti, a meno che non siano specificati -PageSize e/o -First. |
+| Aggiornamenti | Elenca i pacchetti che dispongono di un aggiornamento disponibile dall'origine del pacchetto. |
 | ProjectName | Progetto da cui ottenere i pacchetti installati. Se omesso, restituisce i progetti installati per l'intera soluzione. |
-| Filtra | Stringa di filtro utilizzata per restringere l'elenco dei pacchetti mediante l'applicazione dell'ID, della descrizione e dei tag del pacchetto. |
-| First (Primo) | Numero di pacchetti da restituire dall'inizio dell'elenco. Se non è specificato, il valore predefinito è 50. |
+| Filtra | Stringa di filtro utilizzata per restringere l'elenco di pacchetti applicandolo all'ID, alla descrizione e ai tag del pacchetto. |
+| First (Primo) | Numero di pacchetti da restituire dall'inizio dell'elenco. Se non specificato, il valore predefinito è 50. |
 | Ignora | Omette i primi &lt; pacchetti int &gt; dall'elenco visualizzato.  |
 | AllVersions | Visualizza tutte le versioni disponibili di ogni pacchetto anziché solo la versione più recente. |
-| IncludePrerelease | Include i pacchetti di versioni non definitive nei risultati. |
-| PageSize | *(3.0 +)* Se usato con-ListAvailable (obbligatorio), il numero di pacchetti da elencare prima di fornire un prompt per continuare. |
+| IncludePrerelease | Include i pacchetti di versione non definitiva nei risultati. |
+| PageSize | *(3.0+)* Se usato con -ListAvailable (obbligatorio), il numero di pacchetti da elencare prima di chiedere di continuare. |
 
-Nessuno di questi parametri accetta caratteri jolly o di input della pipeline.
+Nessuno di questi parametri accetta l'input della pipeline o i caratteri jolly.
 
 ## <a name="common-parameters"></a>Parametri comuni
 
-`Get-Package` supporta i seguenti [parametri comuni di PowerShell](/powershell/module/microsoft.powershell.core/about/about_commonparameters): debug, azione di errore, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction e WarningVariable.
+`Get-Package` supporta i parametri comuni di [PowerShell](/powershell/module/microsoft.powershell.core/about/about_commonparameters)seguenti: Debug, Azione di errore, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction e WarningVariable.
 
 ## <a name="examples"></a>Esempi
 

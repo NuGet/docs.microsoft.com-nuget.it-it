@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7951b3db0cdcaee0a1eb955a5bf6fedce24c79c9
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 5224a4f5be519e1d72285562c1611d047582f7de
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237614"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901564"
 ---
 # <a name="individual-accounts-on-nugetorg"></a>Account personali in NuGet.org
 
@@ -26,7 +26,7 @@ Un account aziendale ha uno o più account personali come membri. Questi membri 
 
 Per creare un account di NuGet.org, è necessario avere un account Microsoft personale (MSA) o un account di Azure Active Directory (AAD). Se non se ne ha alcuno, è possibile [crearne uno](https://signup.live.com). Se si ha un account Microsoft personale o un account di Azure Active Directory, seguire questa procedura.
 
-1. Passare alla [pagina di accesso di NuGet.org](https://www.nuget.org/users/account/LogOn).
+1. Passare alla pagina [NuGet.org di accesso.](https://www.nuget.org/users/account/LogOn)
 
 1. Fare clic sul pulsante **Sign in with Microsoft** (Accedi con Microsoft).
 
@@ -36,19 +36,19 @@ Per creare un account di NuGet.org, è necessario avere un account Microsoft per
 
    ![Concessione delle autorizzazioni a NuGet.org](media/nuget-org-permissions.png)
 
-1. Si verrà reindirizzati a *NuGet.org* e viene richiesto di registrare un nome utente.
+1. Si verrà reindirizzati a *nuget.org* e verrà richiesto di registrare un nome utente.
 
 1. Specificare il nome utente nella casella di input. Si noti che il nome utente **fa** distinzione tra maiuscole e minuscole e non può essere cambiato o rinominato in seguito.
 
    ![Specificare un nome utente in NuGet.org](media/nuget-org-register.png) 
 
-1. Fare clic sul pulsante **Register (registra** ).
+1. Fare clic **sul pulsante** Registra.
 
 Si ha ora un account di NuGet.org. È possibile eseguire la gestione degli account nella pagina [Account Settings](https://www.nuget.org/account) (Impostazioni account).
 
 ## <a name="enable-two-factor-authentication-2fa"></a>Abilitare l'autenticazione a due fattori (2FA)
 
-L'autenticazione a due fattori, o 2FA, è un livello aggiuntivo di sicurezza usato per l'accesso a siti Web o app. Con 2FA, è necessario eseguire l'accesso con l'account Microsoft (MSA) e fornire un'altra forma di autenticazione che solo si conosce o si ha accesso. Per migliorare la protezione dell'account, abilitare l'autenticazione a due fattori (scelta consigliata).
+L'autenticazione a due fattori, o 2FA, è un livello di sicurezza aggiuntivo usato per l'accesso a siti Web o app. Con 2FA, è necessario accedere con l'account Microsoft (MSA) e fornire un'altra forma di autenticazione che solo l'utente conosce o a cui ha accesso. Per migliorare la protezione dell'account, abilitare l'autenticazione a due fattori (scelta consigliata).
 
 1. Quando si è connessi all'account, aprire il profilo e scegliere **Abilita** in **Account di accesso**.
 
@@ -62,16 +62,16 @@ L'autenticazione a due fattori, o 2FA, è un livello aggiuntivo di sicurezza usa
 
    Verificare il numero di telefono o l'indirizzo di posta elettronica già associato all'account Microsoft. Potrebbe essere necessario immettere un nuovo numero di telefono o un nuovo indirizzo di posta elettronica per l'account. In tal caso, immettere le informazioni richieste come indicato e quindi fare clic su **Avanti**.
 
-   ![Abilitare 2FA](media/nuget-org-sign-in-2fa.png)
+   ![Abilitare 2FA e immettere il telefono](media/nuget-org-sign-in-2fa.png)
 
 4. Controllare il dispositivo o l'account di posta elettronica e immettere il codice appena inviato.
 
-   ![Abilitare 2FA](media/nuget-org-enter-code-2fa.png)
+   ![Abilitare 2FA e immettere il codice](media/nuget-org-enter-code-2fa.png)
 
 5. Seguire eventuali istruzioni aggiuntive per completare l'autenticazione a due fattori.
 
 > [!Tip]
-> L'abilitazione di 2FA per l'account NuGet.org non influisca sulle impostazioni di autenticazione per altri account o servizi che possono essere collegati al account Microsoft usato per accedere a NuGet.org.
+> L'abilitazione di 2FA per l'account NuGet.org non influisce sulle impostazioni di autenticazione per altri account o servizi che potrebbero essere collegati al account Microsoft utilizzato per accedere a NuGet.org.
 
 ## <a name="delete-a-nugetorg-account"></a>Eliminare un account di NuGet.org
 

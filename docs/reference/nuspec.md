@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: a8a8058032b0b6c6ddcd5eed1cf22e75f0e3af72
-ms.sourcegitcommit: c8bf16420f235fc3e42c08cd0d56359e91d490e5
+ms.openlocfilehash: ed865aad6f72752adcf3e3921287a20b961c4a8a
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107387413"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901811"
 ---
 # <a name="nuspec-reference"></a>Informazioni di riferimento sul file .nuspec
 
@@ -36,7 +36,7 @@ In questo argomento
 
    Se si crea un pacchetto usando o , è consigliabile includere nel file di progetto tutte le proprietà che in genere si trovano `dotnet.exe pack` `msbuild pack target` nel file di [](../reference/msbuild-targets.md#pack-target) `.nuspec` progetto. È tuttavia possibile scegliere di usare un [file per la creazione di un pacchetto usando `.nuspec` `dotnet.exe` o `msbuild pack target` ](../reference/msbuild-targets.md#packing-using-a-nuspec-file).
 
-- Per i progetti migrati `packages.config` da a [PackageReference](../consume-packages/package-references-in-project-files.md), non è `.nuspec` necessario un file per creare il pacchetto. Usare invece [msbuild -t:pack](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
+- Per i progetti migrati da a PackageReference , non è necessario `packages.config` un file per creare il [](../consume-packages/package-references-in-project-files.md) `.nuspec` pacchetto. Usare invece [msbuild -t:pack](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
 
 ## <a name="general-form-and-schema"></a>Formato generale e schema
 
@@ -83,7 +83,7 @@ La versione del pacchetto secondo il criterio *principale.secondaria.patch*. I n
 
 Quando si carica un pacchetto in nuget.org, il `version` campo è limitato a 64 caratteri.
 
-#### <a name="description"></a>description
+#### <a name="description"></a>Descrizione
 Descrizione del pacchetto per la visualizzazione dell'interfaccia utente.
 
 Quando si carica un pacchetto in nuget.org, `description` il campo è limitato a 4000 caratteri.
@@ -99,7 +99,7 @@ Quando si carica un pacchetto in nuget.org, `authors` il campo è limitato a 400
 > [!Important]
 > owners è deprecato. Usare invece gli autori.
 
-Elenco delimitato da virgole degli autori di pacchetti che usano nomi di profilo nuget.org. Questo è spesso lo stesso elenco di e viene ignorato quando si `authors` carica il pacchetto in nuget.org. Vedere [Gestione dei proprietari dei pacchetti nuget.org](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg). 
+Elenco delimitato da virgole degli autori di pacchetti che usano nomi di profilo nuget.org. Questo è spesso lo stesso elenco di e viene ignorato quando si `authors` carica il pacchetto in nuget.org. Vedere [Gestione dei proprietari dei pacchetti in nuget.org](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg). 
 
 #### <a name="projecturl"></a>projectUrl
 URL della pagina iniziale del pacchetto, spesso visualizzato nell'interfaccia utente e in nuget.org. 
@@ -123,7 +123,7 @@ Espressione di licenza SPDX o percorso di un file di licenza all'interno del pac
 `<license type="expression">MIT</license>`
 
 > [!Note]
-> NuGet.org accetta solo le espressioni di licenza approvate dall'iniziativa Open Source o da Free Software Foundation.
+> NuGet.org accetta solo espressioni di licenza approvate dall'iniziativa Open Source o da Free Software Foundation.
 
 Se il pacchetto è concesso in licenza con più licenze comuni, è possibile specificare una licenza composita usando la sintassi [dell'espressione SPDX versione 2.0.](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60) Ad esempio:
 
@@ -207,6 +207,8 @@ Per l'equivalente di MSBuild, vedere Creazione di un [pacchetto di un file di im
 
 #### <a name="readme"></a>leggimi
 
+*Supportato con **NuGet 5.10.0 Preview 2** e versioni successive*
+
 Quando si esegue il pacchetto di un file Leggimi, è necessario usare l'elemento per specificare il percorso del pacchetto, relativo alla `readme` radice del pacchetto. Inoltre, è necessario assicurarsi che il file sia incluso nel pacchetto. I formati di file supportati includono solo Markdown (*md*).
 
 Ad esempio, è necessario aggiungere quanto segue a nuspec per creare un pacchetto di un file Leggimi con il progetto:
@@ -226,7 +228,7 @@ Ad esempio, è necessario aggiungere quanto segue a nuspec per creare un pacchet
 </package>
 ```
 
-Per l'equivalente di MSBuild, vedere Creazione [di un file Leggimi](msbuild-targets.md#packagereadmefile).
+Per l'equivalente di MSBuild, vedere Creazione [di un file Leggimi](msbuild-targets.md#packagereadmefile). 
 
 #### <a name="requirelicenseacceptance"></a>requireLicenseAcceptance
 Valore booleano che specifica se il client deve richiedere al consumer di accettare la licenza del pacchetto prima di installarlo.
@@ -258,7 +260,7 @@ ID delle impostazioni locali per il pacchetto. Vedere [Creazione di pacchetti lo
 #### <a name="tags"></a>tags
 Elenco di tag e parole chiave delimitati da spazi che descrivono il pacchetto e facilitano l'individuabilità dei pacchetti tramite meccanismi di ricerca e filtro. 
 
-Quando si carica un pacchetto in nuget.org, `tags` il campo è limitato a 4000 caratteri.
+Quando si carica un pacchetto in nuget.org, il campo è limitato a `tags` 4000 caratteri.
 
 #### <a name="serviceable"></a>serviceable 
 *(3.3+)* Solo per uso interno in NuGet.
@@ -303,7 +305,7 @@ Raccolta di zero o più elementi `<dependency>` che specificano le dipendenze pe
 *(3.3 +)* Raccolta di elementi `<files>` che identificano i file di contenuto da includere nel progetto che utilizza il pacchetto. Questi file sono specificati con un set di attributi che descrivono come devono essere usati all'interno del sistema del progetto. Vedere [Inclusione di file di assembly](#specifying-files-to-include-in-the-package) più avanti.
 
 #### <a name="files"></a>files 
-Il nodo può contenere un nodo di pari livello in e un elemento figlio in per specificare quali file di assembly e di contenuto includere `<package>` `<files>` nel `<metadata>` `<contentFiles>` `<metadata>` pacchetto. Vedere [Inclusione di file di assembly](#including-assembly-files) e [Inclusione di file di contenuto](#including-content-files) più avanti in questo argomento per ulteriori dettagli.
+Il nodo può contenere un nodo come elemento di pari livello in e un elemento figlio in per specificare i file di assembly e di contenuto da `<package>` `<files>` includere nel `<metadata>` `<contentFiles>` `<metadata>` pacchetto. Vedere [Inclusione di file di assembly](#including-assembly-files) e [Inclusione di file di contenuto](#including-content-files) più avanti in questo argomento per ulteriori dettagli.
 
 ### <a name="metadata-attributes"></a>attributi dei metadati
 
@@ -435,7 +437,7 @@ L'elemento `<group>` senza un attributo `targetFramework` viene usato come elenc
 > Il formato di gruppo non può essere usato in combinazione con un elenco semplice.
 
 > [!Note]
-> Il formato del moniker del framework di destinazione [(TFM)](../reference/target-frameworks.md) usato nella cartella è diverso rispetto al `lib/ref` TFM usato in `dependency groups` . Se i framework di destinazione dichiarati in e nella cartella del file non hanno corrispondenze esatte, il comando genererà l'avviso `dependencies group` `lib/ref` `.nuspec` `pack` [NuGet NU5128.](../reference/errors-and-warnings/nu5128.md)
+> Il formato del moniker del framework di destinazione [(TFM)](../reference/target-frameworks.md) usato nella cartella è diverso rispetto al `lib/ref` TFM usato in `dependency groups` . Se i framework di destinazione dichiarati in e nella cartella del file non hanno corrispondenze esatte, il comando genererà l'avviso `dependencies group` `lib/ref` `.nuspec` `pack` [NuGet NU5128](../reference/errors-and-warnings/nu5128.md).
 
 L'esempio seguente mostra variazioni diverse dell'elemento `<group>`:
 

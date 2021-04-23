@@ -1,31 +1,31 @@
 ---
 title: Note sulla versione per NuGet 4.4 RTM
-description: Note sulla versione per NuGet 4.3 RTM incluse informazioni su problemi noti, correzioni di bug, funzionalità aggiunte e DCR.
+description: Note sulla versione per NuGet 4.4 RTM, inclusi problemi noti, correzioni di bug, funzionalità aggiunte e controller di dominio.
 author: JonDouglas
 ms.author: jodou
 ms.date: 08/14/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 970a920a401b8a74c04d84cbad9933c54e3cd19e
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 980afffcd4202e019ffa87de5dccf947300a9c13
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98776293"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901707"
 ---
 # <a name="nuget-44-release-notes"></a>Note sulla versione per NuGet 4.4
 
 [Visual Studio 2017 15.4 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) include NuGet 4.4 RTM.
 
-## <a name="summary-whats-new-in-440"></a>Riepilogo: novità di 4.4.0
+## <a name="summary-whats-new-in-440"></a>Riepilogo: Novità nella versione 4.4.0
 
-## <a name="summary-whats-new-in-442"></a>Riepilogo: novità di 4.4.2
+## <a name="summary-whats-new-in-442"></a>Riepilogo: Novità nella versione 4.4.2
 
-* Correzione della sicurezza: le autorizzazioni per i file creati all'interno di ~/.NuGet sono troppo aperte [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+* Correzione della sicurezza: Le autorizzazioni per i file creati all'interno di ~/.nuget sono troppo [aperte](https://github.com/NuGet/Home/issues/7673) #7673 [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
 
-## <a name="summary-whats-new-in-443"></a>Riepilogo: novità di 4.4.3
+## <a name="summary-whats-new-in-443"></a>Riepilogo: Novità nella versione 4.4.3
 
-* Correzione della sicurezza: i file all'interno di transitiva possono avere un percorso relativo sopra la directory NUPKG [#7906](https://github.com/NuGet/Home/issues/7906)
+* Correzione della sicurezza: i file all'interno dei gruppi di sicurezza di rete possono avere un percorso relativo sopra la directory NUPKG [#7906](https://github.com/NuGet/Home/issues/7906)
 
 ## <a name="known-issues"></a>Problemi noti
 

@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 12d12d5294a474c4d3e4f5d3cad468bb515d21d5
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: a3d2504528249f3545e2eb5d9bce7713029638db
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "67426946"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901590"
 ---
 # <a name="scoped-api-keys"></a>Chiavi API con ambito
 
@@ -49,7 +49,7 @@ Nell'esempio seguente la chiave API con nome `Contoso service CI` può essere us
 
 Se si sta lavorando su più pacchetti e si ha un lungo elenco di pacchetti da gestire, è possibile scegliere di usare i criteri GLOB per selezionare più pacchetti contemporaneamente. Se ad esempio si vuole concedere a una chiave ambiti specifici per tutti i pacchetti il cui ID inizia con `Fabrikam.Service`, è possibile eseguire questa operazione specificando `fabrikam.service.*` nella casella di testo del **criterio Glob**.
 
-![Creare chiavi API](media/scoped-api-keys-glob-pattern.png)
+![Creare chiavi API - 2](media/scoped-api-keys-glob-pattern.png)
 
 L'uso di criteri GLOB per determinare le autorizzazioni della chiave API è valido anche per i nuovi pacchetti corrispondenti al criterio GLOB. Ad esempio, se si tenta di eseguire il push di un nuovo pacchetto denominato `Fabrikam.Service.Framework`, è possibile farlo con la chiave creata in precedenza, perché il pacchetto corrisponde al criterio GLOB `fabrikam.service.*`.
 
@@ -57,19 +57,19 @@ L'uso di criteri GLOB per determinare le autorizzazioni della chiave API è vali
 
 Per la sicurezza, una chiave appena creata non viene mai visualizzata sullo schermo ed è disponibile unicamente tramite il pulsante **Copia**. Analogamente la chiave non è accessibile dopo l'aggiornamento della pagina.
 
-![Creare chiavi API](media/scoped-api-keys-obtain-keys.png)
+![Creare chiavi API - 3](media/scoped-api-keys-obtain-keys.png)
 
 ## <a name="edit-existing-api-keys"></a>Modificare chiavi API esistenti
 
 È anche possibile che si voglia aggiornare le autorizzazioni e gli ambiti per le chiavi senza modificare le chiavi stesse. Se si ha una chiave con uno o più ambiti specifici per un singolo pacchetto, è possibile scegliere di applicare lo stesso ambito o gli stessi ambiti su uno o molti altri pacchetti.
 
-![Creare chiavi API](media/scoped-api-keys-edit.png)
+![Creare chiavi API - 4](media/scoped-api-keys-edit.png)
 
 ## <a name="refresh-or-delete-existing-api-keys"></a>Aggiornare o eliminare chiavi API esistenti
 
 Il proprietario dell'account può scegliere di aggiornare la chiave, nel qual caso l'autorizzazione (per i pacchetti), l'ambito e la scadenza rimangono invariati, ma viene emessa una nuova chiave e la chiave precedente diventa inutilizzabile. Questo è utile per la gestione delle chiavi non aggiornate o nei casi in cui esiste il rischio di perdita di chiavi API.
 
-![Creare chiavi API](media/scoped-api-keys-refresh.png)
+![Creare chiavi API - 5](media/scoped-api-keys-refresh.png)
 
 È anche possibile scegliere di eliminare queste chiavi se non sono più necessarie. Se si elimina una chiave, questa viene rimossa e diventa inutilizzabile.
 

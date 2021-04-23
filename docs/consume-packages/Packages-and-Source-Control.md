@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9bae65573ca49c68d07250228c1923890e0f14ac
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: fa3ec6992002224c9fb56a53aee9096e6d2c6fbb
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775013"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901668"
 ---
 # <a name="omitting-nuget-packages-in-source-control-systems"></a>Omissione di pacchetti NuGet nei sistemi di controllo del codice sorgente
 
@@ -27,7 +27,7 @@ Anche se il ripristino dei pacchetti è il comportamento predefinito con NuGet, 
 
 ## <a name="omitting-packages-with-git"></a>Omissione di pacchetti con Git
 
-Usare il [file con estensione gitignore](https://git-scm.com/docs/gitignore) per ignorare i pacchetti NuGet (`.nupkg`) la cartella `packages` e `project.assets.json`, tra le altre cose. Per informazioni di riferimento, vedere l' [esempio `.gitignore` per i progetti di Visual Studio](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore):
+Usare il [file con estensione gitignore](https://git-scm.com/docs/gitignore) per ignorare i pacchetti NuGet (`.nupkg`) la cartella `packages` e `project.assets.json`, tra le altre cose. Per informazioni di riferimento, [vedere `.gitignore` l'esempio per Visual Studio seguenti:](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore)
 
 Le parti importanti del file `.gitignore` sono:
 
@@ -80,7 +80,7 @@ Per disabilitare l'integrazione del controllo del codice sorgente con il control
 
 1. Se si usa TFS 2010 o versioni precedenti, mascherare la cartella `packages` nei mapping dell'area di lavoro.
 
-1. In TFS 2012 o versione successiva oppure con Visual Studio Team Services, creare un file `.tfignore` come descritto in [Add files to the server](/vsts/tfvc/add-files-server?view=vsts#tfignore) (Aggiungere file al server). In tale file, includere il contenuto seguente per ignorare in modo esplicito le modifiche per la cartella `\packages` a livello del repository e alcuni altri file intermedi. È possibile creare il file in Esplora risorse usando il nome `.tfignore.` con il punto finale, ma potrebbe essere necessario disabilitare prima di tutto l'opzione per nascondere le estensioni di file conosciute:
+1. In TFS 2012 o versione successiva oppure con Visual Studio Team Services, creare un file `.tfignore` come descritto in [Add files to the server](/vsts/tfvc/add-files-server?view=vsts#tfignore&preserve-view=true) (Aggiungere file al server). In tale file, includere il contenuto seguente per ignorare in modo esplicito le modifiche per la cartella `\packages` a livello del repository e alcuni altri file intermedi. È possibile creare il file in Esplora risorse usando il nome `.tfignore.` con il punto finale, ma potrebbe essere necessario disabilitare prima di tutto l'opzione per nascondere le estensioni di file conosciute:
 
    ```cli
    # Ignore NuGet Packages

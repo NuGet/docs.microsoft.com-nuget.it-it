@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 64b28c29ae3b533bde7c8f41dd38a4ab0a5afef7
-ms.sourcegitcommit: 0cc6ac680c3202d0b036c0bed7910f6709215682
+ms.openlocfilehash: c0622520a325000d5fcb8fb884cb509ee4b641f4
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94550375"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901902"
 ---
 # <a name="signing-nuget-packages"></a>Firma di pacchetti NuGet
 
@@ -19,9 +19,9 @@ I pacchetti firmati consentono di eseguire controlli di verifica dell'integrità
 
 ## <a name="get-a-code-signing-certificate"></a>Ottenere un certificato di firma del codice
 
-I certificati validi possono essere ottenuti da un'autorità di certificazione pubblica, ad esempio [Symantec](https://trustcenter.websecurity.symantec.com/process/trust/productOptions?productType=SoftwareValidationClass3), [DigiCert](https://www.digicert.com/code-signing/), [Go Daddy](https://www.godaddy.com/web-security/code-signing-certificate), [Global Sign](https://www.globalsign.com/en/code-signing-certificate/), [comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php), [certum](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml)e così via. L'elenco completo di autorità di certificazione attendibili per Windows può essere ottenuto da [http://aka.ms/trustcertpartners](/security/trusted-root/participants-list) .
+I certificati validi possono essere ottenuti da un'autorità di certificazione pubblica, ad esempio [DigiCert,](https://www.digicert.com/code-signing/) [Global Sign,](https://www.globalsign.com/en/code-signing-certificate/) [Comodo,](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php) [Certum](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml)e così via. L'elenco completo delle autorità di certificazione attendibili da Windows può essere ottenuto da [http://aka.ms/trustcertpartners](/security/trusted-root/participants-list) .
 
-A scopo di test è possibile usare l'autocertificazione. Tuttavia, i pacchetti firmati con certificati autocertificati non sono accettati da NuGet.org. Altre informazioni sulla [creazione di un certificato di prova](#create-a-test-certificate)
+A scopo di test è possibile usare l'autocertificazione. Tuttavia, i pacchetti firmati tramite certificati autoemessi non vengono accettati da NuGet.org. Altre informazioni sulla [creazione di un certificato di test](#create-a-test-certificate)
 
 ## <a name="export-the-certificate-file"></a>Esportare il file del certificato
 
@@ -34,7 +34,7 @@ A scopo di test è possibile usare l'autocertificazione. Tuttavia, i pacchetti f
 ## <a name="sign-the-package"></a>Firmare il pacchetto
 
 > [!note]
-> Richiede nuget.exe 4.6.0 o versione successiva. Il supporto dotnet.exe sarà presto disponibile: [#7939](https://github.com/NuGet/Home/issues/7939)
+> Richiede nuget.exe 4.6.0 o versione successiva. dotnet.exe presto disponibile il supporto tecnico [- #7939](https://github.com/NuGet/Home/issues/7939)
 
 Firmare il pacchetto usando il comando [sign](../reference/cli-reference/cli-ref-sign.md) di NuGet:
 
@@ -51,7 +51,7 @@ nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper 
 
 ## <a name="register-the-certificate-on-nugetorg"></a>Registrare il certificato su NuGet.org
 
-Per pubblicare un pacchetto firmato, è necessario prima registrare il certificato con NuGet.org. Il certificato è necessario come `.cer` file in formato der binario.
+Per pubblicare un pacchetto firmato, è necessario prima registrare il certificato con NuGet.org. Il certificato è necessario come `.cer` file in formato DER binario.
 
 1. [Eseguire l'accesso](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) a NuGet.org.
 1. Passare a `Account settings` oppure a `Manage Organization` **>** `Edit Organization` se si desidera registrare il certificato con un account aziendale.
@@ -66,7 +66,7 @@ Per pubblicare un pacchetto firmato, è necessario prima registrare il certifica
 
 ## <a name="publish-the-package"></a>Pubblicare il pacchetto
 
-A questo punto è possibile pubblicare il pacchetto in NuGet.org. Vedere [pubblicazione di pacchetti](../nuget-org/Publish-a-package.md).
+A questo punto è possibile pubblicare il pacchetto in NuGet.org. Vedere [Pubblicazione di pacchetti](../nuget-org/Publish-a-package.md).
 
 ## <a name="create-a-test-certificate"></a>Creare un certificato di test
 

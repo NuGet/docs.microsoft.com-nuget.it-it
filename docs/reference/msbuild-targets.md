@@ -10,18 +10,18 @@ no-loc:
 - MSBuild
 - .nuspec
 - nuspec
-ms.openlocfilehash: 47411641db47884f79f2bc9a4aa00035fc79993b
-ms.sourcegitcommit: c8bf16420f235fc3e42c08cd0d56359e91d490e5
+ms.openlocfilehash: 0a10a6f1e4c71903232281c25a6c4b6bbc65fb34
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107387374"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901485"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet eseguire il pack e il ripristino come MSBuild destinazioni
 
 *NuGet 4.0+*
 
-Con il [formato PackageReference,](../consume-packages/package-references-in-project-files.md) 4.0+ può archiviare tutti i metadati del manifesto direttamente all'interno di un file di progetto NuGet anziché usare un file `.nuspec` separato.
+Con il [formato PackageReference,](../consume-packages/package-references-in-project-files.md) 4.0+ può archiviare tutti i metadati del manifesto direttamente all'interno di un file di progetto anziché NuGet usare un file `.nuspec` separato.
 
 Con MSBuild 15.1+, è anche un primo livello con le destinazioni NuGet e come descritto di MSBuild `pack` `restore` seguito. Queste destinazioni consentono di usare come si farebbe NuGet con qualsiasi altra attività o MSBuild destinazione. Per istruzioni sulla creazione di NuGet un pacchetto tramite , vedere Creare un pacchetto MSBuild [ NuGet usando MSBuild ](../create-packages/creating-a-package-msbuild.md). (Per NuGet 3.x e versioni precedenti usano invece i [comandi pack](../reference/cli-reference/cli-ref-pack.md) [e restore](../reference/cli-reference/cli-ref-restore.md) tramite l'interfaccia della riga NuGet di comando.
 
@@ -47,7 +47,7 @@ Analogamente, è possibile scrivere MSBuild un'attività, scrivere la propria de
 
 Per i progetti .NET che usano il formato , l'uso di disegna input dal file di progetto da `PackageReference` usare nella creazione di un `msbuild -t:pack` NuGet pacchetto.
 
-Nella tabella seguente vengono descritte le MSBuild proprietà che è possibile aggiungere a un file di progetto all'interno del primo `<PropertyGroup>` nodo. È possibile apportare facilmente queste modifiche in Visual Studio 2017 e versioni successive facendo clic con il pulsante destro del mouse sul progetto e scegliendo **Modifica {nome_progetto}** dal menu di scelta rapida. Per praticità, la tabella è organizzata in base alla proprietà equivalente in un [ `.nuspec` file](../reference/nuspec.md).
+Nella tabella seguente vengono descritte MSBuild le proprietà che è possibile aggiungere a un file di progetto all'interno del primo `<PropertyGroup>` nodo. È possibile apportare facilmente queste modifiche in Visual Studio 2017 e versioni successive facendo clic con il pulsante destro del mouse sul progetto e scegliendo **Modifica {nome_progetto}** dal menu di scelta rapida. Per praticità, la tabella è organizzata in base alla proprietà equivalente in un [ `.nuspec` file](../reference/nuspec.md).
 
 > [!NOTE]
 > `Owners` Le `Summary` proprietà e da non sono supportate con `.nuspec` MSBuild .
@@ -58,7 +58,7 @@ Nella tabella seguente vengono descritte le MSBuild proprietà che è possibile 
 | `Version` | `PackageVersion` | Versione | È compatibile con semver, ad esempio `1.0.0` `1.0.0-beta` , o `1.0.0-beta-00345` |
 | `VersionPrefix` | `PackageVersionPrefix` | empty | `PackageVersion`L'impostazione sovrascrive`PackageVersionPrefix` |
 | `VersionSuffix` | `PackageVersionSuffix` | empty | `$(VersionSuffix)` da MSBuild . Sovrascrittura `PackageVersion` delle impostazioni `PackageVersionSuffix` |
-| `Authors` | `Authors` | Nome utente dell'utente corrente | Elenco di autori di pacchetti separati da punto e virgola, corrispondenti ai nomi dei profili nuget.org. Questi vengono visualizzati in Gallery in nuget.org e vengono usati per creare riferimenti incrociati ai NuGet pacchetti da parte degli stessi autori. |
+| `Authors` | `Authors` | Nome utente dell'utente corrente | Elenco di autori di pacchetti separati da punto e virgola, corrispondenti ai nomi dei profili nuget.org. Questi vengono visualizzati in Gallery in nuget.org e vengono usati per creare riferimenti incrociati ai pacchetti NuGet da parte degli stessi autori. |
 | `Owners` | N/D | Non presente in nuspec | |
 | `Title` | `Title` | Il tipo `PackageId` | Titolo del pacchetto facilmente comprensibile per l'utente, usato di solito per la visualizzazione dell'interfaccia utente, ad esempio in nuget.org e in Gestione pacchetti in Visual Studio. |
 | `Description` | `Description` | "Descrizione del pacchetto" | Descrizione lunga per l'assembly. Se `PackageDescription` non viene specificato, questa proprietà viene utilizzata anche come descrizione del pacchetto. |
@@ -93,7 +93,7 @@ Nella tabella seguente vengono descritte le MSBuild proprietà che è possibile 
 | `Description` | Descrizione lunga per l'assembly. Se non viene specificato, questa proprietà viene usata anche `PackageDescription` come descrizione del pacchetto. |
 | `Copyright` | Informazioni sul copyright per il pacchetto. |
 | `PackageRequireLicenseAcceptance` | Valore booleano che specifica se il client deve richiedere al consumer di accettare la licenza del pacchetto prima di installarlo. Il valore predefinito è `false`. |
-| `DevelopmentDependency` | Valore booleano che specifica se il pacchetto è contrassegnato come dipendenza di solo sviluppo, impedendo che il pacchetto venga incluso come dipendenza in altri pacchetti. Con `PackageReference` ( 4.8+), questo flag indica anche che gli asset in fase di compilazione NuGet vengono esclusi dalla compilazione. Per altre informazioni, vedere [Supporto di DevelopmentDependency per PackageReference](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference). |
+| `DevelopmentDependency` | Valore booleano che specifica se il pacchetto è contrassegnato come dipendenza di solo sviluppo, che impedisce l'inserimento del pacchetto come dipendenza in altri pacchetti. Con `PackageReference` ( 4.8+), questo flag indica anche che gli asset in fase di compilazione NuGet vengono esclusi dalla compilazione. Per altre informazioni, vedere [Supporto di DevelopmentDependency per PackageReference](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference). |
 | `PackageLicenseExpression` | Identificatore [o espressione di licenza SPDX,](https://spdx.org/licenses/) ad esempio `Apache-2.0` . Per altre informazioni, vedere [Creazione di un pacchetto di un'espressione di licenza o di un file di licenza.](#packing-a-license-expression-or-a-license-file) |
 | `PackageLicenseFile` | Percorso di un file di licenza all'interno del pacchetto se si usa una licenza personalizzata o una licenza a cui non è stato assegnato un identificatore SPDX. |
 | `PackageLicenseUrl` | L'oggetto `PackageLicenseUrl` è deprecato. In sostituzione usare `PackageLicenseExpression` o `PackageLicenseFile`. |
@@ -114,13 +114,13 @@ Nella tabella seguente vengono descritte le MSBuild proprietà che è possibile 
 | `SymbolPackageFormat` | Specifica il formato del pacchetto di simboli. Se "symbols.nupkg", viene creato un pacchetto di simboli legacy con estensione *symbols.nupkg* contenente file PDB, DLL e altri file di output. Se "snupkg", viene creato un pacchetto di simboli snupkg contenente i PDB portatili. Il valore predefinito è "symbols.nupkg". |
 | `NoPackageAnalysis` | Specifica che non deve `pack` eseguire l'analisi del pacchetto dopo la compilazione del pacchetto. |
 | `MinClientVersion` | Specifica la versione minima del client in grado di installare questo pacchetto, applicata da nuget.exe NuGet e dal Visual Studio Gestione pacchetti. |
-| `IncludeBuildOutput` | Questo valore booleano specifica se gli assembly di output di compilazione devono essere suddivisi o meno nel file con estensione *nupkg.* |
+| `IncludeBuildOutput` | Questo valore booleano specifica se gli assembly di output di compilazione devono essere impacchettati o meno nel file con estensione *nupkg.* |
 | `IncludeContentInPack` | Questo valore booleano specifica se eventuali elementi di tipo vengono `Content` inclusi automaticamente nel pacchetto risultante. Il valore predefinito è `true`. |
 | `BuildOutputTargetFolder` | Specifica la cartella in cui inserire gli assembly di output. Gli assembly di output (e altri file di output) vengono copiati nelle rispettive cartelle per framework. Per altre informazioni, vedere [Assembly di output.](#output-assemblies) |
 | `ContentTargetFolders` | Specifica il percorso predefinito di tutti i file di contenuto se `PackagePath` non è specificato. Il valore predefinito è "content;contentFiles". Per altre informazioni, vedere [Including content in a package](#including-content-in-a-package) (Includere contenuto in un pacchetto). |
-| `NuspecFile` | Percorso relativo o assoluto del *.nuspec* file utilizzato per la creazione di un pacchetto. Se specificato, viene usato esclusivamente per **la** creazione di pacchetti di informazioni e le informazioni nei progetti non vengono usate. Per altre informazioni, vedere [Packing using a .nuspec ](#packing-using-a-nuspec-file). |
-| `NuspecBasePath` | Percorso di base per il *.nuspec* file. Per altre informazioni, vedere [Packing using a .nuspec ](#packing-using-a-nuspec-file). |
-| `NuspecProperties` | Elenco con valori delimitati da punto e virgola di coppie chiave=valore. Per altre informazioni, vedere [Creazione di un pacchetto tramite . .nuspec ](#packing-using-a-nuspec-file) |
+| `NuspecFile` | Percorso relativo o assoluto del *.nuspec* file utilizzato per la creazione di un pacchetto. Se specificato, viene usato esclusivamente per **creare** pacchetti di informazioni e le informazioni nei progetti non vengono usate. Per altre informazioni, vedere [Creazione di un pacchetto tramite . .nuspec ](#packing-using-a-nuspec-file) |
+| `NuspecBasePath` | Percorso di base per il *.nuspec* file. Per altre informazioni, vedere [Creazione di un pacchetto tramite . .nuspec ](#packing-using-a-nuspec-file) |
+| `NuspecProperties` | Elenco con valori delimitati da punto e virgola di coppie chiave=valore. Per altre informazioni, vedere [Packing using a .nuspec ](#packing-using-a-nuspec-file). |
 
 ## <a name="pack-scenarios"></a>Scenari pack
 
@@ -130,7 +130,7 @@ Per eliminare le dipendenze del pacchetto dal pacchetto generato, impostare su c
 
 ### `PackageIconUrl`
 
-`PackageIconUrl` è deprecato a favore della [`PackageIcon`](#packageicon) proprietà . A partire dalla NuGet versione 5.3 e Visual Studio 2019 versione 16.3, genera l'avviso `pack` [NU5048](./errors-and-warnings/nu5048.md) se i metadati del pacchetto specificano solo `PackageIconUrl` .
+`PackageIconUrl` è deprecato a favore della [`PackageIcon`](#packageicon) proprietà . A partire NuGet dalla versione 5.3 e Visual Studio 2019 versione 16.3, genera l'avviso `pack` [NU5048](./errors-and-warnings/nu5048.md) se i metadati del pacchetto specificano solo `PackageIconUrl` .
 
 ### `PackageIcon`
 
@@ -162,6 +162,8 @@ Ad esempio:
 Per nuspec l'equivalente, esaminare il riferimento [ nuspec per l'icona](nuspec.md#icon).
 
 ### <a name="packagereadmefile"></a>PackageReadmeFile
+
+*Supportato con **NuGet 5.10.0 Preview 2**  /  **.NET 5.0.3** e versioni successive*
 
 Quando si esegue il pacchetto di un file Leggimi, è necessario usare la proprietà per specificare il percorso del pacchetto, relativo alla `PackageReadmeFile` radice del pacchetto. Inoltre, è necessario assicurarsi che il file sia incluso nel pacchetto. I formati di file supportati includono solo Markdown (*md*).
 
@@ -292,7 +294,7 @@ Per un esempio, vedere [l'esempio di file di licenza](https://github.com/NuGet/S
 
 ### <a name="packing-a-file-without-an-extension"></a>Creazione di un pacchetto di un file senza estensione
 
-In alcuni scenari, ad esempio quando si imballa un file di licenza, è possibile includere un file senza estensione.
+In alcuni scenari, ad esempio quando si imballa un file di licenza, potrebbe essere necessario includere un file senza estensione.
 Per motivi cronologici, NuGet  &  MSBuild considerare i percorsi senza un'estensione come directory.
 
 ```xml
@@ -316,7 +318,7 @@ Quando si usa `MSBuild -t:pack -p:IsTool=true`, tutti i file, come specificato n
 
 Anche se è [consigliabile](../reference/msbuild-targets.md#pack-target) includere tutte le proprietà che in genere si trovano nel file nel file di progetto, è possibile scegliere di usare un file per il pacchetto `.nuspec` del `.nuspec` progetto. Per un progetto non di tipo SDK che usa , è necessario importare in modo che sia possibile eseguire l'attività di `PackageReference` `NuGet.Build.Tasks.Pack.targets` tipo pack. È comunque necessario ripristinare il progetto prima di poter imballare un nuspec file. Un progetto di tipo SDK include le destinazioni di tipo pack per impostazione predefinita.
 
-Il framework di destinazione del file di progetto non è pertinente e non viene usato quando si imballa un oggetto nuspec . Le tre proprietà MSBuild seguenti sono rilevanti per la creazione di un pacchetto tramite `.nuspec` :
+Il framework di destinazione del file di progetto è irrilevante e non viene usato quando si imballa un oggetto nuspec . Le tre proprietà MSBuild seguenti sono rilevanti per la creazione di un pacchetto tramite `.nuspec` :
 
 1. `NuspecFile`: percorso relativo o assoluto per il file `.nuspec` usato per la creazione del pacchetto.
 1. `NuspecProperties`: elenco con valori delimitati da punto e virgola di coppie chiave=valore. A causa del funzionamento dell'analisi della riga di comando, è necessario MSBuild specificare più proprietà nel modo seguente: `-p:NuspecProperties="key1=value1;key2=value2"` .  
@@ -334,7 +336,7 @@ Se si usa MSBuild per creare il pacchetto del progetto, usare un comando simile 
 msbuild -t:pack <path to .csproj file> -p:NuspecFile=<path to nuspec file> -p:NuspecProperties=<> -p:NuspecBasePath=<Base path> 
 ```
 
-Si noti che la creazione di un oggetto using dotnet.exe o msbuild comporta anche nuspec la compilazione del progetto per impostazione predefinita. Questa operazione può essere evitata passando la proprietà a dotnet.exe, che equivale all'impostazione nel file di progetto, insieme all'impostazione ```--no-build``` ```<NoBuild>true</NoBuild> ``` nel file di ```<IncludeBuildOutput>false</IncludeBuildOutput> ``` progetto.
+Si noti che la creazione di un oggetto using dotnet.exe o msbuild comporta anche nuspec la compilazione del progetto per impostazione predefinita. Questa operazione può essere evitata passando la proprietà dotnet.exe, che equivale all'impostazione nel file di progetto, insieme all'impostazione ```--no-build``` ```<NoBuild>true</NoBuild> ``` nel file di ```<IncludeBuildOutput>false</IncludeBuildOutput> ``` progetto.
 
 Un esempio di file *con estensione csproj* per il pacchetto di nuspec un file è:
 
@@ -360,10 +362,10 @@ La `pack` destinazione fornisce due punti di estensione che vengono eseguiti nel
 
 #### `TargetsForTfmSpecificBuildOutput`
 
-Scrivere una destinazione personalizzata e specificarla come valore della `$(TargetsForTfmSpecificBuildOutput)` proprietà . Per tutti i file che devono accedere a (lib per impostazione predefinita), la destinazione deve scrivere tali file in ItemGroup e impostare `BuildOutputTargetFolder` i due valori di metadati `BuildOutputInPackage` seguenti:
+Scrivere una destinazione personalizzata e specificarla come valore della `$(TargetsForTfmSpecificBuildOutput)` proprietà . Per tutti i file che devono accedere a (lib per impostazione predefinita), la destinazione deve scrivere tali file in ItemGroup e `BuildOutputTargetFolder` impostare i due valori di metadati `BuildOutputInPackage` seguenti:
 
 - `FinalOutputPath`: percorso assoluto del file. Se non viene specificato, l'identità viene usata per valutare il percorso di origine.
-- `TargetPath`: (Facoltativo) Impostare quando il file deve essere inserito in una sottocartella all'interno di , ad esempio gli assembly satellite che si trova `lib\<TargetFramework>` nelle rispettive cartelle delle impostazioni cultura. Il valore predefinito è il nome del file.
+- `TargetPath`: (Facoltativo) Imposta quando il file deve essere inserito in una sottocartella all'interno di , ad esempio gli assembly satellite che si trova `lib\<TargetFramework>` nelle rispettive cartelle delle impostazioni cultura. Il valore predefinito è il nome del file.
 
 Esempio:
 
@@ -477,7 +479,7 @@ Il ripristino crea i file seguenti nella cartella `obj` di compilazione:
 | `{projectName}.projectFileExtension.nuget.g.props` | Riferimenti alle MSBuild proprietà contenute nei pacchetti |
 | `{projectName}.projectFileExtension.nuget.g.targets` | Riferimenti alle MSBuild destinazioni contenute nei pacchetti |
 
-### <a name="restoring-and-building-with-one-msbuild-command"></a>Ripristino e compilazione con MSBuild un comando
+### <a name="restoring-and-building-with-one-msbuild-command"></a>Ripristino e compilazione con un unico MSBuild comando
 
 A causa del fatto che può ripristinare pacchetti che portano a destinazione e proprietà, le valutazioni di ripristino e compilazione vengono eseguite NuGet MSBuild con proprietà globali diverse.
 Ciò significa che quanto segue avrà un comportamento imprevedibile e spesso errato.

@@ -1,20 +1,20 @@
 ---
 title: Creare un pacchetto NuGet usando MSBuild
-description: Guida dettagliata al processo di progettazione e creazione di un pacchetto NuGet, incluse le principali decisioni critiche, ad esempio quelle relative ai file e al controllo delle versioni.
+description: Guida dettagliata al processo di progettazione e creazione di un pacchetto NuGet tramite MSBuild, inclusi i principali punti decisionali, ad esempio file e controllo delle versioni.
 author: JonDouglas
 ms.author: jodou
 ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 48741668af932a532240f2796a9bf5d490ee8e35
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 18e0da335f65fde99d035388b95f35160757ee84
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774436"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901460"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>Creare un pacchetto NuGet usando MSBuild
 
-Quando si crea un pacchetto NuGet dal codice, si rendono disponibili tali funzionalità in un componente condivisibile e utilizzabile da altri sviluppatori. Questo articolo descrive come creare un pacchetto usando MSBuild. MSBuild viene preinstallato con tutti i carichi di lavoro di Visual Studio che contengono NuGet. Inoltre, è possibile usare MSBuild anche tramite l'interfaccia della riga di comando DotNet con [DotNet MSBuild](/dotnet/core/tools/dotnet-msbuild).
+Quando si crea un pacchetto NuGet dal codice, si rendono disponibili tali funzionalità in un componente condivisibile e utilizzabile da altri sviluppatori. Questo articolo descrive come creare un pacchetto usando MSBuild. MSBuild viene preinstallato con tutti i carichi di lavoro di Visual Studio che contengono NuGet. È anche possibile usare MSBuild tramite l'interfaccia della riga di comando dotnet con [dotnet msbuild](/dotnet/core/tools/dotnet-msbuild).
 
 Per i progetti .NET Core e .NET Standard che usano il [formato di tipo SDK](../resources/check-project-format.md), e qualsiasi altro progetto di tipo SDK, NuGet usa le informazioni nel file di progetto direttamente per creare un pacchetto.  Anche per un progetto di tipo non SDK che usa `<PackageReference>`, NuGet usa il file di progetto per creare un pacchetto.
 
@@ -35,9 +35,9 @@ Per creare un pacchetto, sono necessarie le proprietà seguenti.
 - `Authors`, ovvero informazioni sull'autore e sul proprietario. Se non è specificato, il valore predefinito è `AssemblyName`.
 - `Company`, ovvero il nome della società. Se non è specificato, il valore predefinito è `AssemblyName`.
 
-Inoltre, se si stanno comprimendo progetti di tipo non SDK che usano PackageReference, è necessario quanto segue:
+Inoltre, se si imballando progetti non di tipo SDK che usano PackageReference, è necessario quanto segue:
 
-- `PackageOutputPath`, la cartella di output per il pacchetto generato quando si chiama Pack.
+- `PackageOutputPath`, la cartella di output per il pacchetto generato quando si chiama pack.
 
 In Visual Studio è possibile impostare questi valori nelle proprietà del progetto (fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni, scegliere **Proprietà** e selezionare la scheda **Pacchetto**). È anche possibile impostare queste proprietà direttamente nei file di progetto (con estensione *csproj*).
 
@@ -157,7 +157,7 @@ Per eseguire automaticamente `msbuild -t:pack` quando si compila o si ripristina
 <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 ```
 
-Quando si esegue `msbuild -t:pack` su una soluzione, questo comprime tutti i progetti nella soluzione che possono essere compressi (la [<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties) proprietà è impostata su `true` ).
+Quando si esegue in una soluzione, tutti i progetti nella soluzione sono `msbuild -t:pack` imballabili ( [<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties) la proprietà è impostata su `true` ).
 
 > [!NOTE]
 > Quando si genera automaticamente il pacchetto, il tempo di creazione del pacchetto aumenta il tempo di compilazione per il progetto.
@@ -182,7 +182,7 @@ Potrebbe anche essere necessario estendere le funzionalità del pacchetto o supp
 - [Supportare più framework di destinazione](../create-packages/multiple-target-frameworks-project-file.md)
 - [Trasformazioni di file di origine e di configurazione](../create-packages/source-and-config-file-transformations.md)
 - [Localizzazione](../create-packages/creating-localized-packages.md)
-- [Versioni non definitive](../create-packages/prerelease-packages.md)
+- [Versioni non definitiva](../create-packages/prerelease-packages.md)
 - [Impostare il tipo di pacchetto](../create-packages/set-package-type.md)
 - [Creare pacchetti con assembly di interoperabilità COM](../create-packages/author-packages-with-COM-interop-assemblies.md)
 

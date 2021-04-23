@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 5be7a4d4c31df9f2f4bda7bdb1ff9f4887108578
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 05a16d8bf609d727aba3ddbc42959a3deb97b24b
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775986"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901915"
 ---
 # <a name="publishing-packages"></a>Pubblicazione di pacchetti
 
@@ -38,16 +38,14 @@ Sarà quindi possibile caricare il pacchetto tramite il portale Web di nuget.org
 
 1. Nuget.org indica se il nome del pacchetto è disponibile. Se non lo è, modificare l'identificatore del pacchetto nel progetto, ricompilare e riprovare a eseguire il caricamento.
 
-1. Se il nome del pacchetto è disponibile, nuget.org apre una sezione **Verify** (Verifica) in cui è possibile esaminare i metadati del manifesto del pacchetto. Per modificare i metadati, modificare il progetto (file di progetto o file `.nuspec`), ricompilare, ricreare il pacchetto e caricarlo nuovamente.
+1. Se il nome del pacchetto è disponibile, nuget.org apre una sezione **Verify** (Verifica) in cui è possibile esaminare i metadati del manifesto del pacchetto. Se è stato incluso [un file Leggimi](/docs/nuget-org/package-readme-on-nuget-org.md) nel pacchetto, vedere l'anteprima per assicurarsi che il rendering di tutto il contenuto venga eseguito correttamente. Per modificare i metadati, modificare il progetto (file di progetto o file `.nuspec`), ricompilare, ricreare il pacchetto e caricarlo nuovamente.
 
-1. In **Import Documentation** (Importa documentazione) è possibile incollare Markdown, selezionare documenti con un URL oppure caricare un file di documentazione.
-
-1. Quando tutte le informazioni sono pronte, selezionare il pulsante **Submit** (Invia).
+2. Quando tutte le informazioni sono pronte, selezionare il pulsante **Submit** (Invia).
 
 ### <a name="command-line"></a>Riga di comando
 
-Per eseguire il push dei pacchetti in nuget.org, è necessario prima di tutto una chiave API creata in nuget.org. È necessario usare dotnet.exe (.NET Core) o nuget.exe v 4.1.0 o versioni successive, che implementano i protocolli NuGet necessari.
-Per ulteriori informazioni, vedere la pagina relativa ai protocolli [.NET Core](/dotnet/core/install/), [nuget.exe](https://www.nuget.org/downloads)e [NuGet](../api/nuget-protocols.md).
+Per eseguire il push nuget.org, è prima di tutto necessaria una chiave API, che viene creata in nuget.org. È necessario usare dotnet.exe (.NET Core) o nuget.exe versione 4.1.0 o successive, che implementano i protocolli NuGet necessari.
+Per altre informazioni, vedere [.NET Core,](/dotnet/core/install/) [nuget.exe](https://www.nuget.org/downloads)e [Protocolli NuGet.](../api/nuget-protocols.md)
 
 #### <a name="create-api-keys"></a>Creare chiavi API
 
@@ -65,11 +63,11 @@ Per ulteriori informazioni, vedere la pagina relativa ai protocolli [.NET Core](
     nuget setApiKey <your_API_key>
     ```
 
-    Questo comando Archivia la chiave API nella configurazione di NuGet, in modo che non sia necessario ripetere questo passaggio nello stesso computer.
+    Questo comando archivia la chiave API nella configurazione di NuGet in modo che non sia necessario ripetere questo passaggio nello stesso computer.
 
     > [!NOTE]
-    > La chiave API non viene usata per l'autenticazione con il feed privato. Fare riferimento al [ `nuget sources` comando](../reference/cli-reference/cli-ref-sources.md) per gestire le credenziali per l'autenticazione con l'origine.
-    > Le chiavi API possono essere ottenute dai singoli server NuGet. Per creare e gestire APIKeys per nuget.org, vedere [creare chiavi API](#create-api-keys).
+    > La chiave API non viene usata per l'autenticazione con il feed privato. Fare riferimento [ `nuget sources` al comando](../reference/cli-reference/cli-ref-sources.md) per gestire le credenziali per l'autenticazione con l'origine.
+    > Le chiavi API possono essere ottenute dai singoli server NuGet. Per creare e modificare le chiavi API per nuget.org fare riferimento [a Creare chiavi API.](#create-api-keys)
 
 1. Eseguire il push del pacchetto nella raccolta NuGet usando il comando seguente:
 
@@ -90,9 +88,9 @@ I pacchetti di cui viene eseguito il push in nuget.org vengono sottoposti a dive
 
 Quando il pacchetto ha superato tutti i controlli di convalida, l'indicizzazione e la visualizzazione del pacchetto nei risultati della ricerca potrebbero richiedere qualche minuto. Al termine dell'indicizzazione, viene visualizzato un messaggio di posta elettronica che conferma che il pacchetto è stato pubblicato. Se il pacchetto non supera un controllo di convalida, la pagina dei dettagli del pacchetto verrà aggiornata con l'errore associato e si riceverà anche una notifica tramite posta elettronica.
 
-La convalida e l'indicizzazione del pacchetto richiedono in genere meno di 15 minuti. Se la pubblicazione del pacchetto richiede più tempo del previsto, visitare [status.NuGet.org](https://status.nuget.org/) per verificare se NuGet.org sta riscontrando interruzioni. Se tutti i sistemi sono operativi e il pacchetto non viene pubblicato entro un'ora, accedere a nuget.org e usare il collegamento per contattare il supporto tecnico nella pagina del pacchetto.
+La convalida e l'indicizzazione del pacchetto richiedono in genere meno di 15 minuti. Se la pubblicazione del pacchetto richiede [](https://status.nuget.org/) più tempo del previsto, visitare status.nuget.org per verificare se nuget.org si verificano interruzioni. Se tutti i sistemi sono operativi e il pacchetto non viene pubblicato entro un'ora, accedere a nuget.org e usare il collegamento per contattare il supporto tecnico nella pagina del pacchetto.
 
-Per visualizzare lo stato di un pacchetto, selezionare **Gestisci pacchetti** con il nome dell'account in NuGet.org. Al termine della convalida, si riceverà un messaggio di posta elettronica di conferma.
+Per visualizzare lo stato di un pacchetto, selezionare **Gestisci pacchetti sotto** il nome dell'account nuget.org. Al termine della convalida, si riceve un messaggio di posta elettronica di conferma.
 
 Si noti che l'indicizzazione e la visualizzazione del pacchetto nei risultati della ricerca, dove altri possono trovarlo, potrebbero richiedere tempo. Nella pagina del pacchetto viene nel frattempo visualizzato il messaggio seguente:
 

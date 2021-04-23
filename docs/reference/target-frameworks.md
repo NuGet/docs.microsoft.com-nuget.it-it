@@ -1,34 +1,34 @@
 ---
-title: Informazioni di riferimento sui Framework di destinazione per NuGet
+title: Informazioni di riferimento su Framework di destinazione per NuGet
 description: I riferimenti ai framework di destinazione NuGet consentono di identificare e isolare i componenti dipendenti dai framework di un pacchetto.
 author: JonDouglas
 ms.author: jodou
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 9172aefb48ab3e542498f5a144f1d4f381ad55bd
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: d7f91880096b5cbdca7447f7838634ff099c3c4c
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859486"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901720"
 ---
 # <a name="target-frameworks"></a>Framework di destinazione
 
 NuGet usa I riferimenti ai framework di destinazione in svariate posizioni per identificare e isolare i componenti dipendenti dai framework di un pacchetto:
 
-- [file di progetto](../create-packages/multiple-target-frameworks-project-file.md): per i progetti di tipo SDK, il file con *estensione csproj* contiene i riferimenti al Framework di destinazione.
+- [file di progetto:](../create-packages/multiple-target-frameworks-project-file.md)per i progetti di tipo SDK, il file con estensione *csproj* contiene i riferimenti al framework di destinazione.
 - [Manifesto .nuspec](../reference/nuspec.md): un pacchetto può indicare i pacchetti distinti da includere in un progetto a seconda del framework di destinazione del progetto.
 - [Nome delle cartella .nupkg](../create-packages/creating-a-package.md#from-a-convention-based-working-directory): le cartelle all'interno della cartella `lib` di un pacchetto possono essere denominate in base al framework di destinazione e ognuna contiene le DLL e altro contenuto appropriati per tale framework.
 - [packages.config](../reference/packages-config.md): l'attributo `targetframework` di una dipendenza specifica la variante di un pacchetto da installare.
 
 > [!Note]
-> NuGet supporta tutti i Framework di destinazione .NET moderni:
-> - Per un elenco dei framework di destinazione più recenti, vedere la documentazione relativa ai [Framework di destinazione in progetti in stile SDK](/dotnet/standard/frameworks) .
+> NuGet supporta tutti i moderni framework di destinazione .NET:
+> - Per un elenco dei framework di destinazione più recenti, vedere la documentazione [Framework di destinazione nei progetti in stile](/dotnet/standard/frameworks) SDK.
 
 ## <a name="supported-frameworks"></a>Framework supportati
 
-In genere si fa riferimento a un framework tramite un breve moniker del framework di destinazione o TFM (Target Framework Moniker). In .NET Standard viene anche generalizzato in *TXM* per consentire un unico riferimento a più Framework.
+In genere si fa riferimento a un framework tramite un breve moniker del framework di destinazione o TFM (Target Framework Moniker). In .NET Standard anche questo viene generalizzato in *TxM* per consentire un singolo riferimento a più framework.
 
 > [!Note]
 > Il codice sorgente del client NuGet che consente di calcolare le tabelle riportate di seguito è disponibile nelle posizioni seguenti:
@@ -73,7 +73,7 @@ Windows Phone (SL) | wp | wp [wp7] |
 Windows Phone (UWP) | | wpa81 |
 Piattaforma UWP (Universal Windows Platform) | uap | uap [uap10.0] |
 | | | uap10.0 |
-| | | UAP 10.0. xxxxx (dove 10.0. xxxxx è la versione minima della piattaforma di destinazione dell'app di consumo) |
+| | | uap10.0.xxxxx (dove 10.0.xxxxx è la versione minima della piattaforma di destinazione dell'app che usa l'app) |
 .NET Standard | netstandard | netstandard1.0 |
 | | | netstandard1.1 |
 | | | netstandard1.2 |
@@ -82,14 +82,16 @@ Piattaforma UWP (Universal Windows Platform) | uap | uap [uap10.0] |
 | | | netstandard1.5 |
 | | | netstandard1.6 |
 | | | netstandard2.0 |
-| | | netstandard 2.1 |
-App .NET Core | netcoreapp | netcoreapp1.0 |
+| | | netstandard2.1 |
+.NET 5+ (e .NET Core) | netcoreapp | netcoreapp1.0 |
 | | | netcoreapp1.1 |
 | | | netcoreapp2.0 |
 | | | netcoreapp2.1 |
 | | | netcoreapp2.2 |
-| | | netcoreapp 3.0 |
-| | | netcoreapp 3.1 |
+| | | netcoreapp3.0 |
+| | | netcoreapp3.1 |
+| | net | net5.0 |
+| | | net6.0 |
 Tizen | tizen | tizen3 |
 | | | tizen4 |
 
@@ -128,9 +130,9 @@ Alcuni framework sono correlati e compatibili tra loro, ma non necessariamente e
 | win (Microsoft Store) | winrt |
 | | |
 
-## <a name="net-standard"></a>NET standard
+## <a name="net-standard"></a>NET Standard
 
-[.NET standard](/dotnet/standard/net-standard) semplifica i riferimenti tra Framework compatibili con i binari, consentendo a un singolo Framework di destinazione di fare riferimento a una combinazione di altri. (Per informazioni generali, vedere [Nozioni di base su .NET](/dotnet/articles/standard/index).)
+[.NET Standard](/dotnet/standard/net-standard) semplifica i riferimenti tra framework compatibili con i file binari, consentendo a un singolo framework di destinazione di fare riferimento a una combinazione di altri. (Per informazioni generali, vedere [Nozioni di base su .NET](/dotnet/articles/standard/index).)
 
 Lo [strumento NuGet Get Nearest Framework](https://aka.ms/s2m3th) simula la logica usata da NuGet per la selezione di un framework da molte risorse di framework disponibili in un pacchetto sulla base del framework di progetto.
 
@@ -139,7 +141,7 @@ La serie `dotnet` di moniker deve essere usata in NuGet 3.3 e versioni precedent
 ## <a name="portable-class-libraries"></a>Librerie di classi portabili
 
 > [!Warning]
-> **Le librerie di classi portabili (PCL) non sono consigliate**. Anche se sono supportate, gli autori di pacchetti devono supportare netstandard. .NET Platform Standard è un'evoluzione di classi portabili e rappresenta la portabilità binaria tra le piattaforme usando un unico moniker non collegato a una libreria statica come i moniker portabili a *+ b + c* .
+> **Le librerie di classi portabili (PCL) non sono consigliate**. Anche se sono supportate, gli autori di pacchetti devono supportare netstandard. .NET Platform Standard è un'evoluzione di PCL e rappresenta la portabilità binaria tra le piattaforme usando un singolo moniker non associato a una libreria statica come i moniker *portable-a+b+c.*
 
 Per definire un framework di destinazione che fa riferimento a più framework di destinazione figlio, la parola chiave `portable` viene usata come prefisso per l'elenco dei framework a cui si fa riferimento. Evitare di includere artificialmente framework aggiuntivi non usati direttamente per la compilazione, perché ciò può portare a effetti collaterali imprevisti in tali framework.
 
