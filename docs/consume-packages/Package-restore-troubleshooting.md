@@ -5,18 +5,18 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: f1c7c4ce2872e18b1ed35ccbf3355a6192ab4a9c
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 0bd14104695a15d2e4c65a13b271143809c4ba8a
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775022"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323622"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>Risoluzione degli errori relativi al ripristino dei pacchetti
 
 Questo articolo è dedicato agli errori comuni durante il ripristino dei pacchetti e alle procedure per risolverli. 
 
-Ripristino pacchetto tenta di installare tutte le dipendenze del pacchetto nello stato corretto che corrisponde ai riferimenti al pacchetto nel file di progetto (con estensione *csproj*) o nel file *packages.config*. In Visual Studio i riferimenti vengono visualizzati in Esplora soluzioni sotto le **dipendenze \ NuGet** o il nodo **riferimenti** . Per eseguire i passaggi necessari per ripristinare i pacchetti, vedere [ripristinare i pacchetti](../consume-packages/package-restore.md#restore-packages). Se i riferimenti al pacchetto nel file di progetto (con estensione *csproj*) o nel file *packages.config* non sono corretti (non corrispondono allo stato desiderato dopo il ripristino del pacchetto), è necessario installare o aggiornare i pacchetti invece di usare Ripristino pacchetti.
+Ripristino pacchetto tenta di installare tutte le dipendenze del pacchetto nello stato corretto che corrisponde ai riferimenti al pacchetto nel file di progetto (con estensione *csproj*) o nel file *packages.config*. In Visual Studio, i riferimenti vengono visualizzati Esplora soluzioni sotto il nodo **Dipendenze \ NuGet** **o** Riferimenti. Per seguire i passaggi necessari per ripristinare i pacchetti, vedere [Ripristinare i pacchetti](../consume-packages/package-restore.md#restore-packages). Se i riferimenti al pacchetto nel file di progetto (con estensione *csproj*) o nel file *packages.config* non sono corretti (non corrispondono allo stato desiderato dopo il ripristino del pacchetto), è necessario installare o aggiornare i pacchetti invece di usare Ripristino pacchetti.
 
 Se le istruzioni riportate qui non funzionano, [registrare un problema in GitHub](https://github.com/NuGet/docs.microsoft.com-nuget/issues) in modo che lo scenario possa essere esaminato in maggiore dettaglio. Non usare il controllo "Questa pagina è stata utile?" che può essere visualizzato nella pagina perché non offre la possibilità di essere contattati per ulteriori informazioni.
 
@@ -31,7 +31,7 @@ Se si usa Visual Studio, abilitare prima di tutto il ripristino dei pacchetti co
 
 ![Abilitare il ripristino dei pacchetti NuGet in Strumenti/Opzioni](../consume-packages/media/restore-01-autorestoreoptions.png)
 
-Queste impostazioni possono essere modificate anche nel file `NuGet.config`. Vedere la sezione sul [consenso](#consent). Se il progetto è un progetto precedente che usa il ripristino dei pacchetti integrato in MSBuild, potrebbe essere necessario [eseguire la migrazione](package-restore.md#migrate-to-automatic-package-restore-visual-studio) al ripristino dei pacchetti automatico.
+Queste impostazioni possono essere modificate anche nel file `NuGet.Config`. Vedere la sezione sul [consenso](#consent). Se il progetto è un progetto precedente che usa il ripristino dei pacchetti integrato in MSBuild, potrebbe essere necessario [eseguire la migrazione](package-restore.md#migrate-to-automatic-package-restore-visual-studio) al ripristino dei pacchetti automatico.
 
 <a name="missing"></a>
 
@@ -46,7 +46,7 @@ Use NuGet Package Restore to download them. The missing file is {name}.
 
 Questo errore si verifica quando si tenta di compilare un progetto che contiene riferimenti a uno o più pacchetti NuGet, ma tali pacchetti non sono attualmente installati nel computer o nel progetto.
 
-- Quando si usa il formato di gestione [PackageReference](package-references-in-project-files.md) , questo errore potrebbe essere un residuo da una packages.config alla migrazione PackageReference e deve essere [rimosso manualmente](../resources/NuGet-FAQ.md#working-with-packages) dal file di progetto.
+- Quando si usa il formato di gestione [PackageReference,](package-references-in-project-files.md) questo errore potrebbe essere un passaggio da un packages.config alla migrazione PackageReference e deve essere rimosso manualmente [dal](/nuget/resources/nuget-faq#working-with-packages) file di progetto.
 - Quando si usa [packages.config](../reference/packages-config.md), questo errore indica che il pacchetto non è installato nella cartella `packages` nella radice della soluzione.
 
 Generalmente questa situazione si verifica quando si ottiene il codice sorgente del progetto dal controllo del codice sorgente o tramite un altro download. I pacchetti vengono in genere omessi dal controllo del codice sorgente o dai download perché possono essere ripristinati da feed di pacchetti come nuget.org (vedere [Pacchetti e controllo del codice sorgente](Packages-and-Source-Control.md)). La loro aggiunta comporterebbe altrimenti un notevole aumento di dimensioni del repository oppure la creazione di file ZIP inutilmente grandi.

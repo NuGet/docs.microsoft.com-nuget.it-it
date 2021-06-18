@@ -1,16 +1,16 @@
 ---
 title: Note sulla versione di NuGet 5.9
-description: Note sulla versione per NuGet 5.9, incluse nuove funzionalità, correzioni di bug e controller di dominio.
+description: Note sulla versione per NuGet 5.9, tra cui nuove funzionalità, correzioni di bug e controller di dominio.
 author: erdembayar
 ms.author: eryondon
 ms.date: 3/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 50fd277a4f1f39b4a68a89cd07af4e21f0d3d831
-ms.sourcegitcommit: 1462f9f42ae36b3c990762ad4f02e38ab799ad09
+ms.openlocfilehash: 1152af99cf1421918a42d0d1faa33f1452f54a8f
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107508813"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323882"
 ---
 # <a name="nuget-59-release-notes"></a>Note sulla versione di NuGet 5.9
 
@@ -46,47 +46,47 @@ Veicoli per la distribuzione di NuGet:
 
 **CONTROLLER di dominio (richiesta di modifica progettazione):**
 
-* L'icona verso il basso quando viene installata la versione più recente del pacchetto non è intuitiva. Il vecchio segno di spunta verde era [perfetto- #9789](https://github.com/NuGet/Home/issues/9789)
+* L'icona a forma di icona verso il basso quando viene installata la versione più recente del pacchetto non è intuitiva. Il segno di graduazione verde precedente era [perfetto- #9789](https://github.com/NuGet/Home/issues/9789)
 
-* Nuget Debug verbosity should say where a package came from ( Nuget Debug verbosity should say where a package came from - [#3055](https://github.com/NuGet/Home/issues/3055)
+* Il livello di dettaglio del debug NuGet dovrebbe pronunciare la posizione di origine di un pacchetto [#3055](https://github.com/NuGet/Home/issues/3055)
 
-* Il pacchetto NuGet deve rilevare l'omissione non corretta del punto nei numeri di [versione- #9215](https://github.com/NuGet/Home/issues/9215)
+* Il pacchetto NuGet dovrebbe rilevare l'omissione non corretta del punto nei numeri di versione [#9215](https://github.com/NuGet/Home/issues/9215)
 
 * [CPVM] Disabilitare l'aggiunta delle dipendenze transitive centrali - [#10132](https://github.com/NuGet/Home/issues/10132)
 
 * net5 TFM: genera un errore quando manca TPV - [#9441](https://github.com/NuGet/Home/issues/9441)
 
-* Registrare il contenuto del pacchetto durante la registrazione del ripristino (durante [l'estrazione)](https://github.com/NuGet/Home/issues/10384) - #10384
+* Contenuto del pacchetto di loghash durante la registrazione del ripristino (durante [l'estrazione)](https://github.com/NuGet/Home/issues/10384) - #10384
 
-* Implementare un meccanismo di pre-registrazione per i progetti di richiesta pull legacy che chiamano il ripristino all'apertura della soluzione [- #9986](https://github.com/NuGet/Home/issues/9986)
+* Implementare un meccanismo di pre-registrazione per i progetti di richiesta pull legacy che chiamano il ripristino all'apertura della [soluzione - #9986](https://github.com/NuGet/Home/issues/9986)
 
-* La raccomandazione per i pacchetti NuGet deve funzionare quando in Gestione pacchetti è selezionata più di un'origine, [#10433](https://github.com/NuGet/Home/issues/10433)
+* Lo sconsigliatore di pacchetti NuGet dovrebbe funzionare quando si seleziona più di un'origine in Gestione pacchetti [- #10433](https://github.com/NuGet/Home/issues/10433)
 
 * Quando si esegue il ripristino al livello di dettaglio normale, registrare l'origine da cui viene ripristinato un pacchetto [#10461](https://github.com/NuGet/Home/issues/10461)
 
 **Bug:**
 
-* INuGetPackageFileService - Recuperare immagini e licenze incorporate per Codespace connessi e autonomi - [#10151](https://github.com/NuGet/Home/issues/10151)
+* INuGetPackageFileService - Recuperare le immagini e le licenze incorporate per codespace connessi e autonomi - [#10151](https://github.com/NuGet/Home/issues/10151)
 
-* VS OE: formattatore IProjectMetadataContextInfo mancante - [#10079](https://github.com/NuGet/Home/issues/10079)
+* Vs OE: formattatore mancante IProjectMetadataContextInfo - [#10079](https://github.com/NuGet/Home/issues/10079)
 
 * [CPVM-Perf] Ridurre le informazioni scritte in centralTransitiveDependencyGroups - [#10002](https://github.com/NuGet/Home/issues/10002)
 
-* Le operazioni di ripristino che generano un'eccezione a causa di un progetto non caricato vengono segnalate come nei dati di `NoOp` telemetria [#9985](https://github.com/NuGet/Home/issues/9985)
+* Le operazioni di ripristino che generano un'eccezione a causa di un progetto non caricato vengono segnalate `NoOp` come nei dati di telemetria [#9985](https://github.com/NuGet/Home/issues/9985)
 
-* Le icone con alcuni palette a colori causano l'arresto anomalo dell'interfaccia utente di PM [- #10037](https://github.com/NuGet/Home/issues/10037)
+* Le icone con alcuni color palette causano l'arresto anomalo dell'interfaccia utente di Pm - [#10037](https://github.com/NuGet/Home/issues/10037)
 
 * [CPVM-Perf] Ridurre il clone PackageSpec quando si aggiungono le informazioni cpvm - [#10003](https://github.com/NuGet/Home/issues/10003)
 
-* Interfaccia utente di PM: caricamento dell'icona asincrona - [#10009](https://github.com/NuGet/Home/issues/10009)
+* Interfaccia utente di Pm: caricamento dell'icona asyncify - [#10009](https://github.com/NuGet/Home/issues/10009)
 
 * Ritardo dell'interfaccia utente durante il caricamento degli URL delle icone nell'interfaccia utente di Pm - [#8505](https://github.com/NuGet/Home/issues/8505)
 
-* Affinità di thread nei thread bitmapSource e wpf dell'interfaccia utente - [#9161](https://github.com/NuGet/Home/issues/9161)
+* Affinità di thread nei thread bitmapSource e dell'interfaccia utente WPF - [#9161](https://github.com/NuGet/Home/issues/9161)
 
 * Avviso per l'avviso NU5128 quando packastool con alias targetframework - [#10097](https://github.com/NuGet/Home/issues/10097)
 
-* La logica outputPath nelle destinazioni Pack in una compilazione personalizzata non funziona correttamente- [#9234](https://github.com/NuGet/Home/issues/9234)
+* La logica di OutputPath nelle destinazioni Pack in una compilazione personalizzata non funziona correttamente- [#9234](https://github.com/NuGet/Home/issues/9234)
 
 * Vs OE: memorizzare nella cache l'istanza di IServiceBroker nel client - [#10141](https://github.com/NuGet/Home/issues/10141)
 
@@ -120,19 +120,19 @@ Veicoli per la distribuzione di NuGet:
 
 * Le installazioni dell'interfaccia della riga di comando non devono installare pacchetti non in elenco [- #7466](https://github.com/NuGet/Home/issues/7466)
 
-* Ripristino di grafi msbuild statici - Registrazione non di accesso per MSBuildStartupDirectory - [#10335](https://github.com/NuGet/Home/issues/10335)
+* Ripristino di grafi msbuild statici : registrazione non anoniva su MSBuildStartupDirectory - [#10335](https://github.com/NuGet/Home/issues/10335)
 
-* Le dipendenze del progetto di ProjectReference contrassegnate come PrivateAssets non devono essere incluse nel controllo aggiornato del file di [blocco- #8565](https://github.com/NuGet/Home/issues/8565)
+* Le dipendenze di progetto di ProjectReference contrassegnate come PrivateAssets non devono essere incluse nel controllo aggiornato del file di [blocco #8565](https://github.com/NuGet/Home/issues/8565)
 
-* I progetti SDK con dati non validi non visualizzano errori di ripristino in Visual Studio - [#10406](https://github.com/NuGet/Home/issues/10406)
+* Progetti SDK con dati non validi che non visualizzano errori di ripristino in Visual Studio - [#10406](https://github.com/NuGet/Home/issues/10406)
 
 * NU1004 durante il ripristino di una soluzione con progetti legacy e netstandard2 misti dalla riga di comando con LockedMode - [#9623](https://github.com/NuGet/Home/issues/9623)
 
-* Il pacchetto include il contenuto inserito tramite pacchetti di dipendenze nel pacchetto del progetto corrente (solo progetti basati su SDK) - [#8867](https://github.com/NuGet/Home/issues/8867)
+* Pack include il contenuto inserito tramite pacchetti di dipendenze nel pacchetto del progetto corrente (solo progetti basati su SDK) - [#8867](https://github.com/NuGet/Home/issues/8867)
 
 * Aggiungere dati di telemetria per gli errori dell'API di estendibilità di Vs NuGet - [#10062](https://github.com/NuGet/Home/issues/10062)
 
-* Aggiungere GenerateRestoreGraphFile nel ripristino a grafo statico per migliorare il debug.  - [#10365](https://github.com/NuGet/Home/issues/10365)
+* Aggiungere GenerateRestoreGraphFile nel ripristino di grafi statici per migliorare la debugability.  - [#10365](https://github.com/NuGet/Home/issues/10365)
 
 * Impossibile aprire Gestione pacchetti NuGet - [#10336](https://github.com/NuGet/Home/issues/10336)
 
@@ -140,25 +140,25 @@ Veicoli per la distribuzione di NuGet:
 
 * Il messaggio aggiornato sulla barra di stato non è ideale in Visual Studio - [#9402](https://github.com/NuGet/Home/issues/9402)
 
-* packages.config package.lock.jsusa un framework di destinazione non corretto- [#10257](https://github.com/NuGet/Home/issues/10257)
+* packages.config package.lock.jsin usa un framework di destinazione non corretto - [#10257](https://github.com/NuGet/Home/issues/10257)
 
-* Codespaces: correggere i dati di https://github.com/NuGet/NuGet.Client/pull/3786  -  [telemetria #10439](https://github.com/NuGet/Home/issues/10439)
+* Codespaces: correggere i dati di telemetria https://github.com/NuGet/NuGet.Client/pull/3786  -  [#10439](https://github.com/NuGet/Home/issues/10439)
 
 * L'errore NU1004 scompare durante la compilazione della soluzione dopo l'abilitazione di "RestoreLockedMode" - [#8973](https://github.com/NuGet/Home/issues/8973)
 
-* La tabulazione tramite PMUI al contrario dovrebbe rispecchiare la direzione in avanti [#10234](https://github.com/NuGet/Home/issues/10234)
+* La tabulazione tramite PMUI inversa dovrebbe rispecchiare la direzione in avanti [#10234](https://github.com/NuGet/Home/issues/10234)
 
 * Il debug di PMUI nell'istanza sperimentale talvolta genera InvalidCastException da SolutionView a ProjectView - [#10416](https://github.com/NuGet/Home/issues/10416)
 
 * La versione predefinita è Null dopo aver fatto clic su un pacchetto deprecato nella scheda Sfoglia - [#10380](https://github.com/NuGet/Home/issues/10380)
 
-* Il gestore NuGet in Visual Studio ricarica quando lo stato attivo viene riacquisito [- #4176](https://github.com/NuGet/Home/issues/4176)
+* Gestione NuGet in Visual Studio ricarica quando lo stato attivo viene riacquisito - [#4176](https://github.com/NuGet/Home/issues/4176)
 
 * Rimuovere IPackageSourceProvider2 e i tipi correlati - [#10098](https://github.com/NuGet/Home/issues/10098)
 
 * Il pacchetto 'NameOfPackage' non è compatibile con i framework 'all' nel progetto - [#5127](https://github.com/NuGet/Home/issues/5127)
 
-* CreateVersionsAsync non esegue confronti NuGetVersion non [necessari- #10436](https://github.com/NuGet/Home/issues/10436)
+* CreateVersionsAsync esegue confronti nuGetVersion non necessari - [#10436](https://github.com/NuGet/Home/issues/10436)
 
 * NuGet.Client deve sostituire l'uso di ManagedImageMonikers con KnownMonikers - [#9977](https://github.com/NuGet/Home/issues/9977)
 
@@ -176,7 +176,7 @@ Veicoli per la distribuzione di NuGet:
 
 * I gruppi frameworkReferences vuoti devono essere generati [](https://github.com/NuGet/Home/issues/10218) durante la creazione di un pacchetto di progetti con più #10218
 
-* È difficile visualizzare la casella di controllo del pacchetto nella scheda "Aggiornamenti" con una casella tratteggiata quando si passa da Tab nei temi Blu/Blu (contrasto aggiuntivo)/Chiaro - [#8963](https://github.com/NuGet/Home/issues/8963)
+* La casella di controllo del pacchetto nella scheda "Aggiornamenti" è incentrata su una casella tratteggiata quando si passa alla scheda nei temi Blu/Blu (contrasto aggiuntivo)/Chiaro - [#8963](https://github.com/NuGet/Home/issues/8963)
 
 * Le caselle di controllo della scheda Aggiornamenti non funzionano correttamente con le utilità per la lettura dello schermo [- #10449](https://github.com/NuGet/Home/issues/10449)
 
@@ -214,14 +214,24 @@ Grazie a tutti i collaboratori che hanno contribuito a rendere straordinaria que
 
 ## <a name="summary-whats-new-in-591"></a>Riepilogo: Novità della versione 5.9.1
 
-* "dotnet nuget remove source nuget.org" non funziona la prima [volta- #10745](https://github.com/NuGet/Home/issues/10745)
+* "dotnet nuget remove source nuget.org" non funziona la prima volta- [#10745](https://github.com/NuGet/Home/issues/10745)
 * Rendere disabilitata la convalida predefinita in Linux, ma abilitata per impostazione predefinita in Windows - [#10713](https://github.com/NuGet/Home/issues/10713)
 
 **[Elenco di tutti i problemi risolti in questa versione - 5.9.1](https://app.zenhub.com/workspaces/nuget-client-team-55aec9a240305cf007585881/reports/release?release=6075f42efd068017639b4036)**
 
 **[Elenco dei commit in questa versione - 5.9.1](https://github.com/NuGet/NuGet.Client/compare/5.9.0.7134...5.9.1.8)**
 
+## <a name="known-issues"></a>Problemi noti
+
+### <a name="nuget-59-pack-raises-null-reference-exception---10685"></a>Nuget 5.9 Pack genera `Null Reference` un'eccezione. - [#10685](https://github.com/NuGet/Home/issues/10685)
+
+#### <a name="issue"></a>Problema
+Quando si usa un file, la versione genera un'eccezione se vengono specificati riferimenti espliciti all'assembly senza aggiungere alcun elemento `pack` per i progetti che hanno come destinazione `.nuspec` `NuGet 5.9` `null reference` [](../reference/nuspec.md#explicit-assembly-references) `reference groups` `multiple frameworks` .
+
+#### <a name="workaround"></a>Soluzione alternativa
+Usare `nuget.exe` [la versione 5.8.1](https://dist.nuget.org/win-x86-commandline/v5.8.1/nuget.exe)  o la versione più recente diversa da `5.9.1` .
+
 ## <a name="feedback-welcome"></a>Commenti e suggerimenti
 
 I commenti degli utenti sono importanti.  In caso di problemi con questa versione, controllare i problemi di [GitHub](https://github.com/NuGet/Home/issues) [e](https://developercommunity.visualstudio.com/) Developer Community di Visual Studio problemi esistenti.  Per i nuovi problemi all'interno di NuGet, segnalare un [problema di GitHub.](https://github.com/NuGet/Home/issues/new)
-Per problemi generali relativi all'esperienza [](/visualstudio/ide/how-to-report-a-problem-with-visual-studio) NuGet, **segnalarci** tramite l'opzione Segnala un problema disponibile nell'IDE preferito in Guida > segnala un problema .
+Per problemi generali relativi all'esperienza [](/visualstudio/ide/how-to-report-a-problem-with-visual-studio) NuGet, è possibile segnalarci tramite l'opzione Segnala un problema disponibile nell'IDE preferito in Guida > **segnalare un problema**.

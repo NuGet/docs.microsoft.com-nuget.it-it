@@ -5,22 +5,22 @@ author: nkolev92
 ms.author: nikolev
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: df7c793d115622f04a148cbbc3ebf396a3e4ab69
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: c7b963352e0e9640844a213767a58c883ed0eeb9
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859187"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323713"
 ---
-# <a name="package-references-packagereference-in-project-files"></a>Riferimenti ai pacchetti ( `PackageReference` ) nei file di progetto
+# <a name="package-references-packagereference-in-project-files"></a>Riferimenti al pacchetto ( `PackageReference` ) nei file di progetto
 
-I riferimenti ai pacchetti, tramite il nodo `PackageReference`, consentono di gestire le dipendenze di NuGet direttamente all'interno di file di progetto, invece di dover ricorrere a un file `packages.config` separato. L'uso di PackageReference non influenza altri aspetti di NuGet. Ad esempio le impostazioni nei file `NuGet.config` (incluse le origini dei pacchetti) vengono comunque applicate come illustrato in [Configurazione comuni di NuGet](configuring-nuget-behavior.md).
+I riferimenti ai pacchetti, tramite il nodo `PackageReference`, consentono di gestire le dipendenze di NuGet direttamente all'interno di file di progetto, invece di dover ricorrere a un file `packages.config` separato. L'uso di PackageReference non influenza altri aspetti di NuGet. Ad esempio le impostazioni nei file `NuGet.Config` (incluse le origini dei pacchetti) vengono comunque applicate come illustrato in [Configurazione comuni di NuGet](configuring-nuget-behavior.md).
 
-Con PackageReference è inoltre possibile utilizzare le condizioni di MSBuild per scegliere i riferimenti ai pacchetti per ogni Framework di destinazione o altri raggruppamenti. Consente anche un controllo più capillare delle dipendenze e del flusso del contenuto. (Per altri dettagli, vedere [Pack e restore di NuGet come destinazioni MSBuild ](../reference/msbuild-targets.md).)
+Con PackageReference è anche possibile usare le condizioni di MSBuild per scegliere i riferimenti ai pacchetti per ogni framework di destinazione o altri raggruppamenti. Consente anche un controllo più capillare delle dipendenze e del flusso del contenuto. (Per altri dettagli, vedere [Pack e restore di NuGet come destinazioni MSBuild ](../reference/msbuild-targets.md).)
 
 ## <a name="project-type-support"></a>Supporto dei tipi di progetto
 
-Per impostazione predefinita, PackageReference viene usato per i progetti .NET Core, i progetti .NET Standard e i progetti UWP destinati a Windows 10 Build 15063 (Creators Update) e versioni successive, con l'eccezione dei progetti UWP C++. I progetti .NET Framework supportano PackageReference, ma usano attualmente `packages.config` per impostazione predefinita. Per usare PackageReference, [eseguire la migrazione](../consume-packages/migrate-packages-config-to-package-reference.md) delle dipendenze da `packages.config` nel file di progetto, quindi rimuovere packages.config.
+Per impostazione predefinita, PackageReference viene usato per i progetti .NET Core, i progetti .NET Standard e i progetti UWP destinati a Windows 10 Build 15063 (Creators Update) e versioni successive, con l'eccezione dei progetti UWP C++. I progetti .NET Framework supportano PackageReference, ma usano attualmente `packages.config` per impostazione predefinita. Per usare PackageReference, [eseguire la migrazione](../consume-packages/migrate-packages-config-to-package-reference.md) delle dipendenze da nel file di `packages.config` progetto, quindi rimuovere packages.config.
 
 Le app ASP.NET destinate a .NET Framework includono solo un [supporto limitato](https://github.com/NuGet/Home/issues/5877) per PackageReference. I tipi di progetto C++ e JavaScript non sono supportati.
 
@@ -66,7 +66,7 @@ Questa opzione può essere utile se si fa riferimento a progetti con stile Packa
 
 ## <a name="packagereference-and-sources"></a>PackageReference e origini
 
-Nei progetti PackageReference le versioni delle dipendenze transitive vengono risolte in fase di ripristino. Di conseguenza, nei progetti PackageReference è necessario che tutte le origini siano disponibili per tutti i ripristini. 
+Nei progetti PackageReference le versioni delle dipendenze transitive vengono risolte in fase di ripristino. Di conseguenza, nei progetti PackageReference tutte le origini devono essere disponibili per tutti i ripristini. 
 
 ## <a name="floating-versions"></a>Versioni mobili
 
@@ -172,12 +172,12 @@ Le condizioni possono essere applicate anche al livello `ItemGroup` e verranno a
 
 ## <a name="generatepathproperty"></a>GeneratePathProperty
 
-Questa funzionalità è disponibile con NuGet **5,0** o versione successiva e con Visual Studio 2019 **16,0** o versione successiva.
+Questa funzionalità è disponibile con NuGet **5.0** o versione precedente e con Visual Studio 2019 **16.0** o versione precedente.
 
-A volte è consigliabile fare riferimento a file in un pacchetto da una destinazione MSBuild.
-Nei `packages.config` progetti basati, i pacchetti vengono installati in una cartella relativa al file di progetto. In PackageReference, tuttavia, i pacchetti vengono [utilizzati](../concepts/package-installation-process.md) dalla cartella *Global-Packages* , che può variare da computer a computer.
+A volte è consigliabile fare riferimento ai file in un pacchetto da una destinazione MSBuild.
+Nei `packages.config` progetti basati, i pacchetti vengono installati in una cartella relativa al file di progetto. Tuttavia, in PackageReference i pacchetti vengono [utilizzati dalla](../concepts/package-installation-process.md) *cartella global-packages,* che può variare da computer a computer.
 
-Per colmare tale lacuna, NuGet ha introdotto una proprietà che punta al percorso da cui verrà utilizzato il pacchetto.
+Per colmare tale lacuna, NuGet ha introdotto una proprietà che punta alla posizione da cui verrà utilizzato il pacchetto.
 
 Esempio:
 
@@ -191,7 +191,7 @@ Esempio:
   </Target>
 ````
 
-NuGet genera inoltre automaticamente le proprietà per i pacchetti contenenti una cartella degli strumenti.
+Inoltre, NuGet genererà automaticamente le proprietà per i pacchetti contenenti una cartella degli strumenti.
 
 ```xml
   <ItemGroup>
@@ -203,15 +203,15 @@ NuGet genera inoltre automaticamente le proprietà per i pacchetti contenenti un
   </Target>
 ```
 
-Le proprietà di MSBuild e le identità dei pacchetti non hanno le stesse restrizioni, pertanto l'identità del pacchetto deve essere modificata in un nome descrittivo di MSBuild, preceduto dalla parola `Pkg` .
-Per verificare il nome esatto della proprietà generata, esaminare il file [NuGet. g. props](../reference/msbuild-targets.md#restore-outputs) generato.
+Le proprietà di MSBuild e le identità dei pacchetti non hanno le stesse restrizioni, quindi l'identità del pacchetto deve essere modificata in un nome descrittivo di MSBuild, preceduto dalla parola `Pkg` .
+Per verificare il nome esatto della proprietà generata, esaminare il file [nuget.g.props](../reference/msbuild-targets.md#restore-outputs) generato.
 
 ## <a name="packagereference-aliases"></a>Alias PackageReference
 
-In alcuni casi rari, i pacchetti diversi conterranno le classi nello stesso spazio dei nomi. A partire da NuGet 5,7 & Visual Studio 2019 Update 7, equivalente a ProjectReference, PackageReference supporta [`Aliases`](/dotnet/api/microsoft.codeanalysis.projectreference.aliases) .
-Per impostazione predefinita, non viene specificato alcun alias. Quando viene specificato un alias, è necessario fare riferimento a *tutti* gli assembly provenienti dal pacchetto con annotazioni con un alias.
+In alcuni casi rari pacchetti diversi conterranno classi nello stesso spazio dei nomi. A partire da NuGet 5.7 & Visual Studio 2019 Update 7, equivalente a ProjectReference, PackageReference supporta [`Aliases`](/dotnet/api/microsoft.codeanalysis.projectreference.aliases) .
+Per impostazione predefinita, non vengono forniti alias. Quando viene specificato un alias, *è* necessario fare riferimento a tutti gli assembly provenienti dal pacchetto annotato con un alias.
 
-È possibile esaminare l'utilizzo di esempio in [NuGet\Samples](https://github.com/NuGet/Samples/tree/main/PackageReferenceAliasesExample)
+È possibile esaminare l'utilizzo dell'esempio [in NuGet\Samples](https://github.com/NuGet/Samples/tree/main/PackageReferenceAliasesExample)
 
 Nel file di progetto specificare gli alias come indicato di seguito:
 
@@ -221,7 +221,7 @@ Nel file di progetto specificare gli alias come indicato di seguito:
   </ItemGroup>
 ```
 
-e nel codice lo usano come segue:
+e nel codice lo usano come indicato di seguito:
 
 ```cs
 extern alias ExampleAlias;
@@ -240,15 +240,15 @@ namespace PackageReferenceAliasesExample
 
 ## <a name="nuget-warnings-and-errors"></a>Avvisi ed errori di NuGet
 
-*Questa funzionalità è disponibile con NuGet **4,3** o versione successiva e con Visual Studio 2017 **15,3** o versione successiva.*
+*Questa funzionalità è disponibile con NuGet **4.3** o versione precedente e con Visual Studio 2017 **15.3** o versione superiore.*
 
-Per molti scenari di Pack e ripristino, tutti gli avvisi e gli errori di NuGet vengono codificati e iniziano con `NU****` . Tutti gli avvisi e gli errori di NuGet sono elencati nella documentazione di [riferimento](../reference/errors-and-warnings.md) .
+Per molti scenari di pack e ripristino, tutti gli avvisi e gli errori NuGet vengono codificati e iniziano con `NU****` . Tutti gli avvisi e gli errori di NuGet sono elencati nella documentazione [di](../reference/errors-and-warnings.md) riferimento.
 
-NuGet osserva le seguenti proprietà di avviso:
+NuGet osserva le proprietà di avviso seguenti:
 
 - `TreatWarningsAsErrors`, considera tutti gli avvisi come errori
-- `WarningsAsErrors`, considera gli avvisi specifici come errori
-- `NoWarn`, nascondere avvisi specifici, sia a livello di progetto che a livello di pacchetto.
+- `WarningsAsErrors`, considerare avvisi specifici come errori
+- `NoWarn`, nasconde avvisi specifici, a livello di progetto o a livello di pacchetto.
 
 Esempi:
 
@@ -272,8 +272,8 @@ Esempi:
 
 ### <a name="suppressing-nuget-warnings"></a>Eliminazione degli avvisi di NuGet
 
-Sebbene sia consigliabile risolvere tutti gli avvisi di NuGet durante le operazioni di Pack e ripristino, in determinate situazioni la relativa eliminazione è garantita.
-Per evitare l'avviso di un intero progetto, provare a eseguire le operazioni seguenti:
+Anche se è consigliabile risolvere tutti gli avvisi di NuGet durante le operazioni di pack e ripristino, in determinate situazioni è possibile evitarli.
+Per eliminare un progetto di avviso a livello di progetto, è consigliabile eseguire le seguenti attività:
 
 ```xml
 <PropertyGroup>
@@ -285,7 +285,7 @@ Per evitare l'avviso di un intero progetto, provare a eseguire le operazioni seg
 </ItemGroup>
 ```
 
-A volte gli avvisi si applicano solo a un determinato pacchetto nel grafico. È possibile scegliere di sopprimere l'avviso in modo più selettivo aggiungendo un oggetto nell' `NoWarn` elemento PackageReference. 
+A volte gli avvisi si applicano solo a un determinato pacchetto nel grafico. È possibile scegliere di eliminare l'avviso in modo più selettivo aggiungendo `NoWarn` un elemento sull'elemento PackageReference. 
 
 ```xml
 <PropertyGroup>
@@ -298,8 +298,8 @@ A volte gli avvisi si applicano solo a un determinato pacchetto nel grafico. È 
 
 #### <a name="suppressing-nuget-package-warnings-in-visual-studio"></a>Eliminazione degli avvisi del pacchetto NuGet in Visual Studio
 
-In Visual Studio è anche possibile disattivare gli [avvisi](/visualstudio/ide/how-to-suppress-compiler-warnings#suppress-warnings-for-nuget-packages
-) tramite l'IDE.
+Quando si Visual Studio, è anche possibile eliminare [gli avvisi tramite](/visualstudio/ide/how-to-suppress-compiler-warnings#suppress-warnings-for-nuget-packages
+) l'IDE.
 
 ## <a name="locking-dependencies"></a>Blocco delle dipendenze
 
@@ -378,36 +378,36 @@ ProjectA
              |------>PackageX 1.0.0
 ```
 
-Se `ProjectA` ha una dipendenza da `PackageX` versione `2.0.0` e fa anche riferimento a `ProjectB` che dipende da `PackageX` versione `1.0.0`, il file di blocco per `ProjectB` elencherà una dipendenza da `PackageX` versione `1.0.0`. Tuttavia, quando `ProjectA` viene compilato, il file di blocco conterrà una dipendenza dalla `PackageX` versione **`2.0.0`** e **non** `1.0.0` come elencato nel file di blocco per `ProjectB` . Di conseguenza, il file di blocco di un progetto di codice comune ha poca influenza sui pacchetti risolti per i progetti che dipendono da esso.
+Se `ProjectA` ha una dipendenza da `PackageX` versione `2.0.0` e fa anche riferimento a `ProjectB` che dipende da `PackageX` versione `1.0.0`, il file di blocco per `ProjectB` elencherà una dipendenza da `PackageX` versione `1.0.0`. Tuttavia, quando viene compilato, il relativo file di blocco conterrà una dipendenza dalla versione e non come `ProjectA` `PackageX` **`2.0.0`**  `1.0.0` elencato nel file di blocco per `ProjectB` . Di conseguenza, il file di blocco di un progetto di codice comune ha poca influenza sui pacchetti risolti per i progetti che dipendono da esso.
 
 ### <a name="lock-file-extensibility"></a>Estendibilità di file di blocco
 
 È possibile controllare diversi comportamenti di ripristino con file di blocco, come descritto di seguito:
 
-| Opzione NuGet.exe | opzione DotNet | Opzione MSBuild equivalente | Descrizione |
+| NuGet.exe opzione | Opzione dotnet | Opzione MSBuild equivalente | Descrizione |
 |:--- |:--- |:--- |:--- |
-| `-UseLockFile` |`--use-lock-file` | RestorePackagesWithLockFile | Optare per l'utilizzo di un file di blocco. |
-| `-LockedMode` | `--locked-mode` | RestoreLockedMode | Abilita la modalità di blocco per il ripristino. Questa operazione è utile negli scenari CI/CD in cui si desiderano compilazioni ripetibili.|   
-| `-ForceEvaluate` | `--force-evaluate` | RestoreForceEvaluate | Questa opzione è utile con i pacchetti con la versione mobile definita nel progetto. Per impostazione predefinita, NuGet Restore non aggiornerà automaticamente la versione del pacchetto a ogni ripristino, a meno che non si esegua Restore con questa opzione. |
+| `-UseLockFile` |`--use-lock-file` | RestorePackagesWithLockFile | Acconsente esplicitamente all'utilizzo di un file di blocco. |
+| `-LockedMode` | `--locked-mode` | RestoreLockedMode | Abilita la modalità di blocco per il ripristino. Ciò è utile negli scenari CI/CD in cui si desiderano compilazioni ripetibili.|   
+| `-ForceEvaluate` | `--force-evaluate` | RestoreForceEvaluate | Questa opzione è utile con i pacchetti con la versione mobile definita nel progetto. Per impostazione predefinita, il ripristino NuGet non aggiornerà automaticamente la versione del pacchetto a ogni ripristino, a meno che non si ese venga eseguito il ripristino con questa opzione. |
 | `-LockFilePath` | `--lock-file-path` | NuGetLockFilePath | Definisce un percorso di file di blocco personalizzato per un progetto. Per impostazione predefinita, NuGet supporta `packages.lock.json` nella directory radice. Se nella stessa directory sono presenti più progetti, NuGet supporta il file di blocco `packages.<project_name>.lock.json` specifico del progetto |
 
 ## <a name="assettargetfallback"></a>AssetTargetFallback
 
-La `AssetTargetFallback` proprietà consente di specificare versioni aggiuntive del Framework compatibili per i progetti a cui fa riferimento il progetto e i pacchetti NuGet utilizzati dal progetto.
+La proprietà consente di specificare altre versioni del framework compatibili per i progetti a cui fa riferimento il progetto e i pacchetti `AssetTargetFallback` NuGet utilizzati dal progetto.
 
-Se si specifica una dipendenza del pacchetto usando `PackageReference` ma il pacchetto non contiene asset compatibili con il Framework di destinazione del progetto, la `AssetTargetFallback` Proprietà entra in gioco. La compatibilità del pacchetto a cui si fa riferimento viene riverificata utilizzando ogni Framework di destinazione specificato in `AssetTargetFallback` .
-Quando `project` si fa riferimento a un oggetto o a `package` `AssetTargetFallback` , viene generato l'avviso [NU1701](../reference/errors-and-warnings/NU1701.md) .
+Se si specifica una dipendenza del pacchetto usando ma tale pacchetto non contiene asset compatibili con il framework di destinazione dei progetti, entra in gioco `PackageReference` `AssetTargetFallback` la proprietà . La compatibilità del pacchetto a cui si fa riferimento viene verificata di nuovo usando ogni framework di destinazione specificato in `AssetTargetFallback` .
+Quando si fa riferimento a un oggetto o tramite , viene generato `project` l'avviso `package` `AssetTargetFallback` [NU1701.](../reference/errors-and-warnings/NU1701.md)
 
-Per esempi relativi alla compatibilità, vedere la tabella seguente `AssetTargetFallback` .
+Per esempi sull'impatto sulla compatibilità, vedere `AssetTargetFallback` la tabella seguente.
 
-| Framework del progetto | AssetTargetFallback | Framework di pacchetto | Risultato |
+| Framework del progetto | AssetTargetFallback | Framework di pacchetti | Result |
 |-------------------|---------------------|--------------------|--------|
 | .NET Framework 4.7.2 | | .NET Standard 2.0 | .NET Standard 2.0 |
-| App .NET Core 3,1 | | .NET Standard 2,0, .NET Framework 4.7.2 | .NET Standard 2.0 |
-| App .NET Core 3,1 | | .NET Framework 4.7.2 | Incompatibile, con esito negativo [`NU1202`](../reference/errors-and-warnings/NU1202.md) |
-| App .NET Core 3,1 | net472;net471 | .NET Framework 4.7.2 | .NET Framework 4.7.2 con [`NU1701`](../reference/errors-and-warnings/NU1701.md) |
+| App .NET Core 3.1 | | .NET Standard 2.0, .NET Framework 4.7.2 | .NET Standard 2.0 |
+| App .NET Core 3.1 | | .NET Framework 4.7.2 | Incompatibile, esito negativo con [`NU1202`](../reference/errors-and-warnings/NU1202.md) |
+| App .NET Core 3.1 | net472;net471 | .NET Framework 4.7.2 | .NET Framework 4.7.2 con [`NU1701`](../reference/errors-and-warnings/NU1701.md) |
 
-È possibile specificare più Framework utilizzando `;` come delimitatore. Per aggiungere un Framework di fallback, è possibile eseguire le operazioni seguenti:
+È possibile specificare più framework usando `;` come delimitatore. Per aggiungere un framework di fallback, è possibile eseguire le operazioni seguenti:
 
 ```xml
 <AssetTargetFallback Condition=" '$(TargetFramework)'=='netcoreapp3.1' ">
@@ -415,9 +415,9 @@ Per esempi relativi alla compatibilità, vedere la tabella seguente `AssetTarget
 </AssetTargetFallback>
 ```
 
-È possibile lasciare disattivato `$(AssetTargetFallback)` se si desidera sovrascrivere, anziché aggiungere i `AssetTargetFallback` valori esistenti.
+È possibile disattivare `$(AssetTargetFallback)` se si vuole sovrascrivere, anziché aggiungere ai valori `AssetTargetFallback` esistenti.
 
 > [!NOTE]
-> Se si usa un [progetto basato su .NET SDK](/dotnet/core/sdk), `$(AssetTargetFallback)` vengono configurati i valori appropriati e non è necessario impostarli manualmente.
+> Se si usa un progetto basato su [.NET SDK,](/dotnet/core/sdk)vengono configurati i valori appropriati e non è necessario `$(AssetTargetFallback)` impostarli manualmente.
 >
-> `$(PackageTargetFallback)` era una funzionalità precedente che ha tentato di risolvere questo problema, ma è fondamentalmente interrotta e non *deve* essere usata. Per eseguire la migrazione da `$(PackageTargetFallback)` a `$(AssetTargetFallback)` , è sufficiente modificare il nome della proprietà.
+> `$(PackageTargetFallback)` è una funzionalità precedente che ha tentato di risolvere questa sfida, ma è fondamentalmente interrotta e *non* deve essere usata. Per eseguire la migrazione `$(PackageTargetFallback)` da a , è sufficiente modificare il nome della `$(AssetTargetFallback)` proprietà.

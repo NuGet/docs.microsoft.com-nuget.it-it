@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 0ef309d95c6ef5437765c02791da6dab13794678
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 69adbbad20debf2e53f247e85d638b3226c0491d
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775265"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323752"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Risoluzione delle dipendenze dei pacchetti in NuGet
 
@@ -22,7 +22,7 @@ Quando più pacchetti hanno la stessa dipendenza, lo stesso ID di pacchetto può
 
 ## <a name="dependency-resolution-with-packagereference"></a>Risoluzione delle dipendenze con PackageReference
 
-Quando si installano pacchetti in progetti usando il formato PackageReference, NuGet aggiunge riferimenti a un grafico di pacchetto semplice nel file appropriato e risolve i conflitti in anticipo. Questo processo è noto come *ripristino transitivo*. La reinstallazione o il ripristino dei pacchetti è quindi un processo di download dei pacchetti elencati nel grafico, che genera compilazioni più veloci e più prevedibili. È inoltre possibile sfruttare le versioni a virgola mobile, ad esempio 2,8. \* , per evitare di modificare il progetto in modo da utilizzare la versione più recente di un pacchetto.
+Quando si installano pacchetti in progetti usando il formato PackageReference, NuGet aggiunge riferimenti a un grafico di pacchetto semplice nel file appropriato e risolve i conflitti in anticipo. Questo processo è noto come *ripristino transitivo*. La reinstallazione o il ripristino dei pacchetti è quindi un processo di download dei pacchetti elencati nel grafico, che genera compilazioni più veloci e più prevedibili. È anche possibile sfruttare le versioni mobili, ad esempio 2.8. , per evitare di modificare il progetto in modo da usare la versione \* più recente di un pacchetto.
 
 Quando il processo di ripristino di NuGet viene eseguito prima di una compilazione, risolve prima le dipendenze in memoria, quindi scrive il grafico risultante in un file denominato `project.assets.json`. Scrive anche le dipendenze risolte in un file di blocco denominato `packages.lock.json`, se la [funzionalità di file di blocco è abilitata](../consume-packages/package-references-in-project-files.md#locking-dependencies).
 Il file di asset si trova in `MSBuildProjectExtensionsPath`, che per impostazione predefinita corrisponde alla cartella "obj" del progetto. MSBuild legge quindi questo file e lo converte in un set di cartelle in cui sono disponibili riferimenti potenziali, aggiungendoli quindi all'albero del progetto in memoria.
@@ -53,16 +53,16 @@ Quando un'applicazione specifica un numero di versione esatto, ad esempio 1.2, c
 
 <a name="floating-versions"></a>
 
-#### <a name="floating-versions"></a>Versioni a virgola mobile
+#### <a name="floating-versions"></a>Versioni mobili
 
-Con il carattere viene specificata una versione di dipendenza mobile \* . Ad esempio: `6.0.*`. Questa specifica della versione indica "usa la versione 6.0. x più recente"; `4.*` significa "usare la versione 4. x più recente". L'uso di una versione mobile riduce le modifiche a un file di progetto, mantenendolo aggiornato alla versione più recente di una dipendenza.
+Una versione di dipendenza mobile viene specificata con il \* carattere . Ad esempio: `6.0.*`. Questa specifica di versione indica "usare la versione 6.0.x più recente"; `4.*` significa "usare la versione 4.x più recente". L'uso di una versione mobile riduce le modifiche a un file di progetto, mantenendolo aggiornato alla versione più recente di una dipendenza.
 
-Quando si usa una versione a virgola mobile, NuGet risolve la versione più recente di un pacchetto che corrisponde al modello di versione, ad esempio `6.0.*` ottiene la versione più recente di un pacchetto che inizia con 6,0:
+Quando si usa una versione mobile, NuGet risolve la versione più recente di un pacchetto che corrisponde al modello di versione, ad esempio ottiene la versione più recente di un pacchetto che inizia `6.0.*` con la versione 6.0:
 
 ![Scelta della versione 6.0.1 quando è richiesta una versione mobile 6.0.*](media/projectJson-dependency-4.png)
 
 > [!Note]
-> Per informazioni sul comportamento delle versioni a virgola mobile e delle versioni non definitive, vedere controllo delle versioni dei [pacchetti](package-versioning.md#version-ranges).
+> Per informazioni sul comportamento delle versioni mobili e delle versioni non definitiva, vedere [Controllo delle versioni dei pacchetti.](package-versioning.md#version-ranges)
 
 
 <a name="nearest-wins"></a>
@@ -102,7 +102,7 @@ Con `packages.config`, le dipendenze di un progetto vengono scritte in `packages
 
 Con `packages.config`, NuGet tenta di risolvere i conflitti di dipendenza durante l'installazione di ogni singolo pacchetto. Ovvero, se il pacchetto A viene installato e dipende dal pacchetto B e il pacchetto B è già elencato in `packages.config` come dipendenza di un altro elemento, NuGet confronta le versioni del pacchetto B richieste e tenta di trovare una versione che soddisfi tutte le limitazioni delle versioni. In particolare, NuGet seleziona la versione più bassa di *major.minor* che soddisfa le dipendenze.
 
-Per impostazione predefinita, NuGet 2.8 cerca la versione di patch minima (vedere le [note sulla versione di NuGet 2.8](../release-notes/nuget-2.8.md#patch-resolution-for-dependencies)). È possibile controllare questa impostazione tramite l'attributo `DependencyVersion` in `Nuget.Config` e l'opzione `-DependencyVersion` della riga di comando.  
+Per impostazione predefinita, NuGet 2.8 cerca la versione di patch minima (vedere le [note sulla versione di NuGet 2.8](../release-notes/nuget-2.8.md#patch-resolution-for-dependencies)). È possibile controllare questa impostazione tramite l'attributo `DependencyVersion` in `NuGet.Config` e l'opzione `-DependencyVersion` della riga di comando.  
 
 Il processo `packages.config` per la risoluzione delle dipendenze diventa complicato per grafici delle dipendenze di dimensioni più elevate. Ogni nuova installazione del pacchetto richiede un attraversamento dell'intero grafico e genera probabilità di conflitti di versione. Quando si verifica un conflitto, l'installazione viene interrotta, lasciando il progetto in uno stato indeterminato, in particolare con potenziali modifiche al file di progetto stesso. Questo non è un problema quando si usano altri formati di gestione dei pacchetti.
 
